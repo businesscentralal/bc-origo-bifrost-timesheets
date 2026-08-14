@@ -6,6 +6,7 @@ using Microsoft.Projects.Resources.Resource;
 using Microsoft.Utilities;
 using Origo.APP.CloudEvents;
 using System.DataAdministration;
+using System.TestLibraries.Utilities;
 
 /// <summary>
 /// Tests for the Cloud Events Clockify connector that run without network access:
@@ -19,7 +20,7 @@ codeunit 95601 "Clockify Connector Tests"
     TestPermissions = Disabled;
 
     var
-        LibraryAssert: Codeunit System.TestLibraries.Utilities."Library Assert";
+        LibraryAssert: Codeunit "Library Assert";
 
     [Test]
     procedure HelpTypeIsOutboundWithNoFilterTable()
@@ -43,10 +44,10 @@ codeunit 95601 "Clockify Connector Tests"
         Ordinals: List of [Integer];
         Ordinal: Integer;
     begin
-        // [SCENARIO] Every Clockify message type (71420-71446, 71448-71450) exposes metadata and non-empty help.
+        // [SCENARIO] Every Clockify message type (70009200-70009229) exposes metadata and non-empty help.
         Ordinals := MessageType.Ordinals();
         foreach Ordinal in Ordinals do
-            if ((Ordinal >= 71420) and (Ordinal <= 71446)) or ((Ordinal >= 71448) and (Ordinal <= 71450)) then
+            if (Ordinal >= 70009200) and (Ordinal <= 70009229) then
                 VerifyTypeMetadataAndHelp(Ordinal);
     end;
 
