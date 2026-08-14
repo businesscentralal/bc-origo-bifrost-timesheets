@@ -1,0 +1,10 @@
+{
+  "name": "Cloud Events Clockify Tests Ruleset",
+  "rules": [
+    {
+      "id": "AS0084",
+      "action": "None",
+      "justification": "Test app uses PTE range by design"
+    }
+  ]
+}

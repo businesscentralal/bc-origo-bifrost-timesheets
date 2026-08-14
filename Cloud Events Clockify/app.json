@@ -1,6 +1,6 @@
 {
   "id": "d4560cf5-947d-42b5-b812-33ae8dd009af",
-  "name": "Cloud Events Clockify",
+  "name": "Origo Cloud Events Clockify",
   "publisher": "Origo",
   "version": "28.1.0.0",
   "brief": "Clockify connector for Cloud Events",
@@ -12,7 +12,6 @@
   "url": "https://www.origo.is/",
   "EULA": "https://www.origo.is/skilmalar-og-oryggismal",
   "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
-  "help": "https://origopublic.blob.core.windows.net/help/Cloud Events Clockify/bc28/en-US/index.html",
   "target": "Cloud",
   "screenshots": [],
   "dependencies": [
@@ -20,37 +19,35 @@
       "id": "a629b897-7541-4562-bebb-c6122f15801c",
       "publisher": "Origo",
       "name": "Origo Cloud Events Core",
-      "version": "28.0.0.0"
+      "version": "28.1.84.0"
     }
   ],
   "idRanges": [
     {
-      "from": 71400,
-      "to": 71599
+      "from": 70009200,
+      "to": 70009249
     }
   ],
   "features": [
     "TranslationFile"
   ],
   "resourceExposurePolicy": {
-    "allowDebugging": true
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
   },
-  "source": {},
-  "build": {
-    "by": "AL Language Extension,17.0.2273547"
-  },
-  "applicationInsightsConnectionString": "InstrumentationKey=43a2a6cd-e51e-402d-a0a6-4ef45c7affe7;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=2d9c91ec-38af-484e-82a1-47254a3d7752",
-  "contextSensitiveHelpUrl": "https://origopublic.blob.core.windows.net/help/Cloud Events Clockify/bc28/{0}/",
   "supportedLocales": [
     "en-US",
     "is-IS"
   ],
+  "help": "https://www.origo.is/",
+  "contextSensitiveHelpUrl": "https://www.origo.is/",
+  "applicationInsightsConnectionString": "",
   "internalsVisibleTo": [
     {
       "id": "553214e3-b742-4ccf-8ecc-1ee86fbc96f9",
       "publisher": "Origo",
       "name": "Cloud Events Clockify - Tests"
     }
-  ],
-  "keyVaultUrls": []
+  ]
 }
