@@ -5,6 +5,9 @@
     },
     {
       "path": "Cloud Events Clockify"
+    },
+    {
+      "path": "Cloud Events Clockify - Tests"
     }
   ],
   "settings": {}
