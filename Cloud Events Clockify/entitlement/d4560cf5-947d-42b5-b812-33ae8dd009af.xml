@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entitlement MetadataVersion="130000" Name="d4560cf5-947d-42b5-b812-33ae8dd009af" Type="Implicit" xmlns="urn:schemas-microsoft-com:dynamics:NAV:MetaObjects">
+  <ObjectEntitlements>
+    <Permission Type="0" ID="71416" Value="15" />
+    <Permission Type="0" ID="71455" Value="15" />
+    <Permission Type="0" ID="71413" Value="15" />
+    <Permission Type="1" ID="71416" Value="16" />
+    <Permission Type="1" ID="71455" Value="16" />
+    <Permission Type="1" ID="71413" Value="16" />
+    <Permission Type="5" ID="71454" Value="16" />
+    <Permission Type="5" ID="71406" Value="16" />
+    <Permission Type="5" ID="71452" Value="16" />
+    <Permission Type="5" ID="71419" Value="16" />
+    <Permission Type="5" ID="71407" Value="16" />
+    <Permission Type="5" ID="71451" Value="16" />
+    <Permission Type="5" ID="71458" Value="16" />
+    <Permission Type="5" ID="71409" Value="16" />
+    <Permission Type="5" ID="71418" Value="16" />
+    <Permission Type="5" ID="71408" Value="16" />
+    <Permission Type="5" ID="71460" Value="16" />
+    <Permission Type="5" ID="71402" Value="16" />
+    <Permission Type="5" ID="71404" Value="16" />
+    <Permission Type="5" ID="71457" Value="16" />
+    <Permission Type="5" ID="71415" Value="16" />
+    <Permission Type="5" ID="71426" Value="16" />
+    <Permission Type="5" ID="71428" Value="16" />
+    <Permission Type="5" ID="71425" Value="16" />
+    <Permission Type="5" ID="71424" Value="16" />
+    <Permission Type="5" ID="71427" Value="16" />
+    <Permission Type="5" ID="71448" Value="16" />
+    <Permission Type="5" ID="71450" Value="16" />
+    <Permission Type="5" ID="71420" Value="16" />
+    <Permission Type="5" ID="71447" Value="16" />
+    <Permission Type="5" ID="71431" Value="16" />
+    <Permission Type="5" ID="71433" Value="16" />
+    <Permission Type="5" ID="71430" Value="16" />
+    <Permission Type="5" ID="71429" Value="16" />
+    <Permission Type="5" ID="71432" Value="16" />
+    <Permission Type="5" ID="71439" Value="16" />
+    <Permission Type="5" ID="71441" Value="16" />
+    <Permission Type="5" ID="71438" Value="16" />
+    <Permission Type="5" ID="71440" Value="16" />
+    <Permission Type="5" ID="71435" Value="16" />
+    <Permission Type="5" ID="71437" Value="16" />
+    <Permission Type="5" ID="71434" Value="16" />
+    <Permission Type="5" ID="71436" Value="16" />
+    <Permission Type="5" ID="71444" Value="16" />
+    <Permission Type="5" ID="71446" Value="16" />
+    <Permission Type="5" ID="71443" Value="16" />
+    <Permission Type="5" ID="71442" Value="16" />
+    <Permission Type="5" ID="71453" Value="16" />
+    <Permission Type="5" ID="71445" Value="16" />
+    <Permission Type="5" ID="71449" Value="16" />
+    <Permission Type="5" ID="71422" Value="16" />
+    <Permission Type="5" ID="71423" Value="16" />
+    <Permission Type="5" ID="71421" Value="16" />
+    <Permission Type="8" ID="71417" Value="16" />
+    <Permission Type="8" ID="71403" Value="16" />
+    <Permission Type="8" ID="71456" Value="16" />
+    <Permission Type="8" ID="71414" Value="16" />
+  </ObjectEntitlements>
+</Entitlement>
