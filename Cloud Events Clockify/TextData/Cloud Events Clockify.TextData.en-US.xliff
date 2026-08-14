@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="TextDataApp">
+    <body>
+      <group id="body">
+        <trans-unit id="Page 1878955326 - Control 1066124403 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the link was reversed.</source>
+          <target>Specifies when the link was reversed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Reversed At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 1744118010 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace the object lives in.</source>
+          <target>Specifies the Clockify workspace the object lives in.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Clockify Workspace Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 2082364800 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the human-readable key of the Business Central record.</source>
+          <target>Specifies the human-readable key of the Business Central record.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control BC Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 2401915435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the display name of the linked Clockify object.</source>
+          <target>Specifies the display name of the linked Clockify object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Clockify Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 2427453444 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Business Central table the linked record belongs to.</source>
+          <target>Specifies the Business Central table the linked record belongs to.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control BC Table No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 3052788997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the identifier of the linked Clockify object.</source>
+          <target>Specifies the identifier of the linked Clockify object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Clockify Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 306562354 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the kind of Clockify object the record is linked to.</source>
+          <target>Specifies the kind of Clockify object the record is linked to.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Clockify Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 3744289816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the link has been broken. Reversed links are purged about one month after reversal.</source>
+          <target>Specifies whether the link has been broken. Reversed links are purged about one month after reversal.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Reversed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 849855155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the SystemId of the linked Business Central record.</source>
+          <target>Specifies the SystemId of the linked Business Central record.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control BC SystemId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry number of the integration link.</source>
+          <target>Specifies the entry number of the integration link.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1878955326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Integration</source>
+          <target>Clockify Integration</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835403470 - Control 1850688972 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify API key to store. The value is masked while you type.</source>
+          <target>Specifies the Clockify API key to store. The value is masked while you type.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog - Control SecretInput - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2835403470 - Control 1850688972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>API Key</source>
+          <target>API Key</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog - Control SecretInput - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835403470 - Control 4257773229 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Paste your Clockify API key (Profile Settings &gt; API in Clockify), then click OK.</source>
+          <target>Paste your Clockify API key (Profile Settings &gt; API in Clockify), then click OK.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog - Control PromptGroup - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2835403470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter Clockify API Key</source>
+          <target>Enter Clockify API Key</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 1347138047 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the connector registered the webhook.</source>
+          <target>Specifies when the connector registered the webhook.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Registered At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 2051456474 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the identifier Clockify assigned to the webhook.</source>
+          <target>Specifies the identifier Clockify assigned to the webhook.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Webhook Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 2840344064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name the connector gave the webhook in Clockify.</source>
+          <target>Specifies the name the connector gave the webhook in Clockify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Webhook Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 3310733264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify event the webhook fires on.</source>
+          <target>Specifies the Clockify event the webhook fires on.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Event - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 4165234317 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the receiver URL the webhook posts to.</source>
+          <target>Specifies the receiver URL the webhook posts to.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Control 4218609220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace the webhook belongs to.</source>
+          <target>Specifies the Clockify workspace the webhook belongs to.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Control Workspace Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3749514482 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Webhooks</source>
+          <target>Clockify Webhooks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 75992371 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the Clockify workspace.</source>
+          <target>Specifies the name of the Clockify workspace.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 75992371 - Control 992186660 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace identifier.</source>
+          <target>Specifies the Clockify workspace identifier.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup - Control Workspace ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 75992371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspaces</source>
+          <target>Clockify Workspaces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 2034329536 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Prompts for and stores the company-default Clockify API key.</source>
+          <target>Prompts for and stores the company-default Clockify API key.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifySetCompanyApiKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 2034329536 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Set Company API Key</source>
+          <target>Set Company API Key</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifySetCompanyApiKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 2366913949 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Clockify</source>
+          <target>Clockify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyActions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 252362446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Opens the administrative view of the links between Business Central records and Clockify objects.</source>
+          <target>Opens the administrative view of the links between Business Central records and Clockify objects.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyIntegrationList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 252362446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Integration Links</source>
+          <target>Integration Links</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyIntegrationList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 2760844441 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Removes the stored company-default Clockify API key.</source>
+          <target>Removes the stored company-default Clockify API key.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyClearCompanyApiKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 2760844441 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Clear Company API Key</source>
+          <target>Clear Company API Key</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyClearCompanyApiKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 371963730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.</source>
+          <target>Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyShowWebhookTokens - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 371963730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Show Signing Tokens</source>
+          <target>Show Signing Tokens</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyShowWebhookTokens - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 4062582484 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Removes the registered Clockify time-entry webhooks.</source>
+          <target>Removes the registered Clockify time-entry webhooks.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyRemoveWebhooks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 4062582484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Remove Webhooks</source>
+          <target>Remove Webhooks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyRemoveWebhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 778688161 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.</source>
+          <target>Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyRegisterWebhooks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Action 778688161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Register Webhooks</source>
+          <target>Register Webhooks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Action ClockifyRegisterWebhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 1347350546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Clockify</source>
+          <target>Clockify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 174077074 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies whether real-time time-entry webhooks are registered in Clockify. Use the actions below to register or remove them.</source>
+          <target>Specifies whether real-time time-entry webhooks are registered in Clockify. Use the actions below to register or remove them.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control ClockifyWebhooksRegistered - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 174077074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Webhooks Registered</source>
+          <target>Webhooks Registered</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control ClockifyWebhooksRegistered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 1749049769 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.</source>
+          <target>Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Job Jnl. Template - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 184937261 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.</source>
+          <target>Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Job Jnl. Batch - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 1906154020 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.</source>
+          <target>Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Default Workspace - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 3207006001 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the URL of the webhook receiver (Azure Function) that forwards Clockify events into Business Central, including the target company, for example https://my-site/api/clockify-webhooks?companyId={guid}. Required before registering webhooks.</source>
+          <target>Specifies the URL of the webhook receiver (Azure Function) that forwards Clockify events into Business Central, including the target company, for example https://my-site/api/clockify-webhooks?companyId={guid}. Required before registering webhooks.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Webhook Receiver URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 3679748384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the name of the selected default Clockify workspace.</source>
+          <target>Specifies the name of the selected default Clockify workspace.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Workspace Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 3679748384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Default Workspace</source>
+          <target>Default Workspace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Workspace Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 450994096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions below to set or clear it.</source>
+          <target>Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions below to set or clear it.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control HasClockifyCompanyKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 450994096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Company API Key Stored</source>
+          <target>Company API Key Stored</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control HasClockifyCompanyKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 892731248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.</source>
+          <target>Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify Default Work Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2429182972 - Control 904309096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3503898303">
+          <source>Specifies which Clockify API implementation the connector uses. Defaults to Version 1, which is fixed on the public Clockify v1 endpoint.</source>
+          <target>Specifies which Clockify API implementation the connector uses. Defaults to Version 1, which is fixed on the public Clockify v1 endpoint.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext - Control Clockify API Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 1347138047 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered At</source>
+          <target>Registered At</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Registered At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 2051456474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhook ID</source>
+          <target>Webhook ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Webhook Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 2840344064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhook Name</source>
+          <target>Webhook Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Webhook Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 3310733264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event</source>
+          <target>Event</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Event - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 4165234317 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>URL</source>
+          <target>URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Field 4218609220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workspace ID</source>
+          <target>Workspace ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Field Workspace Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1617283207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Webhook</source>
+          <target>Clockify Webhook</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3002862013 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3002862013 - Field 992186660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workspace ID</source>
+          <target>Workspace ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer - Field Workspace ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3002862013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspace</source>
+          <target>Clockify Workspace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 1066124403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed At</source>
+          <target>Reversed At</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Reversed At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 1744118010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspace ID</source>
+          <target>Clockify Workspace ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Clockify Workspace Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 2082364800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC Code</source>
+          <target>BC Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field BC Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 2401915435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Name</source>
+          <target>Clockify Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Clockify Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 2427453444 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC Table No.</source>
+          <target>BC Table No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field BC Table No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 3052788997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify ID</source>
+          <target>Clockify ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Clockify Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 306562354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Type</source>
+          <target>Clockify Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Clockify Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 3744289816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed</source>
+          <target>Reversed</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Reversed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 849855155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC SystemId</source>
+          <target>BC SystemId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field BC SystemId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target>Entry No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 9974060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Integration</source>
+          <target>Clockify Integration</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 1749049769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Job Journal Template</source>
+          <target>Clockify Job Journal Template</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Job Jnl. Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 184937261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Job Journal Batch</source>
+          <target>Clockify Job Journal Batch</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Job Jnl. Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 1906154020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Default Workspace ID</source>
+          <target>Clockify Default Workspace ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Default Workspace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 3207006001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Webhook Receiver URL</source>
+          <target>Clockify Webhook Receiver URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Webhook Receiver URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 3679748384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Default Workspace</source>
+          <target>Clockify Default Workspace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Workspace Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 892731248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify Default Work Type</source>
+          <target>Clockify Default Work Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify Default Work Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2429182972 - Field 904309096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3503898303">
+          <source>Clockify API Version</source>
+          <target>Clockify API Version</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Clockify Setup Ext - Field Clockify API Version - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
