@@ -2,11 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Publish: Cloud sandbox - Origo",
       "type": "al",
       "request": "launch",
-      "name": "launch: bc28-w1",
+      "environmentType": "Sandbox",
+      "environmentName": "Origo",
+      "primaryTenantDomain": "92640205-f4d8-444c-ae93-5d0ca274f2c5",
+      "startupObjectId": 22,
+      "breakOnError": true,
+      "breakOnRecordWrite": false,
+      "launchBrowser": true,
+      "enableSqlInformationDebugger": true,
+      "enableLongRunningSqlStatements": true,
+      "longRunningSqlStatementsThreshold": 500,
+      "numberOfSqlStatements": 10,
+      "schemaUpdateMode": "ForceSync"
+    },
+    {
+      "type": "al",
+      "request": "launch",
+      "name": "launch: CE_C",
       "server": "https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com",
-      "serverInstance": "f089d7daffb9dev",
+      "serverInstance": "f0e9d65d69ebdev",
       "port": 443,
       "authentication": "UserPassword",
       "environmentType": "OnPrem",
@@ -17,30 +34,6 @@
       "launchBrowser": true,
       "enableLongRunningSqlStatements": true,
       "enableSqlInformationDebugger": true
-    },
-    {
-      "type": "al",
-      "request": "attach",
-      "name": "attach: bc28-w1",
-      "server": "https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com",
-      "serverInstance": "f089d7daffb9dev",
-      "port": 443,
-      "authentication": "UserPassword",
-      "environmentType": "OnPrem",
-      "tenant": "default",
-      "breakOnNext": "WebClient"
-    },
-    {
-      "type": "al",
-      "request": "snapshotInitialize",
-      "name": "snapshotInitialize: bc28-w1",
-      "server": "https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com",
-      "serverInstance": "f089d7daffb9snap",
-      "port": 443,
-      "authentication": "UserPassword",
-      "environmentType": "OnPrem",
-      "tenant": "default",
-      "breakOnNext": "WebClient"
     }
   ]
 }

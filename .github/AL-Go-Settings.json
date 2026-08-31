@@ -2,5 +2,24 @@
   "$schema": "https://raw.githubusercontent.com/microsoft/AL-Go-Actions/v9.0/.Modules/settings.schema.json",
   "type": "AppSource App",
   "templateUrl": "https://github.com/cosmoconsult/Alpaca-AppSource@main",
-  "templateSha": "2b90d7000c9d1ec513ed38b41786c07bebf29fd0"
+  "templateSha": "2b90d7000c9d1ec513ed38b41786c07bebf29fd0",
+  "keyVaultName": "kv-kjarni-hsm-prod",
+  "keyVaultCodesignCertificateName": "CodeSigning-2025",
+  "doNotSignApps": true,
+  "deliverToAppSource": {
+    "productId": "",
+    "mainAppFolder": "Cloud Events Clockify",
+    "continuousDelivery": false
+  },
+  "ConditionalSettings": [
+    {
+      "branches": [
+        "main"
+      ],
+      "settings": {
+        "doNotSignApps": false,
+        "githubRunner": "windows-latest"
+      }
+    }
+  ]
 }

@@ -2,9 +2,23 @@
   "$schema": "https://raw.githubusercontent.com/microsoft/AL-Go-Actions/v9.0/.Modules/settings.schema.json",
   "country": "w1",
   "appSourceCopMandatoryAffixes": [
-    "<affix>"
+    "ori"
   ],
-  "appFolders": [],
-  "testFolders": [],
-  "bcptTestFolders": []
+  "appFolders": [
+    "Cloud Events Clockify"
+  ],
+  "testFolders": [
+    "Cloud Events Clockify - Tests"
+  ],
+  "bcptTestFolders": [],
+  "doNotRunTests": false,
+  "appDependencyProbingPaths": [
+    {
+      "repo": "https://github.com/OrigoSoftwareSolutions/bc-cloudevents",
+      "release_status": "latestBuild",
+      "version": "latest",
+      "projects": "*",
+      "authTokenSecret": "GH_CLOUDEVENTS_TOKEN_DEPS"
+    }
+  ]
 }
