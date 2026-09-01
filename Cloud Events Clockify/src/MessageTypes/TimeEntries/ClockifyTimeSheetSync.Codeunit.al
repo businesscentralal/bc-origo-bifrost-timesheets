@@ -59,7 +59,11 @@ codeunit 70009254 "Clockify TimeSheet Sync"
             ResultMessage := StrSubstNo(NoProjectMappingErr, ClockifyProjectId);
             exit(Enum::"Clockify Sync Result"::Error);
         end;
-        if (ClockifyTaskId <> '') and (not EntrySync.ResolveTaskMapping(ClockifyTaskId, JobTaskNo)) then begin
+        if ClockifyTaskId = '' then begin
+            ResultMessage := 'Missing taskId: cannot map to a BC Job Task.';
+            exit(Enum::"Clockify Sync Result"::Error);
+        end;
+        if not EntrySync.ResolveTaskMapping(ClockifyTaskId, JobTaskNo) then begin
             ResultMessage := StrSubstNo(NoTaskMappingErr, ClockifyTaskId);
             exit(Enum::"Clockify Sync Result"::Error);
         end;
@@ -70,7 +74,6 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         WorkType := EntrySync.ResolveWorkType(ClockifyTagIds);
 
         JobTask.Get(JobNo, JobTaskNo);
-
         if not FindOpenTimeSheet(ResourceNo, PostingDate, TimeSheet) then begin
             ResultMessage := StrSubstNo(NoOpenTimeSheetErr, ResourceNo, PostingDate);
             exit(Enum::"Clockify Sync Result"::Error);
