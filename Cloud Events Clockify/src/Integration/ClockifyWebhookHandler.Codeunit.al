@@ -94,6 +94,7 @@ codeunit 70009206 "Clockify Webhook Handler"
     local procedure ReverseFromWebhook(BodyJson: Text)
     var
         TimeEntrySync: Codeunit "Clockify Time Entry Sync";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
         Body: JsonObject;
         EntryId: Text;
         ResultMessage: Text;
@@ -103,7 +104,9 @@ codeunit 70009206 "Clockify Webhook Handler"
         EntryId := GetText(Body, 'id');
         if EntryId = '' then
             exit;
+        // Reverse whichever lane holds an active link for this entry (Job Journal or Time Sheet).
         TimeEntrySync.ReverseTimeEntry(CopyStr(EntryId, 1, 50), ResultMessage);
+        TimeSheetSync.ReverseFromTimeSheet(CopyStr(EntryId, 1, 50), ResultMessage);
     end;
 
     local procedure GetTimeInterval(Body: JsonObject; var StartText: Text; var EndText: Text)

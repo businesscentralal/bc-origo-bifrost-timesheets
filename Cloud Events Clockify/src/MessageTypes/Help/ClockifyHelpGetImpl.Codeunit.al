@@ -103,6 +103,15 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('| `Clockify.TimeEntry.Delete` | Deletes a time entry. |');
         Builder.AppendLine('| `Clockify.TimeEntry.Sync` | Syncs a time entry to a BC Job Journal Line with deduplication, update detection, and correction posting. |');
         Builder.AppendLine('| `Clockify.TimeEntry.SyncRange` | Syncs all of a user''s finished time entries in a date range to BC Job Journal Lines in a single call. |');
+        Builder.AppendLine('| `Clockify.TimeEntry.SyncToTimeSheet` | Syncs a time entry to the resource''s open BC Time Sheet (line + detail) instead of the Job Journal. |');
+        Builder.AppendLine('| `Clockify.TimeEntry.SyncRangeToTimeSheet` | Syncs all of a user''s finished time entries in a date range to their open BC Time Sheets in one call. |');
+        Builder.AppendLine('| `Clockify.TimeEntry.SyncAllUsers` | Syncs finished entries in a date range for **every mapped user** — to time sheets (default) or the Job Journal. |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Create` | Creates upcoming weekly time sheets for every time-sheet resource (BC-side). |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Approve` | Submits and approves open time-sheet lines up to a cut-off date (BC-side). |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Reject` | Rejects submitted time-sheet lines up to a cut-off date (BC-side). |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Reopen` | Reopens submitted or approved time-sheet lines back to Open (BC-side). |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Post` | Transfers approved time-sheet detail to a Job Journal batch and posts it (BC-side). |');
+        Builder.AppendLine('| `Clockify.TimeSheet.Archive` | Archives fully posted time sheets and removes empty posted sheets (BC-side). |');
         Builder.AppendLine('| `Clockify.Currency.List` | Lists the currencies defined in a workspace. Returns the `currencyId` values that `Clockify.Client.Create` and `Clockify.Client.Update` need. |');
         Builder.AppendLine('| `Clockify.UserGroup.List` | Lists the user groups defined in a workspace. Returns the user-group IDs needed for `userGroupIds` on `Clockify.Project.Create` / `Clockify.Project.Update`. |');
         Builder.AppendLine('| `Clockify.CustomField.List` | Lists the workspace-level custom field definitions. Returns the `customFieldId` values needed when writing `customFields` on time entries and projects. |');

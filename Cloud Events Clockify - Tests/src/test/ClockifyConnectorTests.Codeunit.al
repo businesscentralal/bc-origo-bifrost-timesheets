@@ -3,6 +3,8 @@ namespace Origo.PTE.CloudEvents.Clockify;
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
 using Microsoft.Projects.Resources.Resource;
+using Microsoft.Projects.Resources.Setup;
+using Microsoft.Projects.TimeSheet;
 using Microsoft.Utilities;
 using Origo.APP.CloudEvents;
 using System.DataAdministration;
@@ -1118,6 +1120,425 @@ codeunit 95601 "Clockify Connector Tests"
         JobJournalLine.SetRange("Journal Template Name", TemplateName);
         JobJournalLine.SetRange("Journal Batch Name", BatchName);
         LibraryAssert.AreEqual(1, JobJournalLine.Count(), 'Only the mapped entry should produce a journal line.');
+    end;
+
+    [Test]
+    procedure AllInboundTimeTypesAreInboundWithHelp()
+    var
+        MessageType: Enum "Cloud Event Message Type ori";
+        Ordinals: List of [Integer];
+        Ordinal: Integer;
+    begin
+        // [SCENARIO] Every inbound time-entry/time-sheet type (70009230-70009240) is Inbound with help.
+        Ordinals := MessageType.Ordinals();
+        foreach Ordinal in Ordinals do
+            if (Ordinal >= 70009230) and (Ordinal <= 70009240) then
+                VerifyInboundTypeMetadataAndHelp(Ordinal);
+    end;
+
+    local procedure VerifyInboundTypeMetadataAndHelp(Ordinal: Integer)
+    var
+        Argument: Record "CE Message Argument ori";
+        MessageType: Enum "Cloud Event Message Type ori";
+        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        NotInboundErr: Label 'Type %1 should be inbound.', Comment = '%1 = message type';
+        NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
+    begin
+        MessageType := Enum::"Cloud Event Message Type ori".FromInteger(Ordinal);
+        Argument.Init();
+        Argument."Type" := MessageType;
+        Argument.Insert();
+        MsgInterface := Argument.GetMessageTypeInterface();
+        LibraryAssert.AreEqual(Enum::"Cloud Event Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), StrSubstNo(NotInboundErr, MessageType));
+        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
+        LibraryAssert.AreNotEqual('', Argument.GetResponseText(), StrSubstNo(NoHelpErr, MessageType));
+    end;
+
+    [Test]
+    procedure TimeSheetCreateReturnsCountWithNoResources()
+    var
+        ResourcesSetup: Record "Resources Setup";
+        Resource: Record Resource;
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] A Time Sheet No. Series is configured but no time-sheet resources exist
+        if not ResourcesSetup.Get() then
+            ResourcesSetup.Insert();
+        ResourcesSetup."Time Sheet Nos." := 'TS';
+        ResourcesSetup.Modify();
+        Resource.SetRange("Use Time Sheet", true);
+        Resource.ModifyAll("Use Time Sheet", false);
+
+        // [WHEN] Clockify.TimeSheet.Create runs
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Create");
+
+        // [THEN] It succeeds and creates nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Create should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'created'), 'No eligible resources should yield 0 created.');
+    end;
+
+    [Test]
+    procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
+    var
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Approve");
+
+        // [THEN] It succeeds and approves nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Approve should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets should yield 0 approved lines.');
+    end;
+
+    [Test]
+    procedure TimeSheetArchiveReturnsZeroWhenNothingPosted()
+    var
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [WHEN] Clockify.TimeSheet.Archive runs with no posted sheets
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Archive");
+
+        // [THEN] It succeeds and archives nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Archive should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'archived'), 'No posted sheets should yield 0 archived.');
+    end;
+
+    [Test]
+    procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
+    var
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Reject");
+
+        // [THEN] It succeeds and rejects nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reject should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets should yield 0 rejected lines.');
+    end;
+
+    [Test]
+    procedure TimeSheetReopenReturnsZeroWhenNothingPending()
+    var
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Reopen");
+
+        // [THEN] It succeeds and reopens nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reopen should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets should yield 0 reopened lines.');
+    end;
+
+    [Test]
+    procedure TimeSheetPostErrorsWhenNoJournalConfigured()
+    var
+        CloudEventsSetup: Record "Cloud Events Setup ori";
+        Argument: Record "CE Message Argument ori";
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] No Job Journal configured and none supplied
+        if not CloudEventsSetup.Get() then
+            CloudEventsSetup.Insert();
+        CloudEventsSetup."Clockify Job Jnl. Template" := '';
+        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
+        CloudEventsSetup.Modify();
+
+        // [WHEN] Clockify.TimeSheet.Post runs
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Post");
+
+        // [THEN] It reports the missing Job Journal configuration
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal.');
+    end;
+
+    [Test]
+    procedure TimeSheetPostReturnsZeroWhenNoApprovedLines()
+    var
+        Argument: Record "CE Message Argument ori";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] A configured Job Journal but no approved time-sheet lines
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+
+        // [WHEN] Clockify.TimeSheet.Post runs
+        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Post");
+
+        // [THEN] It succeeds and posts nothing
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Post should succeed.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'postedLines'), 'No approved lines should yield 0 posted.');
+    end;
+
+    [Test]
+    procedure SyncToTimeSheetErrorsWhenNoMapping()
+    var
+        Argument: Record "CE Message Argument ori";
+        Integration: Record "Clockify Integration";
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] No integration mappings
+        Integration.DeleteAll();
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('entryId', 'E1');
+        RequestJson.Add('projectId', 'UNMAPPED');
+        RequestJson.Add('start', '2026-06-09T08:00:00Z');
+        RequestJson.Add('end', '2026-06-09T12:00:00Z');
+
+        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+
+        // [THEN] It reports a missing mapping
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'An unmapped project should error.');
+        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('mapping'), 'The message should mention the missing mapping.');
+    end;
+
+    [Test]
+    procedure SyncToTimeSheetErrorsWhenNoOpenTimeSheet()
+    var
+        Argument: Record "CE Message Argument ori";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Mappings exist but the resource has no open time sheet
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('entryId', 'E1');
+        RequestJson.Add('projectId', 'CPROJ');
+        RequestJson.Add('taskId', 'CTASK');
+        RequestJson.Add('start', '2026-06-09T08:00:00Z');
+        RequestJson.Add('end', '2026-06-09T12:00:00Z');
+
+        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+
+        // [THEN] It reports the missing open time sheet
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'A missing open sheet should error.');
+        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
+    end;
+
+    [Test]
+    procedure SyncToTimeSheetCreatesDetailOnOpenSheet()
+    var
+        TimeSheetDetail: Record "Time Sheet Detail";
+        Argument: Record "CE Message Argument ori";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        TimeSheetNo: Code[20];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Mappings and an open time sheet covering the entry date
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        TimeSheetNo := CreateOpenTimeSheet(ResourceNo, DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('entryId', 'E1');
+        RequestJson.Add('projectId', 'CPROJ');
+        RequestJson.Add('taskId', 'CTASK');
+        RequestJson.Add('description', 'Work A');
+        RequestJson.Add('start', '2026-06-09T08:00:00Z');
+        RequestJson.Add('end', '2026-06-09T12:00:00Z');
+
+        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+
+        // [THEN] A time-sheet detail is created with the entry's hours
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Created', ReadText(ResponseJson, 'result'), 'First sync should create a time-sheet detail.');
+        TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
+        LibraryAssert.AreEqual(1, TimeSheetDetail.Count(), 'One time-sheet detail should exist.');
+        TimeSheetDetail.FindFirst();
+        LibraryAssert.AreEqual(4, TimeSheetDetail.Quantity, 'The detail quantity should be the entry hours.');
+    end;
+
+    [Test]
+    procedure SyncRangeToTimeSheetCreatesDetailsForEntries()
+    var
+        TimeSheetDetail: Record "Time Sheet Detail";
+        Argument: Record "CE Message Argument ori";
+        MockState: Codeunit "Clockify Mock State";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        TimeSheetNo: Code[20];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Mappings, an open sheet, and Clockify returns two finished entries
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        TimeSheetNo := CreateOpenTimeSheet(ResourceNo, DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        UseMockApi();
+        MockState.SetNextResponse(true, 200,
+            '[{"id":"E1","description":"Work A","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"}},' +
+            '{"id":"E2","description":"Work B","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-10T08:00:00Z","end":"2026-06-10T10:00:00Z"}}]');
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        // [WHEN] Clockify.TimeEntry.SyncRangeToTimeSheet runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRangeToTimeSheet", RequestJson);
+
+        // [THEN] Both entries land as time-sheet details
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'created'), 'Both entries should be created.');
+        TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
+        LibraryAssert.AreEqual(2, TimeSheetDetail.Count(), 'One detail should exist per synced entry.');
+    end;
+
+    [Test]
+    procedure SyncRangeToTimeSheetPerEntryErrorDoesNotAbort()
+    var
+        Argument: Record "CE Message Argument ori";
+        MockState: Codeunit "Clockify Mock State";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Two entries where the second references an unmapped project
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        CreateOpenTimeSheet(ResourceNo, DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        UseMockApi();
+        MockState.SetNextResponse(true, 200,
+            '[{"id":"E1","description":"Work A","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"}},' +
+            '{"id":"E2","description":"Work B","projectId":"UNMAPPED","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-10T08:00:00Z","end":"2026-06-10T10:00:00Z"}}]');
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        // [WHEN] Clockify.TimeEntry.SyncRangeToTimeSheet runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRangeToTimeSheet", RequestJson);
+
+        // [THEN] The mapped entry syncs while the unmapped one is counted as an error
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'Only the mapped entry should be created.');
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'errors'), 'The unmapped entry should be an error.');
+    end;
+
+    [Test]
+    procedure SyncAllUsersSyncsMappedUserToTimeSheet()
+    var
+        TimeSheetDetail: Record "Time Sheet Detail";
+        Argument: Record "CE Message Argument ori";
+        MockState: Codeunit "Clockify Mock State";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        TimeSheetNo: Code[20];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] One mapped user (CUSER) with an open sheet, and Clockify returns one entry
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        TimeSheetNo := CreateOpenTimeSheet(ResourceNo, DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        UseMockApi();
+        MockState.SetNextResponse(true, 200,
+            '[{"id":"E1","description":"Work A","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"}}]');
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+        RequestJson.Add('target', 'timesheet');
+
+        // [WHEN] Clockify.TimeEntry.SyncAllUsers runs (no userId — auto-discovered)
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncAllUsers", RequestJson);
+
+        // [THEN] The mapped user's entry lands on the time sheet
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'users'), 'Exactly one mapped user should be processed.');
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'The user''s entry should be created.');
+        TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
+        LibraryAssert.AreEqual(1, TimeSheetDetail.Count(), 'One time-sheet detail should exist.');
+    end;
+
+    [Test]
+    procedure ReverseFromTimeSheetRemovesOpenDetail()
+    var
+        TimeSheetDetail: Record "Time Sheet Detail";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        TimeSheetNo: Code[20];
+        TagIds: List of [Text];
+        SyncResult: Enum "Clockify Sync Result";
+        Msg: Text;
+    begin
+        // [GIVEN] A time entry synced to an open time sheet
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        TimeSheetNo := CreateOpenTimeSheet(ResourceNo, DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        TimeSheetSync.SyncTimeEntryToTimeSheet('E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work A', DMY2Date(9, 6, 2026), 4, true, TagIds, Msg);
+        TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
+        LibraryAssert.AreEqual(1, TimeSheetDetail.Count(), 'The detail should exist before reversal.');
+
+        // [WHEN] A TIME_ENTRY_DELETED reversal is processed
+        SyncResult := TimeSheetSync.ReverseFromTimeSheet('E1', Msg);
+
+        // [THEN] The detail is removed from the open sheet
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Updated, SyncResult, 'Reversing an open-sheet entry should remove the detail.');
+        TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
+        LibraryAssert.IsTrue(TimeSheetDetail.IsEmpty(), 'The time-sheet detail should have been deleted.');
+    end;
+
+    local procedure CreateOpenTimeSheet(ResourceNo: Code[20]; StartingDate: Date; EndingDate: Date) TimeSheetNo: Code[20]
+    var
+        TimeSheetHeader: Record "Time Sheet Header";
+    begin
+        TimeSheetNo := CopyStr('CLK' + Format(Random(999999)), 1, MaxStrLen(TimeSheetNo));
+        TimeSheetHeader.Init();
+        TimeSheetHeader."No." := TimeSheetNo;
+        TimeSheetHeader."Resource No." := ResourceNo;
+        TimeSheetHeader."Starting Date" := StartingDate;
+        TimeSheetHeader."Ending Date" := EndingDate;
+        TimeSheetHeader.Insert(false);
     end;
 
     local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])

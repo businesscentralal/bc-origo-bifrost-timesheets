@@ -203,4 +203,58 @@ enumextension 70009200 "Clockify Cloud Event Msg Type" extends "Cloud Event Mess
         Caption = 'Clockify.TimeEntry.SyncRange', Locked = true;
         Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeEntrySyncRng Impl";
     }
+    /// <summary>Creates upcoming weekly time sheets for every time-sheet resource (BC-side).</summary>
+    value(70009232; "Clockify.TimeSheet.Create")
+    {
+        Caption = 'Clockify.TimeSheet.Create', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetCreate Impl";
+    }
+    /// <summary>Submits and approves open time-sheet lines up to a cut-off date (BC-side).</summary>
+    value(70009233; "Clockify.TimeSheet.Approve")
+    {
+        Caption = 'Clockify.TimeSheet.Approve', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetApprove Impl";
+    }
+    /// <summary>Transfers approved time-sheet detail to a Job Journal batch and posts it (BC-side).</summary>
+    value(70009234; "Clockify.TimeSheet.Post")
+    {
+        Caption = 'Clockify.TimeSheet.Post', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetPost Impl";
+    }
+    /// <summary>Archives fully posted time sheets and removes empty posted sheets (BC-side).</summary>
+    value(70009235; "Clockify.TimeSheet.Archive")
+    {
+        Caption = 'Clockify.TimeSheet.Archive', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetArchive Impl";
+    }
+    /// <summary>Syncs a Clockify time entry to the resource's open BC Time Sheet (line + detail).</summary>
+    value(70009236; "Clockify.TimeEntry.SyncToTimeSheet")
+    {
+        Caption = 'Clockify.TimeEntry.SyncToTimeSheet', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetSync Impl";
+    }
+    /// <summary>Syncs all of a user's finished Clockify time entries in a date range to their open BC Time Sheets.</summary>
+    value(70009237; "Clockify.TimeEntry.SyncRangeToTimeSheet")
+    {
+        Caption = 'Clockify.TimeEntry.SyncRangeToTimeSheet', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetSyncRng Impl";
+    }
+    /// <summary>Rejects submitted time-sheet lines up to a cut-off date (BC-side).</summary>
+    value(70009238; "Clockify.TimeSheet.Reject")
+    {
+        Caption = 'Clockify.TimeSheet.Reject', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetReject Impl";
+    }
+    /// <summary>Reopens submitted or approved time-sheet lines back to Open (BC-side).</summary>
+    value(70009239; "Clockify.TimeSheet.Reopen")
+    {
+        Caption = 'Clockify.TimeSheet.Reopen', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeSheetReopen Impl";
+    }
+    /// <summary>Syncs finished entries in a date range for every mapped user (time sheet or journal).</summary>
+    value(70009240; "Clockify.TimeEntry.SyncAllUsers")
+    {
+        Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify SyncAllUsers Impl";
+    }
 }

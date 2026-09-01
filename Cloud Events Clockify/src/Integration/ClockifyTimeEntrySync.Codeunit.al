@@ -399,7 +399,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Integration.Modify(true);
     end;
 
-    local procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
+    internal procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration";
     begin
@@ -416,7 +416,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
         exit(true);
     end;
 
-    local procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
+    internal procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration";
         BCCodeText: Text;
@@ -439,7 +439,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
         exit(true);
     end;
 
-    local procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
+    internal procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration";
     begin
