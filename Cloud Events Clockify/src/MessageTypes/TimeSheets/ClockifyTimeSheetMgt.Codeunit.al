@@ -46,23 +46,25 @@ codeunit 70009248 "Clockify TimeSheet Mgt"
         if Resource.FindSet() then
             repeat
                 ExistingTimeSheet.SetRange("Owner User ID", Resource."Time Sheet Owner User ID");
-                if ExistingTimeSheet.FindLast() then begin
-                    // Advance from the last sheet's end date each iteration (the legacy code
-                    // reused a stale end date, producing overlapping sheets).
-                    LastEndingDate := ExistingTimeSheet."Ending Date";
-                    while ExistingTimeSheet.Count() < TargetAhead do begin
-                        StartingDate := LastEndingDate + 1;
-                        EndingDate := CalcDate('<CW>', StartingDate);
-                        TimeSheetHeader.Init();
-                        TimeSheetHeader."No." := NoSeries.GetNextNo(ResourcesSetup."Time Sheet Nos.", StartingDate);
-                        TimeSheetHeader."Starting Date" := StartingDate;
-                        TimeSheetHeader."Ending Date" := EndingDate;
-                        TimeSheetHeader.Validate("Resource No.", Resource."No.");
-                        TimeSheetHeader.Description := StrSubstNo(WeekTok, Date2DWY(StartingDate, 2));
-                        TimeSheetHeader.Insert(true);
-                        LastEndingDate := EndingDate;
-                        CreatedCount += 1;
-                    end;
+                // Advance from the last sheet's end date each iteration (the legacy code
+                // reused a stale end date, producing overlapping sheets). Resources with no
+                // existing sheets start from the current week so they still get upcoming sheets.
+                if ExistingTimeSheet.FindLast() then
+                    LastEndingDate := ExistingTimeSheet."Ending Date"
+                else
+                    LastEndingDate := CalcDate('<-CW>', WorkDate()) - 1;
+                while ExistingTimeSheet.Count() < TargetAhead do begin
+                    StartingDate := LastEndingDate + 1;
+                    EndingDate := CalcDate('<CW>', StartingDate);
+                    TimeSheetHeader.Init();
+                    TimeSheetHeader."No." := NoSeries.GetNextNo(ResourcesSetup."Time Sheet Nos.", StartingDate);
+                    TimeSheetHeader."Starting Date" := StartingDate;
+                    TimeSheetHeader."Ending Date" := EndingDate;
+                    TimeSheetHeader.Validate("Resource No.", Resource."No.");
+                    TimeSheetHeader.Description := StrSubstNo(WeekTok, Date2DWY(StartingDate, 2));
+                    TimeSheetHeader.Insert(true);
+                    LastEndingDate := EndingDate;
+                    CreatedCount += 1;
                 end;
             until Resource.Next() = 0;
     end;
