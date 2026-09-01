@@ -993,6 +993,133 @@ codeunit 95601 "Clockify Connector Tests"
             'The gate should allow a user with write permission to the Clockify Integration table.');
     end;
 
+    [Test]
+    procedure SyncRangeIsInboundWithHelp()
+    var
+        Argument: Record "CE Message Argument ori";
+        MsgInterface: Interface "Cloud Event Msg Interface ori";
+    begin
+        // [SCENARIO] Clockify.TimeEntry.SyncRange reports inbound metadata and produces help.
+        Argument.Init();
+        Argument."Type" := Argument."Type"::"Clockify.TimeEntry.SyncRange";
+        Argument.Insert();
+        MsgInterface := Argument.GetMessageTypeInterface();
+
+        LibraryAssert.AreEqual(Enum::"Cloud Event Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), 'SyncRange should be inbound (BC-side).');
+        LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'SyncRange should have no filter table.');
+        LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'SyncRange should have a description.');
+
+        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
+        LibraryAssert.AreNotEqual('', Argument.GetResponseText(), 'SyncRange should produce help markdown.');
+    end;
+
+    [Test]
+    procedure SyncRangeErrorsWhenNoJournalConfigured()
+    var
+        CloudEventsSetup: Record "Cloud Events Setup ori";
+        Argument: Record "CE Message Argument ori";
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] No Job Journal configured on setup and none supplied in the request
+        UseMockApi();
+        if not CloudEventsSetup.Get() then
+            CloudEventsSetup.Insert();
+        CloudEventsSetup."Clockify Job Jnl. Template" := '';
+        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
+        CloudEventsSetup.Modify();
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        // [WHEN] The Clockify.TimeEntry.SyncRange task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+
+        // [THEN] It reports an error pointing at the missing Job Journal configuration
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
+    end;
+
+    [Test]
+    procedure SyncRangeCreatesLinesForEntriesInRange()
+    var
+        JobJournalLine: Record "Job Journal Line";
+        Argument: Record "CE Message Argument ori";
+        MockState: Codeunit "Clockify Mock State";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Mapped master data + journal, and Clockify returns two finished entries in the range
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        UseMockApi();
+        MockState.SetNextResponse(true, 200,
+            '[{"id":"E1","description":"Work A","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"}},' +
+            '{"id":"E2","description":"Work B","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-10T08:00:00Z","end":"2026-06-10T10:00:00Z"}}]');
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        // [WHEN] The batch sync executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+
+        // [THEN] Both entries are created and a job journal line exists per entry
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'created'), 'Both entries should be created.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'errors'), 'No entry should error.');
+        JobJournalLine.SetRange("Journal Template Name", TemplateName);
+        JobJournalLine.SetRange("Journal Batch Name", BatchName);
+        LibraryAssert.AreEqual(2, JobJournalLine.Count(), 'One journal line should exist per synced entry.');
+    end;
+
+    [Test]
+    procedure SyncRangePerEntryErrorDoesNotAbortBatch()
+    var
+        JobJournalLine: Record "Job Journal Line";
+        Argument: Record "CE Message Argument ori";
+        MockState: Codeunit "Clockify Mock State";
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+    begin
+        // [GIVEN] Two entries where the second references an unmapped project
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        UseMockApi();
+        MockState.SetNextResponse(true, 200,
+            '[{"id":"E1","description":"Work A","projectId":"CPROJ","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"}},' +
+            '{"id":"E2","description":"Work B","projectId":"UNMAPPED","taskId":"CTASK","billable":true,"tagIds":["CTAG"],"timeInterval":{"start":"2026-06-10T08:00:00Z","end":"2026-06-10T10:00:00Z"}}]');
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        // [WHEN] The batch sync executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+
+        // [THEN] The mapped entry still syncs while the unmapped one is counted as an error
+        ResponseJson := Argument.GetResponseJson();
+        LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'Only the mapped entry should be created.');
+        LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'errors'), 'The unmapped entry should be an error.');
+        JobJournalLine.SetRange("Journal Template Name", TemplateName);
+        JobJournalLine.SetRange("Journal Batch Name", BatchName);
+        LibraryAssert.AreEqual(1, JobJournalLine.Count(), 'Only the mapped entry should produce a journal line.');
+    end;
+
     local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])
     var
         Job: Record Job;
@@ -1090,6 +1217,17 @@ codeunit 95601 "Clockify Connector Tests"
         if not Token.IsValue() then
             exit('');
         exit(Token.AsValue().AsText());
+    end;
+
+    local procedure ReadInt(JsonObj: JsonObject; PropertyName: Text): Integer
+    var
+        Token: JsonToken;
+    begin
+        if not JsonObj.Get(PropertyName, Token) then
+            exit(0);
+        if not Token.IsValue() then
+            exit(0);
+        exit(Token.AsValue().AsInteger());
     end;
 
     local procedure HasKey(JsonObj: JsonObject; PropertyName: Text): Boolean

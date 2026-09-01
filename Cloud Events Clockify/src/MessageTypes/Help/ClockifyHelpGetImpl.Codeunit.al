@@ -65,7 +65,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('# Clockify Connector — Message Types');
         Builder.AppendLine('');
         Builder.AppendLine('The Clockify connector exposes the [Clockify](https://docs.developer.clockify.me) REST API as Cloud Event message types.');
-        Builder.AppendLine('All message types are **outbound** (Business Central calls Clockify) and use `Content-Type: application/json`.');
+        Builder.AppendLine('Most message types are **outbound** (Business Central calls Clockify) and use `Content-Type: application/json`. The exceptions are `Clockify.TimeEntry.Sync` (inbound BC-side operation that writes to the Job Journal and does not call Clockify) and `Clockify.TimeEntry.SyncRange` (inbound BC-side operation that reads entries from Clockify, then writes to the Job Journal).');
         Builder.AppendLine('');
         Builder.AppendLine('Authentication uses the workspace API key stored on Cloud Events Setup (`X-Api-Key`). Set `workspaceId` in the request, or configure a Default Workspace ID on Cloud Events Setup.');
         Builder.AppendLine('Create/update message types send the request''s `body` object verbatim to Clockify. List message types accept an optional `query` object whose properties become URL query parameters (for example `page-size`, `page`, `name`, `in-progress`).');
@@ -102,6 +102,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('| `Clockify.TimeEntry.Update` | Updates a time entry. |');
         Builder.AppendLine('| `Clockify.TimeEntry.Delete` | Deletes a time entry. |');
         Builder.AppendLine('| `Clockify.TimeEntry.Sync` | Syncs a time entry to a BC Job Journal Line with deduplication, update detection, and correction posting. |');
+        Builder.AppendLine('| `Clockify.TimeEntry.SyncRange` | Syncs all of a user''s finished time entries in a date range to BC Job Journal Lines in a single call. |');
         Builder.AppendLine('| `Clockify.Currency.List` | Lists the currencies defined in a workspace. Returns the `currencyId` values that `Clockify.Client.Create` and `Clockify.Client.Update` need. |');
         Builder.AppendLine('| `Clockify.UserGroup.List` | Lists the user groups defined in a workspace. Returns the user-group IDs needed for `userGroupIds` on `Clockify.Project.Create` / `Clockify.Project.Update`. |');
         Builder.AppendLine('| `Clockify.CustomField.List` | Lists the workspace-level custom field definitions. Returns the `customFieldId` values needed when writing `customFields` on time entries and projects. |');
