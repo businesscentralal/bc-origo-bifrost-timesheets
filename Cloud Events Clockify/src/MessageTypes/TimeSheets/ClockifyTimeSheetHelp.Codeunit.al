@@ -103,7 +103,7 @@ codeunit 70009253 "Clockify TimeSheet Help"
         HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID (mapped to a BC Resource)', 'Clockify.User.GetCurrent → id');
         HelpBuilder.AddParam('entryId', true, 'string', 'Clockify time entry ID', 'Clockify.TimeEntry.List → id');
         HelpBuilder.AddParam('projectId', true, 'string', 'Clockify project ID (mapped to BC Job No.)', 'Clockify.Project.List → id');
-        HelpBuilder.AddParam('taskId', false, 'string', 'Clockify task ID (mapped to BC Job Task No.)', 'Clockify.Task.List → id');
+        HelpBuilder.AddParam('taskId', true, 'string', 'Clockify task ID (mapped to BC Job Task No.)', 'Clockify.Task.List → id');
         HelpBuilder.AddParam('description', false, 'string', 'Work description (becomes the time-sheet line description)', '');
         HelpBuilder.AddParam('start', true, 'string', 'Start time in ISO-8601 UTC', '');
         HelpBuilder.AddParam('end', true, 'string', 'End time in ISO-8601 UTC', '');
