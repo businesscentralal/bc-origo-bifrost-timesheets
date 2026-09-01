@@ -133,7 +133,6 @@ codeunit 70009254 "Clockify TimeSheet Sync"
     local procedure FindOpenTimeSheet(ResourceNo: Code[20]; PostingDate: Date; var TimeSheet: Record "Time Sheet Header"): Boolean
     begin
         TimeSheet.SetRange("Resource No.", ResourceNo);
-        TimeSheet.SetRange("Open Exists", true);
         TimeSheet.SetFilter("Starting Date", '<=%1', PostingDate);
         TimeSheet.SetFilter("Ending Date", '>=%1', PostingDate);
         exit(TimeSheet.FindFirst());
