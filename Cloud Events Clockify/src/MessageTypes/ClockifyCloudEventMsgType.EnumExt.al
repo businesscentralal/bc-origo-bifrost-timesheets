@@ -197,4 +197,10 @@ enumextension 70009200 "Clockify Cloud Event Msg Type" extends "Cloud Event Mess
         Caption = 'Clockify.TimeEntry.Sync', Locked = true;
         Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeEntry Sync Impl";
     }
+    /// <summary>Syncs all of a user's finished Clockify time entries in a date range to BC Job Journal Lines in one call.</summary>
+    value(70009231; "Clockify.TimeEntry.SyncRange")
+    {
+        Caption = 'Clockify.TimeEntry.SyncRange', Locked = true;
+        Implementation = "Cloud Event Msg Interface ori" = "Clockify TimeEntrySyncRng Impl";
+    }
 }
