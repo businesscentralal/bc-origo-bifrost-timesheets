@@ -162,8 +162,13 @@ codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg I
                 exit(false);
             end;
             Clear(PageArray);
-            if (ResponseBody <> '') and PageToken.ReadFrom(ResponseBody) and PageToken.IsArray() then
+            if ResponseBody <> '' then begin
+                if not PageToken.ReadFrom(ResponseBody) or not PageToken.IsArray() then begin
+                    Argument.RespondWithError('Unexpected response from Clockify when listing time entries: expected a JSON array.');
+                    exit(false);
+                end;
                 PageArray := PageToken.AsArray();
+            end;
             foreach EntryToken in PageArray do
                 Entries.Add(EntryToken);
         until PageArray.Count() < PageSize;
