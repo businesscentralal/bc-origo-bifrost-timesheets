@@ -87,6 +87,7 @@ codeunit 70009248 "Clockify TimeSheet Mgt"
         if TimeSheet.FindSet() then
             repeat
                 TimeSheetMgt.SetTimeSheetNo(TimeSheet."No.", TimeSheetLine);
+                TimeSheetLine.SetRange(Status, TimeSheetLine.Status::Open);
                 if TimeSheetLine.FindSet(true) then
                     repeat
                         TimeSheetApprovalMgt.Submit(TimeSheetLine);
