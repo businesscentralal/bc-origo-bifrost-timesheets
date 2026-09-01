@@ -162,7 +162,7 @@ codeunit 70009256 "Clockify TimeSheetSyncRng Impl" implements "Cloud Event Msg I
 
             if (EntryEnd = '') or (Hours = 0) or (PostingDate = 0D) then begin
                 SyncResult := SyncResult::Error;
-                ResultMessage := 'Entry has no finished interval; skipped.';
+                ResultMessage := 'Entry has no finished interval; counted as error.';
             end else
                 SyncResult := TimeSheetSync.SyncTimeEntryToTimeSheet(
                     CopyStr(EntryId, 1, 50), CopyStr(WorkspaceId, 1, 50), CopyStr(UserId, 1, 50),
