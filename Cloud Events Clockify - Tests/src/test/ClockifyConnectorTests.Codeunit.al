@@ -1531,14 +1531,23 @@ codeunit 95601 "Clockify Connector Tests"
     local procedure CreateOpenTimeSheet(ResourceNo: Code[20]; StartingDate: Date; EndingDate: Date) TimeSheetNo: Code[20]
     var
         TimeSheetHeader: Record "Time Sheet Header";
+        TimeSheetLine: Record "Time Sheet Line";
     begin
-        TimeSheetNo := CopyStr('CLK' + Format(Random(999999)), 1, MaxStrLen(TimeSheetNo));
+        TimeSheetNo := CopyStr(DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(TimeSheetNo));
         TimeSheetHeader.Init();
         TimeSheetHeader."No." := TimeSheetNo;
         TimeSheetHeader."Resource No." := ResourceNo;
         TimeSheetHeader."Starting Date" := StartingDate;
         TimeSheetHeader."Ending Date" := EndingDate;
         TimeSheetHeader.Insert(false);
+        // An open line makes the header's "Open Exists" flowfield true so the sync can target it.
+        TimeSheetLine.Init();
+        TimeSheetLine."Time Sheet No." := TimeSheetNo;
+        TimeSheetLine."Line No." := 10000;
+        TimeSheetLine."Time Sheet Starting Date" := StartingDate;
+        TimeSheetLine.Type := TimeSheetLine.Type::Job;
+        TimeSheetLine.Status := TimeSheetLine.Status::Open;
+        TimeSheetLine.Insert(false, true);
     end;
 
     local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])

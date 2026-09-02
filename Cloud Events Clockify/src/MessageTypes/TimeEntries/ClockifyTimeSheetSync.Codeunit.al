@@ -135,6 +135,7 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         TimeSheet.SetRange("Resource No.", ResourceNo);
         TimeSheet.SetFilter("Starting Date", '<=%1', PostingDate);
         TimeSheet.SetFilter("Ending Date", '>=%1', PostingDate);
+        TimeSheet.SetRange("Open Exists", true);
         exit(TimeSheet.FindFirst());
     end;
 
