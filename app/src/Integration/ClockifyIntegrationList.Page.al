@@ -13,6 +13,7 @@ page 70009200 "Clockify Integration List ori"
     UsageCategory = None;
     SourceTable = "Clockify Integration ori";
     Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tengingar';
+    ContextSensitiveHelpPage = 'clockify-integration-list';
     Editable = false;
     InsertAllowed = false;
     ModifyAllowed = false;

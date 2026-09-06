@@ -12,6 +12,7 @@ page 70009268 "Clockify Setup ori"
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;
     Caption = 'Clockify Setup', Comment = 'is-IS=Uppsetning Clockify';
+    ContextSensitiveHelpPage = 'clockify-setup';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = Card;

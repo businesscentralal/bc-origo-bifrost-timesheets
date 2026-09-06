@@ -12,6 +12,25 @@ range (95600–95699) are unchanged, so an installed tenant upgrades rather than
 app. The 41 message-type keys and every help document are unchanged — they are the published API
 contract.
 
+### Changed (2026-09-06)
+
+- **Documentation moved to the site.** All public documentation and in-product help now live in the
+  [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost) repository and are
+  published at <https://bifrost.origo.is> — product documentation at `/en-us/clockify/`, help at
+  `/en-us/help/clockify/` and `/is-is/help/clockify/`. This repository keeps no `docs/` or `Help/`
+  folder, and `README.md` was trimmed to header facts, links, layout, dependencies and development
+  notes.
+- **Context-sensitive help slugs.** `ContextSensitiveHelpPage` was added to the five pages, using
+  the Docusaurus slugs of the new help pages: `clockify-setup` (`Clockify Setup ori`),
+  `clockify-integration-list` (`Clockify Integration List ori`), `clockify-webhooks`
+  (`Clockify Webhooks ori`), `clockify-workspace-lookup` (`Clockify Workspace Lookup ori`) and
+  `clockify-set-secret-dialog` (`Clockify Set Secret Dialog ori`). `Clockify Setup Ext ori` adds no
+  slug of its own — the Bifröst Setup page belongs to Foundation.
+- **Test reports moved.** The migration test report and the raw queue-API call log moved from
+  `app/docs/` to `test/reports/`. They are internal and are deliberately not published to the
+  documentation site. The tracked AL test result XML files under `TestResults/` were dropped from
+  the repository — a stray `.xml` inside an AL project folder raises AL1025.
+
 ### Changed
 
 - **Platform.** Dependency moved from *Origo Cloud Events Core* (`a629b897-…`) to **Bifrost
@@ -114,7 +133,7 @@ contract.
   to be re-entered once — an install take-over cannot copy another extension's IsolatedStorage.
 - Verification: CodeCop + UICop + AppSourceCop clean, 58/58 unit tests green on `bc28-is` and
   `bc28-w1`, and all 41 message types exercised over the queue API on `bc28-is` (87 calls, no
-  HTTP 5xx). See [app/docs/Bifrost_Clockify_TestReport_2026-09-06.md](app/docs/Bifrost_Clockify_TestReport_2026-09-06.md).
+  HTTP 5xx). See [test/reports/Bifrost_Clockify_TestReport_2026-09-06.md](test/reports/Bifrost_Clockify_TestReport_2026-09-06.md).
 
 ---
 

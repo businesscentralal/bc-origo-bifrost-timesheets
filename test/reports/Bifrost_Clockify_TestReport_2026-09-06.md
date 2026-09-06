@@ -46,7 +46,8 @@ Run with Microsoft's AL Test Runner against the dedicated `CLOCKIFY` suite.
 | `bc28-is` | 1 (`Clockify Connector Tests`) | 58 | 58 | 0 |
 | `bc28-w1` | 1 (`Clockify Connector Tests`) | 58 | 58 | 0 |
 
-Results: `TestResults/clockify_is.xml`, `TestResults/clockify_w1.xml`.
+Raw runner output (`clockify_is.xml`, `clockify_w1.xml`) is archived outside the repository — the AL
+compiler flags stray `.xml` files inside a project folder with AL1025.
 
 **Test-suite defect found and fixed during this run.** The legacy test app's install codeunit
 deleted and rebuilt the shared `DEFAULT` AL Test Suite from range `50000..99999`. On a container

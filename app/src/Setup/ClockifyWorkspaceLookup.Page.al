@@ -14,6 +14,7 @@ page 70009203 "Clockify Workspace Lookup ori"
     Editable = false;
     UsageCategory = None;
     Caption = 'Clockify Workspaces', Comment = 'is-IS=Clockify vinnusvæði';
+    ContextSensitiveHelpPage = 'clockify-workspace-lookup';
 
     layout
     {

@@ -1,37 +1,48 @@
-# Bifrost Clockify
+# Bifröst Clockify
 
-**Publisher:** Origo &nbsp;|&nbsp; **Version:** 29.0.0.0 &nbsp;|&nbsp; **Object ID range:** 70009200-70009299 &nbsp;|&nbsp; **Namespace:** `Origo.Bifrost.Clockify`
+**App name:** Bifrost Clockify  
+**Publisher:** Origo — **Version:** 29.0.0.0 — **Target:** Cloud (BC 28, runtime 17.0)  
+**App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af` — **Test app ID:** `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`  
+**Object ID range:** 70009200–70009299 (tests 95600–95699) — **Namespace:** `Origo.Bifrost.Clockify`
 
-Bifrost Clockify exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API as
-Bifröst message types on top of [Bifrost Foundation](https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core).
-Workspaces, users, user groups, clients, projects, tasks, tags, currencies, custom fields and time
-entries are readable and writable over the Bifröst queue API (`origo/bifrost/v1.0`), so an external
-system or an AI agent can drive Clockify from Business Central the same way a user would.
+Bifröst Clockify exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API
+as 41 Bifröst message types on top of Bifrost Foundation. Workspaces, users, user groups, clients,
+projects, tasks, tags, currencies, custom fields and time entries are readable and writable over the
+Bifröst queue API (`origo/bifrost/v1.0`), so an external system or an AI agent can drive Clockify
+from Business Central the same way a user would.
 
 On top of the pass-through API the connector synchronises finished Clockify time entries into
 Business Central — either into a Job Journal (with deduplication, update detection and correction
 posting) or into the resource's open Time Sheet — and manages the Time Sheet lifecycle (create,
-approve, reject, reopen, post, archive). A webhook receiver keeps the sync real-time.
+approve, reject, reopen, post, archive). A webhook receiver keeps the sync real-time. It is the
+in-place successor of *Origo Cloud Events Clockify*: same app id, same object ids, so an installed
+environment upgrades rather than installing a second app.
 
-This app is the successor of *Origo Cloud Events Clockify*; it keeps the same app id and object ids,
-so an installed environment upgrades in place. See [CHANGELOG.md](CHANGELOG.md) for the migration
-record.
+---
 
 ## Documentation
 
-Public documentation lives in the [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost)
-site repository — there is no `Help/` folder here.
+All public documentation lives in the [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost)
+site repository and is published at <https://bifrost.origo.is>. There are no `docs/` or `Help/`
+folders in this repository.
 
-- Product documentation: https://bifrost.origo.is/en-us/clockify/
-- In-product help (context-sensitive help pages): https://bifrost.origo.is/en-us/help/clockify/
+| What | Where |
+| --- | --- |
+| Product documentation (overview, message types, requirements) | <https://bifrost.origo.is/en-us/clockify/> |
+| In-product help (context-sensitive help pages, en-US and is-IS) | <https://bifrost.origo.is/en-us/help/clockify/> |
+| Building on Bifröst (extensibility guide) | <https://bifrost.origo.is/en-us/extensibility/> |
+| Release notes | [CHANGELOG.md](CHANGELOG.md) |
 
-Every message type also documents itself at runtime: `Help.Clockify.Get` returns the connector
-overview, and `Help.Implementation.Get` with the message type as subject returns that type's full
-request/response contract. The source of those documents is the per-domain help codeunits under
-`app/src/MessageTypes/`.
+Message-type contracts are also served by the app itself at runtime: `Help.Clockify.Get` returns the
+connector directory, and every message type answers its own Markdown help through
+`get_message_type_help` / `Help.Implementation.Get`. The source of those documents is the per-domain
+help codeunits under `app/src/MessageTypes/`.
 
-The internal migration test report is in
-[app/docs/Bifrost_Clockify_TestReport_2026-09-06.md](app/docs/Bifrost_Clockify_TestReport_2026-09-06.md).
+Context-sensitive help pages are addressed by Docusaurus slug (`clockify-setup`,
+`clockify-integration-list`, `clockify-webhooks`, `clockify-workspace-lookup`,
+`clockify-set-secret-dialog`), resolved against the `contextSensitiveHelpUrl` in `app/app.json`.
+
+---
 
 ## Message types
 
@@ -50,23 +61,7 @@ The internal migration test report is in
 
 The keys are the published API contract and never change.
 
-## Setup
-
-All settings live on the **Clockify Setup** card, reachable from one action in the `Apps` group of
-the Bifröst Setup page. Nothing is added to Foundation's own setup fields.
-
-| Setting | Purpose |
-| --- | --- |
-| Clockify API Version | Which API implementation the connector uses (default `Version 1`) |
-| Default Workspace / Workspace Name | Workspace used when a request omits `workspaceId`; picked from a live lookup |
-| Company API Key | Stored in IsolatedStorage (Company scope), never in a table field |
-| Job Journal Template / Batch | Where synced time entries are written |
-| Default Work Type | Fallback Work Type when a time entry has no Work-Type-linked tag |
-| Webhook Receiver URL | The endpoint that forwards Clockify events into Business Central |
-
-Use the card's actions to set or clear the API key, register or remove the real-time time-entry
-webhooks, show the webhook signing tokens, and open the integration links between BC records and
-Clockify objects.
+---
 
 ## Repository layout
 
@@ -79,23 +74,56 @@ Clockify objects.
 | `app/src/Lifecycle/` | Install codeunit and retention policy |
 | `app/src/Permissions/` | `BIFROST Clockify ori` |
 | `app/src/RequestLog/` | Request-log type extension and masker |
-| `test/` | Test app (`Bifrost Clockify - Tests`, range 95600-95699) |
+| `test/` | Test app (`Bifrost Clockify - Tests`, range 95600–95699) |
+| `test/reports/` | End-to-end message-type test reports and raw test results (internal, not published) |
 | `.AL-Go/`, `.github/` | AL-Go for GitHub / COSMO Alpaca pipeline configuration |
+
+---
+
+## Dependencies
+
+| App | ID | Publisher | Version |
+| --- | --- | --- | --- |
+| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo | 28.0.0.0 |
+
+That is the only AL dependency. The test app additionally depends on Bifrost Clockify itself and on
+Microsoft's test libraries.
+
+At runtime a Clockify account with an API key is required; the key is stored in IsolatedStorage
+(Company scope) by this app, never in a table field.
+
+---
 
 ## Development
 
 - Open `al.code-workspace` in VS Code.
-- Development containers: COSMO Alpaca `launch: bc28-is` (CRONUS IS) and `launch: bc28-w1` (W1),
-  both in `app/.vscode/launch.json` (git-ignored).
-- Build locally with `alc.exe` from the AL extension, using `app/.alpackages` as the package cache
-  and the CodeCop, UICop and AppSourceCop analyzers. Zero errors and zero warnings is the bar.
-- Publish and run the tests with `Publish-BifrostApp.ps1` / `Run-BifrostTests.ps1` from
-  `bc-origo-bifrost-core/tools`. The test app registers its own `CLOCKIFY` AL Test Suite — run
-  against that suite, not `DEFAULT`.
+- Development containers: COSMO Alpaca `launch: bc28-is` (CRONUS IS) and `launch: bc28-w1` (W1
+  CRONUS International Ltd.), both defined in `app/.vscode/launch.json` — git-ignored and the
+  authority for the instance ids. Publish and run the unit tests on **both**.
+- Compile locally with `alc.exe` plus CodeCop, UICop and AppSourceCop. Symbols live in
+  `app/.alpackages`; test symbols in `test/.alpackages`, including the Bifrost Foundation and
+  Bifrost Clockify `.app` files.
+
+  ```
+  alc.exe /project:app /packagecachepath:app/.alpackages /out:app/output/clockify.app ^
+          /analyzer:<CodeCop.dll> /analyzer:<UICop.dll> /analyzer:<AppSourceCop.dll>
+  ```
+
+- Publish and run tests without VS Code (pwsh 7, credential from the user-level env vars
+  `BC28IS_USER` / `BC28IS_PASSWORD`, never from files):
+  `bc-origo-bifrost-core/tools/Publish-BifrostApp.ps1 -AppFile <.app>` and
+  `bc-origo-bifrost-core/tools/Run-BifrostTests.ps1`. The test app registers its own `CLOCKIFY` AL
+  Test Suite — run against that suite, not `DEFAULT`.
+- Command-line `alc` does not raise AS0011 (mandatory affix); AL-Go CI is the gate, so check the
+  ` ori` suffix yourself before pushing.
 - Standards: [Origo BC Development Standards](https://github.com/OrigoSoftwareSolutions/bc-dev-standards).
   Project rules are in `.claude/CLAUDE.md`.
-- Every object carries the mandatory `ori` suffix; the brand name is carried by the namespace, the
-  app name and the captions, never by object names.
+- Every object carries the mandatory ` ori` suffix; the brand name is carried by the namespace, the
+  app name and the captions, never by an object-name prefix.
+
+---
+
+© 2026 Origo ehf.
 
 <!-- AUTO-UPDATE-START -->
 # COSMO Alpaca AL-Go AppSource App Template

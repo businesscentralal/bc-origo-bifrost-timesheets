@@ -113,7 +113,23 @@ Default branch: main
   its seven fields moved to `Clockify Setup ori` and their values cannot be carried across, because
   the table they lived on belongs to a dependency this version no longer references.
 - See [CHANGELOG.md](../CHANGELOG.md) and
-  [app/docs/Bifrost_Clockify_TestReport_2026-09-06.md](../app/docs/Bifrost_Clockify_TestReport_2026-09-06.md).
+  [test/reports/Bifrost_Clockify_TestReport_2026-09-06.md](../test/reports/Bifrost_Clockify_TestReport_2026-09-06.md).
+
+## Documentation
+
+Documentation lives in businesscentralal/bifrost (site bifrost.origo.is); there is no `Help/` or
+`docs/` folder in this repository.
+
+- Product docs: https://bifrost.origo.is/en-us/clockify/
+- In-product help: https://bifrost.origo.is/en-us/help/clockify/
+- Extensibility guide: https://bifrost.origo.is/en-us/extensibility/
+
+Context-sensitive help pages are addressed by Docusaurus slug, not by HTML file name:
+`clockify-setup`, `clockify-integration-list`, `clockify-webhooks`, `clockify-workspace-lookup`,
+`clockify-set-secret-dialog`. `Clockify Setup Ext ori` carries no slug - the shared `Setup ori`
+page belongs to Bifröst Foundation.
+
+Internal test reports and raw AL test results live in `test/reports/` and are never published.
 
 ## Development Standards
 
