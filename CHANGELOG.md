@@ -16,7 +16,7 @@ contract.
 
 - **Documentation moved to the site.** All public documentation and in-product help now live in the
   [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost) repository and are
-  published at <https://bifrost.origo.is> — product documentation at `/en-us/clockify/`, help at
+  published at <https://businesscentralal.github.io/bifrost> — product documentation at `/en-us/clockify/`, help at
   `/en-us/help/clockify/` and `/is-is/help/clockify/`. This repository keeps no `docs/` or `Help/`
   folder, and `README.md` was trimmed to header facts, links, layout, dependencies and development
   notes.

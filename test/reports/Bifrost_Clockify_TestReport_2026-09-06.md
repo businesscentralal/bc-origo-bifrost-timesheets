@@ -141,7 +141,7 @@ expected to answer with a handled error. That is exactly what happened — never
 | 4 | Open | `Clockify.TimeEntry.Sync` reports *"No workspace was supplied"* before it reports the missing `entryId`/`projectId`. Parameter validation order makes the first error message misleading when several parameters are missing. Pre-existing behaviour, not introduced by the migration. |
 | 5 | Open | The Clockify API key still lives in this app's own `Clockify Secret Mgt ori` + `Clockify Set Secret Dialog ori`. Foundation now owns a unified secret store (`Secret Store ori`); moving the key there is a follow-up, agreed for a later pass. |
 | 6 | Open | No live Clockify workspace is configured on `bc28-is`, so the 30 outbound message types were only exercised down to the HTTP client boundary. A run against a real Clockify workspace is still required before release. |
-| 7 | Open | `app.json` now points `help` at `https://bifrost.origo.is/en-us/clockify/` and context-sensitive help at `https://bifrost.origo.is/{0}/help/clockify/`, matching the portfolio convention adopted 2026-09-06. The pages themselves still have to be written in the `businesscentralal/bifrost` site repository. |
+| 7 | Open | `app.json` now points `help` at `https://businesscentralal.github.io/bifrost/en-us/clockify/` and context-sensitive help at `https://businesscentralal.github.io/bifrost/{0}/help/clockify/`, matching the portfolio convention adopted 2026-09-06. The pages themselves still have to be written in the `businesscentralal/bifrost` site repository. |
 
 ## 6. How to reproduce
 

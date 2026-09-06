@@ -23,14 +23,14 @@ environment upgrades rather than installing a second app.
 ## Documentation
 
 All public documentation lives in the [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost)
-site repository and is published at <https://bifrost.origo.is>. There are no `docs/` or `Help/`
+site repository and is published at <https://businesscentralal.github.io/bifrost>. There are no `docs/` or `Help/`
 folders in this repository.
 
 | What | Where |
 | --- | --- |
-| Product documentation (overview, message types, requirements) | <https://bifrost.origo.is/en-us/clockify/> |
-| In-product help (context-sensitive help pages, en-US and is-IS) | <https://bifrost.origo.is/en-us/help/clockify/> |
-| Building on Bifröst (extensibility guide) | <https://bifrost.origo.is/en-us/extensibility/> |
+| Product documentation (overview, message types, requirements) | <https://businesscentralal.github.io/bifrost/en-us/clockify/> |
+| In-product help (context-sensitive help pages, en-US and is-IS) | <https://businesscentralal.github.io/bifrost/en-us/help/clockify/> |
+| Building on Bifröst (extensibility guide) | <https://businesscentralal.github.io/bifrost/en-us/extensibility/> |
 | Release notes | [CHANGELOG.md](CHANGELOG.md) |
 
 Message-type contracts are also served by the app itself at runtime: `Help.Clockify.Get` returns the

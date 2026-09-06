@@ -120,9 +120,9 @@ Default branch: main
 Documentation lives in businesscentralal/bifrost (site bifrost.origo.is); there is no `Help/` or
 `docs/` folder in this repository.
 
-- Product docs: https://bifrost.origo.is/en-us/clockify/
-- In-product help: https://bifrost.origo.is/en-us/help/clockify/
-- Extensibility guide: https://bifrost.origo.is/en-us/extensibility/
+- Product docs: https://businesscentralal.github.io/bifrost/en-us/clockify/
+- In-product help: https://businesscentralal.github.io/bifrost/en-us/help/clockify/
+- Extensibility guide: https://businesscentralal.github.io/bifrost/en-us/extensibility/
 
 Context-sensitive help pages are addressed by Docusaurus slug, not by HTML file name:
 `clockify-setup`, `clockify-integration-list`, `clockify-webhooks`, `clockify-workspace-lookup`,
