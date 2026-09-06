@@ -22,8 +22,8 @@ codeunit 70009245 "Clockify Webhook Mgt ori"
 
     var
         NoApiKeyErr: Label 'Set the company Clockify API key before registering webhooks.', Comment = 'is-IS=Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.';
-        NoWorkspaceErr: Label 'Set a Default Workspace on Clockify Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.';
-        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.', Comment = 'is-IS=Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.';
+        NoWorkspaceErr: Label 'Set a Default Workspace on Clockify Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.';
+        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.', Comment = 'is-IS=Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.';
         AlreadyRegisteredErr: Label 'Clockify webhooks are already registered. Remove them before registering again.', Comment = 'is-IS=Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.';
         NotRegisteredMsg: Label 'No Clockify webhooks are registered.', Comment = 'is-IS=Engir Clockify vefkrókar eru skráðir.';
         CreateFailedErr: Label 'Creating the Clockify %1 webhook failed (HTTP %2): %3', Comment = '%1 = event, %2 = status code, %3 = response. is-IS=Ekki tókst að búa til Clockify %1 vefkrók (HTTP %2): %3';

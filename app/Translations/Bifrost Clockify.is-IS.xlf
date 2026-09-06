@@ -197,8 +197,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 3241333917 - NamedType 1471355834" size-unit="char" translate="yes" xml:space="preserve">
           <source>No Clockify API key is stored. Open Clockify Setup and set the company API key.</source>
-          <target state="translated">Enginn Clockify API lykill er geymdur. Opnaðu Bifrost stillingar og skráðu API lykil fyrirtækis.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Enginn Clockify API lykill er geymdur. Opnaðu Bifrost stillingar og skráðu API lykil fyrirtækis.</note>
+          <target state="translated">Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client ori - NamedType MissingApiKeyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3241333917 - NamedType 652305382" size-unit="char" translate="yes" xml:space="preserve">
@@ -311,8 +311,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 2821996882" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.</source>
-          <target state="translated">Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.</note>
+          <target state="translated">Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoReceiverUrlErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 347091636" size-unit="char" translate="yes" xml:space="preserve">
@@ -329,8 +329,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 297912587" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set a Default Workspace on Clockify Setup before registering webhooks.</source>
-          <target state="translated">Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.</note>
+          <target state="translated">Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoWorkspaceErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 3542876107" size-unit="char" translate="yes" xml:space="preserve">

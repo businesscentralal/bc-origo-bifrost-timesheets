@@ -6,11 +6,11 @@
   "brief": "Clockify connector for Bifröst",
   "description": "Bifrost Clockify exposes the Clockify time-tracking REST API as Bifröst message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
   "url": "https://www.origo.is/",
-  "help": "https://www.origo.is/",
+  "help": "https://bifrost.origo.is/en-us/clockify/",
   "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
   "EULA": "https://www.origo.is/skilmalar-og-oryggismal",
   "applicationInsightsConnectionString": "InstrumentationKey=990df12f-db16-4ec5-8655-12d4e5084d23;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=eba0df67-d7e1-437f-9310-fb792eec0787",
-  "contextSensitiveHelpUrl": "https://www.origo.is/",
+  "contextSensitiveHelpUrl": "https://bifrost.origo.is/{0}/help/clockify/",
   "supportedLocales": [
     "en-US",
     "is-IS"
