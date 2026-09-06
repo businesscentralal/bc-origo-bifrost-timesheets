@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Represents the outcome of synchronizing a Clockify time entry to Business Central.

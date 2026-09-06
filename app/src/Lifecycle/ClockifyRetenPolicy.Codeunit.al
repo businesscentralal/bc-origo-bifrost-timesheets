@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using System.DataAdministration;
 

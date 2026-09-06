@@ -1,6 +1,6 @@
-﻿namespace Origo.Bifrost.Clockify.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
-using Origo.Bifrost.Clockify;
+using Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Single-instance scratch pad that links a test to the <c>Mock</c> Clockify API

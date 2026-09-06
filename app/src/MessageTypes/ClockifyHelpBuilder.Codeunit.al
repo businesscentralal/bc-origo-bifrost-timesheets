@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Builds AI-optimised Markdown help documents for the Clockify connector.

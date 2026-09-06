@@ -1,12 +1,12 @@
-# Bifröst Clockify — message type test report, 2026-09-06
+# Bifrost Timesheets — message type test report, 2026-09-06
 
-Migration verification of **Bifrost Clockify 29.0.0.0** (successor of *Origo Cloud Events Clockify*
+Migration verification of **Bifrost Timesheets 29.0.0.0** (successor of *Origo Cloud Events Clockify*
 28.1.0.0) on Bifrost Foundation 28.0.0.0.
 
 | | |
 |---|---|
-| App | Bifrost Clockify 29.0.0.0 (`d4560cf5-947d-42b5-b812-33ae8dd009af`) |
-| Test app | Bifrost Clockify - Tests 29.0.0.1 (`553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) |
+| App | Bifrost Timesheets 29.0.0.0 (`d4560cf5-947d-42b5-b812-33ae8dd009af`) |
+| Test app | Bifrost Timesheets - Tests 29.0.0.1 (`553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) |
 | Dependency | Bifrost Foundation 28.0.0.0 (`7505e808-6e52-4b96-a328-82573391297a`) |
 | Containers | `bc28-is` (CRONUS IS) and `bc28-w1` (CRONUS International Ltd.) |
 | API route | `origo/bifrost/v1.0` |
@@ -23,7 +23,7 @@ Migration verification of **Bifrost Clockify 29.0.0.0** (successor of *Origo Clo
 
 The `ori` affix was verified separately, because command-line `alc.exe` does not raise AS0011:
 all 84 app objects end with ` ori`, none exceeds 30 characters, and the permission set name
-`BIFROST Clockify ori` is exactly 20 characters. Test-app objects deliberately carry no affix.
+`BIFROST Timeshts ori` is exactly 20 characters. Test-app objects deliberately carry no affix.
 
 ## 2. Deployment
 
@@ -147,12 +147,12 @@ expected to answer with a handled error. That is exactly what happened — never
 
 ```powershell
 # build
-alc.exe /project:app /packagecachepath:app/.alpackages /out:"app/output/Origo_Bifrost Clockify_29.0.0.0.app" `
+alc.exe /project:app /packagecachepath:app/.alpackages /out:"app/output/Origo_Bifrost Timesheets_29.0.0.0.app" `
         /analyzer:...CodeCop.dll /analyzer:...UICop.dll /analyzer:...AppSourceCop.dll
 
 # publish (repo root; app/.vscode/launch.json holds both containers)
 pwsh -File ..\..\OrigoSoftwareSolutions\bc-origo-bifrost-core\tools\Publish-BifrostApp.ps1 `
-     -AppFile '.\app\output\Origo_Bifrost Clockify_29.0.0.0.app' -LaunchConfiguration 'launch: bc28-is'
+     -AppFile '.\app\output\Origo_Bifrost Timesheets_29.0.0.0.app' -LaunchConfiguration 'launch: bc28-is'
 
 # unit tests - use the app's own suite, not DEFAULT
 Run-AlTests -ServiceUrl 'https://.../f068155f0c39/cs/?tenant=default' -Credential $cred `

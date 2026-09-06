@@ -1,11 +1,11 @@
-# Bifröst Clockify
+# Bifrost Timesheets
 
-**App name:** Bifrost Clockify  
+**App name:** Bifrost Timesheets  
 **Publisher:** Origo — **Version:** 29.0.0.0 — **Target:** Cloud (BC 28, runtime 17.0)  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af` — **Test app ID:** `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`  
-**Object ID range:** 70009200–70009299 (tests 95600–95699) — **Namespace:** `Origo.Bifrost.Clockify`
+**Object ID range:** 70009200–70009299 (tests 95600–95699) — **Namespace:** `Origo.Bifrost.Timesheets`
 
-Bifröst Clockify exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API
+Bifrost Timesheets exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API
 as 41 Bifröst message types on top of Bifrost Foundation. Workspaces, users, user groups, clients,
 projects, tasks, tags, currencies, custom fields and time entries are readable and writable over the
 Bifröst queue API (`origo/bifrost/v1.0`), so an external system or an AI agent can drive Clockify
@@ -17,6 +17,12 @@ posting) or into the resource's open Time Sheet — and manages the Time Sheet l
 approve, reject, reopen, post, archive). A webhook receiver keeps the sync real-time. It is the
 in-place successor of *Origo Cloud Events Clockify*: same app id, same object ids, so an installed
 environment upgrades rather than installing a second app.
+
+> The app was migrated under the name *Bifrost Clockify* and renamed to **Bifrost Timesheets**
+> before its first release (repository `origo-bc-cloudevents-clockify` ->
+> `bc-origo-bifrost-timesheets`). Object names keep the `Clockify` domain word, and the 41
+> message-type keys never changed. The documentation slug is still `clockify` until the folders in
+> the site repository are renamed.
 
 ---
 
@@ -63,18 +69,27 @@ The keys are the published API contract and never change.
 
 ---
 
+## Permissions
+
+`BIFROST Timeshts ori` (*Bifrost Timesheets*) is the app's single assignable permission set and
+grants everything the app owns: the setup, integration and webhook tables, every message-type
+implementation and help codeunit, and the five pages. **Combine it with a Bifröst Foundation
+permission set** (`BIFROST Full ori` or `BIFROST Read ori`) - the message loop, the request log and
+`User Setup ori` live in Foundation - and with the base-application permissions for the targets the
+sync writes to (Job Journal, Time Sheets, Resources).
+
 ## Repository layout
 
 | Folder | Content |
 | --- | --- |
-| `app/` | The AppSource app (`Bifrost Clockify`) |
+| `app/` | The AppSource app (`Bifrost Timesheets`) |
 | `app/src/Integration/` | HTTP client, request management, integration table and gate, webhook handler, archive and time-entry sync engines |
 | `app/src/Setup/` | Clockify Setup table and card, Bifröst Setup extension, secret, webhook and workspace management |
 | `app/src/MessageTypes/` | Message type enum extension, implementations and per-domain help codeunits |
 | `app/src/Lifecycle/` | Install codeunit and retention policy |
-| `app/src/Permissions/` | `BIFROST Clockify ori` |
+| `app/src/Permissions/` | `BIFROST Timeshts ori` |
 | `app/src/RequestLog/` | Request-log type extension and masker |
-| `test/` | Test app (`Bifrost Clockify - Tests`, range 95600–95699) |
+| `test/` | Test app (`Bifrost Timesheets - Tests`, range 95600–95699) |
 | `test/reports/` | End-to-end message-type test reports and raw test results (internal, not published) |
 | `.AL-Go/`, `.github/` | AL-Go for GitHub / COSMO Alpaca pipeline configuration |
 
@@ -86,7 +101,7 @@ The keys are the published API contract and never change.
 | --- | --- | --- | --- |
 | Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo | 28.0.0.0 |
 
-That is the only AL dependency. The test app additionally depends on Bifrost Clockify itself and on
+That is the only AL dependency. The test app additionally depends on Bifrost Timesheets itself and on
 Microsoft's test libraries.
 
 At runtime a Clockify account with an API key is required; the key is stored in IsolatedStorage
@@ -102,7 +117,7 @@ At runtime a Clockify account with an API key is required; the key is stored in 
   authority for the instance ids. Publish and run the unit tests on **both**.
 - Compile locally with `alc.exe` plus CodeCop, UICop and AppSourceCop. Symbols live in
   `app/.alpackages`; test symbols in `test/.alpackages`, including the Bifrost Foundation and
-  Bifrost Clockify `.app` files.
+  Bifrost Timesheets `.app` files.
 
   ```
   alc.exe /project:app /packagecachepath:app/.alpackages /out:app/output/clockify.app ^

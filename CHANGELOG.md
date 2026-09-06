@@ -1,16 +1,44 @@
 # Changelog
 
-All notable changes to **Bifrost Clockify** are documented here.
+All notable changes to **Bifrost Timesheets** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/) aligned with the Business Central major version.
 
 ## [29.0.0.0] — 2026-09-06
 
-Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Clockify** on Bifrost Foundation.
+Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Timesheets** on Bifrost Foundation.
 This is an **in-place successor**: the app id, the object id range (70009200–70009299) and the test
 range (95600–95699) are unchanged, so an installed tenant upgrades rather than installing a second
 app. The 41 message-type keys and every help document are unchanged — they are the published API
 contract.
+
+### App name: Bifrost Clockify -> Bifrost Timesheets (2026-09-06, before first release)
+
+Bifröst apps are named after the business capability, not after the connected service. The app
+ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies the service.
+
+- `app.json` name `Bifrost Clockify` -> **Bifrost Timesheets**; test app
+  **Bifrost Timesheets - Tests**. Icelandic brand form: **Bifröst tímaskýrslur**.
+- Namespace `Origo.Bifrost.Clockify` -> `Origo.Bifrost.Timesheets` (tests `.Test`).
+- Permission set `BIFROST Clockify ori` -> `BIFROST Timeshts ori` (permission-set object names are
+  `Code[20]`; `BIFROST Timesheets ori` would be 22). Its caption is now
+  *Bifrost Timesheets* / *Bifröst tímaskýrslur* instead of the untranslated *Clockify - Full*.
+- Setup page `Clockify Setup ori` (70009268) -> `Timesheets Setup ori`, captioned
+  *Bifrost Timesheets Setup* / *Uppsetning Bifröst tímaskýrslna*. The setup **table** keeps the name
+  `Clockify Setup ori` - it holds Clockify connection settings. The single action this app adds to
+  Bifröst Setup is captioned the same way instead of just *Clockify*.
+- **Object names, the 41 message-type keys (`Clockify.*`, `Help.Clockify.Get`), the help documents
+  and the help slugs are unchanged.** Clockify is the connected service and the domain word.
+- Repository renamed `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`; the
+  documentation slug stays `clockify` until the site folders are renamed.
+- The test app's AL Test Suite is renamed `CLOCKIFY` -> `TIMESHEETS`, matching the name
+  `tools/Run-BifrostTests.ps1` derives from the test app name.
+
+### Fixed (2026-09-06)
+
+- Icelandic caption collision on `Clockify Setup ori`: fields *Default Workspace ID* and
+  *Default Workspace* both translated to `Sjálfgefið vinnusvæði`. The id field is now
+  `Kenni sjálfgefins vinnusvæðis`.
 
 ### Changed (2026-09-06)
 
@@ -21,7 +49,7 @@ contract.
   folder, and `README.md` was trimmed to header facts, links, layout, dependencies and development
   notes.
 - **Context-sensitive help slugs.** `ContextSensitiveHelpPage` was added to the five pages, using
-  the Docusaurus slugs of the new help pages: `clockify-setup` (`Clockify Setup ori`),
+  the Docusaurus slugs of the new help pages: `clockify-setup` (`Timesheets Setup ori`),
   `clockify-integration-list` (`Clockify Integration List ori`), `clockify-webhooks`
   (`Clockify Webhooks ori`), `clockify-workspace-lookup` (`Clockify Workspace Lookup ori`) and
   `clockify-set-secret-dialog` (`Clockify Set Secret Dialog ori`). `Clockify Setup Ext ori` adds no
@@ -36,9 +64,9 @@ contract.
 - **Platform.** Dependency moved from *Origo Cloud Events Core* (`a629b897-…`) to **Bifrost
   Foundation** `7505e808-6e52-4b96-a328-82573391297a` 28.0.0.0. The API route is now
   `origo/bifrost/v1.0`.
-- **Identity.** App renamed to `Bifrost Clockify`, version 29.0.0.0, brief and description mention
-  Bifröst. Namespace `Origo.PTE.CloudEvents.Clockify` → `Origo.Bifrost.Clockify`; the test app moved
-  to `Origo.Bifrost.Clockify.Test`. New Clockify logo.
+- **Identity.** App renamed to `Bifrost Timesheets`, version 29.0.0.0, brief and description mention
+  Bifröst. Namespace `Origo.PTE.CloudEvents.Clockify` → `Origo.Bifrost.Timesheets`; the test app moved
+  to `Origo.Bifrost.Timesheets.Test`. New Clockify logo.
 - **Interface.** `ExecuteCloudEventTask` → `ExecuteBifrostTask` on all 41 implementations.
 - **Object names.** Every object now carries the mandatory ` ori` suffix within 30 characters, and
   the words "Cloud Event(s)" are gone. Renames beyond the plain suffix:
@@ -46,7 +74,7 @@ contract.
   | Legacy | Bifröst |
   |---|---|
   | `Clockify Cloud Event Msg Type` (enumext) | `Clockify Msg Type ori` |
-  | `Clockify Full` (permission set) | `BIFROST Clockify ori` |
+  | `Clockify Full` (permission set) | `BIFROST Timeshts ori` |
   | `Clockify Workspace List Impl` | `Clockify WrkspaceList Impl ori` |
   | `Clockify Client Create Impl` | `Clockify ClientCreate Impl ori` |
   | `Clockify Client Update Impl` | `Clockify ClientUpdate Impl ori` |
@@ -91,9 +119,10 @@ contract.
   `test/` (`test/src` for mocks, `test/test` for the test codeunits), AL-Go settings, workspace file,
   `.gitignore` and `app/.vscode/launch.json` aligned with the other Bifröst repositories. Tracked
   build artefacts removed.
-- **Help URLs.** `help` and `contextSensitiveHelpUrl` now point at `bifrost.origo.is`, matching the
-  portfolio convention adopted on 2026-09-06. The pages still have to be written in the
-  `businesscentralal/bifrost` site repository.
+- **Help URLs.** `help` and `contextSensitiveHelpUrl` point at
+  <https://businesscentralal.github.io/bifrost> (`/en-us/clockify/` and `/{0}/help/clockify/`),
+  where the site is actually published. They move to `bifrost.origo.is` once that DNS record
+  exists. The pages still have to be written in the `businesscentralal/bifrost` site repository.
 
 ### Added
 
@@ -103,7 +132,7 @@ contract.
   `Clockify.TimeEntry.SyncToTimeSheet`, `.SyncRangeToTimeSheet` and `.SyncAllUsers`, together with
   `Clockify TimeSheet Mgt ori`, `Clockify TimeSheet Sync ori`, `Clockify TimeEntry Fetch ori`,
   `Clockify TimeEntry Parse ori` and 430 lines of new tests.
-- `Bifrost Clockify.is-IS.xlf` with all 130 translation units translated. The legacy app shipped no
+- `Bifrost Timesheets.is-IS.xlf` with all 130 translation units translated. The legacy app shipped no
   Icelandic translation file at all.
 - `is-IS=` comments on the 18 labels, enum captions and search terms that had none.
 - A dedicated `CLOCKIFY` AL Test Suite built by the test app, refreshed by a new upgrade codeunit

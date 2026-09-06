@@ -1,10 +1,10 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.Projects.Project.Journal;
 using Microsoft.Utilities;
 
 /// <summary>
-/// Company-level setup for the Bifrost Clockify connector. Bifröst Foundation's own
+/// Company-level setup for the Bifrost Timesheets connector. Bifröst Foundation's own
 /// <c>Setup ori</c> table is not extended: every Clockify setting lives here so the
 /// connector can be installed, configured and removed without touching Foundation.
 ///
@@ -49,7 +49,7 @@ table 70009268 "Clockify Setup ori"
         /// </summary>
         field(11; "Default Workspace"; Text[50])
         {
-            Caption = 'Default Workspace ID', Comment = 'is-IS=Sjálfgefið vinnusvæði';
+            Caption = 'Default Workspace ID', Comment = 'is-IS=Kenni sjálfgefins vinnusvæðis';
             DataClassification = SystemMetadata;
         }
 

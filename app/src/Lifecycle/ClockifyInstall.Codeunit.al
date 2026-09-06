@@ -1,10 +1,10 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 using System.Upgrade;
 
 /// <summary>
-/// Install codeunit for the Bifrost Clockify connector. Bootstraps the
+/// Install codeunit for the Bifrost Timesheets connector. Bootstraps the
 /// <c>Clockify Setup</c> record (if missing) so the Clockify settings have a
 /// home, and registers the initial-release upgrade tag.
 /// </summary>
@@ -49,7 +49,7 @@ codeunit 70009207 "Clockify Install ori"
     /// <summary>Returns the per-company upgrade tag for the initial Clockify connector release.</summary>
     internal procedure GetInitialReleaseTag(): Code[250]
     begin
-        exit('Origo.Bifrost.Clockify-Initial-20260906');
+        exit('Origo.Bifrost.Timesheets-Initial-20260906');
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Upgrade Tag", OnGetPerCompanyUpgradeTags, '', false, false)]

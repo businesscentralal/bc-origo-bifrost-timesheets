@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Stores and retrieves the company Clockify API key in IsolatedStorage

@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Read-only lookup over the Clockify workspaces accessible to the configured

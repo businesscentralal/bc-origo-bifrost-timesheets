@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Transport contract for talking to the Clockify REST API. The concrete

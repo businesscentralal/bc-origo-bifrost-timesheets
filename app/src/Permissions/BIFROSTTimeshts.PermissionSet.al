@@ -1,17 +1,17 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
-/// Full permission set for the Bifrost Clockify connector. Grants execute
+/// Full permission set for the Bifrost Timesheets connector. Grants execute
 /// rights on every Clockify object: the integration table, the HTTP client,
 /// request helper, secret, setup, workspace and retention-policy management,
 /// install, the setup card, secret dialog, workspace lookup and integration list
 /// pages, the per-domain help codeunits and all message-type implementation codeunits.
 /// </summary>
-permissionset 70009200 "BIFROST Clockify ori"
+permissionset 70009200 "BIFROST Timeshts ori"
 {
     Access = Public;
     Assignable = true;
-    Caption = 'Clockify - Full', Comment = 'is-IS=Clockify - Full';
+    Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
         tabledata "Clockify Setup ori" = RIMD,
@@ -85,7 +85,7 @@ permissionset 70009200 "BIFROST Clockify ori"
         codeunit "Clockify CustFldList Impl ori" = X,
         codeunit "Clockify Help Overview Sub ori" = X,
         codeunit "Clockify ReqLog Masker ori" = X,
-        page "Clockify Setup ori" = X,
+        page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,
         page "Clockify Integration List ori" = X,

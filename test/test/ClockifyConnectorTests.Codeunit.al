@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
@@ -7,12 +7,12 @@ using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 using Microsoft.Utilities;
 using Origo.Bifrost;
-using Origo.Bifrost.Clockify;
+using Origo.Bifrost.Timesheets;
 using System.DataAdministration;
 using System.TestLibraries.Utilities;
 
 /// <summary>
-/// Tests for the Bifrost Clockify connector that run without network access:
+/// Tests for the Bifrost Timesheets connector that run without network access:
 /// message-type registration and metadata, per-type Markdown help, API-key secret
 /// storage, the API-version selection that replaced the base-URL field, and the
 /// full request/response pipeline driven through a mock <c>Clockify API Client ori</c>.

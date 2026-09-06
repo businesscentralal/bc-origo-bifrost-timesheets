@@ -1,11 +1,11 @@
 {
     "folders": [
         {
-            "name": "Bifröst Clockify",
+            "name": "Bifröst tímaskýrslur",
             "path": "app"
         },
         {
-            "name": "Bifröst Clockify.Tests",
+            "name": "Bifröst tímaskýrslur.Tests",
             "path": "test"
         },
         {
@@ -36,7 +36,7 @@
         "al.enableCodeActions": true,
         "al.incrementalBuild": true,
         "al.packageCachePath": "./.alpackages",
-        "al.namespaceTemplate": "Origo.Bifrost.Clockify",
+        "al.namespaceTemplate": "Origo.Bifrost.Timesheets",
         "dotnetAcquisitionExtension.existingDotnetPath": []
     },
     "extensions": {

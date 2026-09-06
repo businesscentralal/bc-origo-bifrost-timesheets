@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.TimeSheet;

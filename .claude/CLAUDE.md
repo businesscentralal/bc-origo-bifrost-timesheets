@@ -1,12 +1,19 @@
-# Extension: Bifrost Clockify
+# Extension: Bifrost Timesheets
+
+> Renamed 2026-09-06 from **Bifrost Clockify** to the descriptive name **Bifrost Timesheets**
+> (repository `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`). Object names keep
+> the `Clockify` domain word - Clockify is the connected service - and the message-type keys
+> (`Clockify.*`, `Help.Clockify.Get`) are unchanged. Only the permission set
+> (`BIFROST Timeshts ori`) and the setup page (`Timesheets Setup ori`) were renamed with the app.
+> The documentation slug stays `clockify` until the site folders are renamed.
 
 ## Prefix
-(none - objects use raw names with the mandatory `ori` suffix inside the `Origo.Bifrost.Clockify`
+(none - objects use raw names with the mandatory `ori` suffix inside the `Origo.Bifrost.Timesheets`
 namespace; the third-party product name `Clockify` stays in object names because it identifies the
 domain and keeps the names unique across the tenant)
 
 ## Namespace
-Origo.Bifrost.Clockify (tests: Origo.Bifrost.Clockify.Test)
+Origo.Bifrost.Timesheets (tests: Origo.Bifrost.Timesheets.Test)
 
 ## Object ID Range
 App:   70009200-70009299 (unchanged from Origo Cloud Events Clockify - this is an in-place
@@ -23,8 +30,7 @@ both kept from the legacy app on purpose.
 ## Source Control
 Platform: GitHub
 Organization: businesscentralal
-Repository: origo-bc-cloudevents-clockify (rename to `bc-origo-bifrost-clockify` is pending - the
-  name is currently taken by an empty AppSource-template repository created 2026-09-05)
+Repository: bc-origo-bifrost-timesheets (renamed 2026-09-06 from `origo-bc-cloudevents-clockify`)
 Default branch: main
 
 ## Dependencies
@@ -32,7 +38,7 @@ Default branch: main
 
 ## Naming Rules
 - Every object carries the `ori` suffix (AppSource mandatory affix), max 30 characters;
-  permission sets max 20 (`BIFROST Clockify ori` is exactly 20).
+  permission sets max 20 (`BIFROST Timeshts ori` is exactly 20).
 - "Cloud Event(s)" and the `CE` prefix are gone. The brand name lives in the namespace, the app
   name, the permission set and the captions - never as an object-name prefix.
 - Implementation codeunits are `Clockify <Entity><Verb> Impl ori`; where `<Entity><Verb>` would push
@@ -43,7 +49,7 @@ Default branch: main
 ## Platform Rules Inherited from Foundation
 - **Bifröst Setup page**: this app adds **one action only**, in `group(Apps)` with its `actionref` in
   `addlast(Category_Apps)`. No fields, no table extension of `Setup ori`, no action group. All
-  Clockify settings live on `Clockify Setup ori` (table + page 70009268).
+  Clockify settings live on table `Clockify Setup ori` and page `Timesheets Setup ori` (70009268).
 - **Secrets**: the Clockify API key is still held by this app's own `Clockify Secret Mgt ori` in
   IsolatedStorage (Company scope) with `Clockify Set Secret Dialog ori`. Foundation now owns a
   unified `Secret Store ori`; migrating the key to it is a planned follow-up, and the key will have
@@ -91,9 +97,9 @@ Default branch: main
   while another session publishes to the same container - wait 60 s and retry, up to 10 times.
 
 ## Testing
-- The test app registers its **own** `CLOCKIFY` AL Test Suite (range 95600..95699) on install and on
+- The test app registers its **own** `TIMESHEETS` AL Test Suite (range 95600..95699) on install and on
   upgrade (`Clockify Test Upgrade`, 95605). Run against that suite:
-  `Run-AlTests ... -TestSuite 'CLOCKIFY' -TestIsolation Codeunit`. Do **not** rebuild the shared
+  `Run-AlTests ... -TestSuite 'TIMESHEETS' -TestIsolation Codeunit` - the name `Run-BifrostTests.ps1` derives from the test app name. Do **not** rebuild the shared
   `DEFAULT` suite - several test apps live side by side on these containers.
 - The runner's `-ExtensionId` discovery path returned zero tests for every app on both containers on
   2026-09-06; the named-suite route is the reliable one.
@@ -113,11 +119,11 @@ Default branch: main
   its seven fields moved to `Clockify Setup ori` and their values cannot be carried across, because
   the table they lived on belongs to a dependency this version no longer references.
 - See [CHANGELOG.md](../CHANGELOG.md) and
-  [test/reports/Bifrost_Clockify_TestReport_2026-09-06.md](../test/reports/Bifrost_Clockify_TestReport_2026-09-06.md).
+  [test/reports/Bifrost_Timesheets_TestReport_2026-09-06.md](../test/reports/Bifrost_Timesheets_TestReport_2026-09-06.md).
 
 ## Documentation
 
-Documentation lives in businesscentralal/bifrost (site bifrost.origo.is); there is no `Help/` or
+Documentation lives in businesscentralal/bifrost (published on businesscentralal.github.io/bifrost; bifrost.origo.is once the DNS record exists); there is no `Help/` or
 `docs/` folder in this repository.
 
 - Product docs: https://businesscentralal.github.io/bifrost/en-us/clockify/
@@ -143,9 +149,9 @@ Before writing any AL code, load the relevant skills:
 - **`origo-bc-documentation-writer`** - XML doc comments, markdown reference docs, help codeunits
 
 Key rules always in effect:
-- Namespace `Origo.Bifrost.Clockify` at the top of every file
+- Namespace `Origo.Bifrost.Timesheets` at the top of every file
 - XML documentation on every object and non-local procedure
-- Bilingual captions (en-US + is-IS) on all user-facing text; `Bifrost Clockify.is-IS.xlf` is
+- Bilingual captions (en-US + is-IS) on all user-facing text; `Bifrost Timesheets.is-IS.xlf` is
   regenerated from the `is-IS=` comments after every compile
 - `SetLoadFields` on all record reads
 - `Format(guid, 0, 4)` for GUIDs, `Format(value, 0, 9)` / `Evaluate(var, text, 9)` for

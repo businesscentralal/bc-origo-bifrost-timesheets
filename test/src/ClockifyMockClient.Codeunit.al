@@ -1,6 +1,6 @@
-﻿namespace Origo.Bifrost.Clockify.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
-using Origo.Bifrost.Clockify;
+using Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Mock implementation of <see cref="Interface.ClockifyApiClient"/> used by the

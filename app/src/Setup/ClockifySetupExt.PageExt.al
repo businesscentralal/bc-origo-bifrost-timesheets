@@ -1,9 +1,9 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 
 /// <summary>
-/// Adds the Bifröst Clockify setup action to the Bifröst Setup page. Following the
+/// Adds the Bifrost Timesheets setup action to the Bifröst Setup page. Following the
 /// Foundation rule for dependent applications, this is the connector's entire
 /// footprint on that page: one action in the <c>Apps</c> group and its promoted
 /// reference. Every Clockify field, list and action lives on
@@ -18,10 +18,10 @@ pageextension 70009200 "Clockify Setup Ext ori" extends "Setup ori"
             action(ClockifySetupCard)
             {
                 ApplicationArea = All;
-                Caption = 'Clockify', Comment = 'is-IS=Clockify';
+                Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
                 Image = Timesheet;
-                RunObject = page "Clockify Setup ori";
-                ToolTip = 'Open the setup of the Bifröst Clockify connector: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opna uppsetningu Bifröst Clockify tengingar: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
+                RunObject = page "Timesheets Setup ori";
+                ToolTip = 'Open the setup of the Bifrost Timesheets connector: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opna uppsetningu Bifröst tímaskýrslna: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
             }
         }
         addlast(Category_Apps)

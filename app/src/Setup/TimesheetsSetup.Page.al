@@ -1,17 +1,17 @@
-﻿namespace Origo.Bifrost.Clockify;
+﻿namespace Origo.Bifrost.Timesheets;
 
 /// <summary>
-/// Setup card for the Bifrost Clockify connector. Holds every Clockify setting and
+/// Setup card for the Bifrost Timesheets connector. Holds every Clockify setting and
 /// the API-key, webhook and integration-link actions, so nothing has to be added to
 /// Bifröst Foundation's own setup card. All action logic lives in
 /// <c>Clockify Setup Mgt ori</c> and <c>Clockify Webhook Mgt ori</c>; the page only
 /// reads API-key and webhook presence live.
 /// </summary>
-page 70009268 "Clockify Setup ori"
+page 70009268 "Timesheets Setup ori"
 {
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;
-    Caption = 'Clockify Setup', Comment = 'is-IS=Uppsetning Clockify';
+    Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
     ContextSensitiveHelpPage = 'clockify-setup';
     DeleteAllowed = false;
     InsertAllowed = false;

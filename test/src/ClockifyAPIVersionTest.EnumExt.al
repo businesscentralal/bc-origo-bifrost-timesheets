@@ -1,6 +1,6 @@
-﻿namespace Origo.Bifrost.Clockify.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
-using Origo.Bifrost.Clockify;
+using Origo.Bifrost.Timesheets;
 
 /// <summary>
 /// Adds a test-only <c>Mock</c> value to the <c>Clockify API Version ori</c> enum,

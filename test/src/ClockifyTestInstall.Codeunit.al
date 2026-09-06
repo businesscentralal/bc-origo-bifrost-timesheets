@@ -1,9 +1,9 @@
-﻿namespace Origo.Bifrost.Clockify.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
 using System.TestTools.TestRunner;
 
 /// <summary>
-/// Registers the Bifröst Clockify test codeunits in their own AL Test Suite so a test
+/// Registers the Bifrost Timesheets test codeunits in their own AL Test Suite so a test
 /// run can select them without touching the shared DEFAULT suite of the container,
 /// where several Bifröst and Cloud Events test apps are installed side by side.
 /// Runs on install and on upgrade, so republishing the test app refreshes the suite.
@@ -18,7 +18,7 @@ codeunit 95600 "Clockify Test Install"
     end;
 
     /// <summary>
-    /// Rebuilds the <c>CLOCKIFY</c> test suite from the test app's own object range
+    /// Rebuilds the <c>TIMESHEETS</c> test suite from the test app's own object range
     /// (95600-95699). Safe to call repeatedly.
     /// </summary>
     procedure SetupTestSuite()
@@ -27,7 +27,7 @@ codeunit 95600 "Clockify Test Install"
         TestSuiteMgt: Codeunit "Test Suite Mgt.";
         SuiteName: Code[10];
     begin
-        SuiteName := 'CLOCKIFY';
+        SuiteName := 'TIMESHEETS';
         if ALTestSuite.Get(SuiteName) then
             ALTestSuite.Delete(true);
 
