@@ -1,17 +1,17 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Administrative view of the Clockify webhooks the connector has registered for
 /// real-time time-entry sync (see <see cref="Table.ClockifyWebhook"/>). Read-only:
 /// webhooks are created and removed through the actions on the
-/// <c>Cloud Events Setup</c> card, not edited here.
+/// <c>Clockify Setup</c> card, not edited here.
 /// </summary>
-page 70009202 "Clockify Webhooks"
+page 70009202 "Clockify Webhooks ori"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = None;
-    SourceTable = "Clockify Webhook";
+    SourceTable = "Clockify Webhook ori";
     Caption = 'Clockify Webhooks', Comment = 'is-IS=Clockify vefkrókar';
     Editable = false;
     InsertAllowed = false;

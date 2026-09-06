@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Administrative view of the <see cref="Table.ClockifyIntegration"/> links between
@@ -6,12 +6,12 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// and maintained by integrators through the base <c>Data.Records.Get</c> /
 /// <c>Data.Records.Set</c> message types, not edited here.
 /// </summary>
-page 70009200 "Clockify Integration List"
+page 70009200 "Clockify Integration List ori"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = None;
-    SourceTable = "Clockify Integration";
+    SourceTable = "Clockify Integration ori";
     Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tengingar';
     Editable = false;
     InsertAllowed = false;

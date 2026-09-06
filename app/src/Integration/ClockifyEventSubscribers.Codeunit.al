@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
@@ -15,7 +15,7 @@ using Microsoft.Sales.Customer;
 /// - Customer blocked → archives linked Clockify Client
 /// - Job Status = Completed → archives linked Clockify Project
 /// </summary>
-codeunit 70009202 "Clockify Event Subscribers"
+codeunit 70009202 "Clockify Event Subscribers ori"
 {
     Access = Internal;
     SingleInstance = true;
@@ -23,7 +23,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::"Job Journal Line", OnAfterDeleteEvent, '', false, false)]
     local procedure OnAfterDeleteJobJournalLine(var Rec: Record "Job Journal Line"; RunTrigger: Boolean)
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         // When a journal line is deleted, reverse any integration record pointing to it
         Integration.SetCurrentKey("BC Table No.", "BC SystemId", "Reversed");
@@ -41,7 +41,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Job Jnl.-Post Line", OnAfterJobLedgEntryInsert, '', false, false)]
     local procedure HandleOnAfterJobLedgEntryInsert(var JobLedgerEntry: Record "Job Ledger Entry"; JobJournalLine: Record "Job Journal Line")
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         // When a Job Journal Line is posted, the ledger entry is created.
         // Find the integration record that points to the journal line's SystemId
@@ -62,7 +62,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::Customer, OnBeforeDeleteEvent, '', false, false)]
     local procedure OnBeforeDeleteCustomer(var Rec: Record Customer; RunTrigger: Boolean)
     var
-        ArchiveSync: Codeunit "Clockify Archive Sync";
+        ArchiveSync: Codeunit "Clockify Archive Sync ori";
     begin
         if Rec.IsTemporary() then
             exit;
@@ -72,7 +72,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::Job, OnBeforeDeleteEvent, '', false, false)]
     local procedure OnBeforeDeleteJob(var Rec: Record Job; RunTrigger: Boolean)
     var
-        ArchiveSync: Codeunit "Clockify Archive Sync";
+        ArchiveSync: Codeunit "Clockify Archive Sync ori";
     begin
         if Rec.IsTemporary() then
             exit;
@@ -82,7 +82,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::"Job Task", OnBeforeDeleteEvent, '', false, false)]
     local procedure OnBeforeDeleteJobTask(var Rec: Record "Job Task"; RunTrigger: Boolean)
     var
-        ArchiveSync: Codeunit "Clockify Archive Sync";
+        ArchiveSync: Codeunit "Clockify Archive Sync ori";
         BCCode: Code[50];
     begin
         if Rec.IsTemporary() then
@@ -94,7 +94,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::Customer, OnAfterModifyEvent, '', false, false)]
     local procedure OnAfterModifyCustomer(var Rec: Record Customer; var xRec: Record Customer; RunTrigger: Boolean)
     var
-        ArchiveSync: Codeunit "Clockify Archive Sync";
+        ArchiveSync: Codeunit "Clockify Archive Sync ori";
     begin
         if Rec.IsTemporary() then
             exit;
@@ -106,7 +106,7 @@ codeunit 70009202 "Clockify Event Subscribers"
     [EventSubscriber(ObjectType::Table, Database::Job, OnAfterModifyEvent, '', false, false)]
     local procedure OnAfterModifyJob(var Rec: Record Job; var xRec: Record Job; RunTrigger: Boolean)
     var
-        ArchiveSync: Codeunit "Clockify Archive Sync";
+        ArchiveSync: Codeunit "Clockify Archive Sync ori";
     begin
         if Rec.IsTemporary() then
             exit;

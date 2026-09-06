@@ -1,19 +1,19 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.Task.Create</c> message type.
 /// Creates a task in a project from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009228 "Clockify Task Create Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009228 "Clockify Task Create Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -30,39 +30,21 @@ codeunit 70009228 "Clockify Task Create Impl" implements "Cloud Event Msg Interf
         exit('Creates a task in a Clockify project from the request body.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Outbound);
+        exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        Help: Codeunit "Clockify Task Help ori";
     begin
-        HelpBuilder.Init('Clockify.Task.Create', GetDescription(), 'POST', '/workspaces/{workspaceId}/projects/{projectId}/tasks');
-        HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'Parent project ID (tasks belong to a project)', 'Clockify.Project.List → id');
-        HelpBuilder.AddParam('body.name', true, 'string', 'Task display name (must be unique within the project)', '');
-        HelpBuilder.AddParam('body.status', false, 'string', 'ACTIVE (default) or DONE', '');
-        HelpBuilder.AddParam('body.assigneeIds', false, 'array', 'Array of user IDs to assign', 'Clockify.User.List → id');
-        HelpBuilder.AddParam('body.billable', false, 'boolean', 'Override project billable default', '');
-        HelpBuilder.AddParam('body.hourlyRate', false, 'object', '{ "amount": <cents>, "currency": "USD" }', '');
-        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "projectId": "60...", "body": { "name": "Design" } }');
-        HelpBuilder.SetResponseNote('the created task object (includes `id`, `name`, `projectId`, `status`)');
-        HelpBuilder.AddError(400, 'Task name already exists in project', 'Choose a different name or find existing via `Clockify.Task.List`');
-        HelpBuilder.AddError(404, 'Project not found', 'Verify projectId via `Clockify.Project.List`');
-        HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Cloud Events Setup');
-        HelpBuilder.SetNotes('- Tasks are scoped to a project — you always need both workspaceId and projectId.\' +
-            '- Task names must be unique within a project but can repeat across projects.');
-        HelpBuilder.SetRelated('- **Resolve projectId:** `Clockify.Project.List` or Clockify Integration (type=project)\' +
-            '- **List existing tasks:** `Clockify.Task.List`\' +
-            '- **Use in time entries:** Pass task `id` as `taskId` in `Clockify.TimeEntry.Create`');
-        Argument.SetResponseMarkdown(HelpBuilder.Render());
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.Task.Create", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;
         WorkspaceId: Text;
         ProjectId: Text;

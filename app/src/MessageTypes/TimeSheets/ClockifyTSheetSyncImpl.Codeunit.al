@@ -1,13 +1,13 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeEntry.SyncToTimeSheet</c> message type. Writes a
 /// single Clockify time entry to the resource's open BC Time Sheet (line + detail) instead
 /// of the Job Journal. BC-side operation.
 /// </summary>
-codeunit 70009255 "Clockify TimeSheetSync Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009255 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
@@ -16,8 +16,8 @@ codeunit 70009255 "Clockify TimeSheetSync Impl" implements "Cloud Event Msg Inte
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -34,23 +34,23 @@ codeunit 70009255 "Clockify TimeSheetSync Impl" implements "Cloud Event Msg Inte
         exit('Syncs a Clockify time entry to the resource''s open BC Time Sheet (line + detail) with deduplication and update detection.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetSyncToTimeSheetHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ParseHelper: Codeunit "Clockify TimeEntry Parse";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ParseHelper: Codeunit "Clockify TimeEntry Parse ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         WorkspaceId: Text;
@@ -65,7 +65,7 @@ codeunit 70009255 "Clockify TimeSheetSync Impl" implements "Cloud Event Msg Inte
         Hours: Decimal;
         PostingDate: Date;
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         ResultMessage: Text;
     begin
         Argument.AssertVersion1();

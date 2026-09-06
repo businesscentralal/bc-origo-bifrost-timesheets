@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using System.Reflection;
 
@@ -6,7 +6,7 @@ using System.Reflection;
 /// Fetches a Clockify user's finished time entries for a date range from the Clockify API,
 /// following pagination. Used by the range/all-users sync message types.
 /// </summary>
-codeunit 70009260 "Clockify TimeEntry Fetch"
+codeunit 70009260 "Clockify TimeEntry Fetch ori"
 {
     Access = Internal;
 
@@ -18,9 +18,9 @@ codeunit 70009260 "Clockify TimeEntry Fetch"
     /// </summary>
     procedure TryFetchUserEntries(WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; var Entries: JsonArray; var ErrorMessage: Text): Boolean
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         TypeHelper: Codeunit "Type Helper";
-        ApiClient: Interface "Clockify API Client";
+        ApiClient: Interface "Clockify API Client ori";
         PageArray: JsonArray;
         PageToken: JsonToken;
         EntryToken: JsonToken;

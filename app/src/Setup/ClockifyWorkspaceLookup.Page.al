@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Read-only lookup over the Clockify workspaces accessible to the configured
@@ -6,10 +6,10 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// <see cref="LoadWorkspaces"/> and run in lookup mode so the Setup card can pick
 /// a default workspace by name.
 /// </summary>
-page 70009203 "Clockify Workspace Lookup"
+page 70009203 "Clockify Workspace Lookup ori"
 {
     PageType = List;
-    SourceTable = "Clockify Workspace Buffer";
+    SourceTable = "Clockify Workspace Buffer ori";
     SourceTableTemporary = true;
     Editable = false;
     UsageCategory = None;
@@ -37,7 +37,7 @@ page 70009203 "Clockify Workspace Lookup"
 
     /// <summary>Loads the workspaces to choose from into the page's temporary record.</summary>
     /// <param name="TempWorkspaceBuffer">The workspaces to display.</param>
-    procedure LoadWorkspaces(var TempWorkspaceBuffer: Record "Clockify Workspace Buffer" temporary)
+    procedure LoadWorkspaces(var TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary)
     begin
         if TempWorkspaceBuffer.FindSet() then
             repeat
@@ -48,7 +48,7 @@ page 70009203 "Clockify Workspace Lookup"
 
     /// <summary>Returns the workspace the user selected.</summary>
     /// <param name="TempWorkspaceBuffer">Out: receives the selected workspace.</param>
-    procedure GetSelectedWorkspace(var TempWorkspaceBuffer: Record "Clockify Workspace Buffer" temporary)
+    procedure GetSelectedWorkspace(var TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary)
     begin
         TempWorkspaceBuffer := Rec;
     end;

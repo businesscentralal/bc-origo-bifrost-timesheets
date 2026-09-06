@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.Project.Journal;
 using Microsoft.Projects.Project.Ledger;
@@ -11,10 +11,10 @@ using Microsoft.Projects.Project.Ledger;
 ///
 /// Work Type is resolved from the entry's Clockify tags: the first tag linked to a Work Type
 /// (a <c>TAG</c>-type Clockify Integration row whose BC Code is a Work Type Code) wins;
-/// otherwise the Default Work Type on Cloud Events Setup is used. The Job Task always comes
+/// otherwise the Default Work Type on Clockify Setup is used. The Job Task always comes
 /// from the Clockify task's <c>TASK</c> integration link.
 /// </summary>
-codeunit 70009205 "Clockify Time Entry Sync"
+codeunit 70009205 "Clockify Time Entry Sync ori"
 {
     Access = Internal;
 
@@ -61,9 +61,9 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Hours: Decimal;
         Billable: Boolean;
         ClockifyTagIds: List of [Text];
-        var ResultMessage: Text): Enum "Clockify Sync Result"
+        var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
-        ExistingIntegration: Record "Clockify Integration";
+        ExistingIntegration: Record "Clockify Integration ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -72,15 +72,15 @@ codeunit 70009205 "Clockify Time Entry Sync"
         // Resolve BC mappings from integration table
         if not ResolveProjectMapping(ClockifyProjectId, JobNo) then begin
             ResultMessage := StrSubstNo(NoProjectMappingErr, ClockifyProjectId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if (ClockifyTaskId <> '') and (not ResolveTaskMapping(ClockifyTaskId, JobTaskNo)) then begin
             ResultMessage := StrSubstNo(NoTaskMappingErr, ClockifyTaskId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if not ResolveUserMapping(ClockifyUserId, ResourceNo) then begin
             ResultMessage := StrSubstNo(NoUserMappingErr, ClockifyUserId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
 
         // Work Type: first tag linked to a Work Type wins, else the setup default.
@@ -117,15 +117,15 @@ codeunit 70009205 "Clockify Time Entry Sync"
     /// <param name="ClockifyEntryId">The Clockify time entry ID to reverse.</param>
     /// <param name="ResultMessage">Out: a human-readable message about what happened.</param>
     /// <returns>Skipped (no active link), Updated (line deleted/link reversed), or Corrected (posted — manual correction needed).</returns>
-    procedure ReverseTimeEntry(ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result"
+    procedure ReverseTimeEntry(ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         JobJournalLine: Record "Job Journal Line";
     begin
         Integration.LockTable();
         if not FindActiveIntegration(ClockifyEntryId, Integration) then begin
             ResultMessage := StrSubstNo(NoActiveLinkMsg, ClockifyEntryId);
-            exit(Enum::"Clockify Sync Result"::Skipped);
+            exit(Enum::"Clockify Sync Result ori"::Skipped);
         end;
 
         if Integration."BC Table No." = Database::"Job Journal Line" then begin
@@ -133,21 +133,21 @@ codeunit 70009205 "Clockify Time Entry Sync"
                 // Deleting the line fires OnAfterDeleteJobJournalLine, which reverses the link.
                 JobJournalLine.Delete(true);
                 ResultMessage := StrSubstNo(DeletedLineMsg, ClockifyEntryId);
-                exit(Enum::"Clockify Sync Result"::Updated);
+                exit(Enum::"Clockify Sync Result ori"::Updated);
             end;
             ReverseIntegration(Integration);
             ResultMessage := StrSubstNo(LinkReversedMsg, ClockifyEntryId);
-            exit(Enum::"Clockify Sync Result"::Updated);
+            exit(Enum::"Clockify Sync Result ori"::Updated);
         end;
 
         // Posted to the ledger — the entry cannot be auto-removed. Reverse the link
         // and signal that a manual correction is required for the posted entry.
         ReverseIntegration(Integration);
         ResultMessage := StrSubstNo(PostedManualMsg, ClockifyEntryId);
-        exit(Enum::"Clockify Sync Result"::Corrected);
+        exit(Enum::"Clockify Sync Result ori"::Corrected);
     end;
 
-    local procedure FindActiveIntegration(ClockifyEntryId: Text[50]; var Integration: Record "Clockify Integration"): Boolean
+    local procedure FindActiveIntegration(ClockifyEntryId: Text[50]; var Integration: Record "Clockify Integration ori"): Boolean
     begin
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'TIME_ENTRY');
@@ -158,7 +158,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
     end;
 
     local procedure HandleExistingEntry(
-        var ExistingIntegration: Record "Clockify Integration";
+        var ExistingIntegration: Record "Clockify Integration ori";
         JournalTemplateName: Code[10];
         JournalBatchName: Code[10];
         ClockifyEntryId: Text[50];
@@ -171,7 +171,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Hours: Decimal;
         Billable: Boolean;
         WorkType: Code[10];
-        var ResultMessage: Text): Enum "Clockify Sync Result"
+        var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
         ExistingJournalLine: Record "Job Journal Line";
         PostedToLedger: Boolean;
@@ -186,13 +186,13 @@ codeunit 70009205 "Clockify Time Entry Sync"
                 HasChanged := DetectChanges(ExistingJournalLine, JobNo, JobTaskNo, ResourceNo, PostingDate, Hours, WorkType);
                 if not HasChanged then begin
                     ResultMessage := StrSubstNo(DuplicateSkippedMsg, ClockifyEntryId, ExistingIntegration."Entry No.");
-                    exit(Enum::"Clockify Sync Result"::Skipped);
+                    exit(Enum::"Clockify Sync Result ori"::Skipped);
                 end;
                 // Changed but not posted — update the existing journal line in place
                 UpdateJournalLine(ExistingJournalLine, JobNo, JobTaskNo, ResourceNo, Description, PostingDate, Hours, Billable, WorkType);
                 UpdateIntegrationName(ExistingIntegration, Description, Hours);
                 ResultMessage := StrSubstNo(EntryUpdatedMsg, ClockifyEntryId, ExistingIntegration."Entry No.");
-                exit(Enum::"Clockify Sync Result"::Updated);
+                exit(Enum::"Clockify Sync Result ori"::Updated);
             end;
             // Journal line was deleted — reverse integration and re-create
             ReverseIntegration(ExistingIntegration);
@@ -224,10 +224,10 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Hours: Decimal;
         Billable: Boolean;
         WorkType: Code[10];
-        var ResultMessage: Text): Enum "Clockify Sync Result"
+        var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
         JobJournalLine: Record "Job Journal Line";
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         LineNo: Integer;
     begin
         LineNo := GetNextLineNo(JournalTemplateName, JournalBatchName);
@@ -242,11 +242,11 @@ codeunit 70009205 "Clockify Time Entry Sync"
             Description + ' ' + Format(Hours) + 'h');
 
         ResultMessage := 'Created journal line ' + Format(LineNo) + ' for ' + Format(Hours) + 'h on ' + JobNo + '/' + JobTaskNo;
-        exit(Enum::"Clockify Sync Result"::Created);
+        exit(Enum::"Clockify Sync Result ori"::Created);
     end;
 
     local procedure CreateCorrectionEntry(
-        var ExistingIntegration: Record "Clockify Integration";
+        var ExistingIntegration: Record "Clockify Integration ori";
         JournalTemplateName: Code[10];
         JournalBatchName: Code[10];
         ClockifyEntryId: Text[50];
@@ -259,11 +259,11 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Hours: Decimal;
         Billable: Boolean;
         WorkType: Code[10];
-        var ResultMessage: Text): Enum "Clockify Sync Result"
+        var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
         OriginalJournalLine: Record "Job Journal Line";
         CorrectionJournalLine: Record "Job Journal Line";
-        NewIntegration: Record "Clockify Integration";
+        NewIntegration: Record "Clockify Integration ori";
         ReversalLineNo: Integer;
         NewLineNo: Integer;
         OriginalHours: Decimal;
@@ -295,7 +295,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
             Description + ' ' + Format(Hours) + 'h');
 
         ResultMessage := StrSubstNo(CorrectionCreatedMsg, ClockifyEntryId, ReversalLineNo, NewLineNo);
-        exit(Enum::"Clockify Sync Result"::Corrected);
+        exit(Enum::"Clockify Sync Result ori"::Corrected);
     end;
 
     local procedure CreateJournalLine(
@@ -366,7 +366,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
     end;
 
     local procedure CreateIntegrationRecord(
-        var Integration: Record "Clockify Integration";
+        var Integration: Record "Clockify Integration ori";
         ClockifyEntryId: Text[50];
         ClockifyWorkspaceId: Text[50];
         BCTableNo: Integer;
@@ -387,13 +387,13 @@ codeunit 70009205 "Clockify Time Entry Sync"
         Integration.Insert(true);
     end;
 
-    local procedure ReverseIntegration(var Integration: Record "Clockify Integration")
+    local procedure ReverseIntegration(var Integration: Record "Clockify Integration ori")
     begin
         Integration."Reversed" := true;
         Integration.Modify(true);
     end;
 
-    local procedure UpdateIntegrationName(var Integration: Record "Clockify Integration"; Description: Text; Hours: Decimal)
+    local procedure UpdateIntegrationName(var Integration: Record "Clockify Integration ori"; Description: Text; Hours: Decimal)
     begin
         Integration."Clockify Name" := CopyStr(Description + ' ' + Format(Hours) + 'h', 1, 250);
         Integration.Modify(true);
@@ -401,7 +401,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
 
     internal procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         if ClockifyProjectId = '' then
             exit(false);
@@ -418,7 +418,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
 
     internal procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         BCCodeText: Text;
         DashPos: Integer;
     begin
@@ -441,7 +441,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
 
     internal procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'USER');
@@ -456,12 +456,12 @@ codeunit 70009205 "Clockify Time Entry Sync"
 
     /// <summary>
     /// Resolves the Work Type for a time entry. The first Clockify tag that is linked
-    /// to a Work Type wins; otherwise the Default Work Type on Cloud Events Setup is
+    /// to a Work Type wins; otherwise the Default Work Type on Clockify Setup is
     /// used (which may itself be blank).
     /// </summary>
     internal procedure ResolveWorkType(ClockifyTagIds: List of [Text]): Code[10]
     var
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         TagId: Text;
         WorkType: Code[10];
     begin
@@ -475,7 +475,7 @@ codeunit 70009205 "Clockify Time Entry Sync"
 
     local procedure ResolveTagWorkType(ClockifyTagId: Text): Code[10]
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         if ClockifyTagId = '' then
             exit('');

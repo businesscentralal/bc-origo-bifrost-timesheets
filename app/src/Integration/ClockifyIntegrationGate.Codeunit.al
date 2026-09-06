@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Access gate for the Clockify connector. Every Clockify message type except
@@ -11,7 +11,7 @@ using Origo.APP.CloudEvents;
 /// message types are added. On failure it writes the standard error envelope to
 /// the argument and returns <c>false</c>, mirroring the base posting-gate pattern.
 /// </summary>
-codeunit 70009203 "Clockify Integration Gate"
+codeunit 70009203 "Clockify Integration Gate ori"
 {
     Access = Internal;
 
@@ -22,11 +22,11 @@ codeunit 70009203 "Clockify Integration Gate"
     /// Verifies the current user can write to the Clockify Integration table. On
     /// failure it sets an error response on the argument and returns false.
     /// </summary>
-    /// <param name="Argument">The Cloud Event argument (receives the error response on failure).</param>
+    /// <param name="Argument">The Bifrost argument (receives the error response on failure).</param>
     /// <returns>True when the user has write permission to the Clockify Integration table.</returns>
-    procedure AssertCanWriteIntegration(var Argument: Record "CE Message Argument ori"): Boolean
+    procedure AssertCanWriteIntegration(var Argument: Record "Message Argument ori"): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
+        ClockifyIntegration: Record "Clockify Integration ori";
     begin
         if ClockifyIntegration.WritePermission() then
             exit(true);

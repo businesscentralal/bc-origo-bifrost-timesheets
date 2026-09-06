@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeEntry.SyncRange</c> message type.
@@ -11,20 +11,20 @@ using Origo.APP.CloudEvents;
 /// Job Queue or message chain needs — the per-entry <c>Clockify.TimeEntry.Sync</c>
 /// requires the caller to supply and loop over each entry itself.
 /// </summary>
-codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009247 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     var
         JournalTemplateParamLbl: Label 'journalTemplate', Locked = true;
         JournalBatchParamLbl: Label 'journalBatch', Locked = true;
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Cloud Events Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -41,43 +41,23 @@ codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg I
         exit('Syncs all of a user''s finished Clockify time entries in a date range to BC Job Journal Lines in a single call.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        Help: Codeunit "Clockify TimeEntry Help ori";
     begin
-        HelpBuilder.Init('Clockify.TimeEntry.SyncRange', GetDescription(), 'POST (BC-side)', '/internal/sync-time-entries');
-        HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID whose entries to sync', 'Clockify.User.GetCurrent → id or Clockify.User.List → id');
-        HelpBuilder.AddParam('start', true, 'string', 'Range start in ISO-8601 UTC (inclusive)', '');
-        HelpBuilder.AddParam('end', true, 'string', 'Range end in ISO-8601 UTC (inclusive)', '');
-        HelpBuilder.AddParam('journalTemplate', false, 'string', 'BC Job Journal Template name (Code[10]). Defaults to the Clockify Job Journal Template on Cloud Events Setup.', '');
-        HelpBuilder.AddParam('journalBatch', false, 'string', 'BC Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Cloud Events Setup.', '');
-        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "userId": "63...", "start": "2026-06-01T00:00:00Z", "end": "2026-06-30T23:59:59Z", "journalTemplate": "VERK", "journalBatch": "CONTOSO" }');
-        HelpBuilder.SetResponseNote('{ "processed": 12, "created": 8, "skipped": 3, "updated": 1, "corrected": 0, "errors": 0, "results": [ { "entryId": "...", "result": "Created", "message": "..." } ] }');
-        HelpBuilder.SetPreconditions('1. Each Clockify project/task/user in the range must be mapped in the Clockify Integration table.\' +
-            '2. The journal template and batch must exist in BC.\' +
-            '3. Only finished entries are synced — running timers (`end` = null) are excluded by the query.');
-        HelpBuilder.AddError(400, 'Journal template/batch not configured', 'Set them on Cloud Events Setup or pass them in the request');
-        HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Cloud Events Setup');
-        HelpBuilder.SetNotes('- Reads entries from Clockify (paged), then writes Job Journal Lines in BC — combines `Clockify.TimeEntry.List` + `Clockify.TimeEntry.Sync`.\' +
-            '- Per-entry failures (e.g. a missing mapping) do NOT abort the batch; they are counted under `errors` and listed in `results`.\' +
-            '- Safe to re-run: already-synced unchanged entries return `Skipped`.');
-        HelpBuilder.SetRelated('- **Resolve userId:** `Clockify.User.GetCurrent` or `Clockify.User.List`\' +
-            '- **Sync one entry:** `Clockify.TimeEntry.Sync`\' +
-            '- **Inspect entries first:** `Clockify.TimeEntry.List`');
-        Argument.SetResponseMarkdown(HelpBuilder.Render());
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRange", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         Results: JsonArray;
@@ -131,10 +111,10 @@ codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg I
     end;
 
     /// <summary>Reads every finished entry for the user/range from Clockify, following pages.</summary>
-    local procedure FetchEntries(var Argument: Record "CE Message Argument ori"; WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; var Entries: JsonArray): Boolean
+    local procedure FetchEntries(var Argument: Record "Message Argument ori"; WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; var Entries: JsonArray): Boolean
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ApiClient: Interface "Clockify API Client";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ApiClient: Interface "Clockify API Client ori";
         PageArray: JsonArray;
         PageToken: JsonToken;
         EntryToken: JsonToken;
@@ -175,7 +155,7 @@ codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg I
         exit(true);
     end;
 
-    local procedure SyncEntries(var TimeEntrySync: Codeunit "Clockify Time Entry Sync"; JournalTemplate: Code[10]; JournalBatch: Code[10]; WorkspaceId: Text; UserId: Text; Entries: JsonArray; var Results: JsonArray; var Counts: Dictionary of [Text, Integer])
+    local procedure SyncEntries(var TimeEntrySync: Codeunit "Clockify Time Entry Sync ori"; JournalTemplate: Code[10]; JournalBatch: Code[10]; WorkspaceId: Text; UserId: Text; Entries: JsonArray; var Results: JsonArray; var Counts: Dictionary of [Text, Integer])
     var
         EntryToken: JsonToken;
         EntryObject: JsonObject;
@@ -190,7 +170,7 @@ codeunit 70009247 "Clockify TimeEntrySyncRng Impl" implements "Cloud Event Msg I
         Hours: Decimal;
         PostingDate: Date;
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         ResultMessage: Text;
         ResultText: Text;
     begin

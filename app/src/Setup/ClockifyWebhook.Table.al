@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Tracks the Clockify webhooks the connector has registered for real-time
@@ -11,12 +11,12 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// stored here — it is held in IsolatedStorage by
 /// <see cref="Codeunit.ClockifySecretMgt"/>.
 /// </summary>
-table 70009201 "Clockify Webhook"
+table 70009201 "Clockify Webhook ori"
 {
     Caption = 'Clockify Webhook', Comment = 'is-IS=Clockify vefkrókur';
     DataClassification = SystemMetadata;
-    LookupPageId = "Clockify Webhooks";
-    DrillDownPageId = "Clockify Webhooks";
+    LookupPageId = "Clockify Webhooks ori";
+    DrillDownPageId = "Clockify Webhooks ori";
 
     fields
     {

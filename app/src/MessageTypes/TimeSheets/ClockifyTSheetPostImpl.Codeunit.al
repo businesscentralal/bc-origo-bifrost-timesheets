@@ -1,19 +1,19 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.TimeSheet;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeSheet.Post</c> message type. Transfers approved,
 /// unposted time-sheet detail into a Job Journal batch and posts it. BC-side operation —
 /// does not call the Clockify API.
 /// </summary>
-codeunit 70009251 "Clockify TimeSheetPost Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009251 "Clockify TSheetPost Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     var
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Cloud Events Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
@@ -32,22 +32,22 @@ codeunit 70009251 "Clockify TimeSheetPost Impl" implements "Cloud Event Msg Inte
         exit('Transfers approved, unposted time-sheet detail into a Job Journal batch and posts the lines.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetPostHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeSheet.Post", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         JsonToken: JsonToken;

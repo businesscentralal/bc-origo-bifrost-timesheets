@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify.Test;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
@@ -6,15 +6,16 @@ using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 using Microsoft.Utilities;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
+using Origo.Bifrost.Clockify;
 using System.DataAdministration;
 using System.TestLibraries.Utilities;
 
 /// <summary>
-/// Tests for the Cloud Events Clockify connector that run without network access:
+/// Tests for the Bifrost Clockify connector that run without network access:
 /// message-type registration and metadata, per-type Markdown help, API-key secret
 /// storage, the API-version selection that replaced the base-URL field, and the
-/// full request/response pipeline driven through a mock <c>Clockify API Client</c>.
+/// full request/response pipeline driven through a mock <c>Clockify API Client ori</c>.
 /// </summary>
 codeunit 95601 "Clockify Connector Tests"
 {
@@ -27,14 +28,14 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpTypeIsOutboundWithNoFilterTable()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] The Help.Clockify.Get type reports correct metadata.
         Argument."Type" := Argument."Type"::"Help.Clockify.Get";
         MsgInterface := Argument.GetMessageTypeInterface();
 
-        LibraryAssert.AreEqual(Enum::"Cloud Event Msg Direction ori"::Outbound, MsgInterface.GetMessageDirection(), 'Help type should be outbound.');
+        LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, MsgInterface.GetMessageDirection(), 'Help type should be outbound.');
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'Help type should have no filter table.');
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'Help type should have a description.');
     end;
@@ -42,7 +43,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure EveryClockifyTypeHasMetadataAndHelp()
     var
-        MessageType: Enum "Cloud Event Message Type ori";
+        MessageType: Enum "Message Type ori";
         Ordinals: List of [Integer];
         Ordinal: Integer;
     begin
@@ -55,22 +56,22 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyTypeMetadataAndHelp(Ordinal: Integer)
     var
-        Argument: Record "CE Message Argument ori";
-        MessageType: Enum "Cloud Event Message Type ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MessageType: Enum "Message Type ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
         NotOutboundErr: Label 'Type %1 should be outbound.', Comment = '%1 = message type';
         NoDescriptionErr: Label 'Type %1 should have a description.', Comment = '%1 = message type';
         NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
     begin
-        MessageType := Enum::"Cloud Event Message Type ori".FromInteger(Ordinal);
+        MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
         Argument.Init();
         Argument."Type" := MessageType;
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
 
         LibraryAssert.AreEqual(
-            Enum::"Cloud Event Msg Direction ori"::Outbound,
+            Enum::"Msg Direction ori"::Outbound,
             MsgInterface.GetMessageDirection(),
             StrSubstNo(NotOutboundErr, MessageType));
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), StrSubstNo(NoDescriptionErr, MessageType));
@@ -83,7 +84,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CompanyApiKeyRoundtrips()
     var
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
         KeyText: Text;
     begin
         // [SCENARIO] A stored company API key is reported as present and can be cleared.
@@ -101,21 +102,21 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure DefaultApiVersionIsVersion1()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        ClockifySetup: Record "Clockify Setup ori";
     begin
         // [SCENARIO] A fresh setup record selects Version 1, which is fixed on the public endpoint.
-        Clear(CloudEventsSetup);
-        CloudEventsSetup.Init();
+        Clear(ClockifySetup);
+        ClockifySetup.Init();
         LibraryAssert.AreEqual(
-            CloudEventsSetup."Clockify API Version"::"Version 1",
-            CloudEventsSetup."Clockify API Version",
+            ClockifySetup."API Version"::"Version 1",
+            ClockifySetup."API Version",
             'A new setup record should default to the Version 1 Clockify API.');
     end;
 
     [Test]
     procedure WorkspaceListRoutesGetThroughClient()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -141,7 +142,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ErrorResponseIsSurfacedWithStatusCode()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -162,7 +163,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ProjectCreatePostsBodyToWorkspace()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         BodyJson: JsonObject;
@@ -187,17 +188,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure DefaultWorkspaceUsedWhenRequestOmitsIt()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
         // [GIVEN] A default workspace configured on setup, and a request that omits workspaceId
         UseMockApi();
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Default Workspace" := 'WS-DEF';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Default Workspace" := 'WS-DEF';
+        ClockifySetup.Modify();
         MockState.SetNextResponse(true, 200, '[]');
 
         // [WHEN] The Clockify.Project.List task executes without a workspaceId
@@ -210,8 +211,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure WorkspaceLookupRequiresApiKey()
     var
-        SecretMgt: Codeunit "Clockify Secret Mgt";
-        WorkspaceMgt: Codeunit "Clockify Workspace Mgt";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
+        WorkspaceMgt: Codeunit "Clockify Workspace Mgt ori";
         WorkspaceId: Text;
         WorkspaceName: Text;
     begin
@@ -230,8 +231,8 @@ codeunit 95601 "Clockify Connector Tests"
     [HandlerFunctions('WorkspaceLookupModalHandler')]
     procedure WorkspaceLookupReturnsSelection()
     var
-        SecretMgt: Codeunit "Clockify Secret Mgt";
-        WorkspaceMgt: Codeunit "Clockify Workspace Mgt";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
+        WorkspaceMgt: Codeunit "Clockify Workspace Mgt ori";
         MockState: Codeunit "Clockify Mock State";
         KeyText: Text;
         WorkspaceId: Text;
@@ -259,10 +260,10 @@ codeunit 95601 "Clockify Connector Tests"
     [HandlerFunctions('ConfirmYesHandler,GenericMessageHandler')]
     procedure RegisterCreatesWebhooksForEachTimeEntryEvent()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        ClockifyWebhook: Record "Clockify Webhook";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
-        WebhookMgt: Codeunit "Clockify Webhook Mgt";
+        ClockifySetup: Record "Clockify Setup ori";
+        ClockifyWebhook: Record "Clockify Webhook ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
+        WebhookMgt: Codeunit "Clockify Webhook Mgt ori";
         MockState: Codeunit "Clockify Mock State";
         KeyText: Text;
     begin
@@ -270,11 +271,11 @@ codeunit 95601 "Clockify Connector Tests"
         UseMockApi();
         KeyText := 'test-company-api-key';
         SecretMgt.SetCompanyApiKey(KeyText);
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Default Workspace" := 'WS-1';
-        CloudEventsSetup."Clockify Webhook Receiver URL" := 'https://site/api/clockify-webhooks?companyId=C1';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Default Workspace" := 'WS-1';
+        ClockifySetup."Webhook Receiver URL" := 'https://site/api/clockify-webhooks?companyId=C1';
+        ClockifySetup.Modify();
         ClockifyWebhook.DeleteAll();
         MockState.SetNextResponse(true, 200, '{"id":"WH-1","authToken":"tok-1"}');
 
@@ -294,8 +295,8 @@ codeunit 95601 "Clockify Connector Tests"
     [HandlerFunctions('ConfirmYesHandler,GenericMessageHandler')]
     procedure RemoveDeletesRegisteredWebhooks()
     var
-        ClockifyWebhook: Record "Clockify Webhook";
-        WebhookMgt: Codeunit "Clockify Webhook Mgt";
+        ClockifyWebhook: Record "Clockify Webhook ori";
+        WebhookMgt: Codeunit "Clockify Webhook Mgt ori";
         MockState: Codeunit "Clockify Mock State";
     begin
         // [GIVEN] Mock API and a tracked webhook row
@@ -320,31 +321,31 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ReverseTimeEntryWithNoLinkIsSkipped()
     var
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
-        SyncResult: Enum "Clockify Sync Result";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
+        SyncResult: Enum "Clockify Sync Result ori";
         ResultMessage: Text;
     begin
         // [SCENARIO] A TIME_ENTRY_DELETED webhook for an entry that was never synced is a safe no-op.
         SyncResult := TimeEntrySync.ReverseTimeEntry('UNKNOWN-ENTRY', ResultMessage);
 
         // [THEN] It reports Skipped without raising an error
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Skipped, SyncResult, 'Reversing an unknown entry should be Skipped.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Skipped, SyncResult, 'Reversing an unknown entry should be Skipped.');
     end;
 
     [Test]
     procedure JobJournalResolvesFromSetup()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        ClockifySetup: Record "Clockify Setup ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         Template: Code[10];
         Batch: Code[10];
     begin
         // [GIVEN] A fully configured Job Journal target on setup
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := 'JOB';
-        CloudEventsSetup."Clockify Job Jnl. Batch" := 'DEFAULT';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := 'JOB';
+        ClockifySetup."Job Jnl. Batch" := 'DEFAULT';
+        ClockifySetup.Modify();
 
         // [THEN] The resolver returns the configured values
         LibraryAssert.IsTrue(SetupMgt.TryGetJobJournal(Template, Batch), 'A fully configured journal should resolve.');
@@ -352,26 +353,26 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.AreEqual('DEFAULT', Batch, 'Batch should come from setup.');
 
         // [THEN] Clearing the batch makes it unresolved
-        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
-        CloudEventsSetup.Modify();
+        ClockifySetup."Job Jnl. Batch" := '';
+        ClockifySetup.Modify();
         LibraryAssert.IsFalse(SetupMgt.TryGetJobJournal(Template, Batch), 'A missing batch should not resolve.');
     end;
 
     [Test]
     procedure TimeEntrySyncErrorsWhenNoJournalConfigured()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
         // [GIVEN] No Job Journal configured on setup and none supplied in the request
         UseMockApi();
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := '';
-        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := '';
+        ClockifySetup."Job Jnl. Batch" := '';
+        ClockifySetup.Modify();
         RequestJson.Add('workspaceId', 'WS-1');
         RequestJson.Add('userId', 'U-1');
         RequestJson.Add('entryId', 'E-1');
@@ -389,18 +390,18 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntrySyncRejectsInProgressEntries()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
         // [GIVEN] A sync request with no end timestamp (in-progress timer)
         UseMockApi();
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := 'JOB';
-        CloudEventsSetup."Clockify Job Jnl. Batch" := 'DEFAULT';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := 'JOB';
+        ClockifySetup."Job Jnl. Batch" := 'DEFAULT';
+        ClockifySetup.Modify();
 
         RequestJson.Add('workspaceId', 'WS-1');
         RequestJson.Add('userId', 'U-1');
@@ -420,9 +421,9 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure WorkTypeResolvesFromTagThenDefault()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Integration: Record "Clockify Integration";
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
+        ClockifySetup: Record "Clockify Setup ori";
+        Integration: Record "Clockify Integration ori";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         TagIds: List of [Text];
     begin
         // [GIVEN] A Clockify tag linked to a Work Type, and a default Work Type on setup
@@ -433,10 +434,10 @@ codeunit 95601 "Clockify Connector Tests"
         Integration."BC Code" := 'DESIGN';
         Integration."Reversed" := false;
         Integration.Insert(true);
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Default Work Type" := 'GENERAL';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Default Work Type" := 'GENERAL';
+        ClockifySetup.Modify();
 
         // [THEN] A linked tag resolves to its Work Type
         Clear(TagIds);
@@ -457,7 +458,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncCreatesJobJournalLineWithWorkTypeFromTag()
     var
         JobJournalLine: Record "Job Journal Line";
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -465,7 +466,7 @@ codeunit 95601 "Clockify Connector Tests"
         TemplateName: Code[10];
         BatchName: Code[10];
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         Msg: Text;
     begin
         // [GIVEN] Master data + integration links (PROJECT/TASK/USER/TAG) and a configured journal
@@ -479,7 +480,7 @@ codeunit 95601 "Clockify Connector Tests"
             'Design work', Today(), 4, true, TagIds, Msg);
 
         // [THEN] A journal line is created with the mapped Job/Task/Resource, hours, Work Type and billable line type
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Created, SyncResult, 'First sync should create a line.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Created, SyncResult, 'First sync should create a line.');
         JobJournalLine.SetRange("Journal Template Name", TemplateName);
         JobJournalLine.SetRange("Journal Batch Name", BatchName);
         LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');
@@ -495,7 +496,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncSkipsUnchangedThenUpdatesOnChange()
     var
         JobJournalLine: Record "Job Journal Line";
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -503,7 +504,7 @@ codeunit 95601 "Clockify Connector Tests"
         TemplateName: Code[10];
         BatchName: Code[10];
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         Msg: Text;
     begin
         // [GIVEN] An entry already synced once
@@ -515,12 +516,12 @@ codeunit 95601 "Clockify Connector Tests"
         // [WHEN] The same entry is synced again unchanged
         SyncResult := TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 4, true, TagIds, Msg);
         // [THEN] It is skipped
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Skipped, SyncResult, 'An unchanged re-sync should be Skipped.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Skipped, SyncResult, 'An unchanged re-sync should be Skipped.');
 
         // [WHEN] The hours change
         SyncResult := TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 6, true, TagIds, Msg);
         // [THEN] The existing line is updated in place (still one line, new quantity)
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Updated, SyncResult, 'A changed re-sync should be Updated.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Updated, SyncResult, 'A changed re-sync should be Updated.');
         JobJournalLine.SetRange("Journal Template Name", TemplateName);
         JobJournalLine.SetRange("Journal Batch Name", BatchName);
         LibraryAssert.AreEqual(1, JobJournalLine.Count(), 'An in-place update should not add a second line.');
@@ -532,8 +533,8 @@ codeunit 95601 "Clockify Connector Tests"
     procedure ReverseDeletesSyncedJournalLine()
     var
         JobJournalLine: Record "Job Journal Line";
-        Integration: Record "Clockify Integration";
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
+        Integration: Record "Clockify Integration ori";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -541,7 +542,7 @@ codeunit 95601 "Clockify Connector Tests"
         TemplateName: Code[10];
         BatchName: Code[10];
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         Msg: Text;
     begin
         // [GIVEN] A synced (unposted) time entry
@@ -554,7 +555,7 @@ codeunit 95601 "Clockify Connector Tests"
         SyncResult := TimeEntrySync.ReverseTimeEntry('E1', Msg);
 
         // [THEN] The journal line is deleted and the active link is reversed
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Updated, SyncResult, 'Reversing an unposted entry should delete the line.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Updated, SyncResult, 'Reversing an unposted entry should delete the line.');
         JobJournalLine.SetRange("Journal Template Name", TemplateName);
         JobJournalLine.SetRange("Journal Batch Name", BatchName);
         LibraryAssert.IsTrue(JobJournalLine.IsEmpty(), 'The journal line should have been deleted.');
@@ -568,7 +569,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure WebhookDispatchCreatesJobJournalLine()
     var
         JobJournalLine: Record "Job Journal Line";
-        Dispatcher: Codeunit "Cloud Events Dispatcher ori";
+        Dispatcher: Codeunit "Dispatcher ori";
         RequestContent: BigText;
         ResponseContent: BigText;
         JobNo: Code[20];
@@ -590,8 +591,8 @@ codeunit 95601 "Clockify Connector Tests"
 
         // [WHEN] The Webhook.Inbound.Receive message is dispatched (fires OnWebhookReceived -> Clockify Webhook Handler)
         Dispatcher.Execute(
-            Enum::"Cloud Event Message Type ori"::"Webhook.Inbound.Receive",
-            Enum::"CE Message Version ori"::"1.0",
+            Enum::"Message Type ori"::"Webhook.Inbound.Receive",
+            Enum::"Message Version ori"::"1.0",
             'NEW_TIME_ENTRY', 'clockify/WS1', 'application/json',
             RequestContent, ResponseContent, ResponseContentType);
 
@@ -604,7 +605,7 @@ codeunit 95601 "Clockify Connector Tests"
     end;
 
     [ModalPageHandler]
-    procedure WorkspaceLookupModalHandler(var WorkspaceLookup: TestPage "Clockify Workspace Lookup")
+    procedure WorkspaceLookupModalHandler(var WorkspaceLookup: TestPage "Clockify Workspace Lookup ori")
     begin
         WorkspaceLookup.First();
         WorkspaceLookup.OK().Invoke();
@@ -624,11 +625,11 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure IntegrationTableStampsAndClearsReversedAt()
     var
-        ClockifyIntegration: Record "Clockify Integration";
+        ClockifyIntegration: Record "Clockify Integration ori";
     begin
         // [SCENARIO] Reversing a link stamps Reversed At; un-reversing clears it.
         ClockifyIntegration.Init();
-        ClockifyIntegration."BC Table No." := Database::"Clockify Integration";
+        ClockifyIntegration."BC Table No." := Database::"Clockify Integration ori";
         ClockifyIntegration."Clockify Type" := 'client';
         ClockifyIntegration."Clockify Id" := 'CL-1';
         ClockifyIntegration.Insert(true);
@@ -654,21 +655,21 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure RetentionRegistersIntegrationTable()
     var
-        RetenPolicy: Codeunit "Clockify Reten. Policy";
+        RetenPolicy: Codeunit "Clockify Reten. Policy ori";
         RetenPolAllowedTables: Codeunit "Reten. Pol. Allowed Tables";
     begin
         // [SCENARIO] The Clockify Integration table is registered for retention.
         RetenPolicy.AddAllowedTable();
         LibraryAssert.IsTrue(
-            RetenPolAllowedTables.IsAllowedTable(Database::"Clockify Integration"),
+            RetenPolAllowedTables.IsAllowedTable(Database::"Clockify Integration ori"),
             'The Clockify Integration table should be an allowed retention table.');
     end;
 
     [Test]
     procedure HelpIncludesIntegrationTracking()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Per-type help explains how to use the integration table.
@@ -686,7 +687,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CurrencyListProjectsWorkspaceCurrencies()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
@@ -718,7 +719,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListRoutesGetToWorkspacesUserGroups()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -739,7 +740,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListForwardsQueryString()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -762,7 +763,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListForwardsInProgressQueryParameter()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -786,7 +787,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListRoutesGetToWorkspacesCustomFields()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -807,17 +808,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
         // [GIVEN] A default workspace configured on setup, and a UserGroup.List request that omits workspaceId
         UseMockApi();
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Default Workspace" := 'WS-DEF';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Default Workspace" := 'WS-DEF';
+        ClockifySetup.Modify();
         MockState.SetNextResponse(true, 200, '[]');
 
         // [WHEN] The Clockify.UserGroup.List task executes without a workspaceId
@@ -830,8 +831,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListHelpExplainsIdUsage()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] UserGroup.List help directs the caller to use the returned id as userGroupIds on project writes.
@@ -849,8 +850,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListHelpExplainsIdUsage()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] CustomField.List help directs the caller to use the returned id as customFieldId on time-entry and project writes.
@@ -868,8 +869,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListHelpExplainsInProgressFilter()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] TimeEntry.List help explains query.in-progress and its effect on result shape.
@@ -887,8 +888,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntrySyncHelpWarnsAboutInProgressEntries()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] TimeEntry.Sync help warns that in-progress entries are never written to Job Journal.
@@ -906,8 +907,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserListHelpExplainsOptionalQueryEffects()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Optional query behavior is explained for list endpoints.
@@ -926,8 +927,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ClientUpdateHelpExplainsOptionalBodyEffects()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Optional body behavior is explained for update endpoints.
@@ -946,8 +947,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewListsLookupEndpoints()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] The Clockify overview lists the three lookup endpoints so callers can discover them.
@@ -966,8 +967,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewGotchasCallOutIdOnlyWrites()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] The overview warns that Clockify writes accept opaque IDs, never names or BC keys.
@@ -985,8 +986,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure IntegrationGateAllowsWriteAccess()
     var
-        Argument: Record "CE Message Argument ori";
-        IntegrationGate: Codeunit "Clockify Integration Gate";
+        Argument: Record "Message Argument ori";
+        IntegrationGate: Codeunit "Clockify Integration Gate ori";
     begin
         // [SCENARIO] With write permission to the integration table, the gate lets the operation proceed.
         Argument.Init();
@@ -998,8 +999,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeIsInboundWithHelp()
     var
-        Argument: Record "CE Message Argument ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] Clockify.TimeEntry.SyncRange reports inbound metadata and produces help.
         Argument.Init();
@@ -1007,7 +1008,7 @@ codeunit 95601 "Clockify Connector Tests"
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
 
-        LibraryAssert.AreEqual(Enum::"Cloud Event Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), 'SyncRange should be inbound (BC-side).');
+        LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), 'SyncRange should be inbound (BC-side).');
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'SyncRange should have no filter table.');
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'SyncRange should have a description.');
 
@@ -1018,18 +1019,18 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeErrorsWhenNoJournalConfigured()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
         // [GIVEN] No Job Journal configured on setup and none supplied in the request
         UseMockApi();
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := '';
-        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := '';
+        ClockifySetup."Job Jnl. Batch" := '';
+        ClockifySetup.Modify();
         RequestJson.Add('workspaceId', 'WS1');
         RequestJson.Add('userId', 'CUSER');
         RequestJson.Add('start', '2026-06-01T00:00:00Z');
@@ -1048,7 +1049,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeCreatesLinesForEntriesInRange()
     var
         JobJournalLine: Record "Job Journal Line";
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1087,7 +1088,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangePerEntryErrorDoesNotAbortBatch()
     var
         JobJournalLine: Record "Job Journal Line";
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1125,7 +1126,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure AllInboundTimeTypesAreInboundWithHelp()
     var
-        MessageType: Enum "Cloud Event Message Type ori";
+        MessageType: Enum "Message Type ori";
         Ordinals: List of [Integer];
         Ordinal: Integer;
     begin
@@ -1138,18 +1139,18 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyInboundTypeMetadataAndHelp(Ordinal: Integer)
     var
-        Argument: Record "CE Message Argument ori";
-        MessageType: Enum "Cloud Event Message Type ori";
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        Argument: Record "Message Argument ori";
+        MessageType: Enum "Message Type ori";
+        MsgInterface: Interface "Msg Interface ori";
         NotInboundErr: Label 'Type %1 should be inbound.', Comment = '%1 = message type';
         NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
     begin
-        MessageType := Enum::"Cloud Event Message Type ori".FromInteger(Ordinal);
+        MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
         Argument.Init();
         Argument."Type" := MessageType;
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
-        LibraryAssert.AreEqual(Enum::"Cloud Event Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), StrSubstNo(NotInboundErr, MessageType));
+        LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), StrSubstNo(NotInboundErr, MessageType));
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
         LibraryAssert.AreNotEqual('', Argument.GetResponseText(), StrSubstNo(NoHelpErr, MessageType));
     end;
@@ -1159,7 +1160,7 @@ codeunit 95601 "Clockify Connector Tests"
     var
         ResourcesSetup: Record "Resources Setup";
         Resource: Record Resource;
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [GIVEN] A Time Sheet No. Series is configured but no time-sheet resources exist
@@ -1182,7 +1183,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
@@ -1197,7 +1198,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetArchiveReturnsZeroWhenNothingPosted()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Archive runs with no posted sheets
@@ -1212,7 +1213,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
@@ -1227,7 +1228,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetReopenReturnsZeroWhenNothingPending()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
@@ -1242,16 +1243,16 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetPostErrorsWhenNoJournalConfigured()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
-        Argument: Record "CE Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [GIVEN] No Job Journal configured and none supplied
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := '';
-        CloudEventsSetup."Clockify Job Jnl. Batch" := '';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := '';
+        ClockifySetup."Job Jnl. Batch" := '';
+        ClockifySetup.Modify();
 
         // [WHEN] Clockify.TimeSheet.Post runs
         ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Post");
@@ -1265,7 +1266,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetPostReturnsZeroWhenNoApprovedLines()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1289,8 +1290,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoMapping()
     var
-        Argument: Record "CE Message Argument ori";
-        Integration: Record "Clockify Integration";
+        Argument: Record "Message Argument ori";
+        Integration: Record "Clockify Integration ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -1315,7 +1316,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoOpenTimeSheet()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1348,7 +1349,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncToTimeSheetCreatesDetailOnOpenSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1387,7 +1388,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeToTimeSheetCreatesDetailsForEntries()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1425,7 +1426,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeToTimeSheetPerEntryErrorDoesNotAbort()
     var
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1462,7 +1463,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncAllUsersSyncsMappedUserToTimeSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "CE Message Argument ori";
+        Argument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1500,7 +1501,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure ReverseFromTimeSheetRemovesOpenDetail()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1509,7 +1510,7 @@ codeunit 95601 "Clockify Connector Tests"
         BatchName: Code[10];
         TimeSheetNo: Code[20];
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         Msg: Text;
     begin
         // [GIVEN] A time entry synced to an open time sheet
@@ -1523,7 +1524,7 @@ codeunit 95601 "Clockify Connector Tests"
         SyncResult := TimeSheetSync.ReverseFromTimeSheet('E1', Msg);
 
         // [THEN] The detail is removed from the open sheet
-        LibraryAssert.AreEqual(Enum::"Clockify Sync Result"::Updated, SyncResult, 'Reversing an open-sheet entry should remove the detail.');
+        LibraryAssert.AreEqual(Enum::"Clockify Sync Result ori"::Updated, SyncResult, 'Reversing an open-sheet entry should remove the detail.');
         TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
         LibraryAssert.IsTrue(TimeSheetDetail.IsEmpty(), 'The time-sheet detail should have been deleted.');
     end;
@@ -1558,8 +1559,8 @@ codeunit 95601 "Clockify Connector Tests"
         WorkType: Record "Work Type";
         JobJournalTemplate: Record "Job Journal Template";
         JobJournalBatch: Record "Job Journal Batch";
-        Integration: Record "Clockify Integration";
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        Integration: Record "Clockify Integration ori";
+        ClockifySetup: Record "Clockify Setup ori";
         LibraryJob: Codeunit "Library - Job";
         LibraryResource: Codeunit "Library - Resource";
     begin
@@ -1585,17 +1586,17 @@ codeunit 95601 "Clockify Connector Tests"
         InsertIntegrationLink('USER', 'CUSER', ResourceNo);
         InsertIntegrationLink('TAG', 'CTAG', WorkTypeCode);
 
-        if not CloudEventsSetup.Get() then
-            CloudEventsSetup.Insert();
-        CloudEventsSetup."Clockify Job Jnl. Template" := TemplateName;
-        CloudEventsSetup."Clockify Job Jnl. Batch" := BatchName;
-        CloudEventsSetup."Clockify Default Work Type" := '';
-        CloudEventsSetup.Modify();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := TemplateName;
+        ClockifySetup."Job Jnl. Batch" := BatchName;
+        ClockifySetup."Default Work Type" := '';
+        ClockifySetup.Modify();
     end;
 
     local procedure InsertIntegrationLink(ClockifyType: Text; ClockifyId: Text; BCCode: Text)
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         Integration.Init();
         Integration."Clockify Type" := CopyStr(ClockifyType, 1, MaxStrLen(Integration."Clockify Type"));
@@ -1607,35 +1608,35 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure UseMockApi()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        ClockifySetup: Record "Clockify Setup ori";
         MockState: Codeunit "Clockify Mock State";
     begin
         MockState.Reset();
-        if not CloudEventsSetup.Get() then begin
-            CloudEventsSetup.Init();
-            CloudEventsSetup.Insert();
+        if not ClockifySetup.Get() then begin
+            ClockifySetup.Init();
+            ClockifySetup.Insert();
         end;
-        CloudEventsSetup."Clockify API Version" := CloudEventsSetup."Clockify API Version"::Mock;
-        CloudEventsSetup.Modify();
+        ClockifySetup."API Version" := ClockifySetup."API Version"::Mock;
+        ClockifySetup.Modify();
     end;
 
-    local procedure ExecuteType(var Argument: Record "CE Message Argument ori"; MessageType: Enum "Cloud Event Message Type ori")
+    local procedure ExecuteType(var Argument: Record "Message Argument ori"; MessageType: Enum "Message Type ori")
     var
         RequestJson: JsonObject;
     begin
         ExecuteTypeWithRequest(Argument, MessageType, RequestJson);
     end;
 
-    local procedure ExecuteTypeWithRequest(var Argument: Record "CE Message Argument ori"; MessageType: Enum "Cloud Event Message Type ori"; RequestJson: JsonObject)
+    local procedure ExecuteTypeWithRequest(var Argument: Record "Message Argument ori"; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
-        MsgInterface: Interface "Cloud Event Msg Interface ori";
+        MsgInterface: Interface "Msg Interface ori";
     begin
         Argument.Init();
         Argument."Type" := MessageType;
         Argument.Insert();
         Argument.SetRequestJson(RequestJson);
         MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.ExecuteCloudEventTask(Argument);
+        MsgInterface.ExecuteBifrostTask(Argument);
     end;
 
     local procedure ReadText(JsonObj: JsonObject; PropertyName: Text): Text

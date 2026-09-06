@@ -1,10 +1,10 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Routes inbound Clockify webhooks to the time-entry sync engine. Subscribes to
-/// <c>Webhook Inbound Events.OnWebhookReceived</c> (Cloud Events Base), which fires
+/// <c>Webhook Inbound Events.OnWebhookReceived</c> (Bifrost Foundation), which fires
 /// when the webhook receiver (Azure Function) forwards a Clockify delivery as a
 /// <c>Webhook.Inbound.Receive</c> message.
 ///
@@ -14,7 +14,7 @@ using Origo.APP.CloudEvents;
 /// the same link), and <c>TIME_ENTRY_DELETED</c> reverses it. The webhook body is
 /// the Clockify time-entry object, so no extra API fetch is needed.
 /// </summary>
-codeunit 70009206 "Clockify Webhook Handler"
+codeunit 70009206 "Clockify Webhook Handler ori"
 {
     Access = Internal;
 
@@ -41,8 +41,8 @@ codeunit 70009206 "Clockify Webhook Handler"
 
     local procedure SyncFromWebhook(BodyJson: Text)
     var
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         Body: JsonObject;
         EntryId: Text;
         WorkspaceId: Text;
@@ -63,7 +63,7 @@ codeunit 70009206 "Clockify Webhook Handler"
         if not Body.ReadFrom(BodyJson) then
             exit;
 
-        // The webhook carries no journal target — use the Cloud Events Setup
+        // The webhook carries no journal target — use the Clockify Setup
         // configuration. If it is not set, skip rather than fail the delivery
         // (which Clockify would otherwise retry indefinitely).
         if not SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch) then
@@ -93,8 +93,8 @@ codeunit 70009206 "Clockify Webhook Handler"
 
     local procedure ReverseFromWebhook(BodyJson: Text)
     var
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
-        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
         Body: JsonObject;
         EntryId: Text;
         ResultMessage: Text;

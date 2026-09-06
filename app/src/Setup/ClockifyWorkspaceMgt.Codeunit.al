@@ -1,14 +1,14 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
-/// Backs the default-workspace picker on the <c>Cloud Events Setup</c> card.
+/// Backs the default-workspace picker on the <c>Clockify Setup</c> card.
 /// Fetches the workspaces accessible to the company API key from
 /// <c>GET /workspaces</c> through the configured
 /// <see cref="Interface.ClockifyApiClient"/>, parses them, and runs the
 /// <see cref="Page.ClockifyWorkspaceLookup"/> picker. Requires the company API key
 /// to be set first.
 /// </summary>
-codeunit 70009246 "Clockify Workspace Mgt"
+codeunit 70009246 "Clockify Workspace Mgt ori"
 {
     Access = Internal;
 
@@ -26,11 +26,11 @@ codeunit 70009246 "Clockify Workspace Mgt"
     /// <returns>True when the user selected a workspace.</returns>
     procedure LookupWorkspace(var WorkspaceId: Text; var WorkspaceName: Text): Boolean
     var
-        TempWorkspaceBuffer: Record "Clockify Workspace Buffer" temporary;
-        SecretMgt: Codeunit "Clockify Secret Mgt";
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        WorkspaceLookup: Page "Clockify Workspace Lookup";
-        ApiClient: Interface "Clockify API Client";
+        TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary;
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        WorkspaceLookup: Page "Clockify Workspace Lookup ori";
+        ApiClient: Interface "Clockify API Client ori";
         ResponseBody: Text;
         StatusCode: Integer;
     begin
@@ -64,9 +64,9 @@ codeunit 70009246 "Clockify Workspace Mgt"
     /// </summary>
     /// <param name="ResponseBody">The raw JSON array returned by Clockify.</param>
     /// <param name="TempWorkspaceBuffer">Out: the parsed workspaces.</param>
-    internal procedure ParseWorkspaces(ResponseBody: Text; var TempWorkspaceBuffer: Record "Clockify Workspace Buffer" temporary)
+    internal procedure ParseWorkspaces(ResponseBody: Text; var TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary)
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RootToken: JsonToken;
         WorkspaceToken: JsonToken;
         WorkspaceObject: JsonObject;

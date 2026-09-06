@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Masker implementation for Clockify request log entries.
@@ -8,7 +8,7 @@ using Origo.APP.CloudEvents;
 /// present in the request or response body. Bodies are plain JSON and safe to
 /// store unmasked regardless of debug mode.
 /// </summary>
-codeunit 70009242 "Clockify ReqLog Masker" implements "CE Request Log Masker ori"
+codeunit 70009242 "Clockify ReqLog Masker ori" implements "Request Log Masker ori"
 {
     Access = Internal;
 

@@ -1,14 +1,14 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 using System.Upgrade;
 
 /// <summary>
-/// Install codeunit for the Cloud Events Clockify connector. Bootstraps the
-/// <c>Cloud Events Setup</c> record (if missing) so the Clockify settings have a
+/// Install codeunit for the Bifrost Clockify connector. Bootstraps the
+/// <c>Clockify Setup</c> record (if missing) so the Clockify settings have a
 /// home, and registers the initial-release upgrade tag.
 /// </summary>
-codeunit 70009207 "Clockify Install"
+codeunit 70009207 "Clockify Install ori"
 {
     Subtype = Install;
     Access = Internal;
@@ -22,7 +22,7 @@ codeunit 70009207 "Clockify Install"
 
     local procedure SetUpRetentionPolicy()
     var
-        RetenPolicy: Codeunit "Clockify Reten. Policy";
+        RetenPolicy: Codeunit "Clockify Reten. Policy ori";
     begin
         RetenPolicy.AddAllowedTable();
         RetenPolicy.EnableDefaultPolicy();
@@ -30,12 +30,12 @@ codeunit 70009207 "Clockify Install"
 
     local procedure EnsureSetupRecord()
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        ClockifySetup: Record "Clockify Setup ori";
     begin
-        if CloudEventsSetup.Get() then
+        if ClockifySetup.Get() then
             exit;
-        CloudEventsSetup.Init();
-        CloudEventsSetup.Insert();
+        ClockifySetup.Init();
+        ClockifySetup.Insert();
     end;
 
     local procedure SetUpgradeTags()
@@ -49,7 +49,7 @@ codeunit 70009207 "Clockify Install"
     /// <summary>Returns the per-company upgrade tag for the initial Clockify connector release.</summary>
     internal procedure GetInitialReleaseTag(): Code[250]
     begin
-        exit('Origo.PTE.CloudEvents.Clockify-Initial-20260609');
+        exit('Origo.Bifrost.Clockify-Initial-20260906');
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Upgrade Tag", OnGetPerCompanyUpgradeTags, '', false, false)]

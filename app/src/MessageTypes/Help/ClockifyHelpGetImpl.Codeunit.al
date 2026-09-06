@@ -1,20 +1,20 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Help.Clockify.Get</c> message type. Returns a Markdown
 /// overview of the Clockify connector and every message type it exposes. No request
 /// body is required.
 /// </summary>
-codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009217 "Clockify Help Get Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -31,17 +31,17 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         exit('Returns a Markdown overview of the Clockify connector and all its message types. No request body is required.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Outbound);
+        exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     begin
         Argument.SetResponseMarkdown(BuildOverview());
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         ResponseJson: JsonObject;
         ResultJson: JsonObject;
@@ -64,10 +64,10 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
     begin
         Builder.AppendLine('# Clockify Connector — Message Types');
         Builder.AppendLine('');
-        Builder.AppendLine('The Clockify connector exposes the [Clockify](https://docs.developer.clockify.me) REST API as Cloud Event message types.');
+        Builder.AppendLine('The Clockify connector exposes the [Clockify](https://docs.developer.clockify.me) REST API as Bifrost message types.');
         Builder.AppendLine('Most message types are **outbound** (Business Central calls Clockify) and use `Content-Type: application/json`. The exceptions are `Clockify.TimeEntry.Sync` (inbound BC-side operation that writes to the Job Journal and does not call Clockify) and `Clockify.TimeEntry.SyncRange` (inbound BC-side operation that reads entries from Clockify, then writes to the Job Journal).');
         Builder.AppendLine('');
-        Builder.AppendLine('Authentication uses the workspace API key stored on Cloud Events Setup (`X-Api-Key`). Set `workspaceId` in the request, or configure a Default Workspace ID on Cloud Events Setup.');
+        Builder.AppendLine('Authentication uses the workspace API key stored on Clockify Setup (`X-Api-Key`). Set `workspaceId` in the request, or configure a Default Workspace ID on Clockify Setup.');
         Builder.AppendLine('Create/update message types send the request''s `body` object verbatim to Clockify. List message types accept an optional `query` object whose properties become URL query parameters (for example `page-size`, `page`, `name`, `in-progress`).');
         Builder.AppendLine('For `Clockify.TimeEntry.List`, prefer `query.in-progress = false` when selecting entries for `Clockify.TimeEntry.Sync`. In-progress entries (`end` = null) are intentionally rejected by sync and never written to Job Journal.');
         Builder.AppendLine('');
@@ -167,7 +167,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Set",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration",');
+        Builder.AppendLine('    "table": "Clockify Integration ori",');
         Builder.AppendLine('    "records": [');
         Builder.AppendLine('      {');
         Builder.AppendLine('        "primaryKey": { "Entry No.": <next entry no.> },');
@@ -206,7 +206,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Get",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration",');
+        Builder.AppendLine('    "table": "Clockify Integration ori",');
         Builder.AppendLine('    "filter": "WHERE(Clockify Type=CONST(PROJECT),BC Table No.=CONST(167),Reversed=CONST(false))"');
         Builder.AppendLine('  }');
         Builder.AppendLine('}');
@@ -218,7 +218,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Get",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration",');
+        Builder.AppendLine('    "table": "Clockify Integration ori",');
         Builder.AppendLine('    "filter": "WHERE(Clockify Type=CONST(TIME_ENTRY),Clockify Id=CONST(<clockifyId>),Reversed=CONST(false))"');
         Builder.AppendLine('  }');
         Builder.AppendLine('}');
@@ -232,7 +232,7 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Set",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration",');
+        Builder.AppendLine('    "table": "Clockify Integration ori",');
         Builder.AppendLine('    "records": [');
         Builder.AppendLine('      {');
         Builder.AppendLine('        "primaryKey": { "Entry No.": <existing entry no.> },');
@@ -266,9 +266,9 @@ codeunit 70009217 "Clockify Help Get Impl" implements "Cloud Event Msg Interface
         Builder.AppendLine('| Work Type Code | Resolved from the entry''s **tags** (see below). |');
         Builder.AppendLine('| Unit of Measure / Unit Price / Unit Cost | Defaulted by BC from the Resource and standard job/resource pricing. Clockify rates are not transferred. |');
         Builder.AppendLine('');
-        Builder.AppendLine('**Work Type resolution (tags → Work Type).** A Clockify tag can be linked to a BC Work Type with a `TAG` integration row whose `BC Code` is the Work Type Code. When a time entry is synced, the connector takes the **first** of the entry''s tags that is linked to a Work Type and stamps it on the journal line. If the entry has no tags, or none of its tags is linked, the **`Clockify Default Work Type`** on Cloud Events Setup is used. If that is also blank, the line''s Work Type is left empty.');
+        Builder.AppendLine('**Work Type resolution (tags → Work Type).** A Clockify tag can be linked to a BC Work Type with a `TAG` integration row whose `BC Code` is the Work Type Code. When a time entry is synced, the connector takes the **first** of the entry''s tags that is linked to a Work Type and stamps it on the journal line. If the entry has no tags, or none of its tags is linked, the **`Clockify Default Work Type`** on Clockify Setup is used. If that is also blank, the line''s Work Type is left empty.');
         Builder.AppendLine('');
-        Builder.AppendLine('**Journal target.** Lines are written to the **`Clockify Job Journal Template` / `Clockify Job Journal Batch`** configured on Cloud Events Setup (the `Clockify.TimeEntry.Sync` request may override them per call with `journalTemplate` / `journalBatch`). The connector **creates** the journal line only — it never posts it; posting is left to a person.');
+        Builder.AppendLine('**Journal target.** Lines are written to the **`Clockify Job Journal Template` / `Clockify Job Journal Batch`** configured on Clockify Setup (the `Clockify.TimeEntry.Sync` request may override them per call with `journalTemplate` / `journalBatch`). The connector **creates** the journal line only — it never posts it; posting is left to a person.');
         Builder.AppendLine('');
         Builder.AppendLine('When the Job Journal is posted, the `Clockify Event Subscribers` codeunit automatically updates the integration record from `BC Table No. = 210` (Job Journal Line) to `BC Table No. = 169` (Job Ledger Entry).');
         Builder.AppendLine('');

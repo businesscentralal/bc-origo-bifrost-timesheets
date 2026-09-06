@@ -1,7 +1,7 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.Project.Journal;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeEntry.Sync</c> message type.
@@ -11,20 +11,20 @@ using Origo.APP.CloudEvents;
 /// Requires: workspaceId, userId, and either entryId (to fetch from Clockify and sync)
 /// or full entry data (entryId, projectId, taskId, description, start, end, billable).
 /// </summary>
-codeunit 70009236 "Clockify TimeEntry Sync Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009236 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     var
         JournalTemplateParamLbl: Label 'journalTemplate', Locked = true;
         JournalBatchParamLbl: Label 'journalBatch', Locked = true;
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Cloud Events Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
         InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -41,54 +41,23 @@ codeunit 70009236 "Clockify TimeEntry Sync Impl" implements "Cloud Event Msg Int
         exit('Syncs a Clockify time entry to a BC Job Journal Line with deduplication, update detection, and correction posting.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        Help: Codeunit "Clockify TimeEntry Help ori";
     begin
-        HelpBuilder.Init('Clockify.TimeEntry.Sync', GetDescription(), 'POST (BC-side)', '/internal/sync-time-entry');
-        HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID', 'Clockify.User.GetCurrent → id');
-        HelpBuilder.AddParam('entryId', true, 'string', 'Clockify time entry ID to sync', 'Clockify.TimeEntry.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'Clockify project ID (mapped to BC Job No.)', 'Clockify.Project.List → id');
-        HelpBuilder.AddParam('taskId', false, 'string', 'Clockify task ID (mapped to BC Job Task No.)', 'Clockify.Task.List → id');
-        HelpBuilder.AddParam('description', false, 'string', 'Work description (becomes Journal Line Description)', '');
-        HelpBuilder.AddParam('start', true, 'string', 'Start time in ISO-8601 UTC', '');
-        HelpBuilder.AddParam('end', true, 'string', 'End time in ISO-8601 UTC', '');
-        HelpBuilder.AddParam('billable', false, 'boolean', 'Whether the time is billable', '');
-        HelpBuilder.AddParam('tagIds', false, 'array', 'Clockify tag IDs. The first tag linked to a Work Type (TAG integration row) sets the Job Journal Line Work Type; otherwise the Clockify Default Work Type on Cloud Events Setup is used.', 'Clockify.Tag.List → id');
-        HelpBuilder.AddParam('journalTemplate', false, 'string', 'BC Job Journal Template name (Code[10]). Defaults to the Clockify Job Journal Template on Cloud Events Setup.', '');
-        HelpBuilder.AddParam('journalBatch', false, 'string', 'BC Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Cloud Events Setup.', '');
-        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "userId": "63...", "entryId": "68...", "projectId": "6a...", "taskId": "6a...", "description": "Testing", "start": "2026-06-09T12:00:00Z", "end": "2026-06-09T16:00:00Z", "billable": true, "journalTemplate": "VERK", "journalBatch": "CONTOSO" }');
-        HelpBuilder.SetResponseNote('{ "result": "Created|Skipped|Updated|Corrected|Error", "message": "..." }');
-        HelpBuilder.SetPreconditions('1. The Clockify project must be mapped to a BC Job (via Clockify Integration table, type=project).\' +
-            '2. The Clockify task must be mapped to a BC Job Task (via Clockify Integration table, type=task).\' +
-            '3. The journal template and batch must exist in BC.\' +
-            '4. The Clockify user must be mapped to a BC Resource (via Clockify Integration table, type=user).');
-        HelpBuilder.AddError(400, 'Missing required mapping', 'Ensure project/task/user mappings exist in Clockify Integration table');
-        HelpBuilder.AddError(400, 'Journal template/batch not found', 'Verify template and batch names exist in BC');
-        HelpBuilder.AddError(400, 'In-progress entry', 'Stop the timer first; `Clockify.TimeEntry.Sync` requires `end` to be set');
-        HelpBuilder.SetNotes('- This is a **BC-side** operation — it does NOT call the Clockify API. It creates/updates a Job Journal Line in BC.\' +
-            '- **Deduplication:** Uses `entryId` to detect if already synced. Returns `Skipped` if unchanged.\' +
-            '- **Update detection:** If the entry was previously synced but Clockify data changed, returns `Updated`.\' +
-            '- **Correction posting:** If the entry was already posted to a Job Ledger Entry, posts a correction (reversal + new). Returns `Corrected`.\' +
-            '- **In-progress protection:** Entries with `end` = null are rejected and never written to Job Journal.\' +
-            '- **Result values:** `Created` (new line), `Skipped` (already synced, unchanged), `Updated` (journal line updated), `Corrected` (posted entry corrected), `Error` (failed with message).');
-        HelpBuilder.SetRelated('- **Get entries to sync:** `Clockify.TimeEntry.List` (filter by date range)\' +
-            '- **Verify mappings:** `Data.Records.Get` on Clockify Integration (type=project/task/user)\' +
-            '- **Set up mappings:** `Data.Records.Set` on Clockify Integration');
-        Argument.SetResponseMarkdown(HelpBuilder.Render());
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.Sync", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeEntrySync: Codeunit "Clockify Time Entry Sync";
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         WorkspaceId: Text;
@@ -104,7 +73,7 @@ codeunit 70009236 "Clockify TimeEntry Sync Impl" implements "Cloud Event Msg Int
         PostingDate: Date;
         Hours: Decimal;
         Billable: Boolean;
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         ResultMessage: Text;
         TagIds: List of [Text];
         JsonToken: JsonToken;
@@ -141,7 +110,7 @@ codeunit 70009236 "Clockify TimeEntry Sync Impl" implements "Cloud Event Msg Int
         // Tag IDs drive the Work Type resolution in the sync engine.
         GetTagIds(RequestJson, TagIds);
 
-        // Journal template/batch: default to the Cloud Events Setup configuration,
+        // Journal template/batch: default to the Clockify Setup configuration,
         // then let the request override either value. Both must resolve to non-blank.
         SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);
         if RequestJson.Get(JournalTemplateParamLbl, JsonToken) then

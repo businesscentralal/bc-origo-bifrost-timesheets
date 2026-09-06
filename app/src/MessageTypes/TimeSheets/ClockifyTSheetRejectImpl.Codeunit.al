@@ -1,7 +1,7 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.TimeSheet;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeSheet.Reject</c> message type. Rejects submitted
@@ -9,7 +9,7 @@ using Origo.APP.CloudEvents;
 /// Clockify API.
 /// </summary>
 /// <remarks>Runs the base time-sheet approval engine; no Clockify API call.</remarks>
-codeunit 70009258 "Clockify TimeSheetReject Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009258 "Clockify TSheetReject Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
@@ -30,21 +30,21 @@ codeunit 70009258 "Clockify TimeSheetReject Impl" implements "Cloud Event Msg In
         exit('Rejects submitted time-sheet lines whose sheet ends on or before a cut-off date.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetRejectHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeSheet.Reject", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt";
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         JsonToken: JsonToken;

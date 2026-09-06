@@ -1,13 +1,13 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Transport contract for talking to the Clockify REST API. The concrete
 /// implementation is selected by the <see cref="Enum.ClockifyApiVersion"/> value
-/// stored on <c>Cloud Events Setup</c>, so the rest of the connector never
+/// stored on <c>Clockify Setup</c>, so the rest of the connector never
 /// depends on a specific endpoint or HTTP stack. A test extension can supply a
 /// mock implementation through an enum extension for fully offline testing.
 /// </summary>
-interface "Clockify API Client"
+interface "Clockify API Client ori"
 {
     /// <summary>
     /// Sends a request to the Clockify API and returns the outcome.

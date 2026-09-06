@@ -1,4 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify.Test;
+
+using Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Single-instance scratch pad that links a test to the <c>Mock</c> Clockify API

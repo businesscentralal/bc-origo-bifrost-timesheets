@@ -1,8 +1,8 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Selects which Clockify API implementation the connector talks to. The value
-/// is stored on <c>Cloud Events Setup</c> and resolved to an
+/// is stored on <c>Clockify Setup</c> and resolved to an
 /// <see cref="Interface.ClockifyApiClient"/> at call time, replacing the former
 /// free-text base-URL field.
 ///
@@ -10,10 +10,10 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// endpoint. The enum is extensible so a test extension can add its own value
 /// (for example a mock) without changing this app.
 /// </summary>
-enum 70009200 "Clockify API Version" implements "Clockify API Client"
+enum 70009200 "Clockify API Version ori" implements "Clockify API Client ori"
 {
     Extensible = true;
-    DefaultImplementation = "Clockify API Client" = "Clockify Client";
+    DefaultImplementation = "Clockify API Client ori" = "Clockify Client ori";
 
     /// <summary>
     /// Clockify public REST API version 1, fixed on
@@ -22,6 +22,6 @@ enum 70009200 "Clockify API Version" implements "Clockify API Client"
     value(0; "Version 1")
     {
         Caption = 'Version 1', Comment = 'is-IS=Útgáfa 1';
-        Implementation = "Clockify API Client" = "Clockify Client";
+        Implementation = "Clockify API Client ori" = "Clockify Client ori";
     }
 }

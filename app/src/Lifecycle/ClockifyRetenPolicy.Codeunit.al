@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using System.DataAdministration;
 
@@ -11,7 +11,7 @@ using System.DataAdministration;
 /// on <c>Reversed At</c>, so the framework forbids switching the policy to
 /// "Apply to all records" — active (non-reversed) links can never be purged.
 /// </summary>
-codeunit 70009208 "Clockify Reten. Policy"
+codeunit 70009208 "Clockify Reten. Policy ori"
 {
     Access = Internal;
 
@@ -21,12 +21,12 @@ codeunit 70009208 "Clockify Reten. Policy"
     /// </summary>
     procedure AddAllowedTable()
     var
-        ClockifyIntegration: Record "Clockify Integration";
+        ClockifyIntegration: Record "Clockify Integration ori";
         RetenPolAllowedTables: Codeunit "Reten. Pol. Allowed Tables";
         RecRef: RecordRef;
         TableFilters: JsonArray;
     begin
-        if RetenPolAllowedTables.IsAllowedTable(Database::"Clockify Integration") then
+        if RetenPolAllowedTables.IsAllowedTable(Database::"Clockify Integration ori") then
             exit;
 
         ClockifyIntegration.SetRange(Reversed, true);
@@ -39,7 +39,7 @@ codeunit 70009208 "Clockify Reten. Policy"
             true,
             RecRef);
         RetenPolAllowedTables.AddAllowedTable(
-            Database::"Clockify Integration",
+            Database::"Clockify Integration ori",
             ClockifyIntegration.FieldNo("Reversed At"),
             TableFilters);
     end;
@@ -53,10 +53,10 @@ codeunit 70009208 "Clockify Reten. Policy"
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
     begin
-        if RetentionPolicySetup.Get(Database::"Clockify Integration") then
+        if RetentionPolicySetup.Get(Database::"Clockify Integration ori") then
             exit;
 
-        RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration");
+        RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration ori");
         RetentionPolicySetup.Validate("Apply to all records", false);
         RetentionPolicySetup.Insert(true);
 

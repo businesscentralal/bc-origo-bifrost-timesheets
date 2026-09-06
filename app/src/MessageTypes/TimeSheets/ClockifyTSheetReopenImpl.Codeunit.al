@@ -1,7 +1,7 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.TimeSheet;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeSheet.Reopen</c> message type. Reopens submitted or
@@ -9,7 +9,7 @@ using Origo.APP.CloudEvents;
 /// does not call the Clockify API.
 /// </summary>
 /// <remarks>Runs the base time-sheet approval engine; no Clockify API call.</remarks>
-codeunit 70009259 "Clockify TimeSheetReopen Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009259 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
@@ -30,21 +30,21 @@ codeunit 70009259 "Clockify TimeSheetReopen Impl" implements "Cloud Event Msg In
         exit('Reopens submitted or approved time-sheet lines back to Open, up to a cut-off date.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetReopenHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt";
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         JsonToken: JsonToken;

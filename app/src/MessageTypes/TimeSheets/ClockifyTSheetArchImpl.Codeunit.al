@@ -1,14 +1,14 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.TimeSheet;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeSheet.Archive</c> message type. Archives fully
 /// posted time sheets and removes empty posted sheets. BC-side operation — does not call
 /// the Clockify API.
 /// </summary>
-codeunit 70009252 "Clockify TimeSheetArchive Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009252 "Clockify TSheetArch Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
@@ -29,21 +29,21 @@ codeunit 70009252 "Clockify TimeSheetArchive Impl" implements "Cloud Event Msg I
         exit('Archives fully posted time sheets and removes empty posted sheets ending before the work date.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetArchiveHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt";
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         ResponseJson: JsonObject;
         ArchivedCount: Integer;
     begin

@@ -1,19 +1,19 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.Task.Delete</c> message type.
 /// Deletes a task by ID.
 /// </summary>
-codeunit 70009229 "Clockify Task Delete Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009229 "Clockify Task Delete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -30,33 +30,21 @@ codeunit 70009229 "Clockify Task Delete Impl" implements "Cloud Event Msg Interf
         exit('Deletes a Clockify task by ID.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Outbound);
+        exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        Help: Codeunit "Clockify Task Help ori";
     begin
-        HelpBuilder.Init('Clockify.Task.Delete', GetDescription(), 'DELETE', '/workspaces/{workspaceId}/projects/{projectId}/tasks/{taskId}');
-        HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'Parent project ID', 'Clockify.Project.List → id');
-        HelpBuilder.AddParam('taskId', true, 'string', 'The task ID to delete', 'Clockify.Task.List → id');
-        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "projectId": "60...", "taskId": "61..." }');
-        HelpBuilder.SetResponseNote('the deleted task object');
-        HelpBuilder.AddError(404, 'Task or project not found', 'Verify IDs via `Clockify.Task.List`');
-        HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Cloud Events Setup');
-        HelpBuilder.SetNotes('- Unlike clients and projects, tasks do NOT require archiving before delete.\' +
-            '- Time entries referencing this task retain their data but the task link becomes orphaned.');
-        HelpBuilder.SetRelated('- **Alternative to delete:** Set status to DONE via `Clockify.Task.Update`\' +
-            '- **After delete:** `Data.Records.Set` on Clockify Integration → `Reversed` = true');
-        Argument.SetResponseMarkdown(HelpBuilder.Render());
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.Task.Delete", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;
         WorkspaceId: Text;
         ProjectId: Text;

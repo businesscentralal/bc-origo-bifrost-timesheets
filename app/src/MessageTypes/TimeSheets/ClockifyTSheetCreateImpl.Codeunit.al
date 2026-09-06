@@ -1,14 +1,14 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.TimeSheet;
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeSheet.Create</c> message type. Ensures every
 /// time-sheet resource has upcoming weekly time sheets. BC-side operation — does not
 /// call the Clockify API.
 /// </summary>
-codeunit 70009249 "Clockify TimeSheetCreate Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009249 "Clockify TSheetCreate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
@@ -29,21 +29,21 @@ codeunit 70009249 "Clockify TimeSheetCreate Impl" implements "Cloud Event Msg In
         exit('Creates upcoming weekly time sheets for every time-sheet resource (No. Series + owner + period handled).');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetCreateHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeSheet.Create", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt";
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         JsonToken: JsonToken;

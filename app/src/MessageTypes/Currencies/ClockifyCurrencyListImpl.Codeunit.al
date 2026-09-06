@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.Currency.List</c> message type.
@@ -10,14 +10,14 @@ using Origo.APP.CloudEvents;
 /// <c>Clockify.Client.Update</c> -- Clockify silently ignores <c>currencyCode</c>
 /// on those write paths.
 /// </summary>
-codeunit 70009215 "Clockify Currency List Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009215 "Clockify CurrencyList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -34,33 +34,21 @@ codeunit 70009215 "Clockify Currency List Impl" implements "Cloud Event Msg Inte
         exit('Lists the currencies defined in a Clockify workspace.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Outbound);
+        exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        Help: Codeunit "Clockify Workspace Help ori";
     begin
-        HelpBuilder.Init('Clockify.Currency.List', GetDescription(), 'GET', '/workspaces (inline `currencies` from workspace object)');
-        HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.SetRequestExample('{ "workspaceId": "5f..." }');
-        HelpBuilder.SetResponseNote('an array of currency objects (each with `id`, `code`, and the workspace default flag)');
-        HelpBuilder.SetAfterSuccess('No tracking action required — this is a read operation. Use `id` as `currencyId` in client operations.');
-        HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Cloud Events Setup');
-        HelpBuilder.SetNotes('- Clockify has no standalone currencies endpoint. This message type reads `GET /workspaces` and extracts the requested workspace''s `currencies` array.\' +
-            '- Each item has an internal `id` (Clockify currency ID) and a 3-letter `code` (e.g. `ISK`, `USD`).\' +
-            '- Use the `id` value (NOT the `code`) as `currencyId` in `Clockify.Client.Create` / `Clockify.Client.Update`. Passing `currencyCode` is silently ignored.\' +
-            '- The list is per-workspace — the same currency code can have different IDs in different workspaces.');
-        HelpBuilder.SetRelated('- **Use currencyId:** `Clockify.Client.Create` and `Clockify.Client.Update` (body.currencyId)\' +
-            '- **Workspace info:** `Clockify.Workspace.List` returns the full workspace object including currencies');
-        Argument.SetResponseMarkdown(HelpBuilder.Render());
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.Currency.List", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         WorkspaceId: Text;
@@ -97,7 +85,7 @@ codeunit 70009215 "Clockify Currency List Impl" implements "Cloud Event Msg Inte
 
     local procedure TryGetWorkspaceCurrencies(ResponseJson: JsonObject; WorkspaceId: Text; var CurrenciesArray: JsonArray): Boolean
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         DataToken: JsonToken;
         WorkspaceToken: JsonToken;
         CurrenciesToken: JsonToken;

@@ -1,17 +1,48 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
+
+using Origo.Bifrost;
 
 /// <summary>
 /// Builds the Markdown help documents for the <c>Clockify.TimeSheet.*</c> message types,
 /// keeping the help text out of the individual <c>*Impl</c> codeunits.
 /// </summary>
-codeunit 70009253 "Clockify TimeSheet Help"
+codeunit 70009253 "Clockify TimeSheet Help ori"
 {
     Access = Internal;
 
+    /// <summary>Returns the Markdown help document for one message type of this domain.</summary>
+    /// <param name="MessageType">The message type to document.</param>
+    /// <param name="Description">The message type description shown in the help header.</param>
+    /// <returns>The rendered Markdown document, or an empty string for a message type this codeunit does not own.</returns>
+    procedure GetHelp(MessageType: Enum "Message Type ori"; Description: Text): Text
+    begin
+        case MessageType of
+            MessageType::"Clockify.TimeSheet.Create":
+                exit(GetCreateHelp(Description));
+            MessageType::"Clockify.TimeSheet.Approve":
+                exit(GetApproveHelp(Description));
+            MessageType::"Clockify.TimeSheet.Post":
+                exit(GetPostHelp(Description));
+            MessageType::"Clockify.TimeSheet.Archive":
+                exit(GetArchiveHelp(Description));
+            MessageType::"Clockify.TimeSheet.Reject":
+                exit(GetRejectHelp(Description));
+            MessageType::"Clockify.TimeSheet.Reopen":
+                exit(GetReopenHelp(Description));
+            MessageType::"Clockify.TimeEntry.SyncToTimeSheet":
+                exit(GetSyncToTimeSheetHelp(Description));
+            MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
+                exit(GetSyncRangeToTimeSheetHelp(Description));
+            MessageType::"Clockify.TimeEntry.SyncAllUsers":
+                exit(GetSyncAllUsersHelp(Description));
+        end;
+        exit('');
+    end;
+
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Create</c>.</summary>
-    procedure GetCreateHelp(Description: Text): Text
+    local procedure GetCreateHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Create', Description, 'POST (BC-side)', '/internal/timesheet-create');
         HelpBuilder.AddParam('weeksAhead', false, 'integer', 'Target number of upcoming sheets per resource (default 4).', '');
@@ -24,9 +55,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Approve</c>.</summary>
-    procedure GetApproveHelp(Description: Text): Text
+    local procedure GetApproveHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Approve', Description, 'POST (BC-side)', '/internal/timesheet-approve');
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only approve sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
@@ -38,13 +69,13 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Post</c>.</summary>
-    procedure GetPostHelp(Description: Text): Text
+    local procedure GetPostHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Post', Description, 'POST (BC-side)', '/internal/timesheet-post');
-        HelpBuilder.AddParam('journalTemplate', false, 'string', 'Job Journal Template name (Code[10]). Defaults to the Clockify Job Journal Template on Cloud Events Setup.', '');
-        HelpBuilder.AddParam('journalBatch', false, 'string', 'Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Cloud Events Setup.', '');
+        HelpBuilder.AddParam('journalTemplate', false, 'string', 'Job Journal Template name (Code[10]). Defaults to the Clockify Job Journal Template on Clockify Setup.', '');
+        HelpBuilder.AddParam('journalBatch', false, 'string', 'Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Clockify Setup.', '');
         HelpBuilder.SetRequestExample('{ "journalTemplate": "VERK", "journalBatch": "CONTOSO" }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "postedLines": 24 }');
         HelpBuilder.SetNotes('- Posts approved time-sheet detail to the Job Journal via `Job Jnl.-Post Line`.\' +
@@ -54,9 +85,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Archive</c>.</summary>
-    procedure GetArchiveHelp(Description: Text): Text
+    local procedure GetArchiveHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Archive', Description, 'POST (BC-side)', '/internal/timesheet-archive');
         HelpBuilder.SetResponseNote('{ "status": "Success", "archived": 6 }');
@@ -66,9 +97,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Reject</c>.</summary>
-    procedure GetRejectHelp(Description: Text): Text
+    local procedure GetRejectHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Reject', Description, 'POST (BC-side)', '/internal/timesheet-reject');
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only reject sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
@@ -80,9 +111,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeSheet.Reopen</c>.</summary>
-    procedure GetReopenHelp(Description: Text): Text
+    local procedure GetReopenHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Reopen', Description, 'POST (BC-side)', '/internal/timesheet-reopen');
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only reopen sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
@@ -94,9 +125,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeEntry.SyncToTimeSheet</c>.</summary>
-    procedure GetSyncToTimeSheetHelp(Description: Text): Text
+    local procedure GetSyncToTimeSheetHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncToTimeSheet', Description, 'POST (BC-side)', '/internal/sync-time-entry-timesheet');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
@@ -124,9 +155,9 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeEntry.SyncRangeToTimeSheet</c>.</summary>
-    procedure GetSyncRangeToTimeSheetHelp(Description: Text): Text
+    local procedure GetSyncRangeToTimeSheetHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncRangeToTimeSheet', Description, 'POST (BC-side)', '/internal/sync-time-entries-timesheet');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
@@ -147,17 +178,17 @@ codeunit 70009253 "Clockify TimeSheet Help"
     end;
 
     /// <summary>Returns the help document for <c>Clockify.TimeEntry.SyncAllUsers</c>.</summary>
-    procedure GetSyncAllUsersHelp(Description: Text): Text
+    local procedure GetSyncAllUsersHelp(Description: Text): Text
     var
-        HelpBuilder: Codeunit "Clockify Help Builder";
+        HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncAllUsers', Description, 'POST (BC-side)', '/internal/sync-all-users');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('start', true, 'string', 'Range start in ISO-8601 UTC (inclusive)', '');
         HelpBuilder.AddParam('end', true, 'string', 'Range end in ISO-8601 UTC (inclusive)', '');
         HelpBuilder.AddParam('target', false, 'string', '''timesheet'' (default) writes BC Time Sheets; ''journal'' writes Job Journal lines.', '');
-        HelpBuilder.AddParam('journalTemplate', false, 'string', 'Job Journal Template (Code[10]) — used when target=journal. Defaults to Cloud Events Setup.', '');
-        HelpBuilder.AddParam('journalBatch', false, 'string', 'Job Journal Batch (Code[10]) — used when target=journal. Defaults to Cloud Events Setup.', '');
+        HelpBuilder.AddParam('journalTemplate', false, 'string', 'Job Journal Template (Code[10]) — used when target=journal. Defaults to Clockify Setup.', '');
+        HelpBuilder.AddParam('journalBatch', false, 'string', 'Job Journal Batch (Code[10]) — used when target=journal. Defaults to Clockify Setup.', '');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "start": "2026-06-01T00:00:00Z", "end": "2026-06-30T23:59:59Z", "target": "timesheet" }');
         HelpBuilder.SetResponseNote('{ "target": "timesheet", "users": 5, "created": 40, "skipped": 3, "updated": 2, "errors": 1, "userResults": [ { "userId": "63...", "processed": 9, "created": 8, ... } ] }');
         HelpBuilder.SetPreconditions('1. Each Clockify user must be mapped to a BC Resource (USER integration row).\' +

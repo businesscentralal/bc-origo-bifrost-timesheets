@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Stores and retrieves the company Clockify API key in IsolatedStorage
@@ -6,7 +6,7 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// identity that owns this key. The key is handled as <c>SecretText</c> end to end
 /// so it is never exposed to the debugger.
 /// </summary>
-codeunit 70009243 "Clockify Secret Mgt"
+codeunit 70009243 "Clockify Secret Mgt ori"
 {
     Access = Public;
 

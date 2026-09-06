@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Archives Clockify entities (Client, Project, Task) when the corresponding BC
@@ -6,7 +6,7 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// <c>{ "archived": true }</c>. Non-blocking: if the API call fails, a telemetry
 /// warning is logged but the BC operation is not prevented.
 /// </summary>
-codeunit 70009200 "Clockify Archive Sync"
+codeunit 70009200 "Clockify Archive Sync ori"
 {
     Access = Internal;
 
@@ -24,7 +24,7 @@ codeunit 70009200 "Clockify Archive Sync"
     /// <param name="ActionName">The BC action that triggered this (e.g. 'deleted', 'blocked').</param>
     procedure ArchiveLinkedEntities(BCTableNo: Integer; BCSystemId: Guid; BCEntityName: Text; ActionName: Text)
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         Integration.SetCurrentKey("BC Table No.", "BC SystemId", "Reversed");
         Integration.SetRange("BC Table No.", BCTableNo);
@@ -49,7 +49,7 @@ codeunit 70009200 "Clockify Archive Sync"
     /// <param name="ActionName">The BC action that triggered this.</param>
     procedure ArchiveByClockifyType(ClockifyType: Code[20]; BCCode: Code[50]; BCEntityName: Text; ActionName: Text)
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
     begin
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", ClockifyType);
@@ -64,10 +64,10 @@ codeunit 70009200 "Clockify Archive Sync"
         until Integration.Next() = 0;
     end;
 
-    local procedure ArchiveInClockify(var Integration: Record "Clockify Integration"; BCEntityName: Text; ActionName: Text)
+    local procedure ArchiveInClockify(var Integration: Record "Clockify Integration ori"; BCEntityName: Text; ActionName: Text)
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ApiClient: Interface "Clockify API Client";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ApiClient: Interface "Clockify API Client ori";
         ResourcePath: Text;
         ResponseBody: Text;
         StatusCode: Integer;
@@ -92,7 +92,7 @@ codeunit 70009200 "Clockify Archive Sync"
                 Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', 'Clockify');
     end;
 
-    local procedure BuildArchivePath(Integration: Record "Clockify Integration"): Text
+    local procedure BuildArchivePath(Integration: Record "Clockify Integration ori"): Text
     var
         WorkspaceId: Text;
     begin
@@ -111,9 +111,9 @@ codeunit 70009200 "Clockify Archive Sync"
         exit('');
     end;
 
-    local procedure BuildTaskPath(Integration: Record "Clockify Integration"): Text
+    local procedure BuildTaskPath(Integration: Record "Clockify Integration ori"): Text
     var
-        ProjectIntegration: Record "Clockify Integration";
+        ProjectIntegration: Record "Clockify Integration ori";
         WorkspaceId: Text;
         ProjectId: Text;
         BCCode: Text;

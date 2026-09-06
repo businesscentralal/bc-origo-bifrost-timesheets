@@ -1,11 +1,11 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// In-memory buffer that carries the Clockify workspaces returned by
 /// <c>GET /workspaces</c> into the <see cref="Page.ClockifyWorkspaceLookup"/>
 /// picker. Never persisted — it is always used as a temporary table.
 /// </summary>
-table 70009202 "Clockify Workspace Buffer"
+table 70009202 "Clockify Workspace Buffer ori"
 {
     TableType = Temporary;
     DataClassification = SystemMetadata;

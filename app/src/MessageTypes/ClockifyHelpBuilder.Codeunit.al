@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Builds AI-optimised Markdown help documents for the Clockify connector.
@@ -7,7 +7,7 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// Each section is designed for unambiguous machine parsing: structured tables,
 /// explicit types, resolution instructions, preconditions, and workflow context.
 /// </summary>
-codeunit 70009214 "Clockify Help Builder"
+codeunit 70009214 "Clockify Help Builder ori"
 {
     Access = Internal;
 
@@ -206,7 +206,7 @@ codeunit 70009214 "Clockify Help Builder"
             Builder.AppendLine('');
             Builder.Append(ParamsBuilder.ToText());
             Builder.AppendLine('');
-            Builder.AppendLine('`workspaceId` may be omitted when Default Workspace ID is configured on Cloud Events Setup.');
+            Builder.AppendLine('`workspaceId` may be omitted when Default Workspace ID is configured on Clockify Setup.');
             Builder.AppendLine('');
         end;
 

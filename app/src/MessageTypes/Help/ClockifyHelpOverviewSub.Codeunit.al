@@ -1,16 +1,16 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
-/// Extends the <c>Help.CloudEvents.Get</c> discovery overview with a one-line
+/// Extends the <c>Help.Bifrost.Get</c> discovery overview with a one-line
 /// entry for the <c>Help.Clockify.Get</c> endpoint.
 /// </summary>
-codeunit 70009218 "Clockify Help Overview Sub"
+codeunit 70009218 "Clockify Help Overview Sub ori"
 {
     Access = Internal;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Cloud Event Message Events ori", OnAfterCreatingOverview, '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Message Events ori", OnAfterCreatingOverview, '', false, false)]
     local procedure OnAfterCreatingOverview(Overview: TextBuilder)
     begin
         Overview.AppendLine('| `Help.Clockify.Get` | Clockify connector overview — lists all `Clockify.*` message types, authentication setup, and the integration-tracking table reference. |');

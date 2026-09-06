@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Implementation of the <c>Clockify.TimeEntry.SyncAllUsers</c> message type. Iterates every
@@ -9,17 +9,17 @@ using Origo.APP.CloudEvents;
 /// selects the destination: <c>timesheet</c> (default) writes BC Time Sheets;
 /// <c>journal</c> writes Job Journal lines.
 /// </summary>
-codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Interface ori"
+codeunit 70009261 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
     var
-        MissingJournalErr: Label 'target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Cloud Events Setup, or pass ''journalTemplate'' and ''journalBatch''.', Locked = true;
+        MissingJournalErr: Label 'target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch''.', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
-        ClockifyIntegration: Record "Clockify Integration";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyIntegration: Record "Clockify Integration ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
     begin
         if not ClockifyIntegration.WritePermission() then
             exit(false);
@@ -36,23 +36,23 @@ codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Inter
         exit('Syncs finished Clockify time entries in a date range for every mapped user, to time sheets (default) or the Job Journal.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Cloud Event Msg Direction ori"
+    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
-        exit(Enum::"Cloud Event Msg Direction ori"::Inbound);
+        exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "CE Message Argument ori")
+    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
-        Help: Codeunit "Clockify TimeSheet Help";
+        Help: Codeunit "Clockify TimeSheet Help ori";
     begin
-        Argument.SetResponseMarkdown(Help.GetSyncAllUsersHelp(GetDescription()));
+        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", GetDescription()));
     end;
 
-    internal procedure ExecuteCloudEventTask(var Argument: Record "CE Message Argument ori")
+    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        Integration: Record "Clockify Integration";
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        SetupMgt: Codeunit "Clockify Setup Mgt";
+        Integration: Record "Clockify Integration ori";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         UsersArray: JsonArray;
@@ -113,7 +113,7 @@ codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Inter
 
     local procedure SyncOneUser(WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; Target: Text; JournalTemplate: Code[10]; JournalBatch: Code[10]; var UsersArray: JsonArray; var Counts: Dictionary of [Text, Integer])
     var
-        Fetch: Codeunit "Clockify TimeEntry Fetch";
+        Fetch: Codeunit "Clockify TimeEntry Fetch ori";
         Entries: JsonArray;
         UserResult: JsonObject;
         FetchError: Text;
@@ -142,9 +142,9 @@ codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Inter
 
     local procedure SyncUserEntries(WorkspaceId: Text; UserId: Text; Entries: JsonArray; Target: Text; JournalTemplate: Code[10]; JournalBatch: Code[10]; var Counts: Dictionary of [Text, Integer]; var Created: Integer; var Skipped: Integer; var Updated: Integer; var Errors: Integer)
     var
-        TimeSheetSync: Codeunit "Clockify TimeSheet Sync";
-        JournalSync: Codeunit "Clockify Time Entry Sync";
-        ParseHelper: Codeunit "Clockify TimeEntry Parse";
+        TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
+        JournalSync: Codeunit "Clockify Time Entry Sync ori";
+        ParseHelper: Codeunit "Clockify TimeEntry Parse ori";
         EntryToken: JsonToken;
         EntryObject: JsonObject;
         EntryId: Text;
@@ -157,7 +157,7 @@ codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Inter
         Hours: Decimal;
         PostingDate: Date;
         TagIds: List of [Text];
-        SyncResult: Enum "Clockify Sync Result";
+        SyncResult: Enum "Clockify Sync Result ori";
         ResultMessage: Text;
     begin
         foreach EntryToken in Entries do begin
@@ -205,7 +205,7 @@ codeunit 70009261 "Clockify SyncAllUsers Impl" implements "Cloud Event Msg Inter
 
     local procedure GetInterval(EntryObject: JsonObject; var StartText: Text; var EndText: Text)
     var
-        ParseHelper: Codeunit "Clockify TimeEntry Parse";
+        ParseHelper: Codeunit "Clockify TimeEntry Parse ori";
         Token: JsonToken;
     begin
         StartText := '';

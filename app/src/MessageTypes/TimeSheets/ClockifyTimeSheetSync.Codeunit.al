@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.TimeSheet;
@@ -9,9 +9,9 @@ using Microsoft.Projects.TimeSheet;
 /// Job/Task/Resource/Work Type mappings, finds the resource's open time sheet covering
 /// the entry date, finds or creates the matching time-sheet line, and writes the day's
 /// detail. Deduplication and update detection are tracked through a <c>TIME_ENTRY</c>
-/// <c>Clockify Integration</c> record linked to the created Time Sheet Detail.
+/// <c>Clockify Integration ori</c> record linked to the created Time Sheet Detail.
 /// </summary>
-codeunit 70009254 "Clockify TimeSheet Sync"
+codeunit 70009254 "Clockify TimeSheet Sync ori"
 {
     Access = Internal;
 
@@ -43,13 +43,13 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         Hours: Decimal;
         Billable: Boolean;
         ClockifyTagIds: List of [Text];
-        var ResultMessage: Text): Enum "Clockify Sync Result"
+        var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         JobTask: Record "Job Task";
         TimeSheet: Record "Time Sheet Header";
         TimeSheetLine: Record "Time Sheet Line";
-        EntrySync: Codeunit "Clockify Time Entry Sync";
+        EntrySync: Codeunit "Clockify Time Entry Sync ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -57,26 +57,26 @@ codeunit 70009254 "Clockify TimeSheet Sync"
     begin
         if not EntrySync.ResolveProjectMapping(ClockifyProjectId, JobNo) then begin
             ResultMessage := StrSubstNo(NoProjectMappingErr, ClockifyProjectId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if ClockifyTaskId = '' then begin
             ResultMessage := 'Missing taskId: cannot map to a BC Job Task.';
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if not EntrySync.ResolveTaskMapping(ClockifyTaskId, JobTaskNo) then begin
             ResultMessage := StrSubstNo(NoTaskMappingErr, ClockifyTaskId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if not EntrySync.ResolveUserMapping(ClockifyUserId, ResourceNo) then begin
             ResultMessage := StrSubstNo(NoUserMappingErr, ClockifyUserId);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         WorkType := EntrySync.ResolveWorkType(ClockifyTagIds);
 
         JobTask.Get(JobNo, JobTaskNo);
         if not FindOpenTimeSheet(ResourceNo, PostingDate, TimeSheet) then begin
             ResultMessage := StrSubstNo(NoOpenTimeSheetErr, ResourceNo, PostingDate);
-            exit(Enum::"Clockify Sync Result"::Error);
+            exit(Enum::"Clockify Sync Result ori"::Error);
         end;
 
         Integration.LockTable();
@@ -96,23 +96,23 @@ codeunit 70009254 "Clockify TimeSheet Sync"
     /// <param name="ClockifyEntryId">The Clockify time entry ID to reverse.</param>
     /// <param name="ResultMessage">Out: a human-readable message about what happened.</param>
     /// <returns>Skipped (no active link), Updated (detail removed/link reversed), or Corrected (non-open sheet).</returns>
-    procedure ReverseFromTimeSheet(ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result"
+    procedure ReverseFromTimeSheet(ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         TimeSheetDetail: Record "Time Sheet Detail";
         TimeSheetLine: Record "Time Sheet Line";
     begin
         Integration.LockTable();
         if not FindActiveIntegration(ClockifyEntryId, Integration) then begin
             ResultMessage := StrSubstNo(NoActiveLinkMsg, ClockifyEntryId);
-            exit(Enum::"Clockify Sync Result"::Skipped);
+            exit(Enum::"Clockify Sync Result ori"::Skipped);
         end;
 
         if not TimeSheetDetail.GetBySystemId(Integration."BC SystemId") then begin
             Integration."Reversed" := true;
             Integration.Modify(true);
             ResultMessage := StrSubstNo(LinkReversedMsg, ClockifyEntryId);
-            exit(Enum::"Clockify Sync Result"::Updated);
+            exit(Enum::"Clockify Sync Result ori"::Updated);
         end;
 
         if TimeSheetLine.Get(TimeSheetDetail."Time Sheet No.", TimeSheetDetail."Time Sheet Line No.") then
@@ -120,14 +120,14 @@ codeunit 70009254 "Clockify TimeSheet Sync"
                 Integration."Reversed" := true;
                 Integration.Modify(true);
                 ResultMessage := StrSubstNo(NotOpenReversedMsg, ClockifyEntryId);
-                exit(Enum::"Clockify Sync Result"::Corrected);
+                exit(Enum::"Clockify Sync Result ori"::Corrected);
             end;
 
         TimeSheetDetail.Delete(false);
         Integration."Reversed" := true;
         Integration.Modify(true);
         ResultMessage := StrSubstNo(DetailDeletedMsg, ClockifyEntryId);
-        exit(Enum::"Clockify Sync Result"::Updated);
+        exit(Enum::"Clockify Sync Result ori"::Updated);
     end;
 
     local procedure FindOpenTimeSheet(ResourceNo: Code[20]; PostingDate: Date; var TimeSheet: Record "Time Sheet Header"): Boolean
@@ -174,18 +174,18 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         TimeSheetLine.Insert(false, true);
     end;
 
-    local procedure CreateNew(TimeSheet: Record "Time Sheet Header"; TimeSheetLine: Record "Time Sheet Line"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; PostingDate: Date; Hours: Decimal; Description: Text; var ResultMessage: Text): Enum "Clockify Sync Result"
+    local procedure CreateNew(TimeSheet: Record "Time Sheet Header"; TimeSheetLine: Record "Time Sheet Line"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; PostingDate: Date; Hours: Decimal; Description: Text; var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
-        Integration: Record "Clockify Integration";
+        Integration: Record "Clockify Integration ori";
         TimeSheetDetail: Record "Time Sheet Detail";
     begin
         WriteDetail(TimeSheet, TimeSheetLine, PostingDate, Hours, TimeSheetDetail);
         CreateIntegrationRecord(Integration, ClockifyEntryId, ClockifyWorkspaceId, TimeSheetDetail, Description, Hours);
         ResultMessage := StrSubstNo(CreatedMsg, ClockifyEntryId, TimeSheet."No.", TimeSheetLine."Line No.");
-        exit(Enum::"Clockify Sync Result"::Created);
+        exit(Enum::"Clockify Sync Result ori"::Created);
     end;
 
-    local procedure UpdateExisting(var Integration: Record "Clockify Integration"; TimeSheet: Record "Time Sheet Header"; TimeSheetLine: Record "Time Sheet Line"; PostingDate: Date; Hours: Decimal; ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result"
+    local procedure UpdateExisting(var Integration: Record "Clockify Integration ori"; TimeSheet: Record "Time Sheet Header"; TimeSheetLine: Record "Time Sheet Line"; PostingDate: Date; Hours: Decimal; ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum "Clockify Sync Result ori"
     var
         TimeSheetDetail: Record "Time Sheet Detail";
     begin
@@ -197,7 +197,7 @@ codeunit 70009254 "Clockify TimeSheet Sync"
                (TimeSheetDetail.Quantity = Hours)
             then begin
                 ResultMessage := StrSubstNo(SkippedMsg, ClockifyEntryId);
-                exit(Enum::"Clockify Sync Result"::Skipped);
+                exit(Enum::"Clockify Sync Result ori"::Skipped);
             end;
 
         if TimeSheetDetail.GetBySystemId(Integration."BC SystemId") then
@@ -207,7 +207,7 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         Integration."BC Code" := CopyStr(TimeSheetDetail."Time Sheet No." + '-' + Format(PostingDate, 0, 9), 1, 50);
         Integration.Modify(true);
         ResultMessage := StrSubstNo(UpdatedMsg, ClockifyEntryId, TimeSheet."No.", TimeSheetLine."Line No.");
-        exit(Enum::"Clockify Sync Result"::Updated);
+        exit(Enum::"Clockify Sync Result ori"::Updated);
     end;
 
     local procedure WriteDetail(TimeSheet: Record "Time Sheet Header"; TimeSheetLine: Record "Time Sheet Line"; PostingDate: Date; Hours: Decimal; var TimeSheetDetail: Record "Time Sheet Detail")
@@ -228,7 +228,7 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         TimeSheetDetail.Insert(false, true);
     end;
 
-    local procedure FindActiveIntegration(ClockifyEntryId: Text[50]; var Integration: Record "Clockify Integration"): Boolean
+    local procedure FindActiveIntegration(ClockifyEntryId: Text[50]; var Integration: Record "Clockify Integration ori"): Boolean
     begin
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'TIME_ENTRY');
@@ -238,7 +238,7 @@ codeunit 70009254 "Clockify TimeSheet Sync"
         exit(Integration.FindFirst());
     end;
 
-    local procedure CreateIntegrationRecord(var Integration: Record "Clockify Integration"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; TimeSheetDetail: Record "Time Sheet Detail"; Description: Text; Hours: Decimal)
+    local procedure CreateIntegrationRecord(var Integration: Record "Clockify Integration ori"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; TimeSheetDetail: Record "Time Sheet Detail"; Description: Text; Hours: Decimal)
     begin
         Integration.Init();
         Integration."Entry No." := 0;

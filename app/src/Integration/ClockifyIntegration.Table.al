@@ -1,9 +1,9 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Tracks the links between Business Central records and the Clockify objects they
 /// correspond to (for example a BC Customer and a Clockify Client). External
-/// integrators read and write this table through the base Cloud Events
+/// integrators read and write this table through the base Bifrost
 /// <c>Data.Records.Get</c> / <c>Data.Records.Set</c> message types.
 ///
 /// Neither message type can delete rows, so a link is broken by setting
@@ -12,12 +12,12 @@ namespace Origo.PTE.CloudEvents.Clockify;
 /// removes reversed rows about one month after they were reversed, keyed off
 /// <see cref="Reversed At"/>.
 /// </summary>
-table 70009200 "Clockify Integration"
+table 70009200 "Clockify Integration ori"
 {
     Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tenging';
     DataClassification = CustomerContent;
-    LookupPageId = "Clockify Integration List";
-    DrillDownPageId = "Clockify Integration List";
+    LookupPageId = "Clockify Integration List ori";
+    DrillDownPageId = "Clockify Integration List ori";
 
     fields
     {

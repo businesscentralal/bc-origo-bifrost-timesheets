@@ -1,9 +1,9 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 /// <summary>
 /// Represents the outcome of synchronizing a Clockify time entry to Business Central.
 /// </summary>
-enum 70009201 "Clockify Sync Result"
+enum 70009201 "Clockify Sync Result ori"
 {
     Extensible = false;
     Access = Internal;

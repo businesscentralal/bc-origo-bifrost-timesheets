@@ -1,4 +1,4 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
 using Microsoft.Foundation.NoSeries;
 using Microsoft.Projects.Project.Journal;
@@ -13,7 +13,7 @@ using Microsoft.Projects.TimeSheet;
 /// to return counts so the operations can run unattended from a Job Queue or message
 /// chain. These are BC-side operations — they do not call the Clockify API.
 /// </summary>
-codeunit 70009248 "Clockify TimeSheet Mgt"
+codeunit 70009248 "Clockify TimeSheet Mgt ori"
 {
     Access = Internal;
 

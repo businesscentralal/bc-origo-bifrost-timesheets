@@ -1,6 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify;
 
-using Origo.APP.CloudEvents;
+using Origo.Bifrost;
 
 /// <summary>
 /// Registers and removes the Clockify webhooks that drive real-time time-entry
@@ -16,14 +16,14 @@ using Origo.APP.CloudEvents;
 /// <c>CLOCKIFY_WEBHOOK_SIGNATURES</c> setting. Only the webhook ID is tracked
 /// locally, in <see cref="Table.ClockifyWebhook"/>.
 /// </summary>
-codeunit 70009245 "Clockify Webhook Mgt"
+codeunit 70009245 "Clockify Webhook Mgt ori"
 {
     Access = Internal;
 
     var
         NoApiKeyErr: Label 'Set the company Clockify API key before registering webhooks.', Comment = 'is-IS=Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.';
-        NoWorkspaceErr: Label 'Set a Default Workspace on Cloud Events Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í Cloud Events stillingum áður en vefkrókar eru skráðir.';
-        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Cloud Events Setup before registering webhooks.', Comment = 'is-IS=Skráðu Clockify vefkróka móttökuslóð í Cloud Events stillingum áður en vefkrókar eru skráðir.';
+        NoWorkspaceErr: Label 'Set a Default Workspace on Clockify Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.';
+        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.', Comment = 'is-IS=Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.';
         AlreadyRegisteredErr: Label 'Clockify webhooks are already registered. Remove them before registering again.', Comment = 'is-IS=Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.';
         NotRegisteredMsg: Label 'No Clockify webhooks are registered.', Comment = 'is-IS=Engir Clockify vefkrókar eru skráðir.';
         CreateFailedErr: Label 'Creating the Clockify %1 webhook failed (HTTP %2): %3', Comment = '%1 = event, %2 = status code, %3 = response. is-IS=Ekki tókst að búa til Clockify %1 vefkrók (HTTP %2): %3';
@@ -33,7 +33,7 @@ codeunit 70009245 "Clockify Webhook Mgt"
         RemovedMsg: Label 'Removed %1 Clockify webhook(s).', Comment = '%1 = count. is-IS=Fjarlægði %1 Clockify vefkrók(a).';
         TokensMsg: Label 'Configure these signing token(s) as CLOCKIFY_WEBHOOK_SIGNATURES on the webhook receiver:\n\n%1', Comment = '%1 = tokens. is-IS=Stilltu þessa undirritunarlykla sem CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum:\n\n%1';
         NoTokensMsg: Label 'The signing tokens could not be retrieved from Clockify.', Comment = 'is-IS=Ekki tókst að sækja undirritunarlykla frá Clockify.';
-        WebhookNameTok: Label 'BC Cloud Events - %1', Comment = '%1 = event', Locked = true;
+        WebhookNameTok: Label 'BC Bifrost - %1', Comment = '%1 = event', Locked = true;
 
     /// <summary>
     /// Registers a webhook in Clockify for each real-time time-entry event
@@ -43,8 +43,8 @@ codeunit 70009245 "Clockify Webhook Mgt"
     /// </summary>
     procedure RegisterTimeEntryWebhooks()
     var
-        ClockifyWebhook: Record "Clockify Webhook";
-        SecretMgt: Codeunit "Clockify Secret Mgt";
+        ClockifyWebhook: Record "Clockify Webhook ori";
+        SecretMgt: Codeunit "Clockify Secret Mgt ori";
         Events: List of [Text];
         EventName: Text;
         WorkspaceId: Text;
@@ -85,7 +85,7 @@ codeunit 70009245 "Clockify Webhook Mgt"
     /// <summary>Deletes every registered Clockify webhook and clears the local tracking rows.</summary>
     procedure RemoveTimeEntryWebhooks()
     var
-        ClockifyWebhook: Record "Clockify Webhook";
+        ClockifyWebhook: Record "Clockify Webhook ori";
         Removed: Integer;
     begin
         if ClockifyWebhook.IsEmpty() then begin
@@ -112,7 +112,7 @@ codeunit 70009245 "Clockify Webhook Mgt"
     /// </summary>
     procedure ShowSigningTokens()
     var
-        ClockifyWebhook: Record "Clockify Webhook";
+        ClockifyWebhook: Record "Clockify Webhook ori";
         TokensBuilder: TextBuilder;
         AuthToken: Text;
     begin
@@ -139,15 +139,15 @@ codeunit 70009245 "Clockify Webhook Mgt"
     /// <summary>Returns true when at least one Clockify webhook is registered.</summary>
     procedure HasRegisteredWebhooks(): Boolean
     var
-        ClockifyWebhook: Record "Clockify Webhook";
+        ClockifyWebhook: Record "Clockify Webhook ori";
     begin
         exit(not ClockifyWebhook.IsEmpty());
     end;
 
     local procedure CreateWebhook(WorkspaceId: Text; EventName: Text; Url: Text; var WebhookId: Text; var AuthToken: Text)
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ApiClient: Interface "Clockify API Client";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ApiClient: Interface "Clockify API Client ori";
         BodyObj: JsonObject;
         ResponseObj: JsonObject;
         Token: JsonToken;
@@ -178,8 +178,8 @@ codeunit 70009245 "Clockify Webhook Mgt"
 
     local procedure DeleteWebhook(WorkspaceId: Text; WebhookId: Text)
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ApiClient: Interface "Clockify API Client";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ApiClient: Interface "Clockify API Client ori";
         ResponseBody: Text;
         StatusCode: Integer;
     begin
@@ -191,8 +191,8 @@ codeunit 70009245 "Clockify Webhook Mgt"
 
     local procedure GetWebhookToken(WorkspaceId: Text; WebhookId: Text; var AuthToken: Text): Boolean
     var
-        RequestMgt: Codeunit "Clockify Request Mgt";
-        ApiClient: Interface "Clockify API Client";
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        ApiClient: Interface "Clockify API Client ori";
         ResponseObj: JsonObject;
         Token: JsonToken;
         ResponseBody: Text;
@@ -213,7 +213,7 @@ codeunit 70009245 "Clockify Webhook Mgt"
 
     local procedure InsertRow(EventName: Text; WebhookId: Text; Url: Text; WorkspaceId: Text)
     var
-        ClockifyWebhook: Record "Clockify Webhook";
+        ClockifyWebhook: Record "Clockify Webhook ori";
     begin
         ClockifyWebhook.Init();
         ClockifyWebhook."Event" := CopyStr(EventName, 1, MaxStrLen(ClockifyWebhook."Event"));
@@ -234,20 +234,20 @@ codeunit 70009245 "Clockify Webhook Mgt"
 
     local procedure GetDefaultWorkspace(): Text
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        ClockifySetup: Record "Clockify Setup ori";
     begin
-        if not CloudEventsSetup.Get() then
+        if not ClockifySetup.Get() then
             exit('');
-        exit(CloudEventsSetup."Clockify Default Workspace");
+        exit(ClockifySetup."Default Workspace");
     end;
 
     local procedure GetReceiverUrl(): Text
     var
-        CloudEventsSetup: Record "Cloud Events Setup ori";
+        ClockifySetup: Record "Clockify Setup ori";
     begin
-        if not CloudEventsSetup.Get() then
+        if not ClockifySetup.Get() then
             exit('');
-        exit(CloudEventsSetup."Clockify Webhook Receiver URL");
+        exit(ClockifySetup."Webhook Receiver URL");
     end;
 
     local procedure AppendWorkspace(Url: Text; WorkspaceId: Text): Text

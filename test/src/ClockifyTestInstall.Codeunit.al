@@ -1,5 +1,6 @@
-namespace Origo.PTE.CloudEvents.Clockify;
+﻿namespace Origo.Bifrost.Clockify.Test;
 
+using Origo.Bifrost.Clockify;
 using System.TestTools.TestRunner;
 
 codeunit 95600 "Clockify Test Install"
