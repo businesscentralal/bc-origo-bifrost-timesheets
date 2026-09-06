@@ -7,10 +7,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ## [29.0.0.0] — 2026-09-06
 
 Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Timesheets** on Bifrost Foundation.
-This is an **in-place successor**: the app id, the object id range (70009200–70009299) and the test
-range (95600–95699) are unchanged, so an installed tenant upgrades rather than installing a second
-app. The 41 message-type keys and every help document are unchanged — they are the published API
-contract.
+This is an **in-place successor**: the app id and the test range (95600–95699) are unchanged, so an
+installed tenant upgrades rather than installing a second app. The object id range moved before
+first release — see "Object ID range moved" below. The 41 message-type keys and every help document
+are unchanged — they are the published API contract.
+
+### Object ID range moved: 70009200-70009249 -> 10036785-10036884 (2026-09-06, before first release)
+
+The block originally assigned to this app (70009200-70009249, 50 ids) could not hold it: the app
+grew to 83 objects, including 68 codeunits, up to id 70009268 — 19 ids past the end of the assigned
+block (`app/app.json` had wrongly declared 70009200-70009299, covering the overrun by accident).
+Assigned blocks are never extended once given out, so every object id moved to the free tail of
+Public Range 2: **10036785-10036884**. Object ids moved from 70009200-70009268 to
+10036785-10036853 (offset -59972415); the assigned 50-id block could not hold the app and ranges
+are never extended; no upgrade path needed - never published. This includes the `Clockify Msg Type
+ori` and `Clockify Req Log Type ori` enum-extension value ordinals, which share the app's object-id
+block by convention. The 41 message-type keys (`Clockify.*`, `Help.Clockify.Get`) and their
+enum-extension **value names** are unchanged — only the underlying ordinal numbers moved. The test
+app's own range (95600-95699) is untouched.
 
 ### App name: Bifrost Clockify -> Bifrost Timesheets (2026-09-06, before first release)
 
@@ -23,7 +37,7 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
 - Permission set `BIFROST Clockify ori` -> `BIFROST Timeshts ori` (permission-set object names are
   `Code[20]`; `BIFROST Timesheets ori` would be 22). Its caption is now
   *Bifrost Timesheets* / *Bifröst tímaskýrslur* instead of the untranslated *Clockify - Full*.
-- Setup page `Clockify Setup ori` (70009268) -> `Timesheets Setup ori`, captioned
+- Setup page `Clockify Setup ori` (10036853) -> `Timesheets Setup ori`, captioned
   *Bifrost Timesheets Setup* / *Uppsetning Bifröst tímaskýrslna*. The setup **table** keeps the name
   `Clockify Setup ori` - it holds Clockify connection settings. The single action this app adds to
   Bifröst Setup is captioned the same way instead of just *Clockify*.
@@ -106,14 +120,14 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
   `Request Log Masker ori`, `Message Events ori`.
 - **Setup moved off the Foundation card.** The connector no longer extends Foundation's `Setup ori`
   table or fills its page with a Clockify pane. The seven settings live on a new
-  `Clockify Setup ori` table and card (70009268), and the page extension adds exactly one action in
+  `Clockify Setup ori` table and card (10036853), and the page extension adds exactly one action in
   Foundation's `Apps` group plus its promoted reference — the footprint every dependent Bifröst app
   is allowed. Field names lost their redundant `Clockify ` prefix (`Clockify API Version` →
   `API Version`, and so on).
 - **Help consolidated per domain.** The Markdown that used to sit inline in each implementation now
   lives in six domain codeunits — `Clockify Workspace Help ori`, `Clockify Client Help ori`,
   `Clockify Project Help ori`, `Clockify Task Help ori`, `Clockify Tag Help ori`,
-  `Clockify TimeEntry Help ori` (70009262–70009267) — each with a `case` on `Message Type ori`.
+  `Clockify TimeEntry Help ori` (10036847–10036852) — each with a `case` on `Message Type ori`.
   `Clockify TimeSheet Help ori` became a `case` dispatcher too. The help text itself is unchanged.
 - **Repository layout.** `Cloud Events Clockify/` → `app/`, `Cloud Events Clockify - Tests/` →
   `test/` (`test/src` for mocks, `test/test` for the test codeunits), AL-Go settings, workspace file,

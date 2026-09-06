@@ -3,7 +3,7 @@
 **App name:** Bifrost Timesheets  
 **Publisher:** Origo — **Version:** 29.0.0.0 — **Target:** Cloud (BC 28, runtime 17.0)  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af` — **Test app ID:** `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`  
-**Object ID range:** 70009200–70009299 (tests 95600–95699) — **Namespace:** `Origo.Bifrost.Timesheets`
+**Object ID range:** 10036785–10036884 (tests 95600–95699) — **Namespace:** `Origo.Bifrost.Timesheets`
 
 Bifrost Timesheets exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API
 as 41 Bifröst message types on top of Bifrost Foundation. Workspaces, users, user groups, clients,

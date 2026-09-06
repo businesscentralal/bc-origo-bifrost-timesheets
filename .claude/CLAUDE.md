@@ -16,8 +16,11 @@ domain and keeps the names unique across the tenant)
 Origo.Bifrost.Timesheets (tests: Origo.Bifrost.Timesheets.Test)
 
 ## Object ID Range
-App:   70009200-70009299 (unchanged from Origo Cloud Events Clockify - this is an in-place
-  successor with the same app id, so the ids must not move). Highest id in use: 70009268.
+App:   10036785-10036884 (moved 2026-09-06 from the original 70009200-70009249 assigned block,
+  which could not hold the app's 83 objects - the block is never extended once assigned. New block
+  allocated from Public Range 2 in the object-ranges workbook; offset -59972415 applied to every
+  object id). Highest id in use: 10036853. The app was never published, so this is a plain
+  renumbering with no upgrade path.
 Tests: 95600-95699 (unchanged). Highest id in use: 95605.
 
 ## App ID
@@ -49,14 +52,14 @@ Default branch: main
 ## Platform Rules Inherited from Foundation
 - **Bifröst Setup page**: this app adds **one action only**, in `group(Apps)` with its `actionref` in
   `addlast(Category_Apps)`. No fields, no table extension of `Setup ori`, no action group. All
-  Clockify settings live on table `Clockify Setup ori` and page `Timesheets Setup ori` (70009268).
+  Clockify settings live on table `Clockify Setup ori` and page `Timesheets Setup ori` (10036853).
 - **Secrets**: the Clockify API key is still held by this app's own `Clockify Secret Mgt ori` in
   IsolatedStorage (Company scope) with `Clockify Set Secret Dialog ori`. Foundation now owns a
   unified `Secret Store ori`; migrating the key to it is a planned follow-up, and the key will have
   to be re-entered once because IsolatedStorage cannot be copied between extensions.
 
 ## Message Type Conventions
-- Enum extension `Clockify Msg Type ori` (70009200) extends Foundation's `Message Type ori` with 41
+- Enum extension `Clockify Msg Type ori` (10036785) extends Foundation's `Message Type ori` with 41
   values. The keys (`Clockify.<Entity>.<Verb>`, plus `Help.Clockify.Get`) are the published external
   API contract and must never be renamed or removed.
 - Each type has a `Clockify <Name> Impl ori` codeunit implementing `Msg Interface ori`
