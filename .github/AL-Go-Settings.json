@@ -6,20 +6,15 @@
   "keyVaultName": "kv-kjarni-hsm-prod",
   "keyVaultCodesignCertificateName": "CodeSigning-2025",
   "doNotSignApps": true,
-  "deliverToAppSource": {
-    "productId": "",
-    "mainAppFolder": "Cloud Events Clockify",
-    "continuousDelivery": false
-  },
   "ConditionalSettings": [
     {
       "branches": [
         "main"
       ],
       "settings": {
-        "doNotSignApps": false,
-        "githubRunner": "windows-latest"
+        "doNotSignApps": false
       }
     }
-  ]
+  ],
+  "versioningStrategy": 3
 }

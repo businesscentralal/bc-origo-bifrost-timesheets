@@ -5,20 +5,11 @@
     "ori"
   ],
   "appFolders": [
-    "Cloud Events Clockify"
+    "app"
   ],
   "testFolders": [
-    "Cloud Events Clockify - Tests"
+    "test"
   ],
   "bcptTestFolders": [],
-  "doNotRunTests": false,
-  "appDependencyProbingPaths": [
-    {
-      "repo": "https://github.com/OrigoSoftwareSolutions/bc-cloudevents",
-      "release_status": "latestBuild",
-      "version": "latest",
-      "projects": "*",
-      "authTokenSecret": "GH_CLOUDEVENTS_TOKEN_DEPS"
-    }
-  ]
+  "doNotRunTests": false
 }

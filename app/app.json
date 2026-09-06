@@ -1,10 +1,10 @@
 {
   "id": "d4560cf5-947d-42b5-b812-33ae8dd009af",
-  "name": "Origo Cloud Events Clockify",
+  "name": "Bifrost Clockify",
   "publisher": "Origo",
-  "version": "28.1.0.0",
-  "brief": "Clockify connector for Cloud Events",
-  "description": "Exposes the Clockify time-tracking REST API as Cloud Events message types for direct read/write access to workspaces, users, clients, projects, tasks, tags and time entries from Business Central.",
+  "version": "29.0.0.0",
+  "brief": "Clockify connector for Bifröst",
+  "description": "Bifrost Clockify exposes the Clockify time-tracking REST API as Bifröst message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
   "url": "https://www.origo.is/",
   "help": "https://www.origo.is/",
   "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
@@ -18,17 +18,17 @@
   "logo": "assets/Logo250x250.png",
   "dependencies": [
     {
-      "id": "a629b897-7541-4562-bebb-c6122f15801c",
+      "id": "7505e808-6e52-4b96-a328-82573391297a",
+      "name": "Bifrost Foundation",
       "publisher": "Origo",
-      "name": "Origo Cloud Events Core",
-      "version": "28.2.0.0"
+      "version": "28.0.0.0"
     }
   ],
   "internalsVisibleTo": [
     {
       "id": "553214e3-b742-4ccf-8ecc-1ee86fbc96f9",
       "publisher": "Origo",
-      "name": "Cloud Events Clockify - Tests"
+      "name": "Bifrost Clockify - Tests"
     }
   ],
   "screenshots": [],
@@ -47,6 +47,7 @@
   },
   "target": "Cloud",
   "features": [
+    "NoImplicitWith",
     "TranslationFile"
   ],
   "runtime": "17.0",
