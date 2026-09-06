@@ -19,16 +19,16 @@ codeunit 70009205 "Clockify Time Entry Sync ori"
     Access = Internal;
 
     var
-        DuplicateSkippedMsg: Label 'Time entry %1 already synced (Integration Entry %2). Skipped.', Comment = '%1 = Clockify ID, %2 = Entry No.';
-        CorrectionCreatedMsg: Label 'Time entry %1 was updated in Clockify. Reversal line %2 and new line %3 created.', Comment = '%1 = Clockify ID, %2 = reversal line no., %3 = new line no.';
-        NoProjectMappingErr: Label 'No integration mapping found for Clockify project %1.', Comment = '%1 = Clockify project ID';
-        NoTaskMappingErr: Label 'No integration mapping found for Clockify task %1.', Comment = '%1 = Clockify task ID';
-        NoUserMappingErr: Label 'No integration mapping found for Clockify user %1.', Comment = '%1 = Clockify user ID';
-        EntryUpdatedMsg: Label 'Time entry %1 updated in journal (Integration Entry %2).', Comment = '%1 = Clockify ID, %2 = Entry No.';
-        NoActiveLinkMsg: Label 'No active integration link for Clockify time entry %1; nothing to reverse.', Comment = '%1 = Clockify ID';
-        DeletedLineMsg: Label 'Deleted the journal line for Clockify time entry %1.', Comment = '%1 = Clockify ID';
-        LinkReversedMsg: Label 'Reversed the integration link for Clockify time entry %1 (journal line already gone).', Comment = '%1 = Clockify ID';
-        PostedManualMsg: Label 'Clockify time entry %1 was already posted; reversed the link. Post a manual correction for the ledger entry.', Comment = '%1 = Clockify ID';
+        DuplicateSkippedMsg: Label 'Time entry %1 already synced (Integration Entry %2). Skipped.', Comment = '%1 = Clockify ID, %2 = Entry No. is-IS=Tímafærsla %1 er þegar samstillt (tengifærsla %2). Sleppt.';
+        CorrectionCreatedMsg: Label 'Time entry %1 was updated in Clockify. Reversal line %2 and new line %3 created.', Comment = '%1 = Clockify ID, %2 = reversal line no., %3 = new line no. is-IS=Tímafærslu %1 var breytt í Clockify. Mótfærslulína %2 og ný lína %3 stofnaðar.';
+        NoProjectMappingErr: Label 'No integration mapping found for Clockify project %1.', Comment = '%1 = Clockify project ID. is-IS=Engin tenging fannst fyrir Clockify verkefni %1.';
+        NoTaskMappingErr: Label 'No integration mapping found for Clockify task %1.', Comment = '%1 = Clockify task ID. is-IS=Engin tenging fannst fyrir Clockify verkþátt %1.';
+        NoUserMappingErr: Label 'No integration mapping found for Clockify user %1.', Comment = '%1 = Clockify user ID. is-IS=Engin tenging fannst fyrir Clockify notanda %1.';
+        EntryUpdatedMsg: Label 'Time entry %1 updated in journal (Integration Entry %2).', Comment = '%1 = Clockify ID, %2 = Entry No. is-IS=Tímafærsla %1 uppfærð í bók (tengifærsla %2).';
+        NoActiveLinkMsg: Label 'No active integration link for Clockify time entry %1; nothing to reverse.', Comment = '%1 = Clockify ID. is-IS=Engin virk tenging fyrir Clockify tímafærslu %1; ekkert til að bakfæra.';
+        DeletedLineMsg: Label 'Deleted the journal line for Clockify time entry %1.', Comment = '%1 = Clockify ID. is-IS=Bókarlínu fyrir Clockify tímafærslu %1 eytt.';
+        LinkReversedMsg: Label 'Reversed the integration link for Clockify time entry %1 (journal line already gone).', Comment = '%1 = Clockify ID. is-IS=Tenging Clockify tímafærslu %1 bakfærð (bókarlínan var þegar horfin).';
+        PostedManualMsg: Label 'Clockify time entry %1 was already posted; reversed the link. Post a manual correction for the ledger entry.', Comment = '%1 = Clockify ID. is-IS=Clockify tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir færsluna.';
 
     /// <summary>
     /// Synchronizes a single Clockify time entry to a Job Journal Line. Returns the result:

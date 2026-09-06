@@ -12,8 +12,8 @@ codeunit 70009200 "Clockify Archive Sync ori"
 
     var
         ArchiveBodyTok: Label '{"archived":true}', Locked = true;
-        ArchiveFailedMsg: Label 'Failed to archive Clockify %1 %2 (HTTP %3). BC operation was not blocked.', Comment = '%1 = type, %2 = Clockify ID, %3 = status code';
-        ArchiveSuccessMsg: Label 'Archived Clockify %1 %2 after BC %3 was %4.', Comment = '%1 = type, %2 = Clockify ID, %3 = BC entity, %4 = action';
+        ArchiveFailedMsg: Label 'Failed to archive Clockify %1 %2 (HTTP %3). BC operation was not blocked.', Comment = '%1 = type, %2 = Clockify ID, %3 = status code. is-IS=Ekki tókst að setja Clockify %1 %2 í geymslu (HTTP %3). Aðgerðin í BC var ekki stöðvuð.';
+        ArchiveSuccessMsg: Label 'Archived Clockify %1 %2 after BC %3 was %4.', Comment = '%1 = type, %2 = Clockify ID, %3 = BC entity, %4 = action. is-IS=Clockify %1 %2 sett í geymslu eftir að BC %3 var %4.';
 
     /// <summary>
     /// Archives all active Clockify entities linked to a given BC table/SystemId.

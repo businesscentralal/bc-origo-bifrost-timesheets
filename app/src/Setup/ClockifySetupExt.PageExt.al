@@ -3,23 +3,31 @@
 using Origo.Bifrost;
 
 /// <summary>
-/// Adds a single navigation action to the Bifröst Setup card that opens
-/// <c>Clockify Setup ori</c>. No Clockify fields or action groups are added to
-/// Foundation's setup page - everything the connector needs lives on its own card.
+/// Adds the Bifröst Clockify setup action to the Bifröst Setup page. Following the
+/// Foundation rule for dependent applications, this is the connector's entire
+/// footprint on that page: one action in the <c>Apps</c> group and its promoted
+/// reference. Every Clockify field, list and action lives on
+/// <c>Clockify Setup ori</c>.
 /// </summary>
 pageextension 70009200 "Clockify Setup Ext ori" extends "Setup ori"
 {
     actions
     {
-        addlast(Navigation)
+        addlast(Apps)
         {
             action(ClockifySetupCard)
             {
                 ApplicationArea = All;
-                Caption = 'Clockify Setup', Comment = 'is-IS=Uppsetning Clockify';
-                Image = Setup;
+                Caption = 'Clockify', Comment = 'is-IS=Clockify';
+                Image = Timesheet;
                 RunObject = page "Clockify Setup ori";
-                ToolTip = 'Opens the Clockify connector setup: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opnar uppsetningu Clockify tengingar: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
+                ToolTip = 'Open the setup of the Bifröst Clockify connector: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opna uppsetningu Bifröst Clockify tengingar: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
+            }
+        }
+        addlast(Category_Apps)
+        {
+            actionref(ClockifySetupCardPromoted; ClockifySetupCard)
+            {
             }
         }
     }

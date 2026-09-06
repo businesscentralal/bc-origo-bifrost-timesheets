@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="is-IS" original="Bifrost Clockify">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 1368542968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Integration</source>
+          <target state="translated">Clockify tenging</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify tenging</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 2082364800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC Code</source>
+          <target state="translated">BC kóði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=BC kóði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field BC Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 849855155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC SystemId</source>
+          <target state="translated">Kerfiskenni BC færslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kerfiskenni BC færslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field BC SystemId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 2427453444 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC Table No.</source>
+          <target state="translated">Töflunúmer í BC</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Töflunúmer í BC</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field BC Table No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 3052788997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify ID</source>
+          <target state="translated">Clockify kenni</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify kenni</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Clockify Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 2401915435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Name</source>
+          <target state="translated">Clockify heiti</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify heiti</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Clockify Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 306562354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Type</source>
+          <target state="translated">Clockify tegund</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify tegund</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Clockify Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 1744118010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspace ID</source>
+          <target state="translated">Clockify vinnusvæðiskenni</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vinnusvæðiskenni</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Clockify Workspace Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Færslunúmer</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Færslunúmer</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 3744289816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed</source>
+          <target state="translated">Afturkölluð</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Afturkölluð</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Reversed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1368542968 - Field 1066124403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed At</source>
+          <target state="translated">Afturkölluð þann</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Afturkölluð þann</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Reversed At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Setup</source>
+          <target state="translated">Uppsetning Clockify</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetning Clockify</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 3687300662 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify API Version</source>
+          <target state="translated">Clockify API útgáfa</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify API útgáfa</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field API Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 4007237630 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Work Type</source>
+          <target state="translated">Sjálfgefin vinnutegund</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sjálfgefin vinnutegund</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Default Work Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 1483753178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Workspace ID</source>
+          <target state="translated">Sjálfgefið vinnusvæði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sjálfgefið vinnusvæði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Default Workspace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 4116635791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Journal Batch</source>
+          <target state="translated">Verkbókarflokkur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verkbókarflokkur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Job Jnl. Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 3929495379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Journal Template</source>
+          <target state="translated">Verkbókarlýsing</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verkbókarlýsing</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Job Jnl. Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Aðallykill</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðallykill</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 3462359435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhook Receiver URL</source>
+          <target state="translated">Móttökuslóð vefkróka</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Móttökuslóð vefkróka</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Webhook Receiver URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2526941447 - Field 2141994110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Workspace</source>
+          <target state="translated">Sjálfgefið vinnusvæði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sjálfgefið vinnusvæði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Workspace Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Webhook</source>
+          <target state="translated">Clockify vefkrókur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 3310733264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event</source>
+          <target state="translated">Atburður</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Atburður</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Event - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 1347138047 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered At</source>
+          <target state="translated">Skráð þann</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráð þann</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Registered At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 4165234317 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>URL</source>
+          <target state="translated">Slóð</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Slóð</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 2051456474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhook ID</source>
+          <target state="translated">Vefkróka kenni</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vefkróka kenni</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Webhook Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 2840344064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhook Name</source>
+          <target state="translated">Heiti vefkróks</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Heiti vefkróks</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Webhook Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3324600443 - Field 4218609220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workspace ID</source>
+          <target state="translated">Vinnusvæðiskenni</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vinnusvæðiskenni</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Workspace Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3332886441 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspace</source>
+          <target state="translated">Clockify vinnusvæði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vinnusvæði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3332886441 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Heiti</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Heiti</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer ori - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3332886441 - Field 992186660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workspace ID</source>
+          <target state="translated">Kenni vinnusvæðis</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kenni vinnusvæðis</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Workspace Buffer ori - Field Workspace ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2915019961 - NamedType 1563691356" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to archive Clockify %1 %2 (HTTP %3). BC operation was not blocked.</source>
+          <target state="translated">Ekki tókst að setja Clockify %1 %2 í geymslu (HTTP %3). Aðgerðin í BC var ekki stöðvuð.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = type, %2 = Clockify ID, %3 = status code. is-IS=Ekki tókst að setja Clockify %1 %2 í geymslu (HTTP %3). Aðgerðin í BC var ekki stöðvuð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Archive Sync ori - NamedType ArchiveFailedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2915019961 - NamedType 1801748460" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archived Clockify %1 %2 after BC %3 was %4.</source>
+          <target state="translated">Clockify %1 %2 sett í geymslu eftir að BC %3 var %4.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = type, %2 = Clockify ID, %3 = BC entity, %4 = action. is-IS=Clockify %1 %2 sett í geymslu eftir að BC %3 var %4.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Archive Sync ori - NamedType ArchiveSuccessMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3241333917 - NamedType 1471355834" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Clockify API key is stored. Open Clockify Setup and set the company API key.</source>
+          <target state="translated">Enginn Clockify API lykill er geymdur. Opnaðu Bifrost stillingar og skráðu API lykil fyrirtækis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn Clockify API lykill er geymdur. Opnaðu Bifrost stillingar og skráðu API lykil fyrirtækis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client ori - NamedType MissingApiKeyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3241333917 - NamedType 652305382" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Clockify request could not be sent: %1</source>
+          <target state="translated">Ekki tókst að senda Clockify beiðnina: %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = error text. is-IS=Ekki tókst að senda Clockify beiðnina: %1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client ori - NamedType SendFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1490681253 - NamedType 1624787246" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You do not have write permission to the Clockify Integration table, which is required to run Clockify connector operations. Ask your administrator to assign the Clockify - Full permission set.</source>
+          <target state="translated">Þú hefur ekki skrifréttindi á Clockify tengitöfluna sem er nauðsynleg til að keyra Clockify aðgerðir. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þú hefur ekki skrifréttindi á Clockify tengitöfluna sem er nauðsynleg til að keyra Clockify aðgerðir. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Integration Gate ori - NamedType NoWritePermissionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1788831997 - NamedType 3584467716" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the stored company Clockify API key?</source>
+          <target state="translated">Fjarlægja geymdan Clockify API lykil fyrirtækis?</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægja geymdan Clockify API lykil fyrirtækis?</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Setup Mgt ori - NamedType ClearCompanyQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1788831997 - NamedType 2637544473" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No API key was entered.</source>
+          <target state="translated">Enginn API lykill var sleginn inn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn API lykill var sleginn inn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Setup Mgt ori - NamedType EmptyKeyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 2126350497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time entry %1 was updated in Clockify. Reversal line %2 and new line %3 created.</source>
+          <target state="translated">Tímafærslu %1 var breytt í Clockify. Mótfærslulína %2 og ný lína %3 stofnaðar.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID, %2 = reversal line no., %3 = new line no. is-IS=Tímafærslu %1 var breytt í Clockify. Mótfærslulína %2 og ný lína %3 stofnaðar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType CorrectionCreatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 3400573062" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deleted the journal line for Clockify time entry %1.</source>
+          <target state="translated">Bókarlínu fyrir Clockify tímafærslu %1 eytt.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Bókarlínu fyrir Clockify tímafærslu %1 eytt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType DeletedLineMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 3401147690" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time entry %1 already synced (Integration Entry %2). Skipped.</source>
+          <target state="translated">Tímafærsla %1 er þegar samstillt (tengifærsla %2). Sleppt.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID, %2 = Entry No. is-IS=Tímafærsla %1 er þegar samstillt (tengifærsla %2). Sleppt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType DuplicateSkippedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 3561364324" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time entry %1 updated in journal (Integration Entry %2).</source>
+          <target state="translated">Tímafærsla %1 uppfærð í bók (tengifærsla %2).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID, %2 = Entry No. is-IS=Tímafærsla %1 uppfærð í bók (tengifærsla %2).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType EntryUpdatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 2758962023" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed the integration link for Clockify time entry %1 (journal line already gone).</source>
+          <target state="translated">Tenging Clockify tímafærslu %1 bakfærð (bókarlínan var þegar horfin).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Tenging Clockify tímafærslu %1 bakfærð (bókarlínan var þegar horfin).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType LinkReversedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 1439096016" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No active integration link for Clockify time entry %1; nothing to reverse.</source>
+          <target state="translated">Engin virk tenging fyrir Clockify tímafærslu %1; ekkert til að bakfæra.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Engin virk tenging fyrir Clockify tímafærslu %1; ekkert til að bakfæra.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType NoActiveLinkMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 4211997839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify project %1.</source>
+          <target state="translated">Engin tenging fannst fyrir Clockify verkefni %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify project ID. is-IS=Engin tenging fannst fyrir Clockify verkefni %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType NoProjectMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 1774939607" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify task %1.</source>
+          <target state="translated">Engin tenging fannst fyrir Clockify verkþátt %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify task ID. is-IS=Engin tenging fannst fyrir Clockify verkþátt %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType NoTaskMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 537269371" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify user %1.</source>
+          <target state="translated">Engin tenging fannst fyrir Clockify notanda %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify user ID. is-IS=Engin tenging fannst fyrir Clockify notanda %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType NoUserMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1461175016 - NamedType 5569350" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify time entry %1 was already posted; reversed the link. Post a manual correction for the ledger entry.</source>
+          <target state="translated">Clockify tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir færsluna.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Clockify tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir færsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType PostedManualMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1955427778 - NamedType 4014946328" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Week %1</source>
+          <target state="translated">Vika %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = week number|is-IS=Vika %1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Mgt ori - NamedType WeekTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 3439175133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify webhooks are already registered. Remove them before registering again.</source>
+          <target state="translated">Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType AlreadyRegisteredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 2218430150" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating the Clockify %1 webhook failed (HTTP %2): %3</source>
+          <target state="translated">Ekki tókst að búa til Clockify %1 vefkrók (HTTP %2): %3</target>
+          <note from="Developer" annotates="general" priority="2">%1 = event, %2 = status code, %3 = response. is-IS=Ekki tókst að búa til Clockify %1 vefkrók (HTTP %2): %3</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType CreateFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 3051168133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set the company Clockify API key before registering webhooks.</source>
+          <target state="translated">Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoApiKeyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 2821996882" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.</source>
+          <target state="translated">Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify vefkróka móttökuslóð í Bifrost stillingum áður en vefkrókar eru skráðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoReceiverUrlErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 347091636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The signing tokens could not be retrieved from Clockify.</source>
+          <target state="translated">Ekki tókst að sækja undirritunarlykla frá Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekki tókst að sækja undirritunarlykla frá Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoTokensMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 3686028584" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Clockify webhooks are registered.</source>
+          <target state="translated">Engir Clockify vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Engir Clockify vefkrókar eru skráðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NotRegisteredMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 297912587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set a Default Workspace on Clockify Setup before registering webhooks.</source>
+          <target state="translated">Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Veldu sjálfgefið vinnusvæði í Bifrost stillingum áður en vefkrókar eru skráðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoWorkspaceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 3542876107" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered %1 Clockify webhook(s).\n\nConfigure the webhook receiver app setting CLOCKIFY_WEBHOOK_SIGNATURES with these signing token(s):\n\n%2</source>
+          <target state="translated">Skráði %1 Clockify vefkrók(a).\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = count, %2 = tokens. is-IS=Skráði %1 Clockify vefkrók(a).\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType RegisteredMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 1035661073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register Clockify webhooks for real-time time-entry sync?</source>
+          <target state="translated">Skrá Clockify vefkróka fyrir rauntíma samstillingu tímafærslna?</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skrá Clockify vefkróka fyrir rauntíma samstillingu tímafærslna?</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType RegisterQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 2441722197" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removed %1 Clockify webhook(s).</source>
+          <target state="translated">Fjarlægði %1 Clockify vefkrók(a).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = count. is-IS=Fjarlægði %1 Clockify vefkrók(a).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType RemovedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 2808463212" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove all registered Clockify webhooks?</source>
+          <target state="translated">Fjarlægja alla skráða Clockify vefkróka?</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægja alla skráða Clockify vefkróka?</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType RemoveQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 264978633 - NamedType 1186656531" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure these signing token(s) as CLOCKIFY_WEBHOOK_SIGNATURES on the webhook receiver:\n\n%1</source>
+          <target state="translated">Stilltu þessa undirritunarlykla sem CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum:\n\n%1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = tokens. is-IS=Stilltu þessa undirritunarlykla sem CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum:\n\n%1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType TokensMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2366269795 - NamedType 1763845894" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Clockify workspaces could not be retrieved: %1</source>
+          <target state="translated">Ekki tókst að sækja Clockify vinnusvæði: %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = error text. is-IS=Ekki tókst að sækja Clockify vinnusvæði: %1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Workspace Mgt ori - NamedType FetchFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2366269795 - NamedType 3051168133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set the company Clockify API key before selecting a workspace.</source>
+          <target state="translated">Skráðu Clockify API lykil fyrirtækis áður en þú velur vinnusvæði.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify API lykil fyrirtækis áður en þú velur vinnusvæði.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Workspace Mgt ori - NamedType NoApiKeyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2366269795 - NamedType 3857585238" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Clockify workspaces are available for the configured API key.</source>
+          <target state="translated">Engin Clockify vinnusvæði eru tiltæk fyrir skráðan API lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Engin Clockify vinnusvæði eru tiltæk fyrir skráðan API lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Workspace Mgt ori - NamedType NoWorkspacesErr</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Integration</source>
+          <target state="translated">Clockify tengingar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify tengingar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 2082364800 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the human-readable key of the Business Central record.</source>
+          <target state="translated">Tilgreinir læsilegan lykil BC færslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir læsilegan lykil BC færslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control BC Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 849855155 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the SystemId of the linked Business Central record.</source>
+          <target state="translated">Tilgreinir kerfiskenni tengdu BC færslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kerfiskenni tengdu BC færslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control BC SystemId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 2427453444 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Business Central table the linked record belongs to.</source>
+          <target state="translated">Tilgreinir BC töfluna sem tengda færslan tilheyrir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir BC töfluna sem tengda færslan tilheyrir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control BC Table No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 3052788997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the identifier of the linked Clockify object.</source>
+          <target state="translated">Tilgreinir kenni tengda Clockify hlutarins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kenni tengda Clockify hlutarins.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Clockify Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 2401915435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the display name of the linked Clockify object.</source>
+          <target state="translated">Tilgreinir heiti tengda Clockify hlutarins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir heiti tengda Clockify hlutarins.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Clockify Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 306562354 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the kind of Clockify object the record is linked to.</source>
+          <target state="translated">Tilgreinir tegund Clockify hlutarins sem fært er tengt við.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir tegund Clockify hlutarins sem fært er tengt við.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Clockify Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 1744118010 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace the object lives in.</source>
+          <target state="translated">Tilgreinir Clockify vinnusvæðið sem hluturinn tilheyrir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify vinnusvæðið sem hluturinn tilheyrir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Clockify Workspace Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry number of the integration link.</source>
+          <target state="translated">Tilgreinir færslunúmer tengingarinnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir færslunúmer tengingarinnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 3744289816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the link has been broken. Reversed links are purged about one month after reversal.</source>
+          <target state="translated">Tilgreinir hvort tengingin hafi verið rofin. Afturkallaðar tengingar eru hreinsaðar um mánuði eftir afturköllun.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort tengingin hafi verið rofin. Afturkallaðar tengingar eru hreinsaðar um mánuði eftir afturköllun.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Reversed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2536023114 - Control 1066124403 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the link was reversed.</source>
+          <target state="translated">Tilgreinir hvenær tengingin var afturkölluð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvenær tengingin var afturkölluð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Reversed At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3509119034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter Clockify API Key</source>
+          <target state="translated">Slá inn Clockify API lykil</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Slá inn Clockify API lykil</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3509119034 - Control 4257773229 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Paste your Clockify API key (Profile Settings &gt; API in Clockify), then click OK.</source>
+          <target state="translated">Límdu inn Clockify API lykilinn (Profile Settings &gt; API í Clockify) og smelltu á Í lagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Límdu inn Clockify API lykilinn (Profile Settings &gt; API í Clockify) og smelltu á Í lagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog ori - Control PromptGroup - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3509119034 - Control 1850688972 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify API key to store. The value is masked while you type.</source>
+          <target state="translated">Tilgreinir Clockify API lykilinn sem á að geyma. Gildið er falið meðan þú slærð það inn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify API lykilinn sem á að geyma. Gildið er falið meðan þú slærð það inn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog ori - Control SecretInput - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3509119034 - Control 1850688972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>API Key</source>
+          <target state="translated">API lykill</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog ori - Control SecretInput - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Setup</source>
+          <target state="translated">Uppsetning Clockify</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetning Clockify</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify,Time Tracking,Time Entry</source>
+          <target state="translated">Clockify,Tímaskráning,Tímafærsla</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify,Tímaskráning,Tímafærsla</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">Almennt</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Almennt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3687300662 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which Clockify API implementation the connector uses. Defaults to Version 1, which is fixed on the public Clockify v1 endpoint.</source>
+          <target state="translated">Tilgreinir hvaða Clockify API útfærslu tengingin notar. Sjálfgefið er Útgáfa 1, sem er fest á almennu Clockify v1 slóðina.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvaða Clockify API útfærslu tengingin notar. Sjálfgefið er Útgáfa 1, sem er fest á almennu Clockify v1 slóðina.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control API Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 1483753178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.</source>
+          <target state="translated">Tilgreinir sjálfgefið Clockify vinnusvæði sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettingu til að velja vinnusvæði eftir heiti úr Clockify aðganginum þínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir sjálfgefið Clockify vinnusvæði sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettingu til að velja vinnusvæði eftir heiti úr Clockify aðganginum þínum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Default Workspace - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 2910865334 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions to set or clear it.</source>
+          <target state="translated">Tilgreinir hvort Clockify API lykill fyrirtækis sé geymdur. Allar tengingar nota þennan lykil. Notaðu aðgerðirnar til að breyta honum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort Clockify API lykill fyrirtækis sé geymdur. Allar tengingar nota þennan lykil. Notaðu aðgerðirnar til að breyta honum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control HasCompanyKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 2910865334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company API Key Stored</source>
+          <target state="translated">API lykill fyrirtækis geymdur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill fyrirtækis geymdur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control HasCompanyKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 2141994110 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the selected default Clockify workspace.</source>
+          <target state="translated">Tilgreinir heiti valins sjálfgefins Clockify vinnusvæðis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir heiti valins sjálfgefins Clockify vinnusvæðis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Workspace Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3996203218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Journal</source>
+          <target state="translated">Verkbók</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verkbók</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control JobJournal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 4007237630 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.</source>
+          <target state="translated">Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify tímafærsla hefur engan merkimiða tengdan vinnutegund. Tengdur Clockify merkimiði hefur forgang fram yfir þetta gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify tímafærsla hefur engan merkimiða tengdan vinnutegund. Tengdur Clockify merkimiði hefur forgang fram yfir þetta gildi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Default Work Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 4116635791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.</source>
+          <target state="translated">Tilgreinir verkbókarflokkinn sem samstilltar Clockify tímafærslur eru skrifaðar í. Verður að tilheyra valinni lýsingu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarflokkinn sem samstilltar Clockify tímafærslur eru skrifaðar í. Verður að tilheyra valinni lýsingu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Job Jnl. Batch - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3929495379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.</source>
+          <target state="translated">Tilgreinir verkbókarlýsinguna sem samstilltar Clockify tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkróknum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarlýsinguna sem samstilltar Clockify tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkróknum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Job Jnl. Template - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 4072316332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhooks</source>
+          <target state="translated">Vefkrókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vefkrókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Webhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3462359435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL of the webhook receiver that forwards Clockify events into Business Central, including the target company. Required before registering webhooks.</source>
+          <target state="translated">Tilgreinir slóð vefkróka móttakara sem áframsendir Clockify atburði í Business Central, með marka fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir slóð vefkróka móttakara sem áframsendir Clockify atburði í Business Central, með marka fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control Webhook Receiver URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3216637348 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether real-time time-entry webhooks are registered in Clockify. Use the actions to register or remove them.</source>
+          <target state="translated">Tilgreinir hvort rauntíma vefkrókar fyrir tímafærslur séu skráðir í Clockify. Notaðu aðgerðirnar til að skrá þá eða fjarlægja.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort rauntíma vefkrókar fyrir tímafærslur séu skráðir í Clockify. Notaðu aðgerðirnar til að skrá þá eða fjarlægja.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control WebhooksRegistered - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Control 3216637348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhooks Registered</source>
+          <target state="translated">Vefkrókar skráðir</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vefkrókar skráðir</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Control WebhooksRegistered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2903607336 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the administrative view of the links between Business Central records and Clockify objects.</source>
+          <target state="translated">Opnar stjórnunarsýn yfir tengingar milli BC færslna og Clockify hluta.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opnar stjórnunarsýn yfir tengingar milli BC færslna og Clockify hluta.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action IntegrationList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2903607336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Integration Links</source>
+          <target state="translated">Clockify tengingar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify tengingar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action IntegrationList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2620374036 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the list of Clockify webhooks registered from this company.</source>
+          <target state="translated">Opnar lista yfir Clockify vefkróka sem eru skráðir frá þessu fyrirtæki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opnar lista yfir Clockify vefkróka sem eru skráðir frá þessu fyrirtæki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RegisteredWebhooks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2620374036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered Webhooks</source>
+          <target state="translated">Skráðir vefkrókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðir vefkrókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RegisteredWebhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 3332662617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>API Key</source>
+          <target state="translated">API lykill</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action ApiKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1158152939 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removes the stored company-default Clockify API key.</source>
+          <target state="translated">Fjarlægir geymdan Clockify API lykil fyrirtækis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægir geymdan Clockify API lykil fyrirtækis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action ClearCompanyApiKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1158152939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Company API Key</source>
+          <target state="translated">Eyða API lykli fyrirtækis</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Eyða API lykli fyrirtækis</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action ClearCompanyApiKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2292046614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prompts for and stores the company-default Clockify API key.</source>
+          <target state="translated">Biður um og geymir sjálfgefinn Clockify API lykil fyrirtækis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Biður um og geymir sjálfgefinn Clockify API lykil fyrirtækis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action SetCompanyApiKey - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 2292046614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set Company API Key</source>
+          <target state="translated">Skrá API lykil fyrirtækis</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skrá API lykil fyrirtækis</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action SetCompanyApiKey - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1294796978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webhooks</source>
+          <target state="translated">Vefkrókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vefkrókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action WebhookActions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1555736083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.</source>
+          <target state="translated">Skráir rauntíma vefkróka fyrir tímafærslur í Clockify sem vísa á móttakarann og sýnir undirritunarlykla til að stilla á móttakaranum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráir rauntíma vefkróka fyrir tímafærslur í Clockify sem vísa á móttakarann og sýnir undirritunarlykla til að stilla á móttakaranum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RegisterWebhooks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1555736083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register Webhooks</source>
+          <target state="translated">Skrá vefkróka</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skrá vefkróka</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RegisterWebhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1493396514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removes the registered Clockify time-entry webhooks.</source>
+          <target state="translated">Fjarlægir skráða Clockify vefkróka fyrir tímafærslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægir skráða Clockify vefkróka fyrir tímafærslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RemoveWebhooks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 1493396514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove Webhooks</source>
+          <target state="translated">Fjarlægja vefkróka</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægja vefkróka</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action RemoveWebhooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 4247368948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.</source>
+          <target state="translated">Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á móttakaranum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á móttakaranum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action ShowWebhookTokens - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 4247368948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Signing Tokens</source>
+          <target state="translated">Sýna undirritunarlykla</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sýna undirritunarlykla</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action ShowWebhookTokens - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2526941447 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Vinnsla</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vinnsla</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Setup ori - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Webhooks</source>
+          <target state="translated">Clockify vefkrókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 3310733264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify event the webhook fires on.</source>
+          <target state="translated">Tilgreinir Clockify atburðinn sem vefkrókurinn bregst við.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify atburðinn sem vefkrókurinn bregst við.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Event - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 1347138047 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the connector registered the webhook.</source>
+          <target state="translated">Tilgreinir hvenær tengingin skráði vefkrókinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvenær tengingin skráði vefkrókinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Registered At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 4165234317 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the receiver URL the webhook posts to.</source>
+          <target state="translated">Tilgreinir móttökuslóðina sem vefkrókurinn sendir á.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir móttökuslóðina sem vefkrókurinn sendir á.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 2051456474 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the identifier Clockify assigned to the webhook.</source>
+          <target state="translated">Tilgreinir kennið sem Clockify úthlutaði vefkróknum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kennið sem Clockify úthlutaði vefkróknum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Webhook Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 2840344064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name the connector gave the webhook in Clockify.</source>
+          <target state="translated">Tilgreinir heitið sem tengingin gaf vefkróknum í Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir heitið sem tengingin gaf vefkróknum í Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Webhook Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1016309158 - Control 4218609220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace the webhook belongs to.</source>
+          <target state="translated">Tilgreinir Clockify vinnusvæðið sem vefkrókurinn tilheyrir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify vinnusvæðið sem vefkrókurinn tilheyrir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Workspace Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1320397535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify Workspaces</source>
+          <target state="translated">Clockify vinnusvæði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vinnusvæði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1320397535 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the Clockify workspace.</source>
+          <target state="translated">Tilgreinir heiti Clockify vinnusvæðisins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir heiti Clockify vinnusvæðisins.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup ori - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1320397535 - Control 992186660 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Clockify workspace identifier.</source>
+          <target state="translated">Tilgreinir kenni Clockify vinnusvæðisins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kenni Clockify vinnusvæðisins.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Workspace Lookup ori - Control Workspace ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1772890088 - Action 3026263575 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1243421685">
+          <source>Open the setup of the Bifröst Clockify connector: API key, default workspace, Job Journal target and real-time webhooks.</source>
+          <target state="translated">Opna uppsetningu Bifröst Clockify tengingar: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opna uppsetningu Bifröst Clockify tengingar: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext ori - Action ClockifySetupCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1772890088 - Action 3026263575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1243421685">
+          <source>Clockify</source>
+          <target state="translated">Clockify</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext ori - Action ClockifySetupCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4179075836 - EnumValue 1847308757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version 1</source>
+          <target state="translated">Útgáfa 1</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Útgáfa 1</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify API Version ori - EnumValue Version 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2645004608 - EnumValue 2461167233 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Corrected</source>
+          <target state="translated">Leiðrétt</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðrétt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify Sync Result ori - EnumValue Corrected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2645004608 - EnumValue 1249475212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created</source>
+          <target state="translated">Stofnað</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stofnað</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify Sync Result ori - EnumValue Created - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2645004608 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated">Villa</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Villa</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify Sync Result ori - EnumValue Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2645004608 - EnumValue 2791901420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skipped</source>
+          <target state="translated">Sleppt</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sleppt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify Sync Result ori - EnumValue Skipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2645004608 - EnumValue 2339977023 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Updated</source>
+          <target state="translated">Uppfært</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppfært</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Clockify Sync Result ori - EnumValue Updated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1488219615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify - Full</source>
+          <target state="translated">Clockify - Full</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify - Full</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BIFROST Clockify ori - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
