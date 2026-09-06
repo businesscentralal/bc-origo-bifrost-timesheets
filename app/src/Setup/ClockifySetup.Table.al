@@ -16,7 +16,7 @@ using Microsoft.Utilities;
 /// IsolatedStorage (Company scope) by <c>Clockify Secret Mgt ori</c>. The setup page
 /// reads key presence live through that codeunit.
 /// </summary>
-table 70009268 "Clockify Setup ori"
+table 10036853 "Clockify Setup ori"
 {
     Caption = 'Clockify Setup', Comment = 'is-IS=Uppsetning Clockify';
     DataClassification = SystemMetadata;

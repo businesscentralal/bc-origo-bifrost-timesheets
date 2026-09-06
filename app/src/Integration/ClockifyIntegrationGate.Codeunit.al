@@ -11,7 +11,7 @@ using Origo.Bifrost;
 /// message types are added. On failure it writes the standard error envelope to
 /// the argument and returns <c>false</c>, mirroring the base posting-gate pattern.
 /// </summary>
-codeunit 70009203 "Clockify Integration Gate ori"
+codeunit 10036788 "Clockify Integration Gate ori"
 {
     Access = Internal;
 

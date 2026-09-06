@@ -5,7 +5,7 @@
 /// <c>GET /workspaces</c> into the <see cref="Page.ClockifyWorkspaceLookup"/>
 /// picker. Never persisted — it is always used as a temporary table.
 /// </summary>
-table 70009202 "Clockify Workspace Buffer ori"
+table 10036787 "Clockify Workspace Buffer ori"
 {
     TableType = Temporary;
     DataClassification = SystemMetadata;

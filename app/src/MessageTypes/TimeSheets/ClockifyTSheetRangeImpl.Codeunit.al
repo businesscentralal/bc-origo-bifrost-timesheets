@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// resource's open BC Time Sheet in a single call. BC-side operation (reads Clockify, then
 /// writes time sheets).
 /// </summary>
-codeunit 70009256 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
+codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

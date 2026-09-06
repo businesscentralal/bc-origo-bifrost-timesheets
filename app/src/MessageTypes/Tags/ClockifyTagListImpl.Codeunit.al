@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Tag.List</c> message type.
 /// Lists the tags in a workspace.
 /// </summary>
-codeunit 70009226 "Clockify Tag List Impl ori" implements "Msg Interface ori"
+codeunit 10036811 "Clockify Tag List Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the outcome of synchronizing a Clockify time entry to Business Central.
 /// </summary>
-enum 70009201 "Clockify Sync Result ori"
+enum 10036786 "Clockify Sync Result ori"
 {
     Extensible = false;
     Access = Internal;

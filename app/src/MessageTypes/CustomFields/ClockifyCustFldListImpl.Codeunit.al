@@ -11,7 +11,7 @@ using Origo.Bifrost;
 /// <c>Clockify.Project.Update</c>. Custom-field <c>name</c> values are not
 /// accepted on those write paths.
 /// </summary>
-codeunit 70009216 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
+codeunit 10036801 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

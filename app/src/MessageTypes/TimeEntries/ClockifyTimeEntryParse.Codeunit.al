@@ -4,7 +4,7 @@
 /// Shared JSON parsing helpers for the Clockify time-entry sync message types
 /// (workspace/user/entry parameters, tag arrays, and ISO-8601 hours/date derivation).
 /// </summary>
-codeunit 70009257 "Clockify TimeEntry Parse ori"
+codeunit 10036842 "Clockify TimeEntry Parse ori"
 {
     Access = Internal;
 

@@ -14,7 +14,7 @@ using Origo.Bifrost;
 /// the same link), and <c>TIME_ENTRY_DELETED</c> reverses it. The webhook body is
 /// the Clockify time-entry object, so no extra API fetch is needed.
 /// </summary>
-codeunit 70009206 "Clockify Webhook Handler ori"
+codeunit 10036791 "Clockify Webhook Handler ori"
 {
     Access = Internal;
 

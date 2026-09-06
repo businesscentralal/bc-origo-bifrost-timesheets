@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Project.Update</c> message type.
 /// Updates an existing project from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009223 "Clockify ProjUpdate Impl ori" implements "Msg Interface ori"
+codeunit 10036808 "Clockify ProjUpdate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

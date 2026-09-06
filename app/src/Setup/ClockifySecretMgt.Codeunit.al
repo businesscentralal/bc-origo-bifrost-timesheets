@@ -6,7 +6,7 @@
 /// identity that owns this key. The key is handled as <c>SecretText</c> end to end
 /// so it is never exposed to the debugger.
 /// </summary>
-codeunit 70009243 "Clockify Secret Mgt ori"
+codeunit 10036828 "Clockify Secret Mgt ori"
 {
     Access = Public;
 

@@ -9,7 +9,7 @@ using Origo.Bifrost;
 /// reference. Every Clockify field, list and action lives on
 /// <c>Clockify Setup ori</c>.
 /// </summary>
-pageextension 70009200 "Clockify Setup Ext ori" extends "Setup ori"
+pageextension 10036785 "Clockify Setup Ext ori" extends "Setup ori"
 {
     actions
     {

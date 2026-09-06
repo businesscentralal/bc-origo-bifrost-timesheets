@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Tag.Delete</c> message type.
 /// Deletes a tag by ID.
 /// </summary>
-codeunit 70009225 "Clockify Tag Delete Impl ori" implements "Msg Interface ori"
+codeunit 10036810 "Clockify Tag Delete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

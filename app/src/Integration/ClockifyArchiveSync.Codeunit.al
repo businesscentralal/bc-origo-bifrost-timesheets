@@ -6,7 +6,7 @@
 /// <c>{ "archived": true }</c>. Non-blocking: if the API call fails, a telemetry
 /// warning is logged but the BC operation is not prevented.
 /// </summary>
-codeunit 70009200 "Clockify Archive Sync ori"
+codeunit 10036785 "Clockify Archive Sync ori"
 {
     Access = Internal;
 

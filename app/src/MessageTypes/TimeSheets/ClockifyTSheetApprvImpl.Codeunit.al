@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// approves open time-sheet lines up to a cut-off ending date. BC-side operation —
 /// does not call the Clockify API.
 /// </summary>
-codeunit 70009250 "Clockify TSheetApprv Impl ori" implements "Msg Interface ori"
+codeunit 10036835 "Clockify TSheetApprv Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

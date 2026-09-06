@@ -12,7 +12,7 @@
 /// removes reversed rows about one month after they were reversed, keyed off
 /// <see cref="Reversed At"/>.
 /// </summary>
-table 70009200 "Clockify Integration ori"
+table 10036785 "Clockify Integration ori"
 {
     Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tenging';
     DataClassification = CustomerContent;

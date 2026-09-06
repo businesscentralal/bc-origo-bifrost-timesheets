@@ -7,7 +7,7 @@
 /// Each section is designed for unambiguous machine parsing: structured tables,
 /// explicit types, resolution instructions, preconditions, and workflow context.
 /// </summary>
-codeunit 70009214 "Clockify Help Builder ori"
+codeunit 10036799 "Clockify Help Builder ori"
 {
     Access = Internal;
 

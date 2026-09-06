@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Task.Delete</c> message type.
 /// Deletes a task by ID.
 /// </summary>
-codeunit 70009229 "Clockify Task Delete Impl ori" implements "Msg Interface ori"
+codeunit 10036814 "Clockify Task Delete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

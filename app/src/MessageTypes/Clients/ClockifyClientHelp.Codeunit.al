@@ -9,7 +9,7 @@ using Origo.Bifrost;
 /// <c>GetMessageHelpAsMarkdownDocument</c>, so <c>Help.Implementation.Get</c> still
 /// answers per message type.
 /// </summary>
-codeunit 70009263 "Clockify Client Help ori"
+codeunit 10036848 "Clockify Client Help ori"
 {
     Access = Internal;
 

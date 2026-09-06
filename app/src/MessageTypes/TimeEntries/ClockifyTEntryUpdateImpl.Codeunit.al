@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.TimeEntry.Update</c> message type.
 /// Updates an existing time entry from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009237 "Clockify TEntryUpdate Impl ori" implements "Msg Interface ori"
+codeunit 10036822 "Clockify TEntryUpdate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

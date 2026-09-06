@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Task.Update</c> message type.
 /// Updates an existing task from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009231 "Clockify Task Update Impl ori" implements "Msg Interface ori"
+codeunit 10036816 "Clockify Task Update Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

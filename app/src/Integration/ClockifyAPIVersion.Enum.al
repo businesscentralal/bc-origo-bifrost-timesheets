@@ -10,7 +10,7 @@
 /// endpoint. The enum is extensible so a test extension can add its own value
 /// (for example a mock) without changing this app.
 /// </summary>
-enum 70009200 "Clockify API Version ori" implements "Clockify API Client ori"
+enum 10036785 "Clockify API Version ori" implements "Clockify API Client ori"
 {
     Extensible = true;
     DefaultImplementation = "Clockify API Client ori" = "Clockify Client ori";

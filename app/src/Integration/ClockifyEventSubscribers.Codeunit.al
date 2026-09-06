@@ -15,7 +15,7 @@ using Microsoft.Sales.Customer;
 /// - Customer blocked → archives linked Clockify Client
 /// - Job Status = Completed → archives linked Clockify Project
 /// </summary>
-codeunit 70009202 "Clockify Event Subscribers ori"
+codeunit 10036787 "Clockify Event Subscribers ori"
 {
     Access = Internal;
     SingleInstance = true;

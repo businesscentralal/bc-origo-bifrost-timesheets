@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Workspace.List</c> message type.
 /// Lists the Clockify workspaces the configured API key can access.
 /// </summary>
-codeunit 70009241 "Clockify WrkspaceList Impl ori" implements "Msg Interface ori"
+codeunit 10036826 "Clockify WrkspaceList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

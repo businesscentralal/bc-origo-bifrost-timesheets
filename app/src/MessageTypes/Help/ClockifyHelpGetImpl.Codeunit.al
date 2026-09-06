@@ -7,7 +7,7 @@ using Origo.Bifrost;
 /// overview of the Clockify connector and every message type it exposes. No request
 /// body is required.
 /// </summary>
-codeunit 70009217 "Clockify Help Get Impl ori" implements "Msg Interface ori"
+codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

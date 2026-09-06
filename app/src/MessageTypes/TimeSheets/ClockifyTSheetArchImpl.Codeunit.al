@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// posted time sheets and removes empty posted sheets. BC-side operation — does not call
 /// the Clockify API.
 /// </summary>
-codeunit 70009252 "Clockify TSheetArch Impl ori" implements "Msg Interface ori"
+codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -11,7 +11,7 @@ using System.DataAdministration;
 /// on <c>Reversed At</c>, so the framework forbids switching the policy to
 /// "Apply to all records" — active (non-reversed) links can never be purged.
 /// </summary>
-codeunit 70009208 "Clockify Reten. Policy ori"
+codeunit 10036793 "Clockify Reten. Policy ori"
 {
     Access = Internal;
 

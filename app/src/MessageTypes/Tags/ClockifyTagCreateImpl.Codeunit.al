@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Tag.Create</c> message type.
 /// Creates a tag in a workspace from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009224 "Clockify Tag Create Impl ori" implements "Msg Interface ori"
+codeunit 10036809 "Clockify Tag Create Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

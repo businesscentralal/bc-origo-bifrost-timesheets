@@ -14,7 +14,7 @@ using Microsoft.Projects.Project.Ledger;
 /// otherwise the Default Work Type on Clockify Setup is used. The Job Task always comes
 /// from the Clockify task's <c>TASK</c> integration link.
 /// </summary>
-codeunit 70009205 "Clockify Time Entry Sync ori"
+codeunit 10036790 "Clockify Time Entry Sync ori"
 {
     Access = Internal;
 

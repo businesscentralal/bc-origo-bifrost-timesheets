@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.TimeEntry.Get</c> message type.
 /// Retrieves a single time entry by ID.
 /// </summary>
-codeunit 70009234 "Clockify TEntryGet Impl ori" implements "Msg Interface ori"
+codeunit 10036819 "Clockify TEntryGet Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

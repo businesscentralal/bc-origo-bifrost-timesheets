@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// time-sheet resource has upcoming weekly time sheets. BC-side operation — does not
 /// call the Clockify API.
 /// </summary>
-codeunit 70009249 "Clockify TSheetCreate Impl ori" implements "Msg Interface ori"
+codeunit 10036834 "Clockify TSheetCreate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

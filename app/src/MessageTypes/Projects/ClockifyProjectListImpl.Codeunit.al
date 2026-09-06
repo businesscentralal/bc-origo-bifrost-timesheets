@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Project.List</c> message type.
 /// Lists the projects in a workspace.
 /// </summary>
-codeunit 70009222 "Clockify Project List Impl ori" implements "Msg Interface ori"
+codeunit 10036807 "Clockify Project List Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

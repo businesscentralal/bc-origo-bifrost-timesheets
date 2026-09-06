@@ -8,7 +8,7 @@
 /// <see cref="Page.ClockifyWorkspaceLookup"/> picker. Requires the company API key
 /// to be set first.
 /// </summary>
-codeunit 70009246 "Clockify Workspace Mgt ori"
+codeunit 10036831 "Clockify Workspace Mgt ori"
 {
     Access = Internal;
 

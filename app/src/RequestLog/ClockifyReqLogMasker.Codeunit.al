@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// present in the request or response body. Bodies are plain JSON and safe to
 /// store unmasked regardless of debug mode.
 /// </summary>
-codeunit 70009242 "Clockify ReqLog Masker ori" implements "Request Log Masker ori"
+codeunit 10036827 "Clockify ReqLog Masker ori" implements "Request Log Masker ori"
 {
     Access = Internal;
 

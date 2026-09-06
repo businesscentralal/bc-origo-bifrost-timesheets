@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Project.Delete</c> message type.
 /// Deletes a project by ID (the project must be archived first in Clockify).
 /// </summary>
-codeunit 70009220 "Clockify ProjDelete Impl ori" implements "Msg Interface ori"
+codeunit 10036805 "Clockify ProjDelete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

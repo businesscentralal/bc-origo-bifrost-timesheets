@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Client.Delete</c> message type.
 /// Deletes a client by ID.
 /// </summary>
-codeunit 70009210 "Clockify ClientDelete Impl ori" implements "Msg Interface ori"
+codeunit 10036795 "Clockify ClientDelete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

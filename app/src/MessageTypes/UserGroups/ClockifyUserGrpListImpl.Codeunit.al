@@ -10,7 +10,7 @@ using Origo.Bifrost;
 /// <c>Clockify.Project.Update</c> (project access and default assignees) and in
 /// task assignment writes. Group names are not accepted on those write paths.
 /// </summary>
-codeunit 70009238 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
+codeunit 10036823 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

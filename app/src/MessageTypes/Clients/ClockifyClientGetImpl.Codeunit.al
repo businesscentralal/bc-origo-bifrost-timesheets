@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Client.Get</c> message type.
 /// Retrieves a single client by ID.
 /// </summary>
-codeunit 70009211 "Clockify Client Get Impl ori" implements "Msg Interface ori"
+codeunit 10036796 "Clockify Client Get Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

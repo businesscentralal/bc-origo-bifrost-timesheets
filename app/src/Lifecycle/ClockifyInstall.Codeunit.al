@@ -8,7 +8,7 @@ using System.Upgrade;
 /// <c>Clockify Setup</c> record (if missing) so the Clockify settings have a
 /// home, and registers the initial-release upgrade tag.
 /// </summary>
-codeunit 70009207 "Clockify Install ori"
+codeunit 10036792 "Clockify Install ori"
 {
     Subtype = Install;
     Access = Internal;

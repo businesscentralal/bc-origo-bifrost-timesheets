@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Tag.Update</c> message type.
 /// Updates an existing tag from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009227 "Clockify Tag Update Impl ori" implements "Msg Interface ori"
+codeunit 10036812 "Clockify Tag Update Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -7,7 +7,7 @@
 /// install, the setup card, secret dialog, workspace lookup and integration list
 /// pages, the per-domain help codeunits and all message-type implementation codeunits.
 /// </summary>
-permissionset 70009200 "BIFROST Timeshts ori"
+permissionset 10036785 "BIFROST Timeshts ori"
 {
     Access = Public;
     Assignable = true;

@@ -6,7 +6,7 @@
 /// <see cref="LoadWorkspaces"/> and run in lookup mode so the Setup card can pick
 /// a default workspace by name.
 /// </summary>
-page 70009203 "Clockify Workspace Lookup ori"
+page 10036788 "Clockify Workspace Lookup ori"
 {
     PageType = List;
     SourceTable = "Clockify Workspace Buffer ori";

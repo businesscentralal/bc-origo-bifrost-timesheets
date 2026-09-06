@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Task.Create</c> message type.
 /// Creates a task in a project from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009228 "Clockify Task Create Impl ori" implements "Msg Interface ori"
+codeunit 10036813 "Clockify Task Create Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

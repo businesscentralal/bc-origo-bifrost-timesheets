@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Client.Update</c> message type.
 /// Updates an existing client from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009213 "Clockify ClientUpdate Impl ori" implements "Msg Interface ori"
+codeunit 10036798 "Clockify ClientUpdate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

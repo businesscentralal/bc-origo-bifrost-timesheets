@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.TimeEntry.Create</c> message type.
 /// Creates a time entry for a user from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009232 "Clockify TEntryCreate Impl ori" implements "Msg Interface ori"
+codeunit 10036817 "Clockify TEntryCreate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

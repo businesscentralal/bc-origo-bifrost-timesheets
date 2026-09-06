@@ -7,7 +7,7 @@ using Origo.Bifrost;
 /// Returns the currently authenticated Clockify user (use its <c>id</c> as
 /// <c>userId</c> for time-entry operations).
 /// </summary>
-codeunit 70009239 "Clockify User Current Impl ori" implements "Msg Interface ori"
+codeunit 10036824 "Clockify User Current Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

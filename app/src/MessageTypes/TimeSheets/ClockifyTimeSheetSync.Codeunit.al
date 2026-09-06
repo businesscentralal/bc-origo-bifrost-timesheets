@@ -11,7 +11,7 @@ using Microsoft.Projects.TimeSheet;
 /// detail. Deduplication and update detection are tracked through a <c>TIME_ENTRY</c>
 /// <c>Clockify Integration ori</c> record linked to the created Time Sheet Detail.
 /// </summary>
-codeunit 70009254 "Clockify TimeSheet Sync ori"
+codeunit 10036839 "Clockify TimeSheet Sync ori"
 {
     Access = Internal;
 

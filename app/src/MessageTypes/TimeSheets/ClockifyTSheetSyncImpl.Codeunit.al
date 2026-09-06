@@ -7,7 +7,7 @@ using Origo.Bifrost;
 /// single Clockify time entry to the resource's open BC Time Sheet (line + detail) instead
 /// of the Job Journal. BC-side operation.
 /// </summary>
-codeunit 70009255 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
+codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -5,7 +5,7 @@
 /// The calling page reads the entered value via <see cref="GetSecret"/> and passes
 /// it to <c>Clockify Secret Mgt ori</c>.
 /// </summary>
-page 70009201 "Clockify Set Secret Dialog ori"
+page 10036786 "Clockify Set Secret Dialog ori"
 {
     PageType = StandardDialog;
     Caption = 'Enter Clockify API Key', Comment = 'is-IS=Slá inn Clockify API lykil';

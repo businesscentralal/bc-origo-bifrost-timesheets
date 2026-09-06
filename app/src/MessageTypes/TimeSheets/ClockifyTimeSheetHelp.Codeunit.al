@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Builds the Markdown help documents for the <c>Clockify.TimeSheet.*</c> message types,
 /// keeping the help text out of the individual <c>*Impl</c> codeunits.
 /// </summary>
-codeunit 70009253 "Clockify TimeSheet Help ori"
+codeunit 10036838 "Clockify TimeSheet Help ori"
 {
     Access = Internal;
 

@@ -16,7 +16,7 @@ using Origo.Bifrost;
 /// <c>CLOCKIFY_WEBHOOK_SIGNATURES</c> setting. Only the webhook ID is tracked
 /// locally, in <see cref="Table.ClockifyWebhook"/>.
 /// </summary>
-codeunit 70009245 "Clockify Webhook Mgt ori"
+codeunit 10036830 "Clockify Webhook Mgt ori"
 {
     Access = Internal;
 

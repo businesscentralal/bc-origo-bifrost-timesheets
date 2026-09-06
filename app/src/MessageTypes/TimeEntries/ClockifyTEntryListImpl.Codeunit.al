@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// Clockify filters such as <c>start</c>, <c>end</c>, <c>project</c>, <c>page</c>
 /// and <c>page-size</c>.
 /// </summary>
-codeunit 70009235 "Clockify TEntryList Impl ori" implements "Msg Interface ori"
+codeunit 10036820 "Clockify TEntryList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

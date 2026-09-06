@@ -6,7 +6,7 @@
 /// and maintained by integrators through the base <c>Data.Records.Get</c> /
 /// <c>Data.Records.Set</c> message types, not edited here.
 /// </summary>
-page 70009200 "Clockify Integration List ori"
+page 10036785 "Clockify Integration List ori"
 {
     PageType = List;
     ApplicationArea = All;

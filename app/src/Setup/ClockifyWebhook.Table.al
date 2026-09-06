@@ -11,7 +11,7 @@
 /// stored here — it is held in IsolatedStorage by
 /// <see cref="Codeunit.ClockifySecretMgt"/>.
 /// </summary>
-table 70009201 "Clockify Webhook ori"
+table 10036786 "Clockify Webhook ori"
 {
     Caption = 'Clockify Webhook', Comment = 'is-IS=Clockify vefkrókur';
     DataClassification = SystemMetadata;

@@ -6,7 +6,7 @@
 /// webhooks are created and removed through the actions on the
 /// <c>Clockify Setup</c> card, not edited here.
 /// </summary>
-page 70009202 "Clockify Webhooks ori"
+page 10036787 "Clockify Webhooks ori"
 {
     PageType = List;
     ApplicationArea = All;

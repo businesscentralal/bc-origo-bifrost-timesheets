@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Client.Create</c> message type.
 /// Creates a client in a workspace from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009209 "Clockify ClientCreate Impl ori" implements "Msg Interface ori"
+codeunit 10036794 "Clockify ClientCreate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -6,7 +6,7 @@ using System.Reflection;
 /// Fetches a Clockify user's finished time entries for a date range from the Clockify API,
 /// following pagination. Used by the range/all-users sync message types.
 /// </summary>
-codeunit 70009260 "Clockify TimeEntry Fetch ori"
+codeunit 10036845 "Clockify TimeEntry Fetch ori"
 {
     Access = Internal;
 

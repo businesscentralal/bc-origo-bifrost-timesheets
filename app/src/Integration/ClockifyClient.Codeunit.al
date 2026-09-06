@@ -11,7 +11,7 @@ using Origo.Bifrost;
 /// API key is carried as <c>SecretText</c> so it is never exposed to the debugger
 /// or written to the response.
 /// </summary>
-codeunit 70009201 "Clockify Client ori" implements "Clockify API Client ori"
+codeunit 10036786 "Clockify Client ori" implements "Clockify API Client ori"
 {
     Access = Internal;
 

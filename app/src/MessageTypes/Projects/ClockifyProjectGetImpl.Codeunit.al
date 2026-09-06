@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Project.Get</c> message type.
 /// Retrieves a single project by ID.
 /// </summary>
-codeunit 70009221 "Clockify Project Get Impl ori" implements "Msg Interface ori"
+codeunit 10036806 "Clockify Project Get Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

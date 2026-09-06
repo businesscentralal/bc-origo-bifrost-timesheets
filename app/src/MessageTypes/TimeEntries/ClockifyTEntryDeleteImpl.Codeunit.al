@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.TimeEntry.Delete</c> message type.
 /// Deletes a time entry by ID.
 /// </summary>
-codeunit 70009233 "Clockify TEntryDelete Impl ori" implements "Msg Interface ori"
+codeunit 10036818 "Clockify TEntryDelete Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

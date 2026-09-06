@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// to <c>Clockify Secret Mgt ori</c>. Keeps all UI flow out of the page extension.
 /// Also resolves the Job Journal target that synced time entries are written to.
 /// </summary>
-codeunit 70009244 "Clockify Setup Mgt ori"
+codeunit 10036829 "Clockify Setup Mgt ori"
 {
     Access = Internal;
 

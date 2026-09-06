@@ -11,7 +11,7 @@ using Origo.Bifrost;
 /// Job Queue or message chain needs — the per-entry <c>Clockify.TimeEntry.Sync</c>
 /// requires the caller to supply and loop over each entry itself.
 /// </summary>
-codeunit 70009247 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
+codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

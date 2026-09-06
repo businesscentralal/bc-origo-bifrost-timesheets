@@ -7,7 +7,7 @@
 /// <c>Clockify Setup Mgt ori</c> and <c>Clockify Webhook Mgt ori</c>; the page only
 /// reads API-key and webhook presence live.
 /// </summary>
-page 70009268 "Timesheets Setup ori"
+page 10036853 "Timesheets Setup ori"
 {
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;

@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Implementation of the <c>Clockify.Project.Create</c> message type.
 /// Creates a project in a workspace from the request's <c>body</c> object.
 /// </summary>
-codeunit 70009219 "Clockify ProjCreate Impl ori" implements "Msg Interface ori"
+codeunit 10036804 "Clockify ProjCreate Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

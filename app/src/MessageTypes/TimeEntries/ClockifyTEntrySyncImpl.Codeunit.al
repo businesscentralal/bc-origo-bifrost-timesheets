@@ -11,7 +11,7 @@ using Origo.Bifrost;
 /// Requires: workspaceId, userId, and either entryId (to fetch from Clockify and sync)
 /// or full entry data (entryId, projectId, taskId, description, start, end, billable).
 /// </summary>
-codeunit 70009236 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
+codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

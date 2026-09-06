@@ -8,7 +8,7 @@ using Origo.Bifrost;
 /// unposted time-sheet detail into a Job Journal batch and posts it. BC-side operation —
 /// does not call the Clockify API.
 /// </summary>
-codeunit 70009251 "Clockify TSheetPost Impl ori" implements "Msg Interface ori"
+codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

@@ -9,7 +9,7 @@ using Origo.Bifrost;
 /// selects the destination: <c>timesheet</c> (default) writes BC Time Sheets;
 /// <c>journal</c> writes Job Journal lines.
 /// </summary>
-codeunit 70009261 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori"
+codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

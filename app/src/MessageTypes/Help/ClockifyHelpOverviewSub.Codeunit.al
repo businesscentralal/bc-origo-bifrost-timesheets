@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Extends the <c>Help.Bifrost.Get</c> discovery overview with a one-line
 /// entry for the <c>Help.Clockify.Get</c> endpoint.
 /// </summary>
-codeunit 70009218 "Clockify Help Overview Sub ori"
+codeunit 10036803 "Clockify Help Overview Sub ori"
 {
     Access = Internal;
 

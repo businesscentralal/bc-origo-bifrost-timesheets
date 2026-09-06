@@ -9,7 +9,7 @@ using Origo.Bifrost;
 /// does not call the Clockify API.
 /// </summary>
 /// <remarks>Runs the base time-sheet approval engine; no Clockify API call.</remarks>
-codeunit 70009259 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori"
+codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

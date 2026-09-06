@@ -10,7 +10,7 @@ using Origo.Bifrost;
 /// <c>Clockify.Client.Update</c> -- Clockify silently ignores <c>currencyCode</c>
 /// on those write paths.
 /// </summary>
-codeunit 70009215 "Clockify CurrencyList Impl ori" implements "Msg Interface ori"
+codeunit 10036800 "Clockify CurrencyList Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 

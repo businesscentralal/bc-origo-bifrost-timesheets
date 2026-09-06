@@ -47,10 +47,10 @@ codeunit 95601 "Clockify Connector Tests"
         Ordinals: List of [Integer];
         Ordinal: Integer;
     begin
-        // [SCENARIO] Every Clockify message type (70009200-70009229) exposes metadata and non-empty help.
+        // [SCENARIO] Every Clockify message type (10036785-10036814) exposes metadata and non-empty help.
         Ordinals := MessageType.Ordinals();
         foreach Ordinal in Ordinals do
-            if (Ordinal >= 70009200) and (Ordinal <= 70009229) then
+            if (Ordinal >= 10036785) and (Ordinal <= 10036814) then
                 VerifyTypeMetadataAndHelp(Ordinal);
     end;
 
@@ -1130,10 +1130,10 @@ codeunit 95601 "Clockify Connector Tests"
         Ordinals: List of [Integer];
         Ordinal: Integer;
     begin
-        // [SCENARIO] Every inbound time-entry/time-sheet type (70009230-70009240) is Inbound with help.
+        // [SCENARIO] Every inbound time-entry/time-sheet type (10036815-10036825) is Inbound with help.
         Ordinals := MessageType.Ordinals();
         foreach Ordinal in Ordinals do
-            if (Ordinal >= 70009230) and (Ordinal <= 70009240) then
+            if (Ordinal >= 10036815) and (Ordinal <= 10036825) then
                 VerifyInboundTypeMetadataAndHelp(Ordinal);
     end;
 
