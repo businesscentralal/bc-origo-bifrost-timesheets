@@ -36,6 +36,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify Install ori" = X,
         codeunit "Clockify Time Entry Sync ori" = X,
         codeunit "Clockify Event Subscribers ori" = X,
+        codeunit "Timesheets Registration ori" = X,
         codeunit "Clockify Help Get Impl ori" = X,
         codeunit "Clockify WrkspaceList Impl ori" = X,
         codeunit "Clockify User Current Impl ori" = X,

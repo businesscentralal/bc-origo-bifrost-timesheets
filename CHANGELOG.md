@@ -6,6 +6,22 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [29.0.0.0] — 2026-09-06
 
+### Setup notifications and wizard (2026-09-07)
+
+Across the Bifröst family, setup notifications now live **only** on Bifröst Foundation's `Setup ori`
+page ("Bifrost Setup"), and their single action is *Start setup wizard*. No app raises setup
+notifications of its own any more.
+
+- Added codeunit **10036854 `Timesheets Registration ori`** (`Access = Internal`), which subscribes to
+  Foundation's `App Registry ori.OnRegisterApps` and registers this app with its module id, its module
+  name and its setup page `Timesheets Setup ori` (10036853). That is the only thing the codeunit does —
+  Foundation aggregates the registrations and decides which notifications to show.
+- Granted the new codeunit in permission set `BIFROST Timeshts ori`.
+- Bifrost Timesheets raised **no** setup notification before this change, so nothing had to be removed;
+  a scan of `app/src` confirms the app creates no `Notification` at all.
+- Test **95606 `Timesheets Registration Tests`** asserts that the app appears in
+  `App Registry ori.GetApps` with the right app id and setup page id.
+
 ### Changed (2026-09-07) - tests run on Foundation's public API
 
 - The test app no longer depends on Bifröst Foundation's internals: Bifrost Timesheets - Tests has been removed

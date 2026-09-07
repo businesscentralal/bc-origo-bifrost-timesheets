@@ -21,7 +21,13 @@ App:   10036785-10036884 (moved 2026-09-06 from the original 70009200-70009249 a
   allocated from Public Range 2 in the object-ranges workbook; offset -59972415 applied to every
   object id). Highest id in use: 10036853. The app was never published, so this is a plain
   renumbering with no upgrade path.
-Tests: 95600-95699 (unchanged). Highest id in use: 95605.
+Tests: 95600-95699 (unchanged). Highest id in use: 95606.
+
+Ids added after the renumbering:
+| Id | Object | Purpose |
+|----|--------|---------|
+| 10036854 | codeunit `Timesheets Registration ori` | Registers the app with Foundation's `App Registry ori` |
+| 95606 | codeunit `Timesheets Registration Tests` | Asserts the registration reaches `App Registry ori.GetApps` |
 
 ## App ID
 `d4560cf5-947d-42b5-b812-33ae8dd009af` (app) / `553214e3-b742-4ccf-8ecc-1ee86fbc96f9` (tests) -
@@ -53,6 +59,13 @@ Default branch: main
 - **Bifröst Setup page**: this app adds **one action only**, in `group(Apps)` with its `actionref` in
   `addlast(Category_Apps)`. No fields, no table extension of `Setup ori`, no action group. All
   Clockify settings live on table `Clockify Setup ori` and page `Timesheets Setup ori` (10036853).
+- **Setup notifications**: setup notifications live on the Bifröst Setup page **only**, and their only
+  action is *Start setup wizard*. This app never raises a setup `Notification` of its own (a UI banner
+  about enabling HTTP, missing credentials or running a wizard). Instead it makes itself known to
+  Foundation through codeunit `Timesheets Registration ori` (10036854), which subscribes to
+  `App Registry ori.OnRegisterApps` and calls `AddApp` with the module id, the module name and page
+  `Timesheets Setup ori`. Foundation aggregates the registrations and owns the notification logic.
+  Business notifications unrelated to setup are still allowed.
 - **Secrets**: the Clockify API key is still held by this app's own `Clockify Secret Mgt ori` in
   IsolatedStorage (Company scope) with `Clockify Set Secret Dialog ori`. Foundation now owns a
   unified `Secret Store ori`; migrating the key to it is a planned follow-up, and the key will have
