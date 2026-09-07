@@ -48,13 +48,21 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
 - The test app's AL Test Suite is renamed `CLOCKIFY` -> `TIMESHEETS`, matching the name
   `tools/Run-BifrostTests.ps1` derives from the test app name.
 
-### Fixed (2026-09-06)
+### Added
 
-- Icelandic caption collision on `Clockify Setup ori`: fields *Default Workspace ID* and
-  *Default Workspace* both translated to `Sjálfgefið vinnusvæði`. The id field is now
-  `Kenni sjálfgefins vinnusvæðis`.
+- Message types for Projects and Time Sheets from the open pull request
+  *#5 Message Types for Projects* (`feature-#5_MessageTypes_Projects`), merged into this migration:
+  `Clockify.TimeSheet.Create`, `.Approve`, `.Post`, `.Archive`, `.Reject`, `.Reopen`,
+  `Clockify.TimeEntry.SyncToTimeSheet`, `.SyncRangeToTimeSheet` and `.SyncAllUsers`, together with
+  `Clockify TimeSheet Mgt ori`, `Clockify TimeSheet Sync ori`, `Clockify TimeEntry Fetch ori`,
+  `Clockify TimeEntry Parse ori` and 430 lines of new tests.
+- `Bifrost Timesheets.is-IS.xlf` with all 130 translation units translated. The legacy app shipped no
+  Icelandic translation file at all.
+- `is-IS=` comments on the 18 labels, enum captions and search terms that had none.
+- A dedicated `CLOCKIFY` AL Test Suite built by the test app, refreshed by a new upgrade codeunit
+  (95605) so republishing picks up new test codeunits.
 
-### Changed (2026-09-06)
+### Changed
 
 - **Documentation moved to the site.** All public documentation and in-product help now live in the
   [businesscentralal/bifrost](https://github.com/businesscentralal/bifrost) repository and are
@@ -72,8 +80,6 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
   `app/docs/` to `test/reports/`. They are internal and are deliberately not published to the
   documentation site. The tracked AL test result XML files under `TestResults/` were dropped from
   the repository — a stray `.xml` inside an AL project folder raises AL1025.
-
-### Changed
 
 - **Platform.** Dependency moved from *Origo Cloud Events Core* (`a629b897-…`) to **Bifrost
   Foundation** `7505e808-6e52-4b96-a328-82573391297a` 28.0.0.0. The API route is now
@@ -138,27 +144,16 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
   where the site is actually published. They move to `bifrost.origo.is` once that DNS record
   exists. The pages still have to be written in the `businesscentralal/bifrost` site repository.
 
-### Added
-
-- Message types for Projects and Time Sheets from the open pull request
-  *#5 Message Types for Projects* (`feature-#5_MessageTypes_Projects`), merged into this migration:
-  `Clockify.TimeSheet.Create`, `.Approve`, `.Post`, `.Archive`, `.Reject`, `.Reopen`,
-  `Clockify.TimeEntry.SyncToTimeSheet`, `.SyncRangeToTimeSheet` and `.SyncAllUsers`, together with
-  `Clockify TimeSheet Mgt ori`, `Clockify TimeSheet Sync ori`, `Clockify TimeEntry Fetch ori`,
-  `Clockify TimeEntry Parse ori` and 430 lines of new tests.
-- `Bifrost Timesheets.is-IS.xlf` with all 130 translation units translated. The legacy app shipped no
-  Icelandic translation file at all.
-- `is-IS=` comments on the 18 labels, enum captions and search terms that had none.
-- A dedicated `CLOCKIFY` AL Test Suite built by the test app, refreshed by a new upgrade codeunit
-  (95605) so republishing picks up new test codeunits.
-
-### Fixed
-
-- The test app no longer deletes and rebuilds the container-wide `DEFAULT` AL Test Suite, which used
-  to wipe the suite of every other test app installed beside it and never contained Clockify's own
-  codeunits on a fresh install.
-- Three Icelandic messages still directed the user to *Bifrost stillingar*; they now name the
-  Clockify Setup card, matching the English text.
+- **PR gateway 2026-09-07 — narrowed database reads.** 15 `SetLoadFields` and 8 `ReadIsolation`
+  statements were added on the hot read paths: the unfiltered `Time Sheet Header` scan behind
+  `Clockify.TimeSheet.Post`, the open-time-sheet lookup that runs once per synced entry, the three
+  time-sheet batch scans, the four Clockify-to-BC mapping lookups, and the webhook list. Two existing
+  `SetLoadFields` in `Clockify Archive Sync ori` were missing `"BC Code"`, which the loop reads, so
+  every `TASK` row triggered a just-in-time re-fetch.
+- **PR gateway 2026-09-07 — the test project no longer runs AppSourceCop.** The test app has no
+  `AppSourceCop.json`, no `TranslationFile` feature flag, and its objects deliberately carry no ` ori`
+  affix, so the analyzer only ever produced noise (`AS0015`, `AS0054`, `AS0092`). `test/.vscode/settings.json`
+  now declares CodeCop + UICop, matching how the test app is actually built.
 
 ### Removed
 
@@ -167,6 +162,60 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
   belonged to a table owned by a dependency that this version no longer references, so the values
   cannot be read after the dependency swap. The app was never published, so no tenant is affected;
   re-enter the Clockify settings on the new card after upgrading a development environment.
+- `test/ruleset.json`. It existed only to suppress `AS0084` for the test project's AppSourceCop run,
+  was referenced by no settings file, and still carried the pre-rename name
+  "Cloud Events Clockify Tests Ruleset".
+
+### Fixed
+
+- Icelandic caption collision on `Clockify Setup ori`: fields *Default Workspace ID* and
+  *Default Workspace* both translated to `Sjálfgefið vinnusvæði`. The id field is now
+  `Kenni sjálfgefins vinnusvæðis`.
+
+- The test app no longer deletes and rebuilds the container-wide `DEFAULT` AL Test Suite, which used
+  to wipe the suite of every other test app installed beside it and never contained Clockify's own
+  codeunits on a fresh install.
+- Three Icelandic messages still directed the user to *Bifrost stillingar*; they now name the
+  Clockify Setup card, matching the English text.
+
+The following were found by the PR gateway run on 2026-09-07.
+
+- **The `result` field of a sync response no longer depends on the caller's language.** Five message
+  types built it with `Format()` applied to `Clockify Sync Result ori`, which returns the translated
+  caption — an Icelandic session answered `"result": "Stofnað"` where the help document promises
+  `Created|Updated|Skipped|Error`. The value name is now resolved culture-independently.
+- **Time-entry payloads and stored correlation keys are parsed and written culture-independently.**
+  Thirteen `Evaluate` calls read ISO-8601 datetimes from the Clockify API without format 9, and
+  `Clockify Integration ori."Clockify Name"` was written with `Format(Hours)` and parsed back with a
+  bare `Evaluate`. A write and a read under different session languages returned zero hours, which
+  posted a zero-hour reversal against a real ledger entry.
+- **`Clockify.TimeEntry.SyncToTimeSheet` answers `status = Error` instead of throwing** when the
+  mapped job task no longer exists, and when a Clockify description is longer than the 250-character
+  integration name field. Both previously raised an exception out of the task and out of the webhook
+  subscriber.
+- **`Clockify.TimeSheet.Approve` no longer skips lines.** It filtered the recordset on `Status = Open`
+  and then changed `Status` inside the loop, so each processed line dropped out of the filter and
+  `Next()` could step over the following one. It now tests the status in code, the way
+  `Clockify.TimeSheet.Reject` and `Clockify.TimeSheet.Reopen` already did.
+- **`Clockify.TimeSheet.Post` reports only the lines that actually posted.** The result of
+  `Codeunit.Run` on the posting codeunit was discarded, so a line whose posting failed and rolled back
+  was still counted.
+- `Clockify.TimeEntry.SyncRange` said an entry with no finished interval was "skipped" while counting
+  it as an error; the wording now matches the result. Both messages became `Locked` labels.
+- `Action`, a reserved AL name, was used as a `Text` variable and parameter in
+  `Clockify Help Builder ori`; renamed to `ActionName`.
+- Three `internal` procedures on `Clockify Time Entry Sync ori` that are called from another codeunit
+  had no XML documentation.
+
+### Security
+
+- **The Clockify webhook signing token no longer reaches the request log.** `Clockify ReqLog Masker ori`
+  returned every response body unchanged, documented as safe because the API key travels only in the
+  `X-Api-Key` header. That holds for the key, but the webhook endpoints answer with `authToken` — the
+  only credential that authenticates an inbound Clockify webhook — and it was persisted in
+  `Request Log ori` in cleartext. Response bodies are now scanned and every `authToken` value is
+  redacted at any depth, in objects and in arrays; bodies that are not JSON or carry no token are
+  returned untouched. Four regression tests cover it.
 
 ### Notes
 
@@ -174,9 +223,13 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
   Company scope) with its own masked dialog. Bifrost Foundation now owns a unified secret store
   (`Secret Store ori`); **the API key will move there in a later pass**, at which point the key has
   to be re-entered once — an install take-over cannot copy another extension's IsolatedStorage.
-- Verification: CodeCop + UICop + AppSourceCop clean, 58/58 unit tests green on `bc28-is` and
+- Verification: CodeCop + UICop + AppSourceCop clean, **62/62** unit tests green on `bc28-is` and
   `bc28-w1`, and all 41 message types exercised over the queue API on `bc28-is` (87 calls, no
-  HTTP 5xx). See [test/reports/Bifrost_Clockify_TestReport_2026-09-06.md](test/reports/Bifrost_Clockify_TestReport_2026-09-06.md).
+  HTTP 5xx). See [test/reports/Bifrost_Timesheets_TestReport_2026-09-06.md](test/reports/Bifrost_Timesheets_TestReport_2026-09-06.md).
+- The PR gateway run of 2026-09-07 is recorded in
+  [test/reports/PR_Gateway_2026-09-07.md](test/reports/PR_Gateway_2026-09-07.md). It closes the
+  findings listed above and leaves six open decisions, the largest being that inbound Clockify
+  webhooks are not authenticated in Business Central.
 
 ---
 

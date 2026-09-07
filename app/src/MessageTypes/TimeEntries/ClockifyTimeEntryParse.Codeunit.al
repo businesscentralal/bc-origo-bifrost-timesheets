@@ -8,6 +8,23 @@ codeunit 10036842 "Clockify TimeEntry Parse ori"
 {
     Access = Internal;
 
+    /// <summary>
+    /// Returns the culture-invariant value name of a sync result (Created, Skipped,
+    /// Corrected, Updated or Error).
+    /// </summary>
+    /// <remarks>
+    /// <c>Format</c> must never be applied to an enum: it yields the translated caption, so an
+    /// Icelandic session would answer <c>"result": "Stofnað"</c> where the published help
+    /// document promises <c>Created|Updated|Skipped|Error</c>. The value names are part of the
+    /// message-type wire contract and must not depend on the caller's language.
+    /// </remarks>
+    /// <param name="SyncResult">The sync result to name.</param>
+    /// <returns>The value name exactly as declared on <c>Clockify Sync Result ori</c>.</returns>
+    procedure SyncResultName(SyncResult: Enum "Clockify Sync Result ori"): Text
+    begin
+        exit(SyncResult.Names().Get(SyncResult.Ordinals().IndexOf(SyncResult.AsInteger())));
+    end;
+
     /// <summary>Reads a string property, returning '' when absent or null.</summary>
     procedure GetText(JsonObject: JsonObject; PropertyName: Text): Text
     var
@@ -62,9 +79,9 @@ codeunit 10036842 "Clockify TimeEntry Parse ori"
     begin
         if (StartText = '') or (EndText = '') then
             exit(0);
-        if not Evaluate(StartDT, StartText) then
+        if not Evaluate(StartDT, StartText, 9) then
             exit(0);
-        if not Evaluate(EndDT, EndText) then
+        if not Evaluate(EndDT, EndText, 9) then
             exit(0);
         DurationMs := EndDT - StartDT;
         exit(DurationMs / 3600000);
@@ -77,7 +94,7 @@ codeunit 10036842 "Clockify TimeEntry Parse ori"
     begin
         if DateTimeText = '' then
             exit(0D);
-        if not Evaluate(DateTimeParsed, DateTimeText) then
+        if not Evaluate(DateTimeParsed, DateTimeText, 9) then
             exit(0D);
         exit(DT2Date(DateTimeParsed));
     end;

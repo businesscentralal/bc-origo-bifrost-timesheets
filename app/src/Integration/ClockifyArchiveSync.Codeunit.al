@@ -30,7 +30,7 @@ codeunit 10036785 "Clockify Archive Sync ori"
         Integration.SetRange("BC Table No.", BCTableNo);
         Integration.SetRange("BC SystemId", BCSystemId);
         Integration.SetRange("Reversed", false);
-        Integration.SetLoadFields("Entry No.", "Clockify Type", "Clockify Workspace Id", "Clockify Id", "Reversed");
+        Integration.SetLoadFields("Entry No.", "BC Code", "Clockify Type", "Clockify Workspace Id", "Clockify Id", "Reversed");
         if not Integration.FindSet() then
             exit;
 
@@ -55,7 +55,7 @@ codeunit 10036785 "Clockify Archive Sync ori"
         Integration.SetRange("Clockify Type", ClockifyType);
         Integration.SetRange("Reversed", false);
         Integration.SetRange("BC Code", BCCode);
-        Integration.SetLoadFields("Entry No.", "Clockify Type", "Clockify Workspace Id", "Clockify Id", "Reversed");
+        Integration.SetLoadFields("Entry No.", "BC Code", "Clockify Type", "Clockify Workspace Id", "Clockify Id", "Reversed");
         if not Integration.FindSet() then
             exit;
 
@@ -129,7 +129,8 @@ codeunit 10036785 "Clockify Archive Sync ori"
 
         JobNo := CopyStr(BCCode.Substring(1, DashPos - 1), 1, MaxStrLen(JobNo));
 
-        // Find the project's Clockify ID
+        // Find the project's Clockify ID — read-only lookup, no update lock needed.
+        ProjectIntegration.ReadIsolation := IsolationLevel::ReadCommitted;
         ProjectIntegration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         ProjectIntegration.SetRange("Clockify Type", 'PROJECT');
         ProjectIntegration.SetRange("BC Code", JobNo);

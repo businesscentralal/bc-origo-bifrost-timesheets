@@ -18,6 +18,8 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
     var
         NoProjectMappingErr: Label 'No integration mapping found for Clockify project %1.', Comment = '%1 = Clockify project ID', Locked = true;
         NoTaskMappingErr: Label 'No integration mapping found for Clockify task %1.', Comment = '%1 = Clockify task ID', Locked = true;
+        MissingTaskIdErr: Label 'Missing taskId: cannot map to a BC Job Task.', Locked = true;
+        NoJobTaskErr: Label 'Job Task %1 on job %2 does not exist in Business Central. Check the Clockify Integration mapping for task %3.', Comment = '%1 = job task no., %2 = job no., %3 = Clockify task ID', Locked = true;
         NoUserMappingErr: Label 'No integration mapping found for Clockify user %1.', Comment = '%1 = Clockify user ID', Locked = true;
         NoOpenTimeSheetErr: Label 'No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.', Comment = '%1 = resource no., %2 = date', Locked = true;
         CreatedMsg: Label 'Time entry %1 written to time sheet %2 line %3.', Comment = '%1 = Clockify ID, %2 = time sheet no., %3 = line no.', Locked = true;
@@ -60,7 +62,7 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
             exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if ClockifyTaskId = '' then begin
-            ResultMessage := 'Missing taskId: cannot map to a BC Job Task.';
+            ResultMessage := MissingTaskIdErr;
             exit(Enum::"Clockify Sync Result ori"::Error);
         end;
         if not EntrySync.ResolveTaskMapping(ClockifyTaskId, JobTaskNo) then begin
@@ -73,7 +75,14 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
         end;
         WorkType := EntrySync.ResolveWorkType(ClockifyTagIds);
 
-        JobTask.Get(JobNo, JobTaskNo);
+        // Guarded: an integration row can point at a job task that no longer exists. An
+        // unguarded Get would raise an exception out of ExecuteBifrostTask instead of the
+        // status = Error envelope every other failure in this procedure returns.
+        JobTask.SetLoadFields("Job No.", "Job Task No.", Description);
+        if not JobTask.Get(JobNo, JobTaskNo) then begin
+            ResultMessage := StrSubstNo(NoJobTaskErr, JobTaskNo, JobNo, ClockifyTaskId);
+            exit(Enum::"Clockify Sync Result ori"::Error);
+        end;
         if not FindOpenTimeSheet(ResourceNo, PostingDate, TimeSheet) then begin
             ResultMessage := StrSubstNo(NoOpenTimeSheetErr, ResourceNo, PostingDate);
             exit(Enum::"Clockify Sync Result ori"::Error);
@@ -132,6 +141,8 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
 
     local procedure FindOpenTimeSheet(ResourceNo: Code[20]; PostingDate: Date; var TimeSheet: Record "Time Sheet Header"): Boolean
     begin
+        TimeSheet.SetLoadFields("No.", "Starting Date", "Resource No.");
+        TimeSheet.ReadIsolation := IsolationLevel::ReadCommitted;
         TimeSheet.SetRange("Resource No.", ResourceNo);
         TimeSheet.SetFilter("Starting Date", '<=%1', PostingDate);
         TimeSheet.SetFilter("Ending Date", '>=%1', PostingDate);
@@ -230,6 +241,7 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
 
     local procedure FindActiveIntegration(ClockifyEntryId: Text[50]; var Integration: Record "Clockify Integration ori"): Boolean
     begin
+        Integration.SetLoadFields("Entry No.", "BC SystemId", "BC Code", "Reversed");
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'TIME_ENTRY');
         Integration.SetRange("Clockify Id", ClockifyEntryId);
@@ -248,7 +260,7 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
         Integration."Clockify Type" := 'TIME_ENTRY';
         Integration."Clockify Workspace Id" := ClockifyWorkspaceId;
         Integration."Clockify Id" := ClockifyEntryId;
-        Integration."Clockify Name" := CopyStr(Description + ' ' + Format(Hours) + 'h', 1, 250);
+        Integration."Clockify Name" := CopyStr(Description + ' ' + Format(Hours, 0, 9) + 'h', 1, 250);
         Integration."Reversed" := false;
         Integration.Insert(true);
     end;

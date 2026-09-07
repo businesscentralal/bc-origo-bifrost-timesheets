@@ -88,8 +88,11 @@ Default branch: main
 - Two COSMO Alpaca containers, both defined in `app/.vscode/launch.json` (git-ignored, the authority
   for instance ids): `launch: bc28-is` (Icelandic CRONUS IS, used for the queue-API message-type
   tests) and `launch: bc28-w1` (W1). Publish and run the unit tests on **both**.
-- Compile locally with alc.exe + CodeCop/UICop/AppSourceCop (symbols in `app/.alpackages`, test
-  symbols in `test/.alpackages` including the freshly built Bifrost Foundation and Clockify .app).
+- Compile locally with alc.exe: the app with CodeCop + UICop + AppSourceCop, the test project with
+  CodeCop + UICop only (it has no `AppSourceCop.json` and its objects deliberately carry no ` ori`
+  affix, so AppSourceCop only ever reports AS0015/AS0054/AS0092 there). Symbols in `app/.alpackages`,
+  test symbols in `test/.alpackages` including the freshly built Bifrost Foundation and Bifrost
+  Timesheets .app.
   Command-line alc does not raise AS0011 (mandatory affix) - check affixes yourself; AL-Go CI is the
   real gate.
 - Publish and test without VS Code (pwsh 7, credential from the user-level env vars `BC28IS_USER` /

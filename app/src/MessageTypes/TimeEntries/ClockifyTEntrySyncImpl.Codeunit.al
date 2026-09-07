@@ -58,6 +58,7 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
         TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         RequestMgt: Codeunit "Clockify Request Mgt ori";
         SetupMgt: Codeunit "Clockify Setup Mgt ori";
+        ParseHelper: Codeunit "Clockify TimeEntry Parse ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         WorkspaceId: Text;
@@ -148,7 +149,7 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
             ResultMessage);
 
         // Build response
-        ResponseJson.Add('result', Format(SyncResult));
+        ResponseJson.Add('result', ParseHelper.SyncResultName(SyncResult));
         ResponseJson.Add('message', ResultMessage);
         ResponseJson.Add('entryId', EntryId);
         ResponseJson.Add('hours', Hours);
@@ -191,9 +192,9 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
     begin
         if (StartText = '') or (EndText = '') then
             exit(0);
-        if not Evaluate(StartDT, StartText) then
+        if not Evaluate(StartDT, StartText, 9) then
             exit(0);
-        if not Evaluate(EndDT, EndText) then
+        if not Evaluate(EndDT, EndText, 9) then
             exit(0);
         DurationMs := EndDT - StartDT;
         exit(DurationMs / 3600000);
@@ -205,7 +206,7 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
     begin
         if DateTimeText = '' then
             exit(0D);
-        if not Evaluate(DateTimeParsed, DateTimeText) then
+        if not Evaluate(DateTimeParsed, DateTimeText, 9) then
             exit(0D);
         exit(DT2Date(DateTimeParsed));
     end;

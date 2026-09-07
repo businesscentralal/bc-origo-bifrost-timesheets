@@ -14,6 +14,7 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
 
     var
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
+        NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
@@ -162,14 +163,14 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
 
             if (EntryEnd = '') or (Hours = 0) or (PostingDate = 0D) then begin
                 SyncResult := SyncResult::Error;
-                ResultMessage := 'Entry has no finished interval; counted as error.';
+                ResultMessage := NoFinishedIntervalMsg;
             end else
                 SyncResult := TimeSheetSync.SyncTimeEntryToTimeSheet(
                     CopyStr(EntryId, 1, 50), CopyStr(WorkspaceId, 1, 50), CopyStr(UserId, 1, 50),
                     CopyStr(ProjectId, 1, 50), CopyStr(TaskId, 1, 50),
                     Description, PostingDate, Hours, Billable, TagIds, ResultMessage);
 
-            ResultText := Format(SyncResult);
+            ResultText := ParseHelper.SyncResultName(SyncResult);
             IncrementCount(Counts, ResultText);
 
             Clear(ResultObject);

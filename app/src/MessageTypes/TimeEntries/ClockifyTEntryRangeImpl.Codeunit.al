@@ -20,6 +20,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
         JournalBatchParamLbl: Label 'journalBatch', Locked = true;
         MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
+        NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     internal procedure IsEnabled(): Boolean
     var
@@ -157,6 +158,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 
     local procedure SyncEntries(var TimeEntrySync: Codeunit "Clockify Time Entry Sync ori"; JournalTemplate: Code[10]; JournalBatch: Code[10]; WorkspaceId: Text; UserId: Text; Entries: JsonArray; var Results: JsonArray; var Counts: Dictionary of [Text, Integer])
     var
+        ParseHelper: Codeunit "Clockify TimeEntry Parse ori";
         EntryToken: JsonToken;
         EntryObject: JsonObject;
         ResultObject: JsonObject;
@@ -189,7 +191,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 
             if (EntryEnd = '') or (Hours = 0) or (PostingDate = 0D) then begin
                 SyncResult := SyncResult::Error;
-                ResultMessage := 'Entry has no finished interval; skipped.';
+                ResultMessage := NoFinishedIntervalMsg;
             end else
                 SyncResult := TimeEntrySync.SyncTimeEntry(
                     JournalTemplate, JournalBatch,
@@ -199,7 +201,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
                     Description, PostingDate, Hours, Billable, TagIds,
                     ResultMessage);
 
-            ResultText := Format(SyncResult);
+            ResultText := ParseHelper.SyncResultName(SyncResult);
             IncrementCount(Counts, ResultText);
 
             Clear(ResultObject);
@@ -295,9 +297,9 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
     begin
         if (StartText = '') or (EndText = '') then
             exit(0);
-        if not Evaluate(StartDT, StartText) then
+        if not Evaluate(StartDT, StartText, 9) then
             exit(0);
-        if not Evaluate(EndDT, EndText) then
+        if not Evaluate(EndDT, EndText, 9) then
             exit(0);
         DurationMs := EndDT - StartDT;
         exit(DurationMs / 3600000);
@@ -309,7 +311,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
     begin
         if DateTimeText = '' then
             exit(0D);
-        if not Evaluate(DateTimeParsed, DateTimeText) then
+        if not Evaluate(DateTimeParsed, DateTimeText, 9) then
             exit(0D);
         exit(DT2Date(DateTimeParsed));
     end;

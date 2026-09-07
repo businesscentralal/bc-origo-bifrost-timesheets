@@ -95,6 +95,7 @@ codeunit 10036830 "Clockify Webhook Mgt ori"
         if not Confirm(RemoveQst, false) then
             exit;
 
+        ClockifyWebhook.SetLoadFields("Workspace Id", "Webhook Id");
         if ClockifyWebhook.FindSet() then
             repeat
                 // Best-effort: a webhook already removed in Clockify must not block local cleanup.
@@ -120,6 +121,7 @@ codeunit 10036830 "Clockify Webhook Mgt ori"
             Message(NotRegisteredMsg);
             exit;
         end;
+        ClockifyWebhook.SetLoadFields("Workspace Id", "Webhook Id");
         if ClockifyWebhook.FindSet() then
             repeat
                 if GetWebhookToken(ClockifyWebhook."Workspace Id", ClockifyWebhook."Webhook Id", AuthToken) and (AuthToken <> '') then begin

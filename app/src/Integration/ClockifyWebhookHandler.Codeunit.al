@@ -149,9 +149,9 @@ codeunit 10036791 "Clockify Webhook Handler ori"
     begin
         if (StartText = '') or (EndText = '') then
             exit(0);
-        if not Evaluate(StartDT, StartText) then
+        if not Evaluate(StartDT, StartText, 9) then
             exit(0);
-        if not Evaluate(EndDT, EndText) then
+        if not Evaluate(EndDT, EndText, 9) then
             exit(0);
         DurationMs := EndDT - StartDT;
         exit(DurationMs / 3600000);
@@ -163,7 +163,7 @@ codeunit 10036791 "Clockify Webhook Handler ori"
     begin
         if DateTimeText = '' then
             exit(0D);
-        if not Evaluate(DateTimeParsed, DateTimeText) then
+        if not Evaluate(DateTimeParsed, DateTimeText, 9) then
             exit(0D);
         exit(DT2Date(DateTimeParsed));
     end;

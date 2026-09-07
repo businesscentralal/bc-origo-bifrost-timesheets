@@ -104,7 +104,7 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
             CopyStr(ProjectId, 1, 50), CopyStr(TaskId, 1, 50),
             Description, PostingDate, Hours, Billable, TagIds, ResultMessage);
 
-        ResponseJson.Add('result', Format(SyncResult));
+        ResponseJson.Add('result', ParseHelper.SyncResultName(SyncResult));
         ResponseJson.Add('message', ResultMessage);
         ResponseJson.Add('entryId', EntryId);
         ResponseJson.Add('hours', Hours);

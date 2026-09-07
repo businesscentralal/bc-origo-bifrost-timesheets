@@ -93,9 +93,13 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
             end;
         end;
 
+        // Read-only driver cursor: the sync writes TIME_ENTRY rows, never these USER rows,
+        // so it must not hold update locks on them for the whole run.
+        Integration.ReadIsolation := IsolationLevel::ReadCommitted;
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'USER');
         Integration.SetRange("Reversed", false);
+        Integration.SetLoadFields("Clockify Id");
         if Integration.FindSet() then
             repeat
                 SyncOneUser(WorkspaceId, Integration."Clockify Id", StartText, EndText, Target, JournalTemplate, JournalBatch, UsersArray, Counts);
@@ -188,7 +192,7 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
                         CopyStr(ProjectId, 1, 50), CopyStr(TaskId, 1, 50),
                         Description, PostingDate, Hours, Billable, TagIds, ResultMessage);
 
-            IncrementCount(Counts, Format(SyncResult));
+            IncrementCount(Counts, ParseHelper.SyncResultName(SyncResult));
             case SyncResult of
                 SyncResult::Created:
                     Created += 1;

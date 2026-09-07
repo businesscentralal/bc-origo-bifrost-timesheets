@@ -1,7 +1,6 @@
 {
     "al.codeAnalyzers": [
         "${CodeCop}",
-        "${UICop}",
-        "${AppSourceCop}"
+        "${UICop}"
     ]
 }

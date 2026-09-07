@@ -41,10 +41,12 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
             TargetAhead := 4;
         ResourcesSetup.Get();
         ResourcesSetup.TestField("Time Sheet Nos.");
+        Resource.SetLoadFields("No.", "Time Sheet Owner User ID");
         Resource.SetRange(Blocked, false);
         Resource.SetRange("Use Time Sheet", true);
         if Resource.FindSet() then
             repeat
+                ExistingTimeSheet.SetLoadFields("Ending Date");
                 ExistingTimeSheet.SetRange("Owner User ID", Resource."Time Sheet Owner User ID");
                 // Advance from the last sheet's end date each iteration (the legacy code
                 // reused a stale end date, producing overlapping sheets). Resources with no
@@ -84,17 +86,22 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
     begin
         if EndingDateTo = 0D then
             EndingDateTo := WorkDate();
+        TimeSheet.SetLoadFields("No.");
         TimeSheet.SetRange("Open Exists", true);
         TimeSheet.SetFilter("Ending Date", '<=%1', EndingDateTo);
         if TimeSheet.FindSet() then
             repeat
                 TimeSheetMgt.SetTimeSheetNo(TimeSheet."No.", TimeSheetLine);
-                TimeSheetLine.SetRange(Status, TimeSheetLine.Status::Open);
                 if TimeSheetLine.FindSet(true) then
                     repeat
-                        TimeSheetApprovalMgt.Submit(TimeSheetLine);
-                        TimeSheetApprovalMgt.Approve(TimeSheetLine);
-                        ApprovedLineCount += 1;
+                        // Status is not filtered so submitting and approving (which both change
+                        // Status) does not disrupt Next() — the same reason RejectPendingTimeSheets
+                        // and ReopenTimeSheets test the status in code instead of in the recordset.
+                        if TimeSheetLine.Status = TimeSheetLine.Status::Open then begin
+                            TimeSheetApprovalMgt.Submit(TimeSheetLine);
+                            TimeSheetApprovalMgt.Approve(TimeSheetLine);
+                            ApprovedLineCount += 1;
+                        end;
                     until TimeSheetLine.Next() = 0;
             until TimeSheet.Next() = 0;
     end;
@@ -114,6 +121,7 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
     begin
         if EndingDateTo = 0D then
             EndingDateTo := WorkDate();
+        TimeSheet.SetLoadFields("No.");
         TimeSheet.SetRange("Submitted Exists", true);
         TimeSheet.SetFilter("Ending Date", '<=%1', EndingDateTo);
         if TimeSheet.FindSet() then
@@ -146,6 +154,7 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
     begin
         if EndingDateTo = 0D then
             EndingDateTo := WorkDate();
+        TimeSheet.SetLoadFields("No.");
         TimeSheet.SetFilter("Ending Date", '<=%1', EndingDateTo);
         if TimeSheet.FindSet() then
             repeat
@@ -193,6 +202,7 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
             else
                 NextDocNo := NoSeries.GetNextNo(JobJnlBatch."No. Series", TempTimeSheetLine."Time Sheet Starting Date");
 
+            TimeSheetHeader.SetLoadFields("Resource No.");
             repeat
                 TimeSheetHeader.Get(TempTimeSheetLine."Time Sheet No.");
                 TimeSheetDetail.SetRange("Time Sheet No.", TempTimeSheetLine."Time Sheet No.");
@@ -226,8 +236,11 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
                             JobJnlLine.Validate(Quantity, QtyToPost);
                             JobJnlLine.Validate(Chargeable, TempTimeSheetLine.Chargeable);
                             JobJnlLine."Reason Code" := JobJnlBatch."Reason Code";
-                            Codeunit.Run(Codeunit::"Job Jnl.-Post Line", JobJnlLine);
-                            PostedLineCount += 1;
+                            // Count only what actually posted. Codeunit.Run returns false and rolls
+                            // its own write transaction back when posting fails, so incrementing
+                            // unconditionally reported lines that were never written.
+                            if Codeunit.Run(Codeunit::"Job Jnl.-Post Line", JobJnlLine) then
+                                PostedLineCount += 1;
                         end;
                     until TimeSheetDetail.Next() = 0;
             until TempTimeSheetLine.Next() = 0;
@@ -268,6 +281,8 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
         TimeSheetHeader: Record "Time Sheet Header";
         TimeSheetLine: Record "Time Sheet Line";
     begin
+        TimeSheetHeader.SetLoadFields("No.");
+        TimeSheetHeader.ReadIsolation := IsolationLevel::ReadCommitted;
         if TimeSheetHeader.FindSet() then
             repeat
                 TimeSheetLine.SetRange("Time Sheet No.", TimeSheetHeader."No.");

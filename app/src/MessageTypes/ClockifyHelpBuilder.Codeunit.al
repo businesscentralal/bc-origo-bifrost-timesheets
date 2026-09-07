@@ -182,9 +182,9 @@ codeunit 10036799 "Clockify Help Builder ori"
     var
         Builder: TextBuilder;
         Entity: Text;
-        Action: Text;
+        ActionName: Text;
     begin
-        ParseMessageType(TitleVar, Entity, Action);
+        ParseMessageType(TitleVar, Entity, ActionName);
 
         Builder.AppendLine('# ' + TitleVar);
         Builder.AppendLine('');
@@ -268,7 +268,7 @@ codeunit 10036799 "Clockify Help Builder ori"
             Builder.AppendLine('');
         end;
 
-        AppendOptionalParameterGuidanceSection(Builder, Entity, Action);
+        AppendOptionalParameterGuidanceSection(Builder, Entity, ActionName);
 
         // Footer
         Builder.AppendLine('---');
@@ -284,7 +284,7 @@ codeunit 10036799 "Clockify Help Builder ori"
     local procedure GetIntegrationNote(MessageType: Text): Text
     var
         Entity: Text;
-        Action: Text;
+        ActionName: Text;
         ClockifyType: Text;
         NotTrackedTok: Label 'This message type is not tracked in the Clockify Integration table.', Locked = true;
         CreateNoteTok: Label 'Record the link: call `Data.Records.Set` on `Clockify Integration` with `BC Table No.`, `BC SystemId`, `BC Code` (the BC source record), `Clockify Type` = `%1`, `Clockify Id` = the `id` from `data` in the response, `Clockify Workspace Id` = the workspace used, `Clockify Name` = display name. Set `Reversed` = `false`.', Comment = '%1 = clockify type', Locked = true;
@@ -292,13 +292,13 @@ codeunit 10036799 "Clockify Help Builder ori"
         DeleteNoteTok: Label 'Mark the integration link as broken: find the `Clockify Integration` row (filter `Clockify Type` = `%1`, `Clockify Id` = the deleted ID, `Reversed` = `false`) and set `Reversed` = `true` with `Data.Records.Set`. Do NOT delete the row. The retention policy purges reversed rows ~1 month later.', Comment = '%1 = clockify type', Locked = true;
         ResolveNoteTok: Label 'Resolve existing links first: call `Data.Records.Get` on `Clockify Integration` with filter `Clockify Type` = `%1`, `Reversed` = `false`. The `Clockify Id` field gives you the ID to pass to write operations.', Comment = '%1 = clockify type', Locked = true;
     begin
-        ParseMessageType(MessageType, Entity, Action);
+        ParseMessageType(MessageType, Entity, ActionName);
         ClockifyType := LowerCaseFirst(Entity);
 
         if not IsMappableEntity(Entity) then
             exit(NotTrackedTok);
 
-        case Action of
+        case ActionName of
             'Create':
                 exit(StrSubstNo(CreateNoteTok, ClockifyType));
             'Update':
@@ -310,7 +310,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         end;
     end;
 
-    local procedure ParseMessageType(MessageType: Text; var Entity: Text; var Action: Text)
+    local procedure ParseMessageType(MessageType: Text; var Entity: Text; var ActionName: Text)
     var
         Parts: List of [Text];
     begin
@@ -318,7 +318,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         if Parts.Count() >= 2 then
             Entity := Parts.Get(2);
         if Parts.Count() >= 3 then
-            Action := Parts.Get(3);
+            ActionName := Parts.Get(3);
     end;
 
     local procedure IsMappableEntity(Entity: Text): Boolean
@@ -355,7 +355,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         end;
     end;
 
-    local procedure AppendOptionalParameterGuidanceSection(var Builder: TextBuilder; Entity: Text; Action: Text)
+    local procedure AppendOptionalParameterGuidanceSection(var Builder: TextBuilder; Entity: Text; ActionName: Text)
     begin
         if not HasOptionalParams then
             exit;
@@ -376,7 +376,7 @@ codeunit 10036799 "Clockify Help Builder ori"
             Builder.AppendLine('- `query.in-progress = true` returns running timers (`end` = null). `query.in-progress = false` returns finished entries (`end` has a value).');
 
         if HasOptionalBodyParams then
-            case Action of
+            case ActionName of
                 'Create':
                     Builder.AppendLine('- Optional `body.*` fields omitted from the request are not sent to Clockify; Clockify applies endpoint defaults.');
                 'Update':
@@ -385,10 +385,10 @@ codeunit 10036799 "Clockify Help Builder ori"
                     Builder.AppendLine('- Optional `body.*` fields omitted from the request are not sent to Clockify.');
             end;
 
-        if (Entity = 'TimeEntry') and HasBodyEndParam and ((Action = 'Create') or (Action = 'Update')) then
+        if (Entity = 'TimeEntry') and HasBodyEndParam and ((ActionName = 'Create') or (ActionName = 'Update')) then
             Builder.AppendLine('- A time entry without `end` is in-progress (running timer). Stop the timer (set `end`) before syncing to BC Job Journal.');
 
-        if (Entity = 'TimeEntry') and (Action = 'Sync') then
+        if (Entity = 'TimeEntry') and (ActionName = 'Sync') then
             Builder.AppendLine('- In-progress entries (`end` missing/null) are rejected by design and never written to BC Job Journal.');
 
         Builder.AppendLine('');

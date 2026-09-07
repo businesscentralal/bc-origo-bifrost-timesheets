@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="is-IS" original="Bifrost Timesheets">
     <body>
@@ -89,8 +89,8 @@
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 1483753178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Workspace ID</source>
-          <target state="translated">Sjálfgefið vinnusvæði</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Sjálfgefið vinnusvæði</note>
+          <target state="translated">Kenni sjálfgefins vinnusvæðis</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kenni sjálfgefins vinnusvæðis</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Default Workspace - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 4116635791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">

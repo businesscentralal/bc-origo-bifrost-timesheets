@@ -238,8 +238,8 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
         CreateIntegrationRecord(
             Integration, ClockifyEntryId, ClockifyWorkspaceId,
             Database::"Job Journal Line", JobJournalLine.SystemId,
-            JournalTemplateName + '-' + JournalBatchName + '-' + Format(LineNo),
-            Description + ' ' + Format(Hours) + 'h');
+            CopyStr(JournalTemplateName + '-' + JournalBatchName + '-' + Format(LineNo, 0, 9), 1, 50),
+            CopyStr(Description + ' ' + Format(Hours, 0, 9) + 'h', 1, 250));
 
         ResultMessage := 'Created journal line ' + Format(LineNo) + ' for ' + Format(Hours) + 'h on ' + JobNo + '/' + JobTaskNo;
         exit(Enum::"Clockify Sync Result ori"::Created);
@@ -291,8 +291,8 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
         CreateIntegrationRecord(
             NewIntegration, ClockifyEntryId, ClockifyWorkspaceId,
             Database::"Job Journal Line", CorrectionJournalLine.SystemId,
-            JournalTemplateName + '-' + JournalBatchName + '-' + Format(NewLineNo),
-            Description + ' ' + Format(Hours) + 'h');
+            CopyStr(JournalTemplateName + '-' + JournalBatchName + '-' + Format(NewLineNo, 0, 9), 1, 50),
+            CopyStr(Description + ' ' + Format(Hours, 0, 9) + 'h', 1, 250));
 
         ResultMessage := StrSubstNo(CorrectionCreatedMsg, ClockifyEntryId, ReversalLineNo, NewLineNo);
         exit(Enum::"Clockify Sync Result ori"::Corrected);
@@ -395,16 +395,24 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
 
     local procedure UpdateIntegrationName(var Integration: Record "Clockify Integration ori"; Description: Text; Hours: Decimal)
     begin
-        Integration."Clockify Name" := CopyStr(Description + ' ' + Format(Hours) + 'h', 1, 250);
+        Integration."Clockify Name" := CopyStr(Description + ' ' + Format(Hours, 0, 9) + 'h', 1, 250);
         Integration.Modify(true);
     end;
 
+    /// <summary>
+    /// Resolves a Clockify project to the Business Central job it is mapped to.
+    /// </summary>
+    /// <param name="ClockifyProjectId">The Clockify project ID to look up.</param>
+    /// <param name="JobNo">Out: the mapped BC job number. Untouched when no active mapping exists.</param>
+    /// <returns>True when an active (non-reversed) PROJECT mapping was found.</returns>
     internal procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
     begin
         if ClockifyProjectId = '' then
             exit(false);
+        // Read-only mapping lookup; the row is never modified here.
+        Integration.ReadIsolation := IsolationLevel::ReadCommitted;
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'PROJECT');
         Integration.SetRange("Clockify Id", ClockifyProjectId);
@@ -416,12 +424,24 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
         exit(true);
     end;
 
+    /// <summary>
+    /// Resolves a Clockify task to the Business Central job task it is mapped to.
+    /// </summary>
+    /// <remarks>
+    /// A TASK mapping stores <c>&lt;Job No.&gt;-&lt;Job Task No.&gt;</c> in <c>BC Code</c>; the part after the
+    /// last dash is the job task. A code without a dash is taken as the job task itself.
+    /// </remarks>
+    /// <param name="ClockifyTaskId">The Clockify task ID to look up.</param>
+    /// <param name="JobTaskNo">Out: the mapped BC job task number. Untouched when no active mapping exists.</param>
+    /// <returns>True when an active (non-reversed) TASK mapping was found.</returns>
     internal procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
         BCCodeText: Text;
         DashPos: Integer;
     begin
+        // Read-only mapping lookup; the row is never modified here.
+        Integration.ReadIsolation := IsolationLevel::ReadCommitted;
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'TASK');
         Integration.SetRange("Clockify Id", ClockifyTaskId);
@@ -439,10 +459,18 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
         exit(true);
     end;
 
+    /// <summary>
+    /// Resolves a Clockify user to the Business Central resource it is mapped to.
+    /// </summary>
+    /// <param name="ClockifyUserId">The Clockify user ID to look up.</param>
+    /// <param name="ResourceNo">Out: the mapped BC resource number. Untouched when no active mapping exists.</param>
+    /// <returns>True when an active (non-reversed) USER mapping was found.</returns>
     internal procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
     begin
+        // Read-only mapping lookup; the row is never modified here.
+        Integration.ReadIsolation := IsolationLevel::ReadCommitted;
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'USER');
         Integration.SetRange("Clockify Id", ClockifyUserId);
@@ -479,6 +507,8 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
     begin
         if ClockifyTagId = '' then
             exit('');
+        // Read-only mapping lookup; the row is never modified here.
+        Integration.ReadIsolation := IsolationLevel::ReadCommitted;
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'TAG');
         Integration.SetRange("Clockify Id", CopyStr(ClockifyTagId, 1, MaxStrLen(Integration."Clockify Id")));
@@ -539,7 +569,7 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
         if not LastPart.EndsWith('h') then
             exit(0);
         HoursText := CopyStr(LastPart, 1, StrLen(LastPart) - 1);
-        if Evaluate(Hours, HoursText) then
+        if Evaluate(Hours, HoursText, 9) then
             exit(Hours);
         exit(0);
     end;

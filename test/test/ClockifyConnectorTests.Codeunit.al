@@ -1639,6 +1639,65 @@ codeunit 95601 "Clockify Connector Tests"
         MsgInterface.ExecuteBifrostTask(Argument);
     end;
 
+    [Test]
+    procedure WebhookSigningTokenIsRedactedFromTheResponseLog()
+    var
+        Masker: Codeunit "Clockify ReqLog Masker ori";
+        Masked: Text;
+    begin
+        // [SCENARIO] The signing token returned when a webhook is created never reaches the request log.
+        // [GIVEN] A webhook creation response carrying an authToken
+        // [WHEN] The response body is masked
+        Masked := Masker.MaskResponseBody('{"id":"66a","url":"https://x/y","authToken":"s3cr3t-signing-token"}', false);
+
+        // [THEN] The token is gone and the rest of the body survives
+        LibraryAssert.IsFalse(Masked.Contains('s3cr3t-signing-token'), 'The signing token must not survive masking.');
+        LibraryAssert.IsTrue(Masked.Contains('66a'), 'Non-secret properties must survive masking.');
+    end;
+
+    [Test]
+    procedure SigningTokensAreRedactedInsideArraysAndNestedObjects()
+    var
+        Masker: Codeunit "Clockify ReqLog Masker ori";
+        Masked: Text;
+    begin
+        // [SCENARIO] The webhook list answers with an array, and Clockify nests objects; every occurrence is redacted.
+        // [GIVEN] An array of webhooks, one of them with a nested object holding the token
+        // [WHEN] The response body is masked
+        Masked := Masker.MaskResponseBody('[{"id":"1","authToken":"tok-one"},{"id":"2","meta":{"authToken":"tok-two"}}]', false);
+
+        // [THEN] Neither token survives
+        LibraryAssert.IsFalse(Masked.Contains('tok-one'), 'A token in an array element must be redacted.');
+        LibraryAssert.IsFalse(Masked.Contains('tok-two'), 'A token in a nested object must be redacted.');
+        LibraryAssert.IsTrue(Masked.Contains('"2"'), 'Non-secret properties must survive masking.');
+    end;
+
+    [Test]
+    procedure BodiesWithoutASigningTokenPassThroughUnchanged()
+    var
+        Masker: Codeunit "Clockify ReqLog Masker ori";
+        Body: Text;
+    begin
+        // [SCENARIO] Ordinary Clockify payloads are logged verbatim - masking must not reformat them.
+        // [GIVEN] A time-entry response with no authToken
+        Body := '{"id":"68b","description":"Consulting","billable":true}';
+
+        // [THEN] The body is returned byte for byte
+        LibraryAssert.AreEqual(Body, Masker.MaskResponseBody(Body, false), 'A body without a token must not be touched.');
+    end;
+
+    [Test]
+    procedure NonJsonAndEmptyBodiesAreReturnedUnchanged()
+    var
+        Masker: Codeunit "Clockify ReqLog Masker ori";
+    begin
+        // [SCENARIO] Clockify can answer with a plain-text error page; masking must not lose it.
+        // [GIVEN] A body that is not JSON but mentions authToken, and an empty body
+        // [THEN] Both are returned unchanged rather than swallowed
+        LibraryAssert.AreEqual('502 Bad Gateway authToken', Masker.MaskResponseBody('502 Bad Gateway authToken', false), 'A non-JSON body must be returned unchanged.');
+        LibraryAssert.AreEqual('', Masker.MaskResponseBody('', false), 'An empty body must be returned unchanged.');
+    end;
+
     local procedure ReadText(JsonObj: JsonObject; PropertyName: Text): Text
     var
         Token: JsonToken;
