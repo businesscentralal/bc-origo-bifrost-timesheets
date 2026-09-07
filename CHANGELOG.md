@@ -22,6 +22,12 @@ notifications of its own any more.
 - Test **95606 `Timesheets Registration Tests`** asserts that the app appears in
   `App Registry ori.GetApps` with the right app id and setup page id.
 
+### Added (2026-09-07) - Setup Wizard action on Timesheets Setup
+
+- Added action **Setup Wizard** to page `Timesheets Setup ori` (10036853), promoted into the
+  existing Process group. It opens Bifröst Foundation's `Setup Wizard ori` page directly from this
+  app's own setup card, alongside the existing API key and webhook actions.
+
 ### Changed (2026-09-07) - tests run on Foundation's public API
 
 - The test app no longer depends on Bifröst Foundation's internals: Bifrost Timesheets - Tests has been removed

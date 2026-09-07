@@ -1,5 +1,7 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
+using Origo.Bifrost;
+
 /// <summary>
 /// Setup card for the Bifrost Timesheets connector. Holds every Clockify setting and
 /// the API-key, webhook and integration-link actions, so nothing has to be added to
@@ -197,6 +199,15 @@ page 10036853 "Timesheets Setup ori"
                     end;
                 }
             }
+
+            action(SetupWizard)
+            {
+                ApplicationArea = All;
+                Caption = 'Setup Wizard', Comment = 'is-IS=Uppsetningarleiðsögn';
+                Image = Setup;
+                RunObject = page "Setup Wizard ori";
+                ToolTip = 'Opens the Bifrost setup wizard, which enables HTTP client requests for all Bifrost apps and walks through the credentials of every app.', Comment = 'is-IS=Opnar uppsetningarleiðsögn Bifröst, sem virkjar HTTP biðlarabeiðnir fyrir öll Bifröst forrit og fer yfir auðkenni hvers forrits.';
+            }
         }
         area(Navigation)
         {
@@ -230,6 +241,9 @@ page 10036853 "Timesheets Setup ori"
                 {
                 }
                 actionref(IntegrationListPromoted; IntegrationList)
+                {
+                }
+                actionref(SetupWizardPromoted; SetupWizard)
                 {
                 }
             }
