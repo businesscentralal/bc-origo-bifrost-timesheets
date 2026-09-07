@@ -6,6 +6,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [29.0.0.0] — 2026-09-06
 
+### Changed (2026-09-07) - tests run on Foundation's public API
+
+- The test app no longer depends on Bifröst Foundation's internals: Bifrost Timesheets - Tests has been removed
+  from Foundation's `internalsVisibleTo`, and the test suite compiles and runs against a Foundation
+  package that does not grant it. No test code had to change - the suite never touched a Foundation internal.
+
+
 Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Timesheets** on Bifrost Foundation.
 This is an **in-place successor**: the app id and the test range (95600–95699) are unchanged, so an
 installed tenant upgrades rather than installing a second app. The object id range moved before
