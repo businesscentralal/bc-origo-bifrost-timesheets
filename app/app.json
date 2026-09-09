@@ -1,0 +1,58 @@
+{
+  "id": "d4560cf5-947d-42b5-b812-33ae8dd009af",
+  "name": "Bifrost Timesheets",
+  "publisher": "Origo",
+  "version": "29.0.0.0",
+  "brief": "Bifrost Timesheets - Clockify time tracking in Business Central",
+  "description": "Bifrost Timesheets exposes the Clockify time-tracking REST API as Bifröst message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
+  "url": "https://www.origo.is/",
+  "help": "https://businesscentralal.github.io/bifrost/en-us/clockify/",
+  "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
+  "EULA": "https://www.origo.is/skilmalar-og-oryggismal",
+  "applicationInsightsConnectionString": "InstrumentationKey=990df12f-db16-4ec5-8655-12d4e5084d23;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=eba0df67-d7e1-437f-9310-fb792eec0787",
+  "contextSensitiveHelpUrl": "https://businesscentralal.github.io/bifrost/{0}/help/clockify/",
+  "supportedLocales": [
+    "en-US",
+    "is-IS"
+  ],
+  "logo": "assets/Logo250x250.png",
+  "dependencies": [
+    {
+      "id": "7505e808-6e52-4b96-a328-82573391297a",
+      "name": "Bifrost Foundation",
+      "publisher": "Origo",
+      "version": "28.0.0.0"
+    }
+  ],
+  "internalsVisibleTo": [
+    {
+      "id": "553214e3-b742-4ccf-8ecc-1ee86fbc96f9",
+      "publisher": "Origo",
+      "name": "Bifrost Timesheets - Tests"
+    }
+  ],
+  "screenshots": [],
+  "platform": "28.0.0.0",
+  "application": "28.0.0.0",
+  "idRanges": [
+    {
+      "from": 10036785,
+      "to": 10036884
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": false,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith",
+    "TranslationFile"
+  ],
+  "runtime": "17.0",
+  "suppressWarnings": [
+    "AA0215",
+    "AS0081"
+  ]
+}
