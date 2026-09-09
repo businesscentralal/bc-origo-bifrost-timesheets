@@ -8,6 +8,7 @@ using Microsoft.Projects.TimeSheet;
 using Microsoft.Utilities;
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets;
+using Origo.Bifrost.Timesheets.Providers.Clockify;
 using System.DataAdministration;
 using System.TestLibraries.Utilities;
 
@@ -31,8 +32,8 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
     begin
-        // [SCENARIO] The Help.Clockify.Get type reports correct metadata.
-        Argument."Type" := Argument."Type"::"Help.Clockify.Get";
+        // [SCENARIO] The Provider.Clockify.Help.Get type reports correct metadata.
+        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
         MsgInterface := Argument.GetMessageTypeInterface();
 
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, MsgInterface.GetMessageDirection(), 'Help type should be outbound.');
@@ -125,8 +126,8 @@ codeunit 95601 "Clockify Connector Tests"
         // [GIVEN] The mock will return a successful workspace array
         MockState.SetNextResponse(true, 200, '[{"id":"WS-1","name":"Acme"}]');
 
-        // [WHEN] The Clockify.Workspace.List task executes
-        ExecuteType(Argument, Argument."Type"::"Clockify.Workspace.List");
+        // [WHEN] The Provider.Clockify.Workspace.List task executes
+        ExecuteType(Argument, Argument."Type"::"Provider.Clockify.Workspace.List");
 
         // [THEN] The mock received a GET on /workspaces
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Workspace list should issue a GET.');
@@ -150,8 +151,8 @@ codeunit 95601 "Clockify Connector Tests"
         UseMockApi();
         MockState.SetNextResponse(false, 404, '{"message":"Workspace not found"}');
 
-        // [WHEN] The Clockify.Workspace.List task executes
-        ExecuteType(Argument, Argument."Type"::"Clockify.Workspace.List");
+        // [WHEN] The Provider.Clockify.Workspace.List task executes
+        ExecuteType(Argument, Argument."Type"::"Provider.Clockify.Workspace.List");
 
         // [THEN] The envelope reports the error, the status code and the Clockify message
         ResponseJson := Argument.GetResponseJson();
@@ -175,8 +176,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('workspaceId', 'WS-1');
         RequestJson.Add('body', BodyJson);
 
-        // [WHEN] The Clockify.Project.Create task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.Project.Create", RequestJson);
+        // [WHEN] The Provider.Clockify.Project.Create task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Project.Create", RequestJson);
 
         // [THEN] The mock received a POST to the workspace's projects path, carrying the body
         LibraryAssert.AreEqual('POST', MockState.GetLastMethod(), 'Project create should issue a POST.');
@@ -201,8 +202,8 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup.Modify();
         MockState.SetNextResponse(true, 200, '[]');
 
-        // [WHEN] The Clockify.Project.List task executes without a workspaceId
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.Project.List", RequestJson);
+        // [WHEN] The Provider.Clockify.Project.List task executes without a workspaceId
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Project.List", RequestJson);
 
         // [THEN] The default workspace is used in the resource path
         LibraryAssert.AreEqual('/workspaces/WS-DEF/projects', MockState.GetLastResourcePath(), 'The default workspace should fill in for the missing workspaceId.');
@@ -378,8 +379,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('entryId', 'E-1');
         RequestJson.Add('projectId', 'P-1');
 
-        // [WHEN] The Clockify.TimeEntry.Sync task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.Sync", RequestJson);
+        // [WHEN] The Timesheets.JobJournal.SyncFromClockify task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
 
         // [THEN] It reports an error pointing at the missing Job Journal configuration
         ResponseJson := Argument.GetResponseJson();
@@ -409,8 +410,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('projectId', 'P-1');
         RequestJson.Add('start', '2026-06-09T08:00:00Z');
 
-        // [WHEN] The Clockify.TimeEntry.Sync task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.Sync", RequestJson);
+        // [WHEN] The Timesheets.JobJournal.SyncFromClockify task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
 
         // [THEN] The request is rejected and clearly reports the in-progress rule
         ResponseJson := Argument.GetResponseJson();
@@ -674,7 +675,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] Per-type help explains how to use the integration table.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.Client.Create";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.Client.Create";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -700,8 +701,8 @@ codeunit 95601 "Clockify Connector Tests"
             '[{"id":"WS-1","name":"Acme","currencies":[{"id":"CUR-1","code":"ISK","isDefault":true},{"id":"CUR-2","code":"USD","isDefault":false}]},{"id":"WS-2","name":"Globex","currencies":[{"id":"CUR-9","code":"EUR","isDefault":true}]}]');
         RequestJson.Add('workspaceId', 'WS-1');
 
-        // [WHEN] The Clockify.Currency.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.Currency.List", RequestJson);
+        // [WHEN] The Provider.Clockify.Currency.List task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Currency.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces (no standalone currencies endpoint exists)
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Currency list should issue a GET.');
@@ -728,8 +729,8 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(true, 200, '[{"id":"61...","name":"Consultants","userIds":["63..."]}]');
         RequestJson.Add('workspaceId', 'WS-1');
 
-        // [WHEN] The Clockify.UserGroup.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.UserGroup.List", RequestJson);
+        // [WHEN] The Provider.Clockify.UserGroup.List task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces/{id}/user-groups with no body
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'User-group list should issue a GET.');
@@ -752,8 +753,8 @@ codeunit 95601 "Clockify Connector Tests"
         QueryJson.Add('name', 'Consultants');
         RequestJson.Add('query', QueryJson);
 
-        // [WHEN] The Clockify.UserGroup.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.UserGroup.List", RequestJson);
+        // [WHEN] The Provider.Clockify.UserGroup.List task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The resource path carries the encoded query parameter
         LibraryAssert.IsTrue(MockState.GetLastResourcePath().StartsWith('/workspaces/WS-1/user-groups?'), 'User-group list should append the query string.');
@@ -776,8 +777,8 @@ codeunit 95601 "Clockify Connector Tests"
         QueryJson.Add('in-progress', true);
         RequestJson.Add('query', QueryJson);
 
-        // [WHEN] The Clockify.TimeEntry.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.List", RequestJson);
+        // [WHEN] The Provider.Clockify.TimeEntry.List task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.TimeEntry.List", RequestJson);
 
         // [THEN] The resource path carries the in-progress query parameter
         LibraryAssert.IsTrue(MockState.GetLastResourcePath().StartsWith('/workspaces/WS-1/user/U-1/time-entries?'), 'Time-entry list should append the query string.');
@@ -796,8 +797,8 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(true, 200, '[{"id":"62...","name":"PO Number","type":"TXT"}]');
         RequestJson.Add('workspaceId', 'WS-1');
 
-        // [WHEN] The Clockify.CustomField.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.CustomField.List", RequestJson);
+        // [WHEN] The Provider.Clockify.CustomField.List task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.CustomField.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces/{id}/custom-fields with no body
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Custom-field list should issue a GET.');
@@ -821,8 +822,8 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup.Modify();
         MockState.SetNextResponse(true, 200, '[]');
 
-        // [WHEN] The Clockify.UserGroup.List task executes without a workspaceId
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.UserGroup.List", RequestJson);
+        // [WHEN] The Provider.Clockify.UserGroup.List task executes without a workspaceId
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The default workspace is used in the resource path
         LibraryAssert.AreEqual('/workspaces/WS-DEF/user-groups', MockState.GetLastResourcePath(), 'The default workspace should fill in for the missing workspaceId.');
@@ -837,7 +838,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] UserGroup.List help directs the caller to use the returned id as userGroupIds on project writes.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.UserGroup.List";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.UserGroup.List";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -856,7 +857,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] CustomField.List help directs the caller to use the returned id as customFieldId on time-entry and project writes.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.CustomField.List";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.CustomField.List";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -875,7 +876,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] TimeEntry.List help explains query.in-progress and its effect on result shape.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.TimeEntry.List";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.TimeEntry.List";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -894,7 +895,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] TimeEntry.Sync help warns that in-progress entries are never written to Job Journal.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.TimeEntry.Sync";
+        Argument."Type" := Argument."Type"::"Timesheets.JobJournal.SyncFromClockify";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -913,7 +914,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] Optional query behavior is explained for list endpoints.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.User.List";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.User.List";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -933,7 +934,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] Optional body behavior is explained for update endpoints.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.Client.Update";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.Client.Update";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -953,15 +954,15 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] The Clockify overview lists the three lookup endpoints so callers can discover them.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Help.Clockify.Get";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
         HelpText := Argument.GetResponseText();
 
-        LibraryAssert.IsTrue(HelpText.Contains('Clockify.Currency.List'), 'Overview should list Clockify.Currency.List.');
-        LibraryAssert.IsTrue(HelpText.Contains('Clockify.UserGroup.List'), 'Overview should list Clockify.UserGroup.List.');
-        LibraryAssert.IsTrue(HelpText.Contains('Clockify.CustomField.List'), 'Overview should list Clockify.CustomField.List.');
+        LibraryAssert.IsTrue(HelpText.Contains('Provider.Clockify.Currency.List'), 'Overview should list Provider.Clockify.Currency.List.');
+        LibraryAssert.IsTrue(HelpText.Contains('Provider.Clockify.UserGroup.List'), 'Overview should list Provider.Clockify.UserGroup.List.');
+        LibraryAssert.IsTrue(HelpText.Contains('Provider.Clockify.CustomField.List'), 'Overview should list Provider.Clockify.CustomField.List.');
     end;
 
     [Test]
@@ -973,7 +974,7 @@ codeunit 95601 "Clockify Connector Tests"
     begin
         // [SCENARIO] The overview warns that Clockify writes accept opaque IDs, never names or BC keys.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Help.Clockify.Get";
+        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
         MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
@@ -1002,9 +1003,9 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
     begin
-        // [SCENARIO] Clockify.TimeEntry.SyncRange reports inbound metadata and produces help.
+        // [SCENARIO] Timesheets.JobJournal.SyncRangeFromClockify reports inbound metadata and produces help.
         Argument.Init();
-        Argument."Type" := Argument."Type"::"Clockify.TimeEntry.SyncRange";
+        Argument."Type" := Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify";
         Argument.Insert();
         MsgInterface := Argument.GetMessageTypeInterface();
 
@@ -1036,8 +1037,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-01T00:00:00Z');
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
-        // [WHEN] The Clockify.TimeEntry.SyncRange task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+        // [WHEN] The Timesheets.JobJournal.SyncRangeFromClockify task executes
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] It reports an error pointing at the missing Job Journal configuration
         ResponseJson := Argument.GetResponseJson();
@@ -1072,7 +1073,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] The batch sync executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] Both entries are created and a job journal line exists per entry
         ResponseJson := Argument.GetResponseJson();
@@ -1111,7 +1112,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] The batch sync executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] The mapped entry still syncs while the unmapped one is counted as an error
         ResponseJson := Argument.GetResponseJson();
@@ -1171,8 +1172,8 @@ codeunit 95601 "Clockify Connector Tests"
         Resource.SetRange("Use Time Sheet", true);
         Resource.ModifyAll("Use Time Sheet", false);
 
-        // [WHEN] Clockify.TimeSheet.Create runs
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Create");
+        // [WHEN] Timesheets.TimeSheet.Create runs
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Create");
 
         // [THEN] It succeeds and creates nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1186,8 +1187,8 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
-        // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Approve");
+        // [WHEN] Timesheets.TimeSheet.Approve runs with no open sheets in range
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Approve");
 
         // [THEN] It succeeds and approves nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1201,8 +1202,8 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
-        // [WHEN] Clockify.TimeSheet.Archive runs with no posted sheets
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Archive");
+        // [WHEN] Timesheets.TimeSheet.Archive runs with no posted sheets
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Archive");
 
         // [THEN] It succeeds and archives nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1216,8 +1217,8 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
-        // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Reject");
+        // [WHEN] Timesheets.TimeSheet.Reject runs with no submitted sheets
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Reject");
 
         // [THEN] It succeeds and rejects nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1231,8 +1232,8 @@ codeunit 95601 "Clockify Connector Tests"
         Argument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
-        // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Reopen");
+        // [WHEN] Timesheets.TimeSheet.Reopen runs with no submitted/approved sheets
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Reopen");
 
         // [THEN] It succeeds and reopens nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1254,8 +1255,8 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup."Job Jnl. Batch" := '';
         ClockifySetup.Modify();
 
-        // [WHEN] Clockify.TimeSheet.Post runs
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Post");
+        // [WHEN] Timesheets.TimeSheet.Post runs
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Post");
 
         // [THEN] It reports the missing Job Journal configuration
         ResponseJson := Argument.GetResponseJson();
@@ -1278,8 +1279,8 @@ codeunit 95601 "Clockify Connector Tests"
         // [GIVEN] A configured Job Journal but no approved time-sheet lines
         CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
 
-        // [WHEN] Clockify.TimeSheet.Post runs
-        ExecuteType(Argument, Argument."Type"::"Clockify.TimeSheet.Post");
+        // [WHEN] Timesheets.TimeSheet.Post runs
+        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Post");
 
         // [THEN] It succeeds and posts nothing
         ResponseJson := Argument.GetResponseJson();
@@ -1304,8 +1305,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-09T08:00:00Z');
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
-        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+        // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] It reports a missing mapping
         ResponseJson := Argument.GetResponseJson();
@@ -1336,8 +1337,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-09T08:00:00Z');
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
-        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+        // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] It reports the missing open time sheet
         ResponseJson := Argument.GetResponseJson();
@@ -1372,8 +1373,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-09T08:00:00Z');
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
-        // [WHEN] Clockify.TimeEntry.SyncToTimeSheet runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+        // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] A time-sheet detail is created with the entry's hours
         ResponseJson := Argument.GetResponseJson();
@@ -1412,8 +1413,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-01T00:00:00Z');
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
-        // [WHEN] Clockify.TimeEntry.SyncRangeToTimeSheet runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRangeToTimeSheet", RequestJson);
+        // [WHEN] Timesheets.TimeSheet.SyncRangeFromClockify runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
 
         // [THEN] Both entries land as time-sheet details
         ResponseJson := Argument.GetResponseJson();
@@ -1449,8 +1450,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-01T00:00:00Z');
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
-        // [WHEN] Clockify.TimeEntry.SyncRangeToTimeSheet runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncRangeToTimeSheet", RequestJson);
+        // [WHEN] Timesheets.TimeSheet.SyncRangeFromClockify runs
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
 
         // [THEN] The mapped entry syncs while the unmapped one is counted as an error
         ResponseJson := Argument.GetResponseJson();
@@ -1486,8 +1487,8 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
         RequestJson.Add('target', 'timesheet');
 
-        // [WHEN] Clockify.TimeEntry.SyncAllUsers runs (no userId — auto-discovered)
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Clockify.TimeEntry.SyncAllUsers", RequestJson);
+        // [WHEN] Timesheets.SyncAllUsersFromClockify runs (no userId — auto-discovered)
+        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.SyncAllUsersFromClockify", RequestJson);
 
         // [THEN] The mapped user's entry lands on the time sheet
         ResponseJson := Argument.GetResponseJson();

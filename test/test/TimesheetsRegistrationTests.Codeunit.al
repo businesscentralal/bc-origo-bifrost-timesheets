@@ -2,6 +2,7 @@ namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets;
+using Origo.Bifrost.Timesheets.Providers.Clockify;
 using System.TestLibraries.Utilities;
 
 /// <summary>

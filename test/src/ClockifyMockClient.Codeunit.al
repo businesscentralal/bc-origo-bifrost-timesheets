@@ -1,6 +1,7 @@
 ﻿namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost.Timesheets;
+using Origo.Bifrost.Timesheets.Providers.Clockify;
 
 /// <summary>
 /// Mock implementation of <see cref="Interface.ClockifyApiClient"/> used by the
