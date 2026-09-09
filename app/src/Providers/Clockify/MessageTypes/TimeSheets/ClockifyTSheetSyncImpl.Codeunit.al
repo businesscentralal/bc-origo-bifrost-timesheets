@@ -14,7 +14,7 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
     var
         InProgressSyncErr: Label 'In-progress time entries are not synced. Provide an entry with a non-empty ''end'' value (timer stopped).', Locked = true;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         ClockifyIntegration: Record "Clockify Integration ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
@@ -24,29 +24,29 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori"
         exit(SecretMgt.HasCompanyApiKey());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Syncs a Clockify time entry to the resource''s open BC Time Sheet (line + detail) with deduplication and update detection.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify TimeSheet Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Timesheets.TimeSheet.SyncFromClockify", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
         RequestMgt: Codeunit "Clockify Request Mgt ori";
