@@ -15,36 +15,36 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori"
     var
         MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         TimeSheetHeader: Record "Time Sheet Header";
     begin
         exit(TimeSheetHeader.WritePermission());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Transfers approved, unposted time-sheet detail into a Job Journal batch and posts the lines.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify TimeSheet Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Timesheets.TimeSheet.Post", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         SetupMgt: Codeunit "Clockify Setup Mgt ori";

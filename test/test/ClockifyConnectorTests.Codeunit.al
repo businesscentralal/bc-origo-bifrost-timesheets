@@ -29,12 +29,12 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpTypeIsOutboundWithNoFilterTable()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] The Provider.Clockify.Help.Get type reports correct metadata.
-        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
-        MsgInterface := Argument.GetMessageTypeInterface();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.Help.Get";
+        MsgInterface := TempArgument.GetMessageTypeInterface();
 
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, MsgInterface.GetMessageDirection(), 'Help type should be outbound.');
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'Help type should have no filter table.');
@@ -57,7 +57,7 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyTypeMetadataAndHelp(Ordinal: Integer)
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MessageType: Enum "Message Type ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
@@ -66,10 +66,10 @@ codeunit 95601 "Clockify Connector Tests"
         NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Argument.Init();
-        Argument."Type" := MessageType;
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
+        TempArgument.Init();
+        TempArgument."Type" := MessageType;
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
 
         LibraryAssert.AreEqual(
             Enum::"Msg Direction ori"::Outbound,
@@ -77,8 +77,8 @@ codeunit 95601 "Clockify Connector Tests"
             StrSubstNo(NotOutboundErr, MessageType));
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), StrSubstNo(NoDescriptionErr, MessageType));
 
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
         LibraryAssert.AreNotEqual('', HelpText, StrSubstNo(NoHelpErr, MessageType));
     end;
 
@@ -117,7 +117,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure WorkspaceListRoutesGetThroughClient()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -127,14 +127,14 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(true, 200, '[{"id":"WS-1","name":"Acme"}]');
 
         // [WHEN] The Provider.Clockify.Workspace.List task executes
-        ExecuteType(Argument, Argument."Type"::"Provider.Clockify.Workspace.List");
+        ExecuteType(TempArgument, TempArgument."Type"::"Provider.Clockify.Workspace.List");
 
         // [THEN] The mock received a GET on /workspaces
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Workspace list should issue a GET.');
         LibraryAssert.AreEqual('/workspaces', MockState.GetLastResourcePath(), 'Workspace list should call /workspaces.');
 
         // [THEN] The response envelope reports success and carries the mocked data
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'A 2xx response should map to Success.');
         LibraryAssert.AreEqual('200', ReadText(ResponseJson, 'statusCode'), 'Status code should be surfaced.');
         LibraryAssert.IsTrue(HasKey(ResponseJson, 'data'), 'The response should carry a data array.');
@@ -143,7 +143,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ErrorResponseIsSurfacedWithStatusCode()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -152,10 +152,10 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(false, 404, '{"message":"Workspace not found"}');
 
         // [WHEN] The Provider.Clockify.Workspace.List task executes
-        ExecuteType(Argument, Argument."Type"::"Provider.Clockify.Workspace.List");
+        ExecuteType(TempArgument, TempArgument."Type"::"Provider.Clockify.Workspace.List");
 
         // [THEN] The envelope reports the error, the status code and the Clockify message
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'A non-2xx response should map to Error.');
         LibraryAssert.AreEqual('404', ReadText(ResponseJson, 'statusCode'), 'Status code should be surfaced.');
         LibraryAssert.AreEqual('Workspace not found', ReadText(ResponseJson, 'error'), 'The Clockify error message should be extracted.');
@@ -164,7 +164,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ProjectCreatePostsBodyToWorkspace()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         BodyJson: JsonObject;
@@ -177,7 +177,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('body', BodyJson);
 
         // [WHEN] The Provider.Clockify.Project.Create task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Project.Create", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.Project.Create", RequestJson);
 
         // [THEN] The mock received a POST to the workspace's projects path, carrying the body
         LibraryAssert.AreEqual('POST', MockState.GetLastMethod(), 'Project create should issue a POST.');
@@ -190,7 +190,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure DefaultWorkspaceUsedWhenRequestOmitsIt()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -203,7 +203,7 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(true, 200, '[]');
 
         // [WHEN] The Provider.Clockify.Project.List task executes without a workspaceId
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Project.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.Project.List", RequestJson);
 
         // [THEN] The default workspace is used in the resource path
         LibraryAssert.AreEqual('/workspaces/WS-DEF/projects', MockState.GetLastResourcePath(), 'The default workspace should fill in for the missing workspaceId.');
@@ -363,7 +363,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeEntrySyncErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -380,10 +380,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('projectId', 'P-1');
 
         // [WHEN] The Timesheets.JobJournal.SyncFromClockify task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
 
         // [THEN] It reports an error pointing at the missing Job Journal configuration
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
     end;
@@ -392,7 +392,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeEntrySyncRejectsInProgressEntries()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -411,10 +411,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('start', '2026-06-09T08:00:00Z');
 
         // [WHEN] The Timesheets.JobJournal.SyncFromClockify task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.JobJournal.SyncFromClockify", RequestJson);
 
         // [THEN] The request is rejected and clearly reports the in-progress rule
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'In-progress entries should be rejected.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('In-progress time entries'), 'The response should explain why the sync was blocked.');
     end;
@@ -669,17 +669,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpIncludesIntegrationTracking()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Per-type help explains how to use the integration table.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.Client.Create";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.Client.Create";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Integration tracking'), 'Per-type help should include an integration tracking section.');
         LibraryAssert.IsTrue(HelpText.Contains('Clockify Integration'), 'Per-type help should reference the Clockify Integration table.');
@@ -688,7 +688,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CurrencyListProjectsWorkspaceCurrencies()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
@@ -702,7 +702,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('workspaceId', 'WS-1');
 
         // [WHEN] The Provider.Clockify.Currency.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.Currency.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.Currency.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces (no standalone currencies endpoint exists)
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Currency list should issue a GET.');
@@ -710,7 +710,7 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsFalse(MockState.GetLastHasBody(), 'Currency list should not send a body.');
 
         // [THEN] The response projects out only the requested workspace's currencies
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'A resolved workspace should map to Success.');
         LibraryAssert.IsTrue(ResponseJson.Get('data', DataToken), 'The response should carry a data array.');
         LibraryAssert.IsTrue(DataToken.IsArray(), 'The currency data should be an array.');
@@ -720,7 +720,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListRoutesGetToWorkspacesUserGroups()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -730,7 +730,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('workspaceId', 'WS-1');
 
         // [WHEN] The Provider.Clockify.UserGroup.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces/{id}/user-groups with no body
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'User-group list should issue a GET.');
@@ -741,7 +741,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListForwardsQueryString()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -754,7 +754,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('query', QueryJson);
 
         // [WHEN] The Provider.Clockify.UserGroup.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The resource path carries the encoded query parameter
         LibraryAssert.IsTrue(MockState.GetLastResourcePath().StartsWith('/workspaces/WS-1/user-groups?'), 'User-group list should append the query string.');
@@ -764,7 +764,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListForwardsInProgressQueryParameter()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -778,7 +778,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('query', QueryJson);
 
         // [WHEN] The Provider.Clockify.TimeEntry.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.TimeEntry.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.TimeEntry.List", RequestJson);
 
         // [THEN] The resource path carries the in-progress query parameter
         LibraryAssert.IsTrue(MockState.GetLastResourcePath().StartsWith('/workspaces/WS-1/user/U-1/time-entries?'), 'Time-entry list should append the query string.');
@@ -788,7 +788,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListRoutesGetToWorkspacesCustomFields()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -798,7 +798,7 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('workspaceId', 'WS-1');
 
         // [WHEN] The Provider.Clockify.CustomField.List task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.CustomField.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.CustomField.List", RequestJson);
 
         // [THEN] The mock received a GET on /workspaces/{id}/custom-fields with no body
         LibraryAssert.AreEqual('GET', MockState.GetLastMethod(), 'Custom-field list should issue a GET.');
@@ -810,7 +810,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -823,7 +823,7 @@ codeunit 95601 "Clockify Connector Tests"
         MockState.SetNextResponse(true, 200, '[]');
 
         // [WHEN] The Provider.Clockify.UserGroup.List task executes without a workspaceId
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Provider.Clockify.UserGroup.List", RequestJson);
 
         // [THEN] The default workspace is used in the resource path
         LibraryAssert.AreEqual('/workspaces/WS-DEF/user-groups', MockState.GetLastResourcePath(), 'The default workspace should fill in for the missing workspaceId.');
@@ -832,17 +832,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListHelpExplainsIdUsage()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] UserGroup.List help directs the caller to use the returned id as userGroupIds on project writes.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.UserGroup.List";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.UserGroup.List";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Notes'), 'UserGroup.List help should render a Notes section.');
         LibraryAssert.IsTrue(HelpText.Contains('userGroupIds'), 'UserGroup.List help should point to userGroupIds on project writes.');
@@ -851,17 +851,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListHelpExplainsIdUsage()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] CustomField.List help directs the caller to use the returned id as customFieldId on time-entry and project writes.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.CustomField.List";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.CustomField.List";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Notes'), 'CustomField.List help should render a Notes section.');
         LibraryAssert.IsTrue(HelpText.Contains('customFieldId'), 'CustomField.List help should point to customFieldId on write payloads.');
@@ -870,17 +870,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListHelpExplainsInProgressFilter()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] TimeEntry.List help explains query.in-progress and its effect on result shape.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.TimeEntry.List";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.TimeEntry.List";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('query.in-progress'), 'TimeEntry.List help should document query.in-progress.');
         LibraryAssert.IsTrue(HelpText.Contains('running timers'), 'TimeEntry.List help should explain the running-timer behavior.');
@@ -889,17 +889,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntrySyncHelpWarnsAboutInProgressEntries()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] TimeEntry.Sync help warns that in-progress entries are never written to Job Journal.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Timesheets.JobJournal.SyncFromClockify";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Timesheets.JobJournal.SyncFromClockify";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('In-progress protection'), 'TimeEntry.Sync help should include the in-progress protection note.');
         LibraryAssert.IsTrue(HelpText.Contains('never written to Job Journal'), 'TimeEntry.Sync help should clearly state the posting guardrail.');
@@ -908,17 +908,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserListHelpExplainsOptionalQueryEffects()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Optional query behavior is explained for list endpoints.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.User.List";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.User.List";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Agent guidance — optional parameter effects'), 'Help should include the optional-parameter guidance section.');
         LibraryAssert.IsTrue(HelpText.Contains('query.*'), 'List help should explain that query parameters shape returned data.');
@@ -928,17 +928,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ClientUpdateHelpExplainsOptionalBodyEffects()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] Optional body behavior is explained for update endpoints.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.Client.Update";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.Client.Update";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Agent guidance — optional parameter effects'), 'Help should include the optional-parameter guidance section.');
         LibraryAssert.IsTrue(HelpText.Contains('Optional `body.*` fields omitted'), 'Update help should explain omitted optional body behavior.');
@@ -948,17 +948,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewListsLookupEndpoints()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] The Clockify overview lists the three lookup endpoints so callers can discover them.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.Help.Get";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Provider.Clockify.Currency.List'), 'Overview should list Provider.Clockify.Currency.List.');
         LibraryAssert.IsTrue(HelpText.Contains('Provider.Clockify.UserGroup.List'), 'Overview should list Provider.Clockify.UserGroup.List.');
@@ -968,17 +968,17 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewGotchasCallOutIdOnlyWrites()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
         // [SCENARIO] The overview warns that Clockify writes accept opaque IDs, never names or BC keys.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Provider.Clockify.Help.Get";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        HelpText := Argument.GetResponseText();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Provider.Clockify.Help.Get";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        HelpText := TempArgument.GetResponseText();
 
         LibraryAssert.IsTrue(HelpText.Contains('Writes accept Clockify IDs'), 'Overview gotchas should warn that writes accept Clockify IDs only.');
         LibraryAssert.IsTrue(HelpText.Contains('archived before they can be deleted'), 'Overview gotchas should mention the archive-before-delete rule.');
@@ -987,41 +987,41 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure IntegrationGateAllowsWriteAccess()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         IntegrationGate: Codeunit "Clockify Integration Gate ori";
     begin
         // [SCENARIO] With write permission to the integration table, the gate lets the operation proceed.
-        Argument.Init();
+        TempArgument.Init();
         LibraryAssert.IsTrue(
-            IntegrationGate.AssertCanWriteIntegration(Argument),
+            IntegrationGate.AssertCanWriteIntegration(TempArgument),
             'The gate should allow a user with write permission to the Clockify Integration table.');
     end;
 
     [Test]
     procedure SyncRangeIsInboundWithHelp()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] Timesheets.JobJournal.SyncRangeFromClockify reports inbound metadata and produces help.
-        Argument.Init();
-        Argument."Type" := Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify";
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
+        TempArgument.Init();
+        TempArgument."Type" := TempArgument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify";
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
 
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), 'SyncRange should be inbound (BC-side).');
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'SyncRange should have no filter table.');
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'SyncRange should have a description.');
 
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        LibraryAssert.AreNotEqual('', Argument.GetResponseText(), 'SyncRange should produce help markdown.');
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        LibraryAssert.AreNotEqual('', TempArgument.GetResponseText(), 'SyncRange should produce help markdown.');
     end;
 
     [Test]
     procedure SyncRangeErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -1038,10 +1038,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] The Timesheets.JobJournal.SyncRangeFromClockify task executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] It reports an error pointing at the missing Job Journal configuration
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
     end;
@@ -1050,7 +1050,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeCreatesLinesForEntriesInRange()
     var
         JobJournalLine: Record "Job Journal Line";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1073,10 +1073,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] The batch sync executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] Both entries are created and a job journal line exists per entry
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'created'), 'Both entries should be created.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'errors'), 'No entry should error.');
@@ -1089,7 +1089,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangePerEntryErrorDoesNotAbortBatch()
     var
         JobJournalLine: Record "Job Journal Line";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1112,10 +1112,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] The batch sync executes
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.JobJournal.SyncRangeFromClockify", RequestJson);
 
         // [THEN] The mapped entry still syncs while the unmapped one is counted as an error
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'Only the mapped entry should be created.');
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'errors'), 'The unmapped entry should be an error.');
@@ -1140,20 +1140,20 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyInboundTypeMetadataAndHelp(Ordinal: Integer)
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MessageType: Enum "Message Type ori";
         MsgInterface: Interface "Msg Interface ori";
         NotInboundErr: Label 'Type %1 should be inbound.', Comment = '%1 = message type';
         NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Argument.Init();
-        Argument."Type" := MessageType;
-        Argument.Insert();
-        MsgInterface := Argument.GetMessageTypeInterface();
+        TempArgument.Init();
+        TempArgument."Type" := MessageType;
+        TempArgument.Insert();
+        MsgInterface := TempArgument.GetMessageTypeInterface();
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), StrSubstNo(NotInboundErr, MessageType));
-        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
-        LibraryAssert.AreNotEqual('', Argument.GetResponseText(), StrSubstNo(NoHelpErr, MessageType));
+        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
+        LibraryAssert.AreNotEqual('', TempArgument.GetResponseText(), StrSubstNo(NoHelpErr, MessageType));
     end;
 
     [Test]
@@ -1161,7 +1161,7 @@ codeunit 95601 "Clockify Connector Tests"
     var
         ResourcesSetup: Record "Resources Setup";
         Resource: Record Resource;
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [GIVEN] A Time Sheet No. Series is configured but no time-sheet resources exist
@@ -1173,10 +1173,10 @@ codeunit 95601 "Clockify Connector Tests"
         Resource.ModifyAll("Use Time Sheet", false);
 
         // [WHEN] Timesheets.TimeSheet.Create runs
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Create");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Create");
 
         // [THEN] It succeeds and creates nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Create should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'created'), 'No eligible resources should yield 0 created.');
     end;
@@ -1184,14 +1184,14 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Timesheets.TimeSheet.Approve runs with no open sheets in range
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Approve");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Approve");
 
         // [THEN] It succeeds and approves nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Approve should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets should yield 0 approved lines.');
     end;
@@ -1199,14 +1199,14 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetArchiveReturnsZeroWhenNothingPosted()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Timesheets.TimeSheet.Archive runs with no posted sheets
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Archive");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Archive");
 
         // [THEN] It succeeds and archives nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Archive should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'archived'), 'No posted sheets should yield 0 archived.');
     end;
@@ -1214,14 +1214,14 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Timesheets.TimeSheet.Reject runs with no submitted sheets
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Reject");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Reject");
 
         // [THEN] It succeeds and rejects nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reject should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets should yield 0 rejected lines.');
     end;
@@ -1229,14 +1229,14 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetReopenReturnsZeroWhenNothingPending()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [WHEN] Timesheets.TimeSheet.Reopen runs with no submitted/approved sheets
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Reopen");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Reopen");
 
         // [THEN] It succeeds and reopens nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reopen should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets should yield 0 reopened lines.');
     end;
@@ -1245,7 +1245,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeSheetPostErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         ResponseJson: JsonObject;
     begin
         // [GIVEN] No Job Journal configured and none supplied
@@ -1256,10 +1256,10 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup.Modify();
 
         // [WHEN] Timesheets.TimeSheet.Post runs
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Post");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Post");
 
         // [THEN] It reports the missing Job Journal configuration
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal.');
     end;
@@ -1267,7 +1267,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetPostReturnsZeroWhenNoApprovedLines()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1280,10 +1280,10 @@ codeunit 95601 "Clockify Connector Tests"
         CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
 
         // [WHEN] Timesheets.TimeSheet.Post runs
-        ExecuteType(Argument, Argument."Type"::"Timesheets.TimeSheet.Post");
+        ExecuteType(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.Post");
 
         // [THEN] It succeeds and posts nothing
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Post should succeed.');
         LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'postedLines'), 'No approved lines should yield 0 posted.');
     end;
@@ -1291,7 +1291,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoMapping()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         Integration: Record "Clockify Integration ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
@@ -1306,10 +1306,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
         // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] It reports a missing mapping
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'An unmapped project should error.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('mapping'), 'The message should mention the missing mapping.');
     end;
@@ -1317,7 +1317,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoOpenTimeSheet()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1338,10 +1338,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
         // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] It reports the missing open time sheet
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'A missing open sheet should error.');
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
     end;
@@ -1350,7 +1350,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncToTimeSheetCreatesDetailOnOpenSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1374,10 +1374,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
         // [WHEN] Timesheets.TimeSheet.SyncFromClockify runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.SyncFromClockify", RequestJson);
 
         // [THEN] A time-sheet detail is created with the entry's hours
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Created', ReadText(ResponseJson, 'result'), 'First sync should create a time-sheet detail.');
         TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
         LibraryAssert.AreEqual(1, TimeSheetDetail.Count(), 'One time-sheet detail should exist.');
@@ -1389,7 +1389,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeToTimeSheetCreatesDetailsForEntries()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1414,10 +1414,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] Timesheets.TimeSheet.SyncRangeFromClockify runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
 
         // [THEN] Both entries land as time-sheet details
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'created'), 'Both entries should be created.');
         TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
@@ -1427,7 +1427,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeToTimeSheetPerEntryErrorDoesNotAbort()
     var
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1451,10 +1451,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('end', '2026-06-30T23:59:59Z');
 
         // [WHEN] Timesheets.TimeSheet.SyncRangeFromClockify runs
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.TimeSheet.SyncRangeFromClockify", RequestJson);
 
         // [THEN] The mapped entry syncs while the unmapped one is counted as an error
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual(2, ReadInt(ResponseJson, 'processed'), 'Both entries should be processed.');
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'Only the mapped entry should be created.');
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'errors'), 'The unmapped entry should be an error.');
@@ -1464,7 +1464,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncAllUsersSyncsMappedUserToTimeSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        Argument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori";
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1488,10 +1488,10 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('target', 'timesheet');
 
         // [WHEN] Timesheets.SyncAllUsersFromClockify runs (no userId — auto-discovered)
-        ExecuteTypeWithRequest(Argument, Argument."Type"::"Timesheets.SyncAllUsersFromClockify", RequestJson);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Timesheets.SyncAllUsersFromClockify", RequestJson);
 
         // [THEN] The mapped user's entry lands on the time sheet
-        ResponseJson := Argument.GetResponseJson();
+        ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'users'), 'Exactly one mapped user should be processed.');
         LibraryAssert.AreEqual(1, ReadInt(ResponseJson, 'created'), 'The user''s entry should be created.');
         TimeSheetDetail.SetRange("Time Sheet No.", TimeSheetNo);
@@ -1621,23 +1621,23 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup.Modify();
     end;
 
-    local procedure ExecuteType(var Argument: Record "Message Argument ori"; MessageType: Enum "Message Type ori")
+    local procedure ExecuteType(var TempArgument: Record "Message Argument ori"; MessageType: Enum "Message Type ori")
     var
         RequestJson: JsonObject;
     begin
-        ExecuteTypeWithRequest(Argument, MessageType, RequestJson);
+        ExecuteTypeWithRequest(TempArgument, MessageType, RequestJson);
     end;
 
-    local procedure ExecuteTypeWithRequest(var Argument: Record "Message Argument ori"; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
+    local procedure ExecuteTypeWithRequest(var TempArgument: Record "Message Argument ori"; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
         MsgInterface: Interface "Msg Interface ori";
     begin
-        Argument.Init();
-        Argument."Type" := MessageType;
-        Argument.Insert();
-        Argument.SetRequestJson(RequestJson);
-        MsgInterface := Argument.GetMessageTypeInterface();
-        MsgInterface.ExecuteBifrostTask(Argument);
+        TempArgument.Init();
+        TempArgument."Type" := MessageType;
+        TempArgument.Insert();
+        TempArgument.SetRequestJson(RequestJson);
+        MsgInterface := TempArgument.GetMessageTypeInterface();
+        MsgInterface.ExecuteBifrostTask(TempArgument);
     end;
 
     [Test]

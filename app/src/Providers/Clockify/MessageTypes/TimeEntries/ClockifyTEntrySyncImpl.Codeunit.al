@@ -21,7 +21,7 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
         MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
         InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Locked = true;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         ClockifyIntegration: Record "Clockify Integration ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
@@ -31,29 +31,29 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori"
         exit(SecretMgt.HasCompanyApiKey());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Syncs a Clockify time entry to a BC Job Journal Line with deduplication, update detection, and correction posting.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify TimeEntry Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Timesheets.JobJournal.SyncFromClockify", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         RequestMgt: Codeunit "Clockify Request Mgt ori";

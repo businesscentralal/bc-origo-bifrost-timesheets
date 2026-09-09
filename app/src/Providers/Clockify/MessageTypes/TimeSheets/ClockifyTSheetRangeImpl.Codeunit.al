@@ -16,7 +16,7 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         ClockifyIntegration: Record "Clockify Integration ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
@@ -26,29 +26,29 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
         exit(SecretMgt.HasCompanyApiKey());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Syncs all of a user''s finished Clockify time entries in a date range to their open BC Time Sheets in one call.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify TimeSheet Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Timesheets.TimeSheet.SyncRangeFromClockify", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;

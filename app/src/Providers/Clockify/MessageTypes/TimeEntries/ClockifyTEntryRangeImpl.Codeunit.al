@@ -22,7 +22,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         ClockifyIntegration: Record "Clockify Integration ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
@@ -32,29 +32,29 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
         exit(SecretMgt.HasCompanyApiKey());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Syncs all of a user''s finished Clockify time entries in a date range to BC Job Journal Lines in a single call.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify TimeEntry Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Timesheets.JobJournal.SyncRangeFromClockify", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeEntrySync: Codeunit "Clockify Time Entry Sync ori";
         RequestMgt: Codeunit "Clockify Request Mgt ori";

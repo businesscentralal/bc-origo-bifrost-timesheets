@@ -10,7 +10,7 @@ codeunit 10036796 "Clockify Client Get Impl ori" implements "Msg Interface ori"
 {
     Access = Internal;
 
-    internal procedure IsEnabled(): Boolean
+    procedure IsEnabled(): Boolean
     var
         ClockifyIntegration: Record "Clockify Integration ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
@@ -20,29 +20,29 @@ codeunit 10036796 "Clockify Client Get Impl ori" implements "Msg Interface ori"
         exit(SecretMgt.HasCompanyApiKey());
     end;
 
-    internal procedure GetFilterTableNo(): Integer
+    procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
-    internal procedure GetDescription(): Text[250]
+    procedure GetDescription(): Text[250]
     begin
         exit('Retrieves a single Clockify client by ID.');
     end;
 
-    internal procedure GetMessageDirection(): Enum "Msg Direction ori"
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    internal procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
+    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
     var
         Help: Codeunit "Clockify Client Help ori";
     begin
         Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Provider.Clockify.Client.Get", GetDescription()));
     end;
 
-    internal procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;

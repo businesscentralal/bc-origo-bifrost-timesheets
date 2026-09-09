@@ -1,4 +1,4 @@
-namespace Origo.Bifrost.Timesheets;
+﻿namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets.Providers.Clockify;
