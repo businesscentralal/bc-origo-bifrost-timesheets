@@ -67,7 +67,9 @@ codeunit 10036793 "Clockify Reten. Policy ori"
 
         RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration ori");
         RetentionPolicySetup.Validate("Apply to all records", false);
-        RetentionPolicySetup.Validate(Enabled, true);
+        // Assignment (not Validate): Enabled OnValidate requires at least one line,
+        // and lines are created by Insert(true). Permissions cannot invent Modify.
+        RetentionPolicySetup.Enabled := true;
         RetentionPolicySetup.Insert(true);
     end;
 
