@@ -14,6 +14,9 @@ using System.DataAdministration;
 codeunit 10036793 "Clockify Reten. Policy ori"
 {
     Access = Internal;
+    // Direct Insert/Modify into system table 3901 during install (EnableDefaultPolicy).
+    // Grant stays on this codeunit — never on assignable permission set BIFROSTTimeshts.
+    Permissions = tabledata "Retention Policy Setup" = RIM;
 
     /// <summary>
     /// Adds the Clockify Integration table to the allowed retention tables with a
