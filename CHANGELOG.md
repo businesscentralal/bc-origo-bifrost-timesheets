@@ -6,6 +6,22 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [29.0.0.0] — 2026-09-06
 
+### Fixed (2026-09-11) - install Insert on Retention Policy Setup
+
+Deploy of Bifrost Timesheets to SaaS was rolling back on install: `Clockify Reten. Policy ori`
+(`EnableDefaultPolicy`) inserts/modifies system table 3901 `Retention Policy Setup` without a
+direct grant, so the tenant denied `TableData 3901 Retention Policy Setup: Insert`.
+
+- Added `Permissions = tabledata "Retention Policy Setup" = RIM;` on codeunit **10036793
+  `Clockify Reten. Policy ori`** (R for Get, I for Insert, M for Modify of `Enabled`). No `D`.
+- **Choice**: keep the install-time default-policy enable (minimal RIM grant), matching Foundation's
+  `ReqLog Retention ori` pattern — do **not** switch to register-allowed-only
+  (`RetenPolAllowedTables.AddAllowedTable` only) like Orchestrator/Attachments.
+- Did **not** add any system-table grant to assignable permission set `BIFROST Timeshts ori`
+  (10036785).
+- Tests **95607 `Clockify Reten. Policy Tests`** TC001–TC002 lock insert/idempotent re-run behaviour
+  (SUPER cannot prove the Permissions grant; green Deploy to Bifrost is the install proof).
+
 ### Setup notifications and wizard (2026-09-07)
 
 Across the Bifröst family, setup notifications now live **only** on Bifröst Foundation's `Setup ori`
