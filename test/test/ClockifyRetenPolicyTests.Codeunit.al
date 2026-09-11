@@ -5,7 +5,8 @@ using System.DataAdministration;
 using System.TestLibraries.Utilities;
 
 /// <summary>
-/// Locks <c>EnableDefaultPolicy</c> Get/Insert/Modify behaviour (TC001–TC002).
+/// Locks <c>EnableDefaultPolicy</c> Get/Insert behaviour (TC001–TC002):
+/// Enabled is set before a single Insert(true); re-run is a no-op (no Modify).
 /// Runs as SUPER so these tests cannot prove the codeunit <c>Permissions</c> grant;
 /// that proof is a green Deploy to Bifrost install.
 /// </summary>
@@ -23,7 +24,8 @@ codeunit 95607 "Clockify Reten. Policy Tests"
         RetentionPolicySetup: Record "Retention Policy Setup";
         RetenPolicy: Codeunit "Clockify Reten. Policy ori";
     begin
-        // [SCENARIO] EnableDefaultPolicy with no existing row inserts one with Enabled = true.
+        // [SCENARIO] EnableDefaultPolicy with no existing row inserts one with Enabled = true
+        // (Enabled set before Insert; no subsequent Modify).
         Initialize();
         ClearPolicyForIntegrationTable();
         RetenPolicy.AddAllowedTable();
@@ -51,7 +53,7 @@ codeunit 95607 "Clockify Reten. Policy Tests"
         CountBefore: Integer;
         CountAfter: Integer;
     begin
-        // [SCENARIO] EnableDefaultPolicy re-run with the row present does not insert a second row.
+        // [SCENARIO] EnableDefaultPolicy re-run with the row present exits without Modify/insert.
         Initialize();
         ClearPolicyForIntegrationTable();
         RetenPolicy.AddAllowedTable();

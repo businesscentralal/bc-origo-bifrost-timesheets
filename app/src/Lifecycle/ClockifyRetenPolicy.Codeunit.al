@@ -14,9 +14,11 @@ using System.DataAdministration;
 codeunit 10036793 "Clockify Reten. Policy ori"
 {
     Access = Internal;
-    // Direct Insert/Modify into system table 3901 during install (EnableDefaultPolicy).
+    // Direct Insert into system table 3901 during install (EnableDefaultPolicy).
+    // Set Enabled (and all fields) before Insert(true); never Modify — the app has no
+    // Modify entitlement on this System-app table, and Permissions cannot invent one.
     // Grant stays on this codeunit — never on assignable permission set BIFROSTTimeshts.
-    Permissions = tabledata "Retention Policy Setup" = RIM;
+    Permissions = tabledata "Retention Policy Setup" = RI;
 
     /// <summary>
     /// Adds the Clockify Integration table to the allowed retention tables with a
@@ -49,8 +51,12 @@ codeunit 10036793 "Clockify Reten. Policy ori"
 
     /// <summary>
     /// Creates and enables the default retention policy for the Clockify Integration
-    /// table if none exists. The locked <c>Reversed = true</c> / one-month filter line
-    /// is created automatically when the setup is inserted.
+    /// table if none exists. Populates every field including <c>Enabled = true</c>
+    /// before <c>Insert(true)</c> so no subsequent Modify is required (the app has no
+    /// Modify entitlement on system table 3901). If a row already exists — even when
+    /// disabled — leave it alone; the customer enables it. The locked
+    /// <c>Reversed = true</c> / one-month filter line is created automatically when
+    /// the setup is inserted.
     /// </summary>
     procedure EnableDefaultPolicy()
     var
@@ -61,10 +67,8 @@ codeunit 10036793 "Clockify Reten. Policy ori"
 
         RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration ori");
         RetentionPolicySetup.Validate("Apply to all records", false);
-        RetentionPolicySetup.Insert(true);
-
         RetentionPolicySetup.Validate(Enabled, true);
-        RetentionPolicySetup.Modify(true);
+        RetentionPolicySetup.Insert(true);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Reten. Pol. Allowed Tables", 'OnRefreshAllowedTables', '', false, false)]

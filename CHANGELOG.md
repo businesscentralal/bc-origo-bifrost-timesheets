@@ -6,16 +6,30 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [29.0.0.0] — 2026-09-06
 
-### Fixed (2026-09-11) - install Insert on Retention Policy Setup
+### Fixed (2026-09-11) - Retention Policy Setup Insert without Modify
+
+Follow-up after PR #17: Deploy of 29.0.0.22 still failed at `EnableDefaultPolicy` line 12 with
+**IndirectModify** on TableData 3901. Insert succeeded under the RIM grant, but the app has no
+Modify entitlement on that System-app table, and the `Permissions` property cannot invent one.
+
+- Populate every field including `Enabled := true` **before** `Insert(true)`; remove `Modify(true)`.
+- If a Retention Policy Setup row already exists (even disabled), leave it alone — customer enables it.
+- Reduce codeunit grant to `tabledata "Retention Policy Setup" = RI` (no `M`, no `D`).
+- Still no system-table grant on assignable permission set `BIFROST Timeshts ori` (10036785).
+- Update **95607 `Clockify Reten. Policy Tests`** TC001 to assert Enabled after a single Insert;
+  TC002 still locks idempotent re-run (exit, no second row).
+
+### Fixed (2026-09-11) - install Insert on Retention Policy Setup (superseded by RI follow-up)
 
 Deploy of Bifrost Timesheets to SaaS was rolling back on install: `Clockify Reten. Policy ori`
-(`EnableDefaultPolicy`) inserts/modifies system table 3901 `Retention Policy Setup` without a
+(`EnableDefaultPolicy`) inserts into system table 3901 `Retention Policy Setup` without a
 direct grant, so the tenant denied `TableData 3901 Retention Policy Setup: Insert`.
 
-- Added `Permissions = tabledata "Retention Policy Setup" = RIM;` on codeunit **10036793
-  `Clockify Reten. Policy ori`** (R for Get, I for Insert, M for Modify of `Enabled`). No `D`.
-- **Choice**: keep the install-time default-policy enable (minimal RIM grant), matching Foundation's
-  `ReqLog Retention ori` pattern — do **not** switch to register-allowed-only
+- Initially added `Permissions = tabledata "Retention Policy Setup" = RIM;` on codeunit **10036793
+  `Clockify Reten. Policy ori`** (PR #17). Insert then succeeded; subsequent Modify failed with
+  IndirectModify — see follow-up Fixed entry above (RI + Enabled before Insert).
+- **Choice**: keep the install-time default-policy enable (minimal RI grant), matching Foundation's
+  pattern — do **not** switch to register-allowed-only
   (`RetenPolAllowedTables.AddAllowedTable` only) like Orchestrator/Attachments.
 - Did **not** add any system-table grant to assignable permission set `BIFROST Timeshts ori`
   (10036785).
