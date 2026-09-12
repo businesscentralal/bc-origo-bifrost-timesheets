@@ -95,7 +95,7 @@ codeunit 10036847 "Clockify Workspace Help ori"
             '- The `id` field is the `userId` needed for `Clockify.TimeEntry.Create/List` and `memberships` in project/task operations.');
         HelpBuilder.SetRelated('- **Get API key owner only:** `Clockify.User.GetCurrent`\' +
             '- **Assign to projects:** Use `id` in `memberships` array of `Clockify.Project.Create/Update`\' +
-            '- **Map to BC Resource:** Store mapping in Clockify Integration table (type=user)');
+            '- **Map to BC Resource:** Store mapping in Clockify Integration table (type=USER)');
         exit(HelpBuilder.Render());
     end;
 

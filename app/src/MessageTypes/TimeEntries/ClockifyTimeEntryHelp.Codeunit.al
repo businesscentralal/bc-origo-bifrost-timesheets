@@ -119,7 +119,7 @@ codeunit 10036852 "Clockify TimeEntry Help ori"
             '- `customFields` format: `{ "customFieldId": "...", "value": ... }`. Get IDs from `Clockify.CustomField.List`.\' +
             '- `userId` in the URL is the Clockify user ID, NOT the BC user name.');
         HelpBuilder.SetRelated('- **Resolve userId:** `Clockify.User.GetCurrent` (API key owner) or `Clockify.User.List`\' +
-            '- **Resolve projectId:** `Clockify.Project.List` or Clockify Integration (type=project)\' +
+            '- **Resolve projectId:** `Clockify.Project.List` or Clockify Integration (type=PROJECT)\' +
             '- **Resolve taskId:** `Clockify.Task.List` (requires projectId)\' +
             '- **Resolve tagIds:** `Clockify.Tag.List`\' +
             '- **Stop running timer:** `Clockify.TimeEntry.Update` with `end` field\' +
@@ -186,6 +186,7 @@ codeunit 10036852 "Clockify TimeEntry Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.Sync', Description, 'POST (BC-side)', '/internal/sync-time-entry');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID', 'Clockify.User.GetCurrent → id');
         HelpBuilder.AddParam('entryId', true, 'string', 'Clockify time entry ID to sync', 'Clockify.TimeEntry.List → id');
@@ -200,10 +201,10 @@ codeunit 10036852 "Clockify TimeEntry Help ori"
         HelpBuilder.AddParam('journalBatch', false, 'string', 'BC Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Clockify Setup.', '');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "userId": "63...", "entryId": "68...", "projectId": "6a...", "taskId": "6a...", "description": "Testing", "start": "2026-06-09T12:00:00Z", "end": "2026-06-09T16:00:00Z", "billable": true, "journalTemplate": "VERK", "journalBatch": "CONTOSO" }');
         HelpBuilder.SetResponseNote('{ "result": "Created|Skipped|Updated|Corrected|Error", "message": "..." }');
-        HelpBuilder.SetPreconditions('1. The Clockify project must be mapped to a BC Job (via Clockify Integration table, type=project).\' +
-            '2. The Clockify task must be mapped to a BC Job Task (via Clockify Integration table, type=task).\' +
+        HelpBuilder.SetPreconditions('1. The Clockify project must be mapped to a BC Job (via Clockify Integration table, type=PROJECT).\' +
+            '2. The Clockify task must be mapped to a BC Job Task (via Clockify Integration table, type=TASK).\' +
             '3. The journal template and batch must exist in BC.\' +
-            '4. The Clockify user must be mapped to a BC Resource (via Clockify Integration table, type=user).');
+            '4. The Clockify user must be mapped to a BC Resource (via Clockify Integration table, type=USER).');
         HelpBuilder.AddError(400, 'Missing required mapping', 'Ensure project/task/user mappings exist in Clockify Integration table');
         HelpBuilder.AddError(400, 'Journal template/batch not found', 'Verify template and batch names exist in BC');
         HelpBuilder.AddError(400, 'In-progress entry', 'Stop the timer first; `Clockify.TimeEntry.Sync` requires `end` to be set');
@@ -214,7 +215,7 @@ codeunit 10036852 "Clockify TimeEntry Help ori"
             '- **In-progress protection:** Entries with `end` = null are rejected and never written to Job Journal.\' +
             '- **Result values:** `Created` (new line), `Skipped` (already synced, unchanged), `Updated` (journal line updated), `Corrected` (posted entry corrected), `Error` (failed with message).');
         HelpBuilder.SetRelated('- **Get entries to sync:** `Clockify.TimeEntry.List` (filter by date range)\' +
-            '- **Verify mappings:** `Data.Records.Get` on Clockify Integration (type=project/task/user)\' +
+            '- **Verify mappings:** `Data.Records.Get` on Clockify Integration (type=PROJECT/TASK/USER)\' +
             '- **Set up mappings:** `Data.Records.Set` on Clockify Integration');
         exit(HelpBuilder.Render());
     end;
@@ -226,6 +227,7 @@ codeunit 10036852 "Clockify TimeEntry Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncRange', Description, 'POST (BC-side)', '/internal/sync-time-entries');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID whose entries to sync', 'Clockify.User.GetCurrent → id or Clockify.User.List → id');
         HelpBuilder.AddParam('start', true, 'string', 'Range start in ISO-8601 UTC (inclusive)', '');
