@@ -1698,6 +1698,117 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.AreEqual('', Masker.MaskResponseBody('', false), 'An empty body must be returned unchanged.');
     end;
 
+
+    [Test]
+    procedure HelpClockifyGetUsesTableNameNotTable()
+    var
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
+        HelpText: Text;
+    begin
+        // [SCENARIO] Help.Clockify.Get integration examples use tableName (Foundation accepts it); not table.
+        Argument.Init();
+        Argument."Type" := Argument."Type"::"Help.Clockify.Get";
+        Argument.Insert();
+        MsgInterface := Argument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
+        HelpText := Argument.GetResponseText();
+
+        LibraryAssert.IsTrue(HelpText.Contains('"tableName": "Clockify Integration ori"'), 'Help must document tableName.');
+        LibraryAssert.IsFalse(HelpText.Contains('"table": "Clockify Integration ori"'), 'Help must not document the rejected table key.');
+    end;
+
+    [Test]
+    procedure InboundTimeTypesHaveNonEmptyRequestExamples()
+    var
+        HelpText: Text;
+    begin
+        // [SCENARIO] SyncToTimeSheet, SyncRangeToTimeSheet, and Archive render non-empty request examples.
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
+        LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'SyncToTimeSheet must have Request example.');
+        LibraryAssert.IsTrue(HelpText.Contains('"entryId"'), 'SyncToTimeSheet request example must include entryId.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
+        LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'SyncRangeToTimeSheet must have Request example.');
+        LibraryAssert.IsTrue(HelpText.Contains('"start"'), 'SyncRangeToTimeSheet request example must include start.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
+        LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'Archive must have Request example.');
+        LibraryAssert.IsTrue(HelpText.Contains('{ }'), 'Archive request example must be empty object.');
+    end;
+
+    [Test]
+    procedure InboundHelpMarkdownShowsDirectionInbound()
+    var
+        MessageTypes: List of [Enum "Message Type ori"];
+        MessageType: Enum "Message Type ori";
+        HelpText: Text;
+        WrongOutboundErr: Label 'Help for %1 must show Direction Inbound.', Comment = '%1 = message type';
+    begin
+        // [SCENARIO] All 11 BC-side types render **Direction:** Inbound in help markdown (not only Impl metadata).
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeEntry.Sync");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRange");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncAllUsers");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Create");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Approve");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Post");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Reject");
+        MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen");
+
+        foreach MessageType in MessageTypes do begin
+            HelpText := GetHelpMarkdown(MessageType);
+            LibraryAssert.IsTrue(HelpText.Contains('**Direction:** Inbound'), StrSubstNo(WrongOutboundErr, MessageType));
+            LibraryAssert.IsFalse(HelpText.Contains('**Direction:** Outbound'), StrSubstNo(WrongOutboundErr, MessageType));
+        end;
+
+        // Spot-check one Outbound type still shows Outbound.
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Client.Create");
+        LibraryAssert.IsTrue(HelpText.Contains('**Direction:** Outbound'), 'Client.Create help must remain Outbound.');
+    end;
+
+    [Test]
+    procedure HelpTracksUppercaseClockifyTypeCodes()
+    var
+        HelpText: Text;
+    begin
+        // [SCENARIO] Tracks-in / integration sections use uppercase CLOCKIFY type codes, not camelCase.
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
+        LibraryAssert.IsTrue(HelpText.Contains('TIME_ENTRY'), 'SyncToTimeSheet must track TIME_ENTRY.');
+        LibraryAssert.IsFalse(HelpText.Contains('`timeEntry`'), 'SyncToTimeSheet must not use camelCase timeEntry.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Client.Create");
+        LibraryAssert.IsTrue(HelpText.Contains('CLIENT'), 'Client.Create must track CLIENT.');
+        LibraryAssert.IsFalse(HelpText.Contains('`client`'), 'Client.Create must not use lowercase client type code.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Project.Update");
+        LibraryAssert.IsTrue(HelpText.Contains('PROJECT'), 'Project.Update must track PROJECT.');
+        LibraryAssert.IsFalse(HelpText.Contains('`project`'), 'Project.Update must not use lowercase project type code.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Task.Delete");
+        LibraryAssert.IsTrue(HelpText.Contains('TASK'), 'Task.Delete must track TASK.');
+        LibraryAssert.IsFalse(HelpText.Contains('`task`'), 'Task.Delete must not use lowercase task type code.');
+
+        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Tag.Create");
+        LibraryAssert.IsTrue(HelpText.Contains('TAG'), 'Tag.Create must track TAG.');
+        LibraryAssert.IsFalse(HelpText.Contains('`tag`'), 'Tag.Create must not use lowercase tag type code.');
+    end;
+
+    local procedure GetHelpMarkdown(MessageType: Enum "Message Type ori"): Text
+    var
+        Argument: Record "Message Argument ori";
+        MsgInterface: Interface "Msg Interface ori";
+    begin
+        Argument.Init();
+        Argument."Type" := MessageType;
+        Argument.Insert();
+        MsgInterface := Argument.GetMessageTypeInterface();
+        MsgInterface.GetMessageHelpAsMarkdownDocument(Argument);
+        exit(Argument.GetResponseText());
+    end;
+
     local procedure ReadText(JsonObj: JsonObject; PropertyName: Text): Text
     var
         Token: JsonToken;

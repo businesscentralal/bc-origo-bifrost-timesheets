@@ -65,13 +65,13 @@ codeunit 10036849 "Clockify Project Help ori"
     begin
         HelpBuilder.Init('Clockify.Project.Get', Description, 'GET', '/workspaces/{workspaceId}/projects/{projectId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to retrieve', 'Clockify Integration table → Clockify Id (type=project)');
+        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to retrieve', 'Clockify Integration table → Clockify Id (type=PROJECT)');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "projectId": "60..." }');
         HelpBuilder.SetResponseNote('the project object (includes `id`, `name`, `clientId`, `memberships`, `archived`, `customFields`)');
         HelpBuilder.SetAfterSuccess('No tracking action required — this is a read operation.');
         HelpBuilder.AddError(404, 'Project not found', 'Verify projectId exists via `Clockify.Project.List`');
         HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Clockify Setup');
-        HelpBuilder.SetRelated('- **Find projectId:** `Clockify.Project.List` or `Data.Records.Get` on Clockify Integration (type=project)\' +
+        HelpBuilder.SetRelated('- **Find projectId:** `Clockify.Project.List` or `Data.Records.Get` on Clockify Integration (type=PROJECT)\' +
             '- **List tasks under this project:** `Clockify.Task.List` (requires projectId)\' +
             '- **Update this project:** `Clockify.Project.Update`');
         exit(HelpBuilder.Render());
@@ -102,7 +102,7 @@ codeunit 10036849 "Clockify Project Help ori"
         HelpBuilder.SetNotes('- `clientId` must be the Clockify internal ID (from `Clockify.Client.List`), not a BC customer number.\' +
             '- `userGroupIds` requires Clockify group IDs; group names are silently ignored.\' +
             '- Custom field defaults cannot be set at creation — create the project first, then call `Clockify.Project.Update` with `customFields` array.');
-        HelpBuilder.SetRelated('- **Resolve clientId:** `Clockify.Client.List` or Clockify Integration (type=client)\' +
+        HelpBuilder.SetRelated('- **Resolve clientId:** `Clockify.Client.List` or Clockify Integration (type=CLIENT)\' +
             '- **Resolve userGroupIds:** `Clockify.UserGroup.List` → `id`\' +
             '- **Set custom fields after create:** `Clockify.Project.Update` with `customFields`\' +
             '- **Add tasks:** `Clockify.Task.Create` (requires project `id` from response)\' +
@@ -118,7 +118,7 @@ codeunit 10036849 "Clockify Project Help ori"
     begin
         HelpBuilder.Init('Clockify.Project.Update', Description, 'PUT', '/workspaces/{workspaceId}/projects/{projectId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to update', 'Clockify Integration table → Clockify Id (type=project)');
+        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to update', 'Clockify Integration table → Clockify Id (type=PROJECT)');
         HelpBuilder.AddParam('body.name', false, 'string', 'Project display name', '');
         HelpBuilder.AddParam('body.clientId', false, 'string', 'Clockify client ID', 'Clockify.Client.List → id');
         HelpBuilder.AddParam('body.isPublic', false, 'boolean', 'Visibility to all workspace members', '');
@@ -139,7 +139,7 @@ codeunit 10036849 "Clockify Project Help ori"
             '- Send only fields you want to change; omitted fields retain current values.');
         HelpBuilder.SetRelated('- **Archive before delete:** Set `body.archived` = true, then `Clockify.Project.Delete`\' +
             '- **Resolve customFieldId:** `Clockify.CustomField.List` → `id`\' +
-            '- **Resolve clientId:** `Clockify.Client.List` or Clockify Integration (type=client)');
+            '- **Resolve clientId:** `Clockify.Client.List` or Clockify Integration (type=CLIENT)');
         exit(HelpBuilder.Render());
     end;
 
@@ -151,7 +151,7 @@ codeunit 10036849 "Clockify Project Help ori"
     begin
         HelpBuilder.Init('Clockify.Project.Delete', Description, 'DELETE', '/workspaces/{workspaceId}/projects/{projectId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to delete', 'Clockify Integration table → Clockify Id (type=project)');
+        HelpBuilder.AddParam('projectId', true, 'string', 'The Clockify project ID to delete', 'Clockify Integration table → Clockify Id (type=PROJECT)');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "projectId": "60..." }');
         HelpBuilder.SetResponseNote('the deleted project object');
         HelpBuilder.SetPreconditions('1. The project **must be archived first** — call `Clockify.Project.Update` with body `{ "archived": true }`.\' +

@@ -65,13 +65,13 @@ codeunit 10036848 "Clockify Client Help ori"
     begin
         HelpBuilder.Init('Clockify.Client.Get', Description, 'GET', '/workspaces/{workspaceId}/clients/{clientId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to retrieve', 'Clockify Integration table → Clockify Id (type=client)');
+        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to retrieve', 'Clockify Integration table → Clockify Id (type=CLIENT)');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "clientId": "60..." }');
         HelpBuilder.SetResponseNote('the client object (includes `id`, `name`, `workspaceId`, `archived`, `currencyId`)');
         HelpBuilder.SetAfterSuccess('No tracking action required — this is a read operation.');
         HelpBuilder.AddError(404, 'Client not found', 'Verify clientId exists via `Clockify.Client.List` or check Clockify Integration table');
         HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Clockify Setup');
-        HelpBuilder.SetRelated('- **Find clientId:** `Clockify.Client.List` or `Data.Records.Get` on Clockify Integration (type=client)\' +
+        HelpBuilder.SetRelated('- **Find clientId:** `Clockify.Client.List` or `Data.Records.Get` on Clockify Integration (type=CLIENT)\' +
             '- **Update this client:** `Clockify.Client.Update`\' +
             '- **Delete this client:** Archive first, then `Clockify.Client.Delete`');
         exit(HelpBuilder.Render());
@@ -112,7 +112,7 @@ codeunit 10036848 "Clockify Client Help ori"
     begin
         HelpBuilder.Init('Clockify.Client.Update', Description, 'PUT', '/workspaces/{workspaceId}/clients/{clientId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to update', 'Clockify Integration table → Clockify Id (type=client)');
+        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to update', 'Clockify Integration table → Clockify Id (type=CLIENT)');
         HelpBuilder.AddParam('body.name', false, 'string', 'Client display name', '');
         HelpBuilder.AddParam('body.address', false, 'string', 'Single-line address', '');
         HelpBuilder.AddParam('body.email', false, 'string', 'Client contact email', '');
@@ -141,7 +141,7 @@ codeunit 10036848 "Clockify Client Help ori"
     begin
         HelpBuilder.Init('Clockify.Client.Delete', Description, 'DELETE', '/workspaces/{workspaceId}/clients/{clientId}');
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Target workspace ID', 'Clockify.Workspace.List → id');
-        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to delete', 'Clockify Integration table → Clockify Id (type=client)');
+        HelpBuilder.AddParam('clientId', true, 'string', 'The Clockify client ID to delete', 'Clockify Integration table → Clockify Id (type=CLIENT)');
         HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "clientId": "60..." }');
         HelpBuilder.SetResponseNote('the deleted client object');
         HelpBuilder.SetPreconditions('1. The client **must be archived first** — call `Clockify.Client.Update` with body `{ "archived": true }`.\' +

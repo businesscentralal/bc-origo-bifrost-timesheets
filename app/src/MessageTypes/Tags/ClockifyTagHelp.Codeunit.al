@@ -93,7 +93,7 @@ codeunit 10036851 "Clockify Tag Help ori"
         HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Clockify Setup');
         HelpBuilder.SetNotes('- Send only fields you want to change; omitted fields retain current values.\' +
             '- Unlike clients/projects, archiving a tag is NOT required before `Clockify.Tag.Delete`.');
-        HelpBuilder.SetRelated('- **Resolve tagId:** `Clockify.Tag.List` or Clockify Integration (type=tag)\' +
+        HelpBuilder.SetRelated('- **Resolve tagId:** `Clockify.Tag.List` or Clockify Integration (type=TAG)\' +
             '- **Delete tag:** `Clockify.Tag.Delete` (no archive step needed)');
         exit(HelpBuilder.Render());
     end;
