@@ -167,7 +167,7 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Set",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration ori",');
+        Builder.AppendLine('    "tableName": "Clockify Integration ori",');
         Builder.AppendLine('    "records": [');
         Builder.AppendLine('      {');
         Builder.AppendLine('        "primaryKey": { "Entry No.": <next entry no.> },');
@@ -206,7 +206,7 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Get",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration ori",');
+        Builder.AppendLine('    "tableName": "Clockify Integration ori",');
         Builder.AppendLine('    "filter": "WHERE(Clockify Type=CONST(PROJECT),BC Table No.=CONST(167),Reversed=CONST(false))"');
         Builder.AppendLine('  }');
         Builder.AppendLine('}');
@@ -218,7 +218,7 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Get",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration ori",');
+        Builder.AppendLine('    "tableName": "Clockify Integration ori",');
         Builder.AppendLine('    "filter": "WHERE(Clockify Type=CONST(TIME_ENTRY),Clockify Id=CONST(<clockifyId>),Reversed=CONST(false))"');
         Builder.AppendLine('  }');
         Builder.AppendLine('}');
@@ -232,7 +232,7 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
         Builder.AppendLine('{');
         Builder.AppendLine('  "type": "Data.Records.Set",');
         Builder.AppendLine('  "body": {');
-        Builder.AppendLine('    "table": "Clockify Integration ori",');
+        Builder.AppendLine('    "tableName": "Clockify Integration ori",');
         Builder.AppendLine('    "records": [');
         Builder.AppendLine('      {');
         Builder.AppendLine('        "primaryKey": { "Entry No.": <existing entry no.> },');

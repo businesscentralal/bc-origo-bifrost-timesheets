@@ -77,7 +77,7 @@ codeunit 10036850 "Clockify Task Help ori"
         HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Clockify Setup');
         HelpBuilder.SetNotes('- Tasks are scoped to a project — you always need both workspaceId and projectId.\' +
             '- Task names must be unique within a project but can repeat across projects.');
-        HelpBuilder.SetRelated('- **Resolve projectId:** `Clockify.Project.List` or Clockify Integration (type=project)\' +
+        HelpBuilder.SetRelated('- **Resolve projectId:** `Clockify.Project.List` or Clockify Integration (type=PROJECT)\' +
             '- **List existing tasks:** `Clockify.Task.List`\' +
             '- **Use in time entries:** Pass task `id` as `taskId` in `Clockify.TimeEntry.Create`');
         exit(HelpBuilder.Render());
@@ -104,7 +104,7 @@ codeunit 10036850 "Clockify Task Help ori"
         HelpBuilder.AddError(401, 'Unauthorized', 'Check API key on Clockify Setup');
         HelpBuilder.SetNotes('- Send only fields you want to change; omitted fields retain current values.\' +
             '- To mark a task complete, set `status` to `DONE`.');
-        HelpBuilder.SetRelated('- **Resolve taskId:** `Clockify.Task.List` or Clockify Integration (type=task)\' +
+        HelpBuilder.SetRelated('- **Resolve taskId:** `Clockify.Task.List` or Clockify Integration (type=TASK)\' +
             '- **Delete task:** `Clockify.Task.Delete` (no archive step needed for tasks)');
         exit(HelpBuilder.Render());
     end;

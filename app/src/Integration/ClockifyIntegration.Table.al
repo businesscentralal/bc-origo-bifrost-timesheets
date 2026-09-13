@@ -42,7 +42,7 @@ table 10036785 "Clockify Integration ori"
         {
             Caption = 'BC Code', Comment = 'is-IS=BC kóði';
         }
-        /// <summary>The kind of Clockify object: client, project, task, tag, timeEntry, user or workspace.</summary>
+        /// <summary>The kind of Clockify object: CLIENT, PROJECT, TASK, TAG, TIME_ENTRY, USER or WORKSPACE (WORKSPACE currently unused by this app).</summary>
         field(10; "Clockify Type"; Code[20])
         {
             Caption = 'Clockify Type', Comment = 'is-IS=Clockify tegund';

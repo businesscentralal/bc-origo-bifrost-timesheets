@@ -1,5 +1,7 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
+using Origo.Bifrost;
+
 /// <summary>
 /// Builds AI-optimised Markdown help documents for the Clockify connector.
 /// Uses a builder pattern: call <c>Init</c>, then <c>AddParam</c>/<c>AddError</c>/setters,
@@ -16,6 +18,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         DescriptionVar: Text;
         HttpMethodVar: Text;
         ApiPathVar: Text;
+        DirectionVar: Enum "Msg Direction ori";
         RequestExampleVar: Text;
         ResponseNoteVar: Text;
         NotesVar: Text;
@@ -46,6 +49,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         DescriptionVar := Description;
         HttpMethodVar := HttpMethod;
         ApiPathVar := ApiPath;
+        DirectionVar := Enum::"Msg Direction ori"::Outbound;
         RequestExampleVar := '';
         ResponseNoteVar := '';
         NotesVar := '';
@@ -108,6 +112,15 @@ codeunit 10036799 "Clockify Help Builder ori"
     procedure SetRequestExample(Example: Text)
     begin
         RequestExampleVar := Example;
+    end;
+
+    /// <summary>
+    /// Sets the message direction shown in Metadata (Inbound for BC-side types, Outbound for Clockify API calls).
+    /// Defaults to Outbound in <c>Init</c>.
+    /// </summary>
+    procedure SetDirection(Direction: Enum "Msg Direction ori")
+    begin
+        DirectionVar := Direction;
     end;
 
     /// <summary>
@@ -193,11 +206,16 @@ codeunit 10036799 "Clockify Help Builder ori"
 
         // Metadata
         Builder.AppendLine('## Metadata');
-        Builder.AppendLine('- **Direction:** Outbound');
+        case DirectionVar of
+            Enum::"Msg Direction ori"::Inbound:
+                Builder.AppendLine('- **Direction:** Inbound');
+            Enum::"Msg Direction ori"::Outbound:
+                Builder.AppendLine('- **Direction:** Outbound');
+        end;
         Builder.AppendLine('- **Content-Type:** text/json');
         Builder.AppendLine('- **Clockify API:** `' + HttpMethodVar + ' ' + ApiPathVar + '`');
         if IsMappableEntity(Entity) then
-            Builder.AppendLine('- **Tracks in:** Clockify Integration table (`Clockify Type` = `' + LowerCaseFirst(Entity) + '`)');
+            Builder.AppendLine('- **Tracks in:** Clockify Integration table (`Clockify Type` = `' + GetClockifyTypeCode(Entity) + '`)');
         Builder.AppendLine('');
 
         // Parameters
@@ -293,7 +311,7 @@ codeunit 10036799 "Clockify Help Builder ori"
         ResolveNoteTok: Label 'Resolve existing links first: call `Data.Records.Get` on `Clockify Integration` with filter `Clockify Type` = `%1`, `Reversed` = `false`. The `Clockify Id` field gives you the ID to pass to write operations.', Comment = '%1 = clockify type', Locked = true;
     begin
         ParseMessageType(MessageType, Entity, ActionName);
-        ClockifyType := LowerCaseFirst(Entity);
+        ClockifyType := GetClockifyTypeCode(Entity);
 
         if not IsMappableEntity(Entity) then
             exit(NotTrackedTok);
@@ -326,11 +344,24 @@ codeunit 10036799 "Clockify Help Builder ori"
         exit(Entity in ['Client', 'Project', 'Task', 'Tag', 'TimeEntry', 'User']);
     end;
 
-    local procedure LowerCaseFirst(Value: Text): Text
+    local procedure GetClockifyTypeCode(Entity: Text): Text
     begin
-        if Value = '' then
-            exit('');
-        exit(LowerCase(CopyStr(Value, 1, 1)) + CopyStr(Value, 2));
+        case Entity of
+            'Client':
+                exit('CLIENT');
+            'Project':
+                exit('PROJECT');
+            'Task':
+                exit('TASK');
+            'Tag':
+                exit('TAG');
+            'TimeEntry':
+                exit('TIME_ENTRY');
+            'User':
+                exit('USER');
+            else
+                exit(UpperCase(Entity));
+        end;
     end;
 
     local procedure TrackOptionalParamSemantics(ParamName: Text; Required: Boolean)

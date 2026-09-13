@@ -45,6 +45,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Create', Description, 'POST (BC-side)', '/internal/timesheet-create');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('weeksAhead', false, 'integer', 'Target number of upcoming sheets per resource (default 4).', '');
         HelpBuilder.SetRequestExample('{ "weeksAhead": 4 }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "created": 8 }');
@@ -60,6 +61,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Approve', Description, 'POST (BC-side)', '/internal/timesheet-approve');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only approve sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
         HelpBuilder.SetRequestExample('{ "endingDateTo": "2026-06-30" }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "approvedLines": 24 }');
@@ -74,6 +76,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Post', Description, 'POST (BC-side)', '/internal/timesheet-post');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('journalTemplate', false, 'string', 'Job Journal Template name (Code[10]). Defaults to the Clockify Job Journal Template on Clockify Setup.', '');
         HelpBuilder.AddParam('journalBatch', false, 'string', 'Job Journal Batch name (Code[10]). Defaults to the Clockify Job Journal Batch on Clockify Setup.', '');
         HelpBuilder.SetRequestExample('{ "journalTemplate": "VERK", "journalBatch": "CONTOSO" }');
@@ -90,6 +93,8 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Archive', Description, 'POST (BC-side)', '/internal/timesheet-archive');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
+        HelpBuilder.SetRequestExample('{ }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "archived": 6 }');
         HelpBuilder.SetNotes('- Moves fully posted, non-open sheets to the archive; deletes empty posted sheets.\' +
             '- BC-side only; does not call Clockify.');
@@ -102,6 +107,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Reject', Description, 'POST (BC-side)', '/internal/timesheet-reject');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only reject sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
         HelpBuilder.SetRequestExample('{ "endingDateTo": "2026-06-30" }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "rejectedLines": 3 }');
@@ -116,6 +122,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeSheet.Reopen', Description, 'POST (BC-side)', '/internal/timesheet-reopen');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('endingDateTo', false, 'string', 'Only reopen sheets ending on or before this ISO date (YYYY-MM-DD). Defaults to the work date.', '');
         HelpBuilder.SetRequestExample('{ "endingDateTo": "2026-06-30" }');
         HelpBuilder.SetResponseNote('{ "status": "Success", "reopenedLines": 3 }');
@@ -130,6 +137,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncToTimeSheet', Description, 'POST (BC-side)', '/internal/sync-time-entry-timesheet');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID (mapped to a BC Resource)', 'Clockify.User.GetCurrent → id');
         HelpBuilder.AddParam('entryId', true, 'string', 'Clockify time entry ID', 'Clockify.TimeEntry.List → id');
@@ -140,6 +148,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder.AddParam('end', true, 'string', 'End time in ISO-8601 UTC', '');
         HelpBuilder.AddParam('billable', false, 'boolean', 'Whether the time is billable', '');
         HelpBuilder.AddParam('tagIds', false, 'array', 'Clockify tag IDs used to resolve the Work Type', 'Clockify.Tag.List → id');
+        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "userId": "63...", "entryId": "68...", "projectId": "6a...", "taskId": "6a...", "description": "Consulting", "start": "2026-06-09T08:00:00Z", "end": "2026-06-09T10:00:00Z", "billable": true, "tagIds": [ "62..." ] }');
         HelpBuilder.SetResponseNote('{ "result": "Created|Updated|Skipped|Error", "message": "...", "entryId": "...", "hours": 4, "postingDate": "2026-06-09" }');
         HelpBuilder.SetPreconditions('1. The Clockify project/task/user must be mapped in the Clockify Integration table.\' +
             '2. The resource must have an **open time sheet covering the entry date** — run `Clockify.TimeSheet.Create` first.');
@@ -160,10 +169,12 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncRangeToTimeSheet', Description, 'POST (BC-side)', '/internal/sync-time-entries-timesheet');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('userId', true, 'string', 'Clockify user ID whose entries to sync', 'Clockify.User.GetCurrent → id');
         HelpBuilder.AddParam('start', true, 'string', 'Range start in ISO-8601 UTC (inclusive)', '');
         HelpBuilder.AddParam('end', true, 'string', 'Range end in ISO-8601 UTC (inclusive)', '');
+        HelpBuilder.SetRequestExample('{ "workspaceId": "5f...", "userId": "63...", "start": "2026-06-01T00:00:00Z", "end": "2026-06-30T23:59:59Z" }');
         HelpBuilder.SetResponseNote('{ "processed": 12, "created": 8, "skipped": 3, "updated": 1, "errors": 0, "results": [ ... ] }');
         HelpBuilder.SetPreconditions('1. Project/task/user mappings must exist in the Clockify Integration table.\' +
             '2. Each entry date must fall within an **open time sheet** for the resource — run `Clockify.TimeSheet.Create` first.\' +
@@ -183,6 +194,7 @@ codeunit 10036838 "Clockify TimeSheet Help ori"
         HelpBuilder: Codeunit "Clockify Help Builder ori";
     begin
         HelpBuilder.Init('Clockify.TimeEntry.SyncAllUsers', Description, 'POST (BC-side)', '/internal/sync-all-users');
+        HelpBuilder.SetDirection(Enum::"Msg Direction ori"::Inbound);
         HelpBuilder.AddParam('workspaceId', true, 'string', 'Source workspace ID', 'Clockify.Workspace.List → id');
         HelpBuilder.AddParam('start', true, 'string', 'Range start in ISO-8601 UTC (inclusive)', '');
         HelpBuilder.AddParam('end', true, 'string', 'Range end in ISO-8601 UTC (inclusive)', '');
