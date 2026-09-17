@@ -9,7 +9,7 @@
   "help": "https://businesscentralal.github.io/bifrost/en-us/clockify/",
   "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
   "EULA": "https://www.origo.is/skilmalar-og-oryggismal",
-  "applicationInsightsConnectionString": "InstrumentationKey=990df12f-db16-4ec5-8655-12d4e5084d23;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=eba0df67-d7e1-437f-9310-fb792eec0787",
+  "applicationInsightsConnectionString": "InstrumentationKey=76f50b92-2705-4f61-b346-5594bbe33b1b;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=86ebf1d5-decf-4ffb-93dd-97ee61c2a338",
   "contextSensitiveHelpUrl": "https://businesscentralal.github.io/bifrost/{0}/help/clockify/",
   "supportedLocales": [
     "en-US",
