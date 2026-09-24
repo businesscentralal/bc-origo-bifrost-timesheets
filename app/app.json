@@ -6,11 +6,11 @@
   "brief": "Bifrost Timesheets - Clockify time tracking in Business Central",
   "description": "Bifrost Timesheets exposes the Clockify time-tracking REST API as Bifröst message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
   "url": "https://www.origo.is/",
-  "help": "https://businesscentralal.github.io/bifrost/en-us/clockify/",
-  "privacyStatement": "https://www.origo.is/um-origo/stefnur/personuverndarstefna",
-  "EULA": "https://www.origo.is/skilmalar-og-oryggismal",
-  "applicationInsightsConnectionString": "InstrumentationKey=76f50b92-2705-4f61-b346-5594bbe33b1b;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=86ebf1d5-decf-4ffb-93dd-97ee61c2a338",
-  "contextSensitiveHelpUrl": "https://businesscentralal.github.io/bifrost/{0}/help/clockify/",
+  "help": "https://businesscentralal.github.io/bifrost/en-us/timesheets/",
+  "privacyStatement": "https://businesscentralal.github.io/bifrost/en-us/foundation/privacy/",
+  "EULA": "https://businesscentralal.github.io/bifrost/en-us/foundation/eula/",
+  "applicationInsightsConnectionString": "InstrumentationKey=af411133-5e22-486f-b23a-081b79ed4168;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=c4476f32-5dfb-490a-8ad0-fb8ffad1c050",
+  "contextSensitiveHelpUrl": "https://businesscentralal.github.io/bifrost/{0}/help/timesheets/",
   "supportedLocales": [
     "en-US",
     "is-IS"
@@ -21,7 +21,7 @@
       "id": "7505e808-6e52-4b96-a328-82573391297a",
       "name": "Bifrost Foundation",
       "publisher": "Origo",
-      "version": "28.0.0.0"
+      "version": "28.0.0.100"
     }
   ],
   "internalsVisibleTo": [
