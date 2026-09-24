@@ -13,7 +13,7 @@ page 10036787 "Clockify Webhooks ori"
     UsageCategory = None;
     SourceTable = "Clockify Webhook ori";
     Caption = 'Clockify Webhooks', Comment = 'is-IS=Clockify vefkrókar';
-    ContextSensitiveHelpPage = 'clockify-webhooks';
+    ContextSensitiveHelpPage = 'timesheets-webhooks';
     Editable = false;
     InsertAllowed = false;
     ModifyAllowed = false;
