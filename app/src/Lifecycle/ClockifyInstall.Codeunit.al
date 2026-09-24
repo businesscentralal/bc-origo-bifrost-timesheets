@@ -47,7 +47,7 @@ codeunit 10036792 "Clockify Install ori"
     end;
 
     /// <summary>Returns the per-company upgrade tag for the initial Clockify connector release.</summary>
-    internal procedure GetInitialReleaseTag(): Code[250]
+    procedure GetInitialReleaseTag(): Code[250]
     begin
         exit('Origo.Bifrost.Timesheets-Initial-20260906');
     end;

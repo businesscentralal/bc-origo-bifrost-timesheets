@@ -110,7 +110,7 @@ codeunit 10036789 "Clockify Request Mgt ori"
     /// (<c>Version 1</c>) is used.
     /// </summary>
     /// <returns>The configured <see cref="Interface.ClockifyApiClient"/> implementation.</returns>
-    internal procedure GetApiClient(): Interface "Clockify API Client ori"
+    procedure GetApiClient(): Interface "Clockify API Client ori"
     var
         ClockifySetup: Record "Clockify Setup ori";
     begin

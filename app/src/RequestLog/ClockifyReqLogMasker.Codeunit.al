@@ -37,7 +37,7 @@ codeunit 10036827 "Clockify ReqLog Masker ori" implements "Request Log Masker or
     /// </summary>
     /// <param name="Body">The raw response body.</param>
     /// <returns>The body with every signing token redacted, or the body unchanged when it carries none or is not JSON.</returns>
-    internal procedure RedactSigningTokens(Body: Text) Result: Text
+    procedure RedactSigningTokens(Body: Text) Result: Text
     var
         RootToken: JsonToken;
     begin
