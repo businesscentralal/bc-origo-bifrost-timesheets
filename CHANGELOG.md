@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
+
 ### Changed (2026-09-17) - Bifrost Foundation Exact pin 28.0.0.100 (no float)
 
 - App/test Bifrost Foundation dependency set to Exact `28.0.0.100`.
