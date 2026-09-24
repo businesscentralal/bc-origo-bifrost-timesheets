@@ -14,7 +14,7 @@ page 10036853 "Timesheets Setup ori"
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;
     Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
-    ContextSensitiveHelpPage = 'clockify-setup';
+    ContextSensitiveHelpPage = 'timesheets-setup';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = Card;

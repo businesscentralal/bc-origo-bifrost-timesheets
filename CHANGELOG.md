@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
+- Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
 
 ### Changed (2026-09-17) - Bifrost Foundation Exact pin 28.0.0.100 (no float)
 
