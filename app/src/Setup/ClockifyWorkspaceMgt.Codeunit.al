@@ -64,7 +64,7 @@ codeunit 10036831 "Clockify Workspace Mgt ori"
     /// </summary>
     /// <param name="ResponseBody">The raw JSON array returned by Clockify.</param>
     /// <param name="TempWorkspaceBuffer">Out: the parsed workspaces.</param>
-    internal procedure ParseWorkspaces(ResponseBody: Text; var TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary)
+    procedure ParseWorkspaces(ResponseBody: Text; var TempWorkspaceBuffer: Record "Clockify Workspace Buffer ori" temporary)
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";
         RootToken: JsonToken;

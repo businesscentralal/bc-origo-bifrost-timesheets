@@ -405,7 +405,7 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
     /// <param name="ClockifyProjectId">The Clockify project ID to look up.</param>
     /// <param name="JobNo">Out: the mapped BC job number. Untouched when no active mapping exists.</param>
     /// <returns>True when an active (non-reversed) PROJECT mapping was found.</returns>
-    internal procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
+    procedure ResolveProjectMapping(ClockifyProjectId: Text[50]; var JobNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
     begin
@@ -434,7 +434,7 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
     /// <param name="ClockifyTaskId">The Clockify task ID to look up.</param>
     /// <param name="JobTaskNo">Out: the mapped BC job task number. Untouched when no active mapping exists.</param>
     /// <returns>True when an active (non-reversed) TASK mapping was found.</returns>
-    internal procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
+    procedure ResolveTaskMapping(ClockifyTaskId: Text[50]; var JobTaskNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
         BCCodeText: Text;
@@ -465,7 +465,7 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
     /// <param name="ClockifyUserId">The Clockify user ID to look up.</param>
     /// <param name="ResourceNo">Out: the mapped BC resource number. Untouched when no active mapping exists.</param>
     /// <returns>True when an active (non-reversed) USER mapping was found.</returns>
-    internal procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
+    procedure ResolveUserMapping(ClockifyUserId: Text[50]; var ResourceNo: Code[20]): Boolean
     var
         Integration: Record "Clockify Integration ori";
     begin
@@ -487,7 +487,7 @@ codeunit 10036790 "Clockify Time Entry Sync ori"
     /// to a Work Type wins; otherwise the Default Work Type on Clockify Setup is
     /// used (which may itself be blank).
     /// </summary>
-    internal procedure ResolveWorkType(ClockifyTagIds: List of [Text]): Code[10]
+    procedure ResolveWorkType(ClockifyTagIds: List of [Text]): Code[10]
     var
         SetupMgt: Codeunit "Clockify Setup Mgt ori";
         TagId: Text;
