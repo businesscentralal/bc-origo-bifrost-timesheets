@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
+
 ### Changed (2026-09-17) - Bifrost Foundation Exact pin 28.0.0.100 (no float)
 
 - App/test Bifrost Foundation dependency set to Exact `28.0.0.100`.
