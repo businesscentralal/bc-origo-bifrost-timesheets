@@ -6,6 +6,7 @@
 
 - The app builds against the latest Foundation CI build with a Foundation floor of 28.0.0.0.
 - AL-Go `appDependencyProbingPaths` for bc-origo-bifrost-core: `release_status: latestBuild`, `version: latest`.
+- AL-Go `fullBuildPatterns` includes `.AL-Go/settings.json` so a probe-only settings change triggers a full build under the `modifiedApps` incremental strategy.
 
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).

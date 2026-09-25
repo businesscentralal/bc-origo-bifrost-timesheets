@@ -22,6 +22,9 @@
     }
   ],
   "nuGetFeedSelectMode": "Exact",
+  "fullBuildPatterns": [
+    ".AL-Go/settings.json"
+  ],
   "buildModes": [
     "Default",
     "Test"
