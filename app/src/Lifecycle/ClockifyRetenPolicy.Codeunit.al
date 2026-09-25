@@ -56,10 +56,11 @@ codeunit 10036793 "Clockify Reten. Policy ori"
     /// Modify entitlement on system table 3901). If a row already exists — even when
     /// disabled — leave it alone; the customer enables it. The locked
     /// <c>Reversed = true</c> / one-month filter line is created automatically when
-    /// the setup is inserted. Missing <c>ReadPermission</c> or <c>WritePermission</c>
-    /// logs warning <c>CLK0013</c> and skips. Record has no insert-only probe, so
-    /// the write check gates <c>Insert(true)</c>. This procedure still does not
-    /// <c>Modify</c>. Install and Timesheets Setup call
+    /// the setup is inserted. Read permission is required before <c>Get</c>; a
+    /// denied read skips silently. Warning <c>CLK0013</c> is logged only when the
+    /// policy is missing and write permission is missing. Record has no insert-only
+    /// probe, so the write check gates <c>Insert(true)</c>. This procedure still
+    /// does not <c>Modify</c>. Install and Timesheets Setup call
     /// <c>Clockify Install ori.EnsureRetentionPolicy</c>, which probes again
     /// outside this codeunit's <c>Permissions</c> grant.
     /// </summary>
@@ -67,10 +68,8 @@ codeunit 10036793 "Clockify Reten. Policy ori"
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
     begin
-        if not RetentionPolicySetup.ReadPermission() then begin
-            LogPermissionSkip(RetentionPolicySetup.TableName(), 'Read');
+        if not RetentionPolicySetup.ReadPermission() then
             exit;
-        end;
         if RetentionPolicySetup.Get(Database::"Clockify Integration ori") then
             exit;
         if not RetentionPolicySetup.WritePermission() then begin

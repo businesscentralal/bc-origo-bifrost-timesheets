@@ -11,10 +11,10 @@ no insert or delete probe). A missing permission logs a warning and skips that
 step. No `[TryFunction]` around writes, and no public procedure signatures changed.
 
 - `Clockify Install ori` (`10036792`) `EnsureSetupRecord` checks read before `Get` and write before `Insert` on `Clockify Setup ori`. A skip logs `CLK0012`. `GetSetup` creates the record when Timesheets Setup is opened.
-- `EnsureRetentionPolicy` checks read and write on `Retention Policy Setup` (3901) outside `Clockify Reten. Policy ori` (whose `Permissions = RI` grant only promotes an existing indirect permission), then calls `AddAllowedTable` and `EnableDefaultPolicy`. A skip logs `CLK0013`. Opening Timesheets Setup calls the same procedure again and creates the policy once permission exists. `EnableDefaultPolicy` repeats the checks and still does not `Modify`.
+- `EnsureRetentionPolicy` checks read on `Retention Policy Setup` (3901) outside `Clockify Reten. Policy ori` (whose `Permissions = RI` grant only promotes an existing indirect permission). A denied read skips silently. If the policy row already exists, opening Timesheets Setup does nothing and does not log. Warning `CLK0013` is logged only when the policy is missing and write permission is missing. With write permission it calls `AddAllowedTable` and `EnableDefaultPolicy`, which repeats that order and still does not `Modify`.
 - `AddAllowedTable` and the retention setup-line insert inside `Insert(true)` are not probed.
 - Test app `Clockify Test Install.SetupTestSuite` (also used by `Clockify Test Upgrade`) checks read and write on `AL Test Suite` and `Test Method Line` before rebuilding the TIMESHEETS suite. A skip logs `CLK0014`. Upgrade is the retry; the suite is not a product install step.
-- Test **95608 `Clockify Reten Perm Tests`** runs with restrictive permissions: the ensure skips without error, then creates the policy once permission is restored.
+- Test **95608 `Clockify Reten Perm Tests`** runs with restrictive permissions: the ensure skips without error, then creates the policy once permission is restored. A second test opens setup as a non-admin while the policy exists and asserts `CLK0013` is not logged.
 
 ### Changed - AppSource URLs and help routes
 

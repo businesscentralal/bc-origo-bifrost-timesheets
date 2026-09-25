@@ -52,6 +52,37 @@ codeunit 95608 "Clockify Reten Perm Tests"
             'The default policy must not apply to all records.');
     end;
 
+    [Test]
+    procedure TC004_ExistingPolicyOpenDoesNotLogWarning()
+    var
+        ClockifySetup: Record "Clockify Setup ori";
+        RetentionPolicySetup: Record "Retention Policy Setup";
+        Install: Codeunit "Clockify Install ori";
+        SkipListener: Codeunit "Clockify Skip Listener";
+    begin
+        // [GIVEN] The default policy already exists, then a non-admin opens setup.
+        LibraryLowerPermissions.SetOutsideO365Scope();
+        Install.EnsureSetupRecord();
+        ClearPolicyForIntegrationTable();
+        Install.EnsureRetentionPolicy();
+        LibraryAssert.IsTrue(
+            RetentionPolicySetup.Get(Database::"Clockify Integration ori"),
+            'Precondition: the retention policy must exist before the non-admin opens setup.');
+
+        BindSubscription(SkipListener);
+        LibraryLowerPermissions.SetO365Basic();
+        ClockifySetup.GetSetup();
+        ClockifySetup.GetSetup();
+        LibraryLowerPermissions.SetOutsideO365Scope();
+        UnbindSubscription(SkipListener);
+
+        // [THEN] Opening setup does not warn that the policy was not created.
+        LibraryAssert.AreEqual(0, SkipListener.GetClk0013Count(), 'An existing retention policy must not log CLK0013.');
+        LibraryAssert.IsTrue(
+            RetentionPolicySetup.Get(Database::"Clockify Integration ori"),
+            'The existing retention policy must still be there.');
+    end;
+
     local procedure ClearPolicyForIntegrationTable()
     var
         RetentionPolicySetup: Record "Retention Policy Setup";

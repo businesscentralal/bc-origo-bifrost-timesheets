@@ -8,8 +8,9 @@ using System.Upgrade;
 /// Install codeunit for the Bifrost Timesheets connector. Bootstraps the
 /// <c>Clockify Setup</c> record (if missing) so the Clockify settings have a
 /// home, and registers the initial-release upgrade tag.
-/// Each table access is permission-checked first. A missing permission logs a
-/// warning and skips that step so the install is not rolled back.
+/// Each table access is permission-checked first. A missing permission skips
+/// that step so the install is not rolled back. Warning <c>CLK0013</c> is logged
+/// only when the retention policy is missing and cannot be written.
 /// <c>Clockify Setup.GetSetup</c> retries both steps when Timesheets Setup opens.
 /// <c>AddAllowedTable</c> runs only after the Retention Policy Setup probe.
 /// The allowed-table subscriber and the setup-line insert inside <c>Insert(true)</c>
@@ -57,10 +58,12 @@ codeunit 10036792 "Clockify Install ori"
 
     /// <summary>
     /// Registers the allowed retention table and enables the default policy when
-    /// read and write permission exist on Retention Policy Setup. The probe stays
-    /// outside <c>Clockify Reten. Policy ori</c>, whose <c>Permissions</c> property
-    /// only promotes an existing indirect grant. A missing permission logs warning
-    /// <c>CLK0013</c> and skips. Safe to call again from Timesheets Setup.
+    /// the row is missing and write permission exists. The probe stays outside
+    /// <c>Clockify Reten. Policy ori</c>, whose <c>Permissions</c> property only
+    /// promotes an existing indirect grant. Read is required before <c>Get</c>.
+    /// A denied read skips silently. Warning <c>CLK0013</c> is logged only when
+    /// the policy is missing and write permission is missing. Safe to call again
+    /// from Timesheets Setup.
     /// </summary>
     procedure EnsureRetentionPolicy()
     var
@@ -70,10 +73,10 @@ codeunit 10036792 "Clockify Install ori"
         // Probe outside the codeunit whose Permissions property grants RI. That
         // property only promotes an existing indirect grant; with none at all,
         // ReadPermission inside the codeunit can still look allowed and Get throws.
-        if not RetentionPolicySetup.ReadPermission() then begin
-            LogPermissionSkip('CLK0013', RetentionPolicySetup.TableName(), 'Read', StrSubstNo(RetentionPermissionSkipMsg, 'Read'));
+        if not RetentionPolicySetup.ReadPermission() then
             exit;
-        end;
+        if RetentionPolicySetup.Get(Database::"Clockify Integration ori") then
+            exit;
         if not RetentionPolicySetup.WritePermission() then begin
             LogPermissionSkip('CLK0013', RetentionPolicySetup.TableName(), 'Write', StrSubstNo(RetentionPermissionSkipMsg, 'Write'));
             exit;
@@ -93,6 +96,16 @@ codeunit 10036792 "Clockify Install ori"
             TelemetryScope::ExtensionPublisher,
             'Table', SkippedTable,
             'MissingPermission', MissingPermission);
+        OnPermissionSkipLogged(EventId);
+    end;
+
+    /// <summary>
+    /// Raised after a permission skip is written to telemetry. Tests use it to
+    /// prove a page open did not log <c>CLK0013</c>.
+    /// </summary>
+    [IntegrationEvent(false, false)]
+    procedure OnPermissionSkipLogged(EventId: Text)
+    begin
     end;
 
     local procedure SetUpgradeTags()

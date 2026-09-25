@@ -128,8 +128,9 @@ table 10036853 "Clockify Setup ori"
     /// <summary>
     /// Reads the singleton setup record, inserting an empty one the first time it is
     /// requested so callers never have to test for its existence. Also retries the
-    /// default retention policy. A missing permission logs a warning and leaves the
-    /// step for the next open of Timesheets Setup.
+    /// default retention policy. An existing policy is left alone. A missing
+    /// policy is created when write permission exists; otherwise the open logs
+    /// <c>CLK0013</c>. A denied read skips without a warning.
     /// </summary>
     internal procedure GetSetup()
     var
