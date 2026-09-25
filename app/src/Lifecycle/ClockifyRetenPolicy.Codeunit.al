@@ -56,13 +56,18 @@ codeunit 10036793 "Clockify Reten. Policy ori"
     /// Modify entitlement on system table 3901). If a row already exists — even when
     /// disabled — leave it alone; the customer enables it. The locked
     /// <c>Reversed = true</c> / one-month filter line is created automatically when
-    /// the setup is inserted.
+    /// the setup is inserted. Missing read or insert permission skips quietly; this
+    /// procedure does not Modify, so write permission is not required.
     /// </summary>
     procedure EnableDefaultPolicy()
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
     begin
+        if not RetentionPolicySetup.ReadPermission() then
+            exit;
         if RetentionPolicySetup.Get(Database::"Clockify Integration ori") then
+            exit;
+        if not RetentionPolicySetup.InsertPermission() then
             exit;
 
         RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration ori");

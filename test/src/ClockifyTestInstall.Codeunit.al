@@ -19,14 +19,36 @@ codeunit 95600 "Clockify Test Install"
 
     /// <summary>
     /// Rebuilds the <c>TIMESHEETS</c> test suite from the test app's own object range
-    /// (95600-95699). Safe to call repeatedly.
+    /// (95600-95699). Safe to call repeatedly. Exits quietly when read, insert,
+    /// modify or delete permission is missing on <c>AL Test Suite</c> or
+    /// <c>Test Method Line</c>, so install and upgrade are not rolled back.
     /// </summary>
     procedure SetupTestSuite()
     var
         ALTestSuite: Record "AL Test Suite";
+        TestMethodLine: Record "Test Method Line";
         TestSuiteMgt: Codeunit "Test Suite Mgt.";
         SuiteName: Code[10];
     begin
+        // All checks happen before any write. A later missing permission must not
+        // leave the suite deleted.
+        if not ALTestSuite.ReadPermission() then
+            exit;
+        if not ALTestSuite.InsertPermission() then
+            exit;
+        if not ALTestSuite.WritePermission() then
+            exit;
+        if not ALTestSuite.DeletePermission() then
+            exit;
+        if not TestMethodLine.ReadPermission() then
+            exit;
+        if not TestMethodLine.InsertPermission() then
+            exit;
+        if not TestMethodLine.WritePermission() then
+            exit;
+        if not TestMethodLine.DeletePermission() then
+            exit;
+
         SuiteName := 'TIMESHEETS';
         if ALTestSuite.Get(SuiteName) then
             ALTestSuite.Delete(true);
