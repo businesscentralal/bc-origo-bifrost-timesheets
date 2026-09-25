@@ -35,7 +35,7 @@ codeunit 10036792 "Clockify Install ori"
         // ReadPermission inside the codeunit can still look allowed and Get throws.
         if not RetentionPolicySetup.ReadPermission() then
             exit;
-        if not RetentionPolicySetup.InsertPermission() then
+        if not RetentionPolicySetup.WritePermission() then
             exit;
         RetenPolicy.EnableDefaultPolicy();
     end;
@@ -48,7 +48,7 @@ codeunit 10036792 "Clockify Install ori"
             exit;
         if ClockifySetup.Get() then
             exit;
-        if not ClockifySetup.InsertPermission() then
+        if not ClockifySetup.WritePermission() then
             exit;
         ClockifySetup.Init();
         ClockifySetup.Insert();

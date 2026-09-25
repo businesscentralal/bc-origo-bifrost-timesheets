@@ -9,10 +9,10 @@ An install identity without table permissions was failing the whole deployment
 the matching permission and skips that step quietly. No `[TryFunction]` around
 writes, and no public procedure signatures changed.
 
-- `Clockify Install ori` (`10036792`) `EnsureSetupRecord` checks `ReadPermission` before `Get` and `InsertPermission` before `Insert` on `Clockify Setup ori`.
-- `SetUpRetentionPolicy` still calls `AddAllowedTable`, then checks `ReadPermission` and `InsertPermission` on `Retention Policy Setup` (3901) before `EnableDefaultPolicy`. The codeunit `Permissions = RI` grant only promotes an existing indirect permission, so the probe stays on the install codeunit.
-- `EnableDefaultPolicy` repeats the read check before `Get` and the insert check before `Insert(true)`. It still does not `Modify`. Write permission is not required.
-- Test app `Clockify Test Install.SetupTestSuite` (also used by `Clockify Test Upgrade`) checks read, insert, modify and delete on `AL Test Suite` and `Test Method Line` before rebuilding the TIMESHEETS suite.
+- `Clockify Install ori` (`10036792`) `EnsureSetupRecord` checks `ReadPermission` before `Get` and `WritePermission` before `Insert` on `Clockify Setup ori`.
+- `SetUpRetentionPolicy` still calls `AddAllowedTable`, then checks `ReadPermission` and `WritePermission` on `Retention Policy Setup` (3901) before `EnableDefaultPolicy`. The codeunit `Permissions = RI` grant only promotes an existing indirect permission, so the probe stays on the install codeunit. Record exposes no `InsertPermission`.
+- `EnableDefaultPolicy` repeats `ReadPermission` before `Get` and `WritePermission` before `Insert(true)`. It still does not `Modify`.
+- Test app `Clockify Test Install.SetupTestSuite` (also used by `Clockify Test Upgrade`) checks `ReadPermission` and `WritePermission` on `AL Test Suite` and `Test Method Line` before rebuilding the TIMESHEETS suite.
 
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
