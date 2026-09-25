@@ -252,6 +252,8 @@ page 10036853 "Timesheets Setup ori"
 
     trigger OnOpenPage()
     begin
+        // Retries the setup record and the default retention policy when install
+        // skipped them. A missing permission logs a warning and does not throw.
         Rec.GetSetup();
     end;
 

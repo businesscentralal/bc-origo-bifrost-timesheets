@@ -5,14 +5,18 @@
 ### Fixed (2026-09-25) - permission-safe install and upgrade
 
 An install identity without table permissions was failing the whole deployment
-(`Current permissions prevented the action`). Install and upgrade code now checks
-the matching permission and skips that step quietly. No `[TryFunction]` around
-writes, and no public procedure signatures changed.
+(`Current permissions prevented the action`). Install and upgrade code checks
+`ReadPermission` before a read and `WritePermission` before a write (`Record` has
+no insert or delete probe). A missing permission logs a warning and skips that
+step. No `[TryFunction]` around writes, and no public procedure signatures changed.
 
-- `Clockify Install ori` (`10036792`) `EnsureSetupRecord` checks `ReadPermission` before `Get` and `WritePermission` before `Insert` on `Clockify Setup ori`.
-- `SetUpRetentionPolicy` still calls `AddAllowedTable`, then checks `ReadPermission` and `WritePermission` on `Retention Policy Setup` (3901) before `EnableDefaultPolicy`. The codeunit `Permissions = RI` grant only promotes an existing indirect permission, so the probe stays on the install codeunit. Record exposes no `InsertPermission`.
-- `EnableDefaultPolicy` repeats `ReadPermission` before `Get` and `WritePermission` before `Insert(true)`. It still does not `Modify`.
-- Test app `Clockify Test Install.SetupTestSuite` (also used by `Clockify Test Upgrade`) checks `ReadPermission` and `WritePermission` on `AL Test Suite` and `Test Method Line` before rebuilding the TIMESHEETS suite.
+- `Clockify Install ori` (`10036792`) `EnsureSetupRecord` checks read before `Get` and write before `Insert` on `Clockify Setup ori`. A skip logs `CLK0012`. `GetSetup` creates the record when Timesheets Setup is opened.
+- `EnsureRetentionPolicy` checks read and write on `Retention Policy Setup` (3901) outside `Clockify Reten. Policy ori` (whose `Permissions = RI` grant only promotes an existing indirect permission), then calls `AddAllowedTable` and `EnableDefaultPolicy`. A skip logs `CLK0013`. Opening Timesheets Setup calls the same procedure again and creates the policy once permission exists. `EnableDefaultPolicy` repeats the checks and still does not `Modify`.
+- `AddAllowedTable` and the retention setup-line insert inside `Insert(true)` are not probed.
+- Test app `Clockify Test Install.SetupTestSuite` (also used by `Clockify Test Upgrade`) checks read and write on `AL Test Suite` and `Test Method Line` before rebuilding the TIMESHEETS suite. A skip logs `CLK0014`. Upgrade is the retry; the suite is not a product install step.
+- Test **95608 `Clockify Reten Perm Tests`** runs with restrictive permissions: the ensure skips without error, then creates the policy once permission is restored.
+
+### Changed - AppSource URLs and help routes
 
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).

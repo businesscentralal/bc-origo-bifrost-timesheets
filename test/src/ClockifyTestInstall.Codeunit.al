@@ -19,10 +19,11 @@ codeunit 95600 "Clockify Test Install"
 
     /// <summary>
     /// Rebuilds the <c>TIMESHEETS</c> test suite from the test app's own object range
-    /// (95600-95699). Safe to call repeatedly. Exits quietly when
-    /// <c>ReadPermission</c> or <c>WritePermission</c> is missing on
-    /// <c>AL Test Suite</c> or <c>Test Method Line</c>, so install and upgrade
-    /// are not rolled back. Record has no separate insert or delete probe.
+    /// (95600-95699). Safe to call repeatedly. A missing
+    /// <c>ReadPermission</c> or <c>WritePermission</c> on <c>AL Test Suite</c> or
+    /// <c>Test Method Line</c> logs warning <c>CLK0014</c> and skips, so install
+    /// and upgrade are not rolled back. Record has no separate insert or delete
+    /// probe. Upgrade calls this again; there is no product page to retry it.
     /// </summary>
     procedure SetupTestSuite()
     var
@@ -30,17 +31,26 @@ codeunit 95600 "Clockify Test Install"
         TestMethodLine: Record "Test Method Line";
         TestSuiteMgt: Codeunit "Test Suite Mgt.";
         SuiteName: Code[10];
+        SuitePermissionSkipMsg: Label 'TIMESHEETS test suite was not rebuilt because the %1 permission on %2 is missing. Republish the test app with that permission.', Locked = true;
     begin
         // All checks happen before any write. A later missing permission must not
         // leave the suite deleted.
-        if not ALTestSuite.ReadPermission() then
+        if not ALTestSuite.ReadPermission() then begin
+            LogSuiteSkip(SuitePermissionSkipMsg, 'Read', ALTestSuite.TableName());
             exit;
-        if not ALTestSuite.WritePermission() then
+        end;
+        if not ALTestSuite.WritePermission() then begin
+            LogSuiteSkip(SuitePermissionSkipMsg, 'Write', ALTestSuite.TableName());
             exit;
-        if not TestMethodLine.ReadPermission() then
+        end;
+        if not TestMethodLine.ReadPermission() then begin
+            LogSuiteSkip(SuitePermissionSkipMsg, 'Read', TestMethodLine.TableName());
             exit;
-        if not TestMethodLine.WritePermission() then
+        end;
+        if not TestMethodLine.WritePermission() then begin
+            LogSuiteSkip(SuitePermissionSkipMsg, 'Write', TestMethodLine.TableName());
             exit;
+        end;
 
         SuiteName := 'TIMESHEETS';
         if ALTestSuite.Get(SuiteName) then
@@ -50,5 +60,17 @@ codeunit 95600 "Clockify Test Install"
         Commit();
         ALTestSuite.Get(SuiteName);
         TestSuiteMgt.SelectTestMethodsByRange(ALTestSuite, '95600..95699');
+    end;
+
+    local procedure LogSuiteSkip(SuitePermissionSkipMsg: Text; MissingPermission: Text; SkippedTable: Text)
+    begin
+        Session.LogMessage(
+            'CLK0014',
+            StrSubstNo(SuitePermissionSkipMsg, MissingPermission, SkippedTable),
+            Verbosity::Warning,
+            DataClassification::SystemMetadata,
+            TelemetryScope::ExtensionPublisher,
+            'Table', SkippedTable,
+            'MissingPermission', MissingPermission);
     end;
 }

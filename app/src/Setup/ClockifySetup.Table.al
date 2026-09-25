@@ -127,14 +127,17 @@ table 10036853 "Clockify Setup ori"
 
     /// <summary>
     /// Reads the singleton setup record, inserting an empty one the first time it is
-    /// requested so callers never have to test for its existence.
+    /// requested so callers never have to test for its existence. Also retries the
+    /// default retention policy. A missing permission logs a warning and leaves the
+    /// step for the next open of Timesheets Setup.
     /// </summary>
     internal procedure GetSetup()
+    var
+        Install: Codeunit "Clockify Install ori";
     begin
-        if Rec.Get() then
-            exit;
-        Rec.Init();
-        if not Rec.Insert() then
+        Install.EnsureSetupRecord();
+        Install.EnsureRetentionPolicy();
+        if Rec.ReadPermission() then
             Rec.Get();
     end;
 }

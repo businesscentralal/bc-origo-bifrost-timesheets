@@ -57,19 +57,26 @@ codeunit 10036793 "Clockify Reten. Policy ori"
     /// disabled — leave it alone; the customer enables it. The locked
     /// <c>Reversed = true</c> / one-month filter line is created automatically when
     /// the setup is inserted. Missing <c>ReadPermission</c> or <c>WritePermission</c>
-    /// skips quietly. Record has no insert-only probe, so the write check gates
-    /// <c>Insert(true)</c>. This procedure still does not <c>Modify</c>.
+    /// logs warning <c>CLK0013</c> and skips. Record has no insert-only probe, so
+    /// the write check gates <c>Insert(true)</c>. This procedure still does not
+    /// <c>Modify</c>. Install and Timesheets Setup call
+    /// <c>Clockify Install ori.EnsureRetentionPolicy</c>, which probes again
+    /// outside this codeunit's <c>Permissions</c> grant.
     /// </summary>
     procedure EnableDefaultPolicy()
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
     begin
-        if not RetentionPolicySetup.ReadPermission() then
+        if not RetentionPolicySetup.ReadPermission() then begin
+            LogPermissionSkip(RetentionPolicySetup.TableName(), 'Read');
             exit;
+        end;
         if RetentionPolicySetup.Get(Database::"Clockify Integration ori") then
             exit;
-        if not RetentionPolicySetup.WritePermission() then
+        if not RetentionPolicySetup.WritePermission() then begin
+            LogPermissionSkip(RetentionPolicySetup.TableName(), 'Write');
             exit;
+        end;
 
         RetentionPolicySetup.Validate("Table Id", Database::"Clockify Integration ori");
         RetentionPolicySetup.Validate("Apply to all records", false);
@@ -77,6 +84,20 @@ codeunit 10036793 "Clockify Reten. Policy ori"
         // and lines are created by Insert(true). Permissions cannot invent Modify.
         RetentionPolicySetup.Enabled := true;
         RetentionPolicySetup.Insert(true);
+    end;
+
+    local procedure LogPermissionSkip(SkippedTable: Text; MissingPermission: Text)
+    var
+        RetentionPermissionSkipMsg: Label 'The default retention policy for Clockify Integration was not created because the %1 permission on Retention Policy Setup is missing. Open Timesheets Setup with that permission to retry, reinstall with an elevated identity, or create the policy in Retention Policies.', Locked = true;
+    begin
+        Session.LogMessage(
+            'CLK0013',
+            StrSubstNo(RetentionPermissionSkipMsg, MissingPermission),
+            Verbosity::Warning,
+            DataClassification::SystemMetadata,
+            TelemetryScope::ExtensionPublisher,
+            'Table', SkippedTable,
+            'MissingPermission', MissingPermission);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Reten. Pol. Allowed Tables", 'OnRefreshAllowedTables', '', false, false)]
