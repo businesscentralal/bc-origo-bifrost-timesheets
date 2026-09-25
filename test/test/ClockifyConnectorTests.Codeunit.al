@@ -569,34 +569,30 @@ codeunit 95601 "Clockify Connector Tests"
     procedure WebhookDispatchCreatesJobJournalLine()
     var
         JobJournalLine: Record "Job Journal Line";
-        Dispatcher: Codeunit "Dispatcher ori";
-        RequestContent: BigText;
-        ResponseContent: BigText;
+        WebhookEvents: Codeunit "Webhook Inbound Events ori";
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
         WorkTypeCode: Code[10];
         TemplateName: Code[10];
         BatchName: Code[10];
-        ResponseContentType: Text[50];
         BodyText: Text;
+        Handled: Boolean;
     begin
-        // [GIVEN] Master data + links, and a Clockify time-entry webhook payload wrapped as the receiver sends it
+        // [GIVEN] Master data + links, and the Clockify time-entry body the handler parses
         CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
         BodyText :=
-            '{"body":{"id":"E9","workspaceId":"WS1","userId":"CUSER","projectId":"CPROJ","taskId":"CTASK",' +
+            '{"id":"E9","workspaceId":"WS1","userId":"CUSER","projectId":"CPROJ","taskId":"CTASK",' +
             '"description":"Webhook work","billable":true,' +
-            '"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"},"tagIds":["CTAG"]},"headers":{}}';
-        RequestContent.AddText(BodyText);
+            '"timeInterval":{"start":"2026-06-09T08:00:00Z","end":"2026-06-09T12:00:00Z"},"tagIds":["CTAG"]}';
 
-        // [WHEN] The Webhook.Inbound.Receive message is dispatched (fires OnWebhookReceived -> Clockify Webhook Handler)
-        Dispatcher.Execute(
-            Enum::"Message Type ori"::"Webhook.Inbound.Receive",
-            Enum::"Message Version ori"::"1.0",
-            'NEW_TIME_ENTRY', 'clockify/WS1', 'application/json',
-            RequestContent, ResponseContent, ResponseContentType);
+        // [WHEN] The Clockify webhook handler is invoked directly. Dispatcher.Execute is the
+        // Foundation EULA gate (core#107) and does not reach the handler in CI.
+        Handled := false;
+        WebhookEvents.OnWebhookReceived('clockify/WS1', 'NEW_TIME_ENTRY', '{}', BodyText, Handled);
 
         // [THEN] The handler synced the entry to a Job Journal Line with the tag's Work Type
+        LibraryAssert.IsTrue(Handled, 'The Clockify webhook handler should handle a clockify/ source.');
         JobJournalLine.SetRange("Journal Template Name", TemplateName);
         JobJournalLine.SetRange("Journal Batch Name", BatchName);
         LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'The webhook should have created a job journal line via the handler.');
