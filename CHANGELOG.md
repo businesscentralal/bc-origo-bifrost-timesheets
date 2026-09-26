@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Changed (2026-09-25) - Foundation latest CI build, floor 28.0.0.0
+
+- The app builds against the latest Foundation CI build with a Foundation floor of 28.0.0.0.
+- AL-Go `appDependencyProbingPaths` for bc-origo-bifrost-core: `release_status: latestBuild`, `version: latest`.
+- AL-Go `fullBuildPatterns` includes `.AL-Go/settings.json` so a probe-only settings change triggers a full build under the `modifiedApps` incremental strategy.
+- Webhook sync test calls `Webhook Inbound Events ori.OnWebhookReceived` directly. `Dispatcher ori.Execute` is the Foundation EULA gate and does not reach the handler in CI.
+
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
 
