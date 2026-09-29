@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### Changed (2026-09-29) - Message contracts batch 1
+
+- Added bilingual discovery keywords and selection descriptions plus structured contract chapters for help, workspace-level reads, and client message types.
+- Added batch 1 contract conformance coverage and pinned Bifrost Foundation to 28.0.0.152.
+
+### Changed (2026-09-29) - Message contracts batch 2
+
+- Added bilingual discovery metadata and structured contract chapters for project, task, and tag message types.
+- Added batch 2 contract conformance coverage.
+
+### Changed (2026-09-29) - Message contracts batch 3
+
+- Added bilingual discovery metadata and structured contract chapters for time-entry and time-sheet message types.
+- Added batch 3 contract conformance coverage.
+
 ### Changed (2026-09-25) - Foundation latest CI build, floor 28.0.0.0
 
 - The app builds against the latest Foundation CI build with a Foundation floor of 28.0.0.0.
@@ -25,7 +40,6 @@
 ### Changed (2026-09-21) - Bifröst logo refresh
 
 - App logo: new Bifröst wordmark with "Powered by origo." tagline; app-name line unchanged.
-
 
 All notable changes to **Bifrost Timesheets** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
@@ -90,7 +104,6 @@ notifications of its own any more.
 - The test app no longer depends on Bifröst Foundation's internals: Bifrost Timesheets - Tests has been removed
   from Foundation's `internalsVisibleTo`, and the test suite compiles and runs against a Foundation
   package that does not grant it. No test code had to change - the suite never touched a Foundation internal.
-
 
 Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Timesheets** on Bifrost Foundation.
 This is an **in-place successor**: the app id and the test range (95600–95699) are unchanged, so an
