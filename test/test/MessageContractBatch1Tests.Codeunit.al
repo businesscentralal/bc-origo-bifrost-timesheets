@@ -1,6 +1,7 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost;
+using System.TestLibraries.Utilities;
 
 /// <summary>Contract and discovery conformance tests for issue #36 batch 1.</summary>
 codeunit 95608 "Message Contract Batch 1 Tests"
