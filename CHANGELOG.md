@@ -32,6 +32,7 @@
 - Bind `Msg Interface ori`, `Msg Contract ori`, and `Msg Discovery ori` on one `Implementation` property for every Clockify message type, matching the Foundation enum.
 - Remove the stale `Clockify TimeSheet Help ori` permission. That codeunit was replaced by `Clockify Contract Help 3 ori`, which is already granted.
 - Import `System.TestLibraries.Utilities` in the contract batch tests so `Library Assert` resolves.
+- Replace `TypeName` with `Format` and `JsonObject.ToString` with `WriteTo` in the contract tests. Those are not AL symbols.
 
 ### Security
 

@@ -31,17 +31,17 @@ codeunit 95609 "Message Contract Batch 2 Tests"
         Chapters: List of [Text];
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), TypeName(MessageType) + ' contract');
+        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), Format(MessageType) + ' contract');
         Chapters.Add('envelope');
         Chapters.Add('response');
         Chapters.Add('errors');
         Chapters.Add('effect');
         Chapters.Add('related');
         foreach Chapter in Chapters do
-            Assert.IsTrue(Contract.Contains(Chapter), TypeName(MessageType) + ' ' + Chapter);
+            Assert.IsTrue(Contract.Contains(Chapter), Format(MessageType) + ' ' + Chapter);
         Discovery := MessageType;
-        Assert.IsTrue(Discovery.GetKeywords() <> '', TypeName(MessageType) + ' keywords');
-        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', TypeName(MessageType) + ' selection');
+        Assert.IsTrue(Discovery.GetKeywords() <> '', Format(MessageType) + ' keywords');
+        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', Format(MessageType) + ' selection');
     end;
 
     local procedure BatchOrdinals() Ordinals: List of [Integer]

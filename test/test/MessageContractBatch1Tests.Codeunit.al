@@ -33,19 +33,19 @@ codeunit 95608 "Message Contract Batch 1 Tests"
         Metering: JsonObject;
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), TypeName(MessageType) + ' contract');
+        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), Format(MessageType) + ' contract');
         Chapters.Add('envelope');
         Chapters.Add('response');
         Chapters.Add('errors');
         Chapters.Add('effect');
         Chapters.Add('related');
         foreach Chapter in Chapters do
-            Assert.IsTrue(Contract.Contains(Chapter), TypeName(MessageType) + ' ' + Chapter);
+            Assert.IsTrue(Contract.Contains(Chapter), Format(MessageType) + ' ' + Chapter);
         MsgContract := MessageType;
         Discovery := MessageType;
-        Assert.IsTrue(Discovery.GetKeywords() <> '', TypeName(MessageType) + ' keywords');
-        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', TypeName(MessageType) + ' selection');
-        Assert.IsFalse(MsgContract.GetMetering(Metering), TypeName(MessageType) + ' app metering');
+        Assert.IsTrue(Discovery.GetKeywords() <> '', Format(MessageType) + ' keywords');
+        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', Format(MessageType) + ' selection');
+        Assert.IsFalse(MsgContract.GetMetering(Metering), Format(MessageType) + ' app metering');
     end;
 
     local procedure BatchOrdinals() Ordinals: List of [Integer]

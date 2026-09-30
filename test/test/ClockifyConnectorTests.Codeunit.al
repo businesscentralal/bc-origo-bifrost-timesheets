@@ -1771,10 +1771,12 @@ codeunit 95601 "Clockify Connector Tests"
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
         Contract: JsonObject;
+        ContractText: Text;
     begin
         if not ContractMgt.GetContract(MessageType, Contract) then
             exit('');
-        exit(Contract.ToString());
+        Contract.WriteTo(ContractText);
+        exit(ContractText);
     end;
 
     local procedure GetMessageDirection(MessageType: Enum "Message Type ori"): Enum "Msg Direction ori"
