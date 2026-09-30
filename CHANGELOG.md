@@ -27,6 +27,11 @@
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
 
+### Fixed (2026-09-30) - Clockify message-type interface bindings (#38)
+
+- Bind `Msg Interface ori`, `Msg Contract ori`, and `Msg Discovery ori` on one `Implementation` property for every Clockify message type, matching the Foundation enum.
+- Remove the stale `Clockify TimeSheet Help ori` permission. That codeunit was replaced by `Clockify Contract Help 3 ori`, which is already granted.
+
 ### Security
 
 - Default (release) builds no longer ship the test app's internalsVisibleTo grant; the strip moved to PipelineInitialize.ps1 because Alpaca never ran PreCompileApp.ps1 (core#129).

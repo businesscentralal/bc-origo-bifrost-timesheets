@@ -71,7 +71,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify TSheetSync Impl ori" = X,
         codeunit "Clockify TSheetRange Impl ori" = X,
         codeunit "Clockify TimeSheet Mgt ori" = X,
-        codeunit "Clockify TimeSheet Help ori" = X,
         codeunit "Clockify TSheetCreate Impl ori" = X,
         codeunit "Clockify TSheetApprv Impl ori" = X,
         codeunit "Clockify TSheetReject Impl ori" = X,
