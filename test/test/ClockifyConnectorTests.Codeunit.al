@@ -995,8 +995,7 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'SyncRange should have no filter table.');
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'SyncRange should have a description.');
 
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        LibraryAssert.AreNotEqual('', TempArgument.GetResponseText(), 'SyncRange should produce help markdown.');
+        LibraryAssert.AreNotEqual('', GetContractText(TempArgument."Type"), 'SyncRange should produce a message contract.');
     end;
 
     [Test]
