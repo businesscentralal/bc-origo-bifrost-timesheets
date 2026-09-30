@@ -790,7 +790,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeSheet.Post":
                 Notes := 'BC-side only. Posts approved, unposted job lines.';
             MessageType::"Clockify.TimeSheet.Archive":
-                Notes := 'BC-side only. Archives fully posted sheets and removes empty posted sheets. The request example is an empty object.';
+                Notes := 'BC-side only. Archives fully posted sheets and removes empty posted sheets. The request example is { }.';
         end;
         if IsCollection(MessageType) and (MessageType <> MessageType::"Clockify.TimeEntry.List") and (MessageType <> MessageType::"Clockify.User.List") then
             Notes := Notes + ' Agent guidance — optional parameter effects. query.* parameters such as page-size only shape the returned data.';
