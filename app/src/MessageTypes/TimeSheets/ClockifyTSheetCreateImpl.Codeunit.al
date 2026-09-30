@@ -32,14 +32,14 @@ codeunit 10036834 "Clockify TSheetCreate Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Create, Clockify, TimeSheet.Create, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Create, Clockify, TimeSheet.Create, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, create, resource, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, stofna, auðlind, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Create: TimeSheet.Create operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Create: TimeSheet.Create aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Create: Creates upcoming weekly time sheets for time-sheet resources. It does not call Clockify.', Comment = 'is-IS=Clockify.TimeSheet.Create: Stofnar væntanlegar vikutímaskýrslur fyrir auðlindir með tímaskýrslu. Kallar ekki á Clockify.';
     begin
         exit(SelectionLbl);
     end;

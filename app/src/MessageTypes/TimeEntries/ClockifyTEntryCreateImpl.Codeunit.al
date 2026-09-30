@@ -33,14 +33,14 @@ codeunit 10036817 "Clockify TEntryCreate Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.Create, Clockify, TimeEntry.Create, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.Create, Clockify, TimeEntry.Create, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, create, timer, Clockify, timesheets', Comment = 'is-IS=tímaskráning, stofna, teljari, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.Create: TimeEntry.Create operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.Create: TimeEntry.Create aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.Create: Creates a time entry for a user. Resolve userId, projectId, and customFieldId with the matching List messages.', Comment = 'is-IS=Clockify.TimeEntry.Create: Stofnar tímaskráningu fyrir notanda. Sæktu userId, projectId og customFieldId með samsvarandi lista.';
     begin
         exit(SelectionLbl);
     end;

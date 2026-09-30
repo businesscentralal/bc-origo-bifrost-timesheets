@@ -33,14 +33,14 @@ codeunit 10036797 "Clockify Client List Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Client.List, Clockify, Client.List, Timesheets', Comment = 'is-IS=Clockify Clockify Client.List, Clockify, Client.List, tímaskýrslur';
+        KeywordsLbl: Label 'client, list, workspace, Clockify, timesheets', Comment = 'is-IS=viðskiptavinur, listi, vinnusvæði, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Client.List: Client.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Client.List: Client.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Client.List: Read-only. Lists clients in a workspace. Use Clockify.Client.Get when you already have the client id.', Comment = 'is-IS=Clockify.Client.List: Aðeins lesið. Listar viðskiptavini á vinnusvæði. Notaðu Clockify.Client.Get þegar þú hefur þegar kenni viðskiptavinar.';
     begin
         exit(SelectionLbl);
     end;

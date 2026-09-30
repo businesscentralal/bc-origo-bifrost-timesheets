@@ -33,14 +33,14 @@ codeunit 10036806 "Clockify Project Get Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Project.Get, Clockify, Project.Get, Timesheets', Comment = 'is-IS=Clockify Clockify Project.Get, Clockify, Project.Get, tímaskýrslur';
+        KeywordsLbl: Label 'project, get, Clockify, timesheets', Comment = 'is-IS=verkefni, sækja, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Project.Get: Project.Get operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Project.Get: Project.Get aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Project.Get: Read-only. Retrieves one project by id. Look the id up with Clockify.Project.List when you do not have it.', Comment = 'is-IS=Clockify.Project.Get: Aðeins lesið. Sækir eitt verkefni eftir kenni. Flettu kenninu upp með Clockify.Project.List ef þú hefur það ekki.';
     begin
         exit(SelectionLbl);
     end;

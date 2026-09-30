@@ -33,14 +33,14 @@ codeunit 10036810 "Clockify Tag Delete Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Tag.Delete, Clockify, Tag.Delete, Timesheets', Comment = 'is-IS=Clockify Clockify Tag.Delete, Clockify, Tag.Delete, tímaskýrslur';
+        KeywordsLbl: Label 'tag, delete, workspace, Clockify, timesheets', Comment = 'is-IS=merki, eyða, vinnusvæði, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Tag.Delete: Tag.Delete operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Tag.Delete: Tag.Delete aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Tag.Delete: Irreversible. Deletes a tag. No archive step is required. Look the id up with Clockify.Tag.List.', Comment = 'is-IS=Clockify.Tag.Delete: Óafturkræft. Eyðir merki. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.Tag.List.';
     begin
         exit(SelectionLbl);
     end;

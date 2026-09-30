@@ -33,14 +33,14 @@ codeunit 10036811 "Clockify Tag List Impl ori" implements "Msg Interface ori", "
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Tag.List, Clockify, Tag.List, Timesheets', Comment = 'is-IS=Clockify Clockify Tag.List, Clockify, Tag.List, tímaskýrslur';
+        KeywordsLbl: Label 'tag, list, workspace, Clockify, timesheets', Comment = 'is-IS=merki, listi, vinnusvæði, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Tag.List: Tag.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Tag.List: Tag.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Tag.List: Read-only. Lists tags in a workspace. Use an id inside tagIds on time entries.', Comment = 'is-IS=Clockify.Tag.List: Aðeins lesið. Listar merki á vinnusvæði. Notaðu kenni í tagIds á tímaskráningum.';
     begin
         exit(SelectionLbl);
     end;

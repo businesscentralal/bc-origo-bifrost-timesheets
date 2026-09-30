@@ -37,14 +37,14 @@ codeunit 10036823 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify UserGroup.List, Clockify, UserGroup.List, Timesheets', Comment = 'is-IS=Clockify Clockify UserGroup.List, Clockify, UserGroup.List, tímaskýrslur';
+        KeywordsLbl: Label 'user group, list, project, Clockify, timesheets', Comment = 'is-IS=notendahópur, listi, verkefni, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.UserGroup.List: UserGroup.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.UserGroup.List: UserGroup.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.UserGroup.List: Read-only. Lists user groups. Use an id in userGroupIds on Clockify.Project.Create and Clockify.Project.Update.', Comment = 'is-IS=Clockify.UserGroup.List: Aðeins lesið. Listar notendahópa. Notaðu kenni í userGroupIds í Clockify.Project.Create og Clockify.Project.Update.';
     begin
         exit(SelectionLbl);
     end;

@@ -33,14 +33,14 @@ codeunit 10036816 "Clockify Task Update Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Task.Update, Clockify, Task.Update, Timesheets', Comment = 'is-IS=Clockify Clockify Task.Update, Clockify, Task.Update, tímaskýrslur';
+        KeywordsLbl: Label 'task, update, project, Clockify, timesheets', Comment = 'is-IS=verkþáttur, uppfæra, verkefni, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Task.Update: Task.Update operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Task.Update: Task.Update aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Task.Update: Updates a task. Omitted body fields keep the existing Clockify values. Look the ids up with Clockify.Task.List.', Comment = 'is-IS=Clockify.Task.Update: Uppfærir verkþátt. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Flettu kennunum upp með Clockify.Task.List.';
     begin
         exit(SelectionLbl);
     end;

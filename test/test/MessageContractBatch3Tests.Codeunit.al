@@ -1,6 +1,7 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost;
+using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>Contract and discovery conformance tests for issue #36 batch 3.</summary>
@@ -24,24 +25,43 @@ codeunit 95610 "Message Contract Batch 3 Tests"
     local procedure AssertContract(Ordinal: Integer)
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Parts: Codeunit "Clockify Contract Parts ori";
         MessageType: Enum "Message Type ori";
         Contract: JsonObject;
         Discovery: Interface "Msg Discovery ori";
         Chapter: Text;
         Chapters: List of [Text];
+        TypeName: Text;
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), Format(MessageType) + ' contract');
+        TypeName := Parts.MessageTypeName(MessageType);
+        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), TypeName + ' contract');
         Chapters.Add('envelope');
         Chapters.Add('response');
-        Chapters.Add('errors');
+        if SendsErrors(Ordinal) then
+            Chapters.Add('errors');
         Chapters.Add('effect');
         Chapters.Add('related');
         foreach Chapter in Chapters do
-            Assert.IsTrue(Contract.Contains(Chapter), Format(MessageType) + ' ' + Chapter);
+            Assert.IsTrue(Contract.Contains(Chapter), TypeName + ' ' + Chapter);
         Discovery := MessageType;
-        Assert.IsTrue(Discovery.GetKeywords() <> '', Format(MessageType) + ' keywords');
-        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', Format(MessageType) + ' selection');
+        Assert.IsTrue(Discovery.GetKeywords() <> '', TypeName + ' keywords');
+        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', TypeName + ' selection');
+    end;
+
+    local procedure SendsErrors(Ordinal: Integer): Boolean
+    begin
+        if Ordinal = 10036817 then
+            exit(false);
+        if Ordinal = 10036818 then
+            exit(false);
+        if Ordinal = 10036820 then
+            exit(false);
+        if Ordinal = 10036823 then
+            exit(false);
+        if Ordinal = 10036824 then
+            exit(false);
+        exit(true);
     end;
 
     local procedure BatchOrdinals() Ordinals: List of [Integer]

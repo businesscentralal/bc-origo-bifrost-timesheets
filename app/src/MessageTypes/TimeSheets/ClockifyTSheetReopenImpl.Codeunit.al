@@ -33,14 +33,14 @@ codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Reopen, Clockify, TimeSheet.Reopen, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Reopen, Clockify, TimeSheet.Reopen, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, reopen, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, opna aftur, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Reopen: TimeSheet.Reopen operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Reopen: TimeSheet.Reopen aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Reopen: Reopens submitted or approved time-sheet lines back to Open up to a cut-off date.', Comment = 'is-IS=Clockify.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur í stöðuna Open til lokadags.';
     begin
         exit(SelectionLbl);
     end;

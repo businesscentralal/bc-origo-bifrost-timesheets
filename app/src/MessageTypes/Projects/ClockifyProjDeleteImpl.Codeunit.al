@@ -33,14 +33,14 @@ codeunit 10036805 "Clockify ProjDelete Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Project.Delete, Clockify, Project.Delete, Timesheets', Comment = 'is-IS=Clockify Clockify Project.Delete, Clockify, Project.Delete, tímaskýrslur';
+        KeywordsLbl: Label 'project, delete, archive, Clockify, timesheets', Comment = 'is-IS=verkefni, eyða, geyma, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Project.Delete: Project.Delete operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Project.Delete: Project.Delete aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Project.Delete: Irreversible. Deletes a project. Archive it first with Clockify.Project.Update. Look the id up with Clockify.Project.List.', Comment = 'is-IS=Clockify.Project.Delete: Óafturkræft. Eyðir verkefni. Settu það fyrst í geymslu með Clockify.Project.Update. Flettu kenninu upp með Clockify.Project.List.';
     begin
         exit(SelectionLbl);
     end;

@@ -33,14 +33,14 @@ codeunit 10036826 "Clockify WrkspaceList Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Workspace.List, Clockify, Workspace.List, Timesheets', Comment = 'is-IS=Clockify Clockify Workspace.List, Clockify, Workspace.List, tímaskýrslur';
+        KeywordsLbl: Label 'workspace, list, Clockify, timesheets', Comment = 'is-IS=vinnusvæði, listi, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Workspace.List: Workspace.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Workspace.List: Workspace.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Workspace.List: Read-only. Lists the workspaces the API key can access. Use an id as workspaceId on later calls.', Comment = 'is-IS=Clockify.Workspace.List: Aðeins lesið. Listar vinnusvæði sem API lykillinn nær í. Notaðu kenni sem workspaceId í síðari köllum.';
     begin
         exit(SelectionLbl);
     end;

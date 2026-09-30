@@ -33,14 +33,14 @@ codeunit 10036812 "Clockify Tag Update Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Tag.Update, Clockify, Tag.Update, Timesheets', Comment = 'is-IS=Clockify Clockify Tag.Update, Clockify, Tag.Update, tímaskýrslur';
+        KeywordsLbl: Label 'tag, update, archive, Clockify, timesheets', Comment = 'is-IS=merki, uppfæra, geyma, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Tag.Update: Tag.Update operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Tag.Update: Tag.Update aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Tag.Update: Updates a tag. Omitted body fields keep the existing Clockify values. Archiving is not required before delete.', Comment = 'is-IS=Clockify.Tag.Update: Uppfærir merki. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Ekki þarf að setja í geymslu áður en eytt er.';
     begin
         exit(SelectionLbl);
     end;

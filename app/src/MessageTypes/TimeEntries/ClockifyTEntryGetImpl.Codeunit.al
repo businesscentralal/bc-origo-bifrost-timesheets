@@ -33,14 +33,14 @@ codeunit 10036819 "Clockify TEntryGet Impl ori" implements "Msg Interface ori", 
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.Get, Clockify, TimeEntry.Get, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.Get, Clockify, TimeEntry.Get, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, get, Clockify, timesheets', Comment = 'is-IS=tímaskráning, sækja, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.Get: TimeEntry.Get operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.Get: TimeEntry.Get aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.Get: Read-only. Retrieves one time entry by timeEntryId. Look the id up with Clockify.TimeEntry.List.', Comment = 'is-IS=Clockify.TimeEntry.Get: Aðeins lesið. Sækir eina tímaskráningu eftir timeEntryId. Flettu kenninu upp með Clockify.TimeEntry.List.';
     begin
         exit(SelectionLbl);
     end;

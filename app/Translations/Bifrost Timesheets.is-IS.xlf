@@ -783,6 +783,498 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Bifröst tímaskýrslur</note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BIFROST Timeshts ori - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2132673663 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>client, get, Clockify, timesheets</source>
+          <target state="translated">viðskiptavinur, sækja, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=viðskiptavinur, sækja, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client Get Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2132673663 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Client.Get: Read-only. Retrieves one client by id. Look the id up with Clockify.Client.List when you do not have it.</source>
+          <target state="translated">Clockify.Client.Get: Aðeins lesið. Sækir einn viðskiptavin eftir kenni. Flettu kenninu upp með Clockify.Client.List ef þú hefur það ekki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.Get: Aðeins lesið. Sækir einn viðskiptavin eftir kenni. Flettu kenninu upp með Clockify.Client.List ef þú hefur það ekki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client Get Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 448201651 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>client, list, workspace, Clockify, timesheets</source>
+          <target state="translated">viðskiptavinur, listi, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=viðskiptavinur, listi, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client List Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 448201651 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Client.List: Read-only. Lists clients in a workspace. Use Clockify.Client.Get when you already have the client id.</source>
+          <target state="translated">Clockify.Client.List: Aðeins lesið. Listar viðskiptavini á vinnusvæði. Notaðu Clockify.Client.Get þegar þú hefur þegar kenni viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.List: Aðeins lesið. Listar viðskiptavini á vinnusvæði. Notaðu Clockify.Client.Get þegar þú hefur þegar kenni viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client List Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4077289161 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>client, create, currency, Clockify, timesheets</source>
+          <target state="translated">viðskiptavinur, stofna, gjaldmiðill, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=viðskiptavinur, stofna, gjaldmiðill, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientCreate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4077289161 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Client.Create: Creates a client in a workspace. Resolve currencyId with Clockify.Currency.List and the workspace with Clockify.Workspace.List.</source>
+          <target state="translated">Clockify.Client.Create: Stofnar viðskiptavin á vinnusvæði. Sæktu currencyId með Clockify.Currency.List og vinnusvæðið með Clockify.Workspace.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.Create: Stofnar viðskiptavin á vinnusvæði. Sæktu currencyId með Clockify.Currency.List og vinnusvæðið með Clockify.Workspace.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientCreate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 669452854 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>client, delete, archive, Clockify, timesheets</source>
+          <target state="translated">viðskiptavinur, eyða, geyma, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=viðskiptavinur, eyða, geyma, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientDelete Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 669452854 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Client.Delete: Irreversible. Deletes a client. Archive it first with Clockify.Client.Update. Look the id up with Clockify.Client.List.</source>
+          <target state="translated">Clockify.Client.Delete: Óafturkræft. Eyðir viðskiptavini. Settu hann fyrst í geymslu með Clockify.Client.Update. Flettu kenninu upp með Clockify.Client.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.Delete: Óafturkræft. Eyðir viðskiptavini. Settu hann fyrst í geymslu með Clockify.Client.Update. Flettu kenninu upp með Clockify.Client.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientDelete Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1337038230 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>client, update, archive, Clockify, timesheets</source>
+          <target state="translated">viðskiptavinur, uppfæra, geyma, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=viðskiptavinur, uppfæra, geyma, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientUpdate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1337038230 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Client.Update: Updates a client. Omitted body fields keep the existing Clockify values. Archive here before Clockify.Client.Delete.</source>
+          <target state="translated">Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822493569 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>currency, list, client, Clockify, timesheets</source>
+          <target state="translated">gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CurrencyList Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3822493569 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Currency.List: Read-only. Lists workspace currencies. Use id as currencyId on Clockify.Client.Create and Clockify.Client.Update.</source>
+          <target state="translated">Clockify.Currency.List: Aðeins lesið. Listar gjaldmiðla vinnusvæðis. Notaðu kenni sem currencyId í Clockify.Client.Create og Clockify.Client.Update.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Currency.List: Aðeins lesið. Listar gjaldmiðla vinnusvæðis. Notaðu kenni sem currencyId í Clockify.Client.Create og Clockify.Client.Update.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CurrencyList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3401458225 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>custom field, list, project, Clockify, timesheets</source>
+          <target state="translated">sérsniðið svæði, listi, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=sérsniðið svæði, listi, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CustFldList Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3401458225 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.CustomField.List: Read-only. Lists workspace custom fields. Use an id as customFieldId on time-entry and project writes.</source>
+          <target state="translated">Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CustFldList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4021489847 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>help, overview, Clockify, timesheets</source>
+          <target state="translated">hjálp, yfirlit, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=hjálp, yfirlit, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Help Get Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4021489847 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Help.Clockify.Get: Read-only. Returns the Clockify connector overview and the message-type index. No request body is required.</source>
+          <target state="translated">Help.Clockify.Get: Aðeins lesið. Skilar yfirliti yfir Clockify tengingu og lista yfir skilaboðategundir. Enginn viðbótarhluti þarf að fylgja.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Help.Clockify.Get: Aðeins lesið. Skilar yfirliti yfir Clockify tengingu og lista yfir skilaboðategundir. Enginn viðbótarhluti þarf að fylgja.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Help Get Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4166607371 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>project, create, client, group, Clockify, timesheets</source>
+          <target state="translated">verkefni, stofna, viðskiptavinur, hópur, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkefni, stofna, viðskiptavinur, hópur, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjCreate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4166607371 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Project.Create: Creates a project. Pass clientId from Clockify.Client.List and userGroupIds from Clockify.UserGroup.List.</source>
+          <target state="translated">Clockify.Project.Create: Stofnar verkefni. Sendu clientId úr Clockify.Client.List og userGroupIds úr Clockify.UserGroup.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.Create: Stofnar verkefni. Sendu clientId úr Clockify.Client.List og userGroupIds úr Clockify.UserGroup.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjCreate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 49605456 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>project, delete, archive, Clockify, timesheets</source>
+          <target state="translated">verkefni, eyða, geyma, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkefni, eyða, geyma, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjDelete Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 49605456 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Project.Delete: Irreversible. Deletes a project. Archive it first with Clockify.Project.Update. Look the id up with Clockify.Project.List.</source>
+          <target state="translated">Clockify.Project.Delete: Óafturkræft. Eyðir verkefni. Settu það fyrst í geymslu með Clockify.Project.Update. Flettu kenninu upp með Clockify.Project.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.Delete: Óafturkræft. Eyðir verkefni. Settu það fyrst í geymslu með Clockify.Project.Update. Flettu kenninu upp með Clockify.Project.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjDelete Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2192261659 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>project, get, Clockify, timesheets</source>
+          <target state="translated">verkefni, sækja, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkefni, sækja, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Project Get Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2192261659 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Project.Get: Read-only. Retrieves one project by id. Look the id up with Clockify.Project.List when you do not have it.</source>
+          <target state="translated">Clockify.Project.Get: Aðeins lesið. Sækir eitt verkefni eftir kenni. Flettu kenninu upp með Clockify.Project.List ef þú hefur það ekki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.Get: Aðeins lesið. Sækir eitt verkefni eftir kenni. Flettu kenninu upp með Clockify.Project.List ef þú hefur það ekki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Project Get Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3172567975 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>project, list, workspace, Clockify, timesheets</source>
+          <target state="translated">verkefni, listi, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkefni, listi, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Project List Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3172567975 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Project.List: Read-only. Lists projects in a workspace. Use Clockify.Project.Get when you already have the project id.</source>
+          <target state="translated">Clockify.Project.List: Aðeins lesið. Listar verkefni á vinnusvæði. Notaðu Clockify.Project.Get þegar þú hefur þegar kenni verkefnis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.List: Aðeins lesið. Listar verkefni á vinnusvæði. Notaðu Clockify.Project.Get þegar þú hefur þegar kenni verkefnis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Project List Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754112336 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>project, update, custom field, Clockify, timesheets</source>
+          <target state="translated">verkefni, uppfæra, sérsniðið svæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkefni, uppfæra, sérsniðið svæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjUpdate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754112336 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Project.Update: Updates a project. Omitted body fields keep the existing Clockify values. Set userGroupIds and customFieldId here, and archive before delete.</source>
+          <target state="translated">Clockify.Project.Update: Uppfærir verkefni. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Stilltu userGroupIds og customFieldId hér og settu í geymslu áður en eytt er.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.Update: Uppfærir verkefni. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Stilltu userGroupIds og customFieldId hér og settu í geymslu áður en eytt er.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964021866 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, sync, all users, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, samstilla, allir notendur, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, samstilla, allir notendur, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify SyncAllUsers Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964021866 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for every mapped user, to time sheets by default or to the Job Journal.</source>
+          <target state="translated">Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify SyncAllUsers Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1118172232 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>tag, create, workspace, Clockify, timesheets</source>
+          <target state="translated">merki, stofna, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=merki, stofna, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Create Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1118172232 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Tag.Create: Creates a workspace tag. Use the returned id, not the name, when you attach the tag to a time entry.</source>
+          <target state="translated">Clockify.Tag.Create: Stofnar merki á vinnusvæði. Notaðu kennið sem kemur til baka, ekki heitið, þegar þú tengir merkið við tímaskráningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Tag.Create: Stofnar merki á vinnusvæði. Notaðu kennið sem kemur til baka, ekki heitið, þegar þú tengir merkið við tímaskráningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Create Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1644650627 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>tag, delete, workspace, Clockify, timesheets</source>
+          <target state="translated">merki, eyða, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=merki, eyða, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Delete Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1644650627 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Tag.Delete: Irreversible. Deletes a tag. No archive step is required. Look the id up with Clockify.Tag.List.</source>
+          <target state="translated">Clockify.Tag.Delete: Óafturkræft. Eyðir merki. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.Tag.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Tag.Delete: Óafturkræft. Eyðir merki. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.Tag.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Delete Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4105744534 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>tag, list, workspace, Clockify, timesheets</source>
+          <target state="translated">merki, listi, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=merki, listi, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag List Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4105744534 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Tag.List: Read-only. Lists tags in a workspace. Use an id inside tagIds on time entries.</source>
+          <target state="translated">Clockify.Tag.List: Aðeins lesið. Listar merki á vinnusvæði. Notaðu kenni í tagIds á tímaskráningum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Tag.List: Aðeins lesið. Listar merki á vinnusvæði. Notaðu kenni í tagIds á tímaskráningum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag List Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1891207907 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>tag, update, archive, Clockify, timesheets</source>
+          <target state="translated">merki, uppfæra, geyma, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=merki, uppfæra, geyma, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Update Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1891207907 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Tag.Update: Updates a tag. Omitted body fields keep the existing Clockify values. Archiving is not required before delete.</source>
+          <target state="translated">Clockify.Tag.Update: Uppfærir merki. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Ekki þarf að setja í geymslu áður en eytt er.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Tag.Update: Uppfærir merki. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Ekki þarf að setja í geymslu áður en eytt er.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Tag Update Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3016029445 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>task, create, project, Clockify, timesheets</source>
+          <target state="translated">verkþáttur, stofna, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkþáttur, stofna, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Create Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3016029445 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Task.Create: Creates a task on a project. Resolve projectId with Clockify.Project.List.</source>
+          <target state="translated">Clockify.Task.Create: Stofnar verkþátt á verkefni. Sæktu projectId með Clockify.Project.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Task.Create: Stofnar verkþátt á verkefni. Sæktu projectId með Clockify.Project.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Create Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 892146842 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>task, delete, project, Clockify, timesheets</source>
+          <target state="translated">verkþáttur, eyða, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkþáttur, eyða, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Delete Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 892146842 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Task.Delete: Irreversible. Deletes a task. No archive step is required. Look the ids up with Clockify.Task.List.</source>
+          <target state="translated">Clockify.Task.Delete: Óafturkræft. Eyðir verkþætti. Ekki þarf að setja í geymslu fyrst. Flettu kennunum upp með Clockify.Task.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Task.Delete: Óafturkræft. Eyðir verkþætti. Ekki þarf að setja í geymslu fyrst. Flettu kennunum upp með Clockify.Task.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Delete Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 21667223 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>task, list, project, Clockify, timesheets</source>
+          <target state="translated">verkþáttur, listi, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkþáttur, listi, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task List Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 21667223 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Task.List: Read-only. Lists tasks of one project. Use an id as taskId on time entries.</source>
+          <target state="translated">Clockify.Task.List: Aðeins lesið. Listar verkþætti eins verkefnis. Notaðu kenni sem taskId á tímaskráningum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Task.List: Aðeins lesið. Listar verkþætti eins verkefnis. Notaðu kenni sem taskId á tímaskráningum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task List Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1797926922 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>task, update, project, Clockify, timesheets</source>
+          <target state="translated">verkþáttur, uppfæra, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=verkþáttur, uppfæra, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Update Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1797926922 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Task.Update: Updates a task. Omitted body fields keep the existing Clockify values. Look the ids up with Clockify.Task.List.</source>
+          <target state="translated">Clockify.Task.Update: Uppfærir verkþátt. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Flettu kennunum upp með Clockify.Task.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Task.Update: Uppfærir verkþátt. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Flettu kennunum upp með Clockify.Task.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Task Update Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3111304434 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, create, timer, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, stofna, teljari, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, stofna, teljari, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryCreate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3111304434 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.Create: Creates a time entry for a user. Resolve userId, projectId, and customFieldId with the matching List messages.</source>
+          <target state="translated">Clockify.TimeEntry.Create: Stofnar tímaskráningu fyrir notanda. Sæktu userId, projectId og customFieldId með samsvarandi lista.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.Create: Stofnar tímaskráningu fyrir notanda. Sæktu userId, projectId og customFieldId með samsvarandi lista.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryCreate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3810692989 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, delete, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, eyða, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, eyða, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryDelete Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3810692989 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.Delete: Irreversible. Deletes a time entry by timeEntryId. No archive step is required. Look the id up with Clockify.TimeEntry.List.</source>
+          <target state="translated">Clockify.TimeEntry.Delete: Óafturkræft. Eyðir tímaskráningu eftir timeEntryId. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.TimeEntry.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.Delete: Óafturkræft. Eyðir tímaskráningu eftir timeEntryId. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.TimeEntry.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryDelete Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1806776256 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, get, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, sækja, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, sækja, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryGet Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1806776256 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.Get: Read-only. Retrieves one time entry by timeEntryId. Look the id up with Clockify.TimeEntry.List.</source>
+          <target state="translated">Clockify.TimeEntry.Get: Aðeins lesið. Sækir eina tímaskráningu eftir timeEntryId. Flettu kenninu upp með Clockify.TimeEntry.List.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.Get: Aðeins lesið. Sækir eina tímaskráningu eftir timeEntryId. Flettu kenninu upp með Clockify.TimeEntry.List.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryGet Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 112619612 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, list, timer, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, listi, teljari, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, listi, teljari, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryList Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 112619612 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.List: Read-only. Lists one user time entries. query.in-progress selects running timers or finished entries. Use Clockify.TimeEntry.Get for one id.</source>
+          <target state="translated">Clockify.TimeEntry.List: Aðeins lesið. Listar tímaskráningar eins notanda. query.in-progress velur gangandi teljara eða loknar færslur. Notaðu Clockify.TimeEntry.Get fyrir eitt kenni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.List: Aðeins lesið. Listar tímaskráningar eins notanda. query.in-progress velur gangandi teljara eða loknar færslur. Notaðu Clockify.TimeEntry.Get fyrir eitt kenni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1156826079 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, sync, range, journal, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, samstilla, tímabil, verkbók, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, samstilla, tímabil, verkbók, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1156826079 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.SyncRange: Syncs a user finished time entries in a date range to Job Journal lines. Use Clockify.TimeEntry.Sync for one entry.</source>
+          <target state="translated">Clockify.TimeEntry.SyncRange: Samstillir loknar tímaskráningar notanda á tímabili við verkbókarlínur. Notaðu Clockify.TimeEntry.Sync fyrir eina færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncRange: Samstillir loknar tímaskráningar notanda á tímabili við verkbókarlínur. Notaðu Clockify.TimeEntry.Sync fyrir eina færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, sync, journal, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, samstilla, verkbók, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, samstilla, verkbók, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.Sync: Syncs one finished time entry to a Job Journal line. In-progress entries are rejected. Look ids up with the List messages.</source>
+          <target state="translated">Clockify.TimeEntry.Sync: Samstillir eina lokna tímaskráningu við verkbókarlínu. Gangandi færslum er hafnað. Flettu kennunum upp með listunum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.Sync: Samstillir eina lokna tímaskráningu við verkbókarlínu. Gangandi færslum er hafnað. Flettu kennunum upp með listunum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1024241101 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, update, timer, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, uppfæra, teljari, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, uppfæra, teljari, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryUpdate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1024241101 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.Update: Updates a time entry by timeEntryId. Omitted body fields keep the existing Clockify values. Setting end stops a running timer.</source>
+          <target state="translated">Clockify.TimeEntry.Update: Uppfærir tímaskráningu eftir timeEntryId. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. end stöðvar gangandi teljara.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.Update: Uppfærir tímaskráningu eftir timeEntryId. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. end stöðvar gangandi teljara.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 839322240 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, approve, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, samþykkja, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, samþykkja, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetApprv Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 839322240 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Approve: Submits and approves open time-sheet lines up to a cut-off date. It does not call Clockify.</source>
+          <target state="translated">Clockify.TimeSheet.Approve: Sendir inn og samþykkir opnar tímaskýrslulínur til lokadags. Kallar ekki á Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Approve: Sendir inn og samþykkir opnar tímaskýrslulínur til lokadags. Kallar ekki á Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetApprv Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2992912475 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, archive, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, geymsla, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, geymsla, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetArch Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2992912475 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Archive: Archives fully posted time sheets and removes empty posted sheets. It does not call Clockify.</source>
+          <target state="translated">Clockify.TimeSheet.Archive: Setur fullbókaðar tímaskýrslur í geymslu og fjarlægir tómar bókaðar skýrslur. Kallar ekki á Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Archive: Setur fullbókaðar tímaskýrslur í geymslu og fjarlægir tómar bókaðar skýrslur. Kallar ekki á Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetArch Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1129961503 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, create, resource, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, stofna, auðlind, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, stofna, auðlind, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetCreate Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1129961503 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Create: Creates upcoming weekly time sheets for time-sheet resources. It does not call Clockify.</source>
+          <target state="translated">Clockify.TimeSheet.Create: Stofnar væntanlegar vikutímaskýrslur fyrir auðlindir með tímaskýrslu. Kallar ekki á Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Create: Stofnar væntanlegar vikutímaskýrslur fyrir auðlindir með tímaskýrslu. Kallar ekki á Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetCreate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1239616675 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, post, journal, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, bóka, verkbók, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, bóka, verkbók, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetPost Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1239616675 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Post: Posts approved time-sheet lines to a Job Journal batch. It does not call Clockify.</source>
+          <target state="translated">Clockify.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur í verkbók. Kallar ekki á Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur í verkbók. Kallar ekki á Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetPost Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 454857898 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, range, time sheet, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, tímabil, tímaskýrsla, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, tímabil, tímaskýrsla, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetRange Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 454857898 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.SyncRangeToTimeSheet: Syncs a user finished time entries in a date range to open BC time sheets.</source>
+          <target state="translated">Clockify.TimeEntry.SyncRangeToTimeSheet: Samstillir loknar tímaskráningar notanda á tímabili við opnar tímaskýrslur í BC.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncRangeToTimeSheet: Samstillir loknar tímaskráningar notanda á tímabili við opnar tímaskýrslur í BC.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetRange Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4009490290 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, reject, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, hafna, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, hafna, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetReject Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4009490290 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Reject: Rejects submitted time-sheet lines up to a cut-off date. It does not call Clockify.</source>
+          <target state="translated">Clockify.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum til lokadags. Kallar ekki á Clockify.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum til lokadags. Kallar ekki á Clockify.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetReject Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3675099894 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, reopen, Clockify, timesheets</source>
+          <target state="translated">tímaskýrsla, opna aftur, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, opna aftur, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetReopen Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3675099894 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeSheet.Reopen: Reopens submitted or approved time-sheet lines back to Open up to a cut-off date.</source>
+          <target state="translated">Clockify.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur í stöðuna Open til lokadags.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur í stöðuna Open til lokadags.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetReopen Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2559077546 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time entry, sync, time sheet, Clockify, timesheets</source>
+          <target state="translated">tímaskráning, samstilla, tímaskýrsla, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskráning, samstilla, tímaskýrsla, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetSync Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2559077546 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.TimeEntry.SyncToTimeSheet: Syncs one finished time entry to an open BC time sheet. Run Clockify.TimeSheet.Create first. Use Clockify.TimeEntry.Sync for the Job Journal.</source>
+          <target state="translated">Clockify.TimeEntry.SyncToTimeSheet: Samstillir eina lokna tímaskráningu við opna tímaskýrslu í BC. Keyrðu Clockify.TimeSheet.Create fyrst. Notaðu Clockify.TimeEntry.Sync fyrir verkbók.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncToTimeSheet: Samstillir eina lokna tímaskráningu við opna tímaskýrslu í BC. Keyrðu Clockify.TimeSheet.Create fyrst. Notaðu Clockify.TimeEntry.Sync fyrir verkbók.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetSync Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 523501990 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>user, current, Clockify, timesheets</source>
+          <target state="translated">notandi, núverandi, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=notandi, núverandi, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify User Current Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 523501990 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.User.GetCurrent: Read-only. Returns the authenticated Clockify user. Use its id as userId. No workspaceId is required.</source>
+          <target state="translated">Clockify.User.GetCurrent: Aðeins lesið. Skilar innskráðum Clockify notanda. Notaðu kennið sem userId. workspaceId er ekki nauðsynlegt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.User.GetCurrent: Aðeins lesið. Skilar innskráðum Clockify notanda. Notaðu kennið sem userId. workspaceId er ekki nauðsynlegt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify User Current Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2207215739 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>user, list, workspace, Clockify, timesheets</source>
+          <target state="translated">notandi, listi, vinnusvæði, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=notandi, listi, vinnusvæði, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify User List Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2207215739 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.User.List: Read-only. Lists users in a workspace. Use an id as userId for time entries, or Clockify.User.GetCurrent for the API key owner.</source>
+          <target state="translated">Clockify.User.List: Aðeins lesið. Listar notendur á vinnusvæði. Notaðu kenni sem userId fyrir tímaskráningar, eða Clockify.User.GetCurrent fyrir eiganda API lykils.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.User.List: Aðeins lesið. Listar notendur á vinnusvæði. Notaðu kenni sem userId fyrir tímaskráningar, eða Clockify.User.GetCurrent fyrir eiganda API lykils.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify User List Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2139070840 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>user group, list, project, Clockify, timesheets</source>
+          <target state="translated">notendahópur, listi, verkefni, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=notendahópur, listi, verkefni, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify UserGrpList Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2139070840 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.UserGroup.List: Read-only. Lists user groups. Use an id in userGroupIds on Clockify.Project.Create and Clockify.Project.Update.</source>
+          <target state="translated">Clockify.UserGroup.List: Aðeins lesið. Listar notendahópa. Notaðu kenni í userGroupIds í Clockify.Project.Create og Clockify.Project.Update.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.UserGroup.List: Aðeins lesið. Listar notendahópa. Notaðu kenni í userGroupIds í Clockify.Project.Create og Clockify.Project.Update.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify UserGrpList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1653708014 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>workspace, list, Clockify, timesheets</source>
+          <target state="translated">vinnusvæði, listi, Clockify, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=vinnusvæði, listi, Clockify, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify WrkspaceList Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1653708014 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clockify.Workspace.List: Read-only. Lists the workspaces the API key can access. Use an id as workspaceId on later calls.</source>
+          <target state="translated">Clockify.Workspace.List: Aðeins lesið. Listar vinnusvæði sem API lykillinn nær í. Notaðu kenni sem workspaceId í síðari köllum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Workspace.List: Aðeins lesið. Listar vinnusvæði sem API lykillinn nær í. Notaðu kenni sem workspaceId í síðari köllum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify WrkspaceList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
       </group>
     </body>
   </file>

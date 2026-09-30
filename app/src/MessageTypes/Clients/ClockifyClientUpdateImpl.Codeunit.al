@@ -33,14 +33,14 @@ codeunit 10036798 "Clockify ClientUpdate Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Client.Update, Clockify, Client.Update, Timesheets', Comment = 'is-IS=Clockify Clockify Client.Update, Clockify, Client.Update, tímaskýrslur';
+        KeywordsLbl: Label 'client, update, archive, Clockify, timesheets', Comment = 'is-IS=viðskiptavinur, uppfæra, geyma, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Client.Update: Client.Update operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Client.Update: Client.Update aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Client.Update: Updates a client. Omitted body fields keep the existing Clockify values. Archive here before Clockify.Client.Delete.', Comment = 'is-IS=Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.';
     begin
         exit(SelectionLbl);
     end;

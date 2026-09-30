@@ -37,14 +37,14 @@ codeunit 10036800 "Clockify CurrencyList Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Currency.List, Clockify, Currency.List, Timesheets', Comment = 'is-IS=Clockify Clockify Currency.List, Clockify, Currency.List, tímaskýrslur';
+        KeywordsLbl: Label 'currency, list, client, Clockify, timesheets', Comment = 'is-IS=gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Currency.List: Currency.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Currency.List: Currency.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Currency.List: Read-only. Lists workspace currencies. Use id as currencyId on Clockify.Client.Create and Clockify.Client.Update.', Comment = 'is-IS=Clockify.Currency.List: Aðeins lesið. Listar gjaldmiðla vinnusvæðis. Notaðu kenni sem currencyId í Clockify.Client.Create og Clockify.Client.Update.';
     begin
         exit(SelectionLbl);
     end;

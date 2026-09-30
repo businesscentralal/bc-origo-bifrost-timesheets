@@ -33,14 +33,14 @@ codeunit 10036794 "Clockify ClientCreate Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Client.Create, Clockify, Client.Create, Timesheets', Comment = 'is-IS=Clockify Clockify Client.Create, Clockify, Client.Create, tímaskýrslur';
+        KeywordsLbl: Label 'client, create, currency, Clockify, timesheets', Comment = 'is-IS=viðskiptavinur, stofna, gjaldmiðill, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Client.Create: Client.Create operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Client.Create: Client.Create aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Client.Create: Creates a client in a workspace. Resolve currencyId with Clockify.Currency.List and the workspace with Clockify.Workspace.List.', Comment = 'is-IS=Clockify.Client.Create: Stofnar viðskiptavin á vinnusvæði. Sæktu currencyId með Clockify.Currency.List og vinnusvæðið með Clockify.Workspace.List.';
     begin
         exit(SelectionLbl);
     end;

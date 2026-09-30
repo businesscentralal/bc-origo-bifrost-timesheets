@@ -38,14 +38,14 @@ codeunit 10036801 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify CustomField.List, Clockify, CustomField.List, Timesheets', Comment = 'is-IS=Clockify Clockify CustomField.List, Clockify, CustomField.List, tímaskýrslur';
+        KeywordsLbl: Label 'custom field, list, project, Clockify, timesheets', Comment = 'is-IS=sérsniðið svæði, listi, verkefni, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.CustomField.List: CustomField.List operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.CustomField.List: CustomField.List aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.CustomField.List: Read-only. Lists workspace custom fields. Use an id as customFieldId on time-entry and project writes.', Comment = 'is-IS=Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.';
     begin
         exit(SelectionLbl);
     end;

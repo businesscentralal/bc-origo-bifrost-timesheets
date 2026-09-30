@@ -32,14 +32,14 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Archive, Clockify, TimeSheet.Archive, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Archive, Clockify, TimeSheet.Archive, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, archive, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, geymsla, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Archive: TimeSheet.Archive operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Archive: TimeSheet.Archive aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Archive: Archives fully posted time sheets and removes empty posted sheets. It does not call Clockify.', Comment = 'is-IS=Clockify.TimeSheet.Archive: Setur fullbókaðar tímaskýrslur í geymslu og fjarlægir tómar bókaðar skýrslur. Kallar ekki á Clockify.';
     begin
         exit(SelectionLbl);
     end;

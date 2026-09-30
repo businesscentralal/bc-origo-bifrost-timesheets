@@ -33,14 +33,14 @@ codeunit 10036808 "Clockify ProjUpdate Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Project.Update, Clockify, Project.Update, Timesheets', Comment = 'is-IS=Clockify Clockify Project.Update, Clockify, Project.Update, tímaskýrslur';
+        KeywordsLbl: Label 'project, update, custom field, Clockify, timesheets', Comment = 'is-IS=verkefni, uppfæra, sérsniðið svæði, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Project.Update: Project.Update operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Project.Update: Project.Update aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Project.Update: Updates a project. Omitted body fields keep the existing Clockify values. Set userGroupIds and customFieldId here, and archive before delete.', Comment = 'is-IS=Clockify.Project.Update: Uppfærir verkefni. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Stilltu userGroupIds og customFieldId hér og settu í geymslu áður en eytt er.';
     begin
         exit(SelectionLbl);
     end;

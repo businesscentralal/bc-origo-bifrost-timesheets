@@ -33,14 +33,14 @@ codeunit 10036795 "Clockify ClientDelete Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Client.Delete, Clockify, Client.Delete, Timesheets', Comment = 'is-IS=Clockify Clockify Client.Delete, Clockify, Client.Delete, tímaskýrslur';
+        KeywordsLbl: Label 'client, delete, archive, Clockify, timesheets', Comment = 'is-IS=viðskiptavinur, eyða, geyma, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Client.Delete: Client.Delete operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Client.Delete: Client.Delete aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Client.Delete: Irreversible. Deletes a client. Archive it first with Clockify.Client.Update. Look the id up with Clockify.Client.List.', Comment = 'is-IS=Clockify.Client.Delete: Óafturkræft. Eyðir viðskiptavini. Settu hann fyrst í geymslu með Clockify.Client.Update. Flettu kenninu upp með Clockify.Client.List.';
     begin
         exit(SelectionLbl);
     end;

@@ -34,14 +34,14 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Help Clockify.Get, Help, Clockify.Get, Timesheets', Comment = 'is-IS=Clockify Help Clockify.Get, Help, Clockify.Get, tímaskýrslur';
+        KeywordsLbl: Label 'help, overview, Clockify, timesheets', Comment = 'is-IS=hjálp, yfirlit, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Help.Clockify.Get: Clockify.Get operation for Help. Use the matching List or Get message for lookup.', Comment = 'is-IS=Help.Clockify.Get: Clockify.Get aðgerð fyrir Help. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Help.Clockify.Get: Read-only. Returns the Clockify connector overview and the message-type index. No request body is required.', Comment = 'is-IS=Help.Clockify.Get: Aðeins lesið. Skilar yfirliti yfir Clockify tengingu og lista yfir skilaboðategundir. Enginn viðbótarhluti þarf að fylgja.';
     begin
         exit(SelectionLbl);
     end;

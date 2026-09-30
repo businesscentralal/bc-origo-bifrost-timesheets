@@ -33,14 +33,14 @@ codeunit 10036813 "Clockify Task Create Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Task.Create, Clockify, Task.Create, Timesheets', Comment = 'is-IS=Clockify Clockify Task.Create, Clockify, Task.Create, tímaskýrslur';
+        KeywordsLbl: Label 'task, create, project, Clockify, timesheets', Comment = 'is-IS=verkþáttur, stofna, verkefni, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Task.Create: Task.Create operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Task.Create: Task.Create aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Task.Create: Creates a task on a project. Resolve projectId with Clockify.Project.List.', Comment = 'is-IS=Clockify.Task.Create: Stofnar verkþátt á verkefni. Sæktu projectId með Clockify.Project.List.';
     begin
         exit(SelectionLbl);
     end;

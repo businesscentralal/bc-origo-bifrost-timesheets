@@ -33,14 +33,14 @@ codeunit 10036818 "Clockify TEntryDelete Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.Delete, Clockify, TimeEntry.Delete, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.Delete, Clockify, TimeEntry.Delete, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, delete, Clockify, timesheets', Comment = 'is-IS=tímaskráning, eyða, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.Delete: TimeEntry.Delete operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.Delete: TimeEntry.Delete aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.Delete: Irreversible. Deletes a time entry by timeEntryId. No archive step is required. Look the id up with Clockify.TimeEntry.List.', Comment = 'is-IS=Clockify.TimeEntry.Delete: Óafturkræft. Eyðir tímaskráningu eftir timeEntryId. Ekki þarf að setja í geymslu fyrst. Flettu kenninu upp með Clockify.TimeEntry.List.';
     begin
         exit(SelectionLbl);
     end;

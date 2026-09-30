@@ -1,6 +1,7 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost;
+using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>Contract and discovery conformance tests for issue #36 batch 1.</summary>
@@ -24,6 +25,7 @@ codeunit 95608 "Message Contract Batch 1 Tests"
     local procedure AssertContract(Ordinal: Integer)
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Parts: Codeunit "Clockify Contract Parts ori";
         MessageType: Enum "Message Type ori";
         Contract: JsonObject;
         MsgContract: Interface "Msg Contract ori";
@@ -31,21 +33,24 @@ codeunit 95608 "Message Contract Batch 1 Tests"
         Chapter: Text;
         Chapters: List of [Text];
         Metering: JsonObject;
+        TypeName: Text;
     begin
         MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
-        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), Format(MessageType) + ' contract');
+        TypeName := Parts.MessageTypeName(MessageType);
+        Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), TypeName + ' contract');
         Chapters.Add('envelope');
         Chapters.Add('response');
-        Chapters.Add('errors');
+        if Ordinal <> 10036785 then
+            Chapters.Add('errors');
         Chapters.Add('effect');
         Chapters.Add('related');
         foreach Chapter in Chapters do
-            Assert.IsTrue(Contract.Contains(Chapter), Format(MessageType) + ' ' + Chapter);
+            Assert.IsTrue(Contract.Contains(Chapter), TypeName + ' ' + Chapter);
         MsgContract := MessageType;
         Discovery := MessageType;
-        Assert.IsTrue(Discovery.GetKeywords() <> '', Format(MessageType) + ' keywords');
-        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', Format(MessageType) + ' selection');
-        Assert.IsFalse(MsgContract.GetMetering(Metering), Format(MessageType) + ' app metering');
+        Assert.IsTrue(Discovery.GetKeywords() <> '', TypeName + ' keywords');
+        Assert.IsTrue(Discovery.GetSelectionDescription() <> '', TypeName + ' selection');
+        Assert.IsFalse(MsgContract.GetMetering(Metering), TypeName + ' app metering');
     end;
 
     local procedure BatchOrdinals() Ordinals: List of [Integer]

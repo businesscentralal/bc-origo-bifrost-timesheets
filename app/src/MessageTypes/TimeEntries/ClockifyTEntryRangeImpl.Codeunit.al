@@ -45,14 +45,14 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.SyncRange, Clockify, TimeEntry.SyncRange, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.SyncRange, Clockify, TimeEntry.SyncRange, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, sync, range, journal, Clockify, timesheets', Comment = 'is-IS=tímaskráning, samstilla, tímabil, verkbók, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.SyncRange: TimeEntry.SyncRange operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.SyncRange: TimeEntry.SyncRange aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.SyncRange: Syncs a user finished time entries in a date range to Job Journal lines. Use Clockify.TimeEntry.Sync for one entry.', Comment = 'is-IS=Clockify.TimeEntry.SyncRange: Samstillir loknar tímaskráningar notanda á tímabili við verkbókarlínur. Notaðu Clockify.TimeEntry.Sync fyrir eina færslu.';
     begin
         exit(SelectionLbl);
     end;

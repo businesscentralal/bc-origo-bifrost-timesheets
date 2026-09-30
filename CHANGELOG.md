@@ -5,7 +5,7 @@
 ### Changed (2026-09-29) - Message contracts batch 1
 
 - Added bilingual discovery keywords and selection descriptions plus structured contract chapters for help, workspace-level reads, and client message types.
-- Added batch 1 contract conformance coverage and pinned Bifrost Foundation to 28.0.0.152.
+- Added batch 1 contract conformance coverage and pinned Bifrost Foundation to 28.0.0.166.
 
 ### Changed (2026-09-29) - Message contracts batch 2
 
@@ -17,6 +17,16 @@
 - Added bilingual discovery metadata and structured contract chapters for time-entry and time-sheet message types.
 - Added batch 3 contract conformance coverage.
 
+### Fixed (2026-09-30) - Clockify message-type interface bindings (#38)
+
+- Bind `Msg Interface ori`, `Msg Contract ori`, and `Msg Discovery ori` on one `Implementation` property for every Clockify message type, matching the Foundation enum.
+- Remove the stale `Clockify TimeSheet Help ori` permission. That codeunit was replaced by `Clockify Contract Help 3 ori`, which is already granted.
+- Import `System.TestLibraries.Utilities` in the contract batch tests so `Library Assert` resolves.
+- Name message types with `Names().Get(Ordinals().IndexOf(...))` instead of `Format` on the enum, and use `JsonObject.WriteTo` for contract text.
+- Include a `related` chapter on `Help.Clockify.Get` so the help contract points at `Clockify.Workspace.List`.
+- Pin Bifrost Foundation to 28.0.0.166 in the app and the test app (approved). This is the first green build that contains `Msg Contract ori`.
+- Add is-IS translations for the discovery labels, list only error texts the app sends, and move the former help facts into the contract chapters.
+
 ### Changed (2026-09-25) - Foundation latest CI build, floor 28.0.0.0
 
 - The app builds against the latest Foundation CI build with a Foundation floor of 28.0.0.0.
@@ -26,14 +36,6 @@
 
 - App.json URL fields (`help`, `privacyStatement`, `EULA`, `contextSensitiveHelpUrl`) now point at the published Bifröst timesheets docs and Foundation privacy/EULA pages, and Application Insights telemetry uses the shared connection string.
 - Page help links (`ContextSensitiveHelpPage`) now use the renamed docs routes (`clockify-*` slugs renamed to `timesheets-*`).
-
-### Fixed (2026-09-30) - Clockify message-type interface bindings (#38)
-
-- Bind `Msg Interface ori`, `Msg Contract ori`, and `Msg Discovery ori` on one `Implementation` property for every Clockify message type, matching the Foundation enum.
-- Remove the stale `Clockify TimeSheet Help ori` permission. That codeunit was replaced by `Clockify Contract Help 3 ori`, which is already granted.
-- Import `System.TestLibraries.Utilities` in the contract batch tests so `Library Assert` resolves.
-- Use `Format` for message-type names and `JsonObject.WriteTo` for contract text in the contract tests.
-- Include a `related` chapter on `Help.Clockify.Get` so the help contract points at `Clockify.Workspace.List`.
 
 ### Security
 

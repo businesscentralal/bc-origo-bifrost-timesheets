@@ -32,14 +32,14 @@ codeunit 10036835 "Clockify TSheetApprv Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Approve, Clockify, TimeSheet.Approve, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Approve, Clockify, TimeSheet.Approve, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, approve, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, samþykkja, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Approve: TimeSheet.Approve operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Approve: TimeSheet.Approve aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Approve: Submits and approves open time-sheet lines up to a cut-off date. It does not call Clockify.', Comment = 'is-IS=Clockify.TimeSheet.Approve: Sendir inn og samþykkir opnar tímaskýrslulínur til lokadags. Kallar ekki á Clockify.';
     begin
         exit(SelectionLbl);
     end;

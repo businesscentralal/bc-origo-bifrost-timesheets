@@ -33,14 +33,14 @@ codeunit 10036822 "Clockify TEntryUpdate Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.Update, Clockify, TimeEntry.Update, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.Update, Clockify, TimeEntry.Update, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, update, timer, Clockify, timesheets', Comment = 'is-IS=tímaskráning, uppfæra, teljari, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.Update: TimeEntry.Update operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.Update: TimeEntry.Update aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.Update: Updates a time entry by timeEntryId. Omitted body fields keep the existing Clockify values. Setting end stops a running timer.', Comment = 'is-IS=Clockify.TimeEntry.Update: Uppfærir tímaskráningu eftir timeEntryId. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. end stöðvar gangandi teljara.';
     begin
         exit(SelectionLbl);
     end;

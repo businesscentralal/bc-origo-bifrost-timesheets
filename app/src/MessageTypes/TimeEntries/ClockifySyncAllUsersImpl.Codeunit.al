@@ -39,14 +39,14 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.SyncAllUsers, Clockify, TimeEntry.SyncAllUsers, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.SyncAllUsers, Clockify, TimeEntry.SyncAllUsers, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, sync, all users, Clockify, timesheets', Comment = 'is-IS=tímaskráning, samstilla, allir notendur, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.SyncAllUsers: TimeEntry.SyncAllUsers operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.SyncAllUsers: TimeEntry.SyncAllUsers aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for every mapped user, to time sheets by default or to the Job Journal.', Comment = 'is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.';
     begin
         exit(SelectionLbl);
     end;

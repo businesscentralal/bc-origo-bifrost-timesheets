@@ -39,14 +39,14 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.SyncRangeToTimeSheet, Clockify, TimeEntry.SyncRangeToTimeSheet, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.SyncRangeToTimeSheet, Clockify, TimeEntry.SyncRangeToTimeSheet, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, range, time sheet, Clockify, timesheets', Comment = 'is-IS=tímaskráning, tímabil, tímaskýrsla, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.SyncRangeToTimeSheet: TimeEntry.SyncRangeToTimeSheet operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.SyncRangeToTimeSheet: TimeEntry.SyncRangeToTimeSheet aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.SyncRangeToTimeSheet: Syncs a user finished time entries in a date range to open BC time sheets.', Comment = 'is-IS=Clockify.TimeEntry.SyncRangeToTimeSheet: Samstillir loknar tímaskráningar notanda á tímabili við opnar tímaskýrslur í BC.';
     begin
         exit(SelectionLbl);
     end;

@@ -44,14 +44,14 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.Sync, Clockify, TimeEntry.Sync, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.Sync, Clockify, TimeEntry.Sync, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, sync, journal, Clockify, timesheets', Comment = 'is-IS=tímaskráning, samstilla, verkbók, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.Sync: TimeEntry.Sync operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.Sync: TimeEntry.Sync aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.Sync: Syncs one finished time entry to a Job Journal line. In-progress entries are rejected. Look ids up with the List messages.', Comment = 'is-IS=Clockify.TimeEntry.Sync: Samstillir eina lokna tímaskráningu við verkbókarlínu. Gangandi færslum er hafnað. Flettu kennunum upp með listunum.';
     begin
         exit(SelectionLbl);
     end;

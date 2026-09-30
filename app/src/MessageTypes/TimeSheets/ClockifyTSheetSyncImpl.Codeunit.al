@@ -37,14 +37,14 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeEntry.SyncToTimeSheet, Clockify, TimeEntry.SyncToTimeSheet, Timesheets', Comment = 'is-IS=Clockify Clockify TimeEntry.SyncToTimeSheet, Clockify, TimeEntry.SyncToTimeSheet, tímaskýrslur';
+        KeywordsLbl: Label 'time entry, sync, time sheet, Clockify, timesheets', Comment = 'is-IS=tímaskráning, samstilla, tímaskýrsla, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.SyncToTimeSheet: TimeEntry.SyncToTimeSheet operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeEntry.SyncToTimeSheet: TimeEntry.SyncToTimeSheet aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeEntry.SyncToTimeSheet: Syncs one finished time entry to an open BC time sheet. Run Clockify.TimeSheet.Create first. Use Clockify.TimeEntry.Sync for the Job Journal.', Comment = 'is-IS=Clockify.TimeEntry.SyncToTimeSheet: Samstillir eina lokna tímaskráningu við opna tímaskýrslu í BC. Keyrðu Clockify.TimeSheet.Create fyrst. Notaðu Clockify.TimeEntry.Sync fyrir verkbók.';
     begin
         exit(SelectionLbl);
     end;

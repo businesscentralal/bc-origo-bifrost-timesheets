@@ -35,14 +35,14 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Post, Clockify, TimeSheet.Post, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Post, Clockify, TimeSheet.Post, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, post, journal, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, bóka, verkbók, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Post: TimeSheet.Post operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Post: TimeSheet.Post aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Post: Posts approved time-sheet lines to a Job Journal batch. It does not call Clockify.', Comment = 'is-IS=Clockify.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur í verkbók. Kallar ekki á Clockify.';
     begin
         exit(SelectionLbl);
     end;

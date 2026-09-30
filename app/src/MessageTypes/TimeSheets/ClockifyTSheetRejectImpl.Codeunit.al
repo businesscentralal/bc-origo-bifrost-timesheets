@@ -33,14 +33,14 @@ codeunit 10036843 "Clockify TSheetReject Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify TimeSheet.Reject, Clockify, TimeSheet.Reject, Timesheets', Comment = 'is-IS=Clockify Clockify TimeSheet.Reject, Clockify, TimeSheet.Reject, tímaskýrslur';
+        KeywordsLbl: Label 'time sheet, reject, Clockify, timesheets', Comment = 'is-IS=tímaskýrsla, hafna, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeSheet.Reject: TimeSheet.Reject operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.TimeSheet.Reject: TimeSheet.Reject aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.TimeSheet.Reject: Rejects submitted time-sheet lines up to a cut-off date. It does not call Clockify.', Comment = 'is-IS=Clockify.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum til lokadags. Kallar ekki á Clockify.';
     begin
         exit(SelectionLbl);
     end;

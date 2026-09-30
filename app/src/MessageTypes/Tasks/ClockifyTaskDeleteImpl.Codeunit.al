@@ -33,14 +33,14 @@ codeunit 10036814 "Clockify Task Delete Impl ori" implements "Msg Interface ori"
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Task.Delete, Clockify, Task.Delete, Timesheets', Comment = 'is-IS=Clockify Clockify Task.Delete, Clockify, Task.Delete, tímaskýrslur';
+        KeywordsLbl: Label 'task, delete, project, Clockify, timesheets', Comment = 'is-IS=verkþáttur, eyða, verkefni, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Task.Delete: Task.Delete operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Task.Delete: Task.Delete aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Task.Delete: Irreversible. Deletes a task. No archive step is required. Look the ids up with Clockify.Task.List.', Comment = 'is-IS=Clockify.Task.Delete: Óafturkræft. Eyðir verkþætti. Ekki þarf að setja í geymslu fyrst. Flettu kennunum upp með Clockify.Task.List.';
     begin
         exit(SelectionLbl);
     end;

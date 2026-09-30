@@ -33,14 +33,14 @@ codeunit 10036809 "Clockify Tag Create Impl ori" implements "Msg Interface ori",
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify Tag.Create, Clockify, Tag.Create, Timesheets', Comment = 'is-IS=Clockify Clockify Tag.Create, Clockify, Tag.Create, tímaskýrslur';
+        KeywordsLbl: Label 'tag, create, workspace, Clockify, timesheets', Comment = 'is-IS=merki, stofna, vinnusvæði, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.Tag.Create: Tag.Create operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.Tag.Create: Tag.Create aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.Tag.Create: Creates a workspace tag. Use the returned id, not the name, when you attach the tag to a time entry.', Comment = 'is-IS=Clockify.Tag.Create: Stofnar merki á vinnusvæði. Notaðu kennið sem kemur til baka, ekki heitið, þegar þú tengir merkið við tímaskráningu.';
     begin
         exit(SelectionLbl);
     end;

@@ -34,14 +34,14 @@ codeunit 10036824 "Clockify User Current Impl ori" implements "Msg Interface ori
 
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'Clockify Clockify User.GetCurrent, Clockify, User.GetCurrent, Timesheets', Comment = 'is-IS=Clockify Clockify User.GetCurrent, Clockify, User.GetCurrent, tímaskýrslur';
+        KeywordsLbl: Label 'user, current, Clockify, timesheets', Comment = 'is-IS=notandi, núverandi, Clockify, tímaskýrslur';
     begin
         exit(KeywordsLbl);
     end;
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.User.GetCurrent: User.GetCurrent operation for Clockify. Use the matching List or Get message for lookup.', Comment = 'is-IS=Clockify.User.GetCurrent: User.GetCurrent aðgerð fyrir Clockify. Notaðu samsvarandi lista- eða sækjaaðgerð fyrir uppflettingu.';
+        SelectionLbl: Label 'Clockify.User.GetCurrent: Read-only. Returns the authenticated Clockify user. Use its id as userId. No workspaceId is required.', Comment = 'is-IS=Clockify.User.GetCurrent: Aðeins lesið. Skilar innskráðum Clockify notanda. Notaðu kennið sem userId. workspaceId er ekki nauðsynlegt.';
     begin
         exit(SelectionLbl);
     end;
