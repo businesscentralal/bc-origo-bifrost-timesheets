@@ -215,8 +215,10 @@ codeunit 10036855 "Clockify Contract Parts ori"
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if MessageType = MessageType::"Help.Clockify.Get" then
-            exit(false);
+        if MessageType = MessageType::"Help.Clockify.Get" then begin
+            Related.Add(ContractMgt.RelatedEntry('Clockify.Workspace.List', 'After the overview, list workspaces to obtain a workspace ID.'));
+            exit(true);
+        end;
         Related.Add(ContractMgt.RelatedEntry('Clockify.Workspace.List', 'You need to resolve a workspace ID.'));
         if IsCollection(MessageType) then
             exit(true);
