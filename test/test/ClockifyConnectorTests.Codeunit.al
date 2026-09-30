@@ -76,8 +76,7 @@ codeunit 95601 "Clockify Connector Tests"
             StrSubstNo(NotOutboundErr, MessageType));
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), StrSubstNo(NoDescriptionErr, MessageType));
 
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(MessageType);
         LibraryAssert.AreNotEqual('', HelpText, StrSubstNo(NoHelpErr, MessageType));
     end;
 
@@ -673,8 +672,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.Client.Create";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Integration tracking'), 'Per-type help should include an integration tracking section.');
         LibraryAssert.IsTrue(HelpText.Contains('Clockify Integration'), 'Per-type help should reference the Clockify Integration table.');
@@ -836,8 +834,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.UserGroup.List";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Notes'), 'UserGroup.List help should render a Notes section.');
         LibraryAssert.IsTrue(HelpText.Contains('userGroupIds'), 'UserGroup.List help should point to userGroupIds on project writes.');
@@ -855,8 +852,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.CustomField.List";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Notes'), 'CustomField.List help should render a Notes section.');
         LibraryAssert.IsTrue(HelpText.Contains('customFieldId'), 'CustomField.List help should point to customFieldId on write payloads.');
@@ -874,8 +870,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.TimeEntry.List";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('query.in-progress'), 'TimeEntry.List help should document query.in-progress.');
         LibraryAssert.IsTrue(HelpText.Contains('running timers'), 'TimeEntry.List help should explain the running-timer behavior.');
@@ -893,8 +888,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.TimeEntry.Sync";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('In-progress protection'), 'TimeEntry.Sync help should include the in-progress protection note.');
         LibraryAssert.IsTrue(HelpText.Contains('never written to Job Journal'), 'TimeEntry.Sync help should clearly state the posting guardrail.');
@@ -912,8 +906,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.User.List";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Agent guidance — optional parameter effects'), 'Help should include the optional-parameter guidance section.');
         LibraryAssert.IsTrue(HelpText.Contains('query.*'), 'List help should explain that query parameters shape returned data.');
@@ -932,8 +925,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Clockify.Client.Update";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Agent guidance — optional parameter effects'), 'Help should include the optional-parameter guidance section.');
         LibraryAssert.IsTrue(HelpText.Contains('Optional `body.*` fields omitted'), 'Update help should explain omitted optional body behavior.');
@@ -952,8 +944,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Help.Clockify.Get";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Clockify.Currency.List'), 'Overview should list Clockify.Currency.List.');
         LibraryAssert.IsTrue(HelpText.Contains('Clockify.UserGroup.List'), 'Overview should list Clockify.UserGroup.List.');
@@ -972,8 +963,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Help.Clockify.Get";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('Writes accept Clockify IDs'), 'Overview gotchas should warn that writes accept Clockify IDs only.');
         LibraryAssert.IsTrue(HelpText.Contains('archived before they can be deleted'), 'Overview gotchas should mention the archive-before-delete rule.');
@@ -1008,8 +998,7 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.AreEqual(0, MsgInterface.GetFilterTableNo(), 'SyncRange should have no filter table.');
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), 'SyncRange should have a description.');
 
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        LibraryAssert.AreNotEqual('', TempArgument.GetResponseText(), 'SyncRange should produce help markdown.');
+        LibraryAssert.AreNotEqual('', GetContractText(TempArgument."Type"), 'SyncRange should produce a message contract.');
     end;
 
     [Test]
@@ -1147,8 +1136,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, MsgInterface.GetMessageDirection(), StrSubstNo(NotInboundErr, MessageType));
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        LibraryAssert.AreNotEqual('', TempArgument.GetResponseText(), StrSubstNo(NoHelpErr, MessageType));
+        LibraryAssert.AreNotEqual('', GetContractText(MessageType), StrSubstNo(NoHelpErr, MessageType));
     end;
 
     [Test]
@@ -1707,8 +1695,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := TempArgument."Type"::"Help.Clockify.Get";
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        HelpText := TempArgument.GetResponseText();
+        HelpText := GetContractText(TempArgument."Type");
 
         LibraryAssert.IsTrue(HelpText.Contains('"tableName": "Clockify Integration ori"'), 'Help must document tableName.');
         LibraryAssert.IsFalse(HelpText.Contains('"table": "Clockify Integration ori"'), 'Help must not document the rejected table key.');
@@ -1720,15 +1707,15 @@ codeunit 95601 "Clockify Connector Tests"
         HelpText: Text;
     begin
         // [SCENARIO] SyncToTimeSheet, SyncRangeToTimeSheet, and Archive render non-empty request examples.
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
         LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'SyncToTimeSheet must have Request example.');
         LibraryAssert.IsTrue(HelpText.Contains('"entryId"'), 'SyncToTimeSheet request example must include entryId.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
         LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'SyncRangeToTimeSheet must have Request example.');
         LibraryAssert.IsTrue(HelpText.Contains('"start"'), 'SyncRangeToTimeSheet request example must include start.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
         LibraryAssert.IsTrue(HelpText.Contains('## Request example'), 'Archive must have Request example.');
         LibraryAssert.IsTrue(HelpText.Contains('{ }'), 'Archive request example must be empty object.');
     end;
@@ -1755,14 +1742,11 @@ codeunit 95601 "Clockify Connector Tests"
         MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen");
 
         foreach MessageType in MessageTypes do begin
-            HelpText := GetHelpMarkdown(MessageType);
-            LibraryAssert.IsTrue(HelpText.Contains('**Direction:** Inbound'), StrSubstNo(WrongOutboundErr, MessageType));
-            LibraryAssert.IsFalse(HelpText.Contains('**Direction:** Outbound'), StrSubstNo(WrongOutboundErr, MessageType));
+            LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, GetMessageDirection(MessageType), StrSubstNo(WrongOutboundErr, MessageType));
         end;
 
         // Spot-check one Outbound type still shows Outbound.
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Client.Create");
-        LibraryAssert.IsTrue(HelpText.Contains('**Direction:** Outbound'), 'Client.Create help must remain Outbound.');
+        LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, GetMessageDirection(Enum::"Message Type ori"::"Clockify.Client.Create"), 'Client.Create must remain Outbound.');
     end;
 
     [Test]
@@ -1771,28 +1755,42 @@ codeunit 95601 "Clockify Connector Tests"
         HelpText: Text;
     begin
         // [SCENARIO] Tracks-in / integration sections use uppercase CLOCKIFY type codes, not camelCase.
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet");
         LibraryAssert.IsTrue(HelpText.Contains('TIME_ENTRY'), 'SyncToTimeSheet must track TIME_ENTRY.');
         LibraryAssert.IsFalse(HelpText.Contains('`timeEntry`'), 'SyncToTimeSheet must not use camelCase timeEntry.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Client.Create");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.Client.Create");
         LibraryAssert.IsTrue(HelpText.Contains('CLIENT'), 'Client.Create must track CLIENT.');
         LibraryAssert.IsFalse(HelpText.Contains('`client`'), 'Client.Create must not use lowercase client type code.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Project.Update");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.Project.Update");
         LibraryAssert.IsTrue(HelpText.Contains('PROJECT'), 'Project.Update must track PROJECT.');
         LibraryAssert.IsFalse(HelpText.Contains('`project`'), 'Project.Update must not use lowercase project type code.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Task.Delete");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.Task.Delete");
         LibraryAssert.IsTrue(HelpText.Contains('TASK'), 'Task.Delete must track TASK.');
         LibraryAssert.IsFalse(HelpText.Contains('`task`'), 'Task.Delete must not use lowercase task type code.');
 
-        HelpText := GetHelpMarkdown(Enum::"Message Type ori"::"Clockify.Tag.Create");
+        HelpText := GetContractText(Enum::"Message Type ori"::"Clockify.Tag.Create");
         LibraryAssert.IsTrue(HelpText.Contains('TAG'), 'Tag.Create must track TAG.');
         LibraryAssert.IsFalse(HelpText.Contains('`tag`'), 'Tag.Create must not use lowercase tag type code.');
     end;
 
-    local procedure GetHelpMarkdown(MessageType: Enum "Message Type ori"): Text
+    local procedure GetContractText(MessageType: Enum "Message Type ori"): Text
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Contract: JsonObject;
+        ContractText: Text;
+    begin
+        if not ContractMgt.GetContract(MessageType, Contract) then
+            exit('');
+        Contract.WriteTo(ContractText);
+        // WriteTo escapes quotes inside chapter text. The restored help assertions look for the fact text itself.
+        ContractText := ContractText.Replace('\"', '"');
+        exit(ContractText);
+    end;
+
+    local procedure GetMessageDirection(MessageType: Enum "Message Type ori"): Enum "Msg Direction ori"
     var
         TempArgument: Record "Message Argument ori";
         MsgInterface: Interface "Msg Interface ori";
@@ -1801,8 +1799,7 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument."Type" := MessageType;
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
-        MsgInterface.GetMessageHelpAsMarkdownDocument(TempArgument);
-        exit(TempArgument.GetResponseText());
+        exit(MsgInterface.GetMessageDirection());
     end;
 
     local procedure ReadText(JsonObj: JsonObject; PropertyName: Text): Text

@@ -2,6 +2,31 @@
 
 ## [Unreleased]
 
+### Changed (2026-09-29) - Message contracts batch 1
+
+- Added bilingual discovery keywords and selection descriptions plus structured contract chapters for help, workspace-level reads, and client message types.
+- Added batch 1 contract conformance coverage and pinned Bifrost Foundation to 28.0.0.166.
+
+### Changed (2026-09-29) - Message contracts batch 2
+
+- Added bilingual discovery metadata and structured contract chapters for project, task, and tag message types.
+- Added batch 2 contract conformance coverage.
+
+### Changed (2026-09-29) - Message contracts batch 3
+
+- Added bilingual discovery metadata and structured contract chapters for time-entry and time-sheet message types.
+- Added batch 3 contract conformance coverage.
+
+### Fixed (2026-09-30) - Clockify message-type interface bindings (#38)
+
+- Bind `Msg Interface ori`, `Msg Contract ori`, and `Msg Discovery ori` on one `Implementation` property for every Clockify message type, matching the Foundation enum.
+- Remove the stale `Clockify TimeSheet Help ori` permission. That codeunit was replaced by `Clockify Contract Help 3 ori`, which is already granted.
+- Import `System.TestLibraries.Utilities` in the contract batch tests so `Library Assert` resolves.
+- Name message types with `Names().Get(Ordinals().IndexOf(...))` instead of `Format` on the enum, and use `JsonObject.WriteTo` for contract text.
+- Include a `related` chapter on `Help.Clockify.Get` so the help contract points at `Clockify.Workspace.List`.
+- Pin Bifrost Foundation to 28.0.0.166 in the app and the test app (approved). This is the first green build that contains `Msg Contract ori`.
+- Add is-IS translations for the discovery labels, list only error texts the app sends, and move the former help facts into the contract chapters.
+
 ### Changed (2026-09-25) - Foundation latest CI build, floor 28.0.0.0
 
 - The app builds against the latest Foundation CI build with a Foundation floor of 28.0.0.0.
@@ -25,7 +50,6 @@
 ### Changed (2026-09-21) - Bifröst logo refresh
 
 - App logo: new Bifröst wordmark with "Powered by origo." tagline; app-name line unchanged.
-
 
 All notable changes to **Bifrost Timesheets** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
@@ -90,7 +114,6 @@ notifications of its own any more.
 - The test app no longer depends on Bifröst Foundation's internals: Bifrost Timesheets - Tests has been removed
   from Foundation's `internalsVisibleTo`, and the test suite compiles and runs against a Foundation
   package that does not grant it. No test code had to change - the suite never touched a Foundation internal.
-
 
 Migration of *Origo Cloud Events Clockify* 28.1.0.0 to **Bifrost Timesheets** on Bifrost Foundation.
 This is an **in-place successor**: the app id and the test range (95600–95699) are unchanged, so an

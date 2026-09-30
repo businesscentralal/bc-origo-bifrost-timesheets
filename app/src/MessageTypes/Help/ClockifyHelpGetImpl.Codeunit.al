@@ -7,7 +7,7 @@ using Origo.Bifrost;
 /// overview of the Clockify connector and every message type it exposes. No request
 /// body is required.
 /// </summary>
-codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
+codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 
@@ -29,6 +29,110 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori"
     procedure GetDescription(): Text[250]
     begin
         exit('Returns a Markdown overview of the Clockify connector and all its message types. No request body is required.');
+    end;
+
+
+    procedure GetKeywords(): Text
+    var
+        KeywordsLbl: Label 'help, overview, Clockify, timesheets', Comment = 'is-IS=hjálp, yfirlit, Clockify, tímaskýrslur';
+    begin
+        exit(KeywordsLbl);
+    end;
+
+    procedure GetSelectionDescription(): Text
+    var
+        SelectionLbl: Label 'Help.Clockify.Get: Read-only. Returns the Clockify connector overview and the message-type index. No request body is required.', Comment = 'is-IS=Help.Clockify.Get: Aðeins lesið. Skilar yfirliti yfir Clockify tengingu og lista yfir skilaboðategundir. Enginn viðbótarhluti þarf að fylgja.';
+    begin
+        exit(SelectionLbl);
+    end;
+
+    procedure GetEnvelope(var Envelope: JsonObject): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetEnvelope(GetMessageType(), Envelope));
+    end;
+
+    procedure GetTarget(var Target: JsonArray): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetTarget(GetMessageType(), Target));
+    end;
+
+    procedure GetParameters(var Parameters: JsonArray): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
+    end;
+
+    procedure GetResponse(var Response: JsonObject): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetResponse(GetMessageType(), Response));
+    end;
+
+    procedure GetErrors(var Errors: JsonArray): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetErrors(GetMessageType(), Errors));
+    end;
+
+    procedure GetEffect(var Effect: JsonObject): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetEffect(GetMessageType(), Effect));
+    end;
+
+    procedure GetMetering(var Metering: JsonObject): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetMetering(Metering));
+    end;
+
+    procedure GetRelated(var Related: JsonArray): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetRelated(GetMessageType(), Related));
+    end;
+
+    procedure GetWorkflow(var Workflow: JsonObject): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetWorkflow(GetMessageType(), Workflow));
+    end;
+
+    procedure GetExamples(var Examples: JsonArray): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetExamples(GetMessageType(), Examples));
+    end;
+
+    procedure GetOverview(var Overview: Text): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetOverview(GetMessageType(), Overview));
+    end;
+
+    procedure GetNotes(var Notes: Text): Boolean
+    var
+        Parts: Codeunit "Clockify Contract Parts ori";
+    begin
+        exit(Parts.GetNotes(GetMessageType(), Notes));
+    end;
+
+    local procedure GetMessageType(): Enum "Message Type ori"
+    begin
+        exit(Enum::"Message Type ori"::"Help.Clockify.Get");
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"
