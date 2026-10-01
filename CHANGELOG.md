@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Removed (2026-10-01) - markdown help procedure (#37)
+
+- Every Clockify message type codeunit drops `GetMessageHelpAsMarkdownDocument`. Foundation removed it from `Msg Interface ori` (core#198); help is the contract chapters that `Help.Implementation.Get` returns. No chapter changed.
+- Deleted `Clockify Contract Help 1/2/3 ori` (10036856-10036858), which only returned empty text, and their permission entries.
+- Bifrost Foundation dependency raised to 28.0.0.186, the first Foundation build without the procedure, in `app/app.json` and `test/app.json`.
+- `.claude/CLAUDE.md` id ledger brought up to date (contract parts, contract test codeunits, freed help ids).
+
 ### Changed (2026-09-29) - Message contracts batch 1
 
 - Added bilingual discovery keywords and selection descriptions plus structured contract chapters for help, workspace-level reads, and client message types.
