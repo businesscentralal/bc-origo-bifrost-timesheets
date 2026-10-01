@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Security (01.10.2026) - generic data API field restrictions (core#344)
+
+- `Data.Records.Set` now refuses to set the `Webhook Receiver URL` (field 13) on `Clockify Setup ori`. That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data to a server of their choice. New `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. Reading the field, and the Timesheets setup page and the Clockify message types / webhook handler (which read the URL from code), are unchanged.
+
 ### Changed (2026-10-01) - Clockify writes and time sheet posting declare effect irreversible (#39)
 
 - `Clockify.Client/Project/Task/Tag/TimeEntry.Create` and `.Update` write to Clockify outside the Business Central transaction, and `Clockify.TimeSheet.Post` posts job ledger entries; all eleven now declare effect `irreversible`, so the Orchestrator's Omit Commit guard refuses them in a rollback chain.
