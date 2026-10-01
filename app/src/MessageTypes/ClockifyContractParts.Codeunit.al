@@ -140,9 +140,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
                     AddBodyParameter(Parameters, ContractMgt, 'Time-entry fields sent verbatim, including start. customFields.customFieldId comes from Clockify.CustomField.List. Omit end to leave a running timer.');
                 end;
             MessageType::"Clockify.TimeEntry.Update":
-                begin
-                    AddIdAndBodyParameters(Parameters, ContractMgt, 'timeEntryId', 'Clockify time-entry ID.', 'Time-entry fields to change. Optional body fields omitted keep the existing Clockify values. An empty tagIds array clears tags; omitting tagIds keeps them. customFieldId comes from Clockify.CustomField.List.');
-                end;
+                AddIdAndBodyParameters(Parameters, ContractMgt, 'timeEntryId', 'Clockify time-entry ID.', 'Time-entry fields to change. Optional body fields omitted keep the existing Clockify values. An empty tagIds array clears tags; omitting tagIds keeps them. customFieldId comes from Clockify.CustomField.List.');
             MessageType::"Clockify.TimeEntry.Sync":
                 AddSyncParameters(Parameters, ContractMgt, false);
             MessageType::"Clockify.TimeEntry.SyncRange":
@@ -307,16 +305,31 @@ codeunit 10036855 "Clockify Contract Parts ori"
         EffectName: Text;
         Changes: Text;
     begin
-        if IsRead(MessageType) then begin
-            EffectName := 'read';
-            Changes := 'Reads Clockify data and does not change Business Central records.';
-        end else begin
-            EffectName := 'write';
-            Changes := 'Creates or updates Clockify data or mapped Business Central integration records.';
-        end;
-        if IsIrreversible(MessageType) then begin
-            EffectName := 'irreversible';
-            Changes := 'Deletes a Clockify record. The delete cannot be undone from this message type.';
+        case true of
+            IsRead(MessageType):
+                begin
+                    EffectName := 'read';
+                    Changes := 'Reads Clockify data and does not change Business Central records.';
+                end;
+            IsClockifyDelete(MessageType):
+                begin
+                    EffectName := 'irreversible';
+                    Changes := 'Deletes a Clockify record. The delete happens in Clockify, outside the Business Central transaction, and cannot be undone from this message type.';
+                end;
+            IsClockifyWrite(MessageType):
+                begin
+                    EffectName := 'irreversible';
+                    Changes := 'Creates or updates a Clockify record through the Clockify API. The write happens outside the Business Central transaction and is not rolled back with it.';
+                end;
+            MessageType = MessageType::"Clockify.TimeSheet.Post":
+                begin
+                    EffectName := 'irreversible';
+                    Changes := 'Posts the approved time sheet lines through Job Jnl.-Post Line into job ledger entries. Posted entries cannot be undone.';
+                end;
+            else begin
+                EffectName := 'write';
+                Changes := 'Writes Business Central records only (time sheet, journal or integration records) inside the caller''s transaction; Clockify is not changed.';
+            end;
         end;
         Preconditions.Add('The caller has the Bifrost Timesheets permission set.');
         if UsesWorkspace(MessageType) then
@@ -384,10 +397,16 @@ codeunit 10036855 "Clockify Contract Parts ori"
             if IsRead(MessageType) then
                 Overview := MessageTypeName(MessageType) + ' is read-only. It does not change Clockify or Business Central.'
             else
-                if IsIrreversible(MessageType) then
-                    Overview := MessageTypeName(MessageType) + ' is irreversible. Look the id up with the matching List or Get message before deleting.'
-                else
-                    Overview := MessageTypeName(MessageType) + ' changes Clockify or Business Central data.';
+                case true of
+                    IsClockifyDelete(MessageType):
+                        Overview := MessageTypeName(MessageType) + ' is irreversible. Look the id up with the matching List or Get message before deleting.';
+                    IsClockifyWrite(MessageType):
+                        Overview := MessageTypeName(MessageType) + ' is irreversible. It writes to Clockify, outside the Business Central transaction.';
+                    MessageType = MessageType::"Clockify.TimeSheet.Post":
+                        Overview := MessageTypeName(MessageType) + ' is irreversible. It posts approved time sheet lines to job ledger entries.';
+                    else
+                        Overview := MessageTypeName(MessageType) + ' changes Business Central data only.';
+                end;
         exit(true);
     end;
 
@@ -510,7 +529,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeEntry.Get"]));
     end;
 
-    local procedure IsIrreversible(MessageType: Enum "Message Type ori"): Boolean
+    local procedure IsClockifyDelete(MessageType: Enum "Message Type ori"): Boolean
     begin
         exit(MessageType in [
             MessageType::"Clockify.Client.Delete",
@@ -518,6 +537,21 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.Task.Delete",
             MessageType::"Clockify.Tag.Delete",
             MessageType::"Clockify.TimeEntry.Delete"]);
+    end;
+
+    local procedure IsClockifyWrite(MessageType: Enum "Message Type ori"): Boolean
+    begin
+        exit(MessageType in [
+            MessageType::"Clockify.Client.Create",
+            MessageType::"Clockify.Client.Update",
+            MessageType::"Clockify.Project.Create",
+            MessageType::"Clockify.Project.Update",
+            MessageType::"Clockify.Task.Create",
+            MessageType::"Clockify.Task.Update",
+            MessageType::"Clockify.Tag.Create",
+            MessageType::"Clockify.Tag.Update",
+            MessageType::"Clockify.TimeEntry.Create",
+            MessageType::"Clockify.TimeEntry.Update"]);
     end;
 
     local procedure HasTarget(MessageType: Enum "Message Type ori"): Boolean
