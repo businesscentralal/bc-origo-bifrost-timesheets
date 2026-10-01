@@ -140,11 +140,6 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "
         exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
-    begin
-        Argument.SetResponseMarkdown(BuildOverview());
-    end;
-
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         ResponseJson: JsonObject;

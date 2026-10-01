@@ -139,13 +139,6 @@ codeunit 10036807 "Clockify Project List Impl ori" implements "Msg Interface ori
         exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
-    var
-        Help: Codeunit "Clockify Contract Help 2 ori";
-    begin
-        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.Project.List", GetDescription()));
-    end;
-
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";

@@ -1725,7 +1725,6 @@ codeunit 95601 "Clockify Connector Tests"
     var
         MessageTypes: List of [Enum "Message Type ori"];
         MessageType: Enum "Message Type ori";
-        HelpText: Text;
         WrongOutboundErr: Label 'Help for %1 must show Direction Inbound.', Comment = '%1 = message type';
     begin
         // [SCENARIO] All 11 BC-side types render **Direction:** Inbound in help markdown (not only Impl metadata).
@@ -1741,9 +1740,8 @@ codeunit 95601 "Clockify Connector Tests"
         MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Reject");
         MessageTypes.Add(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen");
 
-        foreach MessageType in MessageTypes do begin
+        foreach MessageType in MessageTypes do
             LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, GetMessageDirection(MessageType), StrSubstNo(WrongOutboundErr, MessageType));
-        end;
 
         // Spot-check one Outbound type still shows Outbound.
         LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, GetMessageDirection(Enum::"Message Type ori"::"Clockify.Client.Create"), 'Client.Create must remain Outbound.');

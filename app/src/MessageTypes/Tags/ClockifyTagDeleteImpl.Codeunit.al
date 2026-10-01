@@ -139,13 +139,6 @@ codeunit 10036810 "Clockify Tag Delete Impl ori" implements "Msg Interface ori",
         exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
-    var
-        Help: Codeunit "Clockify Contract Help 2 ori";
-    begin
-        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.Tag.Delete", GetDescription()));
-    end;
-
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";

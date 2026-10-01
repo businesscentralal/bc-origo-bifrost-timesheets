@@ -139,13 +139,6 @@ codeunit 10036817 "Clockify TEntryCreate Impl ori" implements "Msg Interface ori
         exit(Enum::"Msg Direction ori"::Outbound);
     end;
 
-    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
-    var
-        Help: Codeunit "Clockify Contract Help 3 ori";
-    begin
-        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.Create", GetDescription()));
-    end;
-
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         RequestMgt: Codeunit "Clockify Request Mgt ori";

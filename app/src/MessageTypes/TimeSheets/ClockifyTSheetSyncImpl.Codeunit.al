@@ -143,13 +143,6 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
-    procedure GetMessageHelpAsMarkdownDocument(var Argument: Record "Message Argument ori")
-    var
-        Help: Codeunit "Clockify Contract Help 3 ori";
-    begin
-        Argument.SetResponseMarkdown(Help.GetHelp(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncToTimeSheet", GetDescription()));
-    end;
-
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeSheetSync: Codeunit "Clockify TimeSheet Sync ori";
