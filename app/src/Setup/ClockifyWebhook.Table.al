@@ -13,6 +13,7 @@
 /// </summary>
 table 10036786 "Clockify Webhook ori"
 {
+    Extensible = false;
     Caption = 'Clockify Webhook', Comment = 'is-IS=Clockify vefkrókur';
     DataClassification = SystemMetadata;
     LookupPageId = "Clockify Webhooks ori";

@@ -8,6 +8,7 @@
 /// </summary>
 page 10036785 "Clockify Integration List ori"
 {
+    Extensible = false;
     PageType = List;
     ApplicationArea = All;
     UsageCategory = None;

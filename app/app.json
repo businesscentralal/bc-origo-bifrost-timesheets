@@ -4,7 +4,7 @@
   "publisher": "Origo",
   "version": "29.0.0.0",
   "brief": "Bifrost Timesheets - Clockify time tracking in Business Central",
-  "description": "Bifrost Timesheets exposes the Clockify time-tracking REST API as Bifröst message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
+  "description": "Bifrost Timesheets exposes the Clockify time-tracking REST API as Bifr\u00f6st message types: read/write access to workspaces, users, clients, projects, tasks, tags and time entries, plus BC-side synchronisation of Clockify time entries into Job Journals and Time Sheets.",
   "url": "https://www.origo.is/",
   "help": "https://businesscentralal.github.io/bifrost/en-us/timesheets/",
   "privacyStatement": "https://businesscentralal.github.io/bifrost/en-us/foundation/privacy/",
@@ -21,7 +21,7 @@
       "id": "7505e808-6e52-4b96-a328-82573391297a",
       "name": "Bifrost Foundation",
       "publisher": "Origo",
-      "version": "28.0.0.186"
+      "version": "28.0.1.0"
     }
   ],
   "internalsVisibleTo": [

@@ -11,6 +11,7 @@ using Origo.Bifrost;
 /// </summary>
 page 10036853 "Timesheets Setup ori"
 {
+    Extensible = false;
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;
     Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
