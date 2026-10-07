@@ -1,0 +1,22 @@
+Hours tracked in Clockify, posted in Business Central.
+
+Bifrost Timesheets connects Business Central to Clockify, the time-tracking service. Finished time entries become Job Journal lines or Time Sheet detail, without typing them in again. It is an add-on to Bifrost Foundation.
+
+Who it is for
+Professional services companies that track time in Clockify and bill or cost it in Business Central.
+
+What it does
+- Brings Clockify hours into the Job Journal: one entry, a date range, or every mapped user at once. An entry synced twice is not duplicated; a changed entry is posted as a correction.
+- Or fills Time Sheets: the same entries into the resource's open Time Sheet.
+- Runs the Time Sheet week: create, submit, approve, reject, post and archive.
+- Keeps Clockify in step with your projects: clients, projects, tasks and tags.
+- Syncs as it happens: with Clockify webhooks, new, changed and deleted entries arrive without waiting for a schedule.
+
+Requirements and pricing
+- Microsoft Dynamics 365 Business Central 28.0 or later, Essentials or Premium.
+- Bifrost Foundation, available separately on AppSource.
+- A Clockify account and API key. Clockify is a trademark of its owner; this app describes interoperability only.
+- For prices, contact Origo (https://www.origo.is/) or your Business Central partner.
+- If you are a partner, contact The App Channel (https://www.theappchannel.com/).
+
+Bifrost Timesheets does not replace Business Central or its extensions. It makes their data and business logic available to the people, routines and AI platforms your organisation already uses.
