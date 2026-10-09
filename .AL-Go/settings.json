@@ -23,6 +23,7 @@
   ],
   "nuGetFeedSelectMode": "Exact",
   "fullBuildPatterns": [
+    "test/**",
     ".AL-Go/settings.json",
     ".AL-Go/*.ps1",
     "tools/Get-SharedAlpacaBuildOrder.ps1",
