@@ -6,6 +6,7 @@
 
 - `Clockify Field Restrict Tests` (95612) exercises public `Dispatcher ori` / `Data.Records.Set` with technical and canonical JSON field-name aliases: composed `PermissionDenied`, unchanged stored receiver URL, no partial neighbouring-field write, and allowed field 16 save/clear with Change Log coverage while the default write guard stays enabled (#41).
 - Paired builds enable CodeCop/UICop and product AppSourceCop with warnings treated as failures; existing shared-container, signing, upgrade and cleanup settings are preserved (#41).
+- The paired-build pre-compile hook retains Alpaca setup and applies AppSource packaging checks only to the product; `Clockify Field Restrict Tests` (95612) and the other test codeunits retain CodeCop/UICop and the zero-warning gate (#41).
 
 - `Clockify Field Restrict Tests` (95612) imports `System.TestLibraries.Utilities` and verifies field restrictions through the public `Help.Fields.Get` interface, preserving coverage without calling Foundation internals (#41).
 - `Clockify Field Restrict Tests` (95612) inserts its temporary message argument before storing the request BLOB and asserts that the table and field selectors survive storage, fixing TC001–TC003's runtime JSON failures (#41).

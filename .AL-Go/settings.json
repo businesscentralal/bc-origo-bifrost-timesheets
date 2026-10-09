@@ -26,6 +26,8 @@
     "test/**",
     ".AL-Go/settings.json",
     ".AL-Go/*.ps1",
+    "tools/BifrostTestAnalyzers.ps1",
+    "tools/Test-BifrostTestAnalyzers.ps1",
     "tools/Get-SharedAlpacaBuildOrder.ps1",
     "tools/SharedAlpacaContainer.ps1",
     "tools/Test-SharedAlpacaContainer.ps1",
