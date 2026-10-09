@@ -27,7 +27,9 @@
     ".AL-Go/*.ps1",
     "tools/Get-SharedAlpacaBuildOrder.ps1",
     "tools/SharedAlpacaContainer.ps1",
-    "tools/Test-SharedAlpacaContainer.ps1"
+    "tools/Test-SharedAlpacaContainer.ps1",
+    ".github/workflows/**",
+    "tools/Test-BifrostPipeline.ps1"
   ],
   "buildModes": [
     "Default",
@@ -50,7 +52,10 @@
       ],
       "settings": {
         "doNotSignApps": true,
-        "skipUpgrade": true
+        "skipUpgrade": true,
+        "installTestFramework": true,
+        "installTestLibraries": true,
+        "installTestRunner": true
       }
     }
   ]

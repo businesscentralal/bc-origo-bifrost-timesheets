@@ -18,59 +18,57 @@ codeunit 95612 "Clockify Field Restrict Tests"
     var
         LibraryAssert: Codeunit "Library Assert";
 
-    local procedure Initialize()
-    begin
-        Clear(LibraryAssert);
-    end;
-
+    /// <summary>Verifies WebhookReceiverUrlWriteRestricted through Foundation field events.</summary>
     [Test]
     procedure FieldRestrict_WebhookReceiverUrlWriteRestricted()
     var
-        Argument: Record "Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori" temporary;
     begin
         // [SCENARIO] TC001 / AC01: the Webhook Receiver URL is write-restricted.
-        Initialize();
 
         // [WHEN] the generic data API checks the Webhook Receiver URL for write access
         // [THEN] it is restricted
-        LibraryAssert.IsTrue(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", 13), 'Webhook Receiver URL (13) should be write-restricted.');
+        LibraryAssert.IsTrue(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Webhook Receiver URL")), 'Webhook Receiver URL (13) should be write-restricted.');
     end;
 
+    /// <summary>Verifies WebhookReceiverUrlNotReadRestricted through Foundation field events.</summary>
     [Test]
     procedure FieldRestrict_WebhookReceiverUrlNotReadRestricted()
     var
-        Argument: Record "Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori" temporary;
     begin
         // [SCENARIO] TC002 / AC02: the Webhook Receiver URL stays readable.
-        Initialize();
 
         // [WHEN] the generic data API checks the Webhook Receiver URL for read access
         // [THEN] it is not read-restricted
-        LibraryAssert.IsFalse(Argument.IsFieldReadRestrictedForDataRecords(Database::"Clockify Setup ori", 13), 'Webhook Receiver URL (13) must stay readable.');
+        LibraryAssert.IsFalse(Argument.IsFieldReadRestrictedForDataRecords(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Webhook Receiver URL")), 'Webhook Receiver URL (13) must stay readable.');
     end;
 
+    /// <summary>Verifies NeighbourFieldsNotRestricted through Foundation field events.</summary>
     [Test]
     procedure FieldRestrict_NeighbourFieldsNotRestricted()
     var
-        Argument: Record "Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori" temporary;
     begin
         // [SCENARIO] TC003 / AC03: the fields next to the receiver URL are not affected.
-        Initialize();
 
         // [WHEN] the generic data API checks the neighbouring fields
         // [THEN] API Version, Default Workspace and Job Jnl. Template are still writable
-        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", 10), 'API Version (10) must stay writable.');
-        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", 11), 'Default Workspace (11) must stay writable.');
-        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", 14), 'Job Jnl. Template (14) must stay writable.');
+        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", ClockifySetup.FieldNo("API Version")), 'API Version (10) must stay writable.');
+        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Default Workspace")), 'Default Workspace (11) must stay writable.');
+        LibraryAssert.IsFalse(Argument.IsFieldWriteRestrictedForDataRecords(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Job Jnl. Template")), 'Job Jnl. Template (14) must stay writable.');
     end;
 
+    /// <summary>Verifies TableLevelChecksStayFalse through Foundation field events.</summary>
     [Test]
     procedure FieldRestrict_TableLevelChecksStayFalse()
     var
-        Argument: Record "Message Argument ori";
+        Argument: Record "Message Argument ori" temporary;
     begin
         // [SCENARIO] TC004 / AC04: the restriction is field-level only.
-        Initialize();
 
         // [WHEN] the generic data API checks the table-level access for Clockify Setup ori
         // [THEN] neither the table read nor the table write is restricted
@@ -78,17 +76,18 @@ codeunit 95612 "Clockify Field Restrict Tests"
         LibraryAssert.IsFalse(Argument.IsTableWriteRestrictedForDataRecords(Database::"Clockify Setup ori"), 'Table write must stay open.');
     end;
 
+    /// <summary>Verifies HintForReceiverUrlEmptyForNeighbour through Foundation field events.</summary>
     [Test]
     procedure FieldRestrict_HintForReceiverUrlEmptyForNeighbour()
     var
-        Argument: Record "Message Argument ori";
+        ClockifySetup: Record "Clockify Setup ori";
+        Argument: Record "Message Argument ori" temporary;
     begin
         // [SCENARIO] TC005 / AC05: the Webhook Receiver URL carries the documented hint; a neighbour does not.
-        Initialize();
 
         // [WHEN] the generic data API asks for the dedicated message-type hint
         // [THEN] field 13 returns the setup-page hint and field 14 (Job Jnl. Template) returns ''
-        LibraryAssert.AreEqual('Use the Timesheets setup page to change the Webhook Receiver URL.', Argument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", 13), 'Webhook Receiver URL (13) hint.');
-        LibraryAssert.AreEqual('', Argument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", 14), 'Job Jnl. Template (14) must have no hint.');
+        LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', Argument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Webhook Receiver URL")), 'Webhook Receiver URL (13) hint.');
+        LibraryAssert.AreEqual('', Argument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Job Jnl. Template")), 'Job Jnl. Template (14) must have no hint.');
     end;
 }
