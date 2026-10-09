@@ -270,7 +270,7 @@ The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f
 
 | App | ID | Purpose |
 | --- | --- | --- |
-| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, 28.0.0.0. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
+| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.0.186. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
 
 That is the only AL dependency. The test app additionally depends on Bifrost Timesheets itself and on Microsoft's test libraries.
 
