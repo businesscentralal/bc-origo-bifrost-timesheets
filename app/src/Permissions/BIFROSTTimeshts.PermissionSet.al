@@ -80,6 +80,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify CustFldList Impl ori" = X,
         codeunit "Clockify Help Overview Sub ori" = X,
         codeunit "Clockify ReqLog Masker ori" = X,
+        codeunit "Clockify Field Restrict ori" = X,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,
