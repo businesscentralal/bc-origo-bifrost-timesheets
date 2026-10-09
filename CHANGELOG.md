@@ -4,6 +4,9 @@
 
 ### Security (01.10.2026) - generic data API field restrictions (core#344)
 
+- `Clockify Field Restrict Tests` (95612) exercises public `Dispatcher ori` / `Data.Records.Set` with field-name and field-number aliases: composed `PermissionDenied`, unchanged stored receiver URL, no partial neighbouring-field write, and allowed field 16 save/clear (#41).
+- Paired builds enable CodeCop/UICop and product AppSourceCop with warnings treated as failures; existing shared-container, signing, upgrade and cleanup settings are preserved (#41).
+
 - `Clockify Field Restrict Tests` (95612) imports `System.TestLibraries.Utilities` and verifies field restrictions through the public `Help.Fields.Get` interface, preserving coverage without calling Foundation internals (#41).
 - `Clockify Field Restrict Tests` (95612) inserts its temporary message argument before storing the request BLOB and asserts that the table and field selectors survive storage, fixing TC001–TC003's runtime JSON failures (#41).
 - Test-app changes trigger a full paired Default/Test build so the shared-container Test phase always has the rebuilt production app to republish.

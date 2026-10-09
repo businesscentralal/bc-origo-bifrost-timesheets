@@ -1,5 +1,6 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
+using Microsoft.Utilities;
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
@@ -87,6 +88,126 @@ codeunit 95612 "Clockify Field Restrict Tests"
         // [THEN] field 13 returns the setup-page hint and field 14 (Job Jnl. Template) returns ''
         LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', TempArgument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Webhook Receiver URL")), 'Webhook Receiver URL (13) hint.');
         LibraryAssert.AreEqual('', TempArgument.GetDedicatedMessageTypeHintForField(Database::"Clockify Setup ori", ClockifySetup.FieldNo("Job Jnl. Template")), 'Job Jnl. Template (14) must have no hint.');
+    end;
+
+    /// <summary>AC07: public dispatch rejects the field-name alias without changing either sent field.</summary>
+    [Test]
+    procedure Scenario_AC07_NameAlias_Refused()
+    begin
+        AssertReceiverWriteRefused('Webhook Receiver URL');
+    end;
+
+    /// <summary>AC07: public dispatch rejects the field-number alias with the same composed refusal.</summary>
+    [Test]
+    procedure Scenario_AC07_NumberAlias_Refused()
+    begin
+        AssertReceiverWriteRefused('13');
+    end;
+
+    /// <summary>AC07: both aliases of neighbouring field 16 remain writable through public dispatch.</summary>
+    [Test]
+    procedure Scenario_AC07_WorkTypeAliases_Save()
+    var
+        ClockifySetup: Record "Clockify Setup ori";
+        WorkType: Record "Work Type";
+        ResponseJson: JsonObject;
+        Token: JsonToken;
+    begin
+        // [GIVEN] A setup row and a valid, identifiable work type.
+        InitializeWriteFixture(ClockifySetup);
+        WorkType.Init();
+        WorkType.Code := 'XAC07';
+        if not WorkType.Get(WorkType.Code) then
+            WorkType.Insert();
+
+        // [WHEN] The public dispatcher writes field 16 by name.
+        ResponseJson := DispatchSetupWrite('Default Work Type', WorkType.Code, false);
+        // [THEN] The value is saved and the protected URL is unchanged.
+        ResponseJson.Get('status', Token);
+        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Field 16 name alias must succeed.');
+        ClockifySetup.Get();
+        LibraryAssert.AreEqual(WorkType.Code, ClockifySetup."Default Work Type", 'Field 16 must be saved.');
+        LibraryAssert.AreEqual('https://xac07.invalid/original', ClockifySetup."Webhook Receiver URL", 'Allowed writes must preserve field 13.');
+
+        // [WHEN] The public dispatcher clears field 16 by number.
+        ResponseJson := DispatchSetupWrite('16', '', false);
+        // [THEN] The number alias also saves, including the blank edge case.
+        ResponseJson.Get('status', Token);
+        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Field 16 number alias must succeed.');
+        ClockifySetup.Get();
+        LibraryAssert.AreEqual('', ClockifySetup."Default Work Type", 'Field 16 number alias must save the blank value.');
+        LibraryAssert.AreEqual('https://xac07.invalid/original', ClockifySetup."Webhook Receiver URL", 'Clearing field 16 must preserve field 13.');
+    end;
+
+    local procedure AssertReceiverWriteRefused(FieldAlias: Text)
+    var
+        ClockifySetup: Record "Clockify Setup ori";
+        ResponseJson: JsonObject;
+        Token: JsonToken;
+    begin
+        // [GIVEN] A known receiver URL and blank work type.
+        InitializeWriteFixture(ClockifySetup);
+        // [WHEN] Public Data.Records.Set attempts a protected and an allowed field together.
+        ResponseJson := DispatchSetupWrite(FieldAlias, 'https://xac07.invalid/rejected', true);
+        // [THEN] Refusal names the field and setup surface exactly once, with no writes.
+        ResponseJson.Get('status', Token);
+        LibraryAssert.AreEqual('Error', Token.AsValue().AsText(), 'Protected write must be refused.');
+        ResponseJson.Get('code', Token);
+        LibraryAssert.AreEqual('PermissionDenied', Token.AsValue().AsText(), 'Refusal must use PermissionDenied.');
+        ResponseJson.Get('error', Token);
+        LibraryAssert.AreEqual('Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set. Use the Timesheets setup page (Clockify Setup).', Token.AsValue().AsText(), 'Refusal must compose the setup hint exactly once.');
+        ResponseJson.Get('nextStep', Token);
+        LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', Token.AsValue().AsText(), 'Refusal must point to the setup page.');
+        ResponseJson.Get('parameter', Token);
+        LibraryAssert.AreEqual('data[0].fields.' + FieldAlias, Token.AsValue().AsText(), 'Refusal must identify the sent alias.');
+        ClockifySetup.Get();
+        LibraryAssert.AreEqual('https://xac07.invalid/original', ClockifySetup."Webhook Receiver URL", 'Refused write must preserve the stored URL.');
+        LibraryAssert.AreEqual('', ClockifySetup."Default Work Type", 'Refused call must not partially write a neighbouring field.');
+    end;
+
+    local procedure InitializeWriteFixture(var ClockifySetup: Record "Clockify Setup ori")
+    begin
+        ClockifySetup.GetSetup();
+        ClockifySetup."Webhook Receiver URL" := 'https://xac07.invalid/original';
+        ClockifySetup."Default Work Type" := '';
+        ClockifySetup.Modify();
+    end;
+
+    local procedure DispatchSetupWrite(FieldAlias: Text; FieldValue: Text; IncludeWorkType: Boolean): JsonObject
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Dispatcher: Codeunit "Dispatcher ori";
+        RequestContent: BigText;
+        ResponseContent: BigText;
+        RequestJson: JsonObject;
+        RecordJson: JsonObject;
+        FieldsJson: JsonObject;
+        PrimaryKeyJson: JsonObject;
+        ResponseJson: JsonObject;
+        RecordsJson: JsonArray;
+        RequestText: Text;
+        ResponseText: Text;
+        ResponseContentType: Text[100];
+    begin
+        PrimaryKeyJson.Add('Primary Key', '');
+        FieldsJson.Add(FieldAlias, FieldValue);
+        if IncludeWorkType then
+            FieldsJson.Add('Default Work Type', 'XREJECT');
+        RecordJson.Add('primaryKey', PrimaryKeyJson);
+        RecordJson.Add('fields', FieldsJson);
+        RecordsJson.Add(RecordJson);
+        RequestJson.Add('tableId', Database::"Clockify Setup ori");
+        RequestJson.Add('data', RecordsJson);
+        TempArgument.Init();
+        TempArgument.Insert();
+        TempArgument.SetRequestJson(RequestJson);
+        RequestJson := TempArgument.GetRequestJson();
+        RequestJson.WriteTo(RequestText);
+        RequestContent.AddText(RequestText);
+        Dispatcher.Execute(Enum::"Message Type ori"::"Data.Records.Set", Enum::"Message Version ori"::"1.0", '', 'XAC07', 'application/json', RequestContent, ResponseContent, ResponseContentType);
+        ResponseContent.GetSubText(ResponseText, 1);
+        ResponseJson.ReadFrom(ResponseText);
+        exit(ResponseJson);
     end;
 
     local procedure IsFieldRestricted(FieldNumber: Integer; RestrictionName: Text): Boolean

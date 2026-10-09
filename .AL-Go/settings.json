@@ -59,5 +59,9 @@
         "installTestRunner": true
       }
     }
-  ]
+  ],
+  "enableCodeCop": true,
+  "enableUICop": true,
+  "failOn": "warning",
+  "enableCodeAnalyzersOnTestApps": true
 }
