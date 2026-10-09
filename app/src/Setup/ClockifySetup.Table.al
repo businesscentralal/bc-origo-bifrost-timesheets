@@ -18,6 +18,7 @@ using Microsoft.Utilities;
 /// </summary>
 table 10036853 "Clockify Setup ori"
 {
+    Extensible = false;
     Caption = 'Clockify Setup', Comment = 'is-IS=Uppsetning Clockify';
     DataClassification = SystemMetadata;
 

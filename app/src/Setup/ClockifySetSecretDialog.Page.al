@@ -7,6 +7,7 @@
 /// </summary>
 page 10036786 "Clockify Set Secret Dialog ori"
 {
+    Extensible = false;
     PageType = StandardDialog;
     Caption = 'Enter Clockify API Key', Comment = 'is-IS=Slá inn Clockify API lykil';
     ApplicationArea = All;
