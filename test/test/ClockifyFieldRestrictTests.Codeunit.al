@@ -97,16 +97,16 @@ codeunit 95612 "Clockify Field Restrict Tests"
         AssertReceiverWriteRefused('Webhook Receiver URL');
     end;
 
-    /// <summary>AC07: public dispatch rejects the field-number alias with the same composed refusal.</summary>
+    /// <summary>AC07: public dispatch rejects the canonical JSON field-name alias with the same composed refusal.</summary>
     [Test]
-    procedure Scenario_AC07_NumberAlias_Refused()
+    procedure Scenario_AC07_JsonAlias_Refused()
     begin
-        AssertReceiverWriteRefused('13');
+        AssertReceiverWriteRefused('WebhookReceiverURL');
     end;
 
-    /// <summary>AC07: both aliases of neighbouring field 16 remain writable through public dispatch.</summary>
+    /// <summary>AC07: neighbouring field 16 remains writable through its canonical JSON key.</summary>
     [Test]
-    procedure Scenario_AC07_WorkTypeAliases_Save()
+    procedure Scenario_AC07_WorkType_SaveAndClear()
     var
         ClockifySetup: Record "Clockify Setup ori";
         WorkType: Record "Work Type";
@@ -120,22 +120,22 @@ codeunit 95612 "Clockify Field Restrict Tests"
         if not WorkType.Get(WorkType.Code) then
             WorkType.Insert();
 
-        // [WHEN] The public dispatcher writes field 16 by name.
-        ResponseJson := DispatchSetupWrite('Default Work Type', WorkType.Code, false);
+        // [WHEN] The public dispatcher writes field 16 through its canonical JSON key.
+        ResponseJson := DispatchSetupWrite('DefaultWorkType', WorkType.Code, false);
         // [THEN] The value is saved and the protected URL is unchanged.
         ResponseJson.Get('status', Token);
-        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Field 16 name alias must succeed.');
+        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Field 16 canonical JSON key must succeed.');
         ClockifySetup.Get();
         LibraryAssert.AreEqual(WorkType.Code, ClockifySetup."Default Work Type", 'Field 16 must be saved.');
         LibraryAssert.AreEqual('https://xac07.invalid/original', ClockifySetup."Webhook Receiver URL", 'Allowed writes must preserve field 13.');
 
-        // [WHEN] The public dispatcher clears field 16 by number.
-        ResponseJson := DispatchSetupWrite('16', '', false);
-        // [THEN] The number alias also saves, including the blank edge case.
+        // [WHEN] The public dispatcher clears field 16 through the same JSON key.
+        ResponseJson := DispatchSetupWrite('DefaultWorkType', '', false);
+        // [THEN] The blank edge case also saves.
         ResponseJson.Get('status', Token);
-        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Field 16 number alias must succeed.');
+        LibraryAssert.AreEqual('Success', Token.AsValue().AsText(), 'Clearing field 16 must succeed.');
         ClockifySetup.Get();
-        LibraryAssert.AreEqual('', ClockifySetup."Default Work Type", 'Field 16 number alias must save the blank value.');
+        LibraryAssert.AreEqual('', ClockifySetup."Default Work Type", 'Field 16 must save the blank value.');
         LibraryAssert.AreEqual('https://xac07.invalid/original', ClockifySetup."Webhook Receiver URL", 'Clearing field 16 must preserve field 13.');
     end;
 
@@ -189,10 +189,10 @@ codeunit 95612 "Clockify Field Restrict Tests"
         ResponseText: Text;
         ResponseContentType: Text[100];
     begin
-        PrimaryKeyJson.Add('Primary Key', '');
+        PrimaryKeyJson.Add('PrimaryKey', '');
         FieldsJson.Add(FieldAlias, FieldValue);
         if IncludeWorkType then
-            FieldsJson.Add('Default Work Type', 'XREJECT');
+            FieldsJson.Add('DefaultWorkType', 'XREJECT');
         RecordJson.Add('primaryKey', PrimaryKeyJson);
         RecordJson.Add('fields', FieldsJson);
         RecordsJson.Add(RecordJson);
