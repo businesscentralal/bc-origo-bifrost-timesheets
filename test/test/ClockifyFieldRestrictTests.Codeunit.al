@@ -3,6 +3,7 @@ namespace Origo.Bifrost.Timesheets.Test;
 using Microsoft.Utilities;
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets;
+using System.Diagnostics;
 using System.TestLibraries.Utilities;
 
 /// <summary>
@@ -166,11 +167,44 @@ codeunit 95612 "Clockify Field Restrict Tests"
     end;
 
     local procedure InitializeWriteFixture(var ClockifySetup: Record "Clockify Setup ori")
+    var
+        ChangeLogSetup: Record "Change Log Setup";
+        ChangeLogSetupTable: Record "Change Log Setup (Table)";
     begin
+        // Keep Foundation's default Blocked guard enabled; audit just this fixture's table.
+        if not ChangeLogSetup.Get() then begin
+            ChangeLogSetup.Init();
+            ChangeLogSetup.Insert();
+        end;
+        ChangeLogSetup."Change Log Activated" := true;
+        ChangeLogSetup.Modify();
+        if not ChangeLogSetupTable.Get(Database::"Clockify Setup ori") then begin
+            ChangeLogSetupTable.Init();
+            ChangeLogSetupTable."Table No." := Database::"Clockify Setup ori";
+            ChangeLogSetupTable.Insert();
+        end;
+        ChangeLogSetupTable."Log Modification" := ChangeLogSetupTable."Log Modification"::"Some Fields";
+        ChangeLogSetupTable.Modify();
+        EnableFixtureFieldLogging(ClockifySetup.FieldNo("Primary Key"));
+        EnableFixtureFieldLogging(ClockifySetup.FieldNo("Default Work Type"));
         ClockifySetup.GetSetup();
         ClockifySetup."Webhook Receiver URL" := 'https://xac07.invalid/original';
         ClockifySetup."Default Work Type" := '';
         ClockifySetup.Modify();
+    end;
+
+    local procedure EnableFixtureFieldLogging(FieldNumber: Integer)
+    var
+        ChangeLogSetupField: Record "Change Log Setup (Field)";
+    begin
+        if not ChangeLogSetupField.Get(Database::"Clockify Setup ori", FieldNumber) then begin
+            ChangeLogSetupField.Init();
+            ChangeLogSetupField."Table No." := Database::"Clockify Setup ori";
+            ChangeLogSetupField."Field No." := FieldNumber;
+            ChangeLogSetupField.Insert();
+        end;
+        ChangeLogSetupField."Log Modification" := true;
+        ChangeLogSetupField.Modify();
     end;
 
     local procedure DispatchSetupWrite(FieldAlias: Text; FieldValue: Text; IncludeWorkType: Boolean): JsonObject
