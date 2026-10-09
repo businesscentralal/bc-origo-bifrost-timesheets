@@ -102,12 +102,23 @@ codeunit 95612 "Clockify Field Restrict Tests"
     begin
         // Help.Fields.Get uses the same field-access checks as Data.Records.Get/Set.
         // Invoke the public interface to exercise Foundation's private checks and our subscriber.
+        TempArgument.Init();
         TempArgument."Type" := TempArgument."Type"::"Help.Fields.Get";
         TempArgument."Version" := TempArgument."Version"::"1.0";
+        // Persist the temporary row so SetRequestJson/CalcFields retain the request BLOB.
+        TempArgument.Insert();
         RequestJson.Add('tableId', Database::"Clockify Setup ori");
         FieldNumbers.Add(FieldNumber);
         RequestJson.Add('fieldNumbers', FieldNumbers);
         TempArgument.SetRequestJson(RequestJson);
+        RequestJson := TempArgument.GetRequestJson();
+        LibraryAssert.IsTrue(RequestJson.Get('tableId', Token), 'Stored request must retain the table selector.');
+        LibraryAssert.AreEqual(Database::"Clockify Setup ori", Token.AsValue().AsInteger(), 'Stored request must target Clockify Setup.');
+        LibraryAssert.IsTrue(RequestJson.Get('fieldNumbers', Token), 'Stored request must retain the field selector.');
+        FieldNumbers := Token.AsArray();
+        LibraryAssert.AreEqual(1, FieldNumbers.Count(), 'Stored request must select exactly one field.');
+        FieldNumbers.Get(0, Token);
+        LibraryAssert.AreEqual(FieldNumber, Token.AsValue().AsInteger(), 'Stored request must select the requested field.');
         MessageImplementation := TempArgument.GetMessageTypeInterface();
         MessageImplementation.ExecuteBifrostTask(TempArgument);
         ResponseJson := TempArgument.GetResponseJson();

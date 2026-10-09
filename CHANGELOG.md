@@ -5,6 +5,7 @@
 ### Security (01.10.2026) - generic data API field restrictions (core#344)
 
 - `Clockify Field Restrict Tests` (95612) imports `System.TestLibraries.Utilities` and verifies field restrictions through the public `Help.Fields.Get` interface, preserving coverage without calling Foundation internals (#41).
+- `Clockify Field Restrict Tests` (95612) inserts its temporary message argument before storing the request BLOB and asserts that the table and field selectors survive storage, fixing TC001–TC003's runtime JSON failures (#41).
 - Test-app changes trigger a full paired Default/Test build so the shared-container Test phase always has the rebuilt production app to republish.
 - `Data.Records.Set` now refuses to set the `Webhook Receiver URL` (field 13) on `Clockify Setup ori` (10036853). That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data to a server of their choice. New `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. New `Clockify Field Restrict Tests` (95612) cover restriction, reads, neighbouring fields, table access and the bare setup hint. The hint is locked machine-facing text composed by Foundation. Reading the field, and the Timesheets setup page and the Clockify message types / webhook handler (which read the URL from code), are unchanged.
 
