@@ -243,7 +243,6 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036835 | Clockify TSheetApprv Impl ori | Implements `Clockify.TimeSheet.Approve`. |
 | Codeunit | 10036836 | Clockify TSheetPost Impl ori | Implements `Clockify.TimeSheet.Post`. |
 | Codeunit | 10036837 | Clockify TSheetArch Impl ori | Implements `Clockify.TimeSheet.Archive`. |
-| Codeunit | 10036838 | Clockify TimeSheet Help ori | Markdown help for the `Clockify.TimeSheet.*` message types. |
 | Codeunit | 10036839 | Clockify TimeSheet Sync ori | Syncs a time entry into a BC Time Sheet (line plus detail) instead of the Job Journal. |
 | Codeunit | 10036840 | Clockify TSheetSync Impl ori | Implements `Clockify.TimeEntry.SyncToTimeSheet`. |
 | Codeunit | 10036841 | Clockify TSheetRange Impl ori | Implements `Clockify.TimeEntry.SyncRangeToTimeSheet`. |
@@ -252,17 +251,11 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036844 | Clockify TSheetReopen Impl ori | Implements `Clockify.TimeSheet.Reopen`. |
 | Codeunit | 10036845 | Clockify TimeEntry Fetch ori | Fetches a user's finished time entries for a date range, following pagination. |
 | Codeunit | 10036846 | Clockify SyncAllUsers Impl ori | Implements `Clockify.TimeEntry.SyncAllUsers`. |
-| Codeunit | 10036847 | Clockify Workspace Help ori | Markdown help for the workspace-scoped reference lists (workspaces, users, user groups, currencies, custom fields). |
-| Codeunit | 10036848 | Clockify Client Help ori | Markdown help for the client message types. |
-| Codeunit | 10036849 | Clockify Project Help ori | Markdown help for the project message types. |
-| Codeunit | 10036850 | Clockify Task Help ori | Markdown help for the task message types. |
-| Codeunit | 10036851 | Clockify Tag Help ori | Markdown help for the tag message types. |
-| Codeunit | 10036852 | Clockify TimeEntry Help ori | Markdown help for the time-entry message types, including the Job Journal sync types. |
-
-The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) holds 6 objects in range 95600–95699 (95600–95605), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
 | Codeunit | 10036838 | Clockify Field Restrict ori | Refuses generic writes to the webhook receiver URL and points the caller to the setup page. |
 | Codeunit | 10036854 | Timesheets Registration ori | Registers Timesheets with Foundation on install and upgrade. |
 | Codeunit | 10036855 | Clockify Contract Parts ori | Builds shared request and response contract descriptions for Clockify message types. |
+
+The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) holds 13 objects in range 95600–95699 (95600–95612), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
 
 ---
 

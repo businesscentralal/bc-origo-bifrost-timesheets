@@ -4,6 +4,8 @@
 
 ### Security (01.10.2026) - generic data API field restrictions (core#344)
 
+- The README object table replaces retired help codeunits with `Clockify Field Restrict ori` (10036838), keeps `Timesheets Registration ori` (10036854) and `Clockify Contract Parts ori` (10036855) in the table, and lists the test-app range through `Clockify Field Restrict Tests` (95612) (#41).
+
 - `Clockify Field Restrict Tests` (95612) exercises public `Dispatcher ori` / `Data.Records.Set` with technical and canonical JSON field-name aliases: composed `PermissionDenied`, unchanged stored receiver URL, no partial neighbouring-field write, and allowed field 16 save/clear with Change Log coverage while the default write guard stays enabled (#41).
 - Paired builds enable CodeCop/UICop and product AppSourceCop with warnings treated as failures; existing shared-container, signing, upgrade and cleanup settings are preserved (#41).
 - The paired-build pre-compile hook retains Alpaca setup and applies AppSource packaging checks only to the product; `Clockify Field Restrict Tests` (95612) and the other test codeunits retain CodeCop/UICop and the zero-warning gate (#41).
