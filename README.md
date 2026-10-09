@@ -2,7 +2,7 @@
 
 **App name:** Bifrost Timesheets  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af`  
-**App ID Range:** 10036785–10036884 (highest id in use: 10036855). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.  
+**App ID Range:** 10036785–10036884 (highest id in use: 10036855). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.
 **Publisher:** Origo — **Version:** 29.0.0.0 — **Namespace:** `Origo.Bifrost.Timesheets`  
 **Target:** Cloud (AppSource) — application/platform 28.0.0.0, runtime 17.0
 
