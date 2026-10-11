@@ -25,11 +25,12 @@
   ],
   "DeployToBifrost": {
     "EnvironmentType": "SaaS",
-    "EnvironmentName": "Bifrost",
+    "EnvironmentName": "UAT",
     "Branches": [
       "main"
     ],
     "ContinuousDeployment": true,
-    "Scope": "Dev"
+    "Scope": "Dev",
+    "DependencyInstallMode": "ignore"
   }
 }
