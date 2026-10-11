@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+
+### Fixed (2026-10-10) - UAT dependency installation
+
+- UAT feature-app deployment uses the Foundation app already deployed by its own pipeline in Dev scope, avoiding an unauthorized AppSource Foundation installation. `.github/AL-Go-Settings.json`: `DeployToBifrost.DependencyInstallMode = "ignore"`. AppSource delivery is unchanged; no AL objects or IDs change.
+
 ### Changed (2026-10-01) - Clockify writes and time sheet posting declare effect irreversible (#39)
 
 - `Clockify.Client/Project/Task/Tag/TimeEntry.Create` and `.Update` write to Clockify outside the Business Central transaction, and `Clockify.TimeSheet.Post` posts job ledger entries; all eleven now declare effect `irreversible`, so the Orchestrator's Omit Commit guard refuses them in a rollback chain.
