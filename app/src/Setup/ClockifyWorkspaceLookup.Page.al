@@ -8,7 +8,6 @@
 /// </summary>
 page 10036788 "Clockify Workspace Lookup ori"
 {
-    Extensible = false;
     PageType = List;
     SourceTable = "Clockify Workspace Buffer ori";
     SourceTableTemporary = true;

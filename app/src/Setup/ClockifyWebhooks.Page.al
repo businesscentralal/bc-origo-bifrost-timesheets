@@ -8,7 +8,6 @@
 /// </summary>
 page 10036787 "Clockify Webhooks ori"
 {
-    Extensible = false;
     PageType = List;
     ApplicationArea = All;
     UsageCategory = None;

@@ -7,7 +7,6 @@
 /// </summary>
 table 10036787 "Clockify Workspace Buffer ori"
 {
-    Extensible = false;
     TableType = Temporary;
     DataClassification = SystemMetadata;
     Caption = 'Clockify Workspace', Comment = 'is-IS=Clockify vinnusvæði';

@@ -14,7 +14,6 @@
 /// </summary>
 table 10036785 "Clockify Integration ori"
 {
-    Extensible = false;
     Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tenging';
     DataClassification = CustomerContent;
     LookupPageId = "Clockify Integration List ori";
