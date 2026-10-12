@@ -28,7 +28,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpTypeIsOutboundWithNoFilterTable()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] The Help.Clockify.Get type reports correct metadata.
@@ -56,7 +56,7 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyTypeMetadataAndHelp(Ordinal: Integer)
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MessageType: Enum "Message Type ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
@@ -115,7 +115,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure WorkspaceListRoutesGetThroughClient()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -141,7 +141,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ErrorResponseIsSurfacedWithStatusCode()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         ResponseJson: JsonObject;
     begin
@@ -162,7 +162,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ProjectCreatePostsBodyToWorkspace()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         BodyJson: JsonObject;
@@ -188,7 +188,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure DefaultWorkspaceUsedWhenRequestOmitsIt()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -361,7 +361,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeEntrySyncErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -390,7 +390,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeEntrySyncRejectsInProgressEntries()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -663,7 +663,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpIncludesIntegrationTracking()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -681,7 +681,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CurrencyListProjectsWorkspaceCurrencies()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
@@ -713,7 +713,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListRoutesGetToWorkspacesUserGroups()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -734,7 +734,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListForwardsQueryString()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -757,7 +757,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListForwardsInProgressQueryParameter()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
         QueryJson: JsonObject;
@@ -781,7 +781,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListRoutesGetToWorkspacesCustomFields()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -803,7 +803,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         RequestJson: JsonObject;
     begin
@@ -825,7 +825,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserGroupListHelpExplainsIdUsage()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -843,7 +843,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure CustomFieldListHelpExplainsIdUsage()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -861,7 +861,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntryListHelpExplainsInProgressFilter()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -879,7 +879,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeEntrySyncHelpWarnsAboutInProgressEntries()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -897,7 +897,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure UserListHelpExplainsOptionalQueryEffects()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -916,7 +916,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure ClientUpdateHelpExplainsOptionalBodyEffects()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -935,7 +935,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewListsLookupEndpoints()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -954,7 +954,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure OverviewGotchasCallOutIdOnlyWrites()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -972,7 +972,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure IntegrationGateAllowsWriteAccess()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         IntegrationGate: Codeunit "Clockify Integration Gate ori";
     begin
         // [SCENARIO] With write permission to the integration table, the gate lets the operation proceed.
@@ -985,7 +985,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeIsInboundWithHelp()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
     begin
         // [SCENARIO] Clockify.TimeEntry.SyncRange reports inbound metadata and produces help.
@@ -1005,7 +1005,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
     begin
@@ -1034,7 +1034,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeCreatesLinesForEntriesInRange()
     var
         JobJournalLine: Record "Job Journal Line";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1073,7 +1073,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangePerEntryErrorDoesNotAbortBatch()
     var
         JobJournalLine: Record "Job Journal Line";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1124,7 +1124,7 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure VerifyInboundTypeMetadataAndHelp(Ordinal: Integer)
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MessageType: Enum "Message Type ori";
         MsgInterface: Interface "Msg Interface ori";
         NotInboundErr: Label 'Type %1 should be inbound.', Comment = '%1 = message type';
@@ -1144,7 +1144,7 @@ codeunit 95601 "Clockify Connector Tests"
     var
         ResourcesSetup: Record "Resources Setup";
         Resource: Record Resource;
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [GIVEN] A Time Sheet No. Series is configured but no time-sheet resources exist
@@ -1167,7 +1167,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
@@ -1182,7 +1182,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetArchiveReturnsZeroWhenNothingPosted()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Archive runs with no posted sheets
@@ -1197,7 +1197,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
@@ -1212,7 +1212,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetReopenReturnsZeroWhenNothingPending()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
@@ -1228,7 +1228,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeSheetPostErrorsWhenNoJournalConfigured()
     var
         ClockifySetup: Record "Clockify Setup ori";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         ResponseJson: JsonObject;
     begin
         // [GIVEN] No Job Journal configured and none supplied
@@ -1250,7 +1250,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure TimeSheetPostReturnsZeroWhenNoApprovedLines()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1274,7 +1274,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoMapping()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         Integration: Record "Clockify Integration ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
@@ -1300,7 +1300,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncToTimeSheetErrorsWhenNoOpenTimeSheet()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1333,7 +1333,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncToTimeSheetCreatesDetailOnOpenSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         JobNo: Code[20];
         JobTaskNo: Code[20];
         ResourceNo: Code[20];
@@ -1372,7 +1372,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncRangeToTimeSheetCreatesDetailsForEntries()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1410,7 +1410,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure SyncRangeToTimeSheetPerEntryErrorDoesNotAbort()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1447,7 +1447,7 @@ codeunit 95601 "Clockify Connector Tests"
     procedure SyncAllUsersSyncsMappedUserToTimeSheet()
     var
         TimeSheetDetail: Record "Time Sheet Detail";
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MockState: Codeunit "Clockify Mock State";
         JobNo: Code[20];
         JobTaskNo: Code[20];
@@ -1604,14 +1604,14 @@ codeunit 95601 "Clockify Connector Tests"
         ClockifySetup.Modify();
     end;
 
-    local procedure ExecuteType(var TempArgument: Record "Message Argument ori"; MessageType: Enum "Message Type ori")
+    local procedure ExecuteType(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori")
     var
         RequestJson: JsonObject;
     begin
         ExecuteTypeWithRequest(TempArgument, MessageType, RequestJson);
     end;
 
-    local procedure ExecuteTypeWithRequest(var TempArgument: Record "Message Argument ori"; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
+    local procedure ExecuteTypeWithRequest(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
         MsgInterface: Interface "Msg Interface ori";
     begin
@@ -1686,7 +1686,7 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure HelpClockifyGetUsesTableNameNotTable()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
     begin
@@ -1790,7 +1790,7 @@ codeunit 95601 "Clockify Connector Tests"
 
     local procedure GetMessageDirection(MessageType: Enum "Message Type ori"): Enum "Msg Direction ori"
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
     begin
         TempArgument.Init();
