@@ -149,7 +149,7 @@ codeunit 95613 "Clockify Help Fixes Tests"
     [Test]
     procedure Overview_DefinesDirectionByMutation()
     var
-        TempArgument: Record "Message Argument ori";
+        TempArgument: Record "Message Argument ori" temporary;
         MsgInterface: Interface "Msg Interface ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;

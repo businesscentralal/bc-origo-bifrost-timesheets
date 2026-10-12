@@ -13,6 +13,7 @@
 - `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet` contract parameters mark `start`/`end` (both) and `taskId` (SyncToTimeSheet) optional, matching the `RequireParam`/`GetOptionalParam`/`GetText` usage in the Impl codeunits.
 - `Clockify Help Builder ori` (10036799) direction doc comment restates the platform convention instead of the stale BC-side/Clockify split.
 - New `Clockify Help Fixes Tests` (95613) asserts the direction of 40 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
+
 ### Changed (2026-10-11) - Current build pins BC 28.5
 
 - `.AL-Go/settings.json` sets `artifact` to `/sandbox/28.5.54151.55751/w1/latest`, so pull request builds and CI/CD compile against Business Central 28.5. AL-Go reads that value as storage/type/version/country/select; the single leading slash keeps country `w1` and select `latest`.
