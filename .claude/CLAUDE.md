@@ -21,7 +21,7 @@ App:   10036785-10036884 (moved 2026-09-06 from the original 70009200-70009249 a
   allocated from Public Range 2 in the object-ranges workbook; offset -59972415 applied to every
   object id). Highest id in use: 10036855. The app was never published, so this is a plain
   renumbering with no upgrade path.
-Tests: 95600-95699 (unchanged). Highest id in use: 95611.
+Tests: 95600-95699 (unchanged). Highest id in use: 95612.
 
 Ids added after the renumbering:
 | Id | Object | Purpose |
@@ -32,6 +32,7 @@ Ids added after the renumbering:
 | 95607 | codeunit `Clockify Reten. Policy Tests` | Retention policy tests |
 | 95608-95610 | codeunit `Message Contract Batch 1/2/3 Tests` | Contract and discovery conformance (#36) |
 | 95611 | codeunit `Message Contract Effect Tests` | Effect chapter of every writing type (#39) |
+| 95612 | codeunit `Clockify Help Fixes Tests` | Direction, sync parameters, 400/403 errors and overview (#32) |
 
 Ids freed: 10036838 and 10036847-10036852 (the per-domain help codeunits, #36); 10036856-10036858
 (`Clockify Contract Help 1/2/3 ori`, residual markdown help that returned empty text, #37).

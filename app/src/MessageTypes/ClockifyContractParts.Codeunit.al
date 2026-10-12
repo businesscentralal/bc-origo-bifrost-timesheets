@@ -247,7 +247,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
                 end;
             else begin
                 Fields.Add(ContractMgt.ResponseField('status', 'string', 'Success or Error.'));
-                Fields.Add(ContractMgt.ResponseField('statusCode', 'integer', 'Clockify HTTP status when an API call was made. The app forwards this status; it does not raise Unauthorized or Forbidden as its own code.'));
+                Fields.Add(ContractMgt.ResponseField('statusCode', 'integer', 'Clockify HTTP status when an API call was made. The app forwards this status; it does not raise Unauthorized or Forbidden as its own code. A missing or wrong-workspace ID surfaces as 400, not 404.'));
                 Fields.Add(ContractMgt.ResponseField('data', 'object', 'The Clockify payload, or the projected currency array for Clockify.Currency.List.'));
             end;
         end;
@@ -268,9 +268,14 @@ codeunit 10036855 "Clockify Contract Parts ori"
             Errors.Add(ContractMgt.TextErrorEntry('Missing required ''%1'' in the request.', 'RequireParam did not find the named value.', 'Send the parameter named in the error text.'));
         if SendsMissingBody(MessageType) then
             Errors.Add(ContractMgt.TextErrorEntry('Missing required ''body'' object in the request.', 'RequireBody did not find a body object.', 'Send the body object.'));
+        if not IsCollection(MessageType) and (MessageType <> MessageType::"Clockify.User.GetCurrent") then
+            Errors.Add(ContractMgt.TextErrorEntry('HTTP 400: ''<entity> doesn''t belong to Workspace'' (for example a client, project, task or time entry ID that is not in the addressed workspace).', 'The addressed object exists in Clockify but is not a member of the addressed workspace. Clockify returns this as HTTP 400, not 404.', 'Verify the workspaceId, then re-run with an ID from the matching *.List message type in that workspace.'));
         case MessageType of
             MessageType::"Clockify.Currency.List":
-                Errors.Add(ContractMgt.TextErrorEntry('The Clockify workspace ''%1'' was not found for the configured API key.', 'The workspace list did not contain the requested workspace.', 'Call Clockify.Workspace.List and pass one of its ids.'));
+                begin
+                    Errors.Add(ContractMgt.TextErrorEntry('The Clockify workspace ''%1'' was not found for the configured API key.', 'The workspace list did not contain the requested workspace.', 'Call Clockify.Workspace.List and pass one of its ids.'));
+                    Errors.Add(ContractMgt.TextErrorEntry('HTTP 403: Access Denied (Clockify error code 501).', 'Custom field definitions require a paid Clockify plan. Free workspaces are rejected before the list call.', 'Upgrade the Clockify plan, or drop customFields from write payloads until paid fields exist.'));
+                end;
             MessageType::"Clockify.TimeEntry.Sync":
                 begin
                     Errors.Add(ContractMgt.TextErrorEntry('In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', 'end is empty.', 'Stop the timer before sync. In-progress protection: these entries are never written to Job Journal.'));
@@ -443,8 +448,8 @@ codeunit 10036855 "Clockify Contract Parts ori"
         Parameters.Add(ContractMgt.Parameter('entryId', 'string', true, 'Clockify time-entry ID.'));
         Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID mapped to a BC Job.'));
         Parameters.Add(ContractMgt.Parameter('taskId', 'string', false, 'Clockify task ID mapped to a BC Job Task. The app reads it when present and does not require it.'));
-        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Start time in ISO-8601 format.'));
-        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'End time in ISO-8601 format; in-progress entries are rejected.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', false, 'Start time in ISO-8601 format. When omitted the app reads the start time from the Clockify entry.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', false, 'End time in ISO-8601 format; in-progress entries are rejected. When omitted the app reads the end time from the Clockify entry.'));
         Parameters.Add(ContractMgt.Parameter('tagIds', 'array', false, 'Clockify tag IDs used for Work Type resolution.'));
         if not ToTimeSheet then
             AddJournalParameters(Parameters, ContractMgt);

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Fixed (2026-10-12) - Clockify help text and direction fixes (#32)
+
+- `GetMessageDirection` on the fifteen `Clockify.Client/Project/Task/Tag/TimeEntry.Create/Update/Delete` types now returns `Inbound` (platform convention: mutate = Inbound, read = Outbound), matching every other mutating type in the family; the eleven BC-side sync and time sheet types were already Inbound and stay so, and the read types stay Outbound.
+- The `Help.Clockify.Get` overview defines direction by mutation instead of "who calls whom": Outbound = read, Inbound = write or mutating (Clockify writes and the eleven BC-side types, now all listed), and says the Sync/SyncToTimeSheet types read the mapping rows and create, update or reverse the `TIME_ENTRY` rows they sync themselves (the "never touch it" sentence is gone).
+- The contract errors chapter documents the wrong-workspace response as HTTP 400 "<entity> doesn't belong to Workspace" for every single-ID type (live verify shows Clockify answering 400, not 404), and `Clockify.CustomField.List` documents the 403 Access Denied (Clockify code 501) on plans without custom fields.
+- `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet` contract parameters mark `start`/`end` (both) and `taskId` (SyncToTimeSheet) optional, matching the `RequireParam`/`GetOptionalParam`/`GetText` usage in the Impl codeunits.
+- The `Clockify Help Builder ori` direction doc comment restates the platform convention instead of the stale BC-side/Clockify split.
+- New `Clockify Help Fixes Tests` (95612) asserts the direction of all 26 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
+
 
 ### Fixed (2026-10-10) - UAT dependency installation
 

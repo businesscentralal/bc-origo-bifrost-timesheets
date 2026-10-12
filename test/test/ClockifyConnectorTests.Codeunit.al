@@ -1742,9 +1742,6 @@ codeunit 95601 "Clockify Connector Tests"
 
         foreach MessageType in MessageTypes do
             LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Inbound, GetMessageDirection(MessageType), StrSubstNo(WrongOutboundErr, MessageType));
-
-        // Spot-check one Outbound type still shows Outbound.
-        LibraryAssert.AreEqual(Enum::"Msg Direction ori"::Outbound, GetMessageDirection(Enum::"Message Type ori"::"Clockify.Client.Create"), 'Client.Create must remain Outbound.');
     end;
 
     [Test]
