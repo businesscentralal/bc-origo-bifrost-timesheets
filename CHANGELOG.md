@@ -9,12 +9,18 @@
 - The contract errors chapter documents the wrong-workspace response as HTTP 400 "<entity> doesn't belong to Workspace" for every single-ID type (live verify shows Clockify answering 400, not 404), and `Clockify.CustomField.List` documents the 403 Access Denied (Clockify code 501) on plans without custom fields.
 - `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet` contract parameters mark `start`/`end` (both) and `taskId` (SyncToTimeSheet) optional, matching the `RequireParam`/`GetOptionalParam`/`GetText` usage in the Impl codeunits.
 - The `Clockify Help Builder ori` direction doc comment restates the platform convention instead of the stale BC-side/Clockify split.
-- New `Clockify Help Fixes Tests` (95612) asserts the direction of 40 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
+- New `Clockify Help Fixes Tests` (95613, moved from 95612 which #42 took) asserts the direction of 40 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
 
 
 ### Fixed (2026-10-10) - UAT dependency installation
 
 - UAT feature-app deployment uses the Foundation app already deployed by its own pipeline in Dev scope, avoiding an unauthorized AppSource Foundation installation. `.github/AL-Go-Settings.json`: `DeployToBifrost.DependencyInstallMode = "ignore"`. AppSource delivery is unchanged; no AL objects or IDs change.
+
+### Security (2026-10-01) - generic data API field restrictions (core#344)
+
+- `Data.Records.Set` refuses the `Webhook Receiver URL` (field 13) on `Clockify Setup ori` (10036853). That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data. `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. The hint is locked machine-facing text, `the Timesheets setup page (Clockify Setup)`, which Foundation composes into the refusal. Reading the field stays allowed. The Timesheets setup page and the Clockify message types / webhook handler are unchanged (#41).
+- `Clockify Field Restrict Tests` (95612) cover the restriction through public `Help.Fields.Get`, and public `Data.Records.Set` refusal and allowed writes.
+- Paired builds treat warnings as failures, run CodeCop and UICop, and apply AppSourceCop to the product app only. Test-app changes trigger a full paired Default/Test build.
 
 ### Changed (2026-10-01) - Clockify writes and time sheet posting declare effect irreversible (#39)
 
