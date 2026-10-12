@@ -268,14 +268,13 @@ codeunit 10036855 "Clockify Contract Parts ori"
             Errors.Add(ContractMgt.TextErrorEntry('Missing required ''%1'' in the request.', 'RequireParam did not find the named value.', 'Send the parameter named in the error text.'));
         if SendsMissingBody(MessageType) then
             Errors.Add(ContractMgt.TextErrorEntry('Missing required ''body'' object in the request.', 'RequireBody did not find a body object.', 'Send the body object.'));
-        if not IsCollection(MessageType) and (MessageType <> MessageType::"Clockify.User.GetCurrent") then
+        if SendsWrongWorkspace(MessageType) then
             Errors.Add(ContractMgt.TextErrorEntry('HTTP 400: ''<entity> doesn''t belong to Workspace'' (for example a client, project, task or time entry ID that is not in the addressed workspace).', 'The addressed object exists in Clockify but is not a member of the addressed workspace. Clockify returns this as HTTP 400, not 404.', 'Verify the workspaceId, then re-run with an ID from the matching *.List message type in that workspace.'));
         case MessageType of
             MessageType::"Clockify.Currency.List":
-                begin
-                    Errors.Add(ContractMgt.TextErrorEntry('The Clockify workspace ''%1'' was not found for the configured API key.', 'The workspace list did not contain the requested workspace.', 'Call Clockify.Workspace.List and pass one of its ids.'));
-                    Errors.Add(ContractMgt.TextErrorEntry('HTTP 403: Access Denied (Clockify error code 501).', 'Custom field definitions require a paid Clockify plan. Free workspaces are rejected before the list call.', 'Upgrade the Clockify plan, or drop customFields from write payloads until paid fields exist.'));
-                end;
+                Errors.Add(ContractMgt.TextErrorEntry('The Clockify workspace ''%1'' was not found for the configured API key.', 'The workspace list did not contain the requested workspace.', 'Call Clockify.Workspace.List and pass one of its ids.'));
+            MessageType::"Clockify.CustomField.List":
+                Errors.Add(ContractMgt.TextErrorEntry('HTTP 403: Access Denied (Clockify error code 501).', 'Custom field definitions require a paid Clockify plan. Free workspaces are rejected before the list call.', 'Upgrade the Clockify plan, or drop customFields from write payloads until paid fields exist.'));
             MessageType::"Clockify.TimeEntry.Sync":
                 begin
                     Errors.Add(ContractMgt.TextErrorEntry('In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', 'end is empty.', 'Stop the timer before sync. In-progress protection: these entries are never written to Job Journal.'));
@@ -632,6 +631,31 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.Tag.Update",
             MessageType::"Clockify.TimeEntry.Create",
             MessageType::"Clockify.TimeEntry.Update"]);
+    end;
+
+    local procedure SendsWrongWorkspace(MessageType: Enum "Message Type ori"): Boolean
+    begin
+        // The 17 single-ID types that address a Clockify client, project, task, tag, user or
+        // time-entry id. Task.List and TimeEntry.List are collections, but they still address
+        // projectId and userId. BC-side sync/time-sheet types and Help.Clockify.Get do not.
+        exit(MessageType in [
+            MessageType::"Clockify.Client.Get",
+            MessageType::"Clockify.Client.Update",
+            MessageType::"Clockify.Client.Delete",
+            MessageType::"Clockify.Project.Get",
+            MessageType::"Clockify.Project.Update",
+            MessageType::"Clockify.Project.Delete",
+            MessageType::"Clockify.Task.List",
+            MessageType::"Clockify.Task.Create",
+            MessageType::"Clockify.Task.Update",
+            MessageType::"Clockify.Task.Delete",
+            MessageType::"Clockify.Tag.Update",
+            MessageType::"Clockify.Tag.Delete",
+            MessageType::"Clockify.TimeEntry.List",
+            MessageType::"Clockify.TimeEntry.Get",
+            MessageType::"Clockify.TimeEntry.Create",
+            MessageType::"Clockify.TimeEntry.Update",
+            MessageType::"Clockify.TimeEntry.Delete"]);
     end;
 
     local procedure ExampleTitle(MessageType: Enum "Message Type ori"): Text

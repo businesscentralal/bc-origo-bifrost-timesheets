@@ -9,7 +9,7 @@
 - The contract errors chapter documents the wrong-workspace response as HTTP 400 "<entity> doesn't belong to Workspace" for every single-ID type (live verify shows Clockify answering 400, not 404), and `Clockify.CustomField.List` documents the 403 Access Denied (Clockify code 501) on plans without custom fields.
 - `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet` contract parameters mark `start`/`end` (both) and `taskId` (SyncToTimeSheet) optional, matching the `RequireParam`/`GetOptionalParam`/`GetText` usage in the Impl codeunits.
 - The `Clockify Help Builder ori` direction doc comment restates the platform convention instead of the stale BC-side/Clockify split.
-- New `Clockify Help Fixes Tests` (95612) asserts the direction of all 26 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
+- New `Clockify Help Fixes Tests` (95612) asserts the direction of 40 Clockify types, the optional sync parameters, the 400/403 error rows, and the rewritten overview (run through the public dispatcher with the mock API client).
 
 
 ### Fixed (2026-10-10) - UAT dependency installation

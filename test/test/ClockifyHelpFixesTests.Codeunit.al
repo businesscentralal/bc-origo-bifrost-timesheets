@@ -152,7 +152,8 @@ codeunit 95612 "Clockify Help Fixes Tests"
         MsgInterface: Interface "Msg Interface ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
-        ResultJson: JsonObject;
+        ResultToken: JsonToken;
+        MarkdownToken: JsonToken;
         Markdown: Text;
     begin
         // [GIVEN] Help.Clockify.Get run through the public dispatcher (mock API, key set).
@@ -165,8 +166,9 @@ codeunit 95612 "Clockify Help Fixes Tests"
         MsgInterface := TempArgument.GetMessageTypeInterface();
         MsgInterface.ExecuteBifrostTask(TempArgument);
         TempArgument.GetResponseJson(ResponseJson);
-        Assert.IsTrue(ResponseJson.Get('result', ResultJson), 'overview result');
-        Markdown := ResultJson.PropertyValue('markdown');
+        Assert.IsTrue(ResponseJson.Get('result', ResultToken), 'overview result');
+        Assert.IsTrue(ResultToken.AsObject().Get('markdown', MarkdownToken), 'overview markdown');
+        Markdown := MarkdownToken.AsValue().AsText();
 
         // [THEN] the direction paragraph defines Outbound as read and Inbound as
         // write/mutating, lists the eleven BC-side types, and says the sync types maintain
@@ -197,12 +199,12 @@ codeunit 95612 "Clockify Help Fixes Tests"
 
     local procedure AssertDirection(MessageType: Enum "Message Type ori"; Expected: Enum "Msg Direction ori")
     var
-        Interface: Interface "Msg Interface ori";
+        MsgInterface: Interface "Msg Interface ori";
         Name: Text;
     begin
-        Interface := MessageType;
+        MsgInterface := MessageType;
         Name := Enum::"Message Type ori".Names().Get(Enum::"Message Type ori".Ordinals().IndexOf(MessageType.AsInteger()));
-        Assert.AreEqual(Expected, Interface.GetMessageDirection(), Name + ' direction');
+        Assert.AreEqual(Expected, MsgInterface.GetMessageDirection(), Name + ' direction');
     end;
 
     local procedure AssertParameters(MessageType: Enum "Message Type ori"; var Parameters: JsonArray)
@@ -215,13 +217,21 @@ codeunit 95612 "Clockify Help Fixes Tests"
     local procedure AssertParamRequired(Parameters: JsonArray; Name: Text; Required: Boolean; Label: Text)
     var
         Index: Integer;
+        EntryToken: JsonToken;
         Entry: JsonObject;
+        NameToken: JsonToken;
+        RequiredToken: JsonToken;
     begin
-        for Index := 0 to Parameters.Count() - 1 do begin
-            Entry := Parameters.Get(Index).AsObject();
-            if Entry.PropertyValue('name') = Name then
-                exit Assert.AreEqual(Required, Entry.AsValue('required').AsBoolean(), Label);
-        end;
+        for Index := 0 to Parameters.Count() - 1 do
+            if Parameters.Get(Index, EntryToken) then begin
+                Entry := EntryToken.AsObject();
+                if Entry.Get('name', NameToken) then
+                    if NameToken.AsValue().AsText() = Name then begin
+                        Assert.IsTrue(Entry.Get('required', RequiredToken), Label);
+                        Assert.AreEqual(Required, RequiredToken.AsValue().AsBoolean(), Label);
+                        exit;
+                    end;
+            end;
         Assert.Fail(Label + ': parameter not found');
     end;
 
@@ -235,13 +245,17 @@ codeunit 95612 "Clockify Help Fixes Tests"
     local procedure AssertHasErrorText(Errors: JsonArray; Substring: Text; Label: Text)
     var
         Index: Integer;
+        EntryToken: JsonToken;
         Entry: JsonObject;
+        ErrorToken: JsonToken;
     begin
-        for Index := 0 to Errors.Count() - 1 do begin
-            Entry := Errors.Get(Index).AsObject();
-            if Entry.Contains('error') and Entry.PropertyValue('error').Contains(Substring) then
-                exit;
-        end;
+        for Index := 0 to Errors.Count() - 1 do
+            if Errors.Get(Index, EntryToken) then begin
+                Entry := EntryToken.AsObject();
+                if Entry.Get('error', ErrorToken) then
+                    if ErrorToken.AsValue().AsText().Contains(Substring) then
+                        exit;
+            end;
         Assert.Fail(Label + ': no error entry contains ' + Substring);
     end;
 }
