@@ -6,6 +6,13 @@
 
 - UAT feature-app deployment uses the Foundation app already deployed by its own pipeline in Dev scope, avoiding an unauthorized AppSource Foundation installation. `.github/AL-Go-Settings.json`: `DeployToBifrost.DependencyInstallMode = "ignore"`. AppSource delivery is unchanged; no AL objects or IDs change.
 
+### Changed (2026-10-05) - align with Bifrost Foundation 28.0.1
+
+- The Foundation dependency floor is **28.0.1.0** in `app/app.json` and `test/app.json`, the same floor as Bifrost Language Models and Bifrost Attachments.
+- The nine tables and pages this alignment had closed stay extensible. They shipped extensible in 29.0.0.0, and closing them is an AppSource breaking change.
+- `tools/` carries Foundation's source guards. The Source Guards workflow runs the checks that already pass on Attachments: no call stack in answers, validated table views, no obsolete, permission coverage, and Icelandic keyword counts. Contract-parameter and mixed-language guards are copied but not wired in.
+- Help Links is not wired in until `businesscentralal/bifrost` main has `help/timesheets/`.
+
 ### Security (2026-10-01) - generic data API field restrictions (core#344)
 
 - `Data.Records.Set` refuses the `Webhook Receiver URL` (field 13) on `Clockify Setup ori` (10036853). That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data. `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. The hint is locked machine-facing text, `the Timesheets setup page (Clockify Setup)`, which Foundation composes into the refusal. Reading the field stays allowed. The Timesheets setup page and the Clockify message types / webhook handler are unchanged (#41).
