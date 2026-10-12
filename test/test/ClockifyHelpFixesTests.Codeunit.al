@@ -1,6 +1,7 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Origo.Bifrost;
+using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>
