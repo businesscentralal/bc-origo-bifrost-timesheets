@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Changed (2026-10-11) - Current build pins BC 28.5
+
+- `.AL-Go/settings.json` sets `artifact` to `/sandbox/28.5.54151.55751/w1/latest`, so pull request builds and CI/CD compile against Business Central 28.5. AL-Go reads that value as storage/type/version/country/select; the single leading slash keeps country `w1` and select `latest`.
+- `.github/Test Current.settings.json` sets the same artifact, `/sandbox/28.5.54151.55751/w1/latest`, so the Test Current workflow no longer overrides the pin with `////latest`. `.github/Test Next Minor.settings.json` and `.github/Test Next Major.settings.json` stay on `////nextminor` and `////nextmajor`. `.github/AL-Go-Settings.json` does not set `artifact`.
+- `app/app.json` and `test/app.json` already set runtime `17.0` and application/platform `28.0.0.0`. No app version change, and no AL symbols needed a 28.5 correction.
+
 ### Fixed (2026-10-10) - UAT dependency installation
 
 - UAT feature-app deployment uses the Foundation app already deployed by its own pipeline in Dev scope, avoiding an unauthorized AppSource Foundation installation. `.github/AL-Go-Settings.json`: `DeployToBifrost.DependencyInstallMode = "ignore"`. AppSource delivery is unchanged; no AL objects or IDs change.
