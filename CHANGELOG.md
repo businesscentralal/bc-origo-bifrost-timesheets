@@ -2,10 +2,15 @@
 
 ## [Unreleased]
 
-
 ### Fixed (2026-10-10) - UAT dependency installation
 
 - UAT feature-app deployment uses the Foundation app already deployed by its own pipeline in Dev scope, avoiding an unauthorized AppSource Foundation installation. `.github/AL-Go-Settings.json`: `DeployToBifrost.DependencyInstallMode = "ignore"`. AppSource delivery is unchanged; no AL objects or IDs change.
+
+### Security (2026-10-01) - generic data API field restrictions (core#344)
+
+- `Data.Records.Set` refuses the `Webhook Receiver URL` (field 13) on `Clockify Setup ori` (10036853). That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data. `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. The hint is locked machine-facing text, `the Timesheets setup page (Clockify Setup)`, which Foundation composes into the refusal. Reading the field stays allowed. The Timesheets setup page and the Clockify message types / webhook handler are unchanged (#41).
+- `Clockify Field Restrict Tests` (95612) cover the restriction through public `Help.Fields.Get`, and public `Data.Records.Set` refusal and allowed writes.
+- Paired builds treat warnings as failures, run CodeCop and UICop, and apply AppSourceCop to the product app only. Test-app changes trigger a full paired Default/Test build.
 
 ### Changed (2026-10-01) - Clockify writes and time sheet posting declare effect irreversible (#39)
 

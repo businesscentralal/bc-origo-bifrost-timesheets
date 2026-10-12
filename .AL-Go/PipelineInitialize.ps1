@@ -116,4 +116,12 @@ if ($env:BIFROST_SHARED_CONTAINER -eq 'true') {
 }
 
 
+# Chain after Alpaca installs its hook; an AL-Go PreCompileApp file alone is replaced.
+Set-Variable -Name 'BifrostAlpacaPreCompileApp' -Value (Get-Variable -Name 'PreCompileApp' -Scope 1 -ValueOnly) -Scope 1
+Set-Variable -Name 'PreCompileApp' -Scope 1 -Value {
+    param([string] $AppType, [ref] $Parameters)
+    . ./tools/BifrostTestAnalyzers.ps1
+    Invoke-BifrostPreCompile -AppType $AppType -Parameters $Parameters -AlpacaPreCompile $BifrostAlpacaPreCompileApp
+}
+
 Write-Host "::endgroup::"
