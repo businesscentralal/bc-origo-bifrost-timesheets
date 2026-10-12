@@ -166,7 +166,7 @@ codeunit 95613 "Clockify Help Fixes Tests"
         TempArgument.SetRequestJson(RequestJson);
         MsgInterface := TempArgument.GetMessageTypeInterface();
         MsgInterface.ExecuteBifrostTask(TempArgument);
-        TempArgument.GetResponseJson(ResponseJson);
+        ResponseJson := TempArgument.GetResponseJson();
         Assert.IsTrue(ResponseJson.Get('result', ResultToken), 'overview result');
         Assert.IsTrue(ResultToken.AsObject().Get('markdown', MarkdownToken), 'overview markdown');
         Markdown := MarkdownToken.AsValue().AsText();
@@ -186,6 +186,7 @@ codeunit 95613 "Clockify Help Fixes Tests"
         ClockifySetup: Record "Clockify Setup ori";
         MockState: Codeunit "Clockify Mock State";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
+        KeyText: Text;
     begin
         MockState.Reset();
         if not ClockifySetup.Get() then begin
@@ -195,7 +196,8 @@ codeunit 95613 "Clockify Help Fixes Tests"
         ClockifySetup."API Version" := ClockifySetup."API Version"::Mock;
         ClockifySetup.Modify();
         SecretMgt.ClearCompanyApiKey();
-        SecretMgt.SetCompanyApiKey('test-company-api-key');
+        KeyText := 'test-company-api-key';
+        SecretMgt.SetCompanyApiKey(KeyText);
     end;
 
     local procedure AssertDirection(MessageType: Enum "Message Type ori"; Expected: Enum "Msg Direction ori")
