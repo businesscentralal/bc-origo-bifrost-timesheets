@@ -143,7 +143,7 @@ codeunit 95613 "Clockify Help Fixes Tests"
         // answers the list call with 403 Access Denied (Clockify code 501).
         AssertErrors("Message Type ori"::"Clockify.CustomField.List", Errors);
         AssertHasErrorText(Errors, '403', 'CustomField.List 403 status');
-        AssertHasErrorText(Errors, 'paid Clockify plan', 'CustomField.List paid plan');
+        AssertHasErrorText(Errors, '501', 'CustomField.List error code 501');
     end;
 
     [Test]

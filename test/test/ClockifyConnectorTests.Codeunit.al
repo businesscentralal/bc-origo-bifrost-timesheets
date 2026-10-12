@@ -48,6 +48,7 @@ codeunit 95601 "Clockify Connector Tests"
         Ordinal: Integer;
     begin
         // [SCENARIO] Every Clockify message type (10036785-10036814) exposes metadata and non-empty help.
+        // Create/Update/Delete types in this range are Inbound (#32); reads stay Outbound.
         Ordinals := MessageType.Ordinals();
         foreach Ordinal in Ordinals do
             if (Ordinal >= 10036785) and (Ordinal <= 10036814) then
@@ -60,7 +61,8 @@ codeunit 95601 "Clockify Connector Tests"
         MessageType: Enum "Message Type ori";
         MsgInterface: Interface "Msg Interface ori";
         HelpText: Text;
-        NotOutboundErr: Label 'Type %1 should be outbound.', Comment = '%1 = message type';
+        ExpectedDirection: Enum "Msg Direction ori";
+        DirectionErr: Label 'Type %1 should be %2.', Comment = '%1 = message type, %2 = direction';
         NoDescriptionErr: Label 'Type %1 should have a description.', Comment = '%1 = message type';
         NoHelpErr: Label 'Type %1 should produce help markdown.', Comment = '%1 = message type';
     begin
@@ -70,14 +72,30 @@ codeunit 95601 "Clockify Connector Tests"
         TempArgument.Insert();
         MsgInterface := TempArgument.GetMessageTypeInterface();
 
+        if IsClockifyWriteType(MessageType) then
+            ExpectedDirection := Enum::"Msg Direction ori"::Inbound
+        else
+            ExpectedDirection := Enum::"Msg Direction ori"::Outbound;
         LibraryAssert.AreEqual(
-            Enum::"Msg Direction ori"::Outbound,
+            ExpectedDirection,
             MsgInterface.GetMessageDirection(),
-            StrSubstNo(NotOutboundErr, MessageType));
+            StrSubstNo(DirectionErr, MessageType, ExpectedDirection));
         LibraryAssert.AreNotEqual('', MsgInterface.GetDescription(), StrSubstNo(NoDescriptionErr, MessageType));
 
         HelpText := GetContractText(MessageType);
         LibraryAssert.AreNotEqual('', HelpText, StrSubstNo(NoHelpErr, MessageType));
+    end;
+
+    local procedure IsClockifyWriteType(MessageType: Enum "Message Type ori"): Boolean
+    var
+        TypeName: Text;
+        Names: List of [Text];
+        Ordinals: List of [Integer];
+    begin
+        Names := Enum::"Message Type ori".Names();
+        Ordinals := Enum::"Message Type ori".Ordinals();
+        TypeName := Names.Get(Ordinals.IndexOf(MessageType.AsInteger()));
+        exit(TypeName.EndsWith('.Create') or TypeName.EndsWith('.Update') or TypeName.EndsWith('.Delete'));
     end;
 
     [Test]
