@@ -2,7 +2,7 @@
 
 **App name:** Bifrost Timesheets  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af`  
-**App ID Range:** 10036785–10036884 (highest id in use: 10036853). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.  
+**App ID Range:** 10036785–10036884 (highest id in use: 10036855). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.
 **Publisher:** Origo — **Version:** 29.0.0.0 — **Namespace:** `Origo.Bifrost.Timesheets`  
 **Target:** Cloud (AppSource) — application/platform 28.0.0.0, runtime 17.0
 
@@ -136,6 +136,8 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 **Permissions.** `BIFROST Timeshts ori` (*Bifrost Timesheets* / *Bifröst tímaskýrslur*) is the app's single assignable permission set and grants everything the app owns: the setup, integration, webhook and buffer tables, every message-type implementation and help codeunit, and the five pages. Combine it with a Bifröst Foundation permission set (`BIFROST Full ori` or `BIFROST Read ori`) — the message loop, the request log and `User Setup ori` live in Foundation — and with the base-application permissions for the targets the sync writes to: Job Journal, Time Sheets and Resources.
 
+`Data.Records.Set` refuses writes to **Webhook Receiver URL** (field 13) with `PermissionDenied` and directs the caller to this setup page. Edit and save the URL on **Bifrost Timesheets Setup**. The field remains readable through the generic data API; **Default Work Type** (field 16) remains writable.
+
 ---
 
 ## Example Scenario
@@ -168,7 +170,7 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 
 ## Objects
 
-84 objects in `app/src`: 68 codeunits, 5 pages, 4 tables, 2 enums, 2 enum extensions, 1 page extension, 1 permission set and 1 interface. Interfaces carry no object id.
+80 objects in `app/src`: 64 codeunits, 5 pages, 4 tables, 2 enums, 2 enum extensions, 1 page extension, 1 permission set and 1 interface. Interfaces carry no object id.
 
 | Object Type | Object ID | Name | Purpose |
 | --- | --- | --- | --- |
@@ -241,7 +243,6 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036835 | Clockify TSheetApprv Impl ori | Implements `Clockify.TimeSheet.Approve`. |
 | Codeunit | 10036836 | Clockify TSheetPost Impl ori | Implements `Clockify.TimeSheet.Post`. |
 | Codeunit | 10036837 | Clockify TSheetArch Impl ori | Implements `Clockify.TimeSheet.Archive`. |
-| Codeunit | 10036838 | Clockify TimeSheet Help ori | Markdown help for the `Clockify.TimeSheet.*` message types. |
 | Codeunit | 10036839 | Clockify TimeSheet Sync ori | Syncs a time entry into a BC Time Sheet (line plus detail) instead of the Job Journal. |
 | Codeunit | 10036840 | Clockify TSheetSync Impl ori | Implements `Clockify.TimeEntry.SyncToTimeSheet`. |
 | Codeunit | 10036841 | Clockify TSheetRange Impl ori | Implements `Clockify.TimeEntry.SyncRangeToTimeSheet`. |
@@ -250,14 +251,11 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036844 | Clockify TSheetReopen Impl ori | Implements `Clockify.TimeSheet.Reopen`. |
 | Codeunit | 10036845 | Clockify TimeEntry Fetch ori | Fetches a user's finished time entries for a date range, following pagination. |
 | Codeunit | 10036846 | Clockify SyncAllUsers Impl ori | Implements `Clockify.TimeEntry.SyncAllUsers`. |
-| Codeunit | 10036847 | Clockify Workspace Help ori | Markdown help for the workspace-scoped reference lists (workspaces, users, user groups, currencies, custom fields). |
-| Codeunit | 10036848 | Clockify Client Help ori | Markdown help for the client message types. |
-| Codeunit | 10036849 | Clockify Project Help ori | Markdown help for the project message types. |
-| Codeunit | 10036850 | Clockify Task Help ori | Markdown help for the task message types. |
-| Codeunit | 10036851 | Clockify Tag Help ori | Markdown help for the tag message types. |
-| Codeunit | 10036852 | Clockify TimeEntry Help ori | Markdown help for the time-entry message types, including the Job Journal sync types. |
+| Codeunit | 10036838 | Clockify Field Restrict ori | Refuses generic writes to the webhook receiver URL and points the caller to the setup page. |
+| Codeunit | 10036854 | Timesheets Registration ori | Registers Timesheets with Foundation on install and upgrade. |
+| Codeunit | 10036855 | Clockify Contract Parts ori | Builds shared request and response contract descriptions for Clockify message types. |
 
-The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) holds 6 objects in range 95600–95699 (95600–95605), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
+The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) holds 13 objects in range 95600–95699 (95600–95612), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
 
 ---
 
@@ -265,7 +263,7 @@ The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f
 
 | App | ID | Purpose |
 | --- | --- | --- |
-| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, 28.0.0.0. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
+| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.0.186. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
 
 That is the only AL dependency. The test app additionally depends on Bifrost Timesheets itself and on Microsoft's test libraries.
 

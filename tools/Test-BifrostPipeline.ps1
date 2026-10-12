@@ -71,6 +71,7 @@ Require ($parseErrors.Count -eq 0) 'PipelineInitialize.ps1 must parse.'
 $pipelineCalls = @($pipelineAst.FindAll({ param($node) $node -is [Management.Automation.Language.CommandAst] }, $true) | ForEach-Object { $_.GetCommandName() })
 Require ('Initialize-BifrostSharedContainer' -in $pipelineCalls) 'Initialization must select and verify the shared container.'
 Require ('Invoke-BifrostSharedPublish' -in $pipelineCalls) 'Publishing must enforce Test production-app republish before the test app.'
+Require ('Invoke-BifrostPreCompile' -in $pipelineCalls) 'Compilation must chain Alpaca and select the required test analyzers.'
 $pipelineVariables = @($pipelineAst.FindAll({ param($node) $node -is [Management.Automation.Language.VariableExpressionAst] }, $true) | ForEach-Object { $_.VariablePath.UserPath })
 # Feature apps strip before Alpaca initialization; Orchestrator chains PreCompileApp instead.
 $initialStrip = (Read-ProjectFile '.AL-Go/PipelineInitialize.ps1') -split 'Write-Host "::group::PipelineInitialize"', 2 | Select-Object -First 1
@@ -90,4 +91,5 @@ Require ($testSettings.settings.skipUpgrade -contains $true) 'Test must skip dep
 Require (!$settings.skipUpgrade -and !($defaultSettings.settings.skipUpgrade -contains $true)) 'Default must retain upgrade validation.'
 
 if ($failures.Count) { throw ("Bifrost pipeline contract failed:`n- " + ($failures -join "`n- ")) }
+& (Join-Path $ProjectPath 'tools/Test-BifrostTestAnalyzers.ps1') -ProjectPath $ProjectPath
 Write-Host 'Bifrost pipeline contract passed: sequential builds, shared identity, Test republish wiring, production internals stripping, cleanup, signing request, settings sync and upgrade modes.'
