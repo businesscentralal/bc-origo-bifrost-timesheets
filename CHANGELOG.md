@@ -10,6 +10,12 @@
 
 - Build policy only, no app change. `CI/CD` runs on pushes to `main` only, and `Pull Request Build` runs for pull requests into any branch. `.github/AL-Go-Settings.json` sets `CICDPushBranches` to `main` and `CICDPullRequestBranches` to `**`, so Update AL-Go System Files keeps the triggers.
 
+### Security (2026-10-01) - generic data API field restrictions (core#344)
+
+- `Data.Records.Set` refuses the `Webhook Receiver URL` (field 13) on `Clockify Setup ori` (10036853). That URL is where Clockify is told to deliver real-time time-entry webhooks, so a generic-write caller could otherwise redirect time-entry data. `Clockify Field Restrict ori` (10036838) subscribes to Foundation's `OnAfterIsFieldWriteRestrictedForDataRecords` and `OnGetDedicatedMessageTypeHintForField`. The hint is locked machine-facing text, `the Timesheets setup page (Clockify Setup)`, which Foundation composes into the refusal. Reading the field stays allowed. The Timesheets setup page and the Clockify message types / webhook handler are unchanged (#41).
+- `Clockify Field Restrict Tests` (95612) cover the restriction through public `Help.Fields.Get`, and public `Data.Records.Set` refusal and allowed writes.
+- Paired builds treat warnings as failures, run CodeCop and UICop, and apply AppSourceCop to the product app only. Test-app changes trigger a full paired Default/Test build.
+
 ### Changed (2026-10-01) - Clockify writes and time sheet posting declare effect irreversible (#39)
 
 - `Clockify.Client/Project/Task/Tag/TimeEntry.Create` and `.Update` write to Clockify outside the Business Central transaction, and `Clockify.TimeSheet.Post` posts job ledger entries; all eleven now declare effect `irreversible`, so the Orchestrator's Omit Commit guard refuses them in a rollback chain.
