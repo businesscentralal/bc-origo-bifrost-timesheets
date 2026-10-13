@@ -164,7 +164,8 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "
         Builder.AppendLine('# Clockify Connector — Message Types');
         Builder.AppendLine('');
         Builder.AppendLine('The Clockify connector exposes the [Clockify](https://docs.developer.clockify.me) REST API as Bifrost message types.');
-        Builder.AppendLine('Most message types are **outbound** (Business Central calls Clockify) and use `Content-Type: application/json`. The exceptions are `Clockify.TimeEntry.Sync` (inbound BC-side operation that writes to the Job Journal and does not call Clockify) and `Clockify.TimeEntry.SyncRange` (inbound BC-side operation that reads entries from Clockify, then writes to the Job Journal).');
+        Builder.AppendLine('Message types are **outbound** when they read Clockify (Business Central calls the Clockify API to list or retrieve data) and **inbound** when they write or mutate data, whether in Clockify (the fifteen Client, Project, Task, Tag and Time Entry Create/Update/Delete types) or in Business Central (the five sync types and the six Time Sheet types below). Both use `Content-Type: application/json` for the Bifrost envelope.');
+        Builder.AppendLine('The inbound, Business Central-side types are: `Clockify.TimeEntry.Sync` (writes a Job Journal line), `Clockify.TimeEntry.SyncRange`, `Clockify.TimeEntry.SyncToTimeSheet`, `Clockify.TimeEntry.SyncRangeToTimeSheet`, `Clockify.TimeEntry.SyncAllUsers`, and the six `Clockify.TimeSheet.Create/Approve/Reject/Reopen/Post/Archive` operations.');
         Builder.AppendLine('');
         Builder.AppendLine('Authentication uses the workspace API key stored on Clockify Setup (`X-Api-Key`). Set `workspaceId` in the request, or configure a Default Workspace ID on Clockify Setup.');
         Builder.AppendLine('Create/update message types send the request''s `body` object verbatim to Clockify. List message types accept an optional `query` object whose properties become URL query parameters (for example `page-size`, `page`, `name`, `in-progress`).');
@@ -238,7 +239,7 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "
     begin
         Builder.AppendLine('## Integration tracking');
         Builder.AppendLine('');
-        Builder.AppendLine('The connector keeps the links between Business Central records and Clockify objects (for example a BC **Customer** and a Clockify **Client**) in the **`Clockify Integration`** table. You manage it with the base **`Data.Records.Get`** and **`Data.Records.Set`** message types — the Clockify message types above never touch it.');
+        Builder.AppendLine('The connector keeps the links between Business Central records and Clockify objects (for example a BC **Customer** and a Clockify **Client**) in the **`Clockify Integration`** table. You manage it with the base **`Data.Records.Get`** and **`Data.Records.Set`** message types. The `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet` message types are the exception: they read the `PROJECT`, `TASK`, `USER` and `TAG` mapping rows from the table, and they create, update or reverse the `TIME_ENTRY` rows they sync themselves.');
         Builder.AppendLine('');
         Builder.AppendLine('Each row holds:');
         Builder.AppendLine('');

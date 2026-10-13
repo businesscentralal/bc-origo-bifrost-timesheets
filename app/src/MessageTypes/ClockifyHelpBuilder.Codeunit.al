@@ -115,8 +115,8 @@ codeunit 10036799 "Clockify Help Builder ori"
     end;
 
     /// <summary>
-    /// Sets the message direction shown in Metadata (Inbound for BC-side types, Outbound for Clockify API calls).
-    /// Defaults to Outbound in <c>Init</c>.
+    /// Sets the message direction shown in Metadata: Inbound for write and mutating types, Outbound for read types
+    /// (platform convention). Defaults to Outbound in <c>Init</c>.
     /// </summary>
     procedure SetDirection(Direction: Enum "Msg Direction ori")
     begin
