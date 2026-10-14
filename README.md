@@ -3,7 +3,7 @@
 **App name:** Bifrost Timesheets  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af`  
 **App ID Range:** 10036785–10036884 (highest id in use: 10036855). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.
-**Publisher:** Origo — **Version:** 29.0.0.0 — **Namespace:** `Origo.Bifrost.Timesheets`  
+**Publisher:** Origo — **Version:** 28.0.0.0 — **Namespace:** `Origo.Bifrost.Timesheets`  
 **Target:** Cloud (AppSource) — application/platform 28.0.0.0, runtime 17.0
 
 **Environments**
@@ -24,7 +24,7 @@ Bifrost Timesheets exposes the [Clockify](https://docs.developer.clockify.me) ti
 
 On the BC side the connector writes time entries either into a Job Journal — with deduplication, update detection and correction posting — or into the resource's open Time Sheet, and it manages the Time Sheet lifecycle (create, approve, reject, reopen, post, archive). A webhook receiver keeps the sync real-time. Links between BC records and Clockify objects are held in the `Clockify Integration ori` table; rows are never deleted, only marked `Reversed` and purged later by a retention policy.
 
-This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same app id, version bumped to 29.0.0.0. It was never published, so there is no data take-over codeunit. The app was migrated under the name *Bifrost Clockify* and renamed to **Bifrost Timesheets** before its first release (repository `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`). Object names keep the `Clockify` domain word, and the 41 message-type keys never changed. The documentation slug is still `clockify` until the folders in the site repository are renamed.
+This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same app id, same version line as the other Bifröst apps (28.0.0.0; it was developed as 29.0.0.0 until the reset of 2026-10-14). It was never published, so there is no data take-over codeunit. The app was migrated under the name *Bifrost Clockify* and renamed to **Bifrost Timesheets** before its first release (repository `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`). Object names keep the `Clockify` domain word, and the 41 message-type keys never changed. The documentation slug is still `clockify` until the folders in the site repository are renamed.
 
 ---
 

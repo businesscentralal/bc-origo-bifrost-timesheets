@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Changed (2026-10-14) - Version reset to 28.0.0.0
+
+- Owner decision (Gunnar, 2026-10-14): `app/app.json` and `test/app.json` go from 29.0.0.0 to 28.0.0.0, so the first AppSource version aligns with the other Bifröst apps on Business Central 28. The test app's dependency on the app moves to 28.0.0.0 as well.
+- The v29 builds were never published outside test environments. Gunnar removed both v29 apps from the UAT environment and cleaned their data.
+- Upgrade caveat: a tenant that still has the legacy *Origo Cloud Events Clockify* 28.x (same app id) installed must uninstall it before installing this version, because Business Central cannot downgrade an installed app.
+- The earlier "version 29" rationale further down this file (the first-release section, formerly headed 29.0.0.0) is kept as history and is superseded by this entry.
+
 ### Changed (2026-10-12) - Clockify Create/Update/Delete direction is Inbound (#32)
 
 - Callers that filter on direction now see these fifteen types as Inbound, not Outbound. `GetMessageDirection` returns `Inbound` on `Clockify ClientCreate Impl ori` (10036794), `Clockify ClientUpdate Impl ori` (10036798), `Clockify ClientDelete Impl ori` (10036795), `Clockify ProjCreate Impl ori` (10036804), `Clockify ProjUpdate Impl ori` (10036808), `Clockify ProjDelete Impl ori` (10036805), `Clockify Task Create Impl ori` (10036813), `Clockify Task Update Impl ori` (10036816), `Clockify Task Delete Impl ori` (10036814), `Clockify Tag Create Impl ori` (10036809), `Clockify Tag Update Impl ori` (10036812), `Clockify Tag Delete Impl ori` (10036810), `Clockify TEntryCreate Impl ori` (10036817), `Clockify TEntryUpdate Impl ori` (10036822) and `Clockify TEntryDelete Impl ori` (10036818). The eleven BC-side sync and time sheet types stay Inbound. Read types stay Outbound.
@@ -31,7 +38,7 @@
 ### Changed (2026-10-05) - align with Bifrost Foundation 28.0.1
 
 - The Foundation dependency floor is **28.0.1.0** in `app/app.json` and `test/app.json`, the same floor as Bifrost Language Models and Bifrost Attachments.
-- The nine tables and pages this alignment had closed stay extensible. They shipped extensible in 29.0.0.0, and closing them is an AppSource breaking change.
+- The nine tables and pages this alignment had closed stay extensible. They shipped extensible in the first release (developed as 29.0.0.0), and closing them is an AppSource breaking change.
 - `tools/` carries Foundation's source guards. The Source Guards workflow runs the checks that already pass on Attachments: no call stack in answers, validated table views, no obsolete, permission coverage, and Icelandic keyword counts. Contract-parameter and mixed-language guards are copied but not wired in.
 - Help Links is not wired in until `businesscentralal/bifrost` main has `help/timesheets/`.
 
@@ -107,7 +114,7 @@ All notable changes to **Bifrost Timesheets** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/) aligned with the Business Central major version.
 
-## [29.0.0.0] — 2026-09-06
+## [28.0.0.0] — unreleased (first AppSource version; developed as 29.0.0.0 until 2026-10-14)
 
 ### Fixed (2026-09-11) - Retention Policy Setup Insert without Modify
 
@@ -245,7 +252,7 @@ ships as **Bifrost Timesheets**; Clockify stays visible everywhere it identifies
 - **Platform.** Dependency moved from *Origo Cloud Events Core* (`a629b897-…`) to **Bifrost
   Foundation** `7505e808-6e52-4b96-a328-82573391297a` 28.0.0.0. The API route is now
   `origo/bifrost/v1.0`.
-- **Identity.** App renamed to `Bifrost Timesheets`, version 29.0.0.0, brief and description mention
+- **Identity.** App renamed to `Bifrost Timesheets`, version 29.0.0.0 (reset to 28.0.0.0 on 2026-10-14, see the Unreleased entry), brief and description mention
   Bifröst. Namespace `Origo.PTE.CloudEvents.Clockify` → `Origo.Bifrost.Timesheets`; the test app moved
   to `Origo.Bifrost.Timesheets.Test`. New Clockify logo.
 - **Interface.** `ExecuteCloudEventTask` → `ExecuteBifrostTask` on all 41 implementations.
