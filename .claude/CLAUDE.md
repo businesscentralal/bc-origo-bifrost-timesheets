@@ -62,7 +62,7 @@ Default branch: main
   name, the permission set and the captions - never as an object-name prefix.
 - Implementation codeunits are `Clockify <Entity><Verb> Impl ori`; where `<Entity><Verb>` would push
   the name past 26 characters the entity is abbreviated (`TEntry`, `TSheet`, `Proj`, `Wrkspace`,
-  `UserGrp`, `CustFld`). See the rename table in CHANGELOG 29.0.0.0.
+  `UserGrp`, `CustFld`). See the rename table in CHANGELOG (first release section, developed as 29.0.0.0).
 - Icelandic captions use "Bifröst".
 
 ## Platform Rules Inherited from Foundation
@@ -151,7 +151,7 @@ Default branch: main
 ## Migration Notes
 - Migrated 2026-09-06 from `Origo Cloud Events Clockify` 28.1.0.0, using the union of `main` and the
   open pull request #5 `feature-#5_MessageTypes_Projects` (Time Sheet message types).
-- In-place successor: same app id, same object ids, version bumped to 29.0.0.0. No data take-over
+- In-place successor: same app id, same object ids, version reset to 28.0.0.0 on 2026-10-14 (developed as 29.0.0.0 before). No data take-over
   install codeunit is needed. The dropped `Clockify Setup Ext` table extension is the one exception -
   its seven fields moved to `Clockify Setup ori` and their values cannot be carried across, because
   the table they lived on belongs to a dependency this version no longer references.
