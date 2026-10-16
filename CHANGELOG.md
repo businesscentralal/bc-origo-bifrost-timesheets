@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### Added (2026-10-16) - Phone Role Center (#6)
+
+- `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
+- `Phone Cust Bucket ori` (enum 10036856) marks each temporary row as Current, Today or Last workday. `Phone Cust Buffer ori` (table 10036857) holds those rows and stores no customer content.
+- `Phone Current Cust Part ori` (page 10036861) lists the signed-in user's My Customers. `Phone Today Cust Part ori` (page 10036862) lists customers worked on the work date, including a running timer. `Phone LastDay Cust Part ori` (page 10036863) lists customers worked on the previous Monday-to-Friday date.
+- `Phone Add Service Item ori` (page 10036864) asks for a My Items service item and a quantity.
+- `Phone Cust Buffer Mgt ori` (codeunit 10036858) builds those lists. A missing resource, Clockify user mapping, workspace or company API key leaves the time lists empty and does not open an error dialog.
+- `Clockify Mock State` (codeunit 95602) queues ordered Clockify responses and records the paths the phone tests call. `Clockify Mock Client` (codeunit 95603) returns the next queued response before the single armed response, so the tests do not call Clockify.
+- `Phone Sales Quick Add ori` (10036859) adds a My Items service item to a sales invoice. A second add for the same customer appends a line to the still-open phone invoice, marked by `Phone RC Document ori` on `Sales Header` (table extension 10036865). The line carries Job No. and Job Task No. when the row has a job. There is no licence check.
+- Permission set `BIFROST Timeshts ori` (10036785) includes the new objects. `Phone RC Full Ext ori` (10036866) extends `BIFROST Full ori`. `Phone RC Read Ext ori` (10036867) extends `BIFROST Read ori` with the lists only.
+- September object 10036855 and test codeunit 95608 were already in use. The new objects start at 10036856. The tests are `Phone Role Center Tests` (95615), past the guard-branch test 95614.
+- Gunnar's 30 September decisions are the ones implemented. The 11 September note that every item type is offered is not applied. The item must be a service item on My Items.
+- `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
+- `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
+
 ### Fixed (2026-10-16) - Contract parameter keys and translatable refusals (#46, #48, #49)
 
 - `Clockify Contract Parts ori` (10036855) declares each message type's parameters and target identifiers in their own procedures. The per-type implementation calls that procedure, so the contract lists only the keys that type reads. `billable` and `description` are declared on `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet`. `Clockify.Workspace.List` declares `query` and no longer declares an unused `workspaceId`. `Help.Clockify.Get`, `Clockify.User.GetCurrent` and `Clockify.TimeSheet.Archive` declare no parameters. `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncRange` read `journalTemplate` and `journalBatch` as request keys.
