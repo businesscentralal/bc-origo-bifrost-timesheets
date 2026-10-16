@@ -8,6 +8,7 @@
 - List implementations build the Clockify resource path in a local procedure before appending the request query, so a path fragment is not read as a parameter name. The HTTP path text is unchanged.
 - Refusal labels that the mixed-language guard reported are translatable, with Icelandic `is-IS=` comments. English label text is unchanged. Four English sentence literals in the sync and range implementations are labels: `UnexpectedListErr` on `Clockify TEntryRange Impl ori` (10036832), `HoursCalcErr` and `PostingDateErr` on `Clockify TEntrySync Impl ori` (10036821), and `HoursDeriveErr` on `Clockify TSheetSync Impl ori` (10036840).
 - `Clockify Contract Key Tests` (95614) asserts the parameter names of every Clockify message type.
+- `Clockify Field Restrict Tests` (95612) expects the Data.Records.Set field refusal without the setup hint in the error text. Bifrost Foundation 28.0.5 returns that hint in `nextStep` only.
 
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
