@@ -10,6 +10,8 @@
 - Permission set `BIFROST Timeshts ori` (10036785) includes the new objects. `Phone RC Full Ext ori` (10036866) extends `BIFROST Full ori`. `Phone RC Read Ext ori` (10036867) extends `BIFROST Read ori` with the lists only.
 - September object 10036855 and test codeunit 95608 were already in use. The new objects start at 10036856. The tests are `Phone Role Center Tests` (95615), past the guard-branch test 95614.
 - Gunnar's 30 September decisions are the ones implemented. The 11 September note that every item type is offered is not applied. The item must be a service item on My Items.
+- `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
+- `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
 
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 

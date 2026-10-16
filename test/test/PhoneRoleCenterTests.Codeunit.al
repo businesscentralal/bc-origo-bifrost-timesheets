@@ -125,7 +125,7 @@ codeunit 95615 "Phone Role Center Tests"
         Initialize();
         CustomerNo := CreateMappedJob('P-ONE', 'T-ONE');
         LibraryJob.CreateJob(Job2);
-        Job2.Validate("Bill-to Customer No.", CustomerNo);
+        Job2."Bill-to Customer No." := CustomerNo;
         Job2.Modify(true);
         InsertIntegrationLink('PROJECT', 'P-TWO', Job2."No.");
         UseMockApi();
@@ -164,7 +164,7 @@ codeunit 95615 "Phone Role Center Tests"
         MyCustomer."Customer No." := Customer."No.";
         MyCustomer.Insert();
         LibraryJob.CreateJob(Job);
-        Job.Validate("Bill-to Customer No.", OtherCustomer."No.");
+        Job."Bill-to Customer No." := OtherCustomer."No.";
         Job.Modify(true);
 
         BufferMgt.PopulateCurrentCustomers(TempBuffer);
@@ -207,14 +207,14 @@ codeunit 95615 "Phone Role Center Tests"
         Initialize();
         LibrarySales.CreateCustomer(Customer);
         LibraryInventory.CreateItem(Item);
-        Item.Validate(Type, Item.Type::Service);
+        Item.Type := Item.Type::Service;
         Item.Modify(true);
         MyItem.Init();
         MyItem."User ID" := CopyStr(UserId(), 1, MaxStrLen(MyItem."User ID"));
         MyItem."Item No." := Item."No.";
         MyItem.Insert();
         LibraryJob.CreateJob(Job);
-        Job.Validate("Bill-to Customer No.", Customer."No.");
+        Job."Bill-to Customer No." := Customer."No.";
         Job.Modify(true);
         LibraryJob.CreateJobTask(Job, JobTask);
 

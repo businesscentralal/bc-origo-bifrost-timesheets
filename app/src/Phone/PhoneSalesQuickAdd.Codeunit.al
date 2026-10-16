@@ -82,6 +82,7 @@ codeunit 10036859 "Phone Sales Quick Add ori"
         SalesHeader.Init();
         SalesHeader."Document Type" := SalesHeader."Document Type"::Invoice;
         SalesHeader.Insert(true);
+        SalesHeader.SetHideValidationDialog(true);
         SalesHeader.Validate("Sell-to Customer No.", CustomerNo);
         SalesHeader."Phone RC Document ori" := true;
         SalesHeader.Modify(true);
@@ -103,6 +104,7 @@ codeunit 10036859 "Phone Sales Quick Add ori"
         SalesLine."Document No." := SalesHeader."No.";
         SalesLine."Line No." := NextLineNo;
         SalesLine.Insert(true);
+        SalesLine.SetHideValidationDialog(true);
         SalesLine.Validate(Type, SalesLine.Type::Item);
         SalesLine.Validate("No.", ItemNo);
         SalesLine.Validate(Quantity, Quantity);
