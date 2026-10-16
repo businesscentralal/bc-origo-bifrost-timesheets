@@ -22,8 +22,12 @@ codeunit 95602 "Clockify Mock State"
         NextStatusCode: Integer;
         NextIsSuccess: Boolean;
         LastHasBody: Boolean;
+        QueueIsSuccess: List of [Boolean];
+        QueueStatusCode: List of [Integer];
+        QueueResponseBody: List of [Text];
+        CapturedPaths: List of [Text];
 
-    /// <summary>Clears the armed response and any captured request.</summary>
+    /// <summary>Clears the armed response, the response queue and any captured request.</summary>
     procedure Reset()
     begin
         NextIsSuccess := false;
@@ -33,6 +37,63 @@ codeunit 95602 "Clockify Mock State"
         LastResourcePath := '';
         LastRequestBody := '';
         LastHasBody := false;
+        ClearBooleanList(QueueIsSuccess);
+        ClearIntegerList(QueueStatusCode);
+        ClearTextList(QueueResponseBody);
+        ClearTextList(CapturedPaths);
+    end;
+
+    /// <summary>
+    /// Queues one response. Queued responses are returned in order and take priority
+    /// over the single response armed with <see cref="SetNextResponse"/>.
+    /// </summary>
+    /// <param name="IsSuccess">Value the mock returns from <c>Send</c>.</param>
+    /// <param name="StatusCode">HTTP status code the mock reports.</param>
+    /// <param name="ResponseBody">Raw response body the mock returns.</param>
+    procedure EnqueueResponse(IsSuccess: Boolean; StatusCode: Integer; ResponseBody: Text)
+    begin
+        QueueIsSuccess.Add(IsSuccess);
+        QueueStatusCode.Add(StatusCode);
+        QueueResponseBody.Add(ResponseBody);
+    end;
+
+    /// <summary>
+    /// Takes the next queued response. Returns false when the queue is empty so the
+    /// caller uses the single armed response instead.
+    /// </summary>
+    /// <param name="IsSuccess">Out: success flag of the queued response.</param>
+    /// <param name="StatusCode">Out: HTTP status code of the queued response.</param>
+    /// <param name="ResponseBody">Out: body of the queued response.</param>
+    /// <returns>True when a queued response was taken.</returns>
+    procedure TryDequeueResponse(var IsSuccess: Boolean; var StatusCode: Integer; var ResponseBody: Text): Boolean
+    begin
+        if QueueResponseBody.Count() = 0 then
+            exit(false);
+        IsSuccess := QueueIsSuccess.Get(1);
+        StatusCode := QueueStatusCode.Get(1);
+        ResponseBody := QueueResponseBody.Get(1);
+        QueueIsSuccess.RemoveAt(1);
+        QueueStatusCode.RemoveAt(1);
+        QueueResponseBody.RemoveAt(1);
+        exit(true);
+    end;
+
+    /// <summary>Returns true when any captured path contains <paramref name="Fragment"/>.</summary>
+    /// <param name="Fragment">Text to look for in the captured resource paths.</param>
+    procedure CapturedPathContains(Fragment: Text): Boolean
+    var
+        Path: Text;
+    begin
+        foreach Path in CapturedPaths do
+            if Path.Contains(Fragment) then
+                exit(true);
+        exit(false);
+    end;
+
+    /// <summary>Returns how many requests the mock has captured since the last reset.</summary>
+    procedure CapturedPathCount(): Integer
+    begin
+        exit(CapturedPaths.Count());
     end;
 
     /// <summary>Arms the response the mock client returns on its next <c>Send</c>.</summary>
@@ -57,6 +118,7 @@ codeunit 95602 "Clockify Mock State"
         LastResourcePath := ResourcePath;
         LastHasBody := HasBody;
         LastRequestBody := RequestBody;
+        CapturedPaths.Add(ResourcePath);
     end;
 
     /// <summary>Returns the success flag armed for the next response.</summary>
@@ -99,5 +161,23 @@ codeunit 95602 "Clockify Mock State"
     procedure GetLastHasBody(): Boolean
     begin
         exit(LastHasBody);
+    end;
+
+    local procedure ClearTextList(var Values: List of [Text])
+    begin
+        while Values.Count() > 0 do
+            Values.RemoveAt(Values.Count());
+    end;
+
+    local procedure ClearIntegerList(var Values: List of [Integer])
+    begin
+        while Values.Count() > 0 do
+            Values.RemoveAt(Values.Count());
+    end;
+
+    local procedure ClearBooleanList(var Values: List of [Boolean])
+    begin
+        while Values.Count() > 0 do
+            Values.RemoveAt(Values.Count());
     end;
 }

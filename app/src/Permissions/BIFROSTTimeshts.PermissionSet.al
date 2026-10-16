@@ -85,5 +85,13 @@ permissionset 10036785 "BIFROST Timeshts ori"
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,
         page "Clockify Integration List ori" = X,
-        page "Clockify Webhooks ori" = X;
+        page "Clockify Webhooks ori" = X,
+        tabledata "Phone Cust Buffer ori" = RIMD,
+        codeunit "Phone Cust Buffer Mgt ori" = X,
+        codeunit "Phone Sales Quick Add ori" = X,
+        page "Phone Role Center ori" = X,
+        page "Phone Current Cust Part ori" = X,
+        page "Phone Today Cust Part ori" = X,
+        page "Phone LastDay Cust Part ori" = X,
+        page "Phone Add Service Item ori" = X;
 }
