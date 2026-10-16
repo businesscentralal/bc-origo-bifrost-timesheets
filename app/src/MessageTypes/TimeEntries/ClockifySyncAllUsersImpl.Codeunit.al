@@ -3,8 +3,8 @@
 using Origo.Bifrost;
 
 /// <summary>
-/// Implementation of the <c>Clockify.TimeEntry.SyncAllUsers</c> message type. Iterates every
-/// mapped Clockify user (USER integration rows) and syncs each user's finished entries in a
+/// Implementation of the <c>Clockify.TimeEntry.SyncAllUsers</c> message type. Pages through active
+/// mapped Clockify users (USER integration rows) and syncs each user's finished entries in a
 /// date range — restoring the legacy per-user auto-discovery. The <c>target</c> parameter
 /// selects the destination: <c>timesheet</c> (default) writes BC Time Sheets;
 /// <c>journal</c> writes Job Journal lines.
@@ -33,7 +33,7 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
 
     procedure GetDescription(): Text[250]
     begin
-        exit('Syncs finished Clockify time entries in a date range for every mapped user, to time sheets (default) or the Job Journal.');
+        exit('Syncs finished Clockify time entries in a date range for a page of mapped users, to time sheets (default) or the Job Journal.');
     end;
 
 
@@ -46,7 +46,7 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
 
     procedure GetSelectionDescription(): Text
     var
-        SelectionLbl: Label 'Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for every mapped user, to time sheets by default or to the Job Journal.', Comment = 'is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.';
+        SelectionLbl: Label 'Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for a page of mapped users, to time sheets by default or to the Job Journal.', Comment = 'is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir síðu tengdra notenda, sjálfgefið í tímaskýrslur eða í verkbók.';
     begin
         exit(SelectionLbl);
     end;
@@ -145,6 +145,8 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
+    /// <summary>Syncs one bounded page of active user mappings and returns the continuation offset.</summary>
+    /// <param name="Argument">Request and response for the sync operation.</param>
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         Integration: Record "Clockify Integration ori";
@@ -161,9 +163,14 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
         JsonToken: JsonToken;
+        Skip: Integer;
+        Take: Integer;
+        TotalUsers: Integer;
+        NextSkip: Integer;
     begin
         Argument.AssertVersion1();
         RequestJson := Argument.GetRequestJson();
+        Argument.EvaluateSkipTake(RequestJson, Skip, Take);
 
         if not RequestMgt.ResolveWorkspaceId(Argument, RequestJson, WorkspaceId) then
             exit;
@@ -196,14 +203,22 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
         Integration.SetCurrentKey("Clockify Type", "Clockify Id", "Reversed");
         Integration.SetRange("Clockify Type", 'USER');
         Integration.SetRange("Reversed", false);
-        Integration.SetLoadFields("Clockify Id");
-        if Integration.FindSet() then
+        Integration.SetLoadFields("Clockify Type", "Clockify Id", "Reversed");
+        TotalUsers := Integration.Count();
+        if (Skip < TotalUsers) and Integration.FindSet() then begin
+            if Skip > 0 then
+                Integration.Next(Skip);
             repeat
                 SyncOneUser(WorkspaceId, Integration."Clockify Id", StartText, EndText, Target, JournalTemplate, JournalBatch, UsersArray, Counts);
-            until Integration.Next() = 0;
+            until (UsersArray.Count() >= Take) or (Integration.Next() = 0);
+        end;
+        NextSkip := Skip + UsersArray.Count();
 
         ResponseJson.Add('target', Target);
         ResponseJson.Add('users', UsersArray.Count());
+        ResponseJson.Add('totalUsers', TotalUsers);
+        ResponseJson.Add('nextSkip', NextSkip);
+        ResponseJson.Add('hasMore', NextSkip < TotalUsers);
         ResponseJson.Add('created', GetCount(Counts, 'Created'));
         ResponseJson.Add('skipped', GetCount(Counts, 'Skipped'));
         ResponseJson.Add('updated', GetCount(Counts, 'Updated'));

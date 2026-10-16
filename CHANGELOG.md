@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- `Clockify.TimeEntry.SyncAllUsers` (codeunit 10036846) now syncs one page of active user mappings: `skip` defaults to 0 and `take` defaults to 100, capped at 1000. Callers must repeat with `nextSkip` while `hasMore` is true to sync all users. The response includes `totalUsers`; failed users still advance the offset. Contract parts (10036855) document the limits and caller loop, and paging tests (95604) cover boundaries, continuation and isolated user failures (#23).
+
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
 - Owner decision (Gunnar, 2026-10-14): `app/app.json` and `test/app.json` go from 29.0.0.0 to 28.0.0.0, so the first AppSource version aligns with the other Bifröst apps on Business Central 28. The test app's dependency on the app moves to 28.0.0.0 as well.

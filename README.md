@@ -129,7 +129,7 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 **Prerequisites**
 
-- Bifrost Foundation 28.0.0.0 installed.
+- Bifrost Foundation 28.0.1.0 or later installed.
 - A Clockify account and an API key with access to the workspace.
 - A Job Journal template and batch for the journal sync, or resources with open Time Sheets for the time-sheet sync.
 - Work Types set up if Clockify tags should map to them.
@@ -255,15 +255,21 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036854 | Timesheets Registration ori | Registers Timesheets with Foundation on install and upgrade. |
 | Codeunit | 10036855 | Clockify Contract Parts ori | Builds shared request and response contract descriptions for Clockify message types. |
 
-The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) holds 13 objects in range 95600–95699 (95600–95612), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
+The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) includes paging regression tests in codeunit 95604 and holds 15 objects in range 95600–95699 (95600–95613), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
 
 ---
+
+### Syncing all mapped users
+
+`Clockify.TimeEntry.SyncAllUsers` processes a bounded page of active USER mappings, ordered by Clockify ID. `skip` defaults to 0; `take` defaults to 100 when omitted or zero and is capped at 1000. Negative values are rejected. This bounds users per call; each user can still have multiple pages of Clockify time entries.
+
+Repeat the same request with `skip` set to the returned `nextSkip` until `hasMore` is false. The response reports `users` for the current page and `totalUsers` for the full active mapping set. Keep that set unchanged while paging. Failed users count toward the offset and appear in `errors` and `userResults`; inspect those results before retrying. Existing callers that expected one call to sync every user must now loop.
 
 ## Dependencies
 
 | App | ID | Purpose |
 | --- | --- | --- |
-| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.0.186. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
+| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.1.0. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
 
 That is the only AL dependency. The test app additionally depends on Bifrost Timesheets itself and on Microsoft's test libraries.
 

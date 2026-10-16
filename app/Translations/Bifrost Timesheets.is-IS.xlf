@@ -946,9 +946,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify SyncAllUsers Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1964021866 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for every mapped user, to time sheets by default or to the Job Journal.</source>
-          <target state="translated">Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir hvern tengdan notanda, sjálfgefið í tímaskýrslur eða í verkbók.</note>
+          <source>Clockify.TimeEntry.SyncAllUsers: Syncs finished entries for a page of mapped users, to time sheets by default or to the Job Journal.</source>
+          <target state="translated">Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir síðu tengdra notenda, sjálfgefið í tímaskýrslur eða í verkbók.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncAllUsers: Samstillir loknar færslur fyrir síðu tengdra notenda, sjálfgefið í tímaskýrslur eða í verkbók.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify SyncAllUsers Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1118172232 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">

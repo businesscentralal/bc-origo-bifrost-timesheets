@@ -22,6 +22,8 @@ codeunit 95602 "Clockify Mock State"
         NextStatusCode: Integer;
         NextIsSuccess: Boolean;
         LastHasBody: Boolean;
+        FailedPath: Text;
+        RequestCount: Integer;
 
     /// <summary>Clears the armed response and any captured request.</summary>
     procedure Reset()
@@ -33,6 +35,8 @@ codeunit 95602 "Clockify Mock State"
         LastResourcePath := '';
         LastRequestBody := '';
         LastHasBody := false;
+        FailedPath := '';
+        RequestCount := 0;
     end;
 
     /// <summary>Arms the response the mock client returns on its next <c>Send</c>.</summary>
@@ -53,6 +57,7 @@ codeunit 95602 "Clockify Mock State"
     /// <param name="RequestBody">Body text of the captured request.</param>
     procedure CaptureRequest(Method: Text; ResourcePath: Text; HasBody: Boolean; RequestBody: Text)
     begin
+        RequestCount += 1;
         LastMethod := Method;
         LastResourcePath := ResourcePath;
         LastHasBody := HasBody;
@@ -62,18 +67,24 @@ codeunit 95602 "Clockify Mock State"
     /// <summary>Returns the success flag armed for the next response.</summary>
     procedure GetNextIsSuccess(): Boolean
     begin
+        if (FailedPath <> '') and LastResourcePath.Contains(FailedPath) then
+            exit(false);
         exit(NextIsSuccess);
     end;
 
     /// <summary>Returns the status code armed for the next response.</summary>
     procedure GetNextStatusCode(): Integer
     begin
+        if (FailedPath <> '') and LastResourcePath.Contains(FailedPath) then
+            exit(503);
         exit(NextStatusCode);
     end;
 
     /// <summary>Returns the body armed for the next response.</summary>
     procedure GetNextResponseBody(): Text
     begin
+        if (FailedPath <> '') and LastResourcePath.Contains(FailedPath) then
+            exit('Simulated user fetch failure.');
         exit(NextResponseBody);
     end;
 
@@ -99,5 +110,17 @@ codeunit 95602 "Clockify Mock State"
     procedure GetLastHasBody(): Boolean
     begin
         exit(LastHasBody);
+    end;
+    /// <summary>Fails requests containing one path fragment while other requests use the armed response.</summary>
+    /// <param name="ResourcePathFragment">Path fragment identifying the failing fixture user.</param>
+    procedure FailPath(ResourcePathFragment: Text)
+    begin
+        FailedPath := ResourcePathFragment;
+    end;
+
+    /// <summary>Returns the number of captured requests since Reset.</summary>
+    procedure GetRequestCount(): Integer
+    begin
+        exit(RequestCount);
     end;
 }

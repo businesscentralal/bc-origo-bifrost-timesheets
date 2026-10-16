@@ -159,6 +159,8 @@ codeunit 10036855 "Clockify Contract Parts ori"
                 begin
                     AddRangeParameters(Parameters, ContractMgt, true, false);
                     Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
+                    Parameters.Add(ContractMgt.Parameter('skip', 'integer', false, 'Number of active USER mappings to skip. Defaults to 0; negative values are rejected.'));
+                    Parameters.Add(ContractMgt.Parameter('take', 'integer', false, 'Maximum users to process. Defaults to 100 when omitted or zero; negative values are rejected; values above 1000 are clamped to 1000.'));
                     AddJournalParameters(Parameters, ContractMgt);
                 end;
         end;
@@ -208,7 +210,10 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
                 begin
                     Fields.Add(ContractMgt.ResponseField('target', 'string', 'timesheet or journal.'));
-                    Fields.Add(ContractMgt.ResponseField('users', 'integer', 'Mapped users considered.'));
+                    Fields.Add(ContractMgt.ResponseField('users', 'integer', 'Mapped users processed in this page, including failed users.'));
+                    Fields.Add(ContractMgt.ResponseField('totalUsers', 'integer', 'Total active USER mappings before paging.'));
+                    Fields.Add(ContractMgt.ResponseField('nextSkip', 'integer', 'Offset for the next call: skip plus users.'));
+                    Fields.Add(ContractMgt.ResponseField('hasMore', 'boolean', 'True while nextSkip is less than totalUsers.'));
                     Fields.Add(ContractMgt.ResponseField('created', 'integer', 'Rows created.'));
                     Fields.Add(ContractMgt.ResponseField('skipped', 'integer', 'Unchanged entries.'));
                     Fields.Add(ContractMgt.ResponseField('updated', 'integer', 'Rows updated.'));
@@ -298,7 +303,11 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeSheet.Post":
                 Errors.Add(ContractMgt.TextErrorEntry('No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', 'Neither the request nor Clockify Setup names a journal template and batch.', 'Set the journal on Clockify Setup or pass both parameters.'));
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
-                Errors.Add(ContractMgt.TextErrorEntry('target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch''.', 'target is journal and no template or batch is available.', 'Set the journal on Clockify Setup or pass both parameters.'));
+                begin
+                    Errors.Add(ContractMgt.TextErrorEntry('target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch''.', 'target is journal and no template or batch is available.', 'Set the journal on Clockify Setup or pass both parameters.'));
+                    Errors.Add(ContractMgt.TextErrorEntry('skip must be zero or greater.', 'skip is negative.', 'Use zero or the nextSkip returned by the previous call.'));
+                    Errors.Add(ContractMgt.TextErrorEntry('take must be zero or greater.', 'take is negative.', 'Use zero for the default page size or a positive value.'));
+                end;
         end;
         exit(Errors.Count() > 0);
     end;
@@ -376,7 +385,10 @@ codeunit 10036855 "Clockify Contract Parts ori"
         Steps.Add(ContractMgt.WorkflowStep('Clockify.Workspace.List', 'Resolve the workspace and required Clockify IDs.'));
         Steps.Add(ContractMgt.WorkflowStep(MessageTypeName(MessageType), 'Execute the requested Timesheets operation.'));
         Workflow.Add('steps', Steps);
-        Workflow.Add('text', 'Validate the response status before continuing with a dependent operation.');
+        if MessageType = MessageType::"Clockify.TimeEntry.SyncAllUsers" then
+            Workflow.Add('text', 'Start with skip 0 and take 100. While hasMore is true, repeat the same request with skip set to nextSkip. Keep the mapped-user set unchanged until paging finishes. Inspect errors and userResults for failures; failed users also advance the offset.')
+        else
+            Workflow.Add('text', 'Validate the response status before continuing with a dependent operation.');
         exit(true);
     end;
 
@@ -415,8 +427,19 @@ codeunit 10036855 "Clockify Contract Parts ori"
     end;
 
     procedure GetNotes(MessageType: Enum "Message Type ori"; var Notes: Text): Boolean
+    var
+        NotesBuilder: TextBuilder;
     begin
         Notes := NotesFor(MessageType);
+        if MessageType = MessageType::"Clockify.TimeEntry.SyncAllUsers" then begin
+            NotesBuilder.AppendLine(Notes);
+            NotesBuilder.AppendLine('');
+            NotesBuilder.AppendLine('## Pagination Limits');
+            NotesBuilder.AppendLine('skip defaults to 0 and rejects negative values. take defaults to 100 when omitted or zero, rejects negative values, and is clamped to the hard maximum of 1000.');
+            NotesBuilder.AppendLine('Start with skip 0 and take 100. For example, if the response has nextSkip 100 and hasMore true, repeat the same request with skip 100. Continue using each nextSkip until hasMore is false.');
+            NotesBuilder.AppendLine('Existing callers must loop to sync all users. Keep the mapped-user set unchanged while paging. Failed users count toward users and nextSkip; inspect errors and userResults before retrying a page.');
+            Notes := NotesBuilder.ToText();
+        end;
         exit(Notes <> '');
     end;
 
@@ -749,8 +772,8 @@ codeunit 10036855 "Clockify Contract Parts ori"
                 end;
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
                 begin
-                    RequestText := '{"workspaceId":"<workspaceId>","start":"2026-06-01T00:00:00Z","end":"2026-06-30T23:59:59Z","target":"timesheet"}';
-                    ResponseText := '{"target":"timesheet","users":1,"created":1,"skipped":0,"updated":0,"errors":0,"userResults":[]}';
+                    RequestText := '{"workspaceId":"<workspaceId>","start":"2026-06-01T00:00:00Z","end":"2026-06-30T23:59:59Z","target":"timesheet","skip":0,"take":100}';
+                    ResponseText := '{"target":"timesheet","users":1,"totalUsers":1,"nextSkip":1,"hasMore":false,"created":1,"skipped":0,"updated":0,"errors":0,"userResults":[]}';
                 end;
             MessageType::"Clockify.TimeSheet.Create":
                 begin
@@ -841,7 +864,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
                 Notes := 'Reads finished entries from Clockify and writes BC Time Sheets. Per-entry failures do not abort the batch. The request includes start and end. Safe to re-run.';
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
-                Notes := 'Iterates every USER mapping. target timesheet is the default; target journal writes the Job Journal. Per-user failures do not abort the batch. No userId parameter.';
+                Notes := 'Processes a page of active USER mappings in Clockify ID order. target timesheet is the default; target journal writes the Job Journal. Per-user failures do not abort the batch. No userId parameter.';
             MessageType::"Clockify.TimeSheet.Create":
                 Notes := 'BC-side only. Does not call Clockify. Idempotent up to weeksAhead open sheets per resource.';
             MessageType::"Clockify.TimeSheet.Approve":
