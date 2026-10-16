@@ -53,88 +53,90 @@ codeunit 95614 "Clockify Contract Key Tests"
     local procedure ExpectedNames(MessageType: Enum "Message Type ori"): Text
     begin
         case MessageType of
-            "Help.Clockify.Get":
+            MessageType::"Help.Clockify.Get":
                 exit('');
-            "Clockify.Workspace.List":
+            MessageType::"Clockify.Workspace.List":
                 exit('query');
-            "Clockify.User.GetCurrent":
+            MessageType::"Clockify.User.GetCurrent":
                 exit('');
-            "Clockify.User.List":
+            MessageType::"Clockify.User.List":
                 exit('query, workspaceId');
-            "Clockify.Client.List":
+            MessageType::"Clockify.Client.List":
                 exit('query, workspaceId');
-            "Clockify.Client.Get":
+            MessageType::"Clockify.Client.Get":
                 exit('clientId, workspaceId');
-            "Clockify.Client.Create":
+            MessageType::"Clockify.Client.Create":
                 exit('body, workspaceId');
-            "Clockify.Client.Update":
+            MessageType::"Clockify.Client.Update":
                 exit('body, clientId, workspaceId');
-            "Clockify.Client.Delete":
+            MessageType::"Clockify.Client.Delete":
                 exit('clientId, workspaceId');
-            "Clockify.Project.List":
+            MessageType::"Clockify.Project.List":
                 exit('query, workspaceId');
-            "Clockify.Project.Get":
+            MessageType::"Clockify.Project.Get":
                 exit('projectId, workspaceId');
-            "Clockify.Project.Create":
+            MessageType::"Clockify.Project.Create":
                 exit('body, workspaceId');
-            "Clockify.Project.Update":
+            MessageType::"Clockify.Project.Update":
                 exit('body, projectId, workspaceId');
-            "Clockify.Project.Delete":
+            MessageType::"Clockify.Project.Delete":
                 exit('projectId, workspaceId');
-            "Clockify.Task.List":
+            MessageType::"Clockify.Task.List":
                 exit('projectId, query, workspaceId');
-            "Clockify.Task.Create":
+            MessageType::"Clockify.Task.Create":
                 exit('body, projectId, workspaceId');
-            "Clockify.Task.Update":
+            MessageType::"Clockify.Task.Update":
                 exit('body, projectId, taskId, workspaceId');
-            "Clockify.Task.Delete":
+            MessageType::"Clockify.Task.Delete":
                 exit('projectId, taskId, workspaceId');
-            "Clockify.Tag.List":
+            MessageType::"Clockify.Tag.List":
                 exit('query, workspaceId');
-            "Clockify.Tag.Create":
+            MessageType::"Clockify.Tag.Create":
                 exit('body, workspaceId');
-            "Clockify.Tag.Update":
+            MessageType::"Clockify.Tag.Update":
                 exit('body, tagId, workspaceId');
-            "Clockify.Tag.Delete":
+            MessageType::"Clockify.Tag.Delete":
                 exit('tagId, workspaceId');
-            "Clockify.TimeEntry.List":
+            MessageType::"Clockify.TimeEntry.List":
                 exit('query, userId, workspaceId');
-            "Clockify.TimeEntry.Get":
+            MessageType::"Clockify.TimeEntry.Get":
                 exit('timeEntryId, workspaceId');
-            "Clockify.TimeEntry.Create":
+            MessageType::"Clockify.TimeEntry.Create":
                 exit('body, userId, workspaceId');
-            "Clockify.TimeEntry.Update":
+            MessageType::"Clockify.TimeEntry.Update":
                 exit('body, timeEntryId, workspaceId');
-            "Clockify.TimeEntry.Delete":
+            MessageType::"Clockify.TimeEntry.Delete":
                 exit('timeEntryId, workspaceId');
-            "Clockify.Currency.List":
+            MessageType::"Clockify.Currency.List":
                 exit('workspaceId');
-            "Clockify.UserGroup.List":
+            MessageType::"Clockify.UserGroup.List":
                 exit('query, workspaceId');
-            "Clockify.CustomField.List":
+            MessageType::"Clockify.CustomField.List":
                 exit('query, workspaceId');
-            "Clockify.TimeEntry.Sync":
+            MessageType::"Clockify.TimeEntry.Sync":
                 exit('billable, description, end, entryId, journalBatch, journalTemplate, projectId, start, tagIds, taskId, userId, workspaceId');
-            "Clockify.TimeEntry.SyncRange":
+            MessageType::"Clockify.TimeEntry.SyncRange":
                 exit('end, journalBatch, journalTemplate, start, userId, workspaceId');
-            "Clockify.TimeSheet.Create":
+            MessageType::"Clockify.TimeSheet.Create":
                 exit('weeksAhead');
-            "Clockify.TimeSheet.Approve":
+            MessageType::"Clockify.TimeSheet.Approve":
                 exit('endingDateTo');
-            "Clockify.TimeSheet.Reject":
+            MessageType::"Clockify.TimeSheet.Reject":
                 exit('endingDateTo');
-            "Clockify.TimeSheet.Reopen":
+            MessageType::"Clockify.TimeSheet.Reopen":
                 exit('endingDateTo');
-            "Clockify.TimeSheet.Post":
+            MessageType::"Clockify.TimeSheet.Post":
                 exit('journalBatch, journalTemplate');
-            "Clockify.TimeSheet.Archive":
+            MessageType::"Clockify.TimeSheet.Archive":
                 exit('');
-            "Clockify.TimeEntry.SyncToTimeSheet":
+            MessageType::"Clockify.TimeEntry.SyncToTimeSheet":
                 exit('billable, description, end, entryId, projectId, start, tagIds, taskId, userId, workspaceId');
-            "Clockify.TimeEntry.SyncRangeToTimeSheet":
+            MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
                 exit('end, start, userId, workspaceId');
-            "Clockify.TimeEntry.SyncAllUsers":
+            MessageType::"Clockify.TimeEntry.SyncAllUsers":
                 exit('end, journalBatch, journalTemplate, start, target, userId, workspaceId');
+            else
+                Error('No expected parameter list is fixed for %1.', MessageType);
         end;
     end;
 
@@ -154,12 +156,29 @@ codeunit 95614 "Clockify Contract Key Tests"
                 if Entry.Get('name', NameToken) then
                     Names.Add(NameToken.AsValue().AsText());
             end;
-        Names.Sort();
+        SortNames(Names);
         foreach Name in Names do
             if Joined = '' then
                 Joined := Name
             else
                 Joined += ', ' + Name;
         exit(Joined);
+    end;
+
+    local procedure SortNames(var Names: List of [Text])
+    var
+        Index: Integer;
+        Later: Integer;
+        Current: Text;
+        Candidate: Text;
+    begin
+        for Index := 1 to Names.Count() - 1 do
+            for Later := Index + 1 to Names.Count() do
+                if Names.Get(Later) < Names.Get(Index) then begin
+                    Current := Names.Get(Index);
+                    Candidate := Names.Get(Later);
+                    Names.Set(Index, Candidate);
+                    Names.Set(Later, Current);
+                end;
     end;
 }

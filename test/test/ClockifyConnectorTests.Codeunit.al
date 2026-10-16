@@ -1350,8 +1350,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure RequireParamAnswersInIcelandic()
     var
-        RequestMgt: Codeunit "Clockify Request Mgt ori";
         TempArgument: Record "Message Argument ori" temporary;
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         Value: Text;
@@ -1376,8 +1376,8 @@ codeunit 95601 "Clockify Connector Tests"
     [Test]
     procedure RequireBodyAnswersInIcelandic()
     var
-        RequestMgt: Codeunit "Clockify Request Mgt ori";
         TempArgument: Record "Message Argument ori" temporary;
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         BodyText: Text;
