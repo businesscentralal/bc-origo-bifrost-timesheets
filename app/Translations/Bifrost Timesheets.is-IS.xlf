@@ -1275,6 +1275,288 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Workspace.List: Aðeins lesið. Listar vinnusvæði sem API lykillinn nær í. Notaðu kenni sem workspaceId í síðari köllum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify WrkspaceList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Table 1261456027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone Customer Buffer</source>
+          <target state="translated">Viðskiptavinabiðminni síma</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Viðskiptavinabiðminni síma</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 3901706362 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bucket</source>
+          <target state="translated">Listi</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Listi</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Bucket - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <target state="translated">Nafn viðskiptavinar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nafn viðskiptavinar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="translated">Viðskiptavinur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Viðskiptavinur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Færslunúmer</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Færslunúmer</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 3169692288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hours</source>
+          <target state="translated">Klukkustundir</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Klukkustundir</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Hours Today - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 1908272084 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job No.</source>
+          <target state="translated">Verknúmer</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verknúmer</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Job No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1261456027 - Field 561421623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Task No.</source>
+          <target state="translated">Verkþáttur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verkþáttur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Phone Cust Buffer ori - Field Job Task No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215724472 - NamedType 481314759" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer %1 does not exist.</source>
+          <target state="translated">Viðskiptavinur %1 er ekki til.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = customer number. is-IS=Viðskiptavinur %1 er ekki til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType CustomerMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215724472 - NamedType 3154256220" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item %1 is not a service item in your My Items list.</source>
+          <target state="translated">Vara %1 er ekki þjónustuvara á Mínum vörum.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = item number. is-IS=Vara %1 er ekki þjónustuvara á Mínum vörum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType ItemNotServiceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215724472 - NamedType 1804125421" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job %1 has no job task to put on the sales line.</source>
+          <target state="translated">Verk %1 hefur engan verkþátt til að setja á sölulínuna.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = job number. is-IS=Verk %1 hefur engan verkþátt til að setja á sölulínuna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType JobTaskMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2215724472 - NamedType 1473162410" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity must be greater than zero.</source>
+          <target state="translated">Magn verður að vera stærra en núll.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Magn verður að vera stærra en núll.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType QuantityErr</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add service item</source>
+          <target state="translated">Bæta við þjónustuvöru</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæta við þjónustuvöru</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Control 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service item</source>
+          <target state="translated">Þjónustuvara</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þjónustuvara</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Control Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Control 332802016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the service item from your My Items list.</source>
+          <target state="translated">Tilgreinir þjónustuvöru af lista Mínar vörur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir þjónustuvöru af lista Mínar vörur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Control ItemNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Control 332802016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Vörunúmer</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vörunúmer</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Control ItemNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Control 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity to put on the sales invoice line.</source>
+          <target state="translated">Tilgreinir magnið sem fer á sölureikningslínuna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir magnið sem fer á sölureikningslínuna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 774222155 - Control 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="translated">Magn</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Magn</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Add Service Item ori - Control Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 54136785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current customers</source>
+          <target state="translated">Núverandi viðskiptavinir</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Núverandi viðskiptavinir</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Current Cust Part ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 54136785 - Control 1171137197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer name.</source>
+          <target state="translated">Tilgreinir nafn viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir nafn viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Current Cust Part ori - Control Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 54136785 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number.</source>
+          <target state="translated">Tilgreinir númer viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir númer viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Current Cust Part ori - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 54136785 - Action 2318734275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a service item to an open sales invoice for this customer.</source>
+          <target state="translated">Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Current Cust Part ori - Action Add - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 54136785 - Action 2318734275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated">Bæta við</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæta við</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Current Cust Part ori - Action Add - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last workday</source>
+          <target state="translated">Síðasti virki dagur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Síðasti virki dagur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Control 1171137197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer name.</source>
+          <target state="translated">Tilgreinir nafn viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir nafn viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Control Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number.</source>
+          <target state="translated">Tilgreinir númer viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir númer viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Control 3169692288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the finished hours logged against this customer on the last workday.</source>
+          <target state="translated">Tilgreinir kláraðar klukkustundir skráðar á þennan viðskiptavin síðasta virka dag.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kláraðar klukkustundir skráðar á þennan viðskiptavin síðasta virka dag.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Control Hours Today - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Action 2318734275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a service item to an open sales invoice for this customer.</source>
+          <target state="translated">Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Action Add - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3207386236 - Action 2318734275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated">Bæta við</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæta við</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone LastDay Cust Part ori - Action Add - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2950300673 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone</source>
+          <target state="translated">Sími</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sími</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Role Center ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2950300673 - Control 4127277610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current customers</source>
+          <target state="translated">Núverandi viðskiptavinir</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Núverandi viðskiptavinir</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Role Center ori - Control CurrentCustomers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2950300673 - Control 1427119068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last workday</source>
+          <target state="translated">Síðasti virki dagur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Síðasti virki dagur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Role Center ori - Control LastWorkdayCustomers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2950300673 - Control 2778210988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Today</source>
+          <target state="translated">Í dag</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Í dag</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Role Center ori - Control TodayCustomers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Today</source>
+          <target state="translated">Í dag</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Í dag</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Control 1171137197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer name.</source>
+          <target state="translated">Tilgreinir nafn viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir nafn viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Control Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number.</source>
+          <target state="translated">Tilgreinir númer viðskiptavinar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir númer viðskiptavinar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Control 3169692288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the finished hours logged against this customer today. A running timer adds the customer with zero hours.</source>
+          <target state="translated">Tilgreinir kláraðar klukkustundir skráðar á þennan viðskiptavin í dag. Klukka í gangi bætir viðskiptavininum við með núll klukkustundum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir kláraðar klukkustundir skráðar á þennan viðskiptavin í dag. Klukka í gangi bætir viðskiptavininum við með núll klukkustundum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Control Hours Today - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Action 2318734275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a service item to an open sales invoice for this customer.</source>
+          <target state="translated">Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bætir þjónustuvöru á opinn sölureikning fyrir þennan viðskiptavin.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Action Add - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 738669107 - Action 2318734275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated">Bæta við</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæta við</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Phone Today Cust Part ori - Action Add - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 829329462 - Action 672734192 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the Bifrost setup wizard, which enables HTTP client requests for all Bifrost apps and walks through the credentials of every app.</source>
+          <target state="translated">Opnar uppsetningarleiðsögn Bifröst, sem virkjar HTTP biðlarabeiðnir fyrir öll Bifröst forrit og fer yfir auðkenni hvers forrits.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opnar uppsetningarleiðsögn Bifröst, sem virkjar HTTP biðlarabeiðnir fyrir öll Bifröst forrit og fer yfir auðkenni hvers forrits.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action SetupWizard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 829329462 - Action 672734192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Wizard</source>
+          <target state="translated">Uppsetningarleiðsögn</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetningarleiðsögn</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action SetupWizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3130072657 - Field 2636227874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Phone Role Center document</source>
+          <target state="translated">Skjal síma-hlutverkamiðju</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skjal síma-hlutverkamiðju</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Phone Sales Header ori - Field Phone RC Document ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Profile 865808720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone</source>
+          <target state="translated">Sími</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sími</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Profile Phone Role Center Profile ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Profile 865808720 - Property 4111922599" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quick project-customer service-item add for phone users.</source>
+          <target state="translated">Fljótleg skráning þjónustuvöru á verkefnisviðskiptavin fyrir símanotendur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fljótleg skráning þjónustuvöru á verkefnisviðskiptavin fyrir símanotendur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Profile Phone Role Center Profile ori - Property ProfileDescription</note>
+        </trans-unit>
+        <trans-unit id="Enum 985539385 - EnumValue 92569267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current</source>
+          <target state="translated">Núverandi</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Núverandi</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Phone Cust Bucket ori - EnumValue Current - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 985539385 - EnumValue 3491142417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last workday</source>
+          <target state="translated">Síðasti virki dagur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Síðasti virki dagur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Phone Cust Bucket ori - EnumValue LastWorkday - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 985539385 - EnumValue 4155090369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Today</source>
+          <target state="translated">Í dag</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Í dag</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Phone Cust Bucket ori - EnumValue Today - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>
