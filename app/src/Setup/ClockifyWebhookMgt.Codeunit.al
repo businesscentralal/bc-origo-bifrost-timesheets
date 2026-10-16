@@ -21,14 +21,14 @@ codeunit 10036830 "Clockify Webhook Mgt ori"
     Access = Internal;
 
     var
-        NoApiKeyErr: Label 'Set the company Clockify API key before registering webhooks.', Comment = 'is-IS=Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.';
-        NoWorkspaceErr: Label 'Set a Default Workspace on Clockify Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.';
-        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.', Comment = 'is-IS=Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.';
-        AlreadyRegisteredErr: Label 'Clockify webhooks are already registered. Remove them before registering again.', Comment = 'is-IS=Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.';
+        NoApiKeyErr: Label 'Set the company Clockify API key before registering webhooks.', Comment = 'is-IS=Skráðu API-lykil fyrirtækisins fyrir Clockify áður en vefkrókar eru skráðir.';
+        NoWorkspaceErr: Label 'Set a Default Workspace on Clockify Setup before registering webhooks.', Comment = 'is-IS=Veldu sjálfgefið vinnusvæði í Clockify-uppsetningu áður en vefkrókar eru skráðir.';
+        NoReceiverUrlErr: Label 'Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.', Comment = 'is-IS=Stilltu móttökuslóð Clockify-vefkrókanna í Clockify-uppsetningu áður en vefkrókar eru skráðir.';
+        AlreadyRegisteredErr: Label 'Clockify webhooks are already registered. Remove them before registering again.', Comment = 'is-IS=Clockify-vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þeir eru skráðir aftur.';
         NotRegisteredMsg: Label 'No Clockify webhooks are registered.', Comment = 'is-IS=Engir Clockify vefkrókar eru skráðir.';
         CreateFailedErr: Label 'Creating the Clockify %1 webhook failed (HTTP %2): %3', Comment = '%1 = event, %2 = status code, %3 = response. is-IS=Ekki tókst að búa til Clockify %1 vefkrók (HTTP %2): %3';
         RegisterQst: Label 'Register Clockify webhooks for real-time time-entry sync?', Comment = 'is-IS=Skrá Clockify vefkróka fyrir rauntíma samstillingu tímafærslna?';
-        RegisteredMsg: Label 'Registered %1 Clockify webhook(s).\n\nConfigure the webhook receiver app setting CLOCKIFY_WEBHOOK_SIGNATURES with these signing token(s):\n\n%2', Comment = '%1 = count, %2 = tokens. is-IS=Skráði %1 Clockify vefkrók(a).\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2';
+        RegisteredMsg: Label 'Registered %1 Clockify webhook(s).\n\nConfigure the webhook receiver app setting CLOCKIFY_WEBHOOK_SIGNATURES with these signing token(s):\n\n%2', Comment = '%1 = count, %2 = tokens. is-IS=Skráðir %1 Clockify-vefkrókar.\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2';
         RemoveQst: Label 'Remove all registered Clockify webhooks?', Comment = 'is-IS=Fjarlægja alla skráða Clockify vefkróka?';
         RemovedMsg: Label 'Removed %1 Clockify webhook(s).', Comment = '%1 = count. is-IS=Fjarlægði %1 Clockify vefkrók(a).';
         TokensMsg: Label 'Configure these signing token(s) as CLOCKIFY_WEBHOOK_SIGNATURES on the webhook receiver:\n\n%1', Comment = '%1 = tokens. is-IS=Stilltu þessa undirritunarlykla sem CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum:\n\n%1';

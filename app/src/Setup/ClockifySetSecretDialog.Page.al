@@ -25,7 +25,7 @@ page 10036786 "Clockify Set Secret Dialog ori"
                 field(SecretInput; SecretInput)
                 {
                     ApplicationArea = All;
-                    Caption = 'API Key', Comment = 'is-IS=API lykill';
+                    Caption = 'API Key', Comment = 'is-IS=API-lykill';
                     ExtendedDatatype = Masked;
                     ToolTip = 'Specifies the Clockify API key to store. The value is masked while you type.', Comment = 'is-IS=Tilgreinir Clockify API lykilinn sem á að geyma. Gildið er falið meðan þú slærð það inn.';
                 }

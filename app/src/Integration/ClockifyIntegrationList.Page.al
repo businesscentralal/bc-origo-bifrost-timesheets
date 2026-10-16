@@ -12,7 +12,7 @@ page 10036785 "Clockify Integration List ori"
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = "Clockify Integration ori";
-    Caption = 'Clockify Integration', Comment = 'is-IS=Clockify tengingar';
+    Caption = 'Clockify Integration', Comment = 'is-IS=Clockify-tengingar';
     ContextSensitiveHelpPage = 'timesheets-integration-list';
     Editable = false;
     InsertAllowed = false;
@@ -44,7 +44,7 @@ page 10036785 "Clockify Integration List ori"
                 }
                 field("Clockify Type"; Rec."Clockify Type")
                 {
-                    ToolTip = 'Specifies the kind of Clockify object the record is linked to.', Comment = 'is-IS=Tilgreinir tegund Clockify hlutarins sem fært er tengt við.';
+                    ToolTip = 'Specifies the kind of Clockify object the record is linked to.', Comment = 'is-IS=Tilgreinir tegund Clockify-hlutarins sem færslan er tengd við.';
                 }
                 field("Clockify Name"; Rec."Clockify Name")
                 {
@@ -61,11 +61,11 @@ page 10036785 "Clockify Integration List ori"
                 }
                 field("Reversed"; Rec."Reversed")
                 {
-                    ToolTip = 'Specifies whether the link has been broken. Reversed links are purged about one month after reversal.', Comment = 'is-IS=Tilgreinir hvort tengingin hafi verið rofin. Afturkallaðar tengingar eru hreinsaðar um mánuði eftir afturköllun.';
+                    ToolTip = 'Specifies whether the link has been broken. Reversed links are purged about one month after reversal.', Comment = 'is-IS=Tilgreinir hvort tengingin hafi verið rofin. Bakfærðar tengingar eru hreinsaðar um það bil mánuði eftir bakfærslu.';
                 }
                 field("Reversed At"; Rec."Reversed At")
                 {
-                    ToolTip = 'Specifies when the link was reversed.', Comment = 'is-IS=Tilgreinir hvenær tengingin var afturkölluð.';
+                    ToolTip = 'Specifies when the link was reversed.', Comment = 'is-IS=Tilgreinir hvenær tengingin var bakfærð.';
                 }
             }
         }

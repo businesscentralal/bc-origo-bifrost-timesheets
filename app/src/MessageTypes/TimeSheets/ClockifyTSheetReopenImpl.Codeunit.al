@@ -56,14 +56,14 @@ codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeSheetReopen(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeSheetReopen(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean

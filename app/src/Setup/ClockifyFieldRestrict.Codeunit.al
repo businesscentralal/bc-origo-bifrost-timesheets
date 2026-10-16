@@ -17,7 +17,7 @@ codeunit 10036838 "Clockify Field Restrict ori"
     Access = Internal;
 
     var
-        ReceiverUrlHintTok: Label 'the Timesheets setup page (Clockify Setup)', Locked = true;
+        ReceiverUrlHintTok: Label 'the Timesheets setup page (Clockify Setup)', Comment = 'is-IS=uppsetningarsíðu Timesheets (Clockify Setup)';
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsFieldWriteRestricted(TableNo: Integer;

@@ -13,7 +13,7 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
     Access = Internal;
 
     var
-        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
+        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2';
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     procedure IsEnabled(): Boolean
@@ -62,14 +62,14 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySyncRangeToTimeSheet(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeEntrySyncRangeToTimeSheet(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean

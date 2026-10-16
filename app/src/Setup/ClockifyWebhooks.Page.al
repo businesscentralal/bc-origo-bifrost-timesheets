@@ -12,7 +12,7 @@ page 10036787 "Clockify Webhooks ori"
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = "Clockify Webhook ori";
-    Caption = 'Clockify Webhooks', Comment = 'is-IS=Clockify vefkrókar';
+    Caption = 'Clockify Webhooks', Comment = 'is-IS=Clockify-vefkrókar';
     ContextSensitiveHelpPage = 'timesheets-webhooks';
     Editable = false;
     InsertAllowed = false;
@@ -27,7 +27,7 @@ page 10036787 "Clockify Webhooks ori"
             {
                 field("Event"; Rec."Event")
                 {
-                    ToolTip = 'Specifies the Clockify event the webhook fires on.', Comment = 'is-IS=Tilgreinir Clockify atburðinn sem vefkrókurinn bregst við.';
+                    ToolTip = 'Specifies the Clockify event the webhook fires on.', Comment = 'is-IS=Tilgreinir Clockify-atburðinn sem vefkrókurinn bregst við.';
                 }
                 field("Webhook Name"; Rec."Webhook Name")
                 {
@@ -39,11 +39,11 @@ page 10036787 "Clockify Webhooks ori"
                 }
                 field("Workspace Id"; Rec."Workspace Id")
                 {
-                    ToolTip = 'Specifies the Clockify workspace the webhook belongs to.', Comment = 'is-IS=Tilgreinir Clockify vinnusvæðið sem vefkrókurinn tilheyrir.';
+                    ToolTip = 'Specifies the Clockify workspace the webhook belongs to.', Comment = 'is-IS=Tilgreinir Clockify-vinnusvæðið sem vefkrókurinn tilheyrir.';
                 }
                 field("Url"; Rec."Url")
                 {
-                    ToolTip = 'Specifies the receiver URL the webhook posts to.', Comment = 'is-IS=Tilgreinir móttökuslóðina sem vefkrókurinn sendir á.';
+                    ToolTip = 'Specifies the receiver URL the webhook posts to.', Comment = 'is-IS=Tilgreinir móttökuslóðina sem vefkrókurinn sendir til.';
                 }
                 field("Registered At"; Rec."Registered At")
                 {

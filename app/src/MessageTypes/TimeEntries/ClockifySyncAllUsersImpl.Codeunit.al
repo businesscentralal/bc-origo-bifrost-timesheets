@@ -14,7 +14,7 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
     Access = Internal;
 
     var
-        MissingJournalErr: Label 'target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch''.', Locked = true;
+        MissingJournalErr: Label 'target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch''.', Comment = 'is-IS=target=journal krefst verkbókar. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch''.';
 
     procedure IsEnabled(): Boolean
     var
@@ -62,14 +62,14 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySyncAllUsers(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeEntrySyncAllUsers(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean

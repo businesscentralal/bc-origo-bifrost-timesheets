@@ -11,7 +11,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
 {
     Access = Public;
     Assignable = true;
-    Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
+    Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifrost Timesheets';
 
     Permissions =
         tabledata "Clockify Setup ori" = RIMD,

@@ -16,7 +16,7 @@ codeunit 10036786 "Clockify Client ori" implements "Clockify API Client ori"
     Access = Internal;
 
     var
-        MissingApiKeyErr: Label 'No Clockify API key is stored. Open Clockify Setup and set the company API key.', Comment = 'is-IS=Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.';
+        MissingApiKeyErr: Label 'No Clockify API key is stored. Open Clockify Setup and set the company API key.', Comment = 'is-IS=Enginn API-lykill Clockify er geymdur. Opnaðu Clockify-uppsetningu og skráðu API-lykil fyrirtækisins.';
         SendFailedErr: Label 'The Clockify request could not be sent: %1', Comment = '%1 = error text. is-IS=Ekki tókst að senda Clockify beiðnina: %1';
         ApiKeyHeaderTok: Label 'X-Api-Key', Locked = true;
         BaseUrlTok: Label 'https://api.clockify.me/api/v1', Locked = true;

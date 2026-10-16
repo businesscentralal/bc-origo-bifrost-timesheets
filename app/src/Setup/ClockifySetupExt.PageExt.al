@@ -18,10 +18,10 @@ pageextension 10036785 "Clockify Setup Ext ori" extends "Setup ori"
             action(ClockifySetupCard)
             {
                 ApplicationArea = All;
-                Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
+                Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Bifrost Timesheets - uppsetning';
                 Image = Timesheet;
                 RunObject = page "Timesheets Setup ori";
-                ToolTip = 'Open the setup of the Bifrost Timesheets connector: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opna uppsetningu Bifröst tímaskýrslna: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
+                ToolTip = 'Open the setup of the Bifrost Timesheets connector: API key, default workspace, Job Journal target and real-time webhooks.', Comment = 'is-IS=Opnar uppsetningu Bifrost Timesheets: API-lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.';
             }
         }
         addlast(Category_Apps)

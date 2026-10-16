@@ -57,14 +57,14 @@ codeunit 10036824 "Clockify User Current Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForUserGetCurrent(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForUserGetCurrent(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean

@@ -95,6 +95,11 @@ codeunit 95613 "Clockify Help Fixes Tests"
         AssertParamRequired(Parameters, 'taskId', false, 'Sync taskId');
         AssertParamRequired(Parameters, 'start', false, 'Sync start');
         AssertParamRequired(Parameters, 'end', false, 'Sync end');
+        AssertParamRequired(Parameters, 'description', false, 'Sync description');
+        AssertParamRequired(Parameters, 'billable', false, 'Sync billable');
+        AssertParamRequired(Parameters, 'tagIds', false, 'Sync tagIds');
+        AssertParamRequired(Parameters, 'journalTemplate', false, 'Sync journalTemplate');
+        AssertParamRequired(Parameters, 'journalBatch', false, 'Sync journalBatch');
     end;
 
     [Test]
@@ -112,6 +117,9 @@ codeunit 95613 "Clockify Help Fixes Tests"
         AssertParamRequired(Parameters, 'taskId', false, 'SyncToTimeSheet taskId');
         AssertParamRequired(Parameters, 'start', false, 'SyncToTimeSheet start');
         AssertParamRequired(Parameters, 'end', false, 'SyncToTimeSheet end');
+        AssertParamRequired(Parameters, 'description', false, 'SyncToTimeSheet description');
+        AssertParamRequired(Parameters, 'billable', false, 'SyncToTimeSheet billable');
+        AssertParamRequired(Parameters, 'tagIds', false, 'SyncToTimeSheet tagIds');
     end;
 
     [Test]

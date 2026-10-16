@@ -36,132 +36,946 @@ codeunit 10036855 "Clockify Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>
+    /// Builds the target chapter for one message type. Each type has its own procedure
+    /// so the contract guard attributes only that type's identifiers.
+    /// </summary>
     procedure GetTarget(MessageType: Enum "Message Type ori"; var Target: JsonArray): Boolean
-    var
-        ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if not HasTarget(MessageType) then
-            exit(false);
-        if UsesWorkspace(MessageType) then
-            Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
         case MessageType of
-            MessageType::"Clockify.Client.Get", MessageType::"Clockify.Client.Update", MessageType::"Clockify.Client.Delete":
-                Target.Add(ContractMgt.TargetEntry('data.clientId', 'string', 'The Clockify client ID.'));
-            MessageType::"Clockify.Project.Get", MessageType::"Clockify.Project.Update", MessageType::"Clockify.Project.Delete":
-                Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID.'));
+            MessageType::"Help.Clockify.Get":
+                exit(TargetForHelpGet(Target));
+            MessageType::"Clockify.Workspace.List":
+                exit(TargetForWorkspaceList(Target));
+            MessageType::"Clockify.User.GetCurrent":
+                exit(TargetForUserGetCurrent(Target));
+            MessageType::"Clockify.User.List":
+                exit(TargetForUserList(Target));
+            MessageType::"Clockify.Client.List":
+                exit(TargetForClientList(Target));
+            MessageType::"Clockify.Client.Get":
+                exit(TargetForClientGet(Target));
+            MessageType::"Clockify.Client.Create":
+                exit(TargetForClientCreate(Target));
+            MessageType::"Clockify.Client.Update":
+                exit(TargetForClientUpdate(Target));
+            MessageType::"Clockify.Client.Delete":
+                exit(TargetForClientDelete(Target));
+            MessageType::"Clockify.Project.List":
+                exit(TargetForProjectList(Target));
+            MessageType::"Clockify.Project.Get":
+                exit(TargetForProjectGet(Target));
+            MessageType::"Clockify.Project.Create":
+                exit(TargetForProjectCreate(Target));
+            MessageType::"Clockify.Project.Update":
+                exit(TargetForProjectUpdate(Target));
+            MessageType::"Clockify.Project.Delete":
+                exit(TargetForProjectDelete(Target));
+            MessageType::"Clockify.Task.List":
+                exit(TargetForTaskList(Target));
             MessageType::"Clockify.Task.Create":
-                Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID that owns the task.'));
-            MessageType::"Clockify.Task.Update", MessageType::"Clockify.Task.Delete":
-                begin
-                    Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID that owns the task.'));
-                    Target.Add(ContractMgt.TargetEntry('data.taskId', 'string', 'The Clockify task ID.'));
-                end;
-            MessageType::"Clockify.Tag.Update", MessageType::"Clockify.Tag.Delete":
-                Target.Add(ContractMgt.TargetEntry('data.tagId', 'string', 'The Clockify tag ID.'));
-            MessageType::"Clockify.TimeEntry.List", MessageType::"Clockify.TimeEntry.Create":
-                Target.Add(ContractMgt.TargetEntry('data.userId', 'string', 'The Clockify user ID whose time entries are addressed.'));
-            MessageType::"Clockify.TimeEntry.Get", MessageType::"Clockify.TimeEntry.Update", MessageType::"Clockify.TimeEntry.Delete":
-                Target.Add(ContractMgt.TargetEntry('data.timeEntryId', 'string', 'The Clockify time-entry ID.'));
-            MessageType::"Clockify.TimeEntry.Sync", MessageType::"Clockify.TimeEntry.SyncToTimeSheet":
-                Target.Add(ContractMgt.TargetEntry('data.entryId', 'string', 'The Clockify time-entry ID to sync.'));
+                exit(TargetForTaskCreate(Target));
+            MessageType::"Clockify.Task.Update":
+                exit(TargetForTaskUpdate(Target));
+            MessageType::"Clockify.Task.Delete":
+                exit(TargetForTaskDelete(Target));
+            MessageType::"Clockify.Tag.List":
+                exit(TargetForTagList(Target));
+            MessageType::"Clockify.Tag.Create":
+                exit(TargetForTagCreate(Target));
+            MessageType::"Clockify.Tag.Update":
+                exit(TargetForTagUpdate(Target));
+            MessageType::"Clockify.Tag.Delete":
+                exit(TargetForTagDelete(Target));
+            MessageType::"Clockify.TimeEntry.List":
+                exit(TargetForTimeEntryList(Target));
+            MessageType::"Clockify.TimeEntry.Get":
+                exit(TargetForTimeEntryGet(Target));
+            MessageType::"Clockify.TimeEntry.Create":
+                exit(TargetForTimeEntryCreate(Target));
+            MessageType::"Clockify.TimeEntry.Update":
+                exit(TargetForTimeEntryUpdate(Target));
+            MessageType::"Clockify.TimeEntry.Delete":
+                exit(TargetForTimeEntryDelete(Target));
+            MessageType::"Clockify.Currency.List":
+                exit(TargetForCurrencyList(Target));
+            MessageType::"Clockify.UserGroup.List":
+                exit(TargetForUserGroupList(Target));
+            MessageType::"Clockify.CustomField.List":
+                exit(TargetForCustomFieldList(Target));
+            MessageType::"Clockify.TimeEntry.Sync":
+                exit(TargetForTimeEntrySync(Target));
+            MessageType::"Clockify.TimeEntry.SyncRange":
+                exit(TargetForTimeEntrySyncRange(Target));
+            MessageType::"Clockify.TimeSheet.Create":
+                exit(TargetForTimeSheetCreate(Target));
+            MessageType::"Clockify.TimeSheet.Approve":
+                exit(TargetForTimeSheetApprove(Target));
+            MessageType::"Clockify.TimeSheet.Reject":
+                exit(TargetForTimeSheetReject(Target));
+            MessageType::"Clockify.TimeSheet.Reopen":
+                exit(TargetForTimeSheetReopen(Target));
+            MessageType::"Clockify.TimeSheet.Post":
+                exit(TargetForTimeSheetPost(Target));
+            MessageType::"Clockify.TimeSheet.Archive":
+                exit(TargetForTimeSheetArchive(Target));
+            MessageType::"Clockify.TimeEntry.SyncToTimeSheet":
+                exit(TargetForTimeEntrySyncToTimeSheet(Target));
+            MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
+                exit(TargetForTimeEntrySyncRangeToTimeSheet(Target));
+            MessageType::"Clockify.TimeEntry.SyncAllUsers":
+                exit(TargetForTimeEntrySyncAllUsers(Target));
         end;
+        exit(false);
+    end;
+
+    /// <summary>Target chapter for Help.Clockify.Get. Only this type's identifiers are named here.</summary>
+    procedure TargetForHelpGet(var Target: JsonArray): Boolean
+    begin
         exit(Target.Count() > 0);
     end;
 
-    procedure GetParameters(MessageType: Enum "Message Type ori"; var Parameters: JsonArray): Boolean
+    /// <summary>Target chapter for Clockify.Workspace.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForWorkspaceList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.User.GetCurrent. Only this type's identifiers are named here.</summary>
+    procedure TargetForUserGetCurrent(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.User.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForUserList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Client.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForClientList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Client.Get. Only this type's identifiers are named here.</summary>
+    procedure TargetForClientGet(var Target: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if MessageType = MessageType::"Help.Clockify.Get" then
-            exit(false);
-        if UsesWorkspace(MessageType) then
-            Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.clientId', 'string', 'The Clockify client ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Client.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForClientCreate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Client.Update. Only this type's identifiers are named here.</summary>
+    procedure TargetForClientUpdate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.clientId', 'string', 'The Clockify client ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Client.Delete. Only this type's identifiers are named here.</summary>
+    procedure TargetForClientDelete(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.clientId', 'string', 'The Clockify client ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Project.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForProjectList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Project.Get. Only this type's identifiers are named here.</summary>
+    procedure TargetForProjectGet(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Project.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForProjectCreate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Project.Update. Only this type's identifiers are named here.</summary>
+    procedure TargetForProjectUpdate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Project.Delete. Only this type's identifiers are named here.</summary>
+    procedure TargetForProjectDelete(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Task.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForTaskList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Task.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForTaskCreate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID that owns the task.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Task.Update. Only this type's identifiers are named here.</summary>
+    procedure TargetForTaskUpdate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID that owns the task.'));
+        Target.Add(ContractMgt.TargetEntry('data.taskId', 'string', 'The Clockify task ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Task.Delete. Only this type's identifiers are named here.</summary>
+    procedure TargetForTaskDelete(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.projectId', 'string', 'The Clockify project ID that owns the task.'));
+        Target.Add(ContractMgt.TargetEntry('data.taskId', 'string', 'The Clockify task ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Tag.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForTagList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Tag.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForTagCreate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Tag.Update. Only this type's identifiers are named here.</summary>
+    procedure TargetForTagUpdate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.tagId', 'string', 'The Clockify tag ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Tag.Delete. Only this type's identifiers are named here.</summary>
+    procedure TargetForTagDelete(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.tagId', 'string', 'The Clockify tag ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntryList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.Get. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntryGet(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.timeEntryId', 'string', 'The Clockify time-entry ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntryCreate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.userId', 'string', 'The Clockify user ID whose time entries are addressed.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.Update. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntryUpdate(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.timeEntryId', 'string', 'The Clockify time-entry ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.Delete. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntryDelete(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.timeEntryId', 'string', 'The Clockify time-entry ID.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.Currency.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForCurrencyList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.UserGroup.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForUserGroupList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.CustomField.List. Only this type's identifiers are named here.</summary>
+    procedure TargetForCustomFieldList(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.Sync. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntrySync(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.entryId', 'string', 'The Clockify time-entry ID to sync.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.SyncRange. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntrySyncRange(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Create. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetCreate(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Approve. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetApprove(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Reject. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetReject(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Reopen. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetReopen(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Post. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetPost(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeSheet.Archive. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeSheetArchive(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.SyncToTimeSheet. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntrySyncToTimeSheet(var Target: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Target.Add(ContractMgt.TargetEntry('data.workspaceId', 'string', 'The Clockify workspace ID. The Default Workspace ID on Clockify Setup is used when this is omitted.'));
+        Target.Add(ContractMgt.TargetEntry('data.entryId', 'string', 'The Clockify time-entry ID to sync.'));
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.SyncRangeToTimeSheet. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntrySyncRangeToTimeSheet(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>Target chapter for Clockify.TimeEntry.SyncAllUsers. Only this type's identifiers are named here.</summary>
+    procedure TargetForTimeEntrySyncAllUsers(var Target: JsonArray): Boolean
+    begin
+        exit(Target.Count() > 0);
+    end;
+
+    /// <summary>
+    /// Builds the parameters chapter for one message type. Each type has its own procedure
+    /// so a caller, and the contract guard, see only that type's keys.
+    /// </summary>
+    procedure GetParameters(MessageType: Enum "Message Type ori"; var Parameters: JsonArray): Boolean
+    begin
         case MessageType of
+            MessageType::"Help.Clockify.Get":
+                exit(ParametersForHelpGet(Parameters));
+            MessageType::"Clockify.Workspace.List":
+                exit(ParametersForWorkspaceList(Parameters));
+            MessageType::"Clockify.User.GetCurrent":
+                exit(ParametersForUserGetCurrent(Parameters));
             MessageType::"Clockify.User.List":
-                AddPagingParameters(Parameters, ContractMgt);
+                exit(ParametersForUserList(Parameters));
             MessageType::"Clockify.Client.List":
-                AddPagingParameters(Parameters, ContractMgt);
+                exit(ParametersForClientList(Parameters));
             MessageType::"Clockify.Client.Get":
-                AddIdParameter(Parameters, ContractMgt, 'clientId', 'Clockify client ID.');
+                exit(ParametersForClientGet(Parameters));
             MessageType::"Clockify.Client.Create":
-                AddBodyParameter(Parameters, ContractMgt, 'Client fields sent verbatim. name is the display name. address is one line: concatenate BC Address, Address 2, Post Code, City, and Country/Region Code. currencyId is the Clockify id from Clockify.Currency.List; currencyCode is ignored.');
+                exit(ParametersForClientCreate(Parameters));
             MessageType::"Clockify.Client.Update":
-                AddIdAndBodyParameters(Parameters, ContractMgt, 'clientId', 'Clockify client ID.', 'Client fields to change. Optional body fields omitted keep the existing Clockify values. currencyId is the Clockify id, not currencyCode. Set archived true before Clockify.Client.Delete.');
+                exit(ParametersForClientUpdate(Parameters));
             MessageType::"Clockify.Client.Delete":
-                AddIdParameter(Parameters, ContractMgt, 'clientId', 'Archived Clockify client ID.');
+                exit(ParametersForClientDelete(Parameters));
             MessageType::"Clockify.Project.List":
-                AddPagingParameters(Parameters, ContractMgt);
+                exit(ParametersForProjectList(Parameters));
             MessageType::"Clockify.Project.Get":
-                AddIdParameter(Parameters, ContractMgt, 'projectId', 'Clockify project ID.');
+                exit(ParametersForProjectGet(Parameters));
             MessageType::"Clockify.Project.Create":
-                AddBodyParameter(Parameters, ContractMgt, 'Project fields sent verbatim, including name, clientId, and userGroupIds. userGroupIds are Clockify group ids from Clockify.UserGroup.List, not group names. customFieldId values are set later with Clockify.Project.Update.');
+                exit(ParametersForProjectCreate(Parameters));
             MessageType::"Clockify.Project.Update":
-                AddIdAndBodyParameters(Parameters, ContractMgt, 'projectId', 'Clockify project ID.', 'Project fields to change. Optional body fields omitted keep the existing Clockify values. userGroupIds and customFields.customFieldId are Clockify ids from Clockify.UserGroup.List and Clockify.CustomField.List.');
+                exit(ParametersForProjectUpdate(Parameters));
             MessageType::"Clockify.Project.Delete":
-                AddIdParameter(Parameters, ContractMgt, 'projectId', 'Archived Clockify project ID.');
+                exit(ParametersForProjectDelete(Parameters));
             MessageType::"Clockify.Task.List":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'projectId', 'Clockify project ID.');
-                    AddPagingParameters(Parameters, ContractMgt);
-                end;
+                exit(ParametersForTaskList(Parameters));
             MessageType::"Clockify.Task.Create":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'projectId', 'Clockify project ID.');
-                    AddBodyParameter(Parameters, ContractMgt, 'Task fields, including name.');
-                end;
+                exit(ParametersForTaskCreate(Parameters));
             MessageType::"Clockify.Task.Update":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'projectId', 'Clockify project ID.');
-                    AddIdAndBodyParameters(Parameters, ContractMgt, 'taskId', 'Clockify task ID.', 'Task fields to update.');
-                end;
+                exit(ParametersForTaskUpdate(Parameters));
             MessageType::"Clockify.Task.Delete":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'projectId', 'Clockify project ID.');
-                    AddIdParameter(Parameters, ContractMgt, 'taskId', 'Clockify task ID.');
-                end;
-            MessageType::"Clockify.Tag.List", MessageType::"Clockify.UserGroup.List", MessageType::"Clockify.CustomField.List":
-                AddPagingParameters(Parameters, ContractMgt);
+                exit(ParametersForTaskDelete(Parameters));
+            MessageType::"Clockify.Tag.List":
+                exit(ParametersForTagList(Parameters));
             MessageType::"Clockify.Tag.Create":
-                AddBodyParameter(Parameters, ContractMgt, 'Tag fields, including name and optional archived flag.');
+                exit(ParametersForTagCreate(Parameters));
             MessageType::"Clockify.Tag.Update":
-                AddIdAndBodyParameters(Parameters, ContractMgt, 'tagId', 'Clockify tag ID.', 'Tag fields to update.');
+                exit(ParametersForTagUpdate(Parameters));
             MessageType::"Clockify.Tag.Delete":
-                AddIdParameter(Parameters, ContractMgt, 'tagId', 'Clockify tag ID.');
+                exit(ParametersForTagDelete(Parameters));
             MessageType::"Clockify.TimeEntry.List":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'userId', 'Clockify user ID.');
-                    Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query. query.in-progress = true returns running timers (end is null). query.in-progress = false returns finished entries. page-size and page only change the paging window.'));
-                end;
-            MessageType::"Clockify.TimeEntry.Get", MessageType::"Clockify.TimeEntry.Delete":
-                AddIdParameter(Parameters, ContractMgt, 'timeEntryId', 'Clockify time-entry ID.');
+                exit(ParametersForTimeEntryList(Parameters));
+            MessageType::"Clockify.TimeEntry.Get":
+                exit(ParametersForTimeEntryGet(Parameters));
             MessageType::"Clockify.TimeEntry.Create":
-                begin
-                    AddIdParameter(Parameters, ContractMgt, 'userId', 'Clockify user ID.');
-                    AddBodyParameter(Parameters, ContractMgt, 'Time-entry fields sent verbatim, including start. customFields.customFieldId comes from Clockify.CustomField.List. Omit end to leave a running timer.');
-                end;
+                exit(ParametersForTimeEntryCreate(Parameters));
             MessageType::"Clockify.TimeEntry.Update":
-                AddIdAndBodyParameters(Parameters, ContractMgt, 'timeEntryId', 'Clockify time-entry ID.', 'Time-entry fields to change. Optional body fields omitted keep the existing Clockify values. An empty tagIds array clears tags; omitting tagIds keeps them. customFieldId comes from Clockify.CustomField.List.');
+                exit(ParametersForTimeEntryUpdate(Parameters));
+            MessageType::"Clockify.TimeEntry.Delete":
+                exit(ParametersForTimeEntryDelete(Parameters));
+            MessageType::"Clockify.Currency.List":
+                exit(ParametersForCurrencyList(Parameters));
+            MessageType::"Clockify.UserGroup.List":
+                exit(ParametersForUserGroupList(Parameters));
+            MessageType::"Clockify.CustomField.List":
+                exit(ParametersForCustomFieldList(Parameters));
             MessageType::"Clockify.TimeEntry.Sync":
-                AddSyncParameters(Parameters, ContractMgt, false);
+                exit(ParametersForTimeEntrySync(Parameters));
             MessageType::"Clockify.TimeEntry.SyncRange":
-                AddRangeParameters(Parameters, ContractMgt, false, false);
+                exit(ParametersForTimeEntrySyncRange(Parameters));
             MessageType::"Clockify.TimeSheet.Create":
-                Parameters.Add(ContractMgt.Parameter('weeksAhead', 'integer', false, 'Number of upcoming weeks to create.'));
-            MessageType::"Clockify.TimeSheet.Approve", MessageType::"Clockify.TimeSheet.Reject", MessageType::"Clockify.TimeSheet.Reopen":
-                Parameters.Add(ContractMgt.Parameter('endingDateTo', 'string', false, 'ISO date cutoff; defaults to the work date.'));
+                exit(ParametersForTimeSheetCreate(Parameters));
+            MessageType::"Clockify.TimeSheet.Approve":
+                exit(ParametersForTimeSheetApprove(Parameters));
+            MessageType::"Clockify.TimeSheet.Reject":
+                exit(ParametersForTimeSheetReject(Parameters));
+            MessageType::"Clockify.TimeSheet.Reopen":
+                exit(ParametersForTimeSheetReopen(Parameters));
             MessageType::"Clockify.TimeSheet.Post":
-                AddJournalParameters(Parameters, ContractMgt);
+                exit(ParametersForTimeSheetPost(Parameters));
+            MessageType::"Clockify.TimeSheet.Archive":
+                exit(ParametersForTimeSheetArchive(Parameters));
             MessageType::"Clockify.TimeEntry.SyncToTimeSheet":
-                AddSyncParameters(Parameters, ContractMgt, true);
+                exit(ParametersForTimeEntrySyncToTimeSheet(Parameters));
             MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
-                AddRangeParameters(Parameters, ContractMgt, true, true);
+                exit(ParametersForTimeEntrySyncRangeToTimeSheet(Parameters));
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
-                begin
-                    AddRangeParameters(Parameters, ContractMgt, true, false);
-                    Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
-                    AddJournalParameters(Parameters, ContractMgt);
-                end;
+                exit(ParametersForTimeEntrySyncAllUsers(Parameters));
         end;
+        exit(false);
+    end;
+
+    /// <summary>Parameter chapter for Help.Clockify.Get. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForHelpGet(var Parameters: JsonArray): Boolean
+    begin
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Workspace.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForWorkspaceList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.User.GetCurrent. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForUserGetCurrent(var Parameters: JsonArray): Boolean
+    begin
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.User.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForUserList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Client.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForClientList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Client.Get. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForClientGet(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('clientId', 'string', true, 'Clockify client ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Client.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForClientCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Client fields sent verbatim. name is the display name. address is one line: concatenate BC Address, Address 2, Post Code, City, and Country/Region Code. currencyId is the Clockify id from Clockify.Currency.List; currencyCode is ignored.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Client.Update. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForClientUpdate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('clientId', 'string', true, 'Clockify client ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Client fields to change. Optional body fields omitted keep the existing Clockify values. currencyId is the Clockify id, not currencyCode. Set archived true before Clockify.Client.Delete.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Client.Delete. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForClientDelete(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('clientId', 'string', true, 'Archived Clockify client ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Project.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForProjectList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Project.Get. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForProjectGet(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Project.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForProjectCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Project fields sent verbatim, including name, clientId, and userGroupIds. userGroupIds are Clockify group ids from Clockify.UserGroup.List, not group names. customFieldId values are set later with Clockify.Project.Update.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Project.Update. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForProjectUpdate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Project fields to change. Optional body fields omitted keep the existing Clockify values. userGroupIds and customFields.customFieldId are Clockify ids from Clockify.UserGroup.List and Clockify.CustomField.List.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Project.Delete. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForProjectDelete(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Archived Clockify project ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Task.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTaskList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Task.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTaskCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Task fields, including name.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Task.Update. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTaskUpdate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        Parameters.Add(ContractMgt.Parameter('taskId', 'string', true, 'Clockify task ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Task fields to update.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Task.Delete. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTaskDelete(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID.'));
+        Parameters.Add(ContractMgt.Parameter('taskId', 'string', true, 'Clockify task ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Tag.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTagList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Tag.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTagCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Tag fields, including name and optional archived flag.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Tag.Update. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTagUpdate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('tagId', 'string', true, 'Clockify tag ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Tag fields to update.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Tag.Delete. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTagDelete(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('tagId', 'string', true, 'Clockify tag ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntryList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query. query.in-progress = true returns running timers (end is null). query.in-progress = false returns finished entries. page-size and page only change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.Get. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntryGet(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('timeEntryId', 'string', true, 'Clockify time-entry ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntryCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Time-entry fields sent verbatim, including start. customFields.customFieldId comes from Clockify.CustomField.List. Omit end to leave a running timer.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.Update. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntryUpdate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('timeEntryId', 'string', true, 'Clockify time-entry ID.'));
+        Parameters.Add(ContractMgt.Parameter('body', 'object', true, 'Time-entry fields to change. Optional body fields omitted keep the existing Clockify values. An empty tagIds array clears tags; omitting tagIds keeps them. customFieldId comes from Clockify.CustomField.List.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.Delete. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntryDelete(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('timeEntryId', 'string', true, 'Clockify time-entry ID.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.Currency.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForCurrencyList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.UserGroup.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForUserGroupList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.CustomField.List. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForCustomFieldList(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.Sync. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntrySync(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID mapped to a Business Central Resource.'));
+        Parameters.Add(ContractMgt.Parameter('entryId', 'string', true, 'Clockify time-entry ID.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID mapped to a BC Job.'));
+        Parameters.Add(ContractMgt.Parameter('taskId', 'string', false, 'Clockify task ID mapped to a BC Job Task. The app reads it when present and does not require it.'));
+        Parameters.Add(ContractMgt.Parameter('description', 'string', false, 'Time-entry description copied onto the Business Central line. Omitted leaves the description blank.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', false, 'Start time in ISO-8601 format. When omitted the app reads the start time from the Clockify entry.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', false, 'End time in ISO-8601 format; in-progress entries are rejected. When omitted the app reads the end time from the Clockify entry.'));
+        Parameters.Add(ContractMgt.Parameter('billable', 'boolean', false, 'Whether the time entry is billable. Omitted means billable.'));
+        Parameters.Add(ContractMgt.Parameter('tagIds', 'array', false, 'Clockify tag IDs used for Work Type resolution.'));
+        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
+        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.SyncRange. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntrySyncRange(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', false, 'Clockify user ID whose entries are synchronized.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
+        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Create. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetCreate(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('weeksAhead', 'integer', false, 'Number of upcoming weeks to create.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Approve. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetApprove(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('endingDateTo', 'string', false, 'ISO date cutoff; defaults to the work date.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Reject. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetReject(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('endingDateTo', 'string', false, 'ISO date cutoff; defaults to the work date.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Reopen. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetReopen(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('endingDateTo', 'string', false, 'ISO date cutoff; defaults to the work date.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Post. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetPost(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
+        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeSheet.Archive. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeSheetArchive(var Parameters: JsonArray): Boolean
+    begin
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.SyncToTimeSheet. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntrySyncToTimeSheet(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID mapped to a Business Central Resource.'));
+        Parameters.Add(ContractMgt.Parameter('entryId', 'string', true, 'Clockify time-entry ID.'));
+        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID mapped to a BC Job.'));
+        Parameters.Add(ContractMgt.Parameter('taskId', 'string', false, 'Clockify task ID mapped to a BC Job Task. The app reads it when present and does not require it.'));
+        Parameters.Add(ContractMgt.Parameter('description', 'string', false, 'Time-entry description copied onto the Business Central line. Omitted leaves the description blank.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', false, 'Start time in ISO-8601 format. When omitted the app reads the start time from the Clockify entry.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', false, 'End time in ISO-8601 format; in-progress entries are rejected. When omitted the app reads the end time from the Clockify entry.'));
+        Parameters.Add(ContractMgt.Parameter('billable', 'boolean', false, 'Whether the time entry is billable. Omitted means billable.'));
+        Parameters.Add(ContractMgt.Parameter('tagIds', 'array', false, 'Clockify tag IDs used for Work Type resolution.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.SyncRangeToTimeSheet. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntrySyncRangeToTimeSheet(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID whose entries are synchronized.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
+        exit(Parameters.Count() > 0);
+    end;
+
+    /// <summary>Parameter chapter for Clockify.TimeEntry.SyncAllUsers. Only this type's keys are declared here so the contract guard can attribute them.</summary>
+    procedure ParametersForTimeEntrySyncAllUsers(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('userId', 'string', false, 'Clockify user ID whose entries are synchronized.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
+        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
+        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
         exit(Parameters.Count() > 0);
     end;
 
@@ -420,55 +1234,6 @@ codeunit 10036855 "Clockify Contract Parts ori"
         exit(Notes <> '');
     end;
 
-    local procedure AddPagingParameters(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori")
-    begin
-        Parameters.Add(ContractMgt.Parameter('query', 'object', false, 'Optional query object. query.* parameters such as page-size, page, name, status, or archived only shape the returned data. page-size and page change the paging window.'));
-    end;
-
-    local procedure AddIdParameter(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori"; Name: Text; Description: Text)
-    begin
-        Parameters.Add(ContractMgt.Parameter(Name, 'string', true, Description));
-    end;
-
-    local procedure AddBodyParameter(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori"; Description: Text)
-    begin
-        Parameters.Add(ContractMgt.Parameter('body', 'object', true, Description));
-    end;
-
-    local procedure AddIdAndBodyParameters(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori"; IdName: Text; IdDescription: Text; BodyDescription: Text)
-    begin
-        AddIdParameter(Parameters, ContractMgt, IdName, IdDescription);
-        AddBodyParameter(Parameters, ContractMgt, BodyDescription);
-    end;
-
-    local procedure AddSyncParameters(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori"; ToTimeSheet: Boolean)
-    begin
-        Parameters.Add(ContractMgt.Parameter('userId', 'string', true, 'Clockify user ID mapped to a Business Central Resource.'));
-        Parameters.Add(ContractMgt.Parameter('entryId', 'string', true, 'Clockify time-entry ID.'));
-        Parameters.Add(ContractMgt.Parameter('projectId', 'string', true, 'Clockify project ID mapped to a BC Job.'));
-        Parameters.Add(ContractMgt.Parameter('taskId', 'string', false, 'Clockify task ID mapped to a BC Job Task. The app reads it when present and does not require it.'));
-        Parameters.Add(ContractMgt.Parameter('start', 'string', false, 'Start time in ISO-8601 format. When omitted the app reads the start time from the Clockify entry.'));
-        Parameters.Add(ContractMgt.Parameter('end', 'string', false, 'End time in ISO-8601 format; in-progress entries are rejected. When omitted the app reads the end time from the Clockify entry.'));
-        Parameters.Add(ContractMgt.Parameter('tagIds', 'array', false, 'Clockify tag IDs used for Work Type resolution.'));
-        if not ToTimeSheet then
-            AddJournalParameters(Parameters, ContractMgt);
-    end;
-
-    local procedure AddRangeParameters(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori"; ToTimeSheet: Boolean; RequireUser: Boolean)
-    begin
-        Parameters.Add(ContractMgt.Parameter('userId', 'string', RequireUser, 'Clockify user ID whose entries are synchronized.'));
-        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
-        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
-        if not ToTimeSheet then
-            AddJournalParameters(Parameters, ContractMgt);
-    end;
-
-    local procedure AddJournalParameters(var Parameters: JsonArray; ContractMgt: Codeunit "Msg Contract Mgt ori")
-    begin
-        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
-        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
-    end;
-
     local procedure IsInbound(MessageType: Enum "Message Type ori"): Boolean
     begin
         exit(MessageType in [
@@ -556,27 +1321,6 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.Tag.Update",
             MessageType::"Clockify.TimeEntry.Create",
             MessageType::"Clockify.TimeEntry.Update"]);
-    end;
-
-    local procedure HasTarget(MessageType: Enum "Message Type ori"): Boolean
-    begin
-        if IsCollection(MessageType) then
-            exit(false);
-        if MessageType in [
-            MessageType::"Help.Clockify.Get",
-            MessageType::"Clockify.User.GetCurrent",
-            MessageType::"Clockify.TimeEntry.SyncRange",
-            MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet",
-            MessageType::"Clockify.TimeEntry.SyncAllUsers",
-            MessageType::"Clockify.TimeSheet.Create",
-            MessageType::"Clockify.TimeSheet.Approve",
-            MessageType::"Clockify.TimeSheet.Reject",
-            MessageType::"Clockify.TimeSheet.Reopen",
-            MessageType::"Clockify.TimeSheet.Post",
-            MessageType::"Clockify.TimeSheet.Archive"]
-        then
-            exit(false);
-        exit(not IsCollection(MessageType));
     end;
 
     local procedure SendsWritePermissionError(MessageType: Enum "Message Type ori"): Boolean

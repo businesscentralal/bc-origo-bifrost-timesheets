@@ -14,9 +14,9 @@ codeunit 10036789 "Clockify Request Mgt ori"
     Access = Internal;
 
     var
-        MissingWorkspaceErr: Label 'No workspace was supplied. Provide ''workspaceId'' in the request or set a Default Workspace ID on Clockify Setup.', Locked = true;
-        MissingParamErr: Label 'Missing required ''%1'' in the request.', Comment = '%1 = parameter name', Locked = true;
-        MissingBodyErr: Label 'Missing required ''body'' object in the request.', Locked = true;
+        MissingWorkspaceErr: Label 'No workspace was supplied. Provide ''workspaceId'' in the request or set a Default Workspace ID on Clockify Setup.', Comment = 'is-IS=Ekkert vinnusvæði var gefið upp. Gefðu upp ''workspaceId'' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.';
+        MissingParamErr: Label 'Missing required ''%1'' in the request.', Comment = '%1 = parameter name. is-IS=Nauðsynlegt ''%1'' vantar í beiðnina.';
+        MissingBodyErr: Label 'Missing required ''body'' object in the request.', Comment = 'is-IS=Nauðsynlegt ''body'' hlut vantar í beiðnina.';
 
     /// <summary>
     /// Calls the Clockify API and writes the uniform JSON response envelope onto the
