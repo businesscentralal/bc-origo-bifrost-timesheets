@@ -12,6 +12,21 @@
 - Object ids for the sixteen new codeunits moved by +12 to 10036868..10036883, and `TS Native Sheet Tests` moved from 95615 to 95616, so they stay clear of the phone role-center branch. Message enum values are unchanged. Behavior tests cover copy, planning, absence and the Clockify legacy-name warning.
 - Issues #66, #59 and #58 stay out of this change.
 
+### Added (2026-10-16) - Phone Role Center (#6)
+
+- `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
+- `Phone Cust Bucket ori` (enum 10036856) marks each temporary row as Current, Today or Last workday. `Phone Cust Buffer ori` (table 10036857) holds those rows and stores no customer content.
+- `Phone Current Cust Part ori` (page 10036861) lists the signed-in user's My Customers. `Phone Today Cust Part ori` (page 10036862) lists customers worked on the work date, including a running timer. `Phone LastDay Cust Part ori` (page 10036863) lists customers worked on the previous Monday-to-Friday date.
+- `Phone Add Service Item ori` (page 10036864) asks for a My Items service item and a quantity.
+- `Phone Cust Buffer Mgt ori` (codeunit 10036858) builds those lists. A missing resource, Clockify user mapping, workspace or company API key leaves the time lists empty and does not open an error dialog.
+- `Clockify Mock State` (codeunit 95602) queues ordered Clockify responses and records the paths the phone tests call. `Clockify Mock Client` (codeunit 95603) returns the next queued response before the single armed response, so the tests do not call Clockify.
+- `Phone Sales Quick Add ori` (10036859) adds a My Items service item to a sales invoice. A second add for the same customer appends a line to the still-open phone invoice, marked by `Phone RC Document ori` on `Sales Header` (table extension 10036865). The line carries Job No. and Job Task No. when the row has a job. There is no licence check.
+- Permission set `BIFROST Timeshts ori` (10036785) includes the new objects. `Phone RC Full Ext ori` (10036866) extends `BIFROST Full ori`. `Phone RC Read Ext ori` (10036867) extends `BIFROST Read ori` with the lists only.
+- September object 10036855 and test codeunit 95608 were already in use. The new objects start at 10036856. The tests are `Phone Role Center Tests` (95615), past the guard-branch test 95614.
+- Gunnar's 30 September decisions are the ones implemented. The 11 September note that every item type is offered is not applied. The item must be a service item on My Items.
+- `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
+- `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
+
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
 - Owner decision (Gunnar, 2026-10-14): `app/app.json` and `test/app.json` go from 29.0.0.0 to 28.0.0.0, so the first AppSource version aligns with the other Bifröst apps on Business Central 28. The test app's dependency on the app moves to 28.0.0.0 as well.
