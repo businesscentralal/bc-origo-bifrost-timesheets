@@ -141,6 +141,7 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
+        NativeMgt: Codeunit "TS Native Mgt ori";
         ResponseJson: JsonObject;
         ArchivedCount: Integer;
     begin
@@ -149,6 +150,7 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
 
         ResponseJson.Add('status', 'Success');
         ResponseJson.Add('archived', ArchivedCount);
+        NativeMgt.AddLegacyNameWarning(ResponseJson);
         Argument.SetResponseJson(ResponseJson);
     end;
 }

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added (2026-10-16) - Native time sheet message types (#60, #61, #62, #63, #64, #65, #67)
+
+- New message types on enumextension `Clockify Msg Type ori` (10036785): `Timesheets.TimeSheet.Submit` (10036872, codeunit `TS Sheet Submit Impl ori` 10036861), `Timesheets.TimeSheet.Create` (10036873, `TS Sheet Create Impl ori` 10036862), `Timesheets.PendingApproval.Get` (10036874, `TS Pending Appr Impl ori` 10036863), `Timesheets.TimeSheet.Approve` (10036875, `TS Sheet Approve Impl ori` 10036864), `Timesheets.TimeSheet.Reject` (10036876, `TS Sheet Reject Impl ori` 10036865), `Timesheets.TimeSheetLine.CopyFromPrevious` (10036877, `TS Line CopyPrev Impl ori` 10036866), `Timesheets.TimeSheetLine.CreateFromPlanning` (10036878, `TS Line FromPlan Impl ori` 10036867), `Timesheets.Absence.Register` (10036879, `TS Absence Reg Impl ori` 10036868), `Timesheets.TimeSheet.Reopen` (10036880, `TS Sheet Reopen Impl ori` 10036869), `Timesheets.TimeSheet.Post` (10036881, `TS Sheet Post Impl ori` 10036870) and `Timesheets.TimeSheet.Archive` (10036882, `TS Sheet Archive Impl ori` 10036871).
+- Shared dispatch `TS Native Mgt ori` (10036856), contract chapters `TS Contract Parts ori` (10036857), write isolation `TS Native Context ori` (10036858) and `TS Native Runner ori` (10036859). `TS Sheet Restrict ori` (10036860) blocks generic writes of Time Sheet Header and of Time Sheet Line Status.
+- The six existing `Clockify.TimeSheet.Create/Approve/Reject/Reopen/Post/Archive` names keep running. A successful call adds a `DeprecatedParameter` warning whose next step is `Use the native name.` Their help notes name the native replacement. Reopen, Post and Archive native names return the same success fields as the old names. Create, Approve and Reject native names are the new per-sheet operations, not aliases of the bulk Clockify operations.
+- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, resource, employee, cause of absence and number series data. No new assignable permission set and no Foundation `Setup ori` grant.
+- `Timesheets.Absence.Register` warns when hours fall on Saturday or Sunday. The BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
+- Issues #66, #59 and #58 stay out of this change.
+
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
 - Owner decision (Gunnar, 2026-10-14): `app/app.json` and `test/app.json` go from 29.0.0.0 to 28.0.0.0, so the first AppSource version aligns with the other Bifröst apps on Business Central 28. The test app's dependency on the app moves to 28.0.0.0 as well.
