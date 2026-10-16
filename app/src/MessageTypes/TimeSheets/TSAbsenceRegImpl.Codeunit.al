@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Registers an absence line and its daily hours.
 /// </summary>
-codeunit 10036868 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

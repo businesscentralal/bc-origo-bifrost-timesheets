@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Submits open lines on one time sheet.
 /// </summary>
-codeunit 10036861 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

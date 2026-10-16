@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Posts approved time sheet lines through the job journal.
 /// </summary>
-codeunit 10036870 "TS Sheet Post Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036882 "TS Sheet Post Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

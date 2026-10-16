@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Reopens submitted or approved lines up to a cutoff date.
 /// </summary>
-codeunit 10036869 "TS Sheet Reopen Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036881 "TS Sheet Reopen Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

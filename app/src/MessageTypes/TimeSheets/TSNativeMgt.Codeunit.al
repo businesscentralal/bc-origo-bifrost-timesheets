@@ -12,7 +12,7 @@ using Origo.Bifrost;
 /// Each Execute procedure reads only that type's keys. Writes run in
 /// "TS Native Runner ori" so a failure rolls back.
 /// </summary>
-codeunit 10036856 "TS Native Mgt ori"
+codeunit 10036868 "TS Native Mgt ori"
 {
     Access = Internal;
 

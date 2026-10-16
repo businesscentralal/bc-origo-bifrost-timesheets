@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Creates lines from project planning for the sheet period.
 /// </summary>
-codeunit 10036867 "TS Line FromPlan Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036879 "TS Line FromPlan Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

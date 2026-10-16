@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Creates weekly time sheets for chosen resources.
 /// </summary>
-codeunit 10036862 "TS Sheet Create Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036874 "TS Sheet Create Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

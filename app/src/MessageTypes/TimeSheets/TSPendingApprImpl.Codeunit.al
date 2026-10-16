@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Lists submitted lines where the caller is the approver.
 /// </summary>
-codeunit 10036863 "TS Pending Appr Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036875 "TS Pending Appr Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

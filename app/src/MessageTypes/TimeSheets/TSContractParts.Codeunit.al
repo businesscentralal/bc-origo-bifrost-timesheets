@@ -6,7 +6,7 @@ using Origo.Bifrost;
 /// Contract chapters for the native Timesheets message types. Parameter lists are
 /// separate procedures so each type declares only the keys it reads.
 /// </summary>
-codeunit 10036857 "TS Contract Parts ori"
+codeunit 10036869 "TS Contract Parts ori"
 {
     Access = Internal;
 

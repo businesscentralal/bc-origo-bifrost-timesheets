@@ -1,8 +1,12 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.Period;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
@@ -11,7 +15,7 @@ using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>Behavior tests for the native time sheet message types.</summary>
-codeunit 95615 "TS Native Sheet Tests"
+codeunit 95616 "TS Native Sheet Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -328,6 +332,309 @@ codeunit 95615 "TS Native Sheet Tests"
         Assert.IsTrue(ReadText(Response, 'lines').Contains(SheetNo), 'The submitted line should be in the list.');
     end;
 
+    [Test]
+    procedure Copy_MissingKey_IsMissingParameter()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+    begin
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", Request);
+        AssertRefusal(TempArgument, 'MissingParameter', 'timeSheetNo', 'Send the missing key.');
+    end;
+
+    [Test]
+    procedure Copy_NotOwner_WritesNothing()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), 'OTHER');
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", Request);
+        AssertRefusal(TempArgument, 'PermissionDenied', 'timeSheetNo', 'Ask the owner.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'A refused copy must not add lines.');
+    end;
+
+    [Test]
+    procedure Copy_NoPreviousSheet_IsPreconditionFailed()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", Request);
+        AssertRefusal(TempArgument, 'PreconditionFailed', 'timeSheetNo', 'Add lines by hand.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'A missing previous sheet must not add lines.');
+    end;
+
+    [Test]
+    procedure Copy_EmptyPrevious_ReturnsZero()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        CurrentNo: Code[20];
+    begin
+        ResourceNo := CreateResource(true);
+        CreateSheet(ResourceNo, WorkDate() - 14, UserId());
+        CurrentNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        Request.Add('timeSheetNo', CurrentNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'An empty previous sheet should succeed.');
+        Assert.AreEqual('0', ReadText(Response, 'copied'), 'Nothing to copy should answer zero lines.');
+        Line.SetRange("Time Sheet No.", CurrentNo);
+        Assert.IsTrue(Line.IsEmpty(), 'An empty previous sheet must not add lines.');
+    end;
+
+    [Test]
+    procedure Copy_PreviousLine_IsCopied()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        PreviousNo: Code[20];
+        CurrentNo: Code[20];
+    begin
+        ResourceNo := CreateResource(true);
+        PreviousNo := CreateSheet(ResourceNo, WorkDate() - 14, UserId());
+        CreateLine(PreviousNo, 10000, 'Open');
+        Line.Get(PreviousNo, 10000);
+        Line.Description := 'W17 copy source';
+        Line.Modify(false);
+        CurrentNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        Request.Add('timeSheetNo', CurrentNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Copy should succeed.');
+        Assert.AreNotEqual('0', ReadText(Response, 'copied'), 'The copied count should be above zero.');
+        Line.SetRange("Time Sheet No.", CurrentNo);
+        Assert.IsFalse(Line.IsEmpty(), 'The previous line should be copied onto the current sheet.');
+    end;
+
+    [Test]
+    procedure Planning_NotOwner_WritesNothing()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), 'OTHER');
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CreateFromPlanning", Request);
+        AssertRefusal(TempArgument, 'PermissionDenied', 'timeSheetNo', 'Ask the owner.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'A refused planning call must not add lines.');
+    end;
+
+    [Test]
+    procedure Planning_NoLines_ReturnsZero()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CreateFromPlanning", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'No planning lines should still succeed.');
+        Assert.AreEqual('0', ReadText(Response, 'created'), 'No planning lines should create zero lines.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'Nothing should be written.');
+    end;
+
+    [Test]
+    procedure Planning_JobLine_IsCreated()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Job: Record Job;
+        JobTask: Record "Job Task";
+        PlanningLine: Record "Job Planning Line";
+        Line: Record "Time Sheet Line";
+        LibraryJob: Codeunit "Library - Job";
+        LibraryTimeSheet: Codeunit "Library - Time Sheet";
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+    begin
+        ResourceNo := CreateResource(true);
+        LibraryJob.CreateJob(Job);
+        LibraryJob.CreateJobTask(Job, JobTask);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        LibraryTimeSheet.CreateJobPlanningLine(PlanningLine, Job."No.", JobTask."Job Task No.", ResourceNo, WorkDate());
+        PlanningLine.Validate("Line Type", PlanningLine."Line Type"::"Both Budget and Billable");
+        PlanningLine.Modify(true);
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheetLine.CreateFromPlanning", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Create from planning should succeed.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Line.SetRange(Type, Line.Type::Job);
+        Line.SetRange("Job No.", Job."No.");
+        Assert.IsFalse(Line.IsEmpty(), 'The planning line should become a time sheet line.');
+    end;
+
+    [Test]
+    procedure Absence_MissingCause_IsMissingParameter()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        AssertRefusal(TempArgument, 'MissingParameter', 'causeOfAbsenceCode', 'Send the missing key.');
+    end;
+
+    [Test]
+    procedure Absence_UnknownCause_IsRecordNotFound()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        SheetNo: Code[20];
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', 'NO-SUCH');
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        AssertRefusal(TempArgument, 'RecordNotFound', 'causeOfAbsenceCode', 'Use a code from Causes of Absence.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'An unknown cause must not add a line.');
+    end;
+
+    [Test]
+    procedure Absence_NoEmployee_WritesNothing()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        SheetNo: Code[20];
+        HourDate: Date;
+    begin
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        HourDate := DateInSheet(WorkDate(), false);
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CreateCause());
+        AddHour(Request, HourDate, 4);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        AssertRefusal(TempArgument, 'PreconditionFailed', 'resourceNo', 'Link the resource to an employee in BC.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'A resource without an employee must not get an absence line.');
+    end;
+
+    [Test]
+    procedure Absence_Weekday_RegistersLine()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Detail: Record "Time Sheet Detail";
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+        CauseCode: Code[10];
+        HourDate: Date;
+    begin
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        EnsureAccountingPeriod(WorkDate());
+        HourDate := DateInSheet(WorkDate(), false);
+        CauseCode := CreateCause();
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CauseCode);
+        AddHour(Request, HourDate, 4);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Absence registration should succeed.');
+        Assert.AreEqual('', ReadText(Response, 'warnings'), 'A working day should not warn.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Line.SetRange(Type, Line.Type::Absence);
+        Line.SetRange("Cause of Absence Code", CauseCode);
+        Assert.IsTrue(Line.FindFirst(), 'The absence line should be stored.');
+        Detail.SetRange("Time Sheet No.", SheetNo);
+        Detail.SetRange("Time Sheet Line No.", Line."Line No.");
+        Detail.SetRange(Date, HourDate);
+        Assert.IsTrue(Detail.FindFirst(), 'The hour should be stored on the absence line.');
+        Assert.AreEqual(4, Detail.Quantity, 'The stored quantity should match the request.');
+    end;
+
+    [Test]
+    procedure Absence_Weekend_WarnsAndWrites()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+        HourDate: Date;
+    begin
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        EnsureAccountingPeriod(WorkDate());
+        HourDate := DateInSheet(WorkDate(), true);
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CreateCause());
+        AddHour(Request, HourDate, 3);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Weekend hours should still be accepted.');
+        Assert.IsTrue(ReadText(Response, 'warnings').Contains('InvalidParameter'), 'Weekend hours should warn.');
+        Assert.IsTrue(ReadText(Response, 'warnings').Contains('Confirm the date or move the hours to a working day.'), 'The warning should name the next step.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Line.SetRange(Type, Line.Type::Absence);
+        Assert.IsFalse(Line.IsEmpty(), 'The weekend warning must still store the absence line.');
+    end;
+
+    [Test]
+    procedure LegacyArchive_WarnsToUseNativeName()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        Response: JsonObject;
+    begin
+        Execute(TempArgument, "Message Type ori"::"Clockify.TimeSheet.Archive", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'The old archive name should still succeed.');
+        Assert.IsTrue(ReadText(Response, 'warnings').Contains('DeprecatedParameter'), 'The old name should warn DeprecatedParameter.');
+        Assert.IsTrue(ReadText(Response, 'warnings').Contains('Use the native name.'), 'The warning next step should name the native name.');
+    end;
+
+    [Test]
+    procedure NativeArchive_HasNoLegacyWarning()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        Response: JsonObject;
+    begin
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Archive", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'The native archive name should succeed.');
+        Assert.AreEqual('', ReadText(Response, 'warnings'), 'The native name should not add the legacy warning.');
+    end;
+
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
         MsgInterface: Interface "Msg Interface ori";
@@ -466,5 +773,79 @@ codeunit 95615 "TS Native Sheet Tests"
         while Date2DWY(StartingDate, 1) <> Expected do
             StartingDate += 1;
         exit(StartingDate);
+    end;
+
+    local procedure DateInSheet(StartingDate: Date; WantWeekend: Boolean): Date
+    var
+        Candidate: Date;
+        Offset: Integer;
+    begin
+        for Offset := 0 to 6 do begin
+            Candidate := StartingDate + Offset;
+            if WantWeekend = (Date2DWY(Candidate, 1) >= 6) then
+                exit(Candidate);
+        end;
+        exit(StartingDate);
+    end;
+
+    local procedure AddHour(var Request: JsonObject; HourDate: Date; Quantity: Decimal)
+    var
+        Hour: JsonObject;
+        Hours: JsonArray;
+    begin
+        Hour.Add('date', Format(HourDate, 0, 9));
+        Hour.Add('quantity', Quantity);
+        Hours.Add(Hour);
+        Request.Add('hours', Hours);
+    end;
+
+    local procedure CreateCause(): Code[10]
+    var
+        Cause: Record "Cause of Absence";
+        LibraryTimeSheet: Codeunit "Library - Time Sheet";
+    begin
+        LibraryTimeSheet.CreateCauseOfAbsence(Cause);
+        exit(Cause.Code);
+    end;
+
+    local procedure LinkEmployee(ResourceNo: Code[20])
+    var
+        Employee: Record Employee;
+    begin
+        Employee.Init();
+        Employee."No." := CopyStr('E' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Employee."No."));
+        Employee."Resource No." := ResourceNo;
+        Employee.Insert(false);
+    end;
+
+    local procedure EnsureHrSetup()
+    var
+        HumanResourcesSetup: Record "Human Resources Setup";
+        HumanResourceUnitOfMeasure: Record "Human Resource Unit of Measure";
+        LibraryTimeSheet: Codeunit "Library - Time Sheet";
+    begin
+        if not HumanResourcesSetup.Get() then begin
+            HumanResourcesSetup.Init();
+            HumanResourcesSetup.Insert();
+        end;
+        if HumanResourcesSetup."Base Unit of Measure" <> '' then
+            exit;
+        LibraryTimeSheet.CreateHRUnitOfMeasure(HumanResourceUnitOfMeasure, 1);
+        HumanResourcesSetup."Base Unit of Measure" := HumanResourceUnitOfMeasure.Code;
+        HumanResourcesSetup.Modify();
+    end;
+
+    local procedure EnsureAccountingPeriod(ForDate: Date)
+    var
+        AccountingPeriod: Record "Accounting Period";
+    begin
+        AccountingPeriod.SetFilter("Starting Date", '<=%1', ForDate);
+        if not AccountingPeriod.IsEmpty() then
+            exit;
+        AccountingPeriod.Init();
+        AccountingPeriod."Starting Date" := CalcDate('<-CY>', ForDate);
+        AccountingPeriod."New Fiscal Year" := true;
+        AccountingPeriod.Name := CopyStr(Format(AccountingPeriod."Starting Date", 0, '<Year4>'), 1, MaxStrLen(AccountingPeriod.Name));
+        AccountingPeriod.Insert(false);
     end;
 }

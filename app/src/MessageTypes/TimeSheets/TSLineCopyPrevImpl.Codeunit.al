@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Copies lines from the resource's previous time sheet.
 /// </summary>
-codeunit 10036866 "TS Line CopyPrev Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036878 "TS Line CopyPrev Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

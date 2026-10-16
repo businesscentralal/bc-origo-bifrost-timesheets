@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Archives fully posted time sheets.
 /// </summary>
-codeunit 10036871 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

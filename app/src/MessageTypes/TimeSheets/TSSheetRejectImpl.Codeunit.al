@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Rejects submitted lines on one time sheet.
 /// </summary>
-codeunit 10036865 "TS Sheet Reject Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036877 "TS Sheet Reject Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 

@@ -10,7 +10,7 @@ using Origo.Bifrost;
 /// The subscriber matches the Foundation 28.0.1 event shape (no Force argument). On that
 /// foundation the table event also blocks a generic modify, not only an insert.
 /// </summary>
-codeunit 10036860 "TS Sheet Restrict ori"
+codeunit 10036872 "TS Sheet Restrict ori"
 {
     Access = Internal;
 

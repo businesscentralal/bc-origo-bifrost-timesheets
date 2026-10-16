@@ -5,7 +5,7 @@ using Origo.Bifrost;
 /// <summary>
 /// Approves submitted lines on one time sheet.
 /// </summary>
-codeunit 10036864 "TS Sheet Approve Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036876 "TS Sheet Approve Impl ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 
