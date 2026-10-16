@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Fixed (2026-10-16) - Native time sheet writes (#60, #61, #62, #63, #64, #65, #67)
+
+- `TS Native Mgt ori` (10036868) no longer wraps `TS Native Runner ori` (10036871) in a TryFunction. A TryFunction on this container refuses Insert and Modify. When the caller is not `Omit Commit` and a write transaction is already open, the manager commits that transaction and then captures `Codeunit.Run`, so a platform error rolls back only the runner and comes back as `InvalidLine` or `BusinessCentralError`. `Omit Commit` still runs the runner inside the caller's transaction.
+- A second submit, approve or reject of a sheet whose lines are already in the target status returns those lines with `changed` false instead of `PreconditionFailed` or an empty list.
+- A zero-quantity open line is submitted. Standard submit leaves it open when Resources Setup uses Empty Lines Not Submitted. A job line with no project or no project task is refused as `InvalidLine` and stays open.
+- Approve and reject copy the resource's time sheet approver onto the line before the standard check, so a line inserted without OnInsert can still be approved by that approver.
+
 ### Added (2026-10-16) - Native time sheet message types (#60, #61, #62, #63, #64, #65, #67)
 
 - New message types on enumextension `Clockify Msg Type ori` (10036785): `Timesheets.TimeSheet.Submit` (10036872, codeunit `TS Sheet Submit Impl ori` 10036873), `Timesheets.TimeSheet.Create` (10036873, `TS Sheet Create Impl ori` 10036874), `Timesheets.PendingApproval.Get` (10036874, `TS Pending Appr Impl ori` 10036875), `Timesheets.TimeSheet.Approve` (10036875, `TS Sheet Approve Impl ori` 10036876), `Timesheets.TimeSheet.Reject` (10036876, `TS Sheet Reject Impl ori` 10036877), `Timesheets.TimeSheetLine.CopyFromPrevious` (10036877, `TS Line CopyPrev Impl ori` 10036878), `Timesheets.TimeSheetLine.CreateFromPlanning` (10036878, `TS Line FromPlan Impl ori` 10036879), `Timesheets.Absence.Register` (10036879, `TS Absence Reg Impl ori` 10036880), `Timesheets.TimeSheet.Reopen` (10036880, `TS Sheet Reopen Impl ori` 10036881), `Timesheets.TimeSheet.Post` (10036881, `TS Sheet Post Impl ori` 10036882) and `Timesheets.TimeSheet.Archive` (10036882, `TS Sheet Archive Impl ori` 10036883).

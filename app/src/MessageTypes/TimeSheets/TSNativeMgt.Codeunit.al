@@ -149,9 +149,6 @@ codeunit 10036868 "TS Native Mgt ori"
         Expected: Integer;
         FromPlanning: Boolean;
         GroupCode: Code[20];
-        GroupToken: JsonToken;
-        NosToken: JsonToken;
-        NoToken: JsonToken;
         Periods: Integer;
         PeriodToken: JsonToken;
         PlanToken: JsonToken;
@@ -204,9 +201,6 @@ codeunit 10036868 "TS Native Mgt ori"
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'createLinesFromPlanning', TypeNextTxt);
                 exit;
             end;
-        RequestJson.Get('resourceNos', NosToken);
-        RequestJson.Get('resourceNo', NoToken);
-        RequestJson.Get('resourceGroup', GroupToken);
         if not ReadResourceChoice(Argument, RequestJson, ResourceFilter, GroupCode) then
             exit;
         if not ResourcesSetup.Get() then begin
@@ -740,13 +734,16 @@ codeunit 10036868 "TS Native Mgt ori"
         OpenCount := 0;
         if LineFilter = '*' then begin
             Line.SetRange("Time Sheet No.", Header."No.");
-            Line.SetRange(Status, Line.Status::Open);
             if Line.IsEmpty() then begin
                 Fail(Argument, "Bifrost Error Code ori"::PreconditionFailed, AddLinesMsg, 'lineNos', AddLinesNextTxt);
                 exit(false);
             end;
-            LineFilter := FilterOf(Line);
+            Line.SetRange(Status, Line.Status::Open);
             OpenCount := Line.Count();
+            // No open line left: list the lines that are already submitted as unchanged.
+            if OpenCount = 0 then
+                Line.SetRange(Status);
+            LineFilter := FilterOf(Line);
             exit(true);
         end;
         if Numbers.Count() = 0 then begin
@@ -784,9 +781,14 @@ codeunit 10036868 "TS Native Mgt ori"
             Line.SetRange("Time Sheet No.", Header."No.");
             Line.SetRange(Status, Line.Status::Submitted);
             Actionable := Line.Count();
-            if Actionable = 0 then
-                LineFilter := ''
-            else
+            if Actionable = 0 then begin
+                // Already approved or rejected: list those lines as unchanged.
+                Line.SetRange(Status);
+                if Line.IsEmpty() then
+                    LineFilter := ''
+                else
+                    LineFilter := FilterOf(Line);
+            end else
                 LineFilter := FilterOf(Line);
             exit(true);
         end;
@@ -1111,22 +1113,37 @@ codeunit 10036868 "TS Native Mgt ori"
     var
         Context: Codeunit "TS Native Context ori";
         Err: Text;
-        Ok: Boolean;
         Response: JsonObject;
     begin
-        Ok := Codeunit.Run(Codeunit::"TS Native Runner ori");
-        if Ok then begin
+        // Omit Commit stays inside the caller's write transaction. Capturing the return
+        // value of Codeunit.Run is illegal there, so a platform error propagates.
+        if Argument."Omit Commit" then begin
+            Codeunit.Run(Codeunit::"TS Native Runner ori");
             Response.ReadFrom(Context.GetResult());
             Context.Clear();
             Argument.SetResponseJson(Response);
             exit;
         end;
-        Err := GetLastErrorText();
+
+        // A captured Codeunit.Run cannot roll a failure back while a write transaction is
+        // already open: the platform stops that transaction and hides the cause. Commit
+        // first. The runner then has its own transaction, which commits or rolls back.
+        if Database.IsInWriteTransaction() then
+            Commit();
+
+        if not Codeunit.Run(Codeunit::"TS Native Runner ori") then begin
+            Err := GetLastErrorText();
+            Context.Clear();
+            if StrPos(Err, 'InvalidLine') > 0 then
+                Fail(Argument, "Bifrost Error Code ori"::InvalidLine, FixLineMsg, 'lineNos', FixLineNextTxt)
+            else
+                Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
+            exit;
+        end;
+
+        Response.ReadFrom(Context.GetResult());
         Context.Clear();
-        if StrPos(Err, 'InvalidLine') > 0 then
-            Fail(Argument, "Bifrost Error Code ori"::InvalidLine, FixLineMsg, 'lineNos', FixLineNextTxt)
-        else
-            Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
+        Argument.SetResponseJson(Response);
     end;
 
     local procedure Deny(var Argument: Record "Message Argument ori"; ReadOnly: Boolean): Boolean

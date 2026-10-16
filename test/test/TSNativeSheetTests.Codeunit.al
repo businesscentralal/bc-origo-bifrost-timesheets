@@ -2,6 +2,7 @@ namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Foundation.NoSeries;
 using Microsoft.Foundation.Period;
+using Microsoft.Foundation.UOM;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.HumanResources.Setup;
@@ -12,6 +13,7 @@ using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 using Origo.Bifrost.Timesheets;
+using System.Security.User;
 using System.TestLibraries.Utilities;
 
 /// <summary>Behavior tests for the native time sheet message types.</summary>
@@ -639,7 +641,9 @@ codeunit 95616 "TS Native Sheet Tests"
     var
         MsgInterface: Interface "Msg Interface ori";
     begin
+        TempArgument.DeleteAll();
         TempArgument.Init();
+        TempArgument.ID := CreateGuid();
         TempArgument."Type" := MessageType;
         TempArgument."Version" := TempArgument."Version"::"1.0";
         TempArgument.Insert();
@@ -675,14 +679,39 @@ codeunit 95616 "TS Native Sheet Tests"
     local procedure CreateResource(UseTimeSheet: Boolean): Code[20]
     var
         Resource: Record Resource;
+        UnitOfMeasure: Record "Unit of Measure";
         LibraryResource: Codeunit "Library - Resource";
     begin
+        EnsureUserSetup();
         LibraryResource.CreateResourceNew(Resource);
+        if Resource.Type <> Resource.Type::Person then
+            Resource.Validate(Type, Resource.Type::Person);
+        if Resource."Base Unit of Measure" = '' then begin
+            if not UnitOfMeasure.Get('HOUR') then begin
+                UnitOfMeasure.Init();
+                UnitOfMeasure.Code := 'HOUR';
+                UnitOfMeasure.Description := 'Hour';
+                UnitOfMeasure.Insert(true);
+            end;
+            Resource.Validate("Base Unit of Measure", UnitOfMeasure.Code);
+        end;
         Resource.Validate("Use Time Sheet", UseTimeSheet);
         Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Resource."Time Sheet Owner User ID"));
         Resource."Time Sheet Approver User ID" := Resource."Time Sheet Owner User ID";
         Resource.Modify(true);
         exit(Resource."No.");
+    end;
+
+    local procedure EnsureUserSetup()
+    var
+        UserSetup: Record "User Setup";
+    begin
+        // Standard approve and reject read User Setup for the caller before they compare the line approver.
+        if UserSetup.Get(UserId()) then
+            exit;
+        UserSetup.Init();
+        UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
+        UserSetup.Insert(true);
     end;
 
     local procedure CreateSheet(ResourceNo: Code[20]; StartingDate: Date; Owner: Text): Code[20]

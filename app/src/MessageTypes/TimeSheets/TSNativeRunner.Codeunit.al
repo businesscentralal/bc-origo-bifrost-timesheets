@@ -47,20 +47,44 @@ codeunit 10036871 "TS Native Runner ori"
     local procedure Submit(Context: Codeunit "TS Native Context ori")
     var
         TimeSheetLine: Record "Time Sheet Line";
-        ApprovalMgt: Codeunit "Time Sheet Approval Management";
         Lines: JsonArray;
     begin
         SelectLines(Context, TimeSheetLine);
         if TimeSheetLine.FindSet(true) then
             repeat
                 if TimeSheetLine.Status = TimeSheetLine.Status::Open then begin
-                    ApprovalMgt.Submit(TimeSheetLine);
+                    SubmitOpenLine(TimeSheetLine);
                     TimeSheetLine.Get(TimeSheetLine."Time Sheet No.", TimeSheetLine."Line No.");
                     Lines.Add(LineNode(TimeSheetLine, true));
                 end else
                     Lines.Add(LineNode(TimeSheetLine, false));
             until TimeSheetLine.Next() = 0;
         StoreLines(Context, Lines);
+    end;
+
+    local procedure SubmitOpenLine(var TimeSheetLine: Record "Time Sheet Line")
+    var
+        ApprovalMgt: Codeunit "Time Sheet Approval Management";
+    begin
+        // A job line without a project or a project task cannot be submitted. Say InvalidLine
+        // before the standard submit, which skips a zero-quantity line or stops on the first
+        // missing field and hides the rest.
+        if (TimeSheetLine.Type = TimeSheetLine.Type::Job) and
+           ((TimeSheetLine."Job No." = '') or (TimeSheetLine."Job Task No." = ''))
+        then
+            Error(InvalidLineTok);
+
+        TimeSheetLine.CalcFields("Total Quantity");
+        if TimeSheetLine."Total Quantity" <> 0 then begin
+            ApprovalMgt.Submit(TimeSheetLine);
+            exit;
+        end;
+
+        // Empty Lines Not Submitted leaves a zero-quantity open line untouched. This message
+        // still submits that line. Stop and Show Empty Line Error would raise instead.
+        TimeSheetLine.UpdateApproverID();
+        TimeSheetLine.Status := TimeSheetLine.Status::Submitted;
+        TimeSheetLine.Modify(true);
     end;
 
     local procedure Approve(Context: Codeunit "TS Native Context ori")
@@ -73,6 +97,9 @@ codeunit 10036871 "TS Native Runner ori"
         if TimeSheetLine.FindSet(true) then
             repeat
                 if TimeSheetLine.Status = TimeSheetLine.Status::Submitted then begin
+                    // A line inserted without OnInsert has no approver. Standard approve compares
+                    // that field with the caller, so copy it from the resource first.
+                    TimeSheetLine.UpdateApproverID();
                     ApprovalMgt.Approve(TimeSheetLine);
                     TimeSheetLine.Get(TimeSheetLine."Time Sheet No.", TimeSheetLine."Line No.");
                     Lines.Add(LineNode(TimeSheetLine, true));
@@ -92,6 +119,7 @@ codeunit 10036871 "TS Native Runner ori"
         if TimeSheetLine.FindSet(true) then
             repeat
                 if TimeSheetLine.Status = TimeSheetLine.Status::Submitted then begin
+                    TimeSheetLine.UpdateApproverID();
                     ApprovalMgt.Reject(TimeSheetLine);
                     TimeSheetLine.Get(TimeSheetLine."Time Sheet No.", TimeSheetLine."Line No.");
                     if Context.GetComment() <> '' then
