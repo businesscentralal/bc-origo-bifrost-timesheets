@@ -819,6 +819,7 @@ codeunit 95616 "TS Native Sheet Tests"
         Resource.Validate("Use Time Sheet", true);
         Resource.Modify(true);
         CreateNamedSheet('LONI64-NOPREV', Resource."No.", DMY2Date(2, 11, 2026), OwnerUserId);
+        CreateNamedSheet('LONI64-ZERO', Resource."No.", DMY2Date(9, 11, 2026), OwnerUserId);
     end;
 
     local procedure CreateNamedSheet(NewNo: Code[20]; ResourceNo: Code[20]; StartingDate: Date; OwnerUserId: Text): Code[20]
