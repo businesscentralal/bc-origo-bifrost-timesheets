@@ -32,7 +32,7 @@ codeunit 10036868 "TS Native Mgt ori"
         MissingKeyMsg: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
         TypeMsg: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
         UnknownKeyMsg: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
-        IdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
+        IdentifierMsg: Label 'The identifier does not match a record in %1.', Comment = '%1 = table caption; is-IS=Auðkennið passar ekki við færslu í %1.';
         OneIdentifierMsg: Label 'The request names the time sheet in more than one way.', Comment = 'is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.';
         ApproverMsg: Label 'The caller is not the approver named on the time sheet.', Comment = 'is-IS=Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.';
         SubmitFirstMsg: Label 'The line is not submitted.', Comment = 'is-IS=Línan hefur ekki verið send inn.';
@@ -167,7 +167,7 @@ codeunit 10036868 "TS Native Mgt ori"
             exit(false);
         end;
         if not Header.GetBySystemId(SheetId) then begin
-            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, IdentifierMsg, 'timeSheetId', IdentifierNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Header.TableCaption()), 'timeSheetId', IdentifierNextTxt);
             exit(false);
         end;
         exit(true);
@@ -187,7 +187,7 @@ codeunit 10036868 "TS Native Mgt ori"
         end;
         SheetNo := CopyStr(SheetToken.AsValue().AsText(), 1, MaxStrLen(SheetNo));
         if not Header.Get(SheetNo) then begin
-            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, IdentifierMsg, 'timeSheetNo', IdentifierNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Header.TableCaption()), 'timeSheetNo', IdentifierNextTxt);
             exit(false);
         end;
         exit(true);
@@ -246,7 +246,7 @@ codeunit 10036868 "TS Native Mgt ori"
             exit(true);
         foreach LineNo in Numbers do begin
             if not Line.Get(Header."No.", LineNo) then begin
-                Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, IdentifierMsg, 'lineNos', IdentifierNextTxt);
+                Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Line.TableCaption()), 'lineNos', IdentifierNextTxt);
                 exit(false);
             end;
             if Line.Status = Line.Status::Submitted then

@@ -8,6 +8,8 @@
 
 ### Changed
 
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
+
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 
 - SyncAllUsers declares its own paging parameters, keeping them off unrelated Clockify types and removing the misleading `userId` help entry. Test page 95619 seeds a named, isolated paging company; the test-only Clockify mock supports cross-session MCP paging checks without external API calls.

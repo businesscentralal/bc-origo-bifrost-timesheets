@@ -176,6 +176,7 @@ codeunit 95616 "TS Decision Tests"
         Request.Add('timeSheetNo', 'X63-MISSING');
         Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Approve", Request);
         AssertRefusal(TempArgument, 'RecordNotFound', 'timeSheetNo', 'Use an identifier that exists.');
+        AssertMissingSheetCaption(TempArgument);
     end;
 
     /// <summary>Verifies Scenario AC05 Approve ConflictingIdentifiers Refused.</summary>
@@ -355,6 +356,7 @@ codeunit 95616 "TS Decision Tests"
         Request.Add('timeSheetNo', 'X63-MISSING');
         Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Reject", Request);
         AssertRefusal(TempArgument, 'RecordNotFound', 'timeSheetNo', 'Use an identifier that exists.');
+        AssertMissingSheetCaption(TempArgument);
     end;
 
     /// <summary>Verifies Scenario AC05 Reject ConflictingIdentifiers Refused.</summary>
@@ -640,6 +642,14 @@ codeunit 95616 "TS Decision Tests"
         Assert.AreEqual(ExpectedCode, ReadText(Response, 'code'), 'Refusal code.');
         Assert.AreEqual(ExpectedParameter, ReadText(Response, 'parameter'), 'Refusal parameter.');
         Assert.AreEqual(ExpectedNext, ReadText(Response, 'nextStep'), 'Refusal next step.');
+    end;
+
+    local procedure AssertMissingSheetCaption(var TempArgument: Record "Message Argument ori" temporary)
+    var
+        Header: Record "Time Sheet Header";
+    begin
+        Assert.AreEqual(StrSubstNo('The identifier does not match a record in %1.', Header.TableCaption()),
+            ReadText(TempArgument.GetResponseJson(), 'error'), 'Record refusal uses the native table caption.');
     end;
 
     local procedure ReadText(Response: JsonObject; Name: Text): Text

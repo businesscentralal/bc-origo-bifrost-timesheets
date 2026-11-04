@@ -1300,9 +1300,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType AssignSetNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 2087608894" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The identifier does not match a record.</source>
-          <target>Auðkennið passar ekki við færslu.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Auðkennið passar ekki við færslu.</note>
+          <source>The identifier does not match a record in %1.</source>
+          <target>Auðkennið passar ekki við færslu í %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption; is-IS=Auðkennið passar ekki við færslu í %1.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 163613640" size-unit="char" translate="yes" xml:space="preserve">
