@@ -18,7 +18,7 @@ codeunit 10036838 "Clockify Field Restrict ori"
     Access = Internal;
 
     var
-        ReceiverUrlHintTok: Label 'the Timesheets setup page (Clockify Setup)', Locked = true;
+        ReceiverUrlHintTok: Label 'the Timesheets setup page (Clockify Setup)', Comment = 'is-IS=uppsetningarsíðu Bifrost Timesheets (Clockify Setup)';
 
     // Keep generic writes from bypassing validated absence registration.
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsTableWriteRestrictedForDataRecords, '', false, false)]

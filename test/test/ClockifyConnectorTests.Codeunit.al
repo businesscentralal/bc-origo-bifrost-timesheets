@@ -1347,6 +1347,132 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
     end;
 
+    /// <summary>Verifies the #49 RequireParamAnswersInIcelandic refusal at LCID 1039.</summary>
+    [Test]
+    procedure Scenario_AC08_RequireParamAnswersInIcelandic()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+        Value: Text;
+        ErrorText: Text;
+        PreviousLanguage: Integer;
+    begin
+        // [SCENARIO] #49 A missing required parameter is answered in Icelandic at lcid 1039.
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(1039);
+        TempArgument.Init();
+        TempArgument.Insert();
+        RequestMgt.RequireParam(TempArgument, RequestJson, 'userId', Value);
+        ResponseJson := TempArgument.GetResponseJson();
+        ErrorText := ReadText(ResponseJson, 'error');
+        GlobalLanguage(PreviousLanguage);
+
+        LibraryAssert.IsTrue(ErrorText.Contains('Nauðsynlegt'), 'The missing-parameter refusal should be Icelandic.');
+        LibraryAssert.IsTrue(ErrorText.Contains('userId'), 'The parameter name should stay in the Icelandic refusal.');
+        LibraryAssert.IsFalse(ErrorText.Contains('Missing required'), 'The Icelandic refusal should not keep the English sentence.');
+    end;
+
+    /// <summary>Verifies the #49 RequireBodyAnswersInIcelandic refusal at LCID 1039.</summary>
+    [Test]
+    procedure Scenario_AC08_RequireBodyAnswersInIcelandic()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        RequestMgt: Codeunit "Clockify Request Mgt ori";
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+        BodyText: Text;
+        ErrorText: Text;
+        PreviousLanguage: Integer;
+    begin
+        // [SCENARIO] #49 A missing body is answered in Icelandic at lcid 1039.
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(1039);
+        TempArgument.Init();
+        TempArgument.Insert();
+        RequestMgt.RequireBody(TempArgument, RequestJson, BodyText);
+        ResponseJson := TempArgument.GetResponseJson();
+        ErrorText := ReadText(ResponseJson, 'error');
+        GlobalLanguage(PreviousLanguage);
+
+        LibraryAssert.IsTrue(ErrorText.Contains('hlut vantar'), 'The missing-body refusal should be Icelandic.');
+        LibraryAssert.IsFalse(ErrorText.Contains('Missing required'), 'The Icelandic refusal should not keep the English sentence.');
+    end;
+
+    /// <summary>Verifies the #49 SyncRangeMissingJournalAnswersInIcelandic refusal at LCID 1039.</summary>
+    [Test]
+    procedure Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic()
+    var
+        ClockifySetup: Record "Clockify Setup ori";
+        TempArgument: Record "Message Argument ori" temporary;
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+        ErrorText: Text;
+        PreviousLanguage: Integer;
+    begin
+        // [SCENARIO] #49 The SyncRange missing-journal refusal is Icelandic at lcid 1039.
+        UseMockApi();
+        if not ClockifySetup.Get() then
+            ClockifySetup.Insert();
+        ClockifySetup."Job Jnl. Template" := '';
+        ClockifySetup."Job Jnl. Batch" := '';
+        ClockifySetup.Modify();
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('start', '2026-06-01T00:00:00Z');
+        RequestJson.Add('end', '2026-06-30T23:59:59Z');
+
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(1039);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeEntry.SyncRange", RequestJson);
+        ResponseJson := TempArgument.GetResponseJson();
+        ErrorText := ReadText(ResponseJson, 'error');
+        GlobalLanguage(PreviousLanguage);
+
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+        LibraryAssert.IsTrue(ErrorText.Contains('verkbók'), 'The missing-journal refusal should be Icelandic.');
+        LibraryAssert.IsFalse(ErrorText.Contains('Job Journal'), 'The Icelandic refusal should not keep the English sentence.');
+    end;
+
+    /// <summary>Verifies the #49 NoOpenTimeSheetAnswersInIcelandic refusal at LCID 1039.</summary>
+    [Test]
+    procedure Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        JobNo: Code[20];
+        JobTaskNo: Code[20];
+        ResourceNo: Code[20];
+        WorkTypeCode: Code[10];
+        TemplateName: Code[10];
+        BatchName: Code[10];
+        RequestJson: JsonObject;
+        ResponseJson: JsonObject;
+        MessageText: Text;
+        PreviousLanguage: Integer;
+    begin
+        // [SCENARIO] #49 NoOpenTimeSheetErr is Icelandic at lcid 1039.
+        CreateSyncEnvironment(JobNo, JobTaskNo, ResourceNo, WorkTypeCode, TemplateName, BatchName);
+        RequestJson.Add('workspaceId', 'WS1');
+        RequestJson.Add('userId', 'CUSER');
+        RequestJson.Add('entryId', 'E1');
+        RequestJson.Add('projectId', 'CPROJ');
+        RequestJson.Add('taskId', 'CTASK');
+        RequestJson.Add('start', '2026-06-09T08:00:00Z');
+        RequestJson.Add('end', '2026-06-09T12:00:00Z');
+
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(1039);
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeEntry.SyncToTimeSheet", RequestJson);
+        ResponseJson := TempArgument.GetResponseJson();
+        MessageText := ReadText(ResponseJson, 'message');
+        GlobalLanguage(PreviousLanguage);
+
+        LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'A missing open sheet should error.');
+        LibraryAssert.IsTrue(MessageText.Contains('tímaskráning'), 'The missing time sheet refusal should be Icelandic.');
+        LibraryAssert.IsFalse(MessageText.Contains('open time sheet'), 'The Icelandic refusal should not keep the English sentence.');
+    end;
+
     [Test]
     procedure SyncToTimeSheetCreatesDetailOnOpenSheet()
     var
