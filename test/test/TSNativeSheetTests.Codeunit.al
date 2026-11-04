@@ -464,7 +464,7 @@ codeunit 95616 "TS Native Sheet Tests"
     end;
 
     [Test]
-    procedure McpFixtureSeed_EmptyOwnedKeys_CreatesVerificationData()
+    procedure McpFixtureSeed_FreshOwnedKeys_CreatesVerificationData()
     var
         Setup: Record "Clockify Setup ori";
         Header: Record "Time Sheet Header";
@@ -476,6 +476,7 @@ codeunit 95616 "TS Native Sheet Tests"
         SeriesLine: Record "No. Series Line";
         UserSetup: Record "User Setup";
         LibraryJob: Codeunit "Library - Job";
+        FixturePrefix: Code[10];
         ResourceNo: Code[20];
         StartingDate: Date;
     begin
@@ -483,38 +484,41 @@ codeunit 95616 "TS Native Sheet Tests"
         // Time: two weeks before WorkDate, so posting is current and archive is eligible.
         // Runs in the full isolated suite too. After that suite passes, an explicit focused
         // setup run on the owned container retains only these self-created fixture records.
-        Assert.IsFalse(Header.Get('W4N67REOPEN'), 'Existing fixture: inspect before recovery.');
-        Assert.IsFalse(Header.Get('W4N67POST'), 'Existing fixture: inspect before recovery.');
-        Assert.IsFalse(Header.Get('W4N67EMPTY'), 'Existing fixture: inspect before recovery.');
+        // Each invocation owns fresh keys, including retained MCP setup runs. Never delete
+        // or reuse an earlier run's fixture: it may already have been posted or archived.
+        FixturePrefix := CopyStr('X67' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(FixturePrefix));
+        Assert.IsFalse(Header.Get(FixturePrefix + 'REOPEN'), 'Existing fixture: inspect before recovery.');
+        Assert.IsFalse(Header.Get(FixturePrefix + 'POST'), 'Existing fixture: inspect before recovery.');
+        Assert.IsFalse(Header.Get(FixturePrefix + 'EMPTY'), 'Existing fixture: inspect before recovery.');
         StartingDate := CalcDate('<-CW>', WorkDate() - 14);
         ResourceNo := CreateResource(true);
         UserSetup.Get(UserId());
         UserSetup."Time Sheet Admin." := true;
         UserSetup.Modify(true);
-        SeedMcpHeader('W4N67REOPEN', ResourceNo, StartingDate);
-        SeedMcpLine('W4N67REOPEN', '', '', 1);
-        SeedMcpHeader('W4N67EMPTY', ResourceNo, StartingDate - 7);
+        SeedMcpHeader(FixturePrefix + 'REOPEN', ResourceNo, StartingDate);
+        SeedMcpLine(FixturePrefix + 'REOPEN', '', '', 1);
+        SeedMcpHeader(FixturePrefix + 'EMPTY', ResourceNo, StartingDate - 7);
         LibraryJob.CreateJob(Job);
-        Job.Rename('W4N67JOB');
+        Job.Rename(FixturePrefix + 'JOB');
         Job.Validate(Status, Job.Status::Open);
         Job.Modify(true);
         LibraryJob.CreateJobTask(Job, JobTask);
         JobTask.Rename(Job."No.", 'OWN67');
-        SeedMcpHeader('W4N67POST', CreateResource(true), StartingDate);
-        SeedMcpLine('W4N67POST', Job."No.", JobTask."Job Task No.", 2);
+        SeedMcpHeader(FixturePrefix + 'POST', CreateResource(true), StartingDate);
+        SeedMcpLine(FixturePrefix + 'POST', Job."No.", JobTask."Job Task No.", 2);
         Series.Init();
-        Series.Code := 'W4N67';
+        Series.Code := FixturePrefix;
         Series."Default Nos." := true;
         Series.Insert(true);
         SeriesLine.Init();
         SeriesLine."Series Code" := Series.Code;
         SeriesLine."Line No." := 10000;
-        SeriesLine."Starting No." := 'W467000001';
-        SeriesLine."Ending No." := 'W467999999';
+        SeriesLine."Starting No." := FixturePrefix + '000001';
+        SeriesLine."Ending No." := FixturePrefix + '999999';
         SeriesLine."Increment-by No." := 1;
         SeriesLine.Insert(true);
         JournalTemplateRecord.Init();
-        JournalTemplateRecord.Name := 'W4N67';
+        JournalTemplateRecord.Name := FixturePrefix;
         JournalTemplateRecord.Insert(true);
         Batch.Init();
         Batch."Journal Template Name" := JournalTemplateRecord.Name;
@@ -525,11 +529,33 @@ codeunit 95616 "TS Native Sheet Tests"
         Setup."Job Jnl. Template" := '';
         Setup."Job Jnl. Batch" := '';
         Setup.Modify(true);
-        Header.Get('W4N67REOPEN');
+        Header.Get(FixturePrefix + 'REOPEN');
         Assert.AreEqual(ResourceNo, Header."Resource No.", 'The resource must be self-created for this fixture.');
-        Header.Get('W4N67POST');
+        Header.Get(FixturePrefix + 'POST');
         Assert.AreEqual(StartingDate, Header."Starting Date", 'Owned project sheet date.');
         // No Foundation consent, EULA, trial, licence or Licensed Call state is written.
+    end;
+
+    [Test]
+    procedure Scenario_AC12_RepeatedFixtureSeed_PreservesEarlierRecords()
+    var
+        Header: Record "Time Sheet Header";
+        Series: Record "No. Series";
+        InitialHeaderCount: Integer;
+        InitialSeriesCount: Integer;
+    begin
+        // Story #67, AC12 | Time: fixture dates follow WorkDate | Risk: earlier MCP setup may remain
+        // [GIVEN] Any earlier owned fixtures remain in this company.
+        Header.SetFilter("No.", 'X67*');
+        InitialHeaderCount := Header.Count();
+        Series.SetFilter(Code, 'X67*');
+        InitialSeriesCount := Series.Count();
+        // [WHEN] Two setup runs retain their data in the same transaction.
+        McpFixtureSeed_FreshOwnedKeys_CreatesVerificationData();
+        McpFixtureSeed_FreshOwnedKeys_CreatesVerificationData();
+        // [THEN] Both own complete, distinct records; neither overwrites or removes earlier data.
+        Assert.AreEqual(InitialHeaderCount + 6, Header.Count(), 'Both setup runs must retain their three time sheets.');
+        Assert.AreEqual(InitialSeriesCount + 2, Series.Count(), 'Both setup runs must retain their own number series.');
     end;
 
     local procedure SeedMcpHeader(SheetNo: Code[20]; ResourceNo: Code[20]; StartingDate: Date)

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Issue #67 / test codeunit 95616: give every MCP fixture setup invocation fresh `X67` keys for time sheets, project, journal template and number series. Repeated verification no longer collides with an earlier retained or posted fixture; empty-key and fixture-content assertions remain, and earlier fixtures are never deleted.
+
 ### Added - Native time sheet names (#67)
 
 - `Timesheets.TimeSheet.Reopen` (10036880), `Timesheets.TimeSheet.Post` (10036881) and `Timesheets.TimeSheet.Archive` (10036882) retain the existing BC engines and success count fields. The old Clockify names still work and add `DeprecatedParameter` with `Use the native name.`
