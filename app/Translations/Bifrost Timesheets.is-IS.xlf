@@ -59,14 +59,14 @@
         </trans-unit>
         <trans-unit id="Table 1368542968 - Field 3744289816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reversed</source>
-          <target>Bakfærð</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bakfærð</note>
+          <target>Afturkölluð</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Afturkölluð</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Reversed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1368542968 - Field 1066124403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reversed At</source>
-          <target>Bakfærsludagsetning</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bakfærsludagsetning</note>
+          <target>Afturkölluð þann</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Afturkölluð þann</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Integration ori - Field Reversed At - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2526941447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -101,8 +101,8 @@
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 3929495379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job Journal Template</source>
-          <target>Verkbókarsniðmát</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Verkbókarsniðmát</note>
+          <target>Verkbókarlýsing</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Verkbókarlýsing</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Job Jnl. Template - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -113,8 +113,8 @@
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 3462359435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webhook Receiver URL</source>
-          <target>Móttökuslóð vefkróks</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Móttökuslóð vefkróks</note>
+          <target>Móttökuslóð vefkróka</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Móttökuslóð vefkróka</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Setup ori - Field Webhook Receiver URL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2526941447 - Field 2141994110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -125,8 +125,8 @@
         </trans-unit>
         <trans-unit id="Table 3324600443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify Webhook</source>
-          <target>Clockify-vefkrókur</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Clockify-vefkrókur</note>
+          <target>Clockify vefkrókur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókur</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3324600443 - Field 3310733264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -149,8 +149,8 @@
         </trans-unit>
         <trans-unit id="Table 3324600443 - Field 2051456474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webhook ID</source>
-          <target>Kenni vefkróks</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Kenni vefkróks</note>
+          <target>Vefkróka kenni</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vefkróka kenni</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Clockify Webhook ori - Field Webhook Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3324600443 - Field 2840344064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -269,8 +269,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 3241333917 - NamedType 1471355834" size-unit="char" translate="yes" xml:space="preserve">
           <source>No Clockify API key is stored. Open Clockify Setup and set the company API key.</source>
-          <target>Enginn API-lykill Clockify er geymdur. Opnaðu Clockify-uppsetningu og skráðu API-lykil fyrirtækisins.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Enginn API-lykill Clockify er geymdur. Opnaðu Clockify-uppsetningu og skráðu API-lykil fyrirtækisins.</note>
+          <target>Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Client ori - NamedType MissingApiKeyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3241333917 - NamedType 652305382" size-unit="char" translate="yes" xml:space="preserve">
@@ -365,8 +365,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 1490681253 - NamedType 1624787246" size-unit="char" translate="yes" xml:space="preserve">
           <source>You do not have write permission to the Clockify Integration table, which is required to run Clockify connector operations. Ask your administrator to assign the Clockify - Full permission set.</source>
-          <target>Þú hefur ekki skrifheimild á Clockify-tengingartöfluna, sem þarf til að keyra aðgerðir tengisins. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Þú hefur ekki skrifheimild á Clockify-tengingartöfluna, sem þarf til að keyra aðgerðir tengisins. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</note>
+          <target>Þú hefur ekki skrifréttindi á Clockify tengitöfluna sem er nauðsynleg til að keyra Clockify aðgerðir. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þú hefur ekki skrifréttindi á Clockify tengitöfluna sem er nauðsynleg til að keyra Clockify aðgerðir. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Integration Gate ori - NamedType NoWritePermissionErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4166607371 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
@@ -455,8 +455,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 1788831997 - NamedType 2637544473" size-unit="char" translate="yes" xml:space="preserve">
           <source>No API key was entered.</source>
-          <target>Enginn API-lykill var sleginn inn.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Enginn API-lykill var sleginn inn.</note>
+          <target>Enginn API lykill var sleginn inn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn API lykill var sleginn inn.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Setup Mgt ori - NamedType EmptyKeyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1964021866 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
@@ -701,8 +701,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 1461175016 - NamedType 2126350497" size-unit="char" translate="yes" xml:space="preserve">
           <source>Time entry %1 was updated in Clockify. Reversal line %2 and new line %3 created.</source>
-          <target>Tímafærsla %1 var uppfærð í Clockify. Mótfærslulína %2 og ný lína %3 voru stofnaðar.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID, %2 = reversal line no., %3 = new line no. is-IS=Tímafærsla %1 var uppfærð í Clockify. Mótfærslulína %2 og ný lína %3 voru stofnaðar.</note>
+          <target>Tímafærslu %1 var breytt í Clockify. Mótfærslulína %2 og ný lína %3 stofnaðar.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID, %2 = reversal line no., %3 = new line no. is-IS=Tímafærslu %1 var breytt í Clockify. Mótfærslulína %2 og ný lína %3 stofnaðar.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType CorrectionCreatedMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1461175016 - NamedType 3400573062" size-unit="char" translate="yes" xml:space="preserve">
@@ -725,8 +725,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 1461175016 - NamedType 2758962023" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reversed the integration link for Clockify time entry %1 (journal line already gone).</source>
-          <target>Tenging Clockify-tímafærslu %1 var bakfærð (bókarlínan var þegar horfin).</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Tenging Clockify-tímafærslu %1 var bakfærð (bókarlínan var þegar horfin).</note>
+          <target>Tenging Clockify tímafærslu %1 bakfærð (bókarlínan var þegar horfin).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Tenging Clockify tímafærslu %1 bakfærð (bókarlínan var þegar horfin).</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType LinkReversedMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1461175016 - NamedType 1439096016" size-unit="char" translate="yes" xml:space="preserve">
@@ -755,8 +755,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 1461175016 - NamedType 5569350" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify time entry %1 was already posted; reversed the link. Post a manual correction for the ledger entry.</source>
-          <target>Clockify-tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir bókarfærsluna.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Clockify-tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir bókarfærsluna.</note>
+          <target>Clockify tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir færsluna.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify ID. is-IS=Clockify tímafærsla %1 var þegar bókuð; tengingin var bakfærð. Bókaðu handvirka leiðréttingu fyrir færsluna.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Time Entry Sync ori - NamedType PostedManualMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1955427778 - NamedType 4014946328" size-unit="char" translate="yes" xml:space="preserve">
@@ -953,8 +953,8 @@
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 3439175133" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify webhooks are already registered. Remove them before registering again.</source>
-          <target>Clockify-vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þeir eru skráðir aftur.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Clockify-vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þeir eru skráðir aftur.</note>
+          <target>Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókar eru þegar skráðir. Fjarlægðu þá áður en þú skráir aftur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType AlreadyRegisteredErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 2218430150" size-unit="char" translate="yes" xml:space="preserve">
@@ -965,14 +965,14 @@
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 3051168133" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set the company Clockify API key before registering webhooks.</source>
-          <target>Skráðu API-lykil fyrirtækisins fyrir Clockify áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu API-lykil fyrirtækisins fyrir Clockify áður en vefkrókar eru skráðir.</note>
+          <target>Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify API lykil fyrirtækis áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoApiKeyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 2821996882" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set the Clockify Webhook Receiver URL on Clockify Setup before registering webhooks.</source>
-          <target>Stilltu móttökuslóð Clockify-vefkrókanna í Clockify-uppsetningu áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Stilltu móttökuslóð Clockify-vefkrókanna í Clockify-uppsetningu áður en vefkrókar eru skráðir.</note>
+          <target>Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu Clockify vefkróka móttökuslóð í uppsetningu Clockify áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoReceiverUrlErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 347091636" size-unit="char" translate="yes" xml:space="preserve">
@@ -989,14 +989,14 @@
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 297912587" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set a Default Workspace on Clockify Setup before registering webhooks.</source>
-          <target>Veldu sjálfgefið vinnusvæði í Clockify-uppsetningu áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Veldu sjálfgefið vinnusvæði í Clockify-uppsetningu áður en vefkrókar eru skráðir.</note>
+          <target>Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Veldu sjálfgefið vinnusvæði í uppsetningu Clockify áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType NoWorkspaceErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 3542876107" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registered %1 Clockify webhook(s).\n\nConfigure the webhook receiver app setting CLOCKIFY_WEBHOOK_SIGNATURES with these signing token(s):\n\n%2</source>
-          <target>Skráðir %1 Clockify-vefkrókar.\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</target>
-          <note from="Developer" annotates="general" priority="2">%1 = count, %2 = tokens. is-IS=Skráðir %1 Clockify-vefkrókar.\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</note>
+          <target>Skráði %1 Clockify vefkrók(a).\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = count, %2 = tokens. is-IS=Skráði %1 Clockify vefkrók(a).\n\nStilltu CLOCKIFY_WEBHOOK_SIGNATURES á móttakaranum með þessum undirritunarlyklum:\n\n%2</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Webhook Mgt ori - NamedType RegisteredMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 264978633 - NamedType 1035661073" size-unit="char" translate="yes" xml:space="preserve">
@@ -1077,6 +1077,18 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Magn verður að vera stærra en núll.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType QuantityErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 433325807" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller is not the named approver.</source>
+          <target>Kallandinn er ekki tilgreindur samþykktaraðili.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn er ekki tilgreindur samþykktaraðili.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ApproverErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 797955327" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ApproverTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 290367145" size-unit="char" translate="yes" xml:space="preserve">
           <source>Time sheets archived.</source>
           <target>Tímaskýrslur sem voru settar í geymslu.</target>
@@ -1131,6 +1143,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Farðu yfir fjöldann í svarinu áður en næsta kall er sent. Aðgerðin nær til allra gjaldgengra tímaskýrslna.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType BulkWorkflowLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2379067997" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional rejection comment, at most 80 characters, stored on every rejected line.</source>
+          <target>Valfrjáls höfnunarathugasemd, að hámarki 80 stafir, vistuð á hverri hafnaðri línu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjáls höfnunarathugasemd, að hámarki 80 stafir, vistuð á hverri hafnaðri línu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CommentTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 1378863479" size-unit="char" translate="yes" xml:space="preserve">
           <source>The request names a record in more than one way.</source>
           <target>Beiðnin nefnir færslu á fleiri en einn hátt.</target>
@@ -1143,11 +1161,35 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictNextLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3380986179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one identifier for the time sheet.</source>
+          <target>Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1357409842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Both timeSheetNo and timeSheetId were supplied.</source>
+          <target>Bæði timeSheetNo og timeSheetId voru send.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæði timeSheetNo og timeSheetId voru send.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 1960734634" size-unit="char" translate="yes" xml:space="preserve">
           <source>ISO date cutoff. Sheets ending after this date are left out. Defaults to the work date.</source>
           <target>Lokadagur á ISO-sniði. Tímaskýrslum sem lýkur eftir þann dag er sleppt. Sjálfgefið er vinnudagsetningin.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Lokadagur á ISO-sniði. Tímaskýrslum sem lýkur eftir þann dag er sleppt. Sjálfgefið er vinnudagsetningin.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CutoffHelpLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1196522881" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves or rejects selected submitted lines atomically through the native time sheet action. A successful call commits; a failed action rolls back all selected changes. Approving absence lines also posts their absence entries.</source>
+          <target>Samþykkir eða hafnar völdum innsendum línum í einni færslu með innbyggðri tímaskýrsluaðgerð. Heppnað kall staðfestir; misheppnuð aðgerð afturkallar allar valdar breytingar. Samþykki fjarvistarlína bókar einnig fjarvistarfærslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkir eða hafnar völdum innsendum línum í einni færslu með innbyggðri tímaskýrsluaðgerð. Heppnað kall staðfestir; misheppnuð aðgerð afturkallar allar valdar breytingar. Samþykki fjarvistarlína bókar einnig fjarvistarfærslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EffectTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 939761282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Identify the time sheet in data.</source>
+          <target>Auðkenndu tímaskýrsluna í data.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðkenndu tímaskýrsluna í data.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EnvelopeTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 4101607108" size-unit="char" translate="yes" xml:space="preserve">
           <source>A key has the wrong JSON type.</source>
@@ -1160,6 +1202,42 @@
           <target>Sendu lykilinn með skráðu tagi.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 970536280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1019460973" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has an invalid type, length or value.</source>
+          <target>Lykill er af röngu tagi, lengd eða gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu tagi, lengd eða gildi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 619833935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet SystemId as a GUID; alternative to timeSheetNo.</source>
+          <target>SystemId tímaskýrslu sem GUID; valkostur við timeSheetNo.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=SystemId tímaskýrslu sem GUID; valkostur við timeSheetNo.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IdTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2375611073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The selected line is not Submitted. Approval alone accepts an already Approved line as unchanged.</source>
+          <target>Valin lína er ekki innsend. Aðeins samþykki tekur við þegar samþykktri línu án breytinga.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valin lína er ekki innsend. Aðeins samþykki tekur við þegar samþykktri línu án breytinga.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType InvalidLineTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run the request without omitCommit.</source>
+          <target>Keyrðu beiðnina án omitCommit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IsolatedNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 919938375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This action requires an isolated transaction.</source>
+          <target>Þessi aðgerð krefst einangraðrar færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi aðgerð krefst einangraðrar færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IsolatedTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 549465194" size-unit="char" translate="yes" xml:space="preserve">
           <source>Project journal batch (maximum 10 characters). The Timesheets setup value is used when omitted.</source>
@@ -1185,6 +1263,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Notaðu innlenda heitið.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType LegacyNextLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2706729743" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Positive integer line numbers. Omitted selects all submitted lines; an empty array selects none.</source>
+          <target>Jákvæðar heiltölur línunúmera. Sé sleppt eru allar innsendar línur valdar; tómt fylki velur engar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Jákvæðar heiltölur línunúmera. Sé sleppt eru allar innsendar línur valdar; tómt fylki velur engar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType LinesTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 239265665" size-unit="char" translate="yes" xml:space="preserve">
           <source>A required key is missing.</source>
           <target>Nauðsynlegur lykill vantar.</target>
@@ -1196,6 +1280,24 @@
           <target>Sendu lykilinn sem vantar.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2016197661" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1164066600" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required identifier is missing.</source>
+          <target>Nauðsynlegt auðkenni vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegt auðkenni vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 774924109" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Omitted lineNos selects only submitted lines. Empty lineNos returns an empty list. Approval of an explicitly selected approved line returns changed false. Rejection requires Submitted for every selected line. Status is returned in a language-independent form. A successful action commits; omitCommit is not supported.</source>
+          <target>Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotesTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 1798906676" size-unit="char" translate="yes" xml:space="preserve">
           <source>The journal identifier does not match a record.</source>
@@ -1209,6 +1311,30 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotFoundNextLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2117344776" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use an identifier that exists.</source>
+          <target>Notaðu auðkenni sem er til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotFoundNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3886226461" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The time sheet or selected line does not exist.</source>
+          <target>Tímaskýrslan eða valin lína er ekki til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tímaskýrslan eða valin lína er ekki til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotFoundTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2024792173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manager approval and rejection of submitted time sheet lines. Only the sheet approver may act. Existing Clockify approval behavior is unchanged. Unknown keys are refused.</source>
+          <target>Samþykki stjórnanda og höfnun innsendra tímaskýrslulína. Aðeins samþykktaraðili skýrslunnar má framkvæma aðgerðina. Núverandi samþykktarvirkni Clockify er óbreytt. Óþekktum lyklum er hafnað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykki stjórnanda og höfnun innsendra tímaskýrslulína. Aðeins samþykktaraðili skýrslunnar má framkvæma aðgerðina. Núverandi samþykktarvirkni Clockify er óbreytt. Óþekktum lyklum er hafnað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType OverviewTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2434548005" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller lacks access to a table used by this action.</source>
+          <target>Kallandinn hefur ekki aðgang að töflu sem aðgerðin notar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn hefur ekki aðgang að töflu sem aðgerðin notar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionErrorTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 2943233132" size-unit="char" translate="yes" xml:space="preserve">
           <source>The caller cannot write the required time sheet or journal records.</source>
           <target>Kallandinn getur ekki skrifað nauðsynlegar tímaskýrslu- eða verkbókarfærslur.</target>
@@ -1220,6 +1346,12 @@
           <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2091803237" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 4286997497" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posts approved time sheet lines through the project journal and commits. Posted entries cannot be undone.</source>
@@ -1245,6 +1377,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Bókar samþykktar tímaskýrslulínur og staðfestir færslurnar. Aðgerðin er óafturkræf. Óþekktum lyklum er hafnað.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PostOverviewLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2193968713" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discover the available time sheet operations.</source>
+          <target>Finndu tiltækar tímaskýrsluaðgerðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Finndu tiltækar tímaskýrsluaðgerðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RelatedTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 694501845" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines reopened.</source>
           <target>Línur sem voru opnaðar aftur.</target>
@@ -1263,6 +1401,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Opnar aftur innsendar eða samþykktar tímaskýrslulínur til lokadags. Óþekktum lyklum er hafnað.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ReopenOverviewLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2263593789" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected lines: timeSheetNo, lineNo, status (Approved or Rejected), changed. Already approved selected lines return changed false for approval.</source>
+          <target>Valdar línur: timeSheetNo, lineNo, status (Approved eða Rejected), changed. Þegar samþykktar valdar línur skila changed false við samþykki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valdar línur: timeSheetNo, lineNo, status (Approved eða Rejected), changed. Þegar samþykktar valdar línur skila changed false við samþykki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ResponseTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 3233704645" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the time sheet and journal setup, then retry the call.</source>
           <target>Farðu yfir tímaskýrsluna og uppsetningu verkbókar og reyndu kallið aftur.</target>
@@ -1275,6 +1419,36 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Business Central hafnaði aðgerðinni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RuntimeHelpLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 610076453" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correct the Business Central error and retry.</source>
+          <target>Leiðréttu Business Central villuna og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu Business Central villuna og reyndu aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RuntimeNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3456802640" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central refused the action; all selected changes were rolled back.</source>
+          <target>Business Central hafnaði aðgerðinni; allar valdar breytingar voru afturkallaðar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Business Central hafnaði aðgerðinni; allar valdar breytingar voru afturkallaðar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RuntimeTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 262606953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number. Send exactly one of timeSheetNo and timeSheetId.</source>
+          <target>Númer tímaskýrslu. Sendu nákvæmlega annað hvort timeSheetNo eða timeSheetId.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu. Sendu nákvæmlega annað hvort timeSheetNo eða timeSheetId.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SheetTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2444345320" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Success or Error.</source>
+          <target>Success eða Error.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Success eða Error.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType StatusTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2269040368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit it first with Timesheets.TimeSheet.Submit.</source>
+          <target>Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SubmitTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 2910061509" size-unit="char" translate="yes" xml:space="preserve">
           <source>The request contains an unknown key.</source>
           <target>Beiðnin inniheldur óþekktan lykil.</target>
@@ -1286,6 +1460,36 @@
           <target>Fjarlægðu óþekkta lykilinn.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 846182105" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1808847724" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1494093589" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit the lines, then let the sheet approver approve or reject them. Read the returned status and changed flag.</source>
+          <target>Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WorkflowTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 2320491616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller is not the approver named on the time sheet.</source>
+          <target>Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType ApproverMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1437463222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType ApproverNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 4266004086" size-unit="char" translate="yes" xml:space="preserve">
           <source>The caller cannot write time sheets.</source>
@@ -1306,9 +1510,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType FixLineMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 2087608894" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The identifier does not match a record.</source>
-          <target>Auðkennið passar ekki við færslu.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Auðkennið passar ekki við færslu.</note>
+          <source>The identifier does not match a record in %1.</source>
+          <target>Auðkennið passar ekki við færslu í %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption; is-IS=Auðkennið passar ekki við færslu í %1.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 163613640" size-unit="char" translate="yes" xml:space="preserve">
@@ -1316,6 +1520,24 @@
           <target>Notaðu auðkenni sem er til.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 2062021128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This operation requires an isolated transaction.</source>
+          <target>Þessi aðgerð krefst einangraðrar færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi aðgerð krefst einangraðrar færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run the request without omitCommit.</source>
+          <target>Keyrðu beiðnina án omitCommit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 599681173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The identifier does not match a record.</source>
+          <target>Auðkennið passar ekki við færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðkennið passar ekki við færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType JournalIdentifierMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 1105869328" size-unit="char" translate="yes" xml:space="preserve">
           <source>A journal identifier exceeds the maximum length of 10 characters.</source>
@@ -1335,6 +1557,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingJournalMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1591961950" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required key is missing.</source>
+          <target>Nauðsynlegur lykill vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingKeyMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 688066728" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send the missing key.</source>
           <target>Sendu lykilinn sem vantar.</target>
@@ -1347,11 +1575,35 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Notaðu innlenda heitið.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType NativeNameNextTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 707280194" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request names the time sheet in more than one way.</source>
+          <target>Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType OneIdentifierMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1880219316" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one identifier for the time sheet.</source>
+          <target>Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType OneIdentifierNextTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 1169825241" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Retry the call.</source>
-          <target>Reyndu kallið aftur.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Reyndu kallið aftur.</note>
+          <source>Correct the Business Central error and retry.</source>
+          <target>Leiðréttu Business Central villuna og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu Business Central villuna og reyndu aftur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType RetryNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1128376433" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The line is not submitted.</source>
+          <target>Línan hefur ekki verið send inn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Línan hefur ekki verið send inn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType SubmitFirstMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1472943635" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit it first with Timesheets.TimeSheet.Submit.</source>
+          <target>Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType SubmitFirstNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 3711673115" size-unit="char" translate="yes" xml:space="preserve">
           <source>A key has the wrong JSON type.</source>
@@ -1376,6 +1628,30 @@
           <target>Fjarlægðu óþekkta lykilinn.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType UnknownKeyNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1438968790 - Method 3261554141 - NamedType 546388388" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Runner ori - Method CheckApprover - NamedType ApproverErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves submitted time sheet lines.</source>
+          <target>Samþykkir innsendar tímaskýrslulínur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkir innsendar tímaskýrslulínur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, approve, timesheets</source>
+          <target>tímaskýrsla, samþykkja, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, samþykkja, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Approve: Approves submitted time sheet lines.</source>
+          <target>Timesheets.TimeSheet.Approve: Samþykkir innsendar tímaskýrslulínur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve: Samþykkir innsendar tímaskýrslulínur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3098943034 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archives posted time sheets.</source>
@@ -1413,6 +1689,24 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Post Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejects submitted time sheet lines.</source>
+          <target>Hafnar innsendum tímaskýrslulínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hafnar innsendum tímaskýrslulínum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, reject, timesheets</source>
+          <target>tímaskýrsla, hafna, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, hafna, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Reject: Rejects submitted time sheet lines.</source>
+          <target>Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2957981441 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reopens submitted or approved time sheet lines.</source>
           <target>Opnar aftur innsendar eða samþykktar tímaskýrslulínur.</target>
@@ -1431,10 +1725,16 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reopen Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1365144420 - NamedType 763692369" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject</source>
+          <target>Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Restrict ori - NamedType StatusHintTok</note>
+        </trans-unit>
         <trans-unit id="Page 2536023114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify Integration</source>
-          <target>Clockify-tengingar</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Clockify-tengingar</note>
+          <target>Clockify tengingar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify tengingar</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2536023114 - Control 2082364800 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1469,8 +1769,8 @@
         </trans-unit>
         <trans-unit id="Page 2536023114 - Control 306562354 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the kind of Clockify object the record is linked to.</source>
-          <target>Tilgreinir tegund Clockify-hlutarins sem færslan er tengd við.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir tegund Clockify-hlutarins sem færslan er tengd við.</note>
+          <target>Tilgreinir tegund Clockify hlutarins sem fært er tengt við.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir tegund Clockify hlutarins sem fært er tengt við.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Clockify Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2536023114 - Control 1744118010 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1487,14 +1787,14 @@
         </trans-unit>
         <trans-unit id="Page 2536023114 - Control 3744289816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the link has been broken. Reversed links are purged about one month after reversal.</source>
-          <target>Tilgreinir hvort tengingin hafi verið rofin. Bakfærðar tengingar eru hreinsaðar um það bil mánuði eftir bakfærslu.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort tengingin hafi verið rofin. Bakfærðar tengingar eru hreinsaðar um það bil mánuði eftir bakfærslu.</note>
+          <target>Tilgreinir hvort tengingin hafi verið rofin. Afturkallaðar tengingar eru hreinsaðar um mánuði eftir afturköllun.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort tengingin hafi verið rofin. Afturkallaðar tengingar eru hreinsaðar um mánuði eftir afturköllun.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Reversed - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2536023114 - Control 1066124403 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the link was reversed.</source>
-          <target>Tilgreinir hvenær tengingin var bakfærð.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvenær tengingin var bakfærð.</note>
+          <target>Tilgreinir hvenær tengingin var afturkölluð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvenær tengingin var afturkölluð.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Integration List ori - Control Reversed At - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3509119034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1517,20 +1817,20 @@
         </trans-unit>
         <trans-unit id="Page 3509119034 - Control 1850688972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>API Key</source>
-          <target>API-lykill</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=API-lykill</note>
+          <target>API lykill</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Set Secret Dialog ori - Control SecretInput - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1016309158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify Webhooks</source>
-          <target>Clockify-vefkrókar</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Clockify-vefkrókar</note>
+          <target>Clockify vefkrókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Clockify vefkrókar</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1016309158 - Control 3310733264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Clockify event the webhook fires on.</source>
-          <target>Tilgreinir Clockify-atburðinn sem vefkrókurinn bregst við.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify-atburðinn sem vefkrókurinn bregst við.</note>
+          <target>Tilgreinir Clockify atburðinn sem vefkrókurinn bregst við.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify atburðinn sem vefkrókurinn bregst við.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Event - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1016309158 - Control 1347138047 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1541,8 +1841,8 @@
         </trans-unit>
         <trans-unit id="Page 1016309158 - Control 4165234317 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the receiver URL the webhook posts to.</source>
-          <target>Tilgreinir móttökuslóðina sem vefkrókurinn sendir til.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir móttökuslóðina sem vefkrókurinn sendir til.</note>
+          <target>Tilgreinir móttökuslóðina sem vefkrókurinn sendir á.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir móttökuslóðina sem vefkrókurinn sendir á.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Url - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1016309158 - Control 2051456474 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1559,8 +1859,8 @@
         </trans-unit>
         <trans-unit id="Page 1016309158 - Control 4218609220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Clockify workspace the webhook belongs to.</source>
-          <target>Tilgreinir Clockify-vinnusvæðið sem vefkrókurinn tilheyrir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify-vinnusvæðið sem vefkrókurinn tilheyrir.</note>
+          <target>Tilgreinir Clockify vinnusvæðið sem vefkrókurinn tilheyrir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir Clockify vinnusvæðið sem vefkrókurinn tilheyrir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Clockify Webhooks ori - Control Workspace Id - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1320397535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1745,8 +2045,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bifrost Timesheets Setup</source>
-          <target>Bifrost Timesheets - uppsetning</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bifrost Timesheets - uppsetning</note>
+          <target>Uppsetning Bifröst tímaskýrslna</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetning Bifröst tímaskýrslna</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
@@ -1769,20 +2069,20 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 1483753178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.</source>
-          <target>Tilgreinir sjálfgefið vinnusvæðiskenni Clockify sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettinguna til að velja vinnusvæði eftir heiti úr Clockify-aðganginum þínum.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir sjálfgefið vinnusvæðiskenni Clockify sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettinguna til að velja vinnusvæði eftir heiti úr Clockify-aðganginum þínum.</note>
+          <target>Tilgreinir sjálfgefið Clockify vinnusvæði sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettingu til að velja vinnusvæði eftir heiti úr Clockify aðganginum þínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir sjálfgefið Clockify vinnusvæði sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettingu til að velja vinnusvæði eftir heiti úr Clockify aðganginum þínum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control Default Workspace - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 2910865334 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions to set or clear it.</source>
-          <target>Tilgreinir hvort API-lykill fyrirtækisins fyrir Clockify sé geymdur. Allar beiðnir tengisins auðkenna sig með þessum lykli. Notaðu aðgerðirnar til að stilla eða eyða lyklinum.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort API-lykill fyrirtækisins fyrir Clockify sé geymdur. Allar beiðnir tengisins auðkenna sig með þessum lykli. Notaðu aðgerðirnar til að stilla eða eyða lyklinum.</note>
+          <target>Tilgreinir hvort Clockify API lykill fyrirtækis sé geymdur. Allar tengingar nota þennan lykil. Notaðu aðgerðirnar til að breyta honum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir hvort Clockify API lykill fyrirtækis sé geymdur. Allar tengingar nota þennan lykil. Notaðu aðgerðirnar til að breyta honum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control HasCompanyKey - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 2910865334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company API Key Stored</source>
-          <target>API-lykill fyrirtækis geymdur</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=API-lykill fyrirtækis geymdur</note>
+          <target>API lykill fyrirtækis geymdur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill fyrirtækis geymdur</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control HasCompanyKey - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 2141994110 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1799,20 +2099,20 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 4007237630 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.</source>
-          <target>Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify-tímafærsla hefur ekkert merki tengt við vinnutegund. Tengd Clockify-merki hafa forgang fram yfir þetta gildi.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify-tímafærsla hefur ekkert merki tengt við vinnutegund. Tengd Clockify-merki hafa forgang fram yfir þetta gildi.</note>
+          <target>Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify tímafærsla hefur engan merkimiða tengdan vinnutegund. Tengdur Clockify merkimiði hefur forgang fram yfir þetta gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify tímafærsla hefur engan merkimiða tengdan vinnutegund. Tengdur Clockify merkimiði hefur forgang fram yfir þetta gildi.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control Default Work Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 4116635791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.</source>
-          <target>Tilgreinir verkbókarkeyrsluna sem samstilltar Clockify-tímafærslur eru skrifaðar í. Hún verður að tilheyra valda sniðmátinu.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarkeyrsluna sem samstilltar Clockify-tímafærslur eru skrifaðar í. Hún verður að tilheyra valda sniðmátinu.</note>
+          <target>Tilgreinir verkbókarflokkinn sem samstilltar Clockify tímafærslur eru skrifaðar í. Verður að tilheyra valinni lýsingu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarflokkinn sem samstilltar Clockify tímafærslur eru skrifaðar í. Verður að tilheyra valinni lýsingu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control Job Jnl. Batch - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 3929495379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.</source>
-          <target>Tilgreinir verkbókarsniðmátið sem samstilltar Clockify-tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkrókshandlaranum.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarsniðmátið sem samstilltar Clockify-tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkrókshandlaranum.</note>
+          <target>Tilgreinir verkbókarlýsinguna sem samstilltar Clockify tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkróknum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir verkbókarlýsinguna sem samstilltar Clockify tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkróknum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control Job Jnl. Template - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 4072316332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1823,8 +2123,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 3462359435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL of the webhook receiver that forwards Clockify events into Business Central, including the target company. Required before registering webhooks.</source>
-          <target>Tilgreinir slóð vefkrókamóttakarans sem áframsendir Clockify-atburði í Business Central, ásamt viðkomandi fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir slóð vefkrókamóttakarans sem áframsendir Clockify-atburði í Business Central, ásamt viðkomandi fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</note>
+          <target>Tilgreinir slóð vefkróka móttakara sem áframsendir Clockify atburði í Business Central, með marka fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir slóð vefkróka móttakara sem áframsendir Clockify atburði í Business Central, með marka fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Control Webhook Receiver URL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Control 3216637348 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1841,8 +2141,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 2903607336 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens the administrative view of the links between Business Central records and Clockify objects.</source>
-          <target>Opnar stjórnunarsýn yfir tengingar milli BC-færslna og Clockify-hluta.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Opnar stjórnunarsýn yfir tengingar milli BC-færslna og Clockify-hluta.</note>
+          <target>Opnar stjórnunarsýn yfir tengingar milli BC færslna og Clockify hluta.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opnar stjórnunarsýn yfir tengingar milli BC færslna og Clockify hluta.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action IntegrationList - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 2903607336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1853,8 +2153,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 2620374036 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens the list of Clockify webhooks registered from this company.</source>
-          <target>Opnar lista yfir Clockify-vefkróka sem eru skráðir í þessu fyrirtæki.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Opnar lista yfir Clockify-vefkróka sem eru skráðir í þessu fyrirtæki.</note>
+          <target>Opnar lista yfir Clockify vefkróka sem eru skráðir frá þessu fyrirtæki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opnar lista yfir Clockify vefkróka sem eru skráðir frá þessu fyrirtæki.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action RegisteredWebhooks - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 2620374036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1865,8 +2165,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 3332662617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>API Key</source>
-          <target>API-lykill</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=API-lykill</note>
+          <target>API lykill</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=API lykill</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action ApiKey - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 1158152939 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -1913,8 +2213,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 1555736083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.</source>
-          <target>Skráir rauntíma Clockify-vefkróka fyrir tímafærslur sem vísa á móttakarann og sýnir undirritunarlykla sem á að stilla á móttakaranum.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Skráir rauntíma Clockify-vefkróka fyrir tímafærslur sem vísa á móttakarann og sýnir undirritunarlykla sem á að stilla á móttakaranum.</note>
+          <target>Skráir rauntíma vefkróka fyrir tímafærslur í Clockify sem vísa á móttakarann og sýnir undirritunarlykla til að stilla á móttakaranum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráir rauntíma vefkróka fyrir tímafærslur í Clockify sem vísa á móttakarann og sýnir undirritunarlykla til að stilla á móttakaranum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action RegisterWebhooks - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 1555736083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1925,8 +2225,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 1493396514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Removes the registered Clockify time-entry webhooks.</source>
-          <target>Fjarlægir skráða Clockify-vefkróka fyrir tímafærslur.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægir skráða Clockify-vefkróka fyrir tímafærslur.</note>
+          <target>Fjarlægir skráða Clockify vefkróka fyrir tímafærslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægir skráða Clockify vefkróka fyrir tímafærslur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action RemoveWebhooks - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 1493396514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1937,8 +2237,8 @@
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 4247368948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.</source>
-          <target>Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á vefkrókamóttakaranum.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á vefkrókamóttakaranum.</note>
+          <target>Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á móttakaranum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á móttakaranum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Timesheets Setup ori - Action ShowWebhookTokens - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 829329462 - Action 4247368948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1955,14 +2255,14 @@
         </trans-unit>
         <trans-unit id="PageExtension 1772890088 - Action 3026263575 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1243421685">
           <source>Open the setup of the Bifrost Timesheets connector: API key, default workspace, Job Journal target and real-time webhooks.</source>
-          <target>Opnar uppsetningu Bifrost Timesheets: API-lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Opnar uppsetningu Bifrost Timesheets: API-lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</note>
+          <target>Opna uppsetningu Bifröst tímaskýrslna: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opna uppsetningu Bifröst tímaskýrslna: API lykil, sjálfgefið vinnusvæði, verkbók og rauntíma vefkróka.</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext ori - Action ClockifySetupCard - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1772890088 - Action 3026263575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1243421685">
           <source>Bifrost Timesheets Setup</source>
-          <target>Bifrost Timesheets - uppsetning</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bifrost Timesheets - uppsetning</note>
+          <target>Uppsetning Bifröst tímaskýrslna</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetning Bifröst tímaskýrslna</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Clockify Setup Ext ori - Action ClockifySetupCard - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3130072657 - Field 2636227874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
@@ -2039,8 +2339,8 @@
         </trans-unit>
         <trans-unit id="PermissionSet 638302454 - Property 2879900210" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bifrost Timesheets</source>
-          <target>Bifrost Timesheets</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bifrost Timesheets</note>
+          <target>Bifröst tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bifröst tímaskýrslur</note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BIFROST Timeshts ori - Property Caption</note>
         </trans-unit>
       </group>

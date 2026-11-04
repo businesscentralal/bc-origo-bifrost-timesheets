@@ -382,3 +382,11 @@ It is a customized version of the [AL-Go-AppSource](https://github.com/microsoft
 
 Please go to https://aka.ms/AL-Go and [COSMO Docs](https://docs.cosmoconsult.com/en-us/cloud-service/alpaca) to learn more.
 <!-- AUTO-UPDATE-END -->
+
+## Native manager decisions
+
+`Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` act on submitted lines for the approver named on the sheet. Send one of `timeSheetNo` or `timeSheetId`, optionally `lineNos`; omitting the array selects only submitted lines, and an empty array selects none. Rejection also accepts `comment` (up to 80 characters). Responses include each selected line's number, language-independent status, and `changed` flag. Explicitly approving an approved line succeeds with `changed: false`.
+
+Assign the existing **BIFROST Timeshts ori** set for native table permissions. The Foundation Read and Full extensions expose the handlers but do not grant permissions on Microsoft tables. Insufficient permissions and a different approver are refused before writing. A successful native action commits; `omitCommit` is not supported. Approving absence lines also posts their absence entries through the standard action. Existing Clockify message behavior is unchanged.
+
+Discover localized parameters, refusals, next steps, and examples with `Help.Implementation.Get` in LCIDs 1033 and 1039. Generic writes to the Time Sheet Line Status field are blocked; reads remain available.

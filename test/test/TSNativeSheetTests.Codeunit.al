@@ -15,7 +15,7 @@ using System.TestLibraries.Utilities;
 using System.Utilities;
 
 /// <summary>Issue 67 acceptance tests for native Reopen, Post and Archive names.</summary>
-codeunit 95616 "TS Native Sheet Tests"
+codeunit 95617 "TS Native Sheet Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;

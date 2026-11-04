@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Fixed - Native layer integration (#67)
+
+- Merge main’s Approve/Reject shared codeunits 10036868–10036872 with Reopen/Post/Archive without replacing either operation family. Preserve both sets of enum values, permissions and translated contracts; use main’s corrective retry guidance.
+- Keep main’s decision tests at 95616 and move the #67 native-sheet regression tests to free codeunit 95617. Preserve main’s caption-derived protected-field assertions and fixture isolation.
+
 ### Fixed
 
 - Issue #67 / codeunit 10036868: accept Foundation’s validated `expectedCount` confirmation parameter for native and legacy time-sheet posting. The platform confirmation gate stays enabled; test codeunit 95616 covers the public dispatcher path and unchanged ledger count on invalid input.
@@ -17,7 +22,16 @@
 - Existing Icelandic target text is preserved. Source translation comments are aligned with the committed targets so the generated XLF guard is reproducible.
 - Test codeunit 95616 covers native-name validation, state transitions, response fields and missing permissions. Historical native work for other issues is preserved outside this #67-only deliverable.
 
+
+### Added
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
+- Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+
 ### Changed
+
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 

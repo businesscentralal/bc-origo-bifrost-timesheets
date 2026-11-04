@@ -20,7 +20,6 @@ codeunit 95612 "Clockify Field Restrict Tests"
 
     var
         LibraryAssert: Codeunit "Library Assert";
-        FieldRefusalLbl: Label 'Field Webhook Receiver URL (13) in table 10036853 (%1) cannot be written via Data.Records.Set.', Locked = true;
 
     /// <summary>Verifies WebhookReceiverUrlWriteRestricted through Foundation field events.</summary>
     [Test]
@@ -146,6 +145,7 @@ codeunit 95612 "Clockify Field Restrict Tests"
         ClockifySetup: Record "Clockify Setup ori";
         ResponseJson: JsonObject;
         Token: JsonToken;
+        FieldRefusalTok: Label 'Field %1 (%2) in table %3 (%4) cannot be written via Data.Records.Set.', Locked = true, Comment = '%1 = field caption, %2 = field number, %3 = table number, %4 = table caption';
     begin
         // [GIVEN] A known receiver URL and blank work type.
         InitializeWriteFixture(ClockifySetup);
@@ -157,7 +157,7 @@ codeunit 95612 "Clockify Field Restrict Tests"
         ResponseJson.Get('code', Token);
         LibraryAssert.AreEqual('PermissionDenied', Token.AsValue().AsText(), 'Refusal must use PermissionDenied.');
         ResponseJson.Get('error', Token);
-        LibraryAssert.AreEqual(StrSubstNo(FieldRefusalLbl, ClockifySetup.TableCaption()), Token.AsValue().AsText(), 'The field refusal stays in error. The setup hint is nextStep.');
+        LibraryAssert.AreEqual(StrSubstNo(FieldRefusalTok, ClockifySetup.FieldCaption("Webhook Receiver URL"), ClockifySetup.FieldNo("Webhook Receiver URL"), Database::"Clockify Setup ori", ClockifySetup.TableCaption()), Token.AsValue().AsText(), 'The field refusal stays in error. The setup hint is nextStep.');
         ResponseJson.Get('nextStep', Token);
         LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', Token.AsValue().AsText(), 'Refusal must point to the setup page.');
         ResponseJson.Get('parameter', Token);
