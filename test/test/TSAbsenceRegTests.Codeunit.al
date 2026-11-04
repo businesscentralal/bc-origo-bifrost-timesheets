@@ -304,6 +304,47 @@ codeunit 95616 "TS Absence Reg Tests"
         Assert.IsTrue(Line.IsEmpty(), 'No partial line may survive the refusal.');
     end;
 
+    /// <summary>The public help contract keeps chapters English and localizes its catalogue.</summary>
+    [Test]
+    procedure Scenario_AC08_IcelandicCatalogue_EnglishChapters()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        Types: JsonArray;
+        Response: JsonObject;
+        EnglishRow: JsonObject;
+        IcelandicRow: JsonObject;
+        Token: JsonToken;
+        EnglishParameters: Text;
+        IcelandicParameters: Text;
+    begin
+        // Story #65, AC08 | Time: no dates | Risk: Foundation help-language contract
+        // [GIVEN] Public help for the absence type in English and Icelandic.
+        Types.Add('Timesheets.Absence.Register');
+        Request.Add('messageTypes', Types);
+        Request.Add('detail', 'full');
+        Request.Add('lcid', 1033);
+        Execute(TempArgument, "Message Type ori"::"Help.Implementation.Get", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'English help must succeed.');
+        Response.SelectToken('result[0]', Token);
+        EnglishRow := Token.AsObject();
+        // [WHEN] The caller requests Icelandic help.
+        Request.Replace('lcid', 1039);
+        Execute(TempArgument, "Message Type ori"::"Help.Implementation.Get", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Icelandic help must succeed.');
+        Response.SelectToken('result[0]', Token);
+        IcelandicRow := Token.AsObject();
+        // [THEN] Catalogue text translates; the complete parameter chapter stays English.
+        Assert.AreEqual('Registers an absence line on a time sheet.', ReadText(EnglishRow, 'description'), 'English catalogue.');
+        Assert.AreEqual('Skráir fjarvistarlínu á tímaskýrslu.', ReadText(IcelandicRow, 'description'), 'Icelandic catalogue.');
+        EnglishParameters := ReadText(EnglishRow, 'parameters');
+        IcelandicParameters := ReadText(IcelandicRow, 'parameters');
+        Assert.IsTrue(EnglishParameters.Contains('causeOfAbsenceCode'), 'Help must include absence parameters.');
+        Assert.AreEqual(EnglishParameters, IcelandicParameters, 'Help chapters remain English at both LCIDs.');
+    end;
+
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
         MsgInterface: Interface "Msg Interface ori";

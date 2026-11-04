@@ -10,7 +10,8 @@
 - Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
 - Align the two existing webhook restriction assertions with the table caption returned by Foundation 28.0.11; keep the exact error and no-write checks.
 - Test-only fixture codeunit 95618 seeds isolated native records for MCP acceptance without changing generic write guards or licensing; it refuses duplicate setup and the owned environment is removed after verification.
-- Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. The is-IS translation file is regenerated.
+- Help regression follows the settled language policy: English chapters at both LCIDs, localized catalogue and runtime refusals. Test page 95620 invokes fixture 95618 only in the named isolated company and uses the authenticated user. Protected-field test expectations derive table/field captions.
+- Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. Existing is-IS translation units are retained.
 
 - Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036868, 10036871; tests 95616). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
 

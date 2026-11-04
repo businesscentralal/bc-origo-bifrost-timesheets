@@ -25,6 +25,8 @@ codeunit 95618 "TS Absence MCP Fixture"
         Employee: Record Employee;
         UserSetup: Record "User Setup";
     begin
+        if CompanyName() <> 'CRONUS REGINN65 Verification' then
+            Error(WrongCompanyErr);
         // Refuse an existing fixture rather than silently replaying a setup write.
         if UnitOfMeasure.Get('W2A65') then
             Error(FixtureExistsErr);
@@ -40,10 +42,10 @@ codeunit 95618 "TS Absence MCP Fixture"
         Cause.Code := 'W2A65';
         Cause.Description := 'Brokkr65 owned absence';
         Cause.Insert(true);
-        // The owner identity is confirmed by the owned MCP preflight; service OnRun has a different session identity.
-        if not UserSetup.Get('CODEXW2') then begin
+        // Use the authenticated Web Client owner; never bind fixtures to another worker.
+        if not UserSetup.Get(CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID"))) then begin
             UserSetup.Init();
-            UserSetup.Validate("User ID", 'CODEXW2');
+            UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
             UserSetup.Insert(true);
         end;
         CreateResource('W2A65-MCP');
@@ -58,6 +60,7 @@ codeunit 95618 "TS Absence MCP Fixture"
     end;
 
     var
+        WrongCompanyErr: Label 'Use the isolated CRONUS REGINN65 Verification company.', Locked = true;
         FixtureExistsErr: Label 'The owned absence fixture already exists. Inspect it before continuing.', Locked = true;
 
     local procedure CreateResource(ResourceNo: Code[20])
@@ -70,7 +73,7 @@ codeunit 95618 "TS Absence MCP Fixture"
         Resource.Insert(true);
         Resource.Validate(Type, Resource.Type::Person);
         Resource.Validate("Base Unit of Measure", 'W2A65');
-        Resource."Time Sheet Owner User ID" := 'CODEXW2';
+        Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Resource."Time Sheet Owner User ID"));
         Resource."Time Sheet Approver User ID" := Resource."Time Sheet Owner User ID";
         Resource.Validate("Use Time Sheet", true);
         Resource.Modify(true);
