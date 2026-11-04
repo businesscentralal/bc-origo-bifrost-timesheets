@@ -818,7 +818,7 @@ codeunit 95635 "TS Usage Tests"
         Account."Direct Posting" := true;
         Account.Insert(false);
         GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroup.Code;
-        GeneralPostingSetup."Invt. Adjmt. Account" := Account."No.";
+        GeneralPostingSetup."Inventory Adjmt. Account" := Account."No.";
         GeneralPostingSetup."COGS Account" := Account."No.";
         GeneralPostingSetup."COGS Account (Interim)" := Account."No.";
         GeneralPostingSetup."Direct Cost Applied Account" := Account."No.";
