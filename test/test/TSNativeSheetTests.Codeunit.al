@@ -368,8 +368,13 @@ codeunit 95616 "TS Native Sheet Tests"
     [Test]
     procedure Scenario_AC07_GenericStatusWrite_LeavesLineUnchanged()
     var
-        TempArgument: Record "Message Argument ori" temporary;
         Line: Record "Time Sheet Line";
+        Dispatcher: Codeunit "Dispatcher ori";
+        RequestContent: BigText;
+        ResponseContent: BigText;
+        RequestText: Text;
+        ResponseText: Text;
+        ResponseContentType: Text[100];
         Fields: JsonObject;
         PrimaryKey: JsonObject;
         RecordData: JsonObject;
@@ -391,9 +396,13 @@ codeunit 95616 "TS Native Sheet Tests"
         Request.Add('tableId', Database::"Time Sheet Line");
         Request.Add('data', Records);
         // [WHEN] Foundation checks the generic write and raises the real subscriber event.
-        Execute(TempArgument, "Message Type ori"::"Data.Records.Set", Request);
-        // [THEN] The dedicated workflow cannot be bypassed.
-        Response := TempArgument.GetResponseJson();
+        Request.WriteTo(RequestText);
+        RequestContent.AddText(RequestText);
+        Dispatcher.Execute("Message Type ori"::"Data.Records.Set", "Message Version ori"::"1.0", '', 'W4ISSUE67', 'application/json', RequestContent, ResponseContent, ResponseContentType);
+        ResponseContent.GetSubText(ResponseText, 1);
+        Response.ReadFrom(ResponseText);
+        // [THEN] The licensed public dispatcher reaches the real write restriction.
+        // No Licensed Call flag or consent/trial/licence state is fabricated.
         Assert.AreEqual('Error', ReadText(Response, 'status'), 'Generic status write must be refused.');
         Assert.AreEqual('FieldWriteRestricted', ReadText(Response, 'code'), 'The field subscriber must identify the refusal.');
         Line.Get(SheetNo, 10000);
@@ -450,6 +459,115 @@ codeunit 95616 "TS Native Sheet Tests"
         Request: JsonObject;
     begin
         Execute(TempArgument, MessageType, Request);
+    end;
+
+    [Test]
+    procedure McpFixtureSeed_EmptyOwnedKeys_CreatesVerificationData()
+    var
+        Setup: Record "Clockify Setup ori";
+        Header: Record "Time Sheet Header";
+        Job: Record Job;
+        JobTask: Record "Job Task";
+        JournalTemplateRecord: Record "Job Journal Template";
+        Batch: Record "Job Journal Batch";
+        Series: Record "No. Series";
+        SeriesLine: Record "No. Series Line";
+        UserSetup: Record "User Setup";
+        LibraryJob: Codeunit "Library - Job";
+        ResourceNo: Code[20];
+        StartingDate: Date;
+    begin
+        // Fixture utility for issue #67 MCP/UI, not a substitute for message acceptance.
+        // Time: two weeks before WorkDate, so posting is current and archive is eligible.
+        // Runs in the full isolated suite too. After that suite passes, an explicit focused
+        // setup run on the owned container retains only these self-created fixture records.
+        Assert.IsFalse(Header.Get('W4N67REOPEN'), 'Existing fixture: inspect before recovery.');
+        Assert.IsFalse(Header.Get('W4N67POST'), 'Existing fixture: inspect before recovery.');
+        Assert.IsFalse(Header.Get('W4N67EMPTY'), 'Existing fixture: inspect before recovery.');
+        StartingDate := CalcDate('<-CW>', WorkDate() - 14);
+        ResourceNo := CreateResource(true);
+        UserSetup.Get(UserId());
+        UserSetup."Time Sheet Admin." := true;
+        UserSetup.Modify(true);
+        SeedMcpHeader('W4N67REOPEN', ResourceNo, StartingDate);
+        SeedMcpLine('W4N67REOPEN', '', '', 1);
+        SeedMcpHeader('W4N67EMPTY', ResourceNo, StartingDate - 7);
+        LibraryJob.CreateJob(Job);
+        Job.Rename('W4N67JOB');
+        Job.Validate(Status, Job.Status::Open);
+        Job.Modify(true);
+        LibraryJob.CreateJobTask(Job, JobTask);
+        JobTask.Rename(Job."No.", 'OWN67');
+        SeedMcpHeader('W4N67POST', CreateResource(true), StartingDate);
+        SeedMcpLine('W4N67POST', Job."No.", JobTask."Job Task No.", 2);
+        Series.Init();
+        Series.Code := 'W4N67';
+        Series."Default Nos." := true;
+        Series.Insert(true);
+        SeriesLine.Init();
+        SeriesLine."Series Code" := Series.Code;
+        SeriesLine."Line No." := 10000;
+        SeriesLine."Starting No." := 'W467000001';
+        SeriesLine."Ending No." := 'W467999999';
+        SeriesLine."Increment-by No." := 1;
+        SeriesLine.Insert(true);
+        JournalTemplateRecord.Init();
+        JournalTemplateRecord.Name := 'W4N67';
+        JournalTemplateRecord.Insert(true);
+        Batch.Init();
+        Batch."Journal Template Name" := JournalTemplateRecord.Name;
+        Batch.Name := 'OWN67';
+        Batch.Validate("No. Series", Series.Code);
+        Batch.Insert(true);
+        Setup.GetSetup();
+        Setup."Job Jnl. Template" := '';
+        Setup."Job Jnl. Batch" := '';
+        Setup.Modify(true);
+        Header.Get('W4N67REOPEN');
+        Assert.AreEqual(ResourceNo, Header."Resource No.", 'The resource must be self-created for this fixture.');
+        Header.Get('W4N67POST');
+        Assert.AreEqual(StartingDate, Header."Starting Date", 'Owned project sheet date.');
+        // No Foundation consent, EULA, trial, licence or Licensed Call state is written.
+    end;
+
+    local procedure SeedMcpHeader(SheetNo: Code[20]; ResourceNo: Code[20]; StartingDate: Date)
+    var
+        Header: Record "Time Sheet Header";
+    begin
+        Header.Init();
+        Header."No." := SheetNo;
+        Header."Starting Date" := StartingDate;
+        Header."Ending Date" := StartingDate + 6;
+        Header.Validate("Resource No.", ResourceNo);
+        Header.Description := 'Owned issue67 ' + SheetNo;
+        Header.Insert(true);
+    end;
+
+    local procedure SeedMcpLine(SheetNo: Code[20]; JobNo: Code[20]; TaskNo: Code[20]; Quantity: Decimal)
+    var
+        Detail: Record "Time Sheet Detail";
+        Header: Record "Time Sheet Header";
+        Line: Record "Time Sheet Line";
+    begin
+        Header.Get(SheetNo);
+        Line.Init();
+        Line."Time Sheet No." := SheetNo;
+        Line."Line No." := 10000;
+        Line."Time Sheet Starting Date" := Header."Starting Date";
+        if JobNo = '' then
+            Line.Validate(Type, Line.Type::Resource)
+        else begin
+            Line.Validate(Type, Line.Type::Job);
+            Line.Validate("Job No.", JobNo);
+            Line.Validate("Job Task No.", TaskNo);
+        end;
+        Line.Description := 'Owned native67 line';
+        Line.Insert(true);
+        Detail.Init();
+        Detail.Date := Header."Starting Date";
+        Detail.CopyFromTimeSheetLine(Line);
+        Detail.Validate(Quantity, Quantity);
+        Detail.Insert(true);
     end;
 
     local procedure CreateNativeJournal(var Request: JsonObject)
