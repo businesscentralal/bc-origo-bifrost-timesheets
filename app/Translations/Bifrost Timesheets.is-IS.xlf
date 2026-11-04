@@ -2559,6 +2559,612 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Bifröst tímaskýrslur</note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BIFROST Timeshts ori - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 675536452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet Usage</source>
+          <target>Notkun tímaskýrslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notkun tímaskýrslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1378760138 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the approved at of the time sheet usage.</source>
+          <target>Tilgreinir samþykkt kl. fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir samþykkt kl. fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Approved At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1378760138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approved At</source>
+          <target>Samþykkt kl.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkt kl.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Approved At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4041162204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the approved by of the time sheet usage.</source>
+          <target>Tilgreinir samþykkt af fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir samþykkt af fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Approved By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4041162204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approved By</source>
+          <target>Samþykkt af</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkt af</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Approved By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3192175264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of the time sheet usage.</source>
+          <target>Tilgreinir dagsetning fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir dagsetning fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <target>Dagsetning</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Dagsetning</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the time sheet usage.</source>
+          <target>Tilgreinir lýsing fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir lýsing fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Lýsing</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lýsing</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry no. of the time sheet usage.</source>
+          <target>Tilgreinir færslunr. fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir færslunr. fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target>Færslunr.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Færslunr.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3988549303 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the journal batch of the time sheet usage.</source>
+          <target>Tilgreinir keyrsla færslubókar fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir keyrsla færslubókar fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Batch - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3988549303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch</source>
+          <target>Keyrsla færslubókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrsla færslubókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3586807204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the journal line no. of the time sheet usage.</source>
+          <target>Tilgreinir línunr. færslubókar fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir línunr. færslubókar fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3586807204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Line No.</source>
+          <target>Línunr. færslubókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Línunr. færslubókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2928744396 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the journal table no. of the time sheet usage.</source>
+          <target>Tilgreinir töflunr. færslubókar fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir töflunr. færslubókar fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Table No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2928744396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Table No.</source>
+          <target>Töflunr. færslubókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Töflunr. færslubókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Table No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3679062379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the journal template of the time sheet usage.</source>
+          <target>Tilgreinir sniðmát færslubókar fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir sniðmát færslubókar fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Template - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3679062379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template</source>
+          <target>Sniðmát færslubókar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sniðmát færslubókar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Journal Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3286668834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ledger entry no. of the time sheet usage.</source>
+          <target>Tilgreinir númer bókaðrar færslu fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir númer bókaðrar færslu fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Ledger Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3286668834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ledger Entry No.</source>
+          <target>Númer bókaðrar færslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer bókaðrar færslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Ledger Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the no. of the time sheet usage.</source>
+          <target>Tilgreinir nr. fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir nr. fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>Nr.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nr.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1881850567 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the owner user id of the time sheet usage.</source>
+          <target>Tilgreinir notandakenni eiganda fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir notandakenni eiganda fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Owner User ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1881850567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Owner User ID</source>
+          <target>Notandakenni eiganda</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notandakenni eiganda</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Owner User ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity of the time sheet usage.</source>
+          <target>Tilgreinir magn fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir magn fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target>Magn</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Magn</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 320723008 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the rejection comment of the time sheet usage.</source>
+          <target>Tilgreinir athugasemd höfnunar fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir athugasemd höfnunar fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Rejection Comment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 320723008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejection Comment</source>
+          <target>Athugasemd höfnunar</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Athugasemd höfnunar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Rejection Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3961767479 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the resource no. of the time sheet usage.</source>
+          <target>Tilgreinir forðanr. fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir forðanr. fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Resource No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3961767479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource No.</source>
+          <target>Forðanr.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Forðanr.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Resource No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3744289816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reversed of the time sheet usage.</source>
+          <target>Tilgreinir bakfærð fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir bakfærð fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Reversed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 3744289816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reversed</source>
+          <target>Bakfærð</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bakfærð</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Reversed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the time sheet usage.</source>
+          <target>Tilgreinir staða fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir staða fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target>Staða</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Staða</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4095902741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the time sheet line no. of the time sheet usage.</source>
+          <target>Tilgreinir línunr. tímaskýrslu fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir línunr. tímaskýrslu fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Time Sheet Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 4095902741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet Line No.</source>
+          <target>Línunr. tímaskýrslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Línunr. tímaskýrslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Time Sheet Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2642451359 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the time sheet no. of the time sheet usage.</source>
+          <target>Tilgreinir tímaskýrslunr. fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir tímaskýrslunr. fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Time Sheet No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 2642451359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet No.</source>
+          <target>Tímaskýrslunr.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tímaskýrslunr.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Time Sheet No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the time sheet usage.</source>
+          <target>Tilgreinir tegund fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir tegund fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target>Tegund</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tegund</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unit of measure of the time sheet usage.</source>
+          <target>Tilgreinir mælieining fyrir notkun tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tilgreinir mælieining fyrir notkun tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 675536452 - Field 1920046521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target>Mælieining</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Mælieining</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TS Usage Line ori - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1467652579 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves submitted usage as the sheet approver.</source>
+          <target>Samþykkir innsenda notkun sem samþykktaraðili skýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkir innsenda notkun sem samþykktaraðili skýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Approve ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1467652579 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, approve</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Approve ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1467652579 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Approve: Approves submitted usage as the sheet approver.</source>
+          <target>Timesheets.Usage.Approve: Samþykkir innsenda notkun sem samþykktaraðili skýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Approve: Samþykkir innsenda notkun sem samþykktaraðili skýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Approve ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2071339653" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Continue after this entry number, retaining filters.</source>
+          <target>Halda áfram eftir þetta færslunúmer með sömu síum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Halda áfram eftir þetta færslunúmer með sömu síum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType afterEntryNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2424986755" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional rejection comment, at most 80 characters.</source>
+          <target>Valfrjáls höfnunarathugasemd, mest 80 stafir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjáls höfnunarathugasemd, mest 80 stafir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType commentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 1909943585" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a negative-quantity reversal journal. Default false.</source>
+          <target>Stofna bakfærslulínu með neikvæðu magni. Sjálfgefið false.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stofna bakfærslulínu með neikvæðu magni. Sjálfgefið false.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType createJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 1740658650" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ISO date inside the sheet week.</source>
+          <target>ISO dagsetning innan viku skýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=ISO dagsetning innan viku skýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType dateLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 4148398128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional description, at most 100 characters.</source>
+          <target>Valfrjáls lýsing, mest 100 stafir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjáls lýsing, mest 100 stafir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType descriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 1562701313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage entry number.</source>
+          <target>Númer notkunarfærslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer notkunarfærslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType entryNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 3941846598" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The key, ownership, permissions or usage state is invalid. No changes were retained.</source>
+          <target>Lykill, eignarhald, heimildir eða notkunarstaða er ógild. Engar breytingar voru varðveittar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill, eignarhald, heimildir eða notkunarstaða er ógild. Engar breytingar voru varðveittar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType ErrorLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 1132998585" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing journal batch, at most 10 characters.</source>
+          <target>Gild keyrsla færslubókar, mest 10 stafir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Gild keyrsla færslubókar, mest 10 stafir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType journalBatchLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2522760589" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing journal template, at most 10 characters.</source>
+          <target>Gilt sniðmát færslubókar, mest 10 stafir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Gilt sniðmát færslubókar, mest 10 stafir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType journalTemplateLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 4096210241" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maximum visible lines, 1..200; default 50.</source>
+          <target>Hámarksfjöldi sýnilegra lína, 1..200; sjálfgefið 50.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hámarksfjöldi sýnilegra lína, 1..200; sjálfgefið 50.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType limitLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 783643663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing time sheet line number.</source>
+          <target>Númer gildrar tímaskýrslulínu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer gildrar tímaskýrslulínu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType lineNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2418027757" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing unblocked item or resource number.</source>
+          <target>Númer gildrar ólokaðrar vöru eða forða.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer gildrar ólokaðrar vöru eða forða.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType noLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2344026547" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List is read-only and scoped to the owner or submitted lines addressed to the approver. Retain the filters with afterEntryNo. All writes require an isolated transaction. Unknown keys are refused. Journal fields and status cannot be changed through Data.Records.Set.</source>
+          <target>List er skrifvarið og takmarkað við eiganda eða innsendar línur ætlaðar samþykktaraðila. Haltu sömu síum með afterEntryNo. Allar skrifaðgerðir krefjast einangraðrar færslu. Óþekktum lyklum er hafnað. Ekki má breyta færslubókarreitum eða stöðu með Data.Records.Set.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=List er skrifvarið og takmarkað við eiganda eða innsendar línur ætlaðar samþykktaraðila. Haltu sömu síum með afterEntryNo. Allar skrifaðgerðir krefjast einangraðrar færslu. Óþekktum lyklum er hafnað. Ekki má breyta færslubókarreitum eða stöðu með Data.Records.Set.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType NotesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 3593894611" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register usage on an owned open time sheet line. Submit it, then the independent sheet approver approves or rejects it. Transfer creates journals without posting; native posting records the ledger entry. Only Posted usage can be reversed, once.</source>
+          <target>Skráðu notkun á eigin opinni tímaskýrslulínu. Sendu hana inn og óháður samþykktaraðili skýrslunnar samþykkir eða hafnar. Transfer stofnar færslubók án bókunar; innbyggð bókun skráir bókað færslunúmer. Aðeins bókaða notkun má bakfæra, einu sinni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu notkun á eigin opinni tímaskýrslulínu. Sendu hana inn og óháður samþykktaraðili skýrslunnar samþykkir eða hafnar. Transfer stofnar færslubók án bókunar; innbyggð bókun skráir bókað færslunúmer. Aðeins bókaða notkun má bakfæra, einu sinni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType OverviewLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2009142491" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the Timesheets permissions and the destination journal write permissions.</source>
+          <target>Úthlutaðu tímaskýrsluheimildum og skrifheimildum í viðkomandi færslubók.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu tímaskýrsluheimildum og skrifheimildum í viðkomandi færslubók.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType PermissionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2907900483" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Positive usage quantity.</source>
+          <target>Jákvætt notkunarmagn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Jákvætt notkunarmagn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType quantityLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2676460995" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stable usage line data or a bounded lines array with hasMore and afterEntryNo.</source>
+          <target>Stöðug notkunarlínugögn eða takmarkað lines fylki með hasMore og afterEntryNo.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stöðug notkunarlínugögn eða takmarkað lines fylki með hasMore og afterEntryNo.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType ResponseLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 933262802" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open, Submitted, Approved, Rejected or Posted.</source>
+          <target>Open, Submitted, Approved, Rejected eða Posted.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Open, Submitted, Approved, Rejected eða Posted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType statusLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 642212579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number.</source>
+          <target>Númer tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType timeSheetNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 4089568054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item or Resource.</source>
+          <target>Item eða Resource.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Item eða Resource.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType typeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 2767001439" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of measure; defaults to base unit.</source>
+          <target>Mælieining; grunnmælieining er sjálfgefin.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Mælieining; grunnmælieining er sjálfgefin.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType unitOfMeasureLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1207797176 - NamedType 446209538" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First date of an inclusive seven-day usage window.</source>
+          <target>Fyrsti dagur sjö daga notkunartímabils.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fyrsti dagur sjö daga notkunartímabils.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Contract ori - NamedType weekLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 130192064 - Method 369558535 - NamedType 2009142491" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal write permission is required for Transfer or Reverse.</source>
+          <target>Skrifheimild í færslubók er nauðsynleg fyrir Transfer eða Reverse.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skrifheimild í færslubók er nauðsynleg fyrir Transfer eða Reverse.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Journals ori - Method CheckPermission - NamedType PermissionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2176129056 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lists owned usage and submitted usage awaiting approval.</source>
+          <target>Sýnir eigin notkun og innsenda notkun sem bíður samþykkis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sýnir eigin notkun og innsenda notkun sem bíður samþykkis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage List ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2176129056 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, list</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage List ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2176129056 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.List: Lists owned usage and submitted usage awaiting approval.</source>
+          <target>Timesheets.Usage.List: Sýnir eigin notkun og innsenda notkun sem bíður samþykkis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.List: Sýnir eigin notkun og innsenda notkun sem bíður samþykkis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage List ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1715273284 - NamedType 3851082280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The value for %1 is missing or invalid.</source>
+          <target>Gildið fyrir %1 vantar eða er ógilt.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = request key; is-IS=Gildið fyrir %1 vantar eða er ógilt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Mgt ori - NamedType InvalidKeyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1715273284 - NamedType 680257497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correct the named key and permissions, then retry the dedicated Timesheets.Usage message.</source>
+          <target>Leiðréttu tilgreindan lykil og heimildir og reyndu aftur með sértækum Timesheets.Usage skilaboðum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu tilgreindan lykil og heimildir og reyndu aftur með sértækum Timesheets.Usage skilaboðum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Mgt ori - NamedType NextStepLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1715273284 - NamedType 2009142491" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller cannot perform this usage operation.</source>
+          <target>Kallandinn má ekki framkvæma þessa notkunaraðgerð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn má ekki framkvæma þessa notkunaraðgerð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Mgt ori - NamedType PermissionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1715273284 - NamedType 1298965759" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The usage line is not in the required state for %1.</source>
+          <target>Notkunarlínan er ekki í réttri stöðu fyrir %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = operation; is-IS=Notkunarlínan er ekki í réttri stöðu fyrir %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Mgt ori - NamedType StateLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1715273284 - NamedType 2807329695" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unknown request key: %1.</source>
+          <target>Óþekktur beiðnilykill: %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = request key; is-IS=Óþekktur beiðnilykill: %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Mgt ori - NamedType UnknownKeyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1791648641 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registers owned item or resource usage.</source>
+          <target>Skráir eigin vöru- eða forðanotkun.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráir eigin vöru- eða forðanotkun.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Register ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1791648641 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, register</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Register ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1791648641 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Register: Registers owned item or resource usage.</source>
+          <target>Timesheets.Usage.Register: Skráir eigin vöru- eða forðanotkun.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Register: Skráir eigin vöru- eða forðanotkun.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Register ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4023244883 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejects submitted usage with an optional comment.</source>
+          <target>Hafnar innsendri notkun með valfrjálsri athugasemd.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hafnar innsendri notkun með valfrjálsri athugasemd.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reject ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4023244883 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, reject</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reject ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4023244883 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Reject: Rejects submitted usage with an optional comment.</source>
+          <target>Timesheets.Usage.Reject: Hafnar innsendri notkun með valfrjálsri athugasemd.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Reject: Hafnar innsendri notkun með valfrjálsri athugasemd.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reject ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4246411194 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reverses posted usage once, optionally creating a reversing journal.</source>
+          <target>Bakfærir bókaða notkun einu sinni og stofnar valfrjálst bakfærslulínu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bakfærir bókaða notkun einu sinni og stofnar valfrjálst bakfærslulínu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reverse ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4246411194 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, reverse</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reverse ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4246411194 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Reverse: Reverses posted usage once, optionally creating a reversing journal.</source>
+          <target>Timesheets.Usage.Reverse: Bakfærir bókaða notkun einu sinni og stofnar valfrjálst bakfærslulínu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Reverse: Bakfærir bókaða notkun einu sinni og stofnar valfrjálst bakfærslulínu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Reverse ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1848601326 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submits open or rejected usage for approval.</source>
+          <target>Sendir opna eða hafnaða notkun til samþykkis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendir opna eða hafnaða notkun til samþykkis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Submit ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1848601326 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, submit</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Submit ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1848601326 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Submit: Submits open or rejected usage for approval.</source>
+          <target>Timesheets.Usage.Submit: Sendir opna eða hafnaða notkun til samþykkis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Submit: Sendir opna eða hafnaða notkun til samþykkis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Submit ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2501426863 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfers approved usage to journals without posting.</source>
+          <target>Flytur samþykkta notkun í færslubækur án bókunar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Flytur samþykkta notkun í færslubækur án bókunar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Transfer ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2501426863 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, usage, item, resource, transfer</source>
+          <target>tímaskýrsla, notkun, vara, forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, notkun, vara, forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Transfer ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2501426863 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Usage.Transfer: Transfers approved usage to journals without posting.</source>
+          <target>Timesheets.Usage.Transfer: Flytur samþykkta notkun í færslubækur án bókunar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Usage.Transfer: Flytur samþykkta notkun í færslubækur án bókunar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Usage Transfer ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1206416741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet Usage Lines</source>
+          <target>Notkunarlínur tímaskýrslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notkunarlínur tímaskýrslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TS Usage Lines ori - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1590439862 - EnumValue 2913119229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approved</source>
+          <target>Samþykkt</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Status ori - EnumValue Approved - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1590439862 - EnumValue 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target>Opin</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Opin</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Status ori - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1590439862 - EnumValue 35450067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted</source>
+          <target>Bókuð</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bókuð</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Status ori - EnumValue Posted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1590439862 - EnumValue 496445946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejected</source>
+          <target>Hafnað</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hafnað</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Status ori - EnumValue Rejected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1590439862 - EnumValue 72070539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submitted</source>
+          <target>Innsend</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Innsend</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Status ori - EnumValue Submitted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2896341314 - EnumValue 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item</source>
+          <target>Vara</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Vara</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Type ori - EnumValue Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2896341314 - EnumValue 348912950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource</source>
+          <target>Forði</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Forði</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TS Usage Type ori - EnumValue Resource - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 550038784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet Usage Read</source>
+          <target>Lesa notkun tímaskýrslu</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lesa notkun tímaskýrslu</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet TS Usage Read ori - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>

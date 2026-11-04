@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+### Added — time sheet usage (#84)
+
+- Add owned Item/Resource usage registration, explicit submission, independent approver decisions, bounded caller-scoped listing, journal transfer and one-time reversal through `Timesheets.Usage.*`.
+- Add the usage table (10036878), status/type enums (10036878–10036879), read-only approver page (10036878), read permission set (10036878), isolated runner/validation/contracts and native journal posting/deletion tracking. Codeunits use free per-type IDs 10036850–10036853, 10036856–10036857 and 10036860–10036867 within the existing app range; published native feature branches retain their existing IDs.
+- Add native regression codeunit 95635 and English usage-flow documentation. Generic usage writes are restricted to the dedicated messages. Transfer creates journals without posting.
+
+
 ### Added
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.

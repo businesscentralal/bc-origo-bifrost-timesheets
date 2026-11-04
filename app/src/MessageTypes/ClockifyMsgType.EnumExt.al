@@ -290,4 +290,46 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Timesheets.TimeSheet.Create', Locked = true;
         Implementation = "Msg Interface ori" = "TS Sheet Create Impl ori", "Msg Contract ori" = "TS Sheet Create Impl ori", "Msg Discovery ori" = "TS Sheet Create Impl ori";
     }
+    /// <summary>Registers owned item or resource usage.</summary>
+    value(10036830; "Timesheets.Usage.Register")
+    {
+        Caption = 'Timesheets.Usage.Register', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Register ori", "Msg Contract ori" = "TS Usage Register ori", "Msg Discovery ori" = "TS Usage Register ori";
+    }
+    /// <summary>Lists owned usage and submitted usage awaiting approval.</summary>
+    value(10036831; "Timesheets.Usage.List")
+    {
+        Caption = 'Timesheets.Usage.List', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage List ori", "Msg Contract ori" = "TS Usage List ori", "Msg Discovery ori" = "TS Usage List ori";
+    }
+    /// <summary>Submits open or rejected usage for approval.</summary>
+    value(10036832; "Timesheets.Usage.Submit")
+    {
+        Caption = 'Timesheets.Usage.Submit', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Submit ori", "Msg Contract ori" = "TS Usage Submit ori", "Msg Discovery ori" = "TS Usage Submit ori";
+    }
+    /// <summary>Approves submitted usage as the sheet approver.</summary>
+    value(10036833; "Timesheets.Usage.Approve")
+    {
+        Caption = 'Timesheets.Usage.Approve', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Approve ori", "Msg Contract ori" = "TS Usage Approve ori", "Msg Discovery ori" = "TS Usage Approve ori";
+    }
+    /// <summary>Rejects submitted usage with an optional comment.</summary>
+    value(10036834; "Timesheets.Usage.Reject")
+    {
+        Caption = 'Timesheets.Usage.Reject', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Reject ori", "Msg Contract ori" = "TS Usage Reject ori", "Msg Discovery ori" = "TS Usage Reject ori";
+    }
+    /// <summary>Transfers approved usage to journals without posting.</summary>
+    value(10036835; "Timesheets.Usage.Transfer")
+    {
+        Caption = 'Timesheets.Usage.Transfer', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Transfer ori", "Msg Contract ori" = "TS Usage Transfer ori", "Msg Discovery ori" = "TS Usage Transfer ori";
+    }
+    /// <summary>Reverses posted usage once, optionally creating a reversing journal.</summary>
+    value(10036836; "Timesheets.Usage.Reverse")
+    {
+        Caption = 'Timesheets.Usage.Reverse', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Usage Reverse ori", "Msg Contract ori" = "TS Usage Reverse ori", "Msg Discovery ori" = "TS Usage Reverse ori";
+    }
 }

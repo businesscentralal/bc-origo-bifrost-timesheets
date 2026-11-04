@@ -1,0 +1,17 @@
+# Item and resource usage on a time sheet
+
+Register tools, distance or materials against an existing time sheet line with `Timesheets.Usage.Register`. The authenticated caller must own the sheet and its Resource. Supply `timeSheetNo`, `lineNo`, `type` (`Item` or `Resource`), `no`, an ISO `date` within the sheet week, and a positive `quantity`. Optional `unitOfMeasure` defaults to the item/resource base unit; `description` is limited to 100 characters. New lines are Open.
+
+Use `Timesheets.Usage.Submit` with `entryNo` to submit Open or Rejected usage. The independent approver named on the time sheet then calls `Timesheets.Usage.Approve` or `Timesheets.Usage.Reject`. Only Submitted usage can be decided. Self-approval is refused even when the owner is also named as approver. Reject accepts an optional `comment` of at most 80 characters.
+
+`Timesheets.Usage.Transfer` takes `entryNo`, or `entryNos` for an atomic batch of at most 200 entries, plus `journalTemplate` and `journalBatch`. The template/batch must already exist in the destination journal. The caller must be the independent sheet approver and have destination journal write access. Usage linked to a project line goes to the Job Journal. Other Item usage goes to an Item Journal (Negative Adjustment); Resource usage goes to a Resource Journal (Usage). Transfer creates journal lines without posting. Repeating Transfer while the original journal link exists creates nothing. Any failure rolls the entire selected batch back.
+
+The response records the journal table, template, batch and line number. Native posting marks usage Posted and records the ledger entry. Deleting an unposted linked journal line clears its link and keeps usage Approved, allowing a corrected Transfer. A Posted line remains Posted when its journal line is deleted.
+
+`Timesheets.Usage.Reverse` accepts Posted usage only, once. With only `entryNo`, it sets `reversed`. With `createJournal: true`, also supply the destination template/batch: a negative-quantity journal is created in the same transaction. Reverse does not post. Its journal creation must succeed before the reversal flag is retained. The original posting provenance remains available.
+
+`Timesheets.Usage.List` returns the caller's usage and Submitted usage addressed to them as approver. Filter by `timeSheetNo`, `week` (first day of an inclusive seven-day window), or `status` (`Open`, `Submitted`, `Approved`, `Rejected`, `Posted`). `limit` defaults to 50 and is bounded to 200. When `hasMore` is true, retain the filters and send the returned `afterEntryNo` on the next request. List changes nothing and never commits the caller's transaction.
+
+The **Time Sheet Usage Lines** page is a read-only approver worklist, filtered to sheets addressed to the authenticated approver. Use the dedicated messages for changes. **TS Usage Read ori** supplies explicit read-only access; **BIFROST Timeshts ori** supplies maintenance permissions. Transfer additionally checks journal access. `Data.Records.Get` remains available to authorized readers; generic `Data.Records.Set` writes to the usage table are refused so they cannot bypass ownership or the state machine.
+
+Unknown keys, invalid values, ownership failures and state/permission failures return a structured Bifrost refusal naming the relevant parameter with a corrective `nextStep`. Writing operations commit on success and roll back on failure; `omitCommit` is refused.
