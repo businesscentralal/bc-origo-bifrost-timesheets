@@ -9,6 +9,7 @@
 - Refusals with `nextStep`: `MissingParameter`, `InvalidParameterFormat`, `UnknownParameter`, `RecordNotFound` (sheet, resource or cause), `ConflictingIdentifiers`, `PermissionDenied`, and `PreconditionFailed` when the resource is not linked to an employee. Hours on Saturday or Sunday are written and returned with a warning; the BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
 - Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
 - Align the two existing webhook restriction assertions with the table caption returned by Foundation 28.0.11; keep the exact error and no-write checks.
+- Test-only fixture codeunit 95618 seeds isolated native records for MCP acceptance without changing generic write guards or licensing; it refuses duplicate setup and the owned environment is removed after verification.
 - Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. The is-IS translation file is regenerated.
 
 - Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036868, 10036871; tests 95616). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
