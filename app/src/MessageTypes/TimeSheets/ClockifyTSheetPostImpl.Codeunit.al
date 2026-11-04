@@ -1,6 +1,5 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
-using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 
 /// <summary>
@@ -12,14 +11,11 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 {
     Access = Internal;
 
-    var
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
-
     procedure IsEnabled(): Boolean
     var
-        TimeSheetHeader: Record "Time Sheet Header";
+        NativeMgt: Codeunit "TS Native Mgt ori";
     begin
-        exit(TimeSheetHeader.WritePermission());
+        exit(NativeMgt.CanPostSheets());
     end;
 
     procedure GetFilterTableNo(): Integer
@@ -143,36 +139,17 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
-        SetupMgt: Codeunit "Clockify Setup Mgt ori";
         NativeMgt: Codeunit "TS Native Mgt ori";
-        RequestJson: JsonObject;
         ResponseJson: JsonObject;
-        JsonToken: JsonToken;
-        JournalTemplate: Code[10];
-        JournalBatch: Code[10];
-        PostedLineCount: Integer;
+        StatusToken: JsonToken;
     begin
         Argument.AssertVersion1();
-        RequestJson := Argument.GetRequestJson();
-
-        SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);
-        if RequestJson.Get('journalTemplate', JsonToken) then
-            if JsonToken.IsValue() then
-                JournalTemplate := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
-        if RequestJson.Get('journalBatch', JsonToken) then
-            if JsonToken.IsValue() then
-                JournalBatch := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
-        if (JournalTemplate = '') or (JournalBatch = '') then begin
-            Argument.RespondWithError(MissingJournalErr);
-            exit;
-        end;
-
-        PostedLineCount := TimeSheetMgt.PostApprovedTimeSheets(JournalTemplate, JournalBatch);
-
-        ResponseJson.Add('status', 'Success');
-        ResponseJson.Add('postedLines', PostedLineCount);
-        NativeMgt.AddLegacyNameWarning(ResponseJson);
-        Argument.SetResponseJson(ResponseJson);
+        NativeMgt.ExecutePost(Argument);
+        ResponseJson := Argument.GetResponseJson();
+        if ResponseJson.Get('status', StatusToken) then
+            if StatusToken.AsValue().AsText() = 'Success' then begin
+                NativeMgt.AddLegacyNameWarning(ResponseJson);
+                Argument.SetResponseJson(ResponseJson);
+            end;
     end;
 }

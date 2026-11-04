@@ -13,7 +13,7 @@
 /// </summary>
 table 10036786 "Clockify Webhook ori"
 {
-    Caption = 'Clockify Webhook', Comment = 'is-IS=Clockify vefkrókur';
+    Caption = 'Clockify Webhook', Comment = 'is-IS=Clockify-vefkrókur';
     DataClassification = SystemMetadata;
     LookupPageId = "Clockify Webhooks ori";
     DrillDownPageId = "Clockify Webhooks ori";
@@ -28,7 +28,7 @@ table 10036786 "Clockify Webhook ori"
         /// <summary>The webhook identifier returned by Clockify on creation. Used to delete the webhook later.</summary>
         field(10; "Webhook Id"; Text[50])
         {
-            Caption = 'Webhook ID', Comment = 'is-IS=Vefkróka kenni';
+            Caption = 'Webhook ID', Comment = 'is-IS=Kenni vefkróks';
         }
         /// <summary>The display name the connector gave the webhook in Clockify.</summary>
         field(11; "Webhook Name"; Text[100])

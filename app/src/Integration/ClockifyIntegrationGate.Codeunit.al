@@ -16,7 +16,7 @@ codeunit 10036788 "Clockify Integration Gate ori"
     Access = Internal;
 
     var
-        NoWritePermissionErr: Label 'You do not have write permission to the Clockify Integration table, which is required to run Clockify connector operations. Ask your administrator to assign the Clockify - Full permission set.', Comment = 'is-IS=Þú hefur ekki skrifréttindi á Clockify tengitöfluna sem er nauðsynleg til að keyra Clockify aðgerðir. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.';
+        NoWritePermissionErr: Label 'You do not have write permission to the Clockify Integration table, which is required to run Clockify connector operations. Ask your administrator to assign the Clockify - Full permission set.', Comment = 'is-IS=Þú hefur ekki skrifheimild á Clockify-tengingartöfluna, sem þarf til að keyra aðgerðir tengisins. Biddu kerfisstjóra um að úthluta Clockify - Full réttindasettinu.';
 
     /// <summary>
     /// Verifies the current user can write to the Clockify Integration table. On

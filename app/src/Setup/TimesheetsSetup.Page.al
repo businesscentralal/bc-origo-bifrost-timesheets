@@ -13,7 +13,7 @@ page 10036853 "Timesheets Setup ori"
 {
     AdditionalSearchTerms = 'Clockify,Time Tracking,Time Entry', Comment = 'is-IS=Clockify,Tímaskráning,Tímafærsla';
     ApplicationArea = All;
-    Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Uppsetning Bifröst tímaskýrslna';
+    Caption = 'Bifrost Timesheets Setup', Comment = 'is-IS=Bifrost Timesheets - uppsetning';
     ContextSensitiveHelpPage = 'timesheets-setup';
     DeleteAllowed = false;
     InsertAllowed = false;
@@ -38,7 +38,7 @@ page 10036853 "Timesheets Setup ori"
                 field("Default Workspace"; Rec."Default Workspace")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.', Comment = 'is-IS=Tilgreinir sjálfgefið Clockify vinnusvæði sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettingu til að velja vinnusvæði eftir heiti úr Clockify aðganginum þínum.';
+                    ToolTip = 'Specifies the default Clockify workspace ID used when a message request does not provide one. Use the lookup to pick a workspace by name from your Clockify account.', Comment = 'is-IS=Tilgreinir sjálfgefið vinnusvæðiskenni Clockify sem er notað þegar beiðni tilgreinir ekki vinnusvæði. Notaðu uppflettinguna til að velja vinnusvæði eftir heiti úr Clockify-aðganginum þínum.';
 
                     trigger OnLookup(var Text: Text): Boolean
                     var
@@ -62,9 +62,9 @@ page 10036853 "Timesheets Setup ori"
                 field(HasCompanyKey; ClockifyHasCompanyKey)
                 {
                     ApplicationArea = All;
-                    Caption = 'Company API Key Stored', Comment = 'is-IS=API lykill fyrirtækis geymdur';
+                    Caption = 'Company API Key Stored', Comment = 'is-IS=API-lykill fyrirtækis geymdur';
                     Editable = false;
-                    ToolTip = 'Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions to set or clear it.', Comment = 'is-IS=Tilgreinir hvort Clockify API lykill fyrirtækis sé geymdur. Allar tengingar nota þennan lykil. Notaðu aðgerðirnar til að breyta honum.';
+                    ToolTip = 'Specifies whether a company Clockify API key is stored. All connector calls authenticate with this key. Use the actions to set or clear it.', Comment = 'is-IS=Tilgreinir hvort API-lykill fyrirtækisins fyrir Clockify sé geymdur. Allar beiðnir tengisins auðkenna sig með þessum lykli. Notaðu aðgerðirnar til að stilla eða eyða lyklinum.';
                 }
             }
 
@@ -75,17 +75,17 @@ page 10036853 "Timesheets Setup ori"
                 field("Job Jnl. Template"; Rec."Job Jnl. Template")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.', Comment = 'is-IS=Tilgreinir verkbókarlýsinguna sem samstilltar Clockify tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkróknum.';
+                    ToolTip = 'Specifies the Job Journal template that synced Clockify time entries are written to, by both the sync message type and the real-time webhook handler.', Comment = 'is-IS=Tilgreinir verkbókarsniðmátið sem samstilltar Clockify-tímafærslur eru skrifaðar í, bæði af samstillingarboðtegundinni og rauntíma vefkrókshandlaranum.';
                 }
                 field("Job Jnl. Batch"; Rec."Job Jnl. Batch")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.', Comment = 'is-IS=Tilgreinir verkbókarflokkinn sem samstilltar Clockify tímafærslur eru skrifaðar í. Verður að tilheyra valinni lýsingu.';
+                    ToolTip = 'Specifies the Job Journal batch that synced Clockify time entries are written to. Must belong to the selected template.', Comment = 'is-IS=Tilgreinir verkbókarkeyrsluna sem samstilltar Clockify-tímafærslur eru skrifaðar í. Hún verður að tilheyra valda sniðmátinu.';
                 }
                 field("Default Work Type"; Rec."Default Work Type")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.', Comment = 'is-IS=Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify tímafærsla hefur engan merkimiða tengdan vinnutegund. Tengdur Clockify merkimiði hefur forgang fram yfir þetta gildi.';
+                    ToolTip = 'Specifies the Work Type used on a synced Job Journal Line when the Clockify time entry has no tag linked to a Work Type. A linked Clockify tag takes precedence over this value.', Comment = 'is-IS=Tilgreinir vinnutegundina sem notuð er á samstillta verkbókarlínu þegar Clockify-tímafærsla hefur ekkert merki tengt við vinnutegund. Tengd Clockify-merki hafa forgang fram yfir þetta gildi.';
                 }
             }
 
@@ -96,7 +96,7 @@ page 10036853 "Timesheets Setup ori"
                 field("Webhook Receiver URL"; Rec."Webhook Receiver URL")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the URL of the webhook receiver that forwards Clockify events into Business Central, including the target company. Required before registering webhooks.', Comment = 'is-IS=Tilgreinir slóð vefkróka móttakara sem áframsendir Clockify atburði í Business Central, með marka fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.';
+                    ToolTip = 'Specifies the URL of the webhook receiver that forwards Clockify events into Business Central, including the target company. Required before registering webhooks.', Comment = 'is-IS=Tilgreinir slóð vefkrókamóttakarans sem áframsendir Clockify-atburði í Business Central, ásamt viðkomandi fyrirtæki. Nauðsynlegt áður en vefkrókar eru skráðir.';
                 }
                 field(WebhooksRegistered; ClockifyWebhooksRegistered)
                 {
@@ -115,7 +115,7 @@ page 10036853 "Timesheets Setup ori"
         {
             group(ApiKey)
             {
-                Caption = 'API Key', Comment = 'is-IS=API lykill';
+                Caption = 'API Key', Comment = 'is-IS=API-lykill';
                 Image = EncryptionKeys;
 
                 action(SetCompanyApiKey)
@@ -159,7 +159,7 @@ page 10036853 "Timesheets Setup ori"
                     ApplicationArea = All;
                     Caption = 'Register Webhooks', Comment = 'is-IS=Skrá vefkróka';
                     Image = Web;
-                    ToolTip = 'Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.', Comment = 'is-IS=Skráir rauntíma vefkróka fyrir tímafærslur í Clockify sem vísa á móttakarann og sýnir undirritunarlykla til að stilla á móttakaranum.';
+                    ToolTip = 'Registers real-time time-entry webhooks in Clockify pointing at the webhook receiver, and shows the signing tokens to configure on the receiver.', Comment = 'is-IS=Skráir rauntíma Clockify-vefkróka fyrir tímafærslur sem vísa á móttakarann og sýnir undirritunarlykla sem á að stilla á móttakaranum.';
 
                     trigger OnAction()
                     var
@@ -174,7 +174,7 @@ page 10036853 "Timesheets Setup ori"
                     ApplicationArea = All;
                     Caption = 'Remove Webhooks', Comment = 'is-IS=Fjarlægja vefkróka';
                     Image = RemoveLine;
-                    ToolTip = 'Removes the registered Clockify time-entry webhooks.', Comment = 'is-IS=Fjarlægir skráða Clockify vefkróka fyrir tímafærslur.';
+                    ToolTip = 'Removes the registered Clockify time-entry webhooks.', Comment = 'is-IS=Fjarlægir skráða Clockify-vefkróka fyrir tímafærslur.';
 
                     trigger OnAction()
                     var
@@ -189,7 +189,7 @@ page 10036853 "Timesheets Setup ori"
                     ApplicationArea = All;
                     Caption = 'Show Signing Tokens', Comment = 'is-IS=Sýna undirritunarlykla';
                     Image = EncryptionKeys;
-                    ToolTip = 'Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.', Comment = 'is-IS=Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á móttakaranum.';
+                    ToolTip = 'Re-fetches the signing tokens of the registered webhooks from Clockify so they can be configured on the webhook receiver.', Comment = 'is-IS=Sækir undirritunarlykla skráðra vefkróka aftur frá Clockify svo hægt sé að stilla þá á vefkrókamóttakaranum.';
 
                     trigger OnAction()
                     var
@@ -217,7 +217,7 @@ page 10036853 "Timesheets Setup ori"
                 Caption = 'Integration Links', Comment = 'is-IS=Clockify tengingar';
                 Image = LinkWeb;
                 RunObject = page "Clockify Integration List ori";
-                ToolTip = 'Opens the administrative view of the links between Business Central records and Clockify objects.', Comment = 'is-IS=Opnar stjórnunarsýn yfir tengingar milli BC færslna og Clockify hluta.';
+                ToolTip = 'Opens the administrative view of the links between Business Central records and Clockify objects.', Comment = 'is-IS=Opnar stjórnunarsýn yfir tengingar milli BC-færslna og Clockify-hluta.';
             }
             action(RegisteredWebhooks)
             {
@@ -225,7 +225,7 @@ page 10036853 "Timesheets Setup ori"
                 Caption = 'Registered Webhooks', Comment = 'is-IS=Skráðir vefkrókar';
                 Image = Web;
                 RunObject = page "Clockify Webhooks ori";
-                ToolTip = 'Opens the list of Clockify webhooks registered from this company.', Comment = 'is-IS=Opnar lista yfir Clockify vefkróka sem eru skráðir frá þessu fyrirtæki.';
+                ToolTip = 'Opens the list of Clockify webhooks registered from this company.', Comment = 'is-IS=Opnar lista yfir Clockify-vefkróka sem eru skráðir í þessu fyrirtæki.';
             }
         }
         area(Promoted)

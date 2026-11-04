@@ -843,11 +843,11 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
                 Notes := 'Iterates every USER mapping. target timesheet is the default; target journal writes the Job Journal. Per-user failures do not abort the batch. No userId parameter.';
             MessageType::"Clockify.TimeSheet.Create":
-                Notes := 'BC-side only. Does not call Clockify. Idempotent up to weeksAhead open sheets per resource. Use the native name Timesheets.TimeSheet.Create.';
+                Notes := 'BC-side only. Does not call Clockify. Idempotent up to weeksAhead open sheets per resource.';
             MessageType::"Clockify.TimeSheet.Approve":
-                Notes := 'BC-side only. Submits and approves open lines through the time-sheet approval engine up to endingDateTo. Use the native name Timesheets.TimeSheet.Approve.';
+                Notes := 'BC-side only. Submits and approves open lines through the time-sheet approval engine up to endingDateTo.';
             MessageType::"Clockify.TimeSheet.Reject":
-                Notes := 'BC-side only. Rejects submitted lines up to endingDateTo. Use the native name Timesheets.TimeSheet.Reject.';
+                Notes := 'BC-side only. Rejects submitted lines up to endingDateTo.';
             MessageType::"Clockify.TimeSheet.Reopen":
                 Notes := 'BC-side only. Reopens submitted or approved lines back to Open up to endingDateTo. Use the native name Timesheets.TimeSheet.Reopen.';
             MessageType::"Clockify.TimeSheet.Post":

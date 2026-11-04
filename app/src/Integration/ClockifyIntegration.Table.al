@@ -68,7 +68,7 @@ table 10036785 "Clockify Integration ori"
         /// </summary>
         field(20; "Reversed"; Boolean)
         {
-            Caption = 'Reversed', Comment = 'is-IS=Afturkölluð';
+            Caption = 'Reversed', Comment = 'is-IS=Bakfærð';
         }
         /// <summary>
         /// When the row was reversed. Stamped automatically when <see cref="Reversed"/>
@@ -77,7 +77,7 @@ table 10036785 "Clockify Integration ori"
         /// </summary>
         field(21; "Reversed At"; DateTime)
         {
-            Caption = 'Reversed At', Comment = 'is-IS=Afturkölluð þann';
+            Caption = 'Reversed At', Comment = 'is-IS=Bakfærsludagsetning';
             Editable = false;
         }
     }

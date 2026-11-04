@@ -13,7 +13,7 @@ codeunit 10036829 "Clockify Setup Mgt ori"
     Access = Internal;
 
     var
-        EmptyKeyErr: Label 'No API key was entered.', Comment = 'is-IS=Enginn API lykill var sleginn inn.';
+        EmptyKeyErr: Label 'No API key was entered.', Comment = 'is-IS=Enginn API-lykill var sleginn inn.';
         ClearCompanyQst: Label 'Remove the stored company Clockify API key?', Comment = 'is-IS=Fjarlægja geymdan Clockify API lykil fyrirtækis?';
 
     /// <summary>Prompts for and stores the company Clockify API key.</summary>

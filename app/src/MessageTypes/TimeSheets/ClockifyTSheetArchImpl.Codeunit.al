@@ -1,6 +1,5 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
-using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 
 /// <summary>
@@ -14,9 +13,9 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
 
     procedure IsEnabled(): Boolean
     var
-        TimeSheetHeader: Record "Time Sheet Header";
+        NativeMgt: Codeunit "TS Native Mgt ori";
     begin
-        exit(TimeSheetHeader.WritePermission());
+        exit(NativeMgt.CanArchiveSheets());
     end;
 
     procedure GetFilterTableNo(): Integer
@@ -140,17 +139,17 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
 
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         NativeMgt: Codeunit "TS Native Mgt ori";
         ResponseJson: JsonObject;
-        ArchivedCount: Integer;
+        StatusToken: JsonToken;
     begin
         Argument.AssertVersion1();
-        ArchivedCount := TimeSheetMgt.ArchivePostedTimeSheets();
-
-        ResponseJson.Add('status', 'Success');
-        ResponseJson.Add('archived', ArchivedCount);
-        NativeMgt.AddLegacyNameWarning(ResponseJson);
-        Argument.SetResponseJson(ResponseJson);
+        NativeMgt.ExecuteArchive(Argument);
+        ResponseJson := Argument.GetResponseJson();
+        if ResponseJson.Get('status', StatusToken) then
+            if StatusToken.AsValue().AsText() = 'Success' then begin
+                NativeMgt.AddLegacyNameWarning(ResponseJson);
+                Argument.SetResponseJson(ResponseJson);
+            end;
     end;
 }

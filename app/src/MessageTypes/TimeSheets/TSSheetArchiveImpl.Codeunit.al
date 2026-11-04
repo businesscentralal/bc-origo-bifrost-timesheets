@@ -9,23 +9,29 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
 {
     Access = Internal;
 
+    /// <summary>Implements the message interface chapter IsEnabled.</summary>
     procedure IsEnabled(): Boolean
     var
         NativeMgt: Codeunit "TS Native Mgt ori";
     begin
-        exit(NativeMgt.CanMaintainSheets());
+        exit(NativeMgt.CanArchiveSheets());
     end;
 
+    /// <summary>Implements the message interface chapter GetFilterTableNo.</summary>
     procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
+    /// <summary>Implements the message interface chapter GetDescription.</summary>
     procedure GetDescription(): Text[250]
+    var
+        DescriptionLbl: Label 'Archives posted time sheets.', Comment = 'is-IS=Setur bókaðar tímaskýrslur í geymslu.';
     begin
-        exit('Archives posted time sheets.');
+        exit(DescriptionLbl);
     end;
 
+    /// <summary>Implements the message interface chapter GetKeywords.</summary>
     procedure GetKeywords(): Text
     var
         KeywordsLbl: Label 'time sheet, archive, timesheets', Comment = 'is-IS=tímaskýrsla, geymsla, tímaskýrslur';
@@ -33,6 +39,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(KeywordsLbl);
     end;
 
+    /// <summary>Implements the message interface chapter GetSelectionDescription.</summary>
     procedure GetSelectionDescription(): Text
     var
         SelectionLbl: Label 'Timesheets.TimeSheet.Archive: Archives posted time sheets.', Comment = 'is-IS=Timesheets.TimeSheet.Archive: Setur bókaðar tímaskýrslur í geymslu.';
@@ -40,6 +47,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(SelectionLbl);
     end;
 
+    /// <summary>Implements the message interface chapter GetEnvelope.</summary>
     procedure GetEnvelope(var Envelope: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -47,6 +55,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetEnvelope(GetMessageType(), Envelope));
     end;
 
+    /// <summary>Implements the message interface chapter GetTarget.</summary>
     procedure GetTarget(var Target: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -54,6 +63,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
+    /// <summary>Implements the message interface chapter GetParameters.</summary>
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -61,6 +71,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.AddArchiveParameters(Parameters));
     end;
 
+    /// <summary>Implements the message interface chapter GetResponse.</summary>
     procedure GetResponse(var Response: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -68,6 +79,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetResponse(GetMessageType(), Response));
     end;
 
+    /// <summary>Implements the message interface chapter GetErrors.</summary>
     procedure GetErrors(var Errors: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -75,6 +87,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetErrors(GetMessageType(), Errors));
     end;
 
+    /// <summary>Implements the message interface chapter GetEffect.</summary>
     procedure GetEffect(var Effect: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -82,11 +95,13 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetEffect(GetMessageType(), Effect));
     end;
 
+    /// <summary>Implements the message interface chapter GetMetering.</summary>
     procedure GetMetering(var Metering: JsonObject): Boolean
     begin
         exit(false);
     end;
 
+    /// <summary>Implements the message interface chapter GetRelated.</summary>
     procedure GetRelated(var Related: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -94,6 +109,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetRelated(GetMessageType(), Related));
     end;
 
+    /// <summary>Implements the message interface chapter GetWorkflow.</summary>
     procedure GetWorkflow(var Workflow: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -101,6 +117,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetWorkflow(GetMessageType(), Workflow));
     end;
 
+    /// <summary>Implements the message interface chapter GetExamples.</summary>
     procedure GetExamples(var Examples: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -108,6 +125,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetExamples(GetMessageType(), Examples));
     end;
 
+    /// <summary>Implements the message interface chapter GetOverview.</summary>
     procedure GetOverview(var Overview: Text): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -115,6 +133,7 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Parts.GetOverview(GetMessageType(), Overview));
     end;
 
+    /// <summary>Implements the message interface chapter GetNotes.</summary>
     procedure GetNotes(var Notes: Text): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -127,11 +146,13 @@ codeunit 10036883 "TS Sheet Archive Impl ori" implements "Msg Interface ori", "M
         exit(Enum::"Message Type ori"::"Timesheets.TimeSheet.Archive");
     end;
 
+    /// <summary>Implements the message interface chapter GetMessageDirection.</summary>
     procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
+    /// <summary>Implements the message interface chapter ExecuteBifrostTask.</summary>
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         NativeMgt: Codeunit "TS Native Mgt ori";

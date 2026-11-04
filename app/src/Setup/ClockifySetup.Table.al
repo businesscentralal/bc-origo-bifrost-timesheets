@@ -74,7 +74,7 @@ table 10036853 "Clockify Setup ori"
         /// </summary>
         field(13; "Webhook Receiver URL"; Text[250])
         {
-            Caption = 'Webhook Receiver URL', Comment = 'is-IS=Móttökuslóð vefkróka';
+            Caption = 'Webhook Receiver URL', Comment = 'is-IS=Móttökuslóð vefkróks';
             DataClassification = SystemMetadata;
             ExtendedDatatype = URL;
         }
@@ -87,7 +87,7 @@ table 10036853 "Clockify Setup ori"
         /// </summary>
         field(14; "Job Jnl. Template"; Code[10])
         {
-            Caption = 'Job Journal Template', Comment = 'is-IS=Verkbókarlýsing';
+            Caption = 'Job Journal Template', Comment = 'is-IS=Verkbókarsniðmát';
             DataClassification = SystemMetadata;
             TableRelation = "Job Journal Template".Name;
         }
