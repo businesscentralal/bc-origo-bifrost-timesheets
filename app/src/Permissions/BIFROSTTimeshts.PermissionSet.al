@@ -33,7 +33,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Line CopyPrev Impl ori" = X,
         codeunit "TS Line FromPlan Impl ori" = X,
         tabledata "Resources Setup" = R,
-        tabledata "Job" = R,
         tabledata "Job Task" = R,
         tabledata "Job Planning Line" = R,
         codeunit "TS Native Mgt ori" = X,
