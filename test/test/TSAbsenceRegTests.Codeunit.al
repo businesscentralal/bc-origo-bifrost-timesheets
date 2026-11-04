@@ -228,6 +228,31 @@ codeunit 95621 "TS Absence Reg Tests"
         Assert.IsFalse(Line.IsEmpty(), 'The absence line should be stored.');
     end;
 
+    [Test]
+    procedure Absence_TimeSheetAndDateAndQuantity_Registers()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        Response: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+        HourDate: Date;
+    begin
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        EnsureAccountingPeriod(WorkDate());
+        HourDate := DateInSheet(WorkDate(), false);
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('date', Format(HourDate, 0, 9));
+        Request.Add('quantity', 3);
+        Request.Add('causeOfAbsenceCode', CreateCause());
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Time sheet number and date should register one quantity.');
+    end;
+
     /// <summary>BC posts the registered details into Employee Absence with the requested cause.</summary>
     [Test]
     procedure Scenario_AC01_RegisteredAbsence_PostsWithCause()
@@ -276,12 +301,13 @@ codeunit 95621 "TS Absence Reg Tests"
     var
         TempArgument: Record "Message Argument ori" temporary;
     begin
+        Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Header", false), 'Header writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Line", false), 'Line writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Detail", false), 'Detail writes must use dedicated messages.');
         Assert.IsFalse(TempArgument.IsTableReadRestrictedForDataRecords(Database::"Time Sheet Line"), 'Line reads remain available.');
     end;
 
-    /// <summary>An out-of-week date rolls back the new line and all details.</summary>
+    /// <summary>An out-of-period date is refused with the hours parameter and no write.</summary>
     [Test]
     procedure Scenario_AC07_OutsideSheetDates_RollsBack()
     var
@@ -299,9 +325,36 @@ codeunit 95621 "TS Absence Reg Tests"
         Request.Add('causeOfAbsenceCode', CreateCause());
         AddHour(Request, WorkDate() + 7, 4);
         Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
-        Assert.AreEqual('InvalidLine', ReadText(TempArgument.GetResponseJson(), 'code'), 'Out-of-week date must fail cleanly.');
+        AssertRefusal(TempArgument, 'InvalidLine', 'hours', 'Send each date once and keep every date inside the time sheet period.');
         Line.SetRange("Time Sheet No.", SheetNo);
         Assert.IsTrue(Line.IsEmpty(), 'No partial line may survive the refusal.');
+    end;
+
+    /// <summary>Repeated dates are refused before writing any absence records.</summary>
+    [Test]
+    procedure Scenario_AC07_DuplicateHourDates_RollsBack()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+        HourDate: Date;
+    begin
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        EnsureAccountingPeriod(WorkDate());
+        HourDate := DateInSheet(WorkDate(), false);
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CreateCause());
+        AddHour(Request, HourDate, 4);
+        AddHour(Request, HourDate, 2);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        AssertRefusal(TempArgument, 'InvalidLine', 'hours', 'Send each date once and keep every date inside the time sheet period.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'Duplicate hour dates must not leave a partial line.');
     end;
 
     /// <summary>The public help contract keeps chapters English and localizes its catalogue.</summary>
@@ -454,11 +507,16 @@ codeunit 95621 "TS Absence Reg Tests"
     var
         Hour: JsonObject;
         Hours: JsonArray;
+        HoursToken: JsonToken;
     begin
         Hour.Add('date', Format(HourDate, 0, 9));
         Hour.Add('quantity', Quantity);
-        Hours.Add(Hour);
-        Request.Add('hours', Hours);
+        if Request.Get('hours', HoursToken) then
+            HoursToken.AsArray().Add(Hour)
+        else begin
+            Hours.Add(Hour);
+            Request.Add('hours', Hours);
+        end;
     end;
 
     local procedure CreateCause(): Code[10]

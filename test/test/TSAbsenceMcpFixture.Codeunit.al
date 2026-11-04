@@ -25,22 +25,22 @@ codeunit 95618 "TS Absence MCP Fixture"
         Employee: Record Employee;
         UserSetup: Record "User Setup";
     begin
-        if CompanyName() <> 'CRONUS REGINN65 Verification' then
+        if CopyStr(CompanyName(), 1, 6) <> 'CRONUS' then
             Error(WrongCompanyErr);
         // Refuse an existing fixture rather than silently replaying a setup write.
-        if UnitOfMeasure.Get('W2A65') then
+        if UnitOfMeasure.Get('XTS65') then
             Error(FixtureExistsErr);
         UnitOfMeasure.Init();
-        UnitOfMeasure.Code := 'W2A65';
-        UnitOfMeasure.Description := 'Brokkr65 own hours';
+        UnitOfMeasure.Code := 'XTS65';
+        UnitOfMeasure.Description := 'Timesheets absence fixture hours';
         UnitOfMeasure.Insert(true);
         HumanResourceUnitOfMeasure.Init();
         HumanResourceUnitOfMeasure.Validate(Code, UnitOfMeasure.Code);
         HumanResourceUnitOfMeasure.Validate("Qty. per Unit of Measure", 1);
         HumanResourceUnitOfMeasure.Insert(true);
         Cause.Init();
-        Cause.Code := 'W2A65';
-        Cause.Description := 'Brokkr65 owned absence';
+        Cause.Code := 'XTS65';
+        Cause.Description := 'Timesheets absence fixture';
         Cause.Insert(true);
         // Use the authenticated Web Client owner; never bind fixtures to another worker.
         if not UserSetup.Get(CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID"))) then begin
@@ -48,19 +48,19 @@ codeunit 95618 "TS Absence MCP Fixture"
             UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
             UserSetup.Insert(true);
         end;
-        CreateResource('W2A65-MCP');
-        CreateResource('W2A65-MCPN');
+        CreateResource('XTS65-MCP');
+        CreateResource('XTS65-MCPN');
         Employee.Init();
-        Employee."No." := 'W2A65-MCP';
-        Employee."First Name" := 'Brokkr65';
-        Employee.Validate("Resource No.", 'W2A65-MCP');
+        Employee."No." := 'XTS65-MCP';
+        Employee."First Name" := 'Test';
+        Employee.Validate("Resource No.", 'XTS65-MCP');
         Employee.Insert(true);
-        CreateSheet('W2ABS65-MCP', 'W2A65-MCP');
-        CreateSheet('W2ABS65-MCPN', 'W2A65-MCPN');
+        CreateSheet('XTS65-MCP', 'XTS65-MCP');
+        CreateSheet('XTS65-MCPN', 'XTS65-MCPN');
     end;
 
     var
-        WrongCompanyErr: Label 'Use the isolated CRONUS REGINN65 Verification company.', Locked = true;
+        WrongCompanyErr: Label 'Run the fixture in an isolated CRONUS verification company.', Locked = true;
         FixtureExistsErr: Label 'The owned absence fixture already exists. Inspect it before continuing.', Locked = true;
 
     local procedure CreateResource(ResourceNo: Code[20])
@@ -69,10 +69,10 @@ codeunit 95618 "TS Absence MCP Fixture"
     begin
         Resource.Init();
         Resource."No." := ResourceNo;
-        Resource.Name := 'Brokkr65 isolated resource';
+        Resource.Name := 'Timesheets MCP fixture resource';
         Resource.Insert(true);
         Resource.Validate(Type, Resource.Type::Person);
-        Resource.Validate("Base Unit of Measure", 'W2A65');
+        Resource.Validate("Base Unit of Measure", 'XTS65');
         Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Resource."Time Sheet Owner User ID"));
         Resource."Time Sheet Approver User ID" := Resource."Time Sheet Owner User ID";
         Resource.Validate("Use Time Sheet", true);

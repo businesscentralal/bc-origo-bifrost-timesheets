@@ -11,12 +11,12 @@ codeunit 10036882 "TS Absence Contract ori"
     Access = Internal;
 
     var
-        SheetParameterLbl: Label 'Time sheet number. Send this or resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.';
-        ResourceParameterLbl: Label 'Resource number, together with date, when timeSheetNo is omitted.', Comment = 'is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt.';
-        DateParameterLbl: Label 'ISO date inside the time sheet, or the day of a single quantity.', Comment = 'is-IS=ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.';
+        SheetParameterLbl: Label 'Time sheet number. Send this or resourceNo plus date. With quantity, date may also be sent as its day.', Comment = 'is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date. Með quantity má einnig senda date sem dag magnsins.';
+        ResourceParameterLbl: Label 'Resource number, together with date, when timeSheetNo is omitted. Date also supplies the day for quantity.', Comment = 'is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt. Date gefur einnig dag fyrir quantity.';
+        DateParameterLbl: Label 'ISO date inside the time sheet. With resourceNo it selects the sheet; with timeSheetNo and quantity it is the quantity day.', Comment = 'is-IS=ISO-dagsetning innan tímaskýrslunnar. Með resourceNo velur hún tímaskýrslu; með timeSheetNo og quantity er hún dagur magnsins.';
         CauseParameterLbl: Label 'Cause of absence code.', Comment = 'is-IS=Kóði fjarvistarástæðu.';
         HoursParameterLbl: Label 'Days as objects with date and quantity. Do not combine with quantity.', Comment = 'is-IS=Dagar sem hlutir með date og quantity. Ekki nota með quantity.';
-        QuantityParameterLbl: Label 'Hours on date. Do not combine with hours.', Comment = 'is-IS=Klukkustundir á date. Ekki nota með hours.';
+        QuantityParameterLbl: Label 'Hours on date. Send with timeSheetNo plus date, or with resourceNo and date. Do not combine with hours.', Comment = 'is-IS=Klukkustundir á date. Sendu með timeSheetNo ásamt date eða með resourceNo og date. Ekki nota með hours.';
         SubjectDescriptionLbl: Label 'The Business Central time sheet operation addressed by the request.', Comment = 'is-IS=Aðgerðin á tímaskýrslu í Business Central sem beiðnin á við.';
         TargetDescriptionLbl: Label 'Time sheet number, or omit it and send resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu eða slepptu því og sendu resourceNo ásamt date.';
         SuccessDescriptionLbl: Label 'Success.', Comment = 'is-IS=Tókst.';
@@ -41,6 +41,9 @@ codeunit 10036882 "TS Absence Contract ori"
         ConflictMessageLbl: Label 'The request names the record in more than one way.', Comment = 'is-IS=Beiðnin nefnir færsluna á fleiri en einn hátt.';
         ConflictDescriptionLbl: Label 'Two identifiers were sent for one time sheet or resource.', Comment = 'is-IS=Tvö auðkenni voru send fyrir eina tímaskýrslu eða auðlind.';
         ConflictNextLbl: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
+        InvalidHoursMessageLbl: Label 'Hours dates must be unique and inside the time sheet period.', Comment = 'is-IS=Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.';
+        InvalidHoursDescriptionLbl: Label 'A requested hour date is outside the selected time sheet or appears more than once.', Comment = 'is-IS=Dagsetning klukkustunda er utan valinnar tímaskýrslu eða birtist oftar en einu sinni.';
+        InvalidHoursNextLbl: Label 'Send each date once and keep every date inside the time sheet period.', Comment = 'is-IS=Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.';
         PermissionMessageLbl: Label 'The caller cannot run this type.', Comment = 'is-IS=Kallandinn getur ekki keyrt þessa tegund.';
         PermissionDescriptionLbl: Label 'This type needs write access to time sheets.', Comment = 'is-IS=Þessi tegund þarf skrifheimild á tímaskýrslum.';
         PermissionNextLbl: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
@@ -132,6 +135,7 @@ codeunit 10036882 "TS Absence Contract ori"
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::UnknownParameter, UnknownMessageLbl, UnknownDescriptionLbl, UnknownNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, IdentifierMessageLbl, IdentifierDescriptionLbl, IdentifierNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, ConflictMessageLbl, ConflictDescriptionLbl, ConflictNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidLine, InvalidHoursMessageLbl, InvalidHoursDescriptionLbl, InvalidHoursNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, PermissionMessageLbl, PermissionDescriptionLbl, PermissionNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PreconditionFailed, EmployeeMessageLbl, EmployeeDescriptionLbl, EmployeeNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, CauseMessageLbl, CauseMissingDescriptionLbl, CauseNextLbl));

@@ -1138,9 +1138,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType ConflictNextLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 327572489" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ISO date inside the time sheet, or the day of a single quantity.</source>
-          <target>ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.</note>
+          <source>ISO date inside the time sheet. With resourceNo it selects the sheet; with timeSheetNo and quantity it is the quantity day.</source>
+          <target>ISO-dagsetning innan tímaskýrslunnar. Með resourceNo velur hún tímaskýrslu; með timeSheetNo og quantity er hún dagur magnsins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=ISO-dagsetning innan tímaskýrslunnar. Með resourceNo velur hún tímaskýrslu; með timeSheetNo og quantity er hún dagur magnsins.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType DateParameterLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 3373707642" size-unit="char" translate="yes" xml:space="preserve">
@@ -1252,9 +1252,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType PermissionPreconditionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 3258586172" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hours on date. Do not combine with hours.</source>
-          <target>Klukkustundir á date. Ekki nota með hours.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Klukkustundir á date. Ekki nota með hours.</note>
+          <source>Hours on date. Send with timeSheetNo plus date, or with resourceNo and date. Do not combine with hours.</source>
+          <target>Klukkustundir á date. Sendu með timeSheetNo ásamt date eða með resourceNo og date. Ekki nota með hours.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Klukkustundir á date. Sendu með timeSheetNo ásamt date eða með resourceNo og date. Ekki nota með hours.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType QuantityParameterLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 2691920837" size-unit="char" translate="yes" xml:space="preserve">
@@ -1270,9 +1270,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType ResourceDescriptionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 2820947227" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resource number, together with date, when timeSheetNo is omitted.</source>
-          <target>Númer auðlindar ásamt date þegar timeSheetNo er sleppt.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt.</note>
+          <source>Resource number, together with date, when timeSheetNo is omitted. Date also supplies the day for quantity.</source>
+          <target>Númer auðlindar ásamt date þegar timeSheetNo er sleppt. Date gefur einnig dag fyrir quantity.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt. Date gefur einnig dag fyrir quantity.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType ResourceParameterLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 1012109797" size-unit="char" translate="yes" xml:space="preserve">
@@ -1282,9 +1282,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType SheetDescriptionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 1624332744" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Time sheet number. Send this or resourceNo plus date.</source>
-          <target>Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.</note>
+          <source>Time sheet number. Send this or resourceNo plus date. With quantity, date may also be sent as its day.</source>
+          <target>Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date. Með quantity má einnig senda date sem dag magnsins.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date. Með quantity má einnig senda date sem dag magnsins.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType SheetParameterLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 1266639732" size-unit="char" translate="yes" xml:space="preserve">
@@ -2589,6 +2589,30 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Bifröst tímaskýrslur</note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BIFROST Timeshts ori - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2970237504 - NamedType 3082315989" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hours dates must be unique and inside the time sheet period.</source>
+          <target>Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType InvalidHoursMessageLbl</note>
+                </trans-unit>
+        <trans-unit id="Codeunit 2970237504 - NamedType 3518205161" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send each date once and keep every date inside the time sheet period.</source>
+          <target>Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Contract ori - NamedType InvalidHoursNextLbl</note>
+                </trans-unit>
+        <trans-unit id="Codeunit 2461216604 - NamedType 488065845" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hours dates must be unique and inside the time sheet period.</source>
+          <target>Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Mgt ori - NamedType InvalidHoursMsg</note>
+                </trans-unit>
+        <trans-unit id="Codeunit 2461216604 - NamedType 1865985871" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send each date once and keep every date inside the time sheet period.</source>
+          <target>Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Mgt ori - NamedType InvalidHoursNextTxt</note>
+                </trans-unit>
       </group>
     </body>
   </file>

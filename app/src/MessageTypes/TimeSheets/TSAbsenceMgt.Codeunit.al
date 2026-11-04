@@ -23,6 +23,7 @@ codeunit 10036881 "TS Absence Mgt ori"
         IdentifierNextTxt: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
         OneIdentifierNextTxt: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
         FixLineNextTxt: Label 'Fix the line and submit again.', Comment = 'is-IS=Lagfærðu línuna og sendu aftur inn.';
+        InvalidHoursNextTxt: Label 'Send each date once and keep every date inside the time sheet period.', Comment = 'is-IS=Sendu hverja dagsetningu einu sinni og haltu öllum dagsetningum innan tímabils tímaskýrslunnar.';
         LinkEmployeeNextTxt: Label 'Link the resource to an employee in BC.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC.';
         CauseNextTxt: Label 'Use a code from Causes of Absence.', Comment = 'is-IS=Notaðu kóða úr fjarvistarástæðum.';
         AssignSetNextTxt: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
@@ -33,11 +34,12 @@ codeunit 10036881 "TS Absence Mgt ori"
         IdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
         OneIdentifierMsg: Label 'The request names the time sheet in more than one way.', Comment = 'is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.';
         FixLineMsg: Label 'Business Central rejected the line.', Comment = 'is-IS=Business Central hafnaði línunni.';
+        InvalidHoursMsg: Label 'Hours dates must be unique and inside the time sheet period.', Comment = 'is-IS=Dagsetningar klukkustunda verða að vera einstakar og innan tímabils tímaskýrslunnar.';
         LinkEmployeeMsg: Label 'The resource is not linked to an employee.', Comment = 'is-IS=Auðlindin er ekki tengd við starfsmann.';
         CauseMsg: Label 'The cause of absence was not found.', Comment = 'is-IS=Fjarvistarástæðan fannst ekki.';
         AssignSetMsg: Label 'The caller cannot write time sheets.', Comment = 'is-IS=Kallandinn getur ekki skrifað tímaskýrslur.';
 
-    /// <summary>True when the caller may insert or modify time sheet header, line and detail.</summary>
+    /// <summary>True when the caller can read a header and write its lines and details.</summary>
     procedure CanMaintainSheets(): Boolean
     var
         Cause: Record "Cause of Absence";
@@ -48,7 +50,7 @@ codeunit 10036881 "TS Absence Mgt ori"
         Header: Record "Time Sheet Header";
         Line: Record "Time Sheet Line";
     begin
-        exit(Header.ReadPermission() and Header.WritePermission() and Line.ReadPermission() and Line.WritePermission() and
+        exit(Header.ReadPermission() and Line.ReadPermission() and Line.WritePermission() and
             Detail.ReadPermission() and Detail.WritePermission() and Cause.ReadPermission() and Employee.ReadPermission() and
             Resource.ReadPermission() and ResourcesSetup.ReadPermission());
     end;
@@ -98,7 +100,7 @@ codeunit 10036881 "TS Absence Mgt ori"
             Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, CauseMsg, 'causeOfAbsenceCode', CauseNextTxt);
             exit;
         end;
-        if not ReadHours(Argument, RequestJson, HoursToken, QtyToken, DateToken, HoursText, NonWorking) then
+        if not ReadHours(Argument, RequestJson, Header, HoursToken, QtyToken, DateToken, HoursText, NonWorking) then
             exit;
         if not Employee.ReadPermission() then begin
             Fail(Argument, "Bifrost Error Code ori"::PermissionDenied, AssignSetMsg, '', AssignSetNextTxt);
@@ -128,8 +130,12 @@ codeunit 10036881 "TS Absence Mgt ori"
         HasSheet := RequestJson.Get('timeSheetNo', SheetToken);
         HasResource := RequestJson.Get('resourceNo', ResourceToken);
         HasDate := RequestJson.Get('date', DateToken);
-        if HasSheet and (HasResource or HasDate) then begin
+        if HasSheet and HasResource then begin
             Fail(Argument, "Bifrost Error Code ori"::ConflictingIdentifiers, OneIdentifierMsg, 'timeSheetNo', OneIdentifierNextTxt);
+            exit(false);
+        end;
+        if HasSheet and HasDate and not RequestJson.Contains('quantity') then begin
+            Fail(Argument, "Bifrost Error Code ori"::ConflictingIdentifiers, OneIdentifierMsg, 'date', OneIdentifierNextTxt);
             exit(false);
         end;
         if not HasSheet and not HasResource then begin
@@ -182,13 +188,14 @@ codeunit 10036881 "TS Absence Mgt ori"
         exit(true);
     end;
 
-    local procedure ReadHours(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var HoursToken: JsonToken; var QtyToken: JsonToken; DateToken: JsonToken; var HoursText: Text; var NonWorking: Boolean): Boolean
+    local procedure ReadHours(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; Header: Record "Time Sheet Header"; var HoursToken: JsonToken; var QtyToken: JsonToken; DateToken: JsonToken; var HoursText: Text; var NonWorking: Boolean): Boolean
     var
         DateText: Text;
         DateValueToken: JsonToken;
         Entry: JsonToken;
         HasHours: Boolean;
         HasQty: Boolean;
+        HourDates: List of [Date];
         HourDate: Date;
         Index: Integer;
         QtyValueToken: JsonToken;
@@ -217,6 +224,8 @@ codeunit 10036881 "TS Absence Mgt ori"
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'date', TypeNextTxt);
                 exit(false);
             end;
+            if not ValidateHourDate(Argument, Header, HourDate, HourDates) then
+                exit(false);
             DateText := Format(HourDate, 0, 9);
             HoursText := DateText + '|' + Format(Quantity, 0, 9);
             NonWorking := Date2DWY(HourDate, 1) >= 6;
@@ -248,6 +257,8 @@ codeunit 10036881 "TS Absence Mgt ori"
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
                 exit(false);
             end;
+            if not ValidateHourDate(Argument, Header, HourDate, HourDates) then
+                exit(false);
             if not ReadJsonDecimal(QtyValueToken, Quantity) then begin
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
                 exit(false);
@@ -258,6 +269,16 @@ codeunit 10036881 "TS Absence Mgt ori"
             if Date2DWY(HourDate, 1) >= 6 then
                 NonWorking := true;
         end;
+        exit(true);
+    end;
+
+    local procedure ValidateHourDate(var Argument: Record "Message Argument ori"; Header: Record "Time Sheet Header"; HourDate: Date; var HourDates: List of [Date]): Boolean
+    begin
+        if (HourDate < Header."Starting Date") or (HourDate > Header."Ending Date") or HourDates.Contains(HourDate) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidLine, InvalidHoursMsg, 'hours', InvalidHoursNextTxt);
+            exit(false);
+        end;
+        HourDates.Add(HourDate);
         exit(true);
     end;
 

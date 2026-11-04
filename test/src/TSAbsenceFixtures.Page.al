@@ -1,11 +1,11 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
-/// <summary>Runs the owner-scoped absence fixture through an authenticated Web Client session.</summary>
+/// <summary>Runs the isolated absence fixture through an authenticated Web Client session.</summary>
 page 95620 "TS Absence Fixtures"
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = None;
     Caption = 'Absence verification fixtures', Locked = true;
 
     actions
@@ -16,12 +16,24 @@ page 95620 "TS Absence Fixtures"
             {
                 ApplicationArea = All;
                 Caption = 'Create owned absence fixtures', Locked = true;
-                ToolTip = 'Creates isolated absence data in the named verification company.', Locked = true;
+                ToolTip = 'Creates isolated absence data in a CRONUS verification company.', Locked = true;
                 Image = New;
 
                 trigger OnAction()
                 begin
                     Codeunit.Run(Codeunit::"TS Absence MCP Fixture");
+                end;
+            }
+            action(DeleteFixtures)
+            {
+                ApplicationArea = All;
+                Caption = 'Delete owned absence fixtures', Locked = true;
+                ToolTip = 'Deletes the isolated absence data created by this fixture in a CRONUS verification company.', Locked = true;
+                Image = Delete;
+
+                trigger OnAction()
+                begin
+                    Codeunit.Run(Codeunit::"TS Absence MCP Fixture Cleanup");
                 end;
             }
         }

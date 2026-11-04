@@ -1,7 +1,7 @@
 namespace Origo.Bifrost.Timesheets;
 
-using Origo.Bifrost;
 using Microsoft.Projects.TimeSheet;
+using Origo.Bifrost;
 
 /// <summary>
 /// Restricts generic writes to the Clockify Webhook Receiver URL on Clockify Setup ori through
@@ -24,7 +24,7 @@ codeunit 10036838 "Clockify Field Restrict ori"
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsTableWriteRestrictedForDataRecords, '', false, false)]
     local procedure RestrictTimeSheetWrites(TableNo: Integer; Force: Boolean; var IsRestricted: Boolean)
     begin
-        if TableNo in [Database::"Time Sheet Line", Database::"Time Sheet Detail"] then
+        if TableNo in [Database::"Time Sheet Header", Database::"Time Sheet Line", Database::"Time Sheet Detail"] then
             IsRestricted := true;
     end;
 
