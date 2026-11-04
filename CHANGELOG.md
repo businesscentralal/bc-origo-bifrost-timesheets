@@ -6,6 +6,8 @@
 
 - Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.
 
+- Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
+
 ### Changed
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
@@ -30,6 +32,11 @@
 - Gunnar's 30 September decisions are the ones implemented. The 11 September note that every item type is offered is not applied. The item must be a service item on My Items.
 - `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
 - `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
+
+### Fixed (2026-11-04) - Translatable Clockify refusals (#49)
+
+- Unlock the 19 user-facing refusal labels reported by MixedLanguageLabels and preserve their English text. Add Icelandic translations, including four sentence literals promoted to labels in Clockify TEntryRange Impl ori (10036832), Clockify TEntrySync Impl ori (10036821), and Clockify TSheetSync Impl ori (10036840).
+- Add four Icelandic refusal regression scenarios to Clockify Connector Tests (95601): missing parameter, missing body, missing journal, and no open time sheet. Generate the 23 new Icelandic translation units from compiler output and preserve all 259 existing Icelandic targets.
 
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
