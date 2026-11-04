@@ -396,6 +396,9 @@ codeunit 95601 "Clockify Connector Tests"
         RequestJson.Add('userId', 'U-1');
         RequestJson.Add('entryId', 'E-1');
         RequestJson.Add('projectId', 'P-1');
+        // A completed interval reaches the journal guard instead of the running-timer guard.
+        RequestJson.Add('start', '2026-06-09T08:00:00Z');
+        RequestJson.Add('end', '2026-06-09T12:00:00Z');
 
         // [WHEN] The Clockify.TimeEntry.Sync task executes
         ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeEntry.Sync", RequestJson);

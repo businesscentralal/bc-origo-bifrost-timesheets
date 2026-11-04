@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
+- Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, using a completed interval for the missing-journal scenario and preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
 
 - Tests 95601 `TimeSheetApproveReturnsZeroWhenNothingOpen`, `TimeSheetRejectReturnsZeroWhenNothingSubmitted` and `TimeSheetReopenReturnsZeroWhenNothingPending` no longer assume the whole company has no time-sheet lines: they scope the request with `endingDateTo`, create and clean up their own sheet, and assert it is untouched, so they pass repeatedly on a reused container (#82).
 
