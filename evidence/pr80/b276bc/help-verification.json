@@ -28,5 +28,16 @@
       "error": "Foundation global conventions still expose internal AL APIs; explicit AC10 disposition or separate Foundation repair required"
     }
   ],
-  "scope": "No waived assertion; native34functionalMCP scenarios are counted separately. Existing English-help rule applied; full-answer no-internals remains literal failed criterion."
+  "scope": "No waived assertion; native34functionalMCP scenarios are counted separately. Existing English-help rule applied; full-answer no-internals remains literal failed criterion.",
+  "observedALObjectReferences": [
+    "Dispatcher ori"
+  ],
+  "observedALApiReferences": [
+    "Argument.SetErrorContext",
+    "Argument.ClearErrorContext",
+    "Argument.GetInvocationSource",
+    "Codeunit.Run",
+    "TryFunction"
+  ],
+  "clarification": "Some referenced APIs are public AL APIs; the literal no-AL-object criterion is independently violated by the Dispatcher ori codeunit name. No claim that every API listed has internal AL access."
 }
