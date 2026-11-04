@@ -8,6 +8,8 @@
 
 ### Changed
 
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
 - Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.

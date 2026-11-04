@@ -697,12 +697,15 @@ codeunit 95616 "TS Decision Tests"
     var
         UserSetup: Record "User Setup";
     begin
-        // Standard approve and reject read User Setup for the caller before they compare the line approver.
-        if UserSetup.Get(UserId()) then
-            exit;
-        UserSetup.Init();
-        UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
-        UserSetup.Insert(true);
+        // Native approval lets time-sheet administrators bypass the line approver check.
+        // Establish the non-admin fixture on every test, including when the user already exists.
+        if not UserSetup.Get(UserId()) then begin
+            UserSetup.Init();
+            UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
+            UserSetup.Insert(true);
+        end;
+        UserSetup.Validate("Time Sheet Admin.", false);
+        UserSetup.Modify(true);
     end;
 
     local procedure CreateSheet(ResourceNo: Code[20]; StartingDate: Date; Owner: Text): Code[20]
