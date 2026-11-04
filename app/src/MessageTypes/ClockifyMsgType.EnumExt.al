@@ -339,4 +339,17 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Timesheets.Usage.Reverse', Locked = true;
         Implementation = "Msg Interface ori" = "TS Usage Reverse ori", "Msg Contract ori" = "TS Usage Reverse ori", "Msg Discovery ori" = "TS Usage Reverse ori";
     }
+
+    /// <summary>Copies previous time sheet lines without daily hours.</summary>
+    value(10036877; "Timesheets.TimeSheetLine.CopyFromPrevious")
+    {
+        Caption = 'Timesheets.TimeSheetLine.CopyFromPrevious', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Line CopyPrev Impl ori", "Msg Contract ori" = "TS Line CopyPrev Impl ori", "Msg Discovery ori" = "TS Line CopyPrev Impl ori";
+    }
+    /// <summary>Creates time sheet lines from resource project planning.</summary>
+    value(10036878; "Timesheets.TimeSheetLine.CreateFromPlanning")
+    {
+        Caption = 'Timesheets.TimeSheetLine.CreateFromPlanning', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Line FromPlan Impl ori", "Msg Contract ori" = "TS Line FromPlan Impl ori", "Msg Discovery ori" = "TS Line FromPlan Impl ori";
+    }
 }
