@@ -1083,6 +1083,360 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Magn verður að vera stærra en núll.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType QuantityErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 433325807" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller is not the named approver.</source>
+          <target>Kallandinn er ekki tilgreindur samþykktaraðili.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn er ekki tilgreindur samþykktaraðili.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ApproverErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 797955327" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ApproverTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2379067997" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional rejection comment, at most 80 characters, stored on every rejected line.</source>
+          <target>Valfrjáls höfnunarathugasemd, að hámarki 80 stafir, vistuð á hverri hafnaðri línu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjáls höfnunarathugasemd, að hámarki 80 stafir, vistuð á hverri hafnaðri línu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CommentTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3380986179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one identifier for the time sheet.</source>
+          <target>Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1357409842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Both timeSheetNo and timeSheetId were supplied.</source>
+          <target>Bæði timeSheetNo og timeSheetId voru send.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bæði timeSheetNo og timeSheetId voru send.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1196522881" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves or rejects selected submitted lines atomically through the native time sheet action. A successful call commits; a failed action rolls back all selected changes. Approving absence lines also posts their absence entries.</source>
+          <target>Samþykkir eða hafnar völdum innsendum línum í einni færslu með innbyggðri tímaskýrsluaðgerð. Heppnað kall staðfestir; misheppnuð aðgerð afturkallar allar valdar breytingar. Samþykki fjarvistarlína bókar einnig fjarvistarfærslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkir eða hafnar völdum innsendum línum í einni færslu með innbyggðri tímaskýrsluaðgerð. Heppnað kall staðfestir; misheppnuð aðgerð afturkallar allar valdar breytingar. Samþykki fjarvistarlína bókar einnig fjarvistarfærslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EffectTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 939761282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Identify the time sheet in data.</source>
+          <target>Auðkenndu tímaskýrsluna í data.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðkenndu tímaskýrsluna í data.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EnvelopeTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 970536280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1019460973" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has an invalid type, length or value.</source>
+          <target>Lykill er af röngu tagi, lengd eða gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu tagi, lengd eða gildi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 619833935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet SystemId as a GUID; alternative to timeSheetNo.</source>
+          <target>SystemId tímaskýrslu sem GUID; valkostur við timeSheetNo.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=SystemId tímaskýrslu sem GUID; valkostur við timeSheetNo.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IdTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2375611073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The selected line is not Submitted. Approval alone accepts an already Approved line as unchanged.</source>
+          <target>Valin lína er ekki innsend. Aðeins samþykki tekur við þegar samþykktri línu án breytinga.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valin lína er ekki innsend. Aðeins samþykki tekur við þegar samþykktri línu án breytinga.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType InvalidLineTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run the request without omitCommit.</source>
+          <target>Keyrðu beiðnina án omitCommit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IsolatedNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 919938375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This action requires an isolated transaction.</source>
+          <target>Þessi aðgerð krefst einangraðrar færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi aðgerð krefst einangraðrar færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IsolatedTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2706729743" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Positive integer line numbers. Omitted selects all submitted lines; an empty array selects none.</source>
+          <target>Jákvæðar heiltölur línunúmera. Sé sleppt eru allar innsendar línur valdar; tómt fylki velur engar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Jákvæðar heiltölur línunúmera. Sé sleppt eru allar innsendar línur valdar; tómt fylki velur engar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType LinesTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2016197661" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1164066600" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required identifier is missing.</source>
+          <target>Nauðsynlegt auðkenni vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegt auðkenni vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 774924109" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Omitted lineNos selects only submitted lines. Empty lineNos returns an empty list. Approval of an explicitly selected approved line returns changed false. Rejection requires Submitted for every selected line. Status is returned in a language-independent form. A successful action commits; omitCommit is not supported.</source>
+          <target>Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotesTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2117344776" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use an identifier that exists.</source>
+          <target>Notaðu auðkenni sem er til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotFoundNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3886226461" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The time sheet or selected line does not exist.</source>
+          <target>Tímaskýrslan eða valin lína er ekki til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tímaskýrslan eða valin lína er ekki til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotFoundTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2024792173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manager approval and rejection of submitted time sheet lines. Only the sheet approver may act. Existing Clockify approval behavior is unchanged. Unknown keys are refused.</source>
+          <target>Samþykki stjórnanda og höfnun innsendra tímaskýrslulína. Aðeins samþykktaraðili skýrslunnar má framkvæma aðgerðina. Núverandi samþykktarvirkni Clockify er óbreytt. Óþekktum lyklum er hafnað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykki stjórnanda og höfnun innsendra tímaskýrslulína. Aðeins samþykktaraðili skýrslunnar má framkvæma aðgerðina. Núverandi samþykktarvirkni Clockify er óbreytt. Óþekktum lyklum er hafnað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType OverviewTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2434548005" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller lacks access to a table used by this action.</source>
+          <target>Kallandinn hefur ekki aðgang að töflu sem aðgerðin notar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn hefur ekki aðgang að töflu sem aðgerðin notar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2091803237" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2193968713" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discover the available time sheet operations.</source>
+          <target>Finndu tiltækar tímaskýrsluaðgerðir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Finndu tiltækar tímaskýrsluaðgerðir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RelatedTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2263593789" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected lines: timeSheetNo, lineNo, status (Approved or Rejected), changed. Already approved selected lines return changed false for approval.</source>
+          <target>Valdar línur: timeSheetNo, lineNo, status (Approved eða Rejected), changed. Þegar samþykktar valdar línur skila changed false við samþykki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valdar línur: timeSheetNo, lineNo, status (Approved eða Rejected), changed. Þegar samþykktar valdar línur skila changed false við samþykki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ResponseTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 610076453" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correct the Business Central error and retry.</source>
+          <target>Leiðréttu Business Central villuna og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu Business Central villuna og reyndu aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RuntimeNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3456802640" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central refused the action; all selected changes were rolled back.</source>
+          <target>Business Central hafnaði aðgerðinni; allar valdar breytingar voru afturkallaðar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Business Central hafnaði aðgerðinni; allar valdar breytingar voru afturkallaðar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RuntimeTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 262606953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number. Send exactly one of timeSheetNo and timeSheetId.</source>
+          <target>Númer tímaskýrslu. Sendu nákvæmlega annað hvort timeSheetNo eða timeSheetId.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu. Sendu nákvæmlega annað hvort timeSheetNo eða timeSheetId.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SheetTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2444345320" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Success or Error.</source>
+          <target>Success eða Error.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Success eða Error.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType StatusTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2269040368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit it first with Timesheets.TimeSheet.Submit.</source>
+          <target>Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SubmitTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 846182105" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1808847724" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1494093589" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit the lines, then let the sheet approver approve or reject them. Read the returned status and changed flag.</source>
+          <target>Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WorkflowTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 2320491616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller is not the approver named on the time sheet.</source>
+          <target>Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType ApproverMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1437463222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType ApproverNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 4266004086" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller cannot write time sheets.</source>
+          <target>Kallandinn getur ekki skrifað tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn getur ekki skrifað tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType AssignSetMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3068500576" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType AssignSetNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 2087608894" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The identifier does not match a record in %1.</source>
+          <target>Auðkennið passar ekki við færslu í %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption; is-IS=Auðkennið passar ekki við færslu í %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 163613640" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use an identifier that exists.</source>
+          <target>Notaðu auðkenni sem er til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 2062021128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This operation requires an isolated transaction.</source>
+          <target>Þessi aðgerð krefst einangraðrar færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi aðgerð krefst einangraðrar færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run the request without omitCommit.</source>
+          <target>Keyrðu beiðnina án omitCommit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1591961950" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required key is missing.</source>
+          <target>Nauðsynlegur lykill vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingKeyMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 688066728" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingKeyNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 707280194" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request names the time sheet in more than one way.</source>
+          <target>Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType OneIdentifierMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1880219316" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one identifier for the time sheet.</source>
+          <target>Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType OneIdentifierNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1169825241" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Correct the Business Central error and retry.</source>
+          <target>Leiðréttu Business Central villuna og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu Business Central villuna og reyndu aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType RetryNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1128376433" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The line is not submitted.</source>
+          <target>Línan hefur ekki verið send inn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Línan hefur ekki verið send inn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType SubmitFirstMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1472943635" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submit it first with Timesheets.TimeSheet.Submit.</source>
+          <target>Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType SubmitFirstNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3711673115" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has the wrong JSON type.</source>
+          <target>Lykill er af röngu JSON-tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu JSON-tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType TypeMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3178192377" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType TypeNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1380240250" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType UnknownKeyMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 3464386828" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType UnknownKeyNextTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1438968790 - Method 3261554141 - NamedType 546388388" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only the approver named on the time sheet can approve.</source>
+          <target>Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Runner ori - Method CheckApprover - NamedType ApproverErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves submitted time sheet lines.</source>
+          <target>Samþykkir innsendar tímaskýrslulínur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Samþykkir innsendar tímaskýrslulínur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, approve, timesheets</source>
+          <target>tímaskýrsla, samþykkja, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, samþykkja, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1794995733 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Approve: Approves submitted time sheet lines.</source>
+          <target>Timesheets.TimeSheet.Approve: Samþykkir innsendar tímaskýrslulínur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve: Samþykkir innsendar tímaskýrslulínur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Approve Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejects submitted time sheet lines.</source>
+          <target>Hafnar innsendum tímaskýrslulínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hafnar innsendum tímaskýrslulínum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, reject, timesheets</source>
+          <target>tímaskýrsla, hafna, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, hafna, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2412390165 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Reject: Rejects submitted time sheet lines.</source>
+          <target>Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365144420 - NamedType 763692369" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject</source>
+          <target>Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Restrict ori - NamedType StatusHintTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3471428701 - NamedType 650235816" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use resourceNo and resourceId belonging to the same resource.</source>
           <target>Notaðu resourceNo og resourceId sem tilheyra sama forða.</target>
