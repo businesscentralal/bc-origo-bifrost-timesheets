@@ -145,7 +145,6 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
     var
         TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
         SetupMgt: Codeunit "Clockify Setup Mgt ori";
-        NativeMgt: Codeunit "TS Native Mgt ori";
         RequestJson: JsonObject;
         ResponseJson: JsonObject;
         JsonToken: JsonToken;
@@ -172,7 +171,6 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 
         ResponseJson.Add('status', 'Success');
         ResponseJson.Add('postedLines', PostedLineCount);
-        NativeMgt.AddLegacyNameWarning(ResponseJson);
         Argument.SetResponseJson(ResponseJson);
     end;
 }
