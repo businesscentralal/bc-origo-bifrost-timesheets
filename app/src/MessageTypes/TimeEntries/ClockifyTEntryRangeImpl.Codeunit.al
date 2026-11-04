@@ -19,8 +19,9 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
         UnexpectedListErr: Label 'Unexpected response from Clockify when listing time entries: expected a JSON array.', Comment = 'is-IS=Óvænt svar frá Clockify við lestur tímafærslna: búist var við JSON-fylki.';
         JournalTemplateParamLbl: Label 'journalTemplate', Locked = true;
         JournalBatchParamLbl: Label 'journalBatch', Locked = true;
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Comment = 'is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.';
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''%1'' and ''%2'' in the request.', Comment = '%1 = journalTemplate, %2 = journalBatch. is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''%1'' og ''%2'' í beiðninni.';
         ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2';
+
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     procedure IsEnabled(): Boolean
@@ -69,14 +70,14 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySyncRange(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeEntrySyncRange(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -183,14 +184,14 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
             exit;
 
         SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);
-        if RequestJson.Get(JournalTemplateParamLbl, JsonToken) then
+        if RequestJson.Get('journalTemplate', JsonToken) then
             if JsonToken.IsValue() then
                 JournalTemplate := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
-        if RequestJson.Get(JournalBatchParamLbl, JsonToken) then
+        if RequestJson.Get('journalBatch', JsonToken) then
             if JsonToken.IsValue() then
                 JournalBatch := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
         if (JournalTemplate = '') or (JournalBatch = '') then begin
-            Argument.RespondWithError(MissingJournalErr);
+            Argument.RespondWithError(StrSubstNo(MissingJournalErr, JournalTemplateParamLbl, JournalBatchParamLbl));
             exit;
         end;
 

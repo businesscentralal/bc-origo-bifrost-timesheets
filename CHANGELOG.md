@@ -1,11 +1,29 @@
+## Pending approval query (#62)
+
+- Add read-only `Timesheets.PendingApproval.Get` (codeunit 10036875, enum value 10036874): caller-scoped submitted lines, resource/date/type filters, daily hours and take/skip paging. Existing Timesheets permissions grant native reads; Foundation Read/Full extensions grant execution.
+- Verify English contract chapters with Icelandic catalogue and live refusals (95630), following Gunnar option B; preserve main translation units and append the new query labels.
+- Add localized discovery/contract help and native acceptance tests (95630, 95633), with isolated verification fixtures (95631–95632, test-only enum extension 95631 and strict fixture contract 95634). Their authenticated CRONUS-only seed/cleanup messages keep generic write guards intact and never change consent or licensing. Initialize once per isolated test codeunit; keep the existing field restriction tests (95612) aligned with native field/table captions without weakening refusals.
+
 # Changelog
 
 ## [Unreleased]
 
 ### Added
-- #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95616.
+- #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95621.
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
+- Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+
+### Fixed
+
+- Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.
+
+- Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
 
 ### Changed
+
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 

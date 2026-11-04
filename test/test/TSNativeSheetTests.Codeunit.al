@@ -17,7 +17,7 @@ using System.Security.User;
 using System.TestLibraries.Utilities;
 
 /// <summary>Behavior tests for the native time sheet message types.</summary>
-codeunit 95616 "TS Native Sheet Tests"
+codeunit 95621 "TS Native Sheet Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -347,7 +347,7 @@ codeunit 95616 "TS Native Sheet Tests"
         DispatchGenericWrite(TempArgument, Request);
         // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
         Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
-        Assert.AreEqual('Timesheets.TimeSheet.Submit', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
+        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
         Line.Get(SheetNo, 10000);
         Assert.AreEqual(Line.Status::Open, Line.Status, 'Generic status writes must leave the line open.');
     end;

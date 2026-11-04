@@ -25,8 +25,10 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
 
     /// <summary>Returns GetDescription for the Submit message contract.</summary>
     procedure GetDescription(): Text[250]
+    var
+        DescriptionLbl: Label 'Submits open time sheet lines for approval.', Comment = 'is-IS=Sendir opnar tímaskýrslulínur til samþykktar.';
     begin
-        exit('Submits open time sheet lines for approval.');
+        exit(DescriptionLbl);
     end;
 
     /// <summary>Returns GetKeywords for the Submit message contract.</summary>

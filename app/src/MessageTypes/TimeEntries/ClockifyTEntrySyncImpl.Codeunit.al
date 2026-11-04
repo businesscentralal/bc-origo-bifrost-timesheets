@@ -18,10 +18,11 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
     var
         PostingDateErr: Label 'Cannot parse posting date from start value.', Comment = 'is-IS=Ekki tókst að lesa bókunardagsetningu úr start-gildinu.';
         HoursCalcErr: Label 'Cannot calculate hours: start and end are required ISO 8601 datetime values.', Comment = 'is-IS=Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.';
+        EndParamLbl: Label 'end', Locked = true;
         JournalTemplateParamLbl: Label 'journalTemplate', Locked = true;
         JournalBatchParamLbl: Label 'journalBatch', Locked = true;
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Comment = 'is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.';
-        InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''%1'' and ''%2'' in the request.', Comment = '%1 = journalTemplate, %2 = journalBatch. is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''%1'' og ''%2'' í beiðninni.';
+        InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''%1'' value (timer stopped).', Comment = '%1 = end. is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''%1'' gildi (teljari stöðvaður).';
 
     procedure IsEnabled(): Boolean
     var
@@ -69,14 +70,14 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySync(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeEntrySync(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -197,7 +198,7 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
         GetOptionalParam(RequestJson, 'end', EndDateText);
 
         if EndDateText = '' then begin
-            Argument.RespondWithError(InProgressSyncErr);
+            Argument.RespondWithError(StrSubstNo(InProgressSyncErr, EndParamLbl));
             exit;
         end;
 
@@ -213,14 +214,14 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
         // Journal template/batch: default to the Clockify Setup configuration,
         // then let the request override either value. Both must resolve to non-blank.
         SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);
-        if RequestJson.Get(JournalTemplateParamLbl, JsonToken) then
+        if RequestJson.Get('journalTemplate', JsonToken) then
             if JsonToken.IsValue() then
                 JournalTemplate := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
-        if RequestJson.Get(JournalBatchParamLbl, JsonToken) then
+        if RequestJson.Get('journalBatch', JsonToken) then
             if JsonToken.IsValue() then
                 JournalBatch := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
         if (JournalTemplate = '') or (JournalBatch = '') then begin
-            Argument.RespondWithError(MissingJournalErr);
+            Argument.RespondWithError(StrSubstNo(MissingJournalErr, JournalTemplateParamLbl, JournalBatchParamLbl));
             exit;
         end;
 
