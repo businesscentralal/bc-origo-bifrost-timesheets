@@ -190,6 +190,7 @@ codeunit 95604 "Clockify User Paging Tests"
     procedure HelpDescribesParametersResponseAndCallerLoop()
     var
         Parts: Codeunit "Clockify Contract Parts ori";
+        Implementation: Codeunit "Clockify SyncAllUsers Impl ori";
         Parameters: JsonArray;
         Response: JsonObject;
         Examples: JsonArray;
@@ -198,13 +199,14 @@ codeunit 95604 "Clockify User Paging Tests"
         ContractText: Text;
     begin
         // [GIVEN] The published structured contract for SyncAllUsers.
-        Parts.GetParameters("Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", Parameters);
+        Implementation.GetParameters(Parameters);
         Parts.GetResponse("Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", Response);
         Parts.GetExamples("Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", Examples);
         Parts.GetWorkflow("Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", Workflow);
         // [WHEN] The notes used by generated Help are requested.
         Parts.GetNotes("Message Type ori"::"Clockify.TimeEntry.SyncAllUsers", Notes);
         // [THEN] All paging fields and the exact Foundation limits are documented.
+        Assert.IsFalse(HasParameter(Parameters, 'userId'), 'All-users sync does not take a per-user identifier.');
         Assert.IsTrue(HasParameter(Parameters, 'skip'), 'skip must be discoverable.');
         Assert.IsTrue(HasParameter(Parameters, 'take'), 'take must be discoverable.');
         Assert.IsTrue(Notes.Contains('## Pagination Limits'), 'Pagination Limits chapter required.');

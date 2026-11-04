@@ -155,14 +155,7 @@ codeunit 10036855 "Clockify Contract Parts ori"
                 AddSyncParameters(Parameters, ContractMgt, true);
             MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
                 AddRangeParameters(Parameters, ContractMgt, true, true);
-            MessageType::"Clockify.TimeEntry.SyncAllUsers":
-                begin
-                    AddRangeParameters(Parameters, ContractMgt, true, false);
-                    Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
-                    Parameters.Add(ContractMgt.Parameter('skip', 'integer', false, 'Number of active USER mappings to skip. Defaults to 0; negative values are rejected.'));
-                    Parameters.Add(ContractMgt.Parameter('take', 'integer', false, 'Maximum users to process. Defaults to 100 when omitted or zero; negative values are rejected; values above 1000 are clamped to 1000.'));
-                    AddJournalParameters(Parameters, ContractMgt);
-                end;
+        end;
         end;
         exit(Parameters.Count() > 0);
     end;

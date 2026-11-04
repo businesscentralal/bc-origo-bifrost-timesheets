@@ -150,13 +150,13 @@ codeunit 95612 "Clockify Field Restrict Tests"
         InitializeWriteFixture(ClockifySetup);
         // [WHEN] Public Data.Records.Set attempts a protected and an allowed field together.
         ResponseJson := DispatchSetupWrite(FieldAlias, 'https://xac07.invalid/rejected', true);
-        // [THEN] Refusal names the field and setup surface exactly once, with no writes.
+        // [THEN] Refusal names the field once. Foundation 28.0.5 puts the setup hint in nextStep only.
         ResponseJson.Get('status', Token);
         LibraryAssert.AreEqual('Error', Token.AsValue().AsText(), 'Protected write must be refused.');
         ResponseJson.Get('code', Token);
         LibraryAssert.AreEqual('PermissionDenied', Token.AsValue().AsText(), 'Refusal must use PermissionDenied.');
         ResponseJson.Get('error', Token);
-        LibraryAssert.AreEqual('Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set. Use the Timesheets setup page (Clockify Setup).', Token.AsValue().AsText(), 'Refusal must compose the setup hint exactly once.');
+        LibraryAssert.AreEqual('Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.', Token.AsValue().AsText(), 'The field refusal stays in error. The setup hint is nextStep.');
         ResponseJson.Get('nextStep', Token);
         LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', Token.AsValue().AsText(), 'Refusal must point to the setup page.');
         ResponseJson.Get('parameter', Token);

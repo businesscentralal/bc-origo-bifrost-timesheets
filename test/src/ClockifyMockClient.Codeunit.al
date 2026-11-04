@@ -16,8 +16,11 @@ codeunit 95603 "Clockify Mock Client" implements "Clockify API Client ori"
     procedure Send(Method: Text; ResourcePath: Text; HasBody: Boolean; RequestBody: Text; var ResponseBody: Text; var StatusCode: Integer): Boolean
     var
         MockState: Codeunit "Clockify Mock State";
+        QueuedSuccess: Boolean;
     begin
         MockState.CaptureRequest(Method, ResourcePath, HasBody, RequestBody);
+        if MockState.TryDequeueResponse(QueuedSuccess, StatusCode, ResponseBody) then
+            exit(QueuedSuccess);
         ResponseBody := MockState.GetNextResponseBody();
         StatusCode := MockState.GetNextStatusCode();
         exit(MockState.GetNextIsSuccess());

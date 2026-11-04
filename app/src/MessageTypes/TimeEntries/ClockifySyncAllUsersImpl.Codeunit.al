@@ -65,11 +65,21 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
         exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
+    /// <summary>Describes the bounded mapped-user request without a per-user identifier.</summary>
+    /// <param name="Parameters">Parameters accepted by this message type.</param>
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
-        Parts: Codeunit "Clockify Contract Parts ori";
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
+        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
+        Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
+        Parameters.Add(ContractMgt.Parameter('skip', 'integer', false, 'Number of active USER mappings to skip. Defaults to 0; negative values are rejected.'));
+        Parameters.Add(ContractMgt.Parameter('take', 'integer', false, 'Maximum users to process. Defaults to 100 when omitted or zero; negative values are rejected; values above 1000 are clamped to 1000.'));
+        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
+        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
+        exit(true);
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -170,7 +180,7 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
     begin
         Argument.AssertVersion1();
         RequestJson := Argument.GetRequestJson();
-        Argument.EvaluateSkipTake(RequestJson, Skip, Take);
+        EvaluatePaging(Argument, RequestJson, Skip, Take);
 
         if not RequestMgt.ResolveWorkspaceId(Argument, RequestJson, WorkspaceId) then
             exit;
@@ -225,6 +235,19 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
         ResponseJson.Add('errors', GetCount(Counts, 'Error'));
         ResponseJson.Add('userResults', UsersArray);
         Argument.SetResponseJson(ResponseJson);
+    end;
+
+    local procedure EvaluatePaging(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var Skip: Integer; var Take: Integer)
+    var
+        PagingRequest: JsonObject;
+        Value: JsonToken;
+    begin
+        // Forward only paging inputs; Foundation remains responsible for validation and limits.
+        if RequestJson.Get('skip', Value) then
+            PagingRequest.Add('skip', Value);
+        if RequestJson.Get('take', Value) then
+            PagingRequest.Add('take', Value);
+        Argument.EvaluateSkipTake(PagingRequest, Skip, Take);
     end;
 
     local procedure SyncOneUser(WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; Target: Text; JournalTemplate: Code[10]; JournalBatch: Code[10]; var UsersArray: JsonArray; var Counts: Dictionary of [Text, Integer])
