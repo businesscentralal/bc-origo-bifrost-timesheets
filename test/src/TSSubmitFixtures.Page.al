@@ -61,7 +61,7 @@ page 95618 "TS Submit Fixtures"
 
     var
         SheetNo: Code[20];
-        ResourceNoTok: Label 'SINDRI60', Locked = true;
+        ResourceNoTok: Label 'XSINDRI60', Locked = true;
         ExistingErr: Label 'Owned fixtures already exist. Inspect and clean them before creating again.', Comment = 'is-IS=Eigin prófunargögn eru þegar til. Skoðaðu þau og hreinsaðu áður en þau eru stofnuð aftur.';
 
     local procedure CreateFixtures()
@@ -79,11 +79,11 @@ page 95618 "TS Submit Fixtures"
         Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Resource."Time Sheet Owner User ID"));
         Resource."Time Sheet Approver User ID" := Resource."Time Sheet Owner User ID";
         Resource.Insert(false);
-        CreateSheet('SINDRI60-OK', false, false, false);
-        CreateSheet('SINDRI60-BAD', true, false, false);
-        CreateSheet('SINDRI60-OWNER', false, true, false);
-        CreateSheet('SINDRI60-EMPTY', false, false, true);
-        SheetNo := 'SINDRI60-OK';
+        CreateSheet('XSINDRI60-OK', false, false, false);
+        CreateSheet('XSINDRI60-BAD', true, false, false);
+        CreateSheet('XSINDRI60-OWNER', false, true, false);
+        CreateSheet('XSINDRI60-EMPTY', false, false, true);
+        SheetNo := 'XSINDRI60-OK';
     end;
 
     local procedure CreateSheet(NewSheetNo: Code[20]; Invalid: Boolean; OtherOwner: Boolean; Empty: Boolean)
@@ -97,17 +97,17 @@ page 95618 "TS Submit Fixtures"
         Header."Resource No." := ResourceNoTok;
         Header."Starting Date" := CalcDate('<-CW>', WorkDate());
         case NewSheetNo of
-            'SINDRI60-BAD':
+            'XSINDRI60-BAD':
                 Header."Starting Date" -= 7;
-            'SINDRI60-OWNER':
+            'XSINDRI60-OWNER':
                 Header."Starting Date" -= 14;
-            'SINDRI60-EMPTY':
+            'XSINDRI60-EMPTY':
                 Header."Starting Date" -= 21;
         end;
         Header."Ending Date" := Header."Starting Date" + 6;
         Header."Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Header."Owner User ID"));
         if OtherOwner then
-            Header."Owner User ID" := 'SINDRI60-OTHER';
+            Header."Owner User ID" := 'XSINDRI60-OTHER';
         Header."Approver User ID" := CopyStr(UserId(), 1, MaxStrLen(Header."Approver User ID"));
         Header.Insert(false);
         if Empty then
@@ -137,10 +137,10 @@ page 95618 "TS Submit Fixtures"
         OwnedSheets: List of [Code[20]];
         OwnedSheet: Code[20];
     begin
-        OwnedSheets.Add('SINDRI60-OK');
-        OwnedSheets.Add('SINDRI60-BAD');
-        OwnedSheets.Add('SINDRI60-OWNER');
-        OwnedSheets.Add('SINDRI60-EMPTY');
+        OwnedSheets.Add('XSINDRI60-OK');
+        OwnedSheets.Add('XSINDRI60-BAD');
+        OwnedSheets.Add('XSINDRI60-OWNER');
+        OwnedSheets.Add('XSINDRI60-EMPTY');
         foreach OwnedSheet in OwnedSheets do
             if Header.Get(OwnedSheet) then begin
                 Header.TestField("Resource No.", ResourceNoTok);

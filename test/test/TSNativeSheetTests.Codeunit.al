@@ -110,13 +110,11 @@ codeunit 95616 "TS Native Sheet Tests"
         SheetNo: Code[20];
     begin
         SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
-        Line.Init();
-        Line."Time Sheet No." := SheetNo;
-        Line."Line No." := 10000;
-        Line."Time Sheet Starting Date" := WorkDate();
+        CreateLine(SheetNo, 10000, 'Open');
+        Line.Get(SheetNo, 10000);
         Line.Type := Line.Type::Job;
         Line.Status := Line.Status::Open;
-        Line.Insert(false);
+        Line.Modify(false);
         Request.Add('timeSheetNo', SheetNo);
         Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Submit", Request);
         AssertRefusal(TempArgument, 'InvalidLine', 'lineNos', 'Fix the line and submit again.');
@@ -346,7 +344,7 @@ codeunit 95616 "TS Native Sheet Tests"
         Request.Add('tableId', Database::"Time Sheet Line");
         Request.Add('data', Records);
         // [WHEN] The real generic message implementation processes the protected field.
-        Execute(TempArgument, "Message Type ori"::"Data.Records.Set", Request);
+        DispatchGenericWrite(TempArgument, Request);
         // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
         Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
         Assert.AreEqual('Timesheets.TimeSheet.Submit', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
@@ -379,6 +377,29 @@ codeunit 95616 "TS Native Sheet Tests"
         AssertRefusal(TempArgument, 'InvalidLine', 'lineNos', 'Fix the line and submit again.');
         Line.Get(SheetNo, 10000);
         Assert.AreEqual(Line.Status::Open, Line.Status, 'Standard empty-line policy must be preserved.');
+    end;
+
+    local procedure DispatchGenericWrite(var TempArgument: Record "Message Argument ori" temporary; Request: JsonObject)
+    var
+        Dispatcher: Codeunit "Dispatcher ori";
+        RequestContent: BigText;
+        ResponseContent: BigText;
+        RequestText: Text;
+        ResponseText: Text;
+        ResponseContentType: Text[100];
+        Response: JsonObject;
+    begin
+        // Use the public entry point: it derives the licence context from the real company.
+        // Directly invoking the generic implementation omits that context and is not equivalent.
+        Request.WriteTo(RequestText);
+        RequestContent.AddText(RequestText);
+        Dispatcher.Execute("Message Type ori"::"Data.Records.Set", "Message Version ori"::"1.0", '', 'XSUBMIT60', 'application/json', RequestContent, ResponseContent, ResponseContentType);
+        ResponseContent.GetSubText(ResponseText, 1);
+        Response.ReadFrom(ResponseText);
+        TempArgument.Init();
+        TempArgument.ID := CreateGuid();
+        TempArgument.Insert();
+        TempArgument.SetResponseJson(Response);
     end;
 
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
@@ -428,6 +449,7 @@ codeunit 95616 "TS Native Sheet Tests"
     begin
         EnsureUserSetup();
         LibraryResource.CreateResourceNew(Resource);
+        Resource.Rename(CopyStr('X60' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Resource."No.")));
         if Resource.Type <> Resource.Type::Person then
             Resource.Validate(Type, Resource.Type::Person);
         if Resource."Base Unit of Measure" = '' then begin
@@ -463,7 +485,7 @@ codeunit 95616 "TS Native Sheet Tests"
         Header: Record "Time Sheet Header";
     begin
         Header.Init();
-        Header."No." := CopyStr('W17' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Header."No."));
+        Header."No." := CopyStr('X60' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Header."No."));
         Header."Resource No." := ResourceNo;
         Header."Starting Date" := StartingDate;
         Header."Ending Date" := StartingDate + 6;
