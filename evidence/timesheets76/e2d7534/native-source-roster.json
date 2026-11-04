@@ -1,0 +1,186 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "testCount": 113,
+  "codeunits": [
+    {
+      "file": "test/ClockifyConnectorTests.Codeunit.al",
+      "count": 66,
+      "tests": [
+        "HelpTypeIsOutboundWithNoFilterTable",
+        "EveryClockifyTypeHasMetadataAndHelp",
+        "CompanyApiKeyRoundtrips",
+        "DefaultApiVersionIsVersion1",
+        "WorkspaceListRoutesGetThroughClient",
+        "ErrorResponseIsSurfacedWithStatusCode",
+        "ProjectCreatePostsBodyToWorkspace",
+        "DefaultWorkspaceUsedWhenRequestOmitsIt",
+        "WorkspaceLookupRequiresApiKey",
+        "WorkspaceLookupReturnsSelection",
+        "RegisterCreatesWebhooksForEachTimeEntryEvent",
+        "RemoveDeletesRegisteredWebhooks",
+        "ReverseTimeEntryWithNoLinkIsSkipped",
+        "JobJournalResolvesFromSetup",
+        "TimeEntrySyncErrorsWhenNoJournalConfigured",
+        "TimeEntrySyncRejectsInProgressEntries",
+        "WorkTypeResolvesFromTagThenDefault",
+        "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+        "SyncSkipsUnchangedThenUpdatesOnChange",
+        "ReverseDeletesSyncedJournalLine",
+        "WebhookDispatchCreatesJobJournalLine",
+        "IntegrationTableStampsAndClearsReversedAt",
+        "RetentionRegistersIntegrationTable",
+        "HelpIncludesIntegrationTracking",
+        "CurrencyListProjectsWorkspaceCurrencies",
+        "UserGroupListRoutesGetToWorkspacesUserGroups",
+        "UserGroupListForwardsQueryString",
+        "TimeEntryListForwardsInProgressQueryParameter",
+        "CustomFieldListRoutesGetToWorkspacesCustomFields",
+        "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+        "UserGroupListHelpExplainsIdUsage",
+        "CustomFieldListHelpExplainsIdUsage",
+        "TimeEntryListHelpExplainsInProgressFilter",
+        "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+        "UserListHelpExplainsOptionalQueryEffects",
+        "ClientUpdateHelpExplainsOptionalBodyEffects",
+        "OverviewListsLookupEndpoints",
+        "OverviewGotchasCallOutIdOnlyWrites",
+        "IntegrationGateAllowsWriteAccess",
+        "SyncRangeIsInboundWithHelp",
+        "SyncRangeErrorsWhenNoJournalConfigured",
+        "SyncRangeCreatesLinesForEntriesInRange",
+        "SyncRangePerEntryErrorDoesNotAbortBatch",
+        "AllInboundTimeTypesAreInboundWithHelp",
+        "TimeSheetCreateReturnsCountWithNoResources",
+        "TimeSheetApproveReturnsZeroWhenNothingOpen",
+        "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+        "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+        "TimeSheetReopenReturnsZeroWhenNothingPending",
+        "TimeSheetPostErrorsWhenNoJournalConfigured",
+        "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+        "SyncToTimeSheetErrorsWhenNoMapping",
+        "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+        "SyncToTimeSheetCreatesDetailOnOpenSheet",
+        "SyncRangeToTimeSheetCreatesDetailsForEntries",
+        "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+        "SyncAllUsersSyncsMappedUserToTimeSheet",
+        "ReverseFromTimeSheetRemovesOpenDetail",
+        "WebhookSigningTokenIsRedactedFromTheResponseLog",
+        "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+        "BodiesWithoutASigningTokenPassThroughUnchanged",
+        "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+        "HelpClockifyGetUsesTableNameNotTable",
+        "InboundTimeTypesHaveNonEmptyRequestExamples",
+        "InboundHelpMarkdownShowsDirectionInbound",
+        "HelpTracksUppercaseClockifyTypeCodes"
+      ]
+    },
+    {
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al",
+      "count": 8,
+      "tests": [
+        "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+        "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+        "FieldRestrict_NeighbourFieldsNotRestricted",
+        "FieldRestrict_TableLevelChecksStayFalse",
+        "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+        "Scenario_AC07_NameAlias_Refused",
+        "Scenario_AC07_JsonAlias_Refused",
+        "Scenario_AC07_WorkType_SaveAndClear"
+      ]
+    },
+    {
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al",
+      "count": 8,
+      "tests": [
+        "ClockifyWrites_DeclareInbound",
+        "BusinessCentralSideTypes_StayInbound",
+        "ReadTypes_StayOutbound",
+        "SyncParameters_MatchOptionalUsageInCode",
+        "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+        "WrongWorkspace_DocumentedAs400Not404",
+        "CustomFieldList_Documents403ForFreePlan",
+        "Overview_DefinesDirectionByMutation"
+      ]
+    },
+    {
+      "file": "test/ClockifyRetenPolicyTests.Codeunit.al",
+      "count": 2,
+      "tests": [
+        "TC001_EnableDefaultPolicyInsertsEnabledRow",
+        "TC002_EnableDefaultPolicyReRunIsIdempotent"
+      ]
+    },
+    {
+      "file": "test/ClockifyUserPagingTests.Codeunit.al",
+      "count": 11,
+      "tests": [
+        "DefaultPageProcessesOneHundredUsers",
+        "ZeroTakeUsesDefaultPageSize",
+        "NegativeSkipFailsBeforeFetching",
+        "NegativeTakeFailsBeforeFetching",
+        "OversizedTakeIsClamped",
+        "NextSkipContinuesWithoutRepeatingUsers",
+        "FailedUserDoesNotStopThePage",
+        "SkipAtAndBeyondEndDoesNotFetch",
+        "EmptyMappingSetReturnsCompletedPage",
+        "HelpDescribesParametersResponseAndCallerLoop",
+        "ClockifyListsKeepTheirOwnPaging"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch1Tests.Codeunit.al",
+      "count": 1,
+      "tests": [
+        "Batch1TypesDeclareContractAndDiscovery"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch2Tests.Codeunit.al",
+      "count": 1,
+      "tests": [
+        "Batch2TypesDeclareContractAndDiscovery"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch3Tests.Codeunit.al",
+      "count": 1,
+      "tests": [
+        "Batch3TypesDeclareContractAndDiscovery"
+      ]
+    },
+    {
+      "file": "test/MessageContractEffectTests.Codeunit.al",
+      "count": 4,
+      "tests": [
+        "ClockifyApiWrites_DeclareIrreversible",
+        "ClockifyDeletesAndPost_DeclareIrreversible",
+        "BusinessCentralOnlyWrites_StayWrite",
+        "Reads_StayRead"
+      ]
+    },
+    {
+      "file": "test/PhoneRoleCenterTests.Codeunit.al",
+      "count": 10,
+      "tests": [
+        "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+        "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+        "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+        "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+        "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+        "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+        "PopulateCurrentCustomers_UsesMyCustomers",
+        "ResolveLastWorkday_Monday_ReturnsFriday",
+        "AddServiceItemLine_ReusesOpenInvoice",
+        "AddServiceItemLine_InvalidItem_Errors"
+      ]
+    },
+    {
+      "file": "test/TimesheetsRegistrationTests.Codeunit.al",
+      "count": 1,
+      "tests": [
+        "AppRegistersItselfWithFoundation"
+      ]
+    }
+  ],
+  "parserCorrection": "Allow HandlerFunctions attributes/comments between [Test] and procedure. Prior immediate-adjacency pattern missed3 tests; not a new test execution."
+}

@@ -1,0 +1,108 @@
+{
+  "sourceSha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "createdAt": "2026-11-04T05:30:40.927376+00:00",
+  "files": {
+    "candidate.json": {
+      "bytes": 275,
+      "sha256": "cd0e468d6eb27552d71fa60405ba9e3f9954a1a24a3206a2b17540afec4bf9af"
+    },
+    "source-audit.json": {
+      "bytes": 1124,
+      "sha256": "39624c57cd4c3a1795615f72d26ed4a3d0bad23c9ae15553961336f8be4db895"
+    },
+    "artifact-provenance.json": {
+      "bytes": 2211,
+      "sha256": "5f8ef2aeb7b506cd69995bfd6901dcc4ec85f791d393805d5b85c4cc551eafe1"
+    },
+    "github-candidate.json": {
+      "bytes": 469,
+      "sha256": "5291ea048f441981c4991ceb634e5b1c8f27b98b37e6dd005881a662eb9c1e33"
+    },
+    "full-suite-summary.json": {
+      "bytes": 342,
+      "sha256": "ba01c60018d80e75d0bd5c15375b69d936965b6358e337552b4f90818cb8419e"
+    },
+    "full-suite.json": {
+      "bytes": 9379,
+      "sha256": "57e746b28a528c3705ab7d8e596b5e4515f60af0bc009b07fa139e2b3e12abcc"
+    },
+    "native-source-roster.json": {
+      "bytes": 7173,
+      "sha256": "8f6e81fbc9caf778348d08530a1fbe60b6564a88d66696f3b20d1c8bc8ffa1a9"
+    },
+    "mcp-summary.json": {
+      "bytes": 1488,
+      "sha256": "103be0d2161375fc579e70c0ea09c827c66a0e21b3cef778567efc09424766f2"
+    },
+    "mcp-paging-summary.json": {
+      "bytes": 5796,
+      "sha256": "433d46c4c93c52576b1cc28b9471d34cd0bdba3d348f0871256d36703d462152"
+    },
+    "mcp-fields-summary.json": {
+      "bytes": 1346,
+      "sha256": "b2289c5573e9d7cc59d6964e960c9286a7df1a6cf0a8c379de7408f94986b45c"
+    },
+    "ui-summary.json": {
+      "bytes": 2703,
+      "sha256": "e9719c899f67cbc4ca7330eb094668832abda0c6d212eac91276e9b6fb6650b7"
+    },
+    "ui-url-saved-1033.png": {
+      "bytes": 68931,
+      "sha256": "b6fbd483d5538301ba8f9f94cec9490a10909910874aaa88f609fbde79d8d0d3"
+    },
+    "ui-url-saved-1039.png": {
+      "bytes": 66877,
+      "sha256": "e4a2258070d8993da6518ea3114c368c8b5df376ea0e266cfae9ddde73547b84"
+    },
+    "ui-fixtures-created-1033.png": {
+      "bytes": 39086,
+      "sha256": "5e538d35b252b08125b23f8fb5e41a0d647fba8abc1d0f2ae72c15dd468d2291"
+    },
+    "cleanup-summary.json": {
+      "bytes": 803,
+      "sha256": "e29e67607eba3a22ee8bf22f39bdbc33e9a536cd9de9aae2586bd86145b476f1"
+    },
+    "local-context-restored.json": {
+      "bytes": 164,
+      "sha256": "25c9dedf99cd6db55f8483902fe39ee5c1db26ee7d057074e41a205186cd5e68"
+    },
+    "acceptance-matrix.json": {
+      "bytes": 1548,
+      "sha256": "a03fea9f7b614abef1c92be3d4fd49faea8bd8209f642542ee0dace26e66c44a"
+    },
+    "gateway-assessment.json": {
+      "bytes": 2112,
+      "sha256": "9311752e3e687ff6e162ec8615357bd8e8ac933890b5004c695eb68c89b386e6"
+    },
+    "ci-assessment.json": {
+      "bytes": 2571,
+      "sha256": "358fbdedac9df9fb959000a70d867656551c8ab99ec550ebdd6401cabc1bcd48"
+    },
+    "attempts.json": {
+      "bytes": 1509,
+      "sha256": "67949c52b8251b5508475d9c672aaa7bf59677f4f5a3bd0acc15313383c63027"
+    },
+    "default-app-compile.log": {
+      "bytes": 240,
+      "sha256": "3ff17db2276720a923b1ea4bd2faa9a02356da3959fccd0ac27ea53db93ed6a3"
+    },
+    "test-product-compile.log": {
+      "bytes": 240,
+      "sha256": "0590e79c4c3bd40ee9c3c794e21dad2e4716d6298d27d81e08c9cdec785b2aec"
+    },
+    "test-app-compile.log": {
+      "bytes": 248,
+      "sha256": "d0ea5679fc975aa8d453d4d9e2bf6cf4d5485ee8b60d3742b039a03a263240c3"
+    },
+    "test-extra-appsourcecop-assessment.json": {
+      "bytes": 711,
+      "sha256": "741d78021403c9c90e2dafc5af043f9ab6d363c495d1630e9eea6d353c1722c2"
+    },
+    "test-extra-appsourcecop-compile.json": {
+      "bytes": 1491,
+      "sha256": "1c1ab48058cf0882cbef7cfbc9b84e23fa192dedde21b043009f4364eeabb70e"
+    }
+  },
+  "containsAppPackages": false,
+  "containsCredentials": false
+}

@@ -1,0 +1,24 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "phase": "test-app",
+  "errors": 3,
+  "warnings": 1,
+  "compileCompleted": false,
+  "exitCode": 1,
+  "compiler": "18.1.43.24897",
+  "analyzers": [
+    "CodeCop",
+    "UICop",
+    "AppSourceCop"
+  ],
+  "sourceManifestStable": true,
+  "dirty": false,
+  "internalsVisibleToRemoved": false,
+  "version": "28.0.0.0",
+  "diagnostics": [
+    "evidence/timesheets76-guard-worker2/compile-test-app/app.json(75,3): warning AS0092: The app.json file must specify an Azure Application Insights resource with the property 'applicationInsightsConnectionString' for monitoring operations related to this extension. See https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/telemetry-overview for additional information.",
+    "evidence/timesheets76-guard-worker2/compile-test-app/app.json(68,3): error AS0084: The ID range '[95600..95699]' is not valid. It must be within the range allocated to the partner for AppSource, within the range '[1000000..75999999]' allocated to AppSource applications, and outside the range '[50000..99999]' allocated to per-tenant customizations.",
+    "evidence/timesheets76-guard-worker2/compile-test-app/app.json(1,1): error AS0015: The \"TranslationFile\" flag must be added to the \"features\" array in the app.json file.",
+    "error AS0054: The AppSourceCop configuration must specify one of the following properties: 'mandatorySuffix', 'mandatoryPrefix', or 'mandatoryAffixes'"
+  ]
+}

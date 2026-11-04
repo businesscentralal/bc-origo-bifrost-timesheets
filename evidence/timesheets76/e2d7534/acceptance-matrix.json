@@ -1,0 +1,45 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "scope": "Explicit PR76 bad-merge repair; issue41 delivery ownership retained with worker5",
+  "rows": [
+    {
+      "acceptance": "Fault is established by full PR diff and parent/tree comparison",
+      "status": "VERIFIED",
+      "evidence": "source-audit.json"
+    },
+    {
+      "acceptance": "No force-push/rebase; revert bad merge and redo preserving main",
+      "status": "VERIFIED",
+      "evidence": "source-audit.json"
+    },
+    {
+      "acceptance": "No regressions/removal of merged75 content; main blobs retained",
+      "status": "VERIFIED",
+      "evidence": "source-audit.json"
+    },
+    {
+      "acceptance": "Caption expectation fix and exact refusal/no-write assertions retained",
+      "status": "VERIFIED_SOURCE",
+      "evidence": "Main already contains exact fix; all test bytes equal main"
+    },
+    {
+      "acceptance": "Product and configured test build0errors0warnings",
+      "status": "VERIFIED",
+      "evidence": "artifact-provenance.json"
+    },
+    {
+      "acceptance": "Full native suite, MCP and LCID1033/1039 UI at exact published candidate",
+      "status": "VERIFIED",
+      "evidence": "full-suite-summary.json; mcp-summary.json; ui-summary.json"
+    },
+    {
+      "acceptance": "Owned resource/fixture cleanup",
+      "status": "VERIFIED",
+      "evidence": "cleanup-summary.json"
+    },
+    {
+      "acceptance": "Independent Claude receipt, Grok clearance, approval, Architect merge/deploy/UAT",
+      "status": "PENDING_EXTERNAL"
+    }
+  ]
+}

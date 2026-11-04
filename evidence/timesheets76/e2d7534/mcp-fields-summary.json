@@ -1,0 +1,47 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "company": "CRONUS SINDRI23 Verification",
+  "createsOwnData": true,
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [
+    {
+      "id": "json-1033",
+      "lcid": 1033,
+      "alias": "WebhookReceiverURL",
+      "passed": true,
+      "expectedCode": "PermissionDenied",
+      "originalFieldsPreserved": true
+    },
+    {
+      "id": "caption-1033",
+      "lcid": 1033,
+      "alias": "Webhook Receiver URL",
+      "passed": true,
+      "expectedCode": "PermissionDenied",
+      "originalFieldsPreserved": true
+    },
+    {
+      "id": "json-1039",
+      "lcid": 1039,
+      "alias": "WebhookReceiverURL",
+      "passed": true,
+      "expectedCode": "PermissionDenied",
+      "originalFieldsPreserved": true
+    },
+    {
+      "id": "caption-1039",
+      "lcid": 1039,
+      "alias": "Webhook Receiver URL",
+      "passed": true,
+      "expectedCode": "PermissionDenied",
+      "originalFieldsPreserved": true
+    }
+  ],
+  "setup": "Own UI-created synthetic receiver URL and1002 XSINDRI23 mapping fixtures. Refused writes send XREJECT neighbor to prove no partial write. No force/guard bypass, consent/trial/licence/backend writes or customer/shared fixtures.",
+  "verified": true,
+  "finishedAt": "2026-11-04T05:25:49.918Z"
+}

@@ -1,0 +1,55 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792",
+  "status": "completed",
+  "conclusion": "success",
+  "executedALTests": 0,
+  "jobs": [
+    {
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Initialization",
+      "conclusion": "success",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402331093"
+    },
+    {
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Settings Files Check / COSMO Alpaca Settings Files Check",
+      "conclusion": "success",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402331388"
+    },
+    {
+      "name": "Initialization",
+      "conclusion": "success",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402331503"
+    },
+    {
+      "name": "PregateCheck",
+      "conclusion": "skipped",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402332422"
+    },
+    {
+      "name": "Pull Request Status Check",
+      "conclusion": "success",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402628704"
+    },
+    {
+      "name": "Create COSMO Alpaca Containers",
+      "conclusion": "skipped",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402628773"
+    },
+    {
+      "name": "Build ${{ matrix.projectName }} (Default then Test)",
+      "conclusion": "skipped",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402628975"
+    },
+    {
+      "name": "Code Analysis Processing",
+      "conclusion": "skipped",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402629648"
+    },
+    {
+      "name": "Remove COSMO Alpaca Containers",
+      "conclusion": "skipped",
+      "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41777693792/job/126402630104"
+    }
+  ],
+  "disposition": "Success workflow intentionally skipped paired build/test jobs for final docs-only net diff. No CI compile or CI test pass claimed. Own exact-source compile00, native113/113, MCP22/22 and UI2/2 are separate evidence. Architect owns required pipeline/handoff disposition; do not change CI or manufacture green."
+}

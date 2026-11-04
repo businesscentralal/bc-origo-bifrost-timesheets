@@ -1,0 +1,13 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "sourceWrites": [
+    "Single normal source publication e2d753454a42ab7af49c1d7aab548fab5e26f455 including revert9fc8ce84 and corrective merge; no force/rebase"
+  ],
+  "compile": "Configured product and test00. Extra optional AppSourceCop on test PTE gave3errors1warning; retained separately, no source/suppression/exclusion changed. Configured test compile repeated to restore correct configured artifact/log after optional attempt.",
+  "deployment": "Product attempt1busy422 after concurrent setup; read installed apps (product absent) before one serialized successful retry. Product/test publish both200.",
+  "MCP": "Three private harness assertion errors: flat paging envelope, error response has no company label,1039localized error. Saved raw successful/refusal replies re-evaluated offline; no successful type invocation replay. Final22scenarios passed; additional help/readback/cleanup calls retained separately.",
+  "UI": "Fixture creation once; counter format1002not1,002. English save/reload once; readonlyfield button validation repaired without rewrite. Icelandic language virtualized picker filtered before selection. Final2save/reopen scenarios pass.",
+  "cleanup": "Receiver URL/defaultworktype/API Version restored and mappings0; ownedDELETE204 GET404 and listabsence. Previous local connection restored and ownbrowserprofile deleted.",
+  "productFailureEstablished": false,
+  "optionalAppSourcePackagingTestFailureEstablished": true
+}

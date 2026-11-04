@@ -1,0 +1,46 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "targetBranch": "main",
+  "targetSha": "cd24ef323e7fa043e6a833dbdb7df59407416920",
+  "projectInstructions": "AGENTS.md and .claude/CLAUDE.md read; no pipeline changes",
+  "actualDiffFiles": [
+    "CHANGELOG.md"
+  ],
+  "allProductTestsAndXlfByteIdenticalMain": true,
+  "layer1": {
+    "filesScanned": 93,
+    "summary": {
+      "passed": 15,
+      "ready": false,
+      "total": 23,
+      "failed": 8
+    },
+    "failedChecks": [
+      "caption_translation",
+      "today_vs_workdate",
+      "global_variables",
+      "try_prefix_convention",
+      "format_guid",
+      "xml_doc_comments",
+      "one_statement_per_line",
+      "read_isolation"
+    ],
+    "disposition": "Script falls back to all93AL files when no changed AL files. Findings all from identical main source, disclosed; no clean gateway claim and no new suppressions. Linux null USERPROFILE failure repaired by setting USERPROFILE only for this script process; original failed invocation retained."
+  },
+  "layer2": {
+    "publicApiPermissionsVersionDependencies": "Byte-identical main",
+    "tests": "Existing main fixes caption and includes110 tests including restored95604 paging coverage; no new AL behavior/source in final diff",
+    "xlf": "Byte-identical main, no translation changes authored",
+    "changelog": "One existing caption bullet, adds issue41; duplicate removed",
+    "logic": "Verified all incoming main file blobs preserved. Both bad merge and revert retained in history; no rebase/force",
+    "runtime": "Current-tip compile complete; fullsuite/MCP/UI pending ownCOSMO",
+    "optionalTestAppSourceCop": "Extra AppSource packaging check incompatible with current per-tenant test app configuration:3errors1warning, recorded separately; configured test analyzers pass00. No baseline exception manufactured."
+  },
+  "noSuppressionsAdded": true,
+  "fullReadiness": false,
+  "appliedLessons": [
+    "attachments109-review5502927674-changelog-paths-history",
+    "treasury134-d92a94-worker2-merge-guard-false-positive",
+    "timesheets76-9c358454-main-tree-loss-worker2"
+  ]
+}

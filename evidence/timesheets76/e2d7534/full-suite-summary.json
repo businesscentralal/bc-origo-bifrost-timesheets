@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "passed": 113,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "durationMs": 119297,
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "executed": 113,
+  "fullSuite": true,
+  "sourceRoster": 113,
+  "extensionId": "553214e3-b742-4ccf-8ecc-1ee86fbc96f9",
+  "evidence": "full-suite.json"
+}

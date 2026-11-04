@@ -1,0 +1,41 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "tool": "Playwright MCP browser_run_code_unsafe",
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "verified": true,
+  "lcids": [
+    1033,
+    1039
+  ],
+  "scenarios": [
+    {
+      "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+      "containerId": "f046aa5f5597",
+      "lcid": 1033,
+      "value": "https://xtimesheets76.invalid/1033",
+      "passed": true,
+      "scenario": "Direct URL edit completed in prior action; after reload assert exact persisted value on readonly button and capture screenshot. No write replay.",
+      "url": "https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f046aa5f5597/?company=CRONUS%20SINDRI23%20Verification&tenant=default&bookmark=B_dSaZAAJ7&page=10036853&dc=0"
+    },
+    {
+      "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+      "containerId": "f046aa5f5597",
+      "lcid": 1039,
+      "before": "https://xtimesheets76.invalid/1033",
+      "value": "https://xtimesheets76.invalid/1039",
+      "passed": true,
+      "scenario": "Direct URL edit on genuine Icelandic setup page, blur/save, reload and assert exact persisted readonly value",
+      "text": "\ue76b\n\ue72b\n\ue70f\n\ue72d\n\ue710\n\ue74d\n\uedff\n\ue8a7\n\ue740\nUppsetning Bifr\u00f6st t\u00edmask\u00fdrslna\nSkr\u00e1 API lykil fyrirt\u00e6kis\nSkr\u00e1 vefkr\u00f3ka\nClockify tengingar\nUppsetningarlei\u00f0s\u00f6gn\nFleiri valkostir\nAlmennt\nClockify API \u00fatg\u00e1fa\nMock\nKenni sj\u00e1lfgefins vinnusv\u00e6\u00f0is\nSj\u00e1lfgefi\u00f0 vinnusv\u00e6\u00f0i\nAPI lykill fyrirt\u00e6kis geymdur\nVerkb\u00f3k\nVerkb\u00f3karl\u00fdsing\nVerkb\u00f3karflokkur\nSj\u00e1lfgefin vinnutegund\nVefkr\u00f3kar\nM\u00f3tt\u00f6kusl\u00f3\u00f0 vefkr\u00f3ka\nhttps://xtimesheets76.invalid/1039\nVefkr\u00f3kar skr\u00e1\u00f0ir\n\ue76c\nNota\u00f0u h\u00e6gri og vinstri \u00f6rvalyklana til a\u00f0 stilla st\u00e6r\u00f0ina. Nota\u00f0u Escape-lykilinn til a\u00f0 afturkalla e\u00f0a Enter-lykilinn til a\u00f0 sta\u00f0festa."
+    }
+  ],
+  "harnessAttempts": {
+    "fixtureCounter": "Creation succeeded once; first assertion expected1,002 while actual name1002. Reinspected and verified without reseeding.",
+    "EnglishReadback": "Write/reload succeeded once; first readback waited for editable textbox on readonly page. Reinspected and asserted exact readonly button without replaying write.",
+    "LanguagePicker": "Initial unfiltered virtualized list did not render Icelandic; used built-in search then genuine MySettings language selection."
+  },
+  "fixtureSetup": "Own company and synthetic receiverURLs, no secrets/provider calls/financial data"
+}

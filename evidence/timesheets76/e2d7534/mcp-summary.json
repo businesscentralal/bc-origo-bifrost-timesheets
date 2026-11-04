@@ -1,0 +1,33 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "verified": true,
+  "createsOwnData": true,
+  "touchedMessageTypes": [
+    "Clockify.TimeEntry.SyncAllUsers",
+    "Data.Records.Set"
+  ],
+  "relatedReadTypes": [
+    "Help.Implementation.Get",
+    "Data.Records.Get"
+  ],
+  "executed": 22,
+  "passed": 22,
+  "failed": 0,
+  "skipped": 0,
+  "summary": "18paging/help scenarios +4protected-alias/refusal/no-partial-write scenarios in1033/1039; per-scenario evidence retained. Final PR main diff docs-only; these regression checks cover code restored relative to faulty tip.",
+  "dataSetup": "Own new CRONUS SINDRI23 Verification company; restored test page95619 creates1002 XSINDRI23 mappings and selects network-free Mock client. No Clockify provider or financial rows. Own UI-created synthetic receiver URL and1002 XSINDRI23 mapping fixtures. Refused writes send XREJECT neighbor to prove no partial write. No force/guard bypass, consent/trial/licence/backend writes or customer/shared fixtures.",
+  "attempts": "Three private paging-harness assertion errors repaired and saved replies re-evaluated without successful invocation replay; all raw attempts retained.",
+  "cleanup": {
+    "verified": true,
+    "evidence": "cleanup-summary.json",
+    "containerGetStatus": 404,
+    "absentFromList": true,
+    "fixturesRestored": {
+      "receiverUrl": "",
+      "defaultWorkType": "",
+      "apiVersion": "Version 1",
+      "mappingCount": 0
+    }
+  }
+}

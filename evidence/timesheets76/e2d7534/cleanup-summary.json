@@ -1,0 +1,20 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "owner": "worker-2",
+  "displayName": "brokkr-worker2-timesheets76-20261104-w1",
+  "startedAt": "2026-11-04T05:29:32.107Z",
+  "beforePresent": true,
+  "fixturesRestored": {
+    "receiverUrl": "",
+    "defaultWorkType": "",
+    "apiVersion": "Version 1",
+    "mappingCount": 0
+  },
+  "fixtureCleanup": "Own company mappings removed via existing fixture cleanup action; synthetic URL restored throughUI and independently read back; delete complete individually owned environment removes remaining native test/task/response data. No foreign/customer/shared resource touched.",
+  "deleteStatus": 204,
+  "getStatus": 404,
+  "absentFromList": true,
+  "verifiedAbsent": true,
+  "finishedAt": "2026-11-04T05:29:33.500Z"
+}

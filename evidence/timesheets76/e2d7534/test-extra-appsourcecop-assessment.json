@@ -1,0 +1,18 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "optionalAdditionalAnalyzerAttempt": true,
+  "configuredTestAnalyzers": [
+    "CodeCop",
+    "UICop"
+  ],
+  "extraAnalyzer": "AppSourceCop",
+  "errors": 3,
+  "warnings": 1,
+  "diagnostics": [
+    "AS0084 test PTE range95600..95699",
+    "AS0015 no TranslationFile for test app",
+    "AS0054 no AppSourceCop test prefix config",
+    "AS0092 blank test telemetry"
+  ],
+  "disposition": "No test/source/suppression changes. Test app is existing per-tenant test extension; normal configured test analyzer result remains CodeCop/UICop. Disclose additional incompatible AppSource-packaging check to Architect/Claude, do not claim this optional check passed."
+}

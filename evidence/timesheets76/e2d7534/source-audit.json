@@ -1,0 +1,30 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "revertSha": "9fc8ce84ba85b3be117a4d93c73f93836708fa7f",
+  "mainSha": "cd24ef323e7fa043e6a833dbdb7df59407416920",
+  "tree": "72091028c0be57edfb3daebcce2cc4f7cb52a9c6",
+  "branch": "codex/andvari/timesheets41-caption",
+  "faultySha": "9c358454a69d4277384747432cdc7895413aecd7",
+  "previousHead": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "parents": [
+    "9fc8ce84ba85b3be117a4d93c73f93836708fa7f",
+    "cd24ef323e7fa043e6a833dbdb7df59407416920"
+  ],
+  "badParents": [
+    "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+    "cd24ef323e7fa043e6a833dbdb7df59407416920"
+  ],
+  "firstParentRange": [
+    "e2d753454a42ab7af49c1d7aab548fab5e26f455 Merge main correctly after reverting malformed CHANGELOG merge",
+    "9fc8ce84ba85b3be117a4d93c73f93836708fa7f Revert \"Merge main into timesheets caption fix\""
+  ],
+  "mainDiffFiles": [
+    "CHANGELOG.md"
+  ],
+  "allNonChangelogFilesExactlyEqualMain": true,
+  "mainCaptionFixAlreadyPresent": true,
+  "mainHistoryPreserved": true,
+  "forcePushUsed": false,
+  "rebaseUsed": false,
+  "at": "2026-11-04T05:09:53.793575+00:00"
+}

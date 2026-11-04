@@ -1,0 +1,224 @@
+{
+  "sha": "e2d753454a42ab7af49c1d7aab548fab5e26f455",
+  "containerId": "f046aa5f5597",
+  "company": "CRONUS SINDRI23 Verification",
+  "createsOwnData": true,
+  "setup": "Own new CRONUS SINDRI23 Verification company; restored test page95619 creates1002 XSINDRI23 mappings and selects network-free Mock client. No Clockify provider or financial rows.",
+  "executed": 18,
+  "passed": 18,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [
+    {
+      "id": "help-1033",
+      "lcid": 1033,
+      "type": "Help.Implementation.Get",
+      "passed": true
+    },
+    {
+      "id": "default-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        100,
+        true
+      ],
+      "evidence": "mcp-default-1033.json"
+    },
+    {
+      "id": "continuation-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        200,
+        true
+      ],
+      "evidence": "mcp-continuation-1033.json"
+    },
+    {
+      "id": "last-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        2,
+        1002,
+        1002,
+        false
+      ],
+      "evidence": "mcp-last-1033.json"
+    },
+    {
+      "id": "clamp-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        1000,
+        1002,
+        1000,
+        true
+      ],
+      "evidence": "mcp-clamp-1033.json"
+    },
+    {
+      "id": "zero-default-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        100,
+        true
+      ],
+      "evidence": "mcp-zero-default-1033.json"
+    },
+    {
+      "id": "negative-skip-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedError": "skip must be zero or greater.",
+      "evidence": "mcp-negative-skip-1033.json"
+    },
+    {
+      "id": "negative-take-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedError": "take must be zero or greater.",
+      "evidence": "mcp-negative-take-1033.json"
+    },
+    {
+      "id": "beyond-end-1033",
+      "lcid": 1033,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        0,
+        1002,
+        2147483647,
+        false
+      ],
+      "evidence": "mcp-beyond-end-1033.json"
+    },
+    {
+      "id": "help-1039",
+      "lcid": 1039,
+      "type": "Help.Implementation.Get",
+      "passed": true
+    },
+    {
+      "id": "default-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        100,
+        true
+      ],
+      "evidence": "mcp-default-1039.json"
+    },
+    {
+      "id": "continuation-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        200,
+        true
+      ],
+      "evidence": "mcp-continuation-1039.json"
+    },
+    {
+      "id": "last-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        2,
+        1002,
+        1002,
+        false
+      ],
+      "evidence": "mcp-last-1039.json"
+    },
+    {
+      "id": "clamp-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        1000,
+        1002,
+        1000,
+        true
+      ],
+      "evidence": "mcp-clamp-1039.json"
+    },
+    {
+      "id": "zero-default-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        100,
+        1002,
+        100,
+        true
+      ],
+      "evidence": "mcp-zero-default-1039.json"
+    },
+    {
+      "id": "negative-skip-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedError": "skip must be zero or greater.",
+      "evidence": "mcp-negative-skip-1039.json"
+    },
+    {
+      "id": "negative-take-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedError": "take must be zero or greater.",
+      "evidence": "mcp-negative-take-1039.json"
+    },
+    {
+      "id": "beyond-end-1039",
+      "lcid": 1039,
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "passed": true,
+      "expectedPage": [
+        0,
+        1002,
+        2147483647,
+        false
+      ],
+      "evidence": "mcp-beyond-end-1039.json"
+    }
+  ],
+  "startedAt": "2026-11-04T05:20:43.913Z",
+  "harnessRecovery": {
+    "priorAssertionFailures": 3,
+    "evidence": "mcp-paging-harness-attempt1.json",
+    "reason": "MCP returns successful SyncAllUsers fields at envelope root, not status/result wrapper. Saved response already proves100users/1002total/next100/hasMore. Re-evaluate retained result; do not repeat successful invocation.",
+    "priorProductFailureEstablished": false,
+    "additionalReason": "Expected invalid-parameter MCP tool errors do not include company label. Verify exact structured error against retained request companyId; reuse saved negative response without invoking again.",
+    "localizedErrorReason": "English literal expected in1039 private harness. Correct structured InvalidParameter/parameter/received=-1 retained, actual error localized. Check exact English in1033 and structured localized refusal in1039; reuse saved response."
+  },
+  "verified": true,
+  "finishedAt": "2026-11-04T05:23:01.091Z"
+}
