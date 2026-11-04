@@ -2,13 +2,60 @@ namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
+using Origo.Bifrost;
 
 /// <summary>Seeds isolated native records for issue 62 tests and owned MCP verification.</summary>
-codeunit 95631 "TS Pending Fixture ori"
+codeunit 95631 "TS Pending Fixture ori" implements "Msg Interface ori"
 {
     trigger OnRun()
     begin
         Seed();
+    end;
+
+    /// <summary>Fixture messages run only in a CRONUS verification company with native write rights.</summary>
+    procedure IsEnabled(): Boolean
+    var
+        Header: Record "Time Sheet Header";
+        Line: Record "Time Sheet Line";
+        Detail: Record "Time Sheet Detail";
+        Resource: Record Resource;
+    begin
+        exit(CompanyName().ToUpper().StartsWith('CRONUS') and Header.WritePermission() and Line.WritePermission() and Detail.WritePermission() and Resource.WritePermission());
+    end;
+
+    /// <summary>No generic filter envelope is used.</summary>
+    procedure GetFilterTableNo(): Integer
+    begin
+        exit(0);
+    end;
+
+    /// <summary>Identifies this test-extension-only fixture operation.</summary>
+    procedure GetDescription(): Text[250]
+    begin
+        exit('Test extension only: creates the isolated issue 62 fixture in a CRONUS verification company.');
+    end;
+
+    /// <summary>Declares that fixture creation writes test data.</summary>
+    procedure GetMessageDirection(): Enum "Msg Direction ori"
+    begin
+        exit("Msg Direction ori"::Inbound);
+    end;
+
+    /// <summary>Creates the fixture once through the authenticated dispatcher; never changes consent or licensing.</summary>
+    procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
+    var
+        Response: JsonObject;
+    begin
+        Argument.AssertVersion1();
+        if not IsEnabled() then
+            Error('This test fixture requires a CRONUS verification company and native write permissions.');
+        Seed();
+        Response.Add('status', 'Success');
+        Response.Add('resources', 2);
+        Response.Add('headers', 2);
+        Response.Add('lines', 4);
+        Response.Add('details', 8);
+        Argument.SetResponseJson(Response);
     end;
 
     /// <summary>Creates an isolated manager, foreign-manager and mixed-status dataset, refusing collisions.</summary>
