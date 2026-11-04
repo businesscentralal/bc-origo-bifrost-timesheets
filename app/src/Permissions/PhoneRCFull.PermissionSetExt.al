@@ -21,6 +21,7 @@ permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full or
         codeunit "TS Create Contract ori" = X,
         codeunit "TS Create Writer ori" = X,
         codeunit "TS Create Restrict ori" = X,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Phone Cust Buffer ori" = RIMD,
         codeunit "Phone Cust Buffer Mgt ori" = X,
         codeunit "Phone Sales Quick Add ori" = X,

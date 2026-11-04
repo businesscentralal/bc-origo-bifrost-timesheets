@@ -19,6 +19,7 @@ permissionsetextension 10036867 "Phone RC Read Ext ori" extends "BIFROST Read or
         codeunit "TS Sheet Create Impl ori" = X,
         codeunit "TS Create Contract ori" = X,
         codeunit "TS Create Restrict ori" = X,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Phone Cust Buffer ori" = R,
         codeunit "Phone Cust Buffer Mgt ori" = X,
         page "Phone Role Center ori" = X,

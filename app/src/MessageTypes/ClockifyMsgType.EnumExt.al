@@ -257,6 +257,12 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
     }
+    /// <summary>Lists submitted lines waiting for the authenticated manager.</summary>
+    value(10036874; "Timesheets.PendingApproval.Get")
+    {
+        Caption = 'Timesheets.PendingApproval.Get', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Pending Approval ori", "Msg Contract ori" = "TS Pending Approval ori", "Msg Discovery ori" = "TS Pending Approval ori";
+    }
     /// <summary>Submits open time sheet lines for approval.</summary>
     /// <summary>Creates time sheets for chosen resources and weeks.</summary>
     /// <summary>Lists submitted time sheet lines waiting for the caller.</summary>

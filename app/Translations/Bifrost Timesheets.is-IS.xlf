@@ -628,9 +628,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - NamedType ListFailedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1156826079 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.</source>
-          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</note>
+          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass '%1' and '%2' in the request.</source>
+          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu '%1' og '%2' í beiðninni.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = journalTemplate, %2 = journalBatch. is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu '%1' og '%2' í beiðninni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - NamedType MissingJournalErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1156826079 - NamedType 2129296526" size-unit="char" translate="yes" xml:space="preserve">
@@ -658,15 +658,15 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType HoursCalcErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3065451015 - NamedType 1834329580" size-unit="char" translate="yes" xml:space="preserve">
-          <source>In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty 'end' value (timer stopped).</source>
-          <target>Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</note>
+          <source>In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty '%1' value (timer stopped).</source>
+          <target>Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu '%1' gildi (teljari stöðvaður).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = end. is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu '%1' gildi (teljari stöðvaður).</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType InProgressSyncErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3065451015 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.</source>
-          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</note>
+          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass '%1' and '%2' in the request.</source>
+          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu '%1' og '%2' í beiðninni.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = journalTemplate, %2 = journalBatch. is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu '%1' og '%2' í beiðninni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType MissingJournalErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3065451015 - NamedType 2932411483" size-unit="char" translate="yes" xml:space="preserve">
@@ -1826,6 +1826,126 @@
           <target>Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Restrict ori - NamedType StatusHintTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 650235816" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use resourceNo and resourceId belonging to the same resource.</source>
+          <target>Notaðu resourceNo og resourceId sem tilheyra sama forða.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu resourceNo og resourceId sem tilheyra sama forða.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType ConflictLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 1542941690" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use from &lt;= to.</source>
+          <target>Notaðu from &lt;= to.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu from &lt;= to.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType DateLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 2588563411" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use the parameter type, length and range listed in the help.</source>
+          <target>Notaðu gagnategund, lengd og bil viðfangs sem tilgreind eru í hjálpinni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu gagnategund, lengd og bil viðfangs sem tilgreind eru í hjálpinni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType FormatLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 1128910002" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supply both from and to when filtering by date.</source>
+          <target>Sendu bæði from og to þegar síað er eftir dagsetningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu bæði from og to þegar síað er eftir dagsetningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType MissingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 2009142491" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ask for the Timesheets permission set.</source>
+          <target>Biddu um heimildasafn tímaskýrslna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Biddu um heimildasafn tímaskýrslna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType PermissionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 672541161" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use an existing resource number or SystemId.</source>
+          <target>Notaðu fyrirliggjandi forðanúmer eða SystemId.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu fyrirliggjandi forðanúmer eða SystemId.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType RecordLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 953218120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The pending approval request cannot be processed.</source>
+          <target>Ekki er hægt að vinna beiðni um línur sem bíða samþykkis.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekki er hægt að vinna beiðni um línur sem bíða samþykkis.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType RefusedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - NamedType 1773691126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown parameter.</source>
+          <target>Fjarlægðu óþekkta viðfangið.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta viðfangið.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - NamedType UnknownLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lists submitted time sheet lines waiting for the calling manager, with daily hours and totals.</source>
+          <target>Sýnir innsendar tímaskýrslulínur sem bíða samþykkis stjórnandans sem kallar, með daglegum stundum og samtölum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sýnir innsendar tímaskýrslulínur sem bíða samþykkis stjórnandans sem kallar, með daglegum stundum og samtölum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, pending approval, manager, submitted, hours</source>
+          <target>tímaskýrsla, bíður samþykkis, stjórnandi, innsendar, stundir</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, bíður samþykkis, stjórnandi, innsendar, stundir</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 2340569551 - NamedType 3593894611" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Returns only submitted lines whose time sheet approver is the authenticated caller. No approvals or other writes occur. No pending approvals is a successful empty list. Filters are optional; when supplied, both dates are required.</source>
+          <target>Skilar aðeins innsendum línum þar sem samþykkjandi tímaskýrslunnar er auðkenndur kallandi. Engar samþykktir eða aðrar breytingar fara fram. Engar línur í bið skila tómun lista með árangri. Síur eru valfrjálsar; ef dagsetning er send þarf að senda báðar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skilar aðeins innsendum línum þar sem samþykkjandi tímaskýrslunnar er auðkenndur kallandi. Engar samþykktir eða aðrar breytingar fara fram. Engar línur í bið skila tómun lista með árangri. Síur eru valfrjálsar; ef dagsetning er send þarf að senda báðar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetOverview - NamedType OverviewLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 3219801116" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional resource number, maximum 20 characters. May be combined with resourceId only for the same resource.</source>
+          <target>Valfrjálst forðanúmer, mest 20 stafir. Má aðeins sameina resourceId fyrir sama forða.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjálst forðanúmer, mest 20 stafir. Má aðeins sameina resourceId fyrir sama forða.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType ResourceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 4257722151" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional resource SystemId (GUID).</source>
+          <target>Valfrjálst SystemId forða (GUID).</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjálst SystemId forða (GUID).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType ResourceIdLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 901740384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First included date, YYYY-MM-DD; requires to. Sheet periods must overlap the range and daily hours are limited to it.</source>
+          <target>Fyrsti dagur, YYYY-MM-DD; krefst to. Tímabil skýrslu verður að skarast við bilið og daglegar stundir takmarkast við það.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fyrsti dagur, YYYY-MM-DD; krefst to. Tímabil skýrslu verður að skarast við bilið og daglegar stundir takmarkast við það.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType FromLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 806278067" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last included date, YYYY-MM-DD; requires from.</source>
+          <target>Síðasti dagur, YYYY-MM-DD; krefst from.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Síðasti dagur, YYYY-MM-DD; krefst from.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType ToLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 961827798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Optional stable line type name: Resource, Job, Service, Absence or Assembly Order.</source>
+          <target>Valfrjálst fast tegundarheiti línu: Resource, Job, Service, Absence eða Assembly Order.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Valfrjálst fast tegundarheiti línu: Resource, Job, Service, Absence eða Assembly Order.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType TypeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 26742315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page size, integer 1..1000, default 100. Ordered by time sheet number and line number.</source>
+          <target>Síðustærð, heiltala 1..1000, sjálfgefið 100. Raðað eftir tímaskýrslunúmeri og línunúmeri.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Síðustærð, heiltala 1..1000, sjálfgefið 100. Raðað eftir tímaskýrslunúmeri og línunúmeri.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType TakeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 3615801952 - NamedType 1096104557" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of matching lines to skip, integer &gt;= 0, default 0.</source>
+          <target>Fjöldi samsvarandi lína sem sleppt er, heiltala &gt;= 0, sjálfgefið 0.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjöldi samsvarandi lína sem sleppt er, heiltala &gt;= 0, sjálfgefið 0.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetParameters - NamedType SkipLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 4268477247 - NamedType 3616618409" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Submitted lines for the caller: timeSheetNo, lineNo, resourceNo, from, to, type, projectNo, taskNo, causeOfAbsenceCode, days [{date,hours}] and totalHours. Only requested dates contribute to totalHours.</source>
+          <target>Innsendar línur fyrir kallanda: timeSheetNo, lineNo, resourceNo, from, to, type, projectNo, taskNo, causeOfAbsenceCode, days [{date,hours}] og totalHours. Aðeins umbeðnir dagar telja í totalHours.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Innsendar línur fyrir kallanda: timeSheetNo, lineNo, resourceNo, from, to, type, projectNo, taskNo, causeOfAbsenceCode, days [{date,hours}] og totalHours. Aðeins umbeðnir dagar telja í totalHours.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetResponse - NamedType LinesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3471428701 - Method 4268477247 - NamedType 1818613969" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Whether more matching lines exist after this page. Continue with skip plus the number returned.</source>
+          <target>Hvort fleiri samsvarandi línur eru á eftir síðunni. Haltu áfram með skip að viðbættum fjölda sem skilað var.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Hvort fleiri samsvarandi línur eru á eftir síðunni. Haltu áfram með skip að viðbættum fjölda sem skilað var.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Pending Approval ori - Method GetResponse - NamedType MoreLbl</note>
         </trans-unit>
         <trans-unit id="Page 2536023114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify Integration</source>

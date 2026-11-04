@@ -36,6 +36,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata "Time Sheet Header" = RIM,
         tabledata "Time Sheet Line" = RIM,
         tabledata "Time Sheet Detail" = RIM,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Time Sheet Comment Line" = RI,
         tabledata "Time Sheet Posting Entry" = RI,
         tabledata "Employee Absence" = RI,
