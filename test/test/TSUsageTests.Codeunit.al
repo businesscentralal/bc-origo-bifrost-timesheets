@@ -7,6 +7,7 @@ using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Journal;
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
+using Microsoft.Sales.Customer;
 using Microsoft.Projects.Resources.Journal;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
@@ -771,6 +772,7 @@ codeunit 95635 "TS Usage Tests"
         Header: Record "Time Sheet Header";
         SheetLine: Record "Time Sheet Line";
         Job: Record Job;
+        Customer: Record Customer;
         JobTask: Record "Job Task";
         JournalTemplate: Record "Job Journal Template";
         Batch: Record "Job Journal Batch";
@@ -788,6 +790,10 @@ codeunit 95635 "TS Usage Tests"
         end;
         Usage.Status := Usage.Status::Approved;
         Usage.Modify(false);
+        Customer."No." := UniqueNo();
+        Customer.Name := 'Usage test customer';
+        Customer.Insert(false);
+        Job."Bill-to Customer No." := Customer."No.";
         Job."No." := UniqueNo();
         Job.Description := 'Usage test project';
         Job.Status := Job.Status::Open;
@@ -802,6 +808,7 @@ codeunit 95635 "TS Usage Tests"
         SheetLine."Job Task No." := JobTask."Job Task No.";
         SheetLine.Modify(false);
         JournalTemplate.Name := CopyStr(UniqueNo(), 6, 10);
+        JournalTemplate.Description := 'Usage test project journal';
         JournalTemplate.Insert(false);
         Batch."Journal Template Name" := JournalTemplate.Name;
         Batch.Name := CopyStr(UniqueNo(), 6, 10);
@@ -810,7 +817,7 @@ codeunit 95635 "TS Usage Tests"
         Request.Add('journalTemplate', JournalTemplate.Name);
         Request.Add('journalBatch', Batch.Name);
         Response := Execute('Transfer', Request);
-        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Project Transfer succeeds.');
+        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Project Transfer succeeds: ' + TextValue(Response, 'error'));
         Usage.Get(Usage."Entry No.");
         Assert.AreEqual(Database::"Job Journal Line", Usage."Journal Table No.", 'Project mapping wins over usage type.');
         Journal.Get(JournalTemplate.Name, Batch.Name, Usage."Journal Line No.");
@@ -822,7 +829,36 @@ codeunit 95635 "TS Usage Tests"
         JournalTemplate.Delete(false);
         JobTask.Delete(false);
         Job.Delete(false);
+        Customer.Delete(false);
         Cleanup(SheetNo, ItemNo);
+    end;
+
+    /// <summary>All usage types expose typed related entries and executable discovery contracts.</summary>
+    [Test]
+    procedure AllUsageTypesHaveValidContractsAndDiscovery()
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+        MessageType: Enum "Message Type ori";
+        Discovery: Interface "Msg Discovery ori";
+        Contract: JsonObject;
+        RelatedToken: JsonToken;
+        Entry: JsonToken;
+        Ordinal: Integer;
+        Index: Integer;
+    begin
+        for Ordinal := 10036830 to 10036836 do begin
+            MessageType := Enum::"Message Type ori".FromInteger(Ordinal);
+            Clear(Contract);
+            Assert.IsTrue(ContractMgt.GetContract(MessageType, Contract), 'Usage contract exists.');
+            Contract.Get('related', RelatedToken);
+            for Index := 0 to RelatedToken.AsArray().Count() - 1 do begin
+                RelatedToken.AsArray().Get(Index, Entry);
+                Assert.IsTrue(Entry.IsObject(), 'Related messages must use the typed contract-entry shape.');
+            end;
+            Discovery := MessageType;
+            Assert.IsTrue(Discovery.GetKeywords() <> '', 'Usage discovery keywords are available.');
+            Assert.IsTrue(Discovery.GetSelectionDescription() <> '', 'Usage selection descriptions are available.');
+        end;
     end;
 
     local procedure ItemJournalFixture(var JournalTemplate: Record "Item Journal Template"; var Batch: Record "Item Journal Batch")

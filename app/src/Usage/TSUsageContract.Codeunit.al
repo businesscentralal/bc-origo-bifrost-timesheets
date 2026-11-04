@@ -44,7 +44,7 @@ codeunit 10036860 "TS Usage Contract ori"
         Parameters.Add(Contract.Parameter('quantity', 'number', true, quantityLbl));
         Parameters.Add(Contract.Parameter('unitOfMeasure', 'string', false, unitOfMeasureLbl));
         Parameters.Add(Contract.Parameter('description', 'string', false, descriptionLbl));
-    
+
         exit(true);
     end;
 
@@ -58,7 +58,7 @@ codeunit 10036860 "TS Usage Contract ori"
         Parameters.Add(Contract.Parameter('status', 'string', false, statusLbl));
         Parameters.Add(Contract.Parameter('afterEntryNo', 'integer', false, afterEntryNoLbl));
         Parameters.Add(Contract.Parameter('limit', 'integer', false, limitLbl));
-    
+
         exit(true);
     end;
 
@@ -87,7 +87,7 @@ codeunit 10036860 "TS Usage Contract ori"
     begin
         Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
         Parameters.Add(Contract.Parameter('comment', 'string', false, commentLbl));
-    
+
         exit(true);
     end;
 
@@ -99,7 +99,7 @@ codeunit 10036860 "TS Usage Contract ori"
         Parameters.Add(Contract.Parameter('entryNo', 'integer', false, entryNoLbl));
         Parameters.Add(Contract.Parameter('journalTemplate', 'string', true, journalTemplateLbl));
         Parameters.Add(Contract.Parameter('journalBatch', 'string', true, journalBatchLbl));
-    
+
         Parameters.Add(Contract.Parameter('entryNos', 'array', false, entryNosLbl));
         exit(true);
     end;
@@ -113,7 +113,7 @@ codeunit 10036860 "TS Usage Contract ori"
         Parameters.Add(Contract.Parameter('createJournal', 'boolean', false, createJournalLbl));
         Parameters.Add(Contract.Parameter('journalTemplate', 'string', false, journalTemplateLbl));
         Parameters.Add(Contract.Parameter('journalBatch', 'string', false, journalBatchLbl));
-    
+
         exit(true);
     end;
 
@@ -169,33 +169,40 @@ codeunit 10036860 "TS Usage Contract ori"
     begin
         if MessageType = MessageType::"Timesheets.Usage.List" then begin
             Effect.Add('effect', 'read');
-            Effect.Add('idempotency', 'Read-only.');
+            Effect.Add('idempotent', true);
         end else begin
             Effect.Add('effect', 'write');
-            Effect.Add('transaction', 'commit');
-            Effect.Add('idempotency', 'Register creates a new line. Transfer is unchanged while its journal link exists. Reverse is allowed once.');
+            Effect.Add('idempotent', MessageType = MessageType::"Timesheets.Usage.Transfer");
+            Effect.Add('permissionSet', 'BIFROST Timeshts ori');
         end;
-        Effect.Add('description', OverviewLbl);
+        Effect.Add('changes', OverviewLbl);
         exit(true);
     end;
 
     /// <summary>Names the related usage messages.</summary>
     procedure GetRelated(MessageType: Enum "Message Type ori"; var Related: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
     begin
-        Related.Add('Timesheets.Usage.Register');
-        Related.Add('Timesheets.Usage.Submit');
-        Related.Add('Timesheets.Usage.List');
-        Related.Add('Timesheets.Usage.Approve');
-        Related.Add('Timesheets.Usage.Reject');
-        Related.Add('Timesheets.Usage.Transfer');
-        Related.Add('Timesheets.Usage.Reverse');
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Register', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Submit', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.List', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Approve', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Reject', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Transfer', OverviewLbl));
+        Related.Add(Contract.RelatedEntry('Timesheets.Usage.Reverse', OverviewLbl));
         exit(true);
     end;
 
     /// <summary>Explains the lifecycle and journal routing.</summary>
     procedure GetWorkflow(MessageType: Enum "Message Type ori"; var Workflow: JsonObject): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+        Steps: JsonArray;
     begin
-        Workflow.Add('description', OverviewLbl);
+        Steps.Add(Contract.WorkflowStep('Timesheets.Usage.Register', OverviewLbl));
+        Workflow.Add('steps', Steps);
+        Workflow.Add('text', OverviewLbl);
         exit(true);
     end;
 
