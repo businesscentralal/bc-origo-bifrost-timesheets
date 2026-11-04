@@ -353,7 +353,7 @@ codeunit 95616 "TS Absence Reg Tests"
         LibraryResource.CreateResourceNew(Resource);
         if Resource.Type <> Resource.Type::Person then
             Resource.Validate(Type, Resource.Type::Person);
-        if Resource."Base Unit of Measure" = '' then begin
+        if Resource."Base Unit of Measure" <> 'HOUR' then begin
             if not UnitOfMeasure.Get('HOUR') then begin
                 UnitOfMeasure.Init();
                 UnitOfMeasure.Code := 'HOUR';
