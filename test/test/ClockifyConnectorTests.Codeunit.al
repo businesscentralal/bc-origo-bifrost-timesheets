@@ -1,4 +1,4 @@
-namespace Origo.Bifrost.Timesheets.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
@@ -241,7 +241,9 @@ codeunit 95601 "Clockify Connector Tests"
         asserterror WorkspaceMgt.LookupWorkspace(WorkspaceId, WorkspaceName);
 
         // [THEN] A guiding error is raised
-        LibraryAssert.ExpectedError('Set the company Clockify API key before selecting a workspace.');
+        LibraryAssert.ExpectedError(ExpectedLocalizedText(
+            'Set the company Clockify API key before selecting a workspace.',
+            'Skráðu Clockify API lykil fyrirtækis áður en þú velur vinnusvæði.'));
     end;
 
     [Test]
@@ -401,7 +403,7 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports an error pointing at the missing Job Journal configuration
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
+        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
     end;
 
     [Test]
@@ -432,7 +434,10 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] The request is rejected and clearly reports the in-progress rule
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'In-progress entries should be rejected.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('In-progress time entries'), 'The response should explain why the sync was blocked.');
+        LibraryAssert.AreEqual(ExpectedLocalizedText(
+            'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).',
+            'Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).'),
+            ReadText(ResponseJson, 'error'), 'The complete in-progress refusal should match the session language.');
     end;
 
     [Test]
@@ -1045,7 +1050,7 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports an error pointing at the missing Job Journal configuration
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
+        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
     end;
 
     [Test]
@@ -1304,7 +1309,7 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports the missing Job Journal configuration
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal.');
+        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
     end;
 
     [Test]
@@ -1354,7 +1359,10 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports a missing mapping
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'An unmapped project should error.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('mapping'), 'The message should mention the missing mapping.');
+        LibraryAssert.AreEqual(StrSubstNo(ExpectedLocalizedText(
+            'No integration mapping found for Clockify project %1.',
+            'Engin Clockify-tenging fannst fyrir verkefni %1.'), 'UNMAPPED'),
+            ReadText(ResponseJson, 'message'), 'The complete missing-mapping refusal should match the session language.');
     end;
 
     [Test]
@@ -1386,7 +1394,10 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports the missing open time sheet
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'A missing open sheet should error.');
-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
+        LibraryAssert.AreEqual(StrSubstNo(ExpectedLocalizedText(
+            'No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.',
+            'Engin opin tímaskráning fannst fyrir tilfang %1 þann %2. Keyrðu Clockify.TimeSheet.Create fyrst.'), ResourceNo, DMY2Date(9, 6, 2026)),
+            ReadText(ResponseJson, 'message'), 'The complete missing-sheet refusal should match the session language.');
     end;
 
     /// <summary>Verifies the #49 RequireParamAnswersInIcelandic refusal at LCID 1039.</summary>
@@ -1719,6 +1730,22 @@ codeunit 95601 "Clockify Connector Tests"
         TimeSheetLine.Type := TimeSheetLine.Type::Job;
         TimeSheetLine.Status := TimeSheetLine.Status::Open;
         TimeSheetLine.Insert(false, true);
+    end;
+
+    local procedure ExpectedLocalizedText(EnglishText: Text; IcelandicText: Text): Text
+    begin
+        // The required repeat runs execute the real test session in both supported languages.
+        // Keep the full expected message; never force the session back to English.
+        if GlobalLanguage() = 1039 then
+            exit(IcelandicText);
+        exit(EnglishText);
+    end;
+
+    local procedure ExpectedMissingJournalError(): Text
+    begin
+        exit(ExpectedLocalizedText(
+            'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.',
+            'Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.'));
     end;
 
     local procedure DeleteOwnTimeSheet(TimeSheetNo: Code[20])
