@@ -34,36 +34,43 @@ codeunit 10036870 "TS Native Context ori"
         FlagNonWorking := NonWorking;
     end;
 
+    /// <summary>Returns the operation selected for the isolated writer.</summary>
     procedure GetOperation(): Integer
     begin
         exit(Operation);
     end;
 
+    /// <summary>Returns the validated time sheet number.</summary>
     procedure GetSheetNo(): Code[20]
     begin
         exit(SheetNo);
     end;
 
+    /// <summary>Returns the validated daily hours.</summary>
     procedure GetHoursText(): Text
     begin
         exit(HoursText);
     end;
 
+    /// <summary>Returns the validated cause of absence.</summary>
     procedure GetCause(): Code[10]
     begin
         exit(CauseCode);
     end;
 
+    /// <summary>Indicates whether the request includes weekend hours.</summary>
     procedure GetFlagNonWorking(): Boolean
     begin
         exit(FlagNonWorking);
     end;
 
+    /// <summary>Stores the writer response for the dispatcher.</summary>
     procedure SetResult(NewResult: Text)
     begin
         ResultText := NewResult;
     end;
 
+    /// <summary>Returns the isolated writer response.</summary>
     procedure GetResult(): Text
     begin
         exit(ResultText);

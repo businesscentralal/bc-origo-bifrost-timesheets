@@ -58,6 +58,7 @@ codeunit 10036869 "TS Contract Parts ori"
         OverviewDescriptionLbl: Label 'Timesheets.Absence.Register adds an absence line with a cause of absence and hours per day to a time sheet. A refusal writes nothing. Unknown keys are refused.', Comment = 'is-IS=Timesheets.Absence.Register bætir fjarvistarlínu með fjarvistarástæðu og klukkustundum eftir dögum við tímaskýrslu. Höfnun skráir ekkert. Óþekktum lyklum er hafnað.';
         NotesDescriptionLbl: Label 'Link the resource to an employee in BC. Use a code from Causes of Absence. Hours on Saturday or Sunday are written and returned with a warning. Employee Absence is created when the line is posted by Business Central, not by this type. The write is committed when the call succeeds.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC. Notaðu kóða úr fjarvistarástæðum. Klukkustundir á laugardegi eða sunnudegi eru skráðar og skilað með viðvörun. Business Central stofnar starfsmannafjarvist þegar línan er bókuð. Skráning er staðfest þegar kallið tekst.';
 
+    /// <summary>Declares exactly the six supported absence request keys.</summary>
     procedure AddAbsenceParameters(var Parameters: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -71,6 +72,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Describes the supported task envelope.</summary>
     procedure GetEnvelope(MessageType: Enum "Message Type ori"; var Envelope: JsonObject): Boolean
     var
         Forms: JsonArray;
@@ -87,6 +89,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(MessageType = MessageType::"Timesheets.Absence.Register");
     end;
 
+    /// <summary>Describes the time-sheet identifier.</summary>
     procedure GetTarget(MessageType: Enum "Message Type ori"; var Target: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -97,6 +100,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Describes the absence line returned on success.</summary>
     procedure GetResponse(MessageType: Enum "Message Type ori"; var Response: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -116,6 +120,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Lists documented refusals and recovery steps.</summary>
     procedure GetErrors(MessageType: Enum "Message Type ori"; var Errors: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -133,6 +138,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Describes the committed write and required permissions.</summary>
     procedure GetEffect(MessageType: Enum "Message Type ori"; var Effect: JsonObject): Boolean
     var
         Preconditions: JsonArray;
@@ -148,6 +154,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Lists related discovery messages.</summary>
     procedure GetRelated(MessageType: Enum "Message Type ori"; var Related: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -158,6 +165,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Describes the absence registration workflow.</summary>
     procedure GetWorkflow(MessageType: Enum "Message Type ori"; var Workflow: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -171,6 +179,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Provides an absence registration request and response example.</summary>
     procedure GetExamples(MessageType: Enum "Message Type ori"; var Examples: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -183,6 +192,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns the localized purpose of the message.</summary>
     procedure GetOverview(MessageType: Enum "Message Type ori"; var Overview: Text): Boolean
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
@@ -191,6 +201,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Explains employee linking, weekend warnings and commit behavior.</summary>
     procedure GetNotes(MessageType: Enum "Message Type ori"; var Notes: Text): Boolean
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
@@ -199,6 +210,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns the stable message type name used in examples.</summary>
     procedure MessageTypeName(MessageType: Enum "Message Type ori"): Text
     begin
         exit(Enum::"Message Type ori".Names().Get(Enum::"Message Type ori".Ordinals().IndexOf(MessageType.AsInteger())));

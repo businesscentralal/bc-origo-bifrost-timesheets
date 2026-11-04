@@ -104,6 +104,8 @@ codeunit 10036868 "TS Native Mgt ori"
             Fail(Argument, "Bifrost Error Code ori"::PermissionDenied, AssignSetMsg, '', AssignSetNextTxt);
             exit;
         end;
+        Employee.ReadIsolation := IsolationLevel::ReadCommitted;
+        Employee.SetLoadFields("Resource No.");
         Employee.SetRange("Resource No.", Header."Resource No.");
         if Employee.IsEmpty() then begin
             Fail(Argument, "Bifrost Error Code ori"::PreconditionFailed, LinkEmployeeMsg, 'resourceNo', LinkEmployeeNextTxt);
@@ -149,6 +151,7 @@ codeunit 10036868 "TS Native Mgt ori"
             exit(false);
         end;
         ResourceNo := CopyStr(ResourceToken.AsValue().AsText(), 1, MaxStrLen(ResourceNo));
+        Header.ReadIsolation := IsolationLevel::ReadCommitted;
         Header.SetRange("Resource No.", ResourceNo);
         Header.SetFilter("Starting Date", '<=%1', SheetDate);
         Header.SetFilter("Ending Date", '>=%1', SheetDate);
