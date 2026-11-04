@@ -138,5 +138,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         page "Phone Current Cust Part ori" = X,
         page "Phone Today Cust Part ori" = X,
         page "Phone LastDay Cust Part ori" = X,
-        page "Phone Add Service Item ori" = X;
+        page "Phone Add Service Item ori" = X,
+        codeunit "TS Sheet Submit Impl ori" = X;
 }

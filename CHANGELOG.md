@@ -9,6 +9,7 @@
 ## [Unreleased]
 
 ### Added
+- #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95614.
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
 ### Added (2026-11-04) - Create selected weekly time sheets (#61)
