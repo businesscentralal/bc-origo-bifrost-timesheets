@@ -20,7 +20,7 @@
 ### Fixed (2026-11-04) - Translatable Clockify refusals (#49)
 
 - Unlock the 19 user-facing refusal labels reported by MixedLanguageLabels and preserve their English text. Add Icelandic translations, including four sentence literals promoted to labels in Clockify TEntryRange Impl ori (10036832), Clockify TEntrySync Impl ori (10036821), and Clockify TSheetSync Impl ori (10036840).
-- Add four Icelandic refusal regression scenarios to Clockify Connector Tests (95601): missing parameter, missing body, missing journal, and no open time sheet. Regenerate the Icelandic translation file from compiler output.
+- Add four Icelandic refusal regression scenarios to Clockify Connector Tests (95601): missing parameter, missing body, missing journal, and no open time sheet. Generate the 23 new Icelandic translation units from compiler output and preserve all 259 existing Icelandic targets.
 
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
