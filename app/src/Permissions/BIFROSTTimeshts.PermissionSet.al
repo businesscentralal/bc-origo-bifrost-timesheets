@@ -1,8 +1,12 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.Period;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.HumanResources.Setup;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
@@ -33,10 +37,10 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Sheet Restrict ori" = X,
         codeunit "TS Sheet Approve Impl ori" = X,
         codeunit "TS Sheet Reject Impl ori" = X,
-        codeunit "TS Pending Approval ori" = X,
-        tabledata "Time Sheet Header" = R,
+        tabledata "Time Sheet Header" = RIM,
         tabledata "Time Sheet Line" = RIM,
         tabledata "Time Sheet Detail" = RIM,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Time Sheet Comment Line" = RI,
         tabledata "Time Sheet Posting Entry" = RI,
         tabledata "Employee Absence" = RI,
@@ -46,6 +50,19 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata Employee = R,
         tabledata Resource = R,
         tabledata "User Setup" = R,
+        codeunit "TS Sheet Create Impl ori" = X,
+        codeunit "TS Create Contract ori" = X,
+        codeunit "TS Create Writer ori" = X,
+        codeunit "TS Create Restrict ori" = X,
+        report "Create Time Sheets" = X,
+        tabledata "Resource Group" = R,
+        tabledata "Resources Setup" = R,
+        tabledata "No. Series" = R,
+        tabledata "No. Series Line" = RIM,
+        tabledata "Accounting Period" = R,
+        tabledata Job = R,
+        tabledata "Job Task" = R,
+        tabledata "Job Planning Line" = R,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,
@@ -114,7 +131,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify ReqLog Masker ori" = X,
         codeunit "Clockify Field Restrict ori" = X,
         codeunit "TS Absence Reg Impl ori" = X,
-        tabledata "Resources Setup" = R,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,

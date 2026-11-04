@@ -11,17 +11,27 @@
 ### Added
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+
+### Added (2026-11-04) - Create selected weekly time sheets (#61)
+
+- `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
+- `TS Sheet Create Impl ori` (codeunit 10036874; enum value 10036873) validates all requested resources, types, limits, permissions and the configured first weekday before writing. `TS Create Writer ori` (10036847) runs standard **Create Time Sheets** report 950 in one isolated batch, retaining time-sheet administrator, resource, numbering and accounting-period checks.
+- `TS Create Contract ori` (10036848) supplies English/Icelandic discovery and help. `TS Create Restrict ori` (10036849) blocks generic Time Sheet Header writes and points to the dedicated type; reads stay open. The current Foundation table restriction event covers inserts and modifications, not only inserts.
+- `BIFROST Timeshts ori` (10036785) grants the required native data/report access; Full/Read extensions (10036866/10036867) grant their applicable feature objects. Native data access still requires the Timesheets set or equivalent base permissions. No new assignable set or Foundation setup grant is added.
+- The existing `Clockify Field Restrict Tests` (95612) compose the exact refusal from native field/table captions, matching Foundation while retaining code, hint and no-partial-write assertions.
+- `TS Create Tests` (95620) and `TS Create Permission Tests` (95621) cover native creation, planning lines, resource/period selection, literal identifiers, all-or-nothing validation, limits, existing sheets, generic-write restrictions, localization and whole-batch rollback.
+
 ### Added (2026-11-04) - Timesheets.Absence.Register (#65)
 
 - New message type `Timesheets.Absence.Register` on enumextension `Clockify Msg Type ori` (10036785), value 10036879, codeunit `TS Absence Reg Impl ori` (10036880). It adds an absence line with a cause of absence and hours per day to a time sheet, found by `timeSheetNo` or by `resourceNo` plus `date`.
 - Absence dispatch `TS Absence Mgt ori` (10036881), contract chapters `TS Absence Contract ori` (10036882), write isolation `TS Absence Context ori` (10036883) and `TS Absence Runner ori` (10036884), separate from the already merged decision handlers. The write runs in `Codeunit.Run`; a platform error answers `BusinessCentralError` and writes nothing. A successful call commits.
 - Refusals with `nextStep`: `MissingParameter`, `InvalidParameterFormat`, `UnknownParameter`, `RecordNotFound` (sheet, resource or cause), `ConflictingIdentifiers`, `InvalidLine` (hour dates must be unique and inside the sheet period), `PermissionDenied`, and `PreconditionFailed` when the resource is not linked to an employee. Hours on Saturday or Sunday are written and returned with a warning; the BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
-- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and read-only header access with read/insert/modify line and detail access, plus cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
+- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits, read/insert/modify line and detail access, and cause of absence and employee data. Header insert/modify comes from the merged `Timesheets.TimeSheet.Create` (#61); generic Data.Records header, line and detail writes stay restricted. No new assignable permission set and no Foundation `Setup ori` grant.
 - Test-only fixture codeunit 95618 seeds isolated native records in a CRONUS verification company for MCP acceptance without changing licensing; it refuses duplicate setup and the owned environment is removed after verification.
 - Help regression follows the settled language policy: English chapters at both LCIDs, localized catalogue and runtime refusals. Test page 95620 invokes fixture 95618 and uses the authenticated user; it is hidden from page search.
-- Tests: test codeunits 95621 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`; fixture setup/cleanup codeunits 95618/95619. Existing and updated is-IS translation units are retained.
+- Tests: test codeunits 95622 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`; fixture setup/cleanup codeunits 95618/95619. Existing and updated is-IS translation units are retained.
 
-- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036881, 10036884; tests 95621). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
+- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036881, 10036884; tests 95622). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
 
 ### Fixed
 
@@ -30,6 +40,10 @@
 - Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
 
 ### Changed
+
+- Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, using a completed interval for the missing-journal scenario and preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
+
+- Tests 95601 `TimeSheetApproveReturnsZeroWhenNothingOpen`, `TimeSheetRejectReturnsZeroWhenNothingSubmitted` and `TimeSheetReopenReturnsZeroWhenNothingPending` no longer assume the whole company has no time-sheet lines: they scope the request with `endingDateTo`, create and clean up their own sheet, and assert it is untouched, so they pass repeatedly on a reused container (#82).
 
 - Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
 
