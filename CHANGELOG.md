@@ -4,7 +4,7 @@
 
 ### Fixed
 
-- Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46).
+- Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.
 
 ### Added (2026-10-16) - Phone Role Center (#6)
 
