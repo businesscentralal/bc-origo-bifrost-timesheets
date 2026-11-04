@@ -26,5 +26,6 @@
   ],
   "attempts": "Initial English save succeeded; post-reload frame locator detached. Fresh frame inspected without replaying write. All raw UI setup/navigation attempts retained privately.",
   "setup": "Own synthetic receiver URL and new ZZ41 work type; scoped setup-table Change Log coverage enabled through UI; no webhook registration/provider call or credential/consent/licence changes.",
-  "fixtureRestoration": "UI restored initial blank receiver URL; MCP readback in mcp-fixture-restored-final.json confirms URL and field16 blank"
+  "fixtureRestoration": "UI restored initial blank receiver URL; MCP readback in mcp-fixture-restored-final.json confirms URL and field16 blank",
+  "screenshotLimitation": "The Icelandic screenshot shows the localized setup page and Saved indicator with Webhooks collapsed during rerender. The saved receiver URL is proven by the Playwright input-value assertion after reload and by MCP readback before restoration; the screenshot alone does not show its value."
 }

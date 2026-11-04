@@ -14,3 +14,5 @@ The original production restriction is already merged in PR42. This repair chang
 See acceptance-matrix.json, full-suite-result.json, mcp-final-summary.json, ui-summary.json and cleanup.json. Attempts and existing gateway advisories are disclosed. The root scan omits test files; test-folder scan covers15ALfiles and records existing unchanged advisories.
 
 Paired PR CI, independent Claude verification, Grok clearance, eligible approval, Architect merge/deploy and same-SHA UAT remain separate pending stages. This evidence is not an issue completion claim.
+
+Display evidence note: the Icelandic screenshot captured the localized setup page with Webhooks collapsed during rerender. The exact persisted URL is proven by the Playwright input-value assertion after reload and MCP readback before restoration; the screenshot alone does not display the URL.
