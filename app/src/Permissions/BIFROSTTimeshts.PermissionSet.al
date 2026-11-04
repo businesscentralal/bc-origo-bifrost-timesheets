@@ -6,15 +6,12 @@ using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Journal;
 using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 using System.Security.User;
-
-using Microsoft.Foundation.NoSeries;
-using Microsoft.Projects.Project.Journal;
-using Microsoft.Projects.Resources.Setup;
 
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
@@ -140,9 +137,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata "Job Journal Template" = R,
         tabledata "Job Journal Batch" = R,
         tabledata "Job Journal Line" = RIMD,
-        tabledata "Resources Setup" = R,
-        tabledata "No. Series" = R,
-        tabledata "No. Series Line" = RM,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,
