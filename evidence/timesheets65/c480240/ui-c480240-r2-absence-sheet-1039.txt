@@ -1,0 +1,127 @@
+
+Dynamics 365 Business Central
+
+
+
+
+C
+
+
+Vinnuskýrsla
+
+
+
+
+
+
+nóvember 2, 2026
+Heim
+Undirbúa
+
+Opna aftur
+Senda
+Athugasemdir
+
+Almennt
+Sýna minna
+Nr.
+W2ABS65-MCP
+Upphafsdagsetning
+11/2/2026
+Lokadagsetning
+11/8/2026
+Forðanr.
+W2A65-MCP
+Lýsing
+Línur
+Stjórna
+Lína
+
+
+Ný lína
+Eyða línu
+
+		
+Tegund
+	
+	
+Staða
+	
+Lýsing
+	
+Verkefni nr.
+	
+Verkefnahluti nr.
+	
+Ástæðukóði fjarvistar
+	
+Reikningshæft
+	
+Kóði vinnutegundar
+	
+2 Mán
+	
+3 Þri
+	
+4 Mið
+	
+5 Fim
+	
+6 Fös
+	
+7 Lau
+	
+8 Sun
+	
+Samtals
+	
+			
+																
+		Fjarvist	
+	Opið	Brokkr65 owned absence			W2A65	
+									4	
+		Fjarvist		Opið	Brokkr65 owned absence			W2A65	
+							3		3	
+		Fjarvist		Opið	Brokkr65 owned absence			W2A65	
+				2					2	
+		Fjarvist		Opið	Brokkr65 owned absence			W2A65	
+				4					4	
+		Fjarvist		Opið	Brokkr65 owned absence			W2A65	
+							3		3	
+		Fjarvist		Opið	Brokkr65 owned absence			W2A65	
+				2					2	
+Mælieining
+W2A65
+Samtals
+18
+Staða vinnuskýrslu
+AthugasemdNei
+Opið18.00
+Sent0.00
+Hafnað0.00
+Samþykkt0.00
+Samtals18.00
+Bókað0.00
+Raunveruleg/áætluð samantekt
+2 mánudagur0.00/0.00
+3 þriðjudagur0.00/0.00
+4 miðvikudagur12.00/0.00
+5 fimmtudagur0.00/0.00
+6 föstudagur0.00/0.00
+7 laugardagur6.00/0.00
+8 sunnudagur0.00/0.00
+Samtals18.00/0.00
+Heildarviðvera0.00
+Heildarfjarvist18.00
+Upplýsingar um vinnuskýrslulínu
+Athugasemdir
+  
+Upplýsingar um fjarvist
+LýsingBrokkr65 owned absence
+
+Notaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.
+
+nóvember 2, 2026. Vinnuskýrsla
+
+Listi með titilinn „Línur“ hefur nú 6 atriði
+[{"label":null,"value":"on"},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":"4"},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"}]

@@ -1,0 +1,5 @@
+contract codeunit : TS Absence Reg Impl ori
+interface codeunit: TS Absence Reg Impl ori
+declared          : causeOfAbsenceCode, date, hours, quantity, resourceNo, timeSheetNo
+target (data.)    : timeSheetNo
+read              : causeOfAbsenceCode, date, hours, quantity, resourceNo, timeSheetNo

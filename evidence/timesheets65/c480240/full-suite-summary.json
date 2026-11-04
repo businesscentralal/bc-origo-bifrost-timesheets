@@ -1,0 +1,13 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "fullSuite": true,
+  "passed": 131,
+  "failed": 0,
+  "skipped": 0,
+  "exitCode": 0,
+  "errors": 0,
+  "executed": 131,
+  "expectedDeclaredTests": 131,
+  "evidence": "full-suite.json"
+}

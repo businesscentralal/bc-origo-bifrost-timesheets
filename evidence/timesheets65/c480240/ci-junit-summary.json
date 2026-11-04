@@ -1,0 +1,63 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "fullSuite": true,
+  "executed": 131,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "suites": [
+    {
+      "name": "95601 Clockify Connector Tests",
+      "tests": 70
+    },
+    {
+      "name": "95604 Clockify User Paging Tests",
+      "tests": 11
+    },
+    {
+      "name": "95606 Timesheets Registration Tests",
+      "tests": 1
+    },
+    {
+      "name": "95607 Clockify Reten. Policy Tests",
+      "tests": 2
+    },
+    {
+      "name": "95608 Message Contract Batch 1 Tests",
+      "tests": 1
+    },
+    {
+      "name": "95609 Message Contract Batch 2 Tests",
+      "tests": 1
+    },
+    {
+      "name": "95610 Message Contract Batch 3 Tests",
+      "tests": 1
+    },
+    {
+      "name": "95611 Message Contract Effect Tests",
+      "tests": 4
+    },
+    {
+      "name": "95612 Clockify Field Restrict Tests",
+      "tests": 8
+    },
+    {
+      "name": "95613 Clockify Help Fixes Tests",
+      "tests": 8
+    },
+    {
+      "name": "95615 Phone Role Center Tests",
+      "tests": 10
+    },
+    {
+      "name": "95616 TS Absence Reg Tests",
+      "tests": 13
+    },
+    {
+      "name": "95617 TS Absence Reg Perm Tests",
+      "tests": 1
+    }
+  ],
+  "passed": 131
+}

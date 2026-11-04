@@ -1,0 +1,20 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "artifacts": [
+    {
+      "name": "product",
+      "sha256": "80b2ce732d26a5760baced634819fa75d05825e8d168714aa35535d5c9ad4e5b",
+      "buildDownloadHashMatch": true,
+      "sourceCommitVerified": true,
+      "version": "28.0.0.0"
+    },
+    {
+      "name": "test",
+      "sha256": "88a12bc479e8c0271c37ad0ae54624ca250bc3c20b2607866dd62e6dadf9a76c",
+      "buildDownloadHashMatch": true,
+      "sourceCommitVerified": true,
+      "version": "28.0.0.0"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "name": "get_records",
+  "args": {
+    "table": "Time Sheet Line",
+    "fields": [
+      "Time Sheet No.",
+      "Line No.",
+      "Type",
+      "Cause of Absence Code"
+    ],
+    "take": 1000,
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T07:59:43.770Z",
+  "status": "responded",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"table\": \"Time Sheet Line\",\n  \"skip\": 0,\n  \"take\": 1000,\n  \"count\": 6,\n  \"records\": [\n    {\n      \"id\": \"D3CEF5B5-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"10000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    },\n    {\n      \"id\": \"D6CEF5B5-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"20000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    },\n    {\n      \"id\": \"EACEF5B5-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"30000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    },\n    {\n      \"id\": \"EDCEF5B5-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"40000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    },\n    {\n      \"id\": \"F0CEF5B5-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"50000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    },\n    {\n      \"id\": \"442301BC-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"W2ABS65-MCP\",\n        \"LineNo_\": \"60000\"\n      },\n      \"fields\": {\n        \"Type\": \"Absence\",\n        \"CauseofAbsenceCode\": \"W2A65\"\n      }\n    }\n  ],\n  \"noOfRecords\": 6\n}"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-04T07:59:44.557Z"
+}

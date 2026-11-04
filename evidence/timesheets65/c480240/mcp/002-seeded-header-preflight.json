@@ -1,0 +1,25 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "name": "get_records",
+  "args": {
+    "table": "Time Sheet Header",
+    "fields": [
+      "No.",
+      "Resource No."
+    ],
+    "take": 1000,
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T07:59:28.516Z",
+  "status": "responded",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"table\": \"Time Sheet Header\",\n  \"skip\": 0,\n  \"take\": 1000,\n  \"count\": 2,\n  \"records\": [\n    {\n      \"id\": \"81F3809E-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"No_\": \"W2ABS65-MCP\"\n      },\n      \"fields\": {\n        \"ResourceNo_\": \"W2A65-MCP\"\n      }\n    },\n    {\n      \"id\": \"83F3809E-25D8-F111-B7A5-F145A16A6DD4\",\n      \"primaryKey\": {\n        \"No_\": \"W2ABS65-MCPN\"\n      },\n      \"fields\": {\n        \"ResourceNo_\": \"W2A65-MCPN\"\n      }\n    }\n  ],\n  \"noOfRecords\": 2\n}"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-04T07:59:28.929Z"
+}

@@ -1,0 +1,39 @@
+{
+  "version": "0.2",
+  "toolInfo": {
+    "toolName": "Microsoft (R) AL Compiler",
+    "productVersion": "30.0.42",
+    "fileVersion": "30.0.42"
+  },
+  "issues": [
+    {
+      "ruleId": "AA0210",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "/workspace/timesheets65-current-worker4/test/test/TSAbsenceRegTests.Codeunit.al",
+              "region": {
+                "startLine": 264,
+                "startColumn": 9,
+                "endLine": 264,
+                "endColumn": 54
+              }
+            }
+          ]
+        }
+      ],
+      "shortMessage": "The table Employee does not contain a key with the field Resource No..",
+      "fullMessage": "Suboptimal index.",
+      "properties": {
+        "severity": "Info",
+        "defaultSeverity": "Info",
+        "title": "Avoid non-indexed fields into filtering.",
+        "category": "Design",
+        "helpLink": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/analyzers/codecop-aa0210?wt.mc_id=d365bc_inproduct_alextension",
+        "isEnabledByDefault": "True",
+        "isSuppressedInSource": "False"
+      }
+    }
+  ]
+}

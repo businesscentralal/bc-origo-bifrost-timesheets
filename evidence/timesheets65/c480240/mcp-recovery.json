@@ -1,0 +1,13 @@
+{
+  "reason": "Management invocation401 before fixture creation; first happy request then safely returned RecordNotFound. No successful write to replay.",
+  "noSuccessfulBusinessWriteInAttempt1": true,
+  "nativeFixtureDriver": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "fixture-driver-test.json"
+  },
+  "sourceSha": "d5ddaebf56297bcadd6db6fed166f0ab439a4be3",
+  "productCandidateSha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "retainAttempt1": true
+}

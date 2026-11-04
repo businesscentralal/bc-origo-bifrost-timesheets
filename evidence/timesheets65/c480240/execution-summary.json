@@ -1,0 +1,245 @@
+{
+  "candidateSha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "branch": "codex/gandalfr/timesheets-65-absence-register",
+  "prUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71",
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/65",
+  "owner": "worker-4",
+  "displayName": "Alv\u00edss",
+  "compile": {
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "dirty": false,
+    "compiler": "/workspace/tools/al-language/extension/bin",
+    "analyzers": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ],
+    "foundationProvenance": "/workspace/evidence/timesheets65-worker4-20261104/foundation-provenance.json",
+    "Default": {
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 2,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ]
+    },
+    "Test-product": {
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 2,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ]
+    },
+    "Test": {
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 1,
+      "analyzers": [
+        "CodeCop",
+        "UICop"
+      ]
+    }
+  },
+  "deployedProvenance": {
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "containerId": "f0c73a4f1444",
+    "artifacts": [
+      {
+        "name": "product",
+        "sha256": "80b2ce732d26a5760baced634819fa75d05825e8d168714aa35535d5c9ad4e5b",
+        "buildDownloadHashMatch": true,
+        "sourceCommitVerified": true,
+        "version": "28.0.0.0"
+      },
+      {
+        "name": "test",
+        "sha256": "88a12bc479e8c0271c37ad0ae54624ca250bc3c20b2607866dd62e6dadf9a76c",
+        "buildDownloadHashMatch": true,
+        "sourceCommitVerified": true,
+        "version": "28.0.0.0"
+      }
+    ]
+  },
+  "foundation": {
+    "version": "28.0.11.668",
+    "cachedPackage": "/workspace/evidence/core1247-worker4/symbols/Origo_Bifrost Foundation_28.0.11.668.app",
+    "sha256": "46d971f47f990dec3d67cdee11e45c962fe6fa02e52b573097cfe1ecced58017",
+    "cacheSource": "Existing worker4 core1247 baseline symbols, not a fresh download; deployed-source verification follows",
+    "deployedDownloadHashMatches": true,
+    "manifestSource": "product-deployed-manifest.xml plus Foundation-deployed-manifest.xml",
+    "EnglishOnlyPolicyVerifiedInDeployedSource": true
+  },
+  "ci": {
+    "runId": 41786512228,
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "conclusion": "success",
+    "tests": {
+      "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+      "fullSuite": true,
+      "executed": 131,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "suites": [
+        {
+          "name": "95601 Clockify Connector Tests",
+          "tests": 70
+        },
+        {
+          "name": "95604 Clockify User Paging Tests",
+          "tests": 11
+        },
+        {
+          "name": "95606 Timesheets Registration Tests",
+          "tests": 1
+        },
+        {
+          "name": "95607 Clockify Reten. Policy Tests",
+          "tests": 2
+        },
+        {
+          "name": "95608 Message Contract Batch 1 Tests",
+          "tests": 1
+        },
+        {
+          "name": "95609 Message Contract Batch 2 Tests",
+          "tests": 1
+        },
+        {
+          "name": "95610 Message Contract Batch 3 Tests",
+          "tests": 1
+        },
+        {
+          "name": "95611 Message Contract Effect Tests",
+          "tests": 4
+        },
+        {
+          "name": "95612 Clockify Field Restrict Tests",
+          "tests": 8
+        },
+        {
+          "name": "95613 Clockify Help Fixes Tests",
+          "tests": 8
+        },
+        {
+          "name": "95615 Phone Role Center Tests",
+          "tests": 10
+        },
+        {
+          "name": "95616 TS Absence Reg Tests",
+          "tests": 13
+        },
+        {
+          "name": "95617 TS Absence Reg Perm Tests",
+          "tests": 1
+        }
+      ],
+      "passed": 131
+    }
+  },
+  "ownedFullSuite": {
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "containerId": "f0c73a4f1444",
+    "fullSuite": true,
+    "passed": 131,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "errors": 0,
+    "executed": 131,
+    "expectedDeclaredTests": 131,
+    "evidence": "full-suite.json"
+  },
+  "mcp": {
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "containerId": "f0c73a4f1444",
+    "functional": {
+      "executed": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0
+    },
+    "help": {
+      "executed": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0
+    },
+    "executed": 24,
+    "passed": 23,
+    "failed": 1,
+    "skipped": 0,
+    "createsOwnData": true,
+    "types": [
+      "Timesheets.Absence.Register"
+    ],
+    "successfulAbsenceWrites": 6,
+    "fixtureReadbackVerified": true,
+    "functionalVerified": true,
+    "allAcceptanceVerified": false,
+    "evidence": "mcp-summary.json",
+    "priorSetupFailureRetained": "mcp-attempt1-summary.json"
+  },
+  "ui": {
+    "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+    "containerId": "f0c73a4f1444",
+    "executed": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "languageRestored": true,
+    "priorAttemptRetained": "ui-attempt1-summary.json"
+  },
+  "cleanup": {
+    "containerId": "f0c73a4f1444",
+    "owner": "worker-4",
+    "startedAt": "2026-11-04T08:03:18.247Z",
+    "verified": true,
+    "allOwnedFixturesPurged": true,
+    "ownership": {
+      "id": "f0c73a4f1444",
+      "displayName": "alviss-worker4-timesheets65-20261104-w1"
+    },
+    "deleteAttemptedAt": "2026-11-04T08:03:18.468Z",
+    "deleteStatusCode": 204,
+    "readbacks": [
+      {
+        "at": "2026-11-04T08:03:18.641Z",
+        "statusCode": 404,
+        "exists": false
+      }
+    ],
+    "finishedAt": "2026-11-04T08:03:18.641Z",
+    "priorOwnedSelectionRestored": true,
+    "absentFromList": true,
+    "inventoryVerifiedAt": "2026-11-04T08:03:51.730Z"
+  },
+  "recoveryHistory": {
+    "fixtureManagementAttempt": "401 before execution; retained seed-fixture-result.json; no successful write replay",
+    "mcpAttempt1": "1failed happy assertion after absent fixture, RecordNotFound and no write; retained mcp-attempt1-summary.json",
+    "companionFixture": "Separate published d5ddaeb test extension invokes unchanged95618; 1setup test passed, separate from131fullsuite",
+    "uiAttempt1": "1failed harness wait expected sheetNo in collapsed General; retained ui-attempt1-summary.json; selector corrected against visible resource and exact filtered URL, two final scenarios passed"
+  },
+  "holds": [
+    {
+      "owner": "Claude Code",
+      "reason": "AC08 is-IS help chapters conflict with Foundation28.0.11.667#1239 intentional English-only contract. Architect notified via genuine Slack1793759140.825849; current PR matrix requests disposition.",
+      "dependencyUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71"
+    },
+    {
+      "owner": "Architect",
+      "reason": "Current full ContractParameterKeys still fails inherited Clockify contract findings; PR74/issue46 owned remediation remains separate. Earlier MixedLanguageLabels hold is now resolved by merged PR78. HelpLinks and Icelandic-help acceptance still require explicit disposition.",
+      "dependencyUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/74"
+    }
+  ],
+  "handoffPerformed": false,
+  "deliveryComplete": false
+}

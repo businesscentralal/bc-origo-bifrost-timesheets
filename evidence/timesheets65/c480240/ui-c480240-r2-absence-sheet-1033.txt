@@ -1,0 +1,127 @@
+
+Dynamics 365 Business Central
+
+
+
+
+C
+
+
+Time Sheet
+
+
+
+
+
+
+November 2, 2026
+Home
+Prepare
+
+Reopen
+Submit
+Comments
+
+General
+Show less
+No.
+W2ABS65-MCP
+Starting Date
+11/2/2026
+Ending Date
+11/8/2026
+Resource No.
+W2A65-MCP
+Description
+Lines
+Manage
+Line
+
+
+New Line
+Delete Line
+
+		
+Type
+	
+	
+Status
+	
+Description
+	
+Project No.
+	
+Project Task No.
+	
+Cause of Absence Code
+	
+Chargeable
+	
+Work Type Code
+	
+2 Mon
+	
+3 Tue
+	
+4 Wed
+	
+5 Thu
+	
+6 Fri
+	
+7 Sat
+	
+8 Sun
+	
+Total
+	
+			
+																
+		Absence	
+	Open	Brokkr65 owned absence			W2A65	
+									4	
+		Absence		Open	Brokkr65 owned absence			W2A65	
+							3		3	
+		Absence		Open	Brokkr65 owned absence			W2A65	
+				2					2	
+		Absence		Open	Brokkr65 owned absence			W2A65	
+				4					4	
+		Absence		Open	Brokkr65 owned absence			W2A65	
+							3		3	
+		Absence		Open	Brokkr65 owned absence			W2A65	
+				2					2	
+Unit of Measure
+W2A65
+Total
+18
+Time Sheet Status
+CommentNo
+Open18.00
+Submitted0.00
+Rejected0.00
+Approved0.00
+Total18.00
+Posted0.00
+Actual/Budgeted Summary
+2 Monday0.00/0.00
+3 Tuesday0.00/0.00
+4 Wednesday12.00/0.00
+5 Thursday0.00/0.00
+6 Friday0.00/0.00
+7 Saturday6.00/0.00
+8 Sunday0.00/0.00
+Total18.00/0.00
+Total Presence0.00
+Total Absence18.00
+Time Sheet Line Details
+Comments
+  
+Absence Details
+DescriptionBrokkr65 owned absence
+
+Use the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.
+
+November 2, 2026. Time Sheet
+
+List with title "Lines" now has 6 items
+[{"label":null,"value":"on"},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":"4"},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":""},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"},{"label":null,"value":"on"}]

@@ -1,0 +1,27 @@
+<Package xmlns="http://schemas.microsoft.com/navx/2015/manifest">
+  <App Id="553214e3-b742-4ccf-8ecc-1ee86fbc96f9" Name="Bifrost Timesheets - Tests" Publisher="Origo" Brief="Bifrost Timesheets - Tests" Description="Unit tests for the Bifrost Timesheets connector." Version="28.0.0.0" CompatibilityId="0.0.0.0" PrivacyStatement="https://www.origo.is/um-origo/stefnur/personuverndarstefna" EULA="https://www.origo.is/skilmalar-og-oryggismal" Help="https://www.origo.is/" HelpBaseUrl="" ContextSensitiveHelpUrl="https://www.origo.is/" Url="https://www.origo.is/" Logo="/logo/Logo250x250.png" Platform="28.0.0.0" Application="28.0.0.0" Runtime="17.0" Target="Cloud" ShowMyCode="False" />
+  <IdRanges>
+    <IdRange MinObjectId="95600" MaxObjectId="95699" />
+  </IdRanges>
+  <Dependencies>
+    <Dependency Id="7505e808-6e52-4b96-a328-82573391297a" Name="Bifrost Foundation" Publisher="Origo" MinVersion="28.0.1.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="d4560cf5-947d-42b5-b812-33ae8dd009af" Name="Bifrost Timesheets" Publisher="Origo" MinVersion="28.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="5d86850b-0d76-4eca-bd7b-951ad998e997" Name="Tests-TestLibraries" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="d852d5d2-a39d-4179-baeb-f99a19e32510" Name="Application Test Library" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="dd0be2ea-f733-4d65-bb34-a28f4624fb14" Name="Library Assert" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="23de40a6-dfe8-4f80-80db-d70f83ce8caf" Name="Test Runner" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="e7320ebb-08b3-4406-b1ec-b4927d3e280b" Name="Any" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+    <Dependency Id="5095f467-0a01-4b99-99d1-9ff1237d286f" Name="Library Variable Storage" Publisher="Microsoft" MinVersion="1.0.0.0" CompatibilityId="0.0.0.0" />
+  </Dependencies>
+  <InternalsVisibleTo />
+  <ScreenShots />
+  <SupportedLocales />
+  <Features />
+  <PreprocessorSymbols />
+  <SuppressWarnings />
+  <ResourceExposurePolicy AllowDebugging="true" AllowDownloadingSource="false" IncludeSourceInSymbolFile="false" ApplyToDevExtension="false" />
+  <KeyVaultUrls />
+  <Source RepositoryUrl="https://github.com/businesscentralal/bc-origo-bifrost-timesheets" Commit="c480240699d870c9825d2ac4049a62f9a826c26a" />
+  <Build Timestamp="2026-11-04T07:44:25.1434055Z" CompilerVersion="30.0.42.60748" />
+  <AlternateIds />
+</Package>

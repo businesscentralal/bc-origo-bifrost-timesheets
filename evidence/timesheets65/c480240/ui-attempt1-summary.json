@@ -1,0 +1,77 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [],
+  "captures": [
+    {
+      "name": "failure",
+      "text": "\nDynamics 365 Business Central\n\n\n\n\nC\n\n\nTime Sheet\n\n\n\n\n\n\nNovember 2, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow more\nResource No.\nW2A65-MCP\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n2 Mon\n\t\n3 Tue\n\t\n4 Wed\n\t\n5 Thu\n\t\n6 Fri\n\t\n7 Sat\n\t\n8 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tAbsence\t\n\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\nUnit of Measure\nW2A65\nTotal\n18\nTime Sheet Status\nCommentNo\nOpen18.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal18.00\nPosted0.00\nActual/Budgeted Summary\n2 Monday0.00/0.00\n3 Tuesday0.00/0.00\n4 Wednesday12.00/0.00\n5 Thursday0.00/0.00\n6 Friday0.00/0.00\n7 Saturday6.00/0.00\n8 Sunday0.00/0.00\nTotal18.00/0.00\nTotal Presence0.00\nTotal Absence18.00\nTime Sheet Line Details\nComments\n  \nAbsence Details\nDescriptionBrokkr65 owned absence\n\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nNovember 2, 2026. Time Sheet\n\nList with title \"Lines\" now has 6 items",
+      "controls": [
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "4"
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "on"
+        }
+      ]
+    }
+  ],
+  "startedAt": "2026-11-04T08:00:17.128Z",
+  "verified": false,
+  "languageRestored": false,
+  "languageSelections": [],
+  "limitations": [],
+  "error": "Owned BC record did not load on page 973: W2ABS65-MCP",
+  "finishedAt": "2026-11-04T08:01:18.255Z",
+  "executed": 1,
+  "passed": 0,
+  "failed": 1,
+  "skipped": 0
+}

@@ -1,0 +1,109 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [
+    {
+      "lcid": 1033,
+      "name": "MCP absence registrations visible in standard BC Time Sheet card, cause W2A65, weekday/weekend hours and total18",
+      "sheet": "W2ABS65-MCP",
+      "resource": "W2A65-MCP",
+      "expectedOwnedLines": 6,
+      "visibleRows": [
+        {
+          "text": "\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n2 Mon\n\t\n3 Tue\n\t\n4 Wed\n\t\n5 Thu\n\t\n6 Fri\n\t\n7 Sat\n\t\n8 Sun\n\t\nTotal\n\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\n\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t",
+          "aria": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "name": "MCP absence registrations visible in standard BC Time Sheet card, cause W2A65, weekday/weekend hours and total18",
+      "sheet": "W2ABS65-MCP",
+      "resource": "W2A65-MCP",
+      "expectedOwnedLines": 6,
+      "visibleRows": [
+        {
+          "text": "\t\t\nTegund\n\t\n\t\nSta\u00f0a\n\t\nL\u00fdsing\n\t\nVerkefni nr.\n\t\nVerkefnahluti nr.\n\t\n\u00c1st\u00e6\u00f0uk\u00f3\u00f0i fjarvistar\n\t\nReikningsh\u00e6ft\n\t\nK\u00f3\u00f0i vinnutegundar\n\t\n2 M\u00e1n\n\t\n3 \u00deri\n\t\n4 Mi\u00f0\n\t\n5 Fim\n\t\n6 F\u00f6s\n\t\n7 Lau\n\t\n8 Sun\n\t\nSamtals\n\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\n\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t",
+          "aria": null
+        },
+        {
+          "text": "\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t",
+          "aria": null
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "startedAt": "2026-11-04T08:02:18.735Z",
+  "verified": true,
+  "languageRestored": true,
+  "languageSelections": [
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nC\n\ue76b\n\ue72b\nTime Sheet\n\ue70f\n\ue72d\n\ue710\n\ue74d\n\ue8a7\n\ue740\nNovember 2, 2026\nHome\nPrepare\n\uf167\nReopen\nSubmit\nComments\n\ue77a\nGeneral\nShow more\nResource No.\nW2A65-MCP\nLines\nManage\nLine\n\ue72d\n\ue93a\nNew Line\nDelete Line\n\ue77a\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n2 Mon\n\t\n3 Tue\n\t\n4 Wed\n\t\n5 Thu\n\t\n6 Fri\n\t\n7 Sat\n\t\n8 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tAbsence\t\n\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\nUnit of Measure\nW2A65\nTotal\n18\nTime Sheet Status\nCommentNo\nOpen18.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal18.00\nPosted0.00\nActual/Budgeted Summary\n2 Monday0.00/0.00\n3 Tuesday0.00/0.00\n4 Wednesday12.00/0.00\n5 Thursday0.00/0.00\n6 Friday0.00/0.00\n7 Saturday6.00/0.00\n8 Sunday0.00/0.00\nTotal18.00/0.00\nTotal Presence0.00\nTotal Absence18.00\nTime Sheet Line Details\nComments\n\u00a0\u00a0\nAbsence Details\nDescriptionBrokkr65 owned absence\n\ue76c\nMy Settings - CODEXW2\n\ue740\n\ue8bb\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 08:01 AM.\nOK\nCancel\nAvailable Languages\n\ue721\n\ue70d\n\ue740\n\ue8bb\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\nOK\nCancel\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nNovember 2, 2026. Time Sheet\n\nList with title \"Lines\" now has 6 items\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has 18 items\n\n18 suggestions available for English.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"4\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"English\"}]"
+    },
+    {
+      "label": "Icelandic (Iceland)",
+      "lcid": 1039,
+      "settings": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nC\n\ue76b\n\ue72b\nTime Sheet\n\ue70f\n\ue72d\n\ue710\n\ue74d\n\ue8a7\n\ue740\nNovember 2, 2026\nHome\nPrepare\n\uf167\nReopen\nSubmit\nComments\n\ue77a\nGeneral\nShow less\nNo.\nW2ABS65-MCP\nStarting Date\n11/2/2026\nEnding Date\n11/8/2026\nResource No.\nW2A65-MCP\nDescription\nLines\nManage\nLine\n\ue72d\n\ue93a\nNew Line\nDelete Line\n\ue77a\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n2 Mon\n\t\n3 Tue\n\t\n4 Wed\n\t\n5 Thu\n\t\n6 Fri\n\t\n7 Sat\n\t\n8 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tAbsence\t\n\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tAbsence\t\tOpen\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\nUnit of Measure\nW2A65\nTotal\n18\nTime Sheet Status\nCommentNo\nOpen18.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal18.00\nPosted0.00\nActual/Budgeted Summary\n2 Monday0.00/0.00\n3 Tuesday0.00/0.00\n4 Wednesday12.00/0.00\n5 Thursday0.00/0.00\n6 Friday0.00/0.00\n7 Saturday6.00/0.00\n8 Sunday0.00/0.00\nTotal18.00/0.00\nTotal Presence0.00\nTotal Absence18.00\nTime Sheet Line Details\nComments\n\u00a0\u00a0\nAbsence Details\nDescriptionBrokkr65 owned absence\n\ue76c\nMy Settings - CODEXW2\n\ue740\n\ue8bb\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 08:01 AM.\nOK\nCancel\nAvailable Languages\n\ue721\n\ue70d\n\ue740\n\ue8bb\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tIcelandic (Iceland)\t\n\t\nOK\nCancel\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nNovember 2, 2026. Time Sheet\n\nList with title \"Lines\" now has 6 items\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has one item\n\nOne suggestion available for Icelandic.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"4\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"Icelandic\"}]"
+    },
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nC\n\ue76b\n\ue72b\nVinnusk\u00fdrsla\n\ue70f\n\ue72d\n\ue710\n\ue74d\n\ue8a7\n\ue740\nn\u00f3vember 2, 2026\nHeim\nUndirb\u00faa\n\uf167\nOpna aftur\nSenda\nAthugasemdir\n\ue77a\nAlmennt\nS\u00fdna minna\nNr.\nW2ABS65-MCP\nUpphafsdagsetning\n11/2/2026\nLokadagsetning\n11/8/2026\nFor\u00f0anr.\nW2A65-MCP\nL\u00fdsing\nL\u00ednur\nStj\u00f3rna\nL\u00edna\n\ue72d\n\ue93a\nN\u00fd l\u00edna\nEy\u00f0a l\u00ednu\n\ue77a\n\t\t\nTegund\n\t\n\t\nSta\u00f0a\n\t\nL\u00fdsing\n\t\nVerkefni nr.\n\t\nVerkefnahluti nr.\n\t\n\u00c1st\u00e6\u00f0uk\u00f3\u00f0i fjarvistar\n\t\nReikningsh\u00e6ft\n\t\nK\u00f3\u00f0i vinnutegundar\n\t\n2 M\u00e1n\n\t\n3 \u00deri\n\t\n4 Mi\u00f0\n\t\n5 Fim\n\t\n6 F\u00f6s\n\t\n7 Lau\n\t\n8 Sun\n\t\nSamtals\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tFjarvist\t\n\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t\t\t4\t\n\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\n\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t4\t\t\t\t\t4\t\n\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t\t\t\t3\t\t3\t\n\t\tFjarvist\t\tOpi\u00f0\tBrokkr65 owned absence\t\t\tW2A65\t\n\t\t\t\t2\t\t\t\t\t2\t\nM\u00e6lieining\nW2A65\nSamtals\n18\nSta\u00f0a vinnusk\u00fdrslu\nAthugasemdNei\nOpi\u00f018.00\nSent0.00\nHafna\u00f00.00\nSam\u00feykkt0.00\nSamtals18.00\nB\u00f3ka\u00f00.00\nRaunveruleg/\u00e1\u00e6tlu\u00f0 samantekt\n2 m\u00e1nudagur0.00/0.00\n3 \u00feri\u00f0judagur0.00/0.00\n4 mi\u00f0vikudagur12.00/0.00\n5 fimmtudagur0.00/0.00\n6 f\u00f6studagur0.00/0.00\n7 laugardagur6.00/0.00\n8 sunnudagur0.00/0.00\nSamtals18.00/0.00\nHeildarvi\u00f0vera0.00\nHeildarfjarvist18.00\nUppl\u00fdsingar um vinnusk\u00fdrslul\u00ednu\nAthugasemdir\n\u00a0\u00a0\nUppl\u00fdsingar um fjarvist\nL\u00fdsingBrokkr65 owned absence\n\ue76c\nM\u00ednar stillingar - CODEXW2\n\ue740\n\ue8bb\nHlutverk\nVi\u00f0skiptastj\u00f3ri\nFyrirt\u00e6ki\nCRONUS International Ltd.\nVinnudagsetning\nSv\u00e6\u00f0i\nEnglish (United States)\nTungum\u00e1l\nIcelandic (Iceland)\nT\u00edmabelti\n(UTC) Coordinated Universal Time\nTilkynningar\nBreyta \u00feegar \u00e9g f\u00e6 tilkynningar.\nKennslu\u00e1bendingar\nEldri a\u00f0ger\u00f0arstika\n\u00d6ryggi\nS\u00ed\u00f0asta innskr\u00e1ning var 11/04/26 08:01 AM.\n\u00cd lagi\nH\u00e6tta vi\u00f0\nTilt\u00e6k tungum\u00e1l\n\ue721\n\ue70d\n\ue740\n\ue8bb\n\t\t\nHeiti\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\n\u00cd lagi\nH\u00e6tta vi\u00f0\nNota\u00f0u h\u00e6gri og vinstri \u00f6rvalyklana til a\u00f0 stilla st\u00e6r\u00f0ina. Nota\u00f0u Escape-lykilinn til a\u00f0 afturkalla e\u00f0a Enter-lykilinn til a\u00f0 sta\u00f0festa.\n\nn\u00f3vember 2, 2026. Vinnusk\u00fdrsla\n\nListi me\u00f0 titilinn \u201eL\u00ednur\u201c hefur n\u00fa 6 atri\u00f0i\n\nHeiti, ra\u00f0a\u00f0 \u00ed p\u00f6ntunina H\u00e6kkandi\n\nListi me\u00f0 titilinn \u201eTilt\u00e6k tungum\u00e1l\u201c hefur n\u00fa 18 atri\u00f0i\n\n18 till\u00f6gur \u00ed bo\u00f0i fyrir English.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"4\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Leita Tilt\u00e6k tungum\u00e1l\",\"value\":\"English\"}]"
+    }
+  ],
+  "limitations": [],
+  "finishedAt": "2026-11-04T08:02:51.534Z",
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0
+}

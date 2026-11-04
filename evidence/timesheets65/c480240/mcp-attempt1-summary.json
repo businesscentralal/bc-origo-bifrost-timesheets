@@ -1,0 +1,38 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "types": [
+    "Timesheets.Absence.Register"
+  ],
+  "createsOwnData": true,
+  "dataSetup": "Same-SHA native test-app codeunit95618 invoked exactly once on worker4 owned container, only isolated W2A65/W2ABS65 records. No licensing/consent/HTTP/guard changes.",
+  "startedAt": "2026-11-04T07:52:39.216Z",
+  "functional": {
+    "executed": 1,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0
+  },
+  "help": {
+    "executed": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scenarios": [
+    {
+      "group": "functional",
+      "name": "happy",
+      "lcid": 1033,
+      "passed": false,
+      "error": "{\"status\":\"Error\",\"code\":\"RecordNotFound\",\"error\":\"The identifier does not match a record.\",\"parameter\":\"timeSheetNo\",\"nextStep\":\"Use an identifier that exists.\",\"hint\":\"For usage details, call the \\\"Help.Implementation.Get\\\" message type with subject \\\"Timesheets.Absence.Register\\\". Always read the help before calling a message type.\"}\n\n'Error' !== 'Success'\n"
+    }
+  ],
+  "verified": false,
+  "identity": {
+    "user": "CODEXW2",
+    "company": "CRONUS International Ltd.",
+    "isSandbox": true,
+    "isProduction": false
+  }
+}

@@ -1,0 +1,27 @@
+<Package xmlns="http://schemas.microsoft.com/navx/2015/manifest">
+  <App Id="7505e808-6e52-4b96-a328-82573391297a" Name="Bifrost Foundation" Publisher="Origo" Brief="Bifrost bridge foundation for Business Central" Description="Bifrost Foundation exposes Business Central through versioned message types over a CloudEvents-based API, enabling seamless integration and headless operation." Version="28.0.11.668" CompatibilityId="0.0.0.0" PrivacyStatement="https://docs.bifrost.origo.is/en-us/licensing/privacy/" EULA="https://docs.bifrost.origo.is/en-us/licensing/eula/" Help="https://docs.bifrost.origo.is/en-us/foundation/" HelpBaseUrl="" ContextSensitiveHelpUrl="https://docs.bifrost.origo.is/{0}/help/foundation/" Url="https://docs.bifrost.origo.is" Logo="/logo/Logo250x250.png" Platform="28.0.0.0" Application="28.0.0.0" Runtime="17.0" Target="Cloud" ShowMyCode="False" ApplicationInsightsConnectionString="InstrumentationKey=af411133-5e22-486f-b23a-081b79ed4168;IngestionEndpoint=https://northeurope-2.in.applicationinsights.azure.com/;LiveEndpoint=https://northeurope.livediagnostics.monitor.azure.com/;ApplicationId=c4476f32-5dfb-490a-8ad0-fb8ffad1c050" />
+  <IdRanges>
+    <IdRange MinObjectId="10077885" MaxObjectId="10078384" />
+  </IdRanges>
+  <Dependencies />
+  <InternalsVisibleTo />
+  <ScreenShots />
+  <SupportedLocales>
+    <SupportedLocale Local="en-US" />
+    <SupportedLocale Local="is-IS" />
+  </SupportedLocales>
+  <Features>
+    <Feature>TRANSLATIONFILE</Feature>
+  </Features>
+  <PreprocessorSymbols />
+  <SuppressWarnings>
+    <SuppressWarning Name="AA0215" />
+  </SuppressWarnings>
+  <ResourceExposurePolicy AllowDebugging="false" AllowDownloadingSource="false" IncludeSourceInSymbolFile="false" ApplyToDevExtension="false" />
+  <KeyVaultUrls>
+    <KeyVaultUrl Name="https://kv-bc-cosmos-shared.vault.azure.net/" />
+  </KeyVaultUrls>
+  <Source RepositoryUrl="https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core" Commit="8afeab7962e13ed31b564b81c02e75452472de3a" />
+  <Build By="AL-Go for GitHub,v9.2" Url="https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core/actions/runs/41753125460" Timestamp="2026-11-04T01:26:25.1435807Z" CompilerVersion="18.1.44.47295" />
+  <AlternateIds />
+</Package>

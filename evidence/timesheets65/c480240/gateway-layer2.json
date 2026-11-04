@@ -1,0 +1,58 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "targetBranch": "main",
+  "targetSha": "d0e5c5fc415bb7dd00a50dc2418299aa51a974db",
+  "tier": "Standard",
+  "layer1": {
+    "checks": 23,
+    "passed": 15,
+    "remainingCategories": [
+      {
+        "name": "read_isolation",
+        "findings": 45
+      },
+      {
+        "name": "today_vs_workdate",
+        "findings": 13
+      },
+      {
+        "name": "caption_translation",
+        "findings": 43
+      },
+      {
+        "name": "one_statement_per_line",
+        "findings": 65
+      },
+      {
+        "name": "format_guid",
+        "findings": 1
+      },
+      {
+        "name": "global_variables",
+        "findings": 2
+      },
+      {
+        "name": "xml_doc_comments",
+        "findings": 795
+      },
+      {
+        "name": "try_prefix_convention",
+        "findings": 6
+      }
+    ],
+    "noScriptModification": true,
+    "linuxRecovery": "Initial script lacked USERPROFILE; successful retry supplied existing /home/node as USERPROFILE without modifying standards."
+  },
+  "layer2": {
+    "scope": "Issue65 existing implementation; current-main merge contains reviewed paging/mixed-language repairs; no source edited in this execution.",
+    "compiler": "Default product/Test product/testapp0errors0warnings; product CodeCop/UICop/AppSourceCop; test CodeCop/UICop.",
+    "idRanges": "Product10036785..10036884; tests95600..95699. Absence implementation10036880; existing test95616/95617 plus native fixture95618. Companion95699 is separate ephemeral verification extension only.",
+    "permissions": "Connector/Read/Full composition and CanMaintainSheets guards retained; no assignable permission set or Foundation Setup grant introduced. Native no-permission test passes.",
+    "businessLogic": "Standard Validate plus CopyFromTimeSheetLine, isolated Codeunit.Run; invalid-date rollback and Employee Absence posting tested.",
+    "compatibility": "Existing public APIs untouched by this absence addition. No property, assertion, suppressions or compatibility-gate changes in this session.",
+    "testCoverage": "Own full131passed and CI131passed; functionalMCP22passed. HelpAC1039FAILED and related story/guard/documentation holds stay explicit.",
+    "translations": "Fresh XLFsync/MixedLanguage guard PASS; whole contractguard481equalsmain481 fails; no new findings. HelpLinks unavailable: docs main has no Timesheets files.",
+    "limits": "Developer self-check; not independent Claude/Grok verification. UI1033/1039 both passed; complete owned container deleted204/readback404. Actual helpAC08 failure and external documentation/whole-guard acceptance remain."
+  },
+  "verdict": "NOT_READY: actual AC08 help failure and AC09/AC10 external documentation/full-guard dispositions remain."
+}

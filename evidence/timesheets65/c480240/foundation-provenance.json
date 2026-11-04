@@ -1,0 +1,9 @@
+{
+  "version": "28.0.11.668",
+  "cachedPackage": "/workspace/evidence/core1247-worker4/symbols/Origo_Bifrost Foundation_28.0.11.668.app",
+  "sha256": "46d971f47f990dec3d67cdee11e45c962fe6fa02e52b573097cfe1ecced58017",
+  "cacheSource": "Existing worker4 core1247 baseline symbols, not a fresh download; deployed-source verification follows",
+  "deployedDownloadHashMatches": true,
+  "manifestSource": "product-deployed-manifest.xml plus Foundation-deployed-manifest.xml",
+  "EnglishOnlyPolicyVerifiedInDeployedSource": true
+}

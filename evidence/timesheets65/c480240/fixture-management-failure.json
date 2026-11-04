@@ -1,0 +1,7 @@
+{
+  "containerId": "f0c73a4f1444",
+  "checkedAt": "2026-11-04T07:52:13.658Z",
+  "exitCode": 1,
+  "reason": "Invoke-NAVCodeunit returned401 Unauthorized / Authentication_InvalidCredentials at management endpoint before execution; owned header readback was empty. No credential or server-security change made.",
+  "recovery": "Published test-only companion invoked existing fixture through normal Client Services test runner;1passed."
+}

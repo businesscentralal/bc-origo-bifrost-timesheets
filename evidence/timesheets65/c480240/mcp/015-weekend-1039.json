@@ -1,0 +1,30 @@
+{
+  "sha": "c480240699d870c9825d2ac4049a62f9a826c26a",
+  "containerId": "f0c73a4f1444",
+  "name": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.Absence.Register",
+    "data": {
+      "timeSheetNo": "W2ABS65-MCP",
+      "causeOfAbsenceCode": "W2A65",
+      "hours": [
+        {
+          "date": "2026-11-07",
+          "quantity": 3
+        }
+      ]
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T07:59:34.335Z",
+  "status": "responded",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.Absence.Register\",\n  \"status\": \"Success\",\n  \"timeSheetNo\": \"W2ABS65-MCP\",\n  \"lineNo\": 50000,\n  \"causeOfAbsenceCode\": \"W2A65\",\n  \"resourceNo\": \"W2A65-MCP\",\n  \"hours\": [\n    {\n      \"date\": \"2026-11-07\",\n      \"quantity\": 3\n    }\n  ],\n  \"warnings\": [\n    {\n      \"code\": \"InvalidParameter\",\n      \"message\": \"Klukkustundir lenda á degi sem er ekki vinnudagur.\",\n      \"parameter\": \"hours\",\n      \"nextStep\": \"Staðfestu dagsetninguna eða færðu klukkustundirnar á vinnudag.\"\n    }\n  ]\n}"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-04T07:59:34.546Z"
+}
