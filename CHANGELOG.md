@@ -8,6 +8,7 @@
 - `TS Sheet Create Impl ori` (codeunit 10036874; enum value 10036873) validates all requested resources, types, limits, permissions and the configured first weekday before writing. `TS Create Writer ori` (10036847) runs standard **Create Time Sheets** report 950 in one isolated batch, retaining time-sheet administrator, resource, numbering and accounting-period checks.
 - `TS Create Contract ori` (10036848) supplies English/Icelandic discovery and help. `TS Create Restrict ori` (10036849) blocks generic Time Sheet Header writes and points to the dedicated type; reads stay open. The current Foundation table restriction event covers inserts and modifications, not only inserts.
 - `BIFROST Timeshts ori` (10036785) grants the required native data/report access; Full/Read extensions (10036866/10036867) grant their applicable feature objects. Native data access still requires the Timesheets set or equivalent base permissions. No new assignable set or Foundation setup grant is added.
+- The existing `Clockify Field Restrict Tests` (95612) compose the exact refusal from native field/table captions, matching Foundation while retaining code, hint and no-partial-write assertions.
 - `TS Create Tests` (95620) and `TS Create Permission Tests` (95621) cover native creation, planning lines, resource/period selection, literal identifiers, all-or-nothing validation, limits, existing sheets, generic-write restrictions, localization and whole-batch rollback.
 
 

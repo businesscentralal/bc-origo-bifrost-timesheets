@@ -220,6 +220,7 @@ codeunit 10036874 "TS Sheet Create Impl ori" implements "Msg Interface ori", "Ms
         if not ValidateRequest(Argument, Request, Normalized) then
             exit;
         TempWriteArgument := Argument;
+        TempWriteArgument.Insert();
         TempWriteArgument.SetRequestJson(Normalized);
         // Omit Commit participates in the enclosing caller transaction. Normal queue
         // dispatch captures Run's result and rolls the entire report batch back on failure.

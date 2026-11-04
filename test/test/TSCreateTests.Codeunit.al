@@ -354,6 +354,7 @@ codeunit 95620 "TS Create Tests"
         GlobalLanguage(1033);
         Contract.GetOverview(English);
         GlobalLanguage(1039);
+        Clear(Contract);
         Contract.GetOverview(Icelandic);
         GlobalLanguage(PreviousLanguage);
         Assert.AreNotEqual(English, Icelandic, 'Icelandic contract must translate the overview.');

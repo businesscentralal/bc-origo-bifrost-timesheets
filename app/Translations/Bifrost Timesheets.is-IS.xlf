@@ -1557,7 +1557,7 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Í dag</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Phone Cust Bucket ori - EnumValue Today - Property Caption</note>
         </trans-unit>
-      </group>
+      
           <trans-unit id="Codeunit 2509343623 - NamedType 2277945722" size-unit="char" translate="yes" xml:space="preserve">
           <source>Existing sheets with the same resource and period, in the same shape as created.</source>
           <target>Fyrirliggjandi skýrslur fyrir sömu auðlind og tímabil, á sama sniði og created.</target>
@@ -1948,6 +1948,7 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Create: Býr til tímaskýrslur fyrir valdar auðlindir og vikur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        </group>
     </body>
   </file>
 </xliff>
