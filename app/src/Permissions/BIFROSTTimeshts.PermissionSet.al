@@ -28,6 +28,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Sheet Restrict ori" = X,
         codeunit "TS Sheet Approve Impl ori" = X,
         codeunit "TS Sheet Reject Impl ori" = X,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Time Sheet Header" = R,
         tabledata "Time Sheet Line" = RM,
         tabledata "Time Sheet Detail" = RM,

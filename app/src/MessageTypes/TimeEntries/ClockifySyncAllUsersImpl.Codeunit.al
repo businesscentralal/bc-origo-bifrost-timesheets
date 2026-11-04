@@ -62,24 +62,16 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySyncAllUsers(Target));
     end;
 
     /// <summary>Describes the bounded mapped-user request without a per-user identifier.</summary>
     /// <param name="Parameters">Parameters accepted by this message type.</param>
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
-        ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        Parameters.Add(ContractMgt.Parameter('workspaceId', 'string', false, 'Clockify workspace ID. The configured default is used when omitted.'));
-        Parameters.Add(ContractMgt.Parameter('start', 'string', true, 'Inclusive range start in ISO-8601 format.'));
-        Parameters.Add(ContractMgt.Parameter('end', 'string', true, 'Inclusive range end in ISO-8601 format.'));
-        Parameters.Add(ContractMgt.Parameter('target', 'string', false, 'timesheet (default) or journal.'));
-        Parameters.Add(ContractMgt.Parameter('skip', 'integer', false, 'Number of active USER mappings to skip. Defaults to 0; negative values are rejected.'));
-        Parameters.Add(ContractMgt.Parameter('take', 'integer', false, 'Maximum users to process. Defaults to 100 when omitted or zero; negative values are rejected; values above 1000 are clamped to 1000.'));
-        Parameters.Add(ContractMgt.Parameter('journalTemplate', 'string', false, 'BC Job Journal Template; defaults to Clockify Setup.'));
-        Parameters.Add(ContractMgt.Parameter('journalBatch', 'string', false, 'BC Job Journal Batch; defaults to Clockify Setup.'));
-        exit(true);
+        exit(Parts.ParametersForTimeEntrySyncAllUsers(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
