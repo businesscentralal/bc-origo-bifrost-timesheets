@@ -1479,6 +1479,240 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WorkflowTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2277945722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing sheets with the same resource and period, in the same shape as created.</source>
+          <target>Fyrirliggjandi skýrslur fyrir sömu auðlind og tímabil, á sama sniði og created.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fyrirliggjandi skýrslur fyrir sömu auðlind og tímabil, á sama sniði og created.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text10Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3472886041" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required key is missing.</source>
+          <target>Nauðsynlegur lykill vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text11Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3419189944" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text12Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1040320215" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has the wrong JSON type or value.</source>
+          <target>Lykill er af röngu JSON-tagi eða hefur rangt gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu JSON-tagi eða hefur rangt gildi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text13Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2689785662" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text14Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3884725981" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text15Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 978377084" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text16Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2173317403" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A resource is missing, blocked or does not use time sheets, or the selected group is empty.</source>
+          <target>Auðlind vantar, er læst eða notar ekki tímaskýrslur, eða valinn flokkur er tómur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðlind vantar, er læst eða notar ekki tímaskýrslur, eða valinn flokkur er tómur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text17Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2553692530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Turn on Use Time Sheet on the resource.</source>
+          <target>Kveiktu á Notaðu tímaskýrslu á auðlindinni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kveiktu á Notaðu tímaskýrslu á auðlindinni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text18Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 527311121" size-unit="char" translate="yes" xml:space="preserve">
+          <source>More than one resource selector was supplied.</source>
+          <target>Fleiri en ein leið var notuð til að velja auðlindir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fleiri en ein leið var notuð til að velja auðlindir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text19Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1760757218" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource selection is supplied in data.</source>
+          <target>Val auðlinda er sent í data.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Val auðlinda er sent í data.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3853295839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one of resourceNo, resourceNos or resourceGroup.</source>
+          <target>Sendu aðeins eitt af resourceNo, resourceNos eða resourceGroup.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt af resourceNo, resourceNos eða resourceGroup.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text20Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2264290496" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller lacks permission to create time sheets.</source>
+          <target>Kallandinn hefur ekki heimild til að búa til tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn hefur ekki heimild til að búa til tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text21Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 533385441" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text22Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3975699074" size-unit="char" translate="yes" xml:space="preserve">
+          <source>startingDate is not the configured first weekday. Nothing is written.</source>
+          <target>startingDate er ekki stilltur fyrsti vikudagur. Ekkert er skrifað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=startingDate er ekki stilltur fyrsti vikudagur. Ekkert er skrifað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text23Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 649749027" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use the first weekday named in the refusal.</source>
+          <target>Notaðu fyrsta vikudaginn sem höfnunin nefnir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu fyrsta vikudaginn sem höfnunin nefnir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text24Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2676130436" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Numbering is missing or the caller is not a time sheet administrator.</source>
+          <target>Númeraröð vantar eða kallandinn er ekki stjórnandi tímaskýrslna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númeraröð vantar eða kallandinn er ekki stjórnandi tímaskýrslna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text25Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1666382629" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure time sheet numbering and Time Sheet Admin. in User Setup.</source>
+          <target>Stilltu númeraröð tímaskýrslna og Stjórnandi tímaskýrslna í notandauppsetningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stilltu númeraröð tímaskýrslna og Stjórnandi tímaskýrslna í notandauppsetningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text26Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1534886214" size-unit="char" translate="yes" xml:space="preserve">
+          <source>numberOfPeriods is above 52.</source>
+          <target>numberOfPeriods er yfir 52.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=numberOfPeriods er yfir 52.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text27Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2503903463" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Split the call.</source>
+          <target>Skiptu kallinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skiptu kallinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text28Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1308963144" size-unit="char" translate="yes" xml:space="preserve">
+          <source>numberOfPeriods is less than 1.</source>
+          <target>numberOfPeriods er minna en 1.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=numberOfPeriods er minna en 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text29Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2317934527" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First day of the first week, as an ISO date. Must match Time Sheet First Weekday in Resources Setup.</source>
+          <target>Fyrsti dagur fyrstu viku á ISO-sniði. Verður að samsvara fyrsta vikudegi tímaskýrslna í auðlindauppsetningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fyrsti dagur fyrstu viku á ISO-sniði. Verður að samsvara fyrsta vikudegi tímaskýrslna í auðlindauppsetningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text2Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1439423976" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send a number from 1 to 52.</source>
+          <target>Sendu tölu frá 1 til 52.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu tölu frá 1 til 52.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text30Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1933610375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central refused the creation. Nothing is written.</source>
+          <target>Business Central hafnaði stofnuninni. Ekkert er skrifað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Business Central hafnaði stofnuninni. Ekkert er skrifað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text31Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 271412458" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check the resource owners, approvers, numbering and open accounting periods, then retry.</source>
+          <target>Athugaðu eigendur auðlinda, samþykktaraðila, númeraröð og opin reikningstímabil og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Athugaðu eigendur auðlinda, samþykktaraðila, númeraröð og opin reikningstímabil og reyndu aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text32Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1507929481" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creates weekly time sheets through the standard Create Time Sheets action. Normal queue execution commits the batch; a refusal creates no sheets.</source>
+          <target>Býr til vikulegar tímaskýrslur með hefðbundinni aðgerð. Venjuleg biðraðarkeyrsla staðfestir lotuna; höfnun býr ekki til skýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Býr til vikulegar tímaskýrslur með hefðbundinni aðgerð. Venjuleg biðraðarkeyrsla staðfestir lotuna; höfnun býr ekki til skýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text33Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1851263916" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Sheet Admin., time sheet numbering, resource owners and approvers, and open accounting periods must be configured.</source>
+          <target>Stilla þarf stjórnanda tímaskýrslna, númeraröð, eigendur og samþykktaraðila auðlinda og opin reikningstímabil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stilla þarf stjórnanda tímaskýrslna, númeraröð, eigendur og samþykktaraðila auðlinda og opin reikningstímabil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text34Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2345450315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discover available message types.</source>
+          <target>Finna tiltækar skilaboðategundir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Finna tiltækar skilaboðategundir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text35Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1404409646" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create sheets for selected resources and weeks.</source>
+          <target>Búa til skýrslur fyrir valdar auðlindir og vikur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Búa til skýrslur fyrir valdar auðlindir og vikur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text36Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3320507213" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create one weekly time sheet.</source>
+          <target>Búa til eina vikulega tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Búa til eina vikulega tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text37Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 972840160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create weekly time sheets for a resource, a list of resources or a resource group. Existing sheets are returned under skipped; other sheets are returned under created. No Clockify connection is required.</source>
+          <target>Búðu til vikulegar tímaskýrslur fyrir auðlind, lista auðlinda eða auðlindaflokk. Fyrirliggjandi skýrslur birtast í skipped; nýjar skýrslur birtast í created. Engin Clockify-tenging er nauðsynleg.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Búðu til vikulegar tímaskýrslur fyrir auðlind, lista auðlinda eða auðlindaflokk. Fyrirliggjandi skýrslur birtast í skipped; nýjar skýrslur birtast í created. Engin Clockify-tenging er nauðsynleg.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text38Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3241426047" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All selected resources are checked before any write. Resource numbers are literal identifiers, not filters. The standard action requires a time sheet administrator and validates accounting periods and resource setup. This does not retire Clockify.TimeSheet.Create.</source>
+          <target>Allar valdar auðlindir eru athugaðar áður en skrifað er. Auðlindanúmer eru bókstafleg auðkenni, ekki síur. Hefðbundna aðgerðin krefst stjórnanda tímaskýrslna og staðfestir reikningstímabil og auðlindauppsetningu. Þetta afnemur ekki Clockify.TimeSheet.Create.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Allar valdar auðlindir eru athugaðar áður en skrifað er. Auðlindanúmer eru bókstafleg auðkenni, ekki síur. Hefðbundna aðgerðin krefst stjórnanda tímaskýrslna og staðfestir reikningstímabil og auðlindauppsetningu. Þetta afnemur ekki Clockify.TimeSheet.Create.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text39Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 49348640" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of weekly periods, from 1 to 52. Default: 1.</source>
+          <target>Fjöldi vikna, frá 1 til 52. Sjálfgefið: 1.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjöldi vikna, frá 1 til 52. Sjálfgefið: 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text3Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3704831365" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One literal resource number. Send exactly one of resourceNo, resourceNos or resourceGroup.</source>
+          <target>Eitt bókstaflegt auðlindanúmer. Sendu nákvæmlega eitt af resourceNo, resourceNos eða resourceGroup.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Eitt bókstaflegt auðlindanúmer. Sendu nákvæmlega eitt af resourceNo, resourceNos eða resourceGroup.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text4Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2852177702" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nonempty list of literal resource numbers. Duplicates are processed once; every resource must exist and use time sheets.</source>
+          <target>Listi auðlindanúmera sem má ekki vera tómur. Tvítekningar eru unnar einu sinni; allar auðlindir verða að vera til og nota tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Listi auðlindanúmera sem má ekki vera tómur. Tvítekningar eru unnar einu sinni; allar auðlindir verða að vera til og nota tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text5Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 2729774467" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource group number. Every selected resource must be unblocked and use time sheets.</source>
+          <target>Númer auðlindaflokks. Allar valdar auðlindir verða að vera ólæstar og nota tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer auðlindaflokks. Allar valdar auðlindir verða að vera ólæstar og nota tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text6Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 1140769124" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create lines from project planning for new sheets. Default: false. Existing sheets are not changed.</source>
+          <target>Búa til línur úr verkáætlun fyrir nýjar skýrslur. Sjálfgefið: false. Fyrirliggjandi skýrslum er ekki breytt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Búa til línur úr verkáætlun fyrir nýjar skýrslur. Sjálfgefið: false. Fyrirliggjandi skýrslum er ekki breytt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text7Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 542861257" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Success.</source>
+          <target>Success.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Success.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text8Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2509343623 - NamedType 3642888234" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New sheets with timeSheetNo, resourceNo, startingDate and endingDate.</source>
+          <target>Nýjar skýrslur með timeSheetNo, resourceNo, startingDate og endingDate.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nýjar skýrslur með timeSheetNo, resourceNo, startingDate og endingDate.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Create Contract ori - NamedType Text9Lbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 2320491616" size-unit="char" translate="yes" xml:space="preserve">
           <source>The caller is not the approver named on the time sheet.</source>
           <target>Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.</target>
@@ -1688,6 +1922,162 @@
           <target>Timesheets.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Post Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 650235816" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose resources in only one way.</source>
+          <target>Veldu auðlindir á aðeins einn hátt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Veldu auðlindir á aðeins einn hátt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType ConflictLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3299433917" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one of resourceNo, resourceNos or resourceGroup.</source>
+          <target>Sendu aðeins eitt af resourceNo, resourceNos eða resourceGroup.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt af resourceNo, resourceNos eða resourceGroup.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType ConflictNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creates time sheets for chosen resources and weeks.</source>
+          <target>Býr til tímaskýrslur fyrir valdar auðlindir og vikur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Býr til tímaskýrslur fyrir valdar auðlindir og vikur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3471704609" size-unit="char" translate="yes" xml:space="preserve">
+          <source>numberOfPeriods is above 52.</source>
+          <target>numberOfPeriods er yfir 52.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=numberOfPeriods er yfir 52.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType LimitLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 4023698324" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Split the call.</source>
+          <target>Skiptu kallinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skiptu kallinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType LimitNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 1128910002" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required key is missing.</source>
+          <target>Nauðsynlegur lykill vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType MissingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3129818787" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType MissingNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 894566561" size-unit="char" translate="yes" xml:space="preserve">
+          <source>numberOfPeriods must be from 1 to 52.</source>
+          <target>numberOfPeriods verður að vera frá 1 til 52.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=numberOfPeriods verður að vera frá 1 til 52.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType PeriodLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 749343252" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send a number from 1 to 52.</source>
+          <target>Sendu tölu frá 1 til 52.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu tölu frá 1 til 52.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType PeriodNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2009142491" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller lacks permission to create time sheets.</source>
+          <target>Kallandinn hefur ekki heimild til að búa til tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn hefur ekki heimild til að búa til tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType PermissionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3932376842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType PermissionNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3219801116" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The resource was not found, is blocked or does not use time sheets.</source>
+          <target>Auðlindin fannst ekki, er læst eða notar ekki tímaskýrslur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðlindin fannst ekki, er læst eða notar ekki tímaskýrslur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType ResourceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2443414761" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Turn on Use Time Sheet on the resource.</source>
+          <target>Kveiktu á Notaðu tímaskýrslu á auðlindinni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kveiktu á Notaðu tímaskýrslu á auðlindinni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType ResourceNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2999628943" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet setup is incomplete or the caller is not a time sheet administrator.</source>
+          <target>Uppsetning tímaskýrslna er ófullgerð eða kallandinn er ekki stjórnandi tímaskýrslna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Uppsetning tímaskýrslna er ófullgerð eða kallandinn er ekki stjórnandi tímaskýrslna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType SetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2658724230" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure time sheet numbering and Time Sheet Admin. in User Setup.</source>
+          <target>Stilltu númeraröð tímaskýrslna og Stjórnandi tímaskýrslna í notandauppsetningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Stilltu númeraröð tímaskýrslna og Stjórnandi tímaskýrslna í notandauppsetningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType SetupNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 961827798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has the wrong JSON type or value.</source>
+          <target>Lykill er af röngu JSON-tagi eða hefur rangt gildi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu JSON-tagi eða hefur rangt gildi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType TypeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3549482879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType TypeNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 1773691126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType UnknownLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2001379935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType UnknownNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 365918222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>startingDate must be %1.</source>
+          <target>startingDate verður að vera %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = first weekday|is-IS=startingDate verður að vera %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType WeekdayLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 3934734871" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use the first weekday named in the refusal.</source>
+          <target>Notaðu fyrsta vikudaginn sem höfnunin nefnir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu fyrsta vikudaginn sem höfnunin nefnir.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType WeekdayNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 2402789699" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday</source>
+          <target>mánudagur,þriðjudagur,miðvikudagur,fimmtudagur,föstudagur,laugardagur,sunnudagur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=mánudagur,þriðjudagur,miðvikudagur,fimmtudagur,föstudagur,laugardagur,sunnudagur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType WeekdaysLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 1403514585" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central could not create the requested time sheets. Nothing was written.</source>
+          <target>Business Central gat ekki búið til umbeðnar tímaskýrslur. Ekkert var skrifað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Business Central gat ekki búið til umbeðnar tímaskýrslur. Ekkert var skrifað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType WriteLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - NamedType 22627276" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check the resource owners, approvers, numbering and open accounting periods, then retry.</source>
+          <target>Athugaðu eigendur auðlinda, samþykktaraðila, númeraröð og opin reikningstímabil og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Athugaðu eigendur auðlinda, samþykktaraðila, númeraröð og opin reikningstímabil og reyndu aftur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - NamedType WriteNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
+          <source>time sheet, create, timesheets</source>
+          <target>tímaskýrsla, búa til, tímaskýrslur</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=tímaskýrsla, búa til, tímaskýrslur</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - Method GetKeywords - NamedType KeywordsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 27495300 - Method 79446908 - NamedType 895773054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Create: Creates time sheets for chosen resources and weeks.</source>
+          <target>Timesheets.TimeSheet.Create: Býr til tímaskýrslur fyrir valdar auðlindir og vikur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Create: Býr til tímaskýrslur fyrir valdar auðlindir og vikur.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Create Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2412390165 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rejects submitted time sheet lines.</source>
