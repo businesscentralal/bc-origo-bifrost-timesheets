@@ -1,1 +1,15 @@
-{}
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "runId": 41845483296,
+  "Bifrost Foundation": "28.0.11.669",
+  "Bifrost Timesheets": "28.0.2147483647.151",
+  "Bifrost Timesheets - Tests": "28.0.2147483647.151",
+  "defaultContainers": [
+    "f0483b4a018d"
+  ],
+  "testContainers": [
+    "f0483b4a018d"
+  ],
+  "source": "Actual Default/Test publish and installed-dependency log lines, not JUnit properties.",
+  "samePhysicalContainer": true
+}
