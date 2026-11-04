@@ -9,6 +9,13 @@ using Origo.Bifrost;
 permissionsetextension 10036867 "Phone RC Read Ext ori" extends "BIFROST Read ori"
 {
     Permissions =
+        codeunit "TS Native Mgt ori" = X,
+        codeunit "TS Contract Parts ori" = X,
+        codeunit "TS Native Context ori" = X,
+        codeunit "TS Native Runner ori" = X,
+        codeunit "TS Sheet Restrict ori" = X,
+        codeunit "TS Sheet Approve Impl ori" = X,
+        codeunit "TS Sheet Reject Impl ori" = X,
         codeunit "TS Sheet Create Impl ori" = X,
         codeunit "TS Create Contract ori" = X,
         codeunit "TS Create Restrict ori" = X,

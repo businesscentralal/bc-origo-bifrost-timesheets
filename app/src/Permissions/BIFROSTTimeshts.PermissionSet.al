@@ -1,7 +1,10 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.Foundation.NoSeries;
 using Microsoft.Foundation.Period;
+using Microsoft.HumanResources.Absence;
+using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
@@ -23,20 +26,34 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        codeunit "TS Native Mgt ori" = X,
+        codeunit "TS Contract Parts ori" = X,
+        codeunit "TS Native Context ori" = X,
+        codeunit "TS Native Runner ori" = X,
+        codeunit "TS Sheet Restrict ori" = X,
+        codeunit "TS Sheet Approve Impl ori" = X,
+        codeunit "TS Sheet Reject Impl ori" = X,
+        tabledata "Time Sheet Header" = RIM,
+        tabledata "Time Sheet Line" = RIM,
+        tabledata "Time Sheet Detail" = RIM,
+        tabledata "Time Sheet Comment Line" = RI,
+        tabledata "Time Sheet Posting Entry" = RI,
+        tabledata "Employee Absence" = RI,
+        tabledata "Cause of Absence" = R,
+        tabledata "Human Resource Unit of Measure" = R,
+        tabledata "Human Resources Setup" = R,
+        tabledata Employee = R,
+        tabledata Resource = R,
+        tabledata "User Setup" = R,
         codeunit "TS Sheet Create Impl ori" = X,
         codeunit "TS Create Contract ori" = X,
         codeunit "TS Create Writer ori" = X,
         codeunit "TS Create Restrict ori" = X,
         report "Create Time Sheets" = X,
-        tabledata "Time Sheet Header" = RIM,
-        tabledata "Time Sheet Line" = RIM,
-        tabledata "Time Sheet Detail" = RIM,
-        tabledata Resource = R,
         tabledata "Resource Group" = R,
         tabledata "Resources Setup" = R,
         tabledata "No. Series" = R,
         tabledata "No. Series Line" = RIM,
-        tabledata "User Setup" = R,
         tabledata "Accounting Period" = R,
         tabledata Job = R,
         tabledata "Job Task" = R,

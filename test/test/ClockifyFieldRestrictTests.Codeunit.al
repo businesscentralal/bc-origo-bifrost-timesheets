@@ -146,6 +146,7 @@ codeunit 95612 "Clockify Field Restrict Tests"
         ClockifySetup: Record "Clockify Setup ori";
         ResponseJson: JsonObject;
         Token: JsonToken;
+        FieldRefusalTok: Label 'Field %1 (%2) in table %3 (%4) cannot be written via Data.Records.Set.', Locked = true, Comment = '%1 = field caption, %2 = field number, %3 = table number, %4 = table caption';
     begin
         // [GIVEN] A known receiver URL and blank work type.
         InitializeWriteFixture(ClockifySetup);

@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
+- Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
 ### Added (2026-11-04) - Create selected weekly time sheets (#61)
 
 - `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
@@ -14,6 +17,10 @@
 
 ### Changed
 
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
+
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 
 - SyncAllUsers declares its own paging parameters, keeping them off unrelated Clockify types and removing the misleading `userId` help entry. Test page 95619 seeds a named, isolated paging company; the test-only Clockify mock supports cross-session MCP paging checks without external API calls.
@@ -21,6 +28,7 @@
 - Regenerated Icelandic translations from the AL source comments, including the paged-user selection text and missing setup action labels.
 
 - `Clockify.TimeEntry.SyncAllUsers` (codeunit 10036846) now syncs one page of active user mappings: `skip` defaults to 0 and `take` defaults to 100, capped at 1000. Callers must repeat with `nextSkip` while `hasMore` is true to sync all users. The response includes `totalUsers`; failed users still advance the offset. Contract parts (10036855) document the limits and caller loop, and paging tests (95604) cover boundaries, continuation and isolated user failures (#23).
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
