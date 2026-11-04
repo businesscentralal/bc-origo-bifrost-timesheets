@@ -757,7 +757,6 @@ codeunit 95635 "TS Usage Tests"
     [Test]
     procedure Scenario_AC02_BlockedResourceRefusesWithoutWrite()
     var
-        Header: Record "Time Sheet Header";
         Resource: Record Resource;
         Usage: Record "TS Usage Line ori";
         Request: JsonObject;
@@ -767,10 +766,10 @@ codeunit 95635 "TS Usage Tests"
     begin
         // Story #84, AC02 | Time: fixture WorkDate | Risk: None
         Fixture(Request, SheetNo, ItemNo);
-        Header.Get(SheetNo);
-        Resource.Get(Header."Resource No.");
+        Resource."No." := UniqueNo();
+        Resource.Name := 'Usage blocked resource';
         Resource.Blocked := true;
-        Resource.Modify(false);
+        Resource.Insert(false);
         Request.Replace('type', 'Resource');
         Request.Replace('no', Resource."No.");
         Response := Execute('Register', Request);
@@ -778,6 +777,7 @@ codeunit 95635 "TS Usage Tests"
         Assert.AreEqual('no', TextValue(Response, 'parameter'), 'Refusal names the resource key.');
         Usage.SetRange("Time Sheet No.", SheetNo);
         Assert.IsTrue(Usage.IsEmpty(), 'No usage is created.');
+        Resource.Delete(false);
         Cleanup(SheetNo, ItemNo);
     end;
 
@@ -788,6 +788,7 @@ codeunit 95635 "TS Usage Tests"
         Usage: Record "TS Usage Line ori";
         Item: Record Item;
         PostingGroup: Record "Inventory Posting Group";
+        GeneralPostingSetup: Record "General Posting Setup";
         Journal: Record "Item Journal Line";
         JournalTemplate: Record "Item Journal Template";
         Batch: Record "Item Journal Batch";
@@ -806,6 +807,8 @@ codeunit 95635 "TS Usage Tests"
         Item.Get(ItemNo);
         PostingGroup.Code := Item."Base Unit of Measure";
         PostingGroup.Insert(false);
+        GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroup.Code;
+        GeneralPostingSetup.Insert(false);
         Item."Inventory Posting Group" := PostingGroup.Code;
         Item."Gen. Prod. Posting Group" := PostingGroup.Code;
         Item."Prevent Negative Inventory" := Item."Prevent Negative Inventory"::No;
@@ -840,6 +843,7 @@ codeunit 95635 "TS Usage Tests"
         Ledger.Delete(false);
         Batch.Delete(false);
         JournalTemplate.Delete(false);
+        GeneralPostingSetup.Delete(false);
         PostingGroup.Delete(false);
         Cleanup(SheetNo, ItemNo);
     end;
