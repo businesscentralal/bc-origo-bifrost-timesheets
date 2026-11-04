@@ -404,7 +404,9 @@ codeunit 95616 "TS Native Sheet Tests"
         // [THEN] The licensed public dispatcher reaches the real write restriction.
         // No Licensed Call flag or consent/trial/licence state is fabricated.
         Assert.AreEqual('Error', ReadText(Response, 'status'), 'Generic status write must be refused.');
-        Assert.AreEqual('FieldWriteRestricted', ReadText(Response, 'code'), 'The field subscriber must identify the refusal.');
+        Assert.AreEqual('PermissionDenied', ReadText(Response, 'code'), 'Foundation reports protected fields as PermissionDenied.');
+        Assert.AreEqual('data[0].fields.Status', ReadText(Response, 'parameter'), 'The refusal must identify the protected field.');
+        Assert.IsTrue(ReadText(Response, 'nextStep').Contains('Timesheets.TimeSheet.Reopen'), 'The real subscriber must name the dedicated native operation.');
         Line.Get(SheetNo, 10000);
         Assert.AreEqual(Line.Status::Open, Line.Status, 'Refused write must leave the line open.');
     end;
