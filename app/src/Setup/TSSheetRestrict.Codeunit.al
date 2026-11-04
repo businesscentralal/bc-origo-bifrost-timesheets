@@ -9,7 +9,7 @@ codeunit 10036872 "TS Sheet Restrict ori"
     Access = Internal;
 
     var
-        StatusHintTok: Label 'Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', Comment = 'is-IS=Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject';
+        StatusHintTok: Label 'Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', Comment = 'is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject';
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsFieldWriteRestricted(TableNo: Integer; FieldNo: Integer; var IsRestricted: Boolean)
