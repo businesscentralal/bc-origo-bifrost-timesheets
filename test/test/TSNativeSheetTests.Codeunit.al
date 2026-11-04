@@ -80,6 +80,7 @@ codeunit 95616 "TS Native Sheet Tests"
         AssertRefusal(TempArgument, 'InvalidParameterFormat', 'journalTemplate', 'Send the key with the documented type.');
     end;
 
+    /// <summary>Verifies platform posting confirmation reaches typed validation in the caller language without ledger writes.</summary>
     [Test]
     procedure Scenario_AC04_ConfirmedPost_InvalidTemplate_IsRefused()
     var
@@ -501,6 +502,7 @@ codeunit 95616 "TS Native Sheet Tests"
         Execute(TempArgument, MessageType, Request);
     end;
 
+    /// <summary>Creates fresh owned MCP and UI fixtures without deleting or reusing earlier verification data.</summary>
     [Test]
     procedure McpFixtureSeed_FreshOwnedKeys_CreatesVerificationData()
     var
@@ -574,6 +576,7 @@ codeunit 95616 "TS Native Sheet Tests"
         // No Foundation consent, EULA, trial, licence or Licensed Call state is written.
     end;
 
+    /// <summary>Verifies repeated fixture setup retains both new record sets and all earlier owned fixtures.</summary>
     [Test]
     procedure Scenario_AC12_RepeatedFixtureSeed_PreservesEarlierRecords()
     var
