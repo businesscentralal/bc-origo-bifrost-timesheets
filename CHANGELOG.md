@@ -4,7 +4,7 @@
 
 ### Fixed
 
-- Issue #67 / test codeunit 95616: give every MCP fixture setup invocation fresh `X67` keys for time sheets, project, journal template and number series. Repeated verification no longer collides with an earlier retained or posted fixture; empty-key and fixture-content assertions remain, and earlier fixtures are never deleted.
+- Issue #67 / test codeunit 95616: give every MCP fixture setup invocation fresh `X67` keys for time sheets, project, journal template and number series. Repeated verification no longer collides with an earlier retained or posted fixture; empty-key and fixture-content assertions remain, and earlier fixtures are never deleted. Native-sheet refusal tests assert the exact translated next steps when run in Icelandic.
 
 ### Added - Native time sheet names (#67)
 

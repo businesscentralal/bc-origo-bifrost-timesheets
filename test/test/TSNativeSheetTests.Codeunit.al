@@ -33,7 +33,7 @@ codeunit 95616 "TS Native Sheet Tests"
         Response := TempArgument.GetResponseJson();
         Assert.AreEqual('Success', ReadText(Response, 'status'), 'The old archive name should still succeed.');
         Assert.IsTrue(ReadText(Response, 'warnings').Contains('DeprecatedParameter'), 'The old name should warn DeprecatedParameter.');
-        Assert.IsTrue(ReadText(Response, 'warnings').Contains('Use the native name.'), 'The warning next step should name the native name.');
+        Assert.IsTrue(ReadText(Response, 'warnings').Contains(GetExpectedNextStep('Use the native name.')), 'The warning next step should name the native name.');
     end;
 
     [Test]
@@ -637,7 +637,26 @@ codeunit 95616 "TS Native Sheet Tests"
         Assert.AreEqual('Error', ReadText(Response, 'status'), 'The call should be refused.');
         Assert.AreEqual(ExpectedCode, ReadText(Response, 'code'), 'Refusal code.');
         Assert.AreEqual(ExpectedParameter, ReadText(Response, 'parameter'), 'Refusal parameter.');
-        Assert.AreEqual(ExpectedNext, ReadText(Response, 'nextStep'), 'Refusal next step.');
+        Assert.AreEqual(GetExpectedNextStep(ExpectedNext), ReadText(Response, 'nextStep'), 'Refusal next step.');
+    end;
+
+    local procedure GetExpectedNextStep(EnglishText: Text): Text
+    begin
+        if GlobalLanguage() <> 1039 then
+            exit(EnglishText);
+        case EnglishText of
+            'Use the native name.':
+                exit('Notaðu innlenda heitið.');
+            'Send the key with the documented type.':
+                exit('Sendu lykilinn með skráðu tagi.');
+            'Remove the unknown key.':
+                exit('Fjarlægðu óþekkta lykilinn.');
+            'Use an identifier that exists.':
+                exit('Notaðu auðkenni sem er til.');
+            'Assign the BIFROST Timeshts ori permission set.':
+                exit('Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.');
+        end;
+        Error('Missing Icelandic test expectation for %1.', EnglishText);
     end;
 
     local procedure ReadText(Response: JsonObject; Name: Text): Text
