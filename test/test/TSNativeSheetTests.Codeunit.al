@@ -17,7 +17,7 @@ using System.Security.User;
 using System.TestLibraries.Utilities;
 
 /// <summary>Behavior tests for the native time sheet message types.</summary>
-codeunit 95621 "TS Native Sheet Tests"
+codeunit 95614 "TS Native Sheet Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;

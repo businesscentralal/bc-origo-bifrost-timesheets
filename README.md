@@ -390,3 +390,25 @@ Please go to https://aka.ms/AL-Go and [COSMO Docs](https://docs.cosmoconsult.com
 Assign the existing **BIFROST Timeshts ori** set for native table permissions. The Foundation Read and Full extensions expose the handlers but do not grant permissions on Microsoft tables. Insufficient permissions and a different approver are refused before writing. A successful native action commits; `omitCommit` is not supported. Approving absence lines also posts their absence entries through the standard action. Existing Clockify message behavior is unchanged.
 
 Discover localized parameters, refusals, next steps, and examples with `Help.Implementation.Get` in LCIDs 1033 and 1039. Generic writes to the Time Sheet Line Status field are blocked; reads remain available.
+
+### Create selected time sheets
+
+`Timesheets.TimeSheet.Create` creates weekly sheets for exactly one of `resourceNo`,
+`resourceNos` (a nonempty list) or `resourceGroup`. Numbers are literal identifiers,
+not BC filters. Send `startingDate` on the first weekday configured in Resources
+Setup; `numberOfPeriods` defaults to 1 and is limited to 52.
+`createLinesFromPlanning` defaults to false. The result contains `created` and
+`skipped` arrays with each sheet number, resource number and period dates.
+
+The standard Create Time Sheets action requires **Time Sheet Admin.**, resource
+owners/approvers, time sheet numbering and open accounting periods. The caller
+needs **BIFROST Timeshts ori** or equivalent native permissions. Normal queue
+execution commits the whole batch; a refusal creates no sheets. Existing sheets
+are never modified. The older `Clockify.TimeSheet.Create` remains available.
+
+```json
+{"type":"Timesheets.TimeSheet.Create","data":{"startingDate":"2030-01-07","resourceNos":["XRESOURCE"],"numberOfPeriods":2}}
+```
+
+Use `Help.Implementation.Get` for the full parameter, response and refusal contract
+in English or Icelandic (`lcid: 1039`).

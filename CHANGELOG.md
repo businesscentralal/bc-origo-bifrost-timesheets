@@ -9,9 +9,18 @@
 ## [Unreleased]
 
 ### Added
-- #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95621.
+- #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95614.
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+### Added (2026-11-04) - Create selected weekly time sheets (#61)
+
+- `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
+- `TS Sheet Create Impl ori` (codeunit 10036874; enum value 10036873) validates all requested resources, types, limits, permissions and the configured first weekday before writing. `TS Create Writer ori` (10036847) runs standard **Create Time Sheets** report 950 in one isolated batch, retaining time-sheet administrator, resource, numbering and accounting-period checks.
+- `TS Create Contract ori` (10036848) supplies English/Icelandic discovery and help. `TS Create Restrict ori` (10036849) blocks generic Time Sheet Header writes and points to the dedicated type; reads stay open. The current Foundation table restriction event covers inserts and modifications, not only inserts.
+- `BIFROST Timeshts ori` (10036785) grants the required native data/report access; Full/Read extensions (10036866/10036867) grant their applicable feature objects. Native data access still requires the Timesheets set or equivalent base permissions. No new assignable set or Foundation setup grant is added.
+- The existing `Clockify Field Restrict Tests` (95612) compose the exact refusal from native field/table captions, matching Foundation while retaining code, hint and no-partial-write assertions.
+- `TS Create Tests` (95620) and `TS Create Permission Tests` (95621) cover native creation, planning lines, resource/period selection, literal identifiers, all-or-nothing validation, limits, existing sheets, generic-write restrictions, localization and whole-batch rollback.
+
 
 ### Fixed
 
@@ -20,6 +29,10 @@
 - Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
 
 ### Changed
+
+- Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, using a completed interval for the missing-journal scenario and preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
+
+- Tests 95601 `TimeSheetApproveReturnsZeroWhenNothingOpen`, `TimeSheetRejectReturnsZeroWhenNothingSubmitted` and `TimeSheetReopenReturnsZeroWhenNothingPending` no longer assume the whole company has no time-sheet lines: they scope the request with `endingDateTo`, create and clean up their own sheet, and assert it is untouched, so they pass repeatedly on a reused container (#82).
 
 - Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
 
