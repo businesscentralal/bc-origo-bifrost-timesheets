@@ -6,7 +6,7 @@ using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>No-permission path of Timesheets.Absence.Register.</summary>
-codeunit 95617 "TS Absence Reg Perm Tests"
+codeunit 95623 "TS Absence Reg Perm Tests"
 {
     Subtype = Test;
     TestPermissions = Restrictive;
