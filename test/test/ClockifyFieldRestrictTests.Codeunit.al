@@ -20,6 +20,7 @@ codeunit 95612 "Clockify Field Restrict Tests"
 
     var
         LibraryAssert: Codeunit "Library Assert";
+        FieldRefusalLbl: Label 'Field Webhook Receiver URL (13) in table 10036853 (%1) cannot be written via Data.Records.Set.', Locked = true;
 
     /// <summary>Verifies WebhookReceiverUrlWriteRestricted through Foundation field events.</summary>
     [Test]
@@ -156,7 +157,7 @@ codeunit 95612 "Clockify Field Restrict Tests"
         ResponseJson.Get('code', Token);
         LibraryAssert.AreEqual('PermissionDenied', Token.AsValue().AsText(), 'Refusal must use PermissionDenied.');
         ResponseJson.Get('error', Token);
-        LibraryAssert.AreEqual('Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.', Token.AsValue().AsText(), 'The field refusal stays in error. The setup hint is nextStep.');
+        LibraryAssert.AreEqual(StrSubstNo(FieldRefusalLbl, ClockifySetup.TableCaption()), Token.AsValue().AsText(), 'The field refusal stays in error. The setup hint is nextStep.');
         ResponseJson.Get('nextStep', Token);
         LibraryAssert.AreEqual('the Timesheets setup page (Clockify Setup)', Token.AsValue().AsText(), 'Refusal must point to the setup page.');
         ResponseJson.Get('parameter', Token);
