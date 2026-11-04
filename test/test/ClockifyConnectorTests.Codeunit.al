@@ -1433,6 +1433,8 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
         LibraryAssert.IsTrue(ErrorText.Contains('verkbók'), 'The missing-journal refusal should be Icelandic.');
         LibraryAssert.IsFalse(ErrorText.Contains('Job Journal'), 'The Icelandic refusal should not keep the English sentence.');
+        LibraryAssert.IsTrue(ErrorText.Contains('journalTemplate') and ErrorText.Contains('journalBatch'), 'The translated refusal must retain both exact request keys.');
+        LibraryAssert.IsFalse(ErrorText.Contains('%1') or ErrorText.Contains('%2'), 'The translated refusal must substitute every parameter token.');
     end;
 
     /// <summary>Verifies the #49 NoOpenTimeSheetAnswersInIcelandic refusal at LCID 1039.</summary>
