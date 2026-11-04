@@ -1,0 +1,583 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "targetBranch": "main",
+  "filesScanned": 1,
+  "baselineFilesScanned": 1,
+  "candidateSummary": {
+    "ready": false,
+    "total": 23,
+    "failed": 5,
+    "passed": 18
+  },
+  "baselineSummary": {
+    "passed": 18,
+    "failed": 5,
+    "ready": false,
+    "total": 23
+  },
+  "comparison": [
+    {
+      "check": "app_json",
+      "baselineCount": 1,
+      "candidateCount": 1,
+      "semanticFindingsUnchanged": true,
+      "candidate": [
+        "Warning: no applicationInsightsKey/connectionString"
+      ]
+    },
+    {
+      "check": "read_isolation",
+      "baselineCount": 17,
+      "candidateCount": 17,
+      "semanticFindingsUnchanged": true,
+      "candidate": [
+        {
+          "text": "LibraryAssert.IsTrue(ClockifyWebhook.IsEmpty(), 'Tracking rows should be cleared after removal.');",
+          "line": 337,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "ClockifyWebhook"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(ClockifyWebhook.IsEmpty(), 'Tracking rows should be cleared after removal.');",
+          "line": 337,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "ClockifyWebhook"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(Integration.IsEmpty(), 'The active TIME_ENTRY link should have been reversed.');",
+          "line": 590,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "Integration"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(Integration.IsEmpty(), 'The active TIME_ENTRY link should have been reversed.');",
+          "line": 590,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "Integration"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(JobJournalLine.FindFirst(), 'A job journal line should exist.');",
+          "line": 511,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "JobJournalLine"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(Integration.IsEmpty(), 'The active TIME_ENTRY link should have been reversed.');",
+          "line": 590,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "Integration"
+        },
+        {
+          "text": "TimeSheetDetail.FindFirst();",
+          "line": 1569,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "TimeSheetDetail"
+        },
+        {
+          "text": "TimeSheetDetail.FindFirst();",
+          "line": 1569,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "TimeSheetDetail"
+        },
+        {
+          "text": "TimeSheetDetail.FindFirst();",
+          "line": 1569,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "TimeSheetDetail"
+        },
+        {
+          "text": "TimeSheetDetail.FindFirst();",
+          "line": 1569,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "TimeSheetDetail"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(Integration.IsEmpty(), 'The active TIME_ENTRY link should have been reversed.');",
+          "line": 590,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "Integration"
+        },
+        {
+          "text": "LibraryAssert.IsTrue(Integration.IsEmpty(), 'The active TIME_ENTRY link should have been reversed.');",
+          "line": 590,
+          "file": "ClockifyConnectorTests.Codeunit.al",
+          "variable": "Integration"
+        }
+      ]
+    },
+    {
+      "check": "xml_doc_comments",
+      "baselineCount": 73,
+      "candidateCount": 73,
+      "semanticFindingsUnchanged": true,
+      "candidate": [
+        {
+          "line": 29,
+          "procedure": "HelpTypeIsOutboundWithNoFilterTable",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 44,
+          "procedure": "EveryClockifyTypeHasMetadataAndHelp",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 102,
+          "procedure": "CompanyApiKeyRoundtrips",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 120,
+          "procedure": "DefaultApiVersionIsVersion1",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 134,
+          "procedure": "WorkspaceListRoutesGetThroughClient",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 160,
+          "procedure": "ErrorResponseIsSurfacedWithStatusCode",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 181,
+          "procedure": "ProjectCreatePostsBodyToWorkspace",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 206,
+          "procedure": "DefaultWorkspaceUsedWhenRequestOmitsIt",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 229,
+          "procedure": "WorkspaceLookupRequiresApiKey",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 251,
+          "procedure": "WorkspaceLookupReturnsSelection",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 280,
+          "procedure": "RegisterCreatesWebhooksForEachTimeEntryEvent",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 315,
+          "procedure": "RemoveDeletesRegisteredWebhooks",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 341,
+          "procedure": "ReverseTimeEntryWithNoLinkIsSkipped",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 355,
+          "procedure": "JobJournalResolvesFromSetup",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 381,
+          "procedure": "TimeEntrySyncErrorsWhenNoJournalConfigured",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 413,
+          "procedure": "TimeEntrySyncRejectsInProgressEntries",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 447,
+          "procedure": "WorkTypeResolvesFromTagThenDefault",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 483,
+          "procedure": "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 521,
+          "procedure": "SyncSkipsUnchangedThenUpdatesOnChange",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 558,
+          "procedure": "ReverseDeletesSyncedJournalLine",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 594,
+          "procedure": "WebhookDispatchCreatesJobJournalLine",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 629,
+          "procedure": "WorkspaceLookupModalHandler",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 636,
+          "procedure": "ConfirmYesHandler",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 642,
+          "procedure": "GenericMessageHandler",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 647,
+          "procedure": "IntegrationTableStampsAndClearsReversedAt",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 677,
+          "procedure": "RetentionRegistersIntegrationTable",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 690,
+          "procedure": "HelpIncludesIntegrationTracking",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 708,
+          "procedure": "CurrencyListProjectsWorkspaceCurrencies",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 740,
+          "procedure": "UserGroupListRoutesGetToWorkspacesUserGroups",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 761,
+          "procedure": "UserGroupListForwardsQueryString",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 784,
+          "procedure": "TimeEntryListForwardsInProgressQueryParameter",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 808,
+          "procedure": "CustomFieldListRoutesGetToWorkspacesCustomFields",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 829,
+          "procedure": "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 852,
+          "procedure": "UserGroupListHelpExplainsIdUsage",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 870,
+          "procedure": "CustomFieldListHelpExplainsIdUsage",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 888,
+          "procedure": "TimeEntryListHelpExplainsInProgressFilter",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 906,
+          "procedure": "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 924,
+          "procedure": "UserListHelpExplainsOptionalQueryEffects",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 943,
+          "procedure": "ClientUpdateHelpExplainsOptionalBodyEffects",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 962,
+          "procedure": "OverviewListsLookupEndpoints",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 981,
+          "procedure": "OverviewGotchasCallOutIdOnlyWrites",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 999,
+          "procedure": "IntegrationGateAllowsWriteAccess",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1012,
+          "procedure": "SyncRangeIsInboundWithHelp",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1031,
+          "procedure": "SyncRangeErrorsWhenNoJournalConfigured",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1060,
+          "procedure": "SyncRangeCreatesLinesForEntriesInRange",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1099,
+          "procedure": "SyncRangePerEntryErrorDoesNotAbortBatch",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1138,
+          "procedure": "AllInboundTimeTypesAreInboundWithHelp",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1169,
+          "procedure": "TimeSheetCreateReturnsCountWithNoResources",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1194,
+          "procedure": "TimeSheetApproveReturnsZeroWhenNothingOpen",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1223,
+          "procedure": "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1238,
+          "procedure": "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1267,
+          "procedure": "TimeSheetReopenReturnsZeroWhenNothingPending",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1296,
+          "procedure": "TimeSheetPostErrorsWhenNoJournalConfigured",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1319,
+          "procedure": "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1343,
+          "procedure": "SyncToTimeSheetErrorsWhenNoMapping",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1372,
+          "procedure": "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1408,
+          "procedure": "Scenario_AC08_RequireParamAnswersInIcelandic",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1435,
+          "procedure": "Scenario_AC08_RequireBodyAnswersInIcelandic",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1461,
+          "procedure": "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1498,
+          "procedure": "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1535,
+          "procedure": "SyncToTimeSheetCreatesDetailOnOpenSheet",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1574,
+          "procedure": "SyncRangeToTimeSheetCreatesDetailsForEntries",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1613,
+          "procedure": "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1649,
+          "procedure": "SyncAllUsersSyncsMappedUserToTimeSheet",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1687,
+          "procedure": "ReverseFromTimeSheetRemovesOpenDetail",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1856,
+          "procedure": "WebhookSigningTokenIsRedactedFromTheResponseLog",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1872,
+          "procedure": "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1889,
+          "procedure": "BodiesWithoutASigningTokenPassThroughUnchanged",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1903,
+          "procedure": "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1916,
+          "procedure": "HelpClockifyGetUsesTableNameNotTable",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1934,
+          "procedure": "InboundTimeTypesHaveNonEmptyRequestExamples",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1953,
+          "procedure": "InboundHelpMarkdownShowsDirectionInbound",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "line": 1977,
+          "procedure": "HelpTracksUppercaseClockifyTypeCodes",
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        }
+      ]
+    },
+    {
+      "check": "one_statement_per_line",
+      "baselineCount": 4,
+      "candidateCount": 4,
+      "semanticFindingsUnchanged": true,
+      "candidate": [
+        {
+          "text": "local procedure CreateOpenTimeSheet(ResourceNo: Code[20]; StartingDate: Date; EndingDate: Date) TimeSheetNo: Code[20]",
+          "line": 1718,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])",
+          "line": 1767,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "local procedure InsertIntegrationLink(ClockifyType: Text; ClockifyId: Text; BCCode: Text)",
+          "line": 1810,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "local procedure ExecuteTypeWithRequest(var TempArgument: Record \"Message Argument ori\" temporary; MessageType: Enum \"Message Type ori\"; RequestJson: JsonObject)",
+          "line": 1843,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        }
+      ]
+    },
+    {
+      "check": "today_vs_workdate",
+      "baselineCount": 5,
+      "candidateCount": 5,
+      "semanticFindingsUnchanged": true,
+      "candidate": [
+        {
+          "text": "'Design work', Today(), 4, true, TagIds, Msg);",
+          "line": 505,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 4, true, TagIds, Msg);",
+          "line": 539,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "SyncResult := TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 4, true, TagIds, Msg);",
+          "line": 542,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "SyncResult := TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 6, true, TagIds, Msg);",
+          "line": 547,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        },
+        {
+          "text": "TimeEntrySync.SyncTimeEntry(TemplateName, BatchName, 'E1', 'WS1', 'CUSER', 'CPROJ', 'CTASK', 'Work', Today(), 4, true, TagIds, Msg);",
+          "line": 577,
+          "file": "ClockifyConnectorTests.Codeunit.al"
+        }
+      ]
+    }
+  ],
+  "allExistingFindingsUnchanged": true,
+  "method": "Private staging copies contain the actual test app manifest and one exact changed test file; baseline uses origin/main for the same file. This compensates for the ordinary product diff scan excluding test files. No repository source or guard was modified.",
+  "triage": {
+    "app_json": "Unchanged test-app telemetry metadata warning; production app metadata unchanged.",
+    "xml_doc_comments": "73 pre-existing public/test-helper XML documentation findings, no new public procedure. Two new helpers are local.",
+    "read_isolation": "17 unchanged read-isolation findings in older test setup/assertions; no new partial-record selection or product record loop.",
+    "one_statement_per_line": "4 existing semicolon-separated procedure signatures, not multiple executable statements.",
+    "today_vs_workdate": "5 existing Today() test-fixture calls; no new Today() usage."
+  },
+  "scope": "No guard suppressions/exclusions or source changes. Ordinary product scan0files is invalid as a clean verdict; direct test-source scan18/23 is disclosed, with its unchanged baseline."
+}

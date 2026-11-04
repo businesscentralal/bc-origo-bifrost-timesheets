@@ -1,7 +1,7 @@
 [
   {
     "path": "README.md",
-    "sha256": "77acf2742cc253cad597eda02af00d9e1ac052651ed5225cfb67b11a643128b1"
+    "sha256": "9fa5b86b96ef3eda8210ac58a705324c0f0d24dd3398191d2b884029ec8d4bed"
   },
   {
     "path": "acceptance-matrix.json",
@@ -49,11 +49,23 @@
   },
   {
     "path": "gateway-assessment.json",
-    "sha256": "09412b8f74c01a5cb18cca579d3cc48ef8f14e76cbcdb82747b9de480cb615bc"
+    "sha256": "1b8dc8a910d7796bbfe2c1925f343bc633e673fd5972876196e57eb56eb16cef"
   },
   {
     "path": "gateway-layer1.json",
     "sha256": "784dd52a1ff45c8fc8981a0da70554719da9cfb5bfd05fdf3547c6aa9d24718c"
+  },
+  {
+    "path": "gateway-test-baseline.json",
+    "sha256": "df8213ab9c75fc8a9d5264b4b24c2b3fe28c6e0925fcd24e8a08e0c389ebf807"
+  },
+  {
+    "path": "gateway-test-comparison.json",
+    "sha256": "580aee85ba6267671e851c7a4e7cde2d77d6323b93a6e4f3977b9b842cdde53b"
+  },
+  {
+    "path": "gateway-test-source.json",
+    "sha256": "998645613c6c1029e8e28cebaa89a0a33155a9d0287a9c4ceb04aed5043a5e5e"
   },
   {
     "path": "github-publication.json",
