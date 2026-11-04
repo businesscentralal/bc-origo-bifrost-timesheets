@@ -7,7 +7,7 @@
   "files": [
     {
       "file": "README.md",
-      "sha256": "43c6034929673eaf6c08b4cc612245b323fde4761343310049398a9ffd3d614b"
+      "sha256": "44ef3c8c0025145b8341cb1b51ffe3c194f313fb72f205ed3c0431116f311dd8"
     },
     {
       "file": "acceptance-matrix.json",
@@ -24,6 +24,10 @@
     {
       "file": "baseline-xlf.log",
       "sha256": "c69524f32138b408e2d9eda95b2f36bd5f9c553b492cbf457532f3bc76ea92a3"
+    },
+    {
+      "file": "ci-failure-diagnosis.json",
+      "sha256": "2aa55248e8f5448e413e02bb5391903632f0fd27c4a9a00a65a0e7aeacf8d3b1"
     },
     {
       "file": "ci-jobs-pre-evidence.json",
@@ -706,6 +710,14 @@
       "sha256": "08369b2c995ee61da8665c81090d3e146677ed057f515b87d9eadd5ec11e5f15"
     },
     {
+      "file": "paired-ci-retry-result.json",
+      "sha256": "2e0363c806d9686129f5bdb803af8f9e42bc8a2f53e51dbfed87a21eeb259952"
+    },
+    {
+      "file": "report-receipts.json",
+      "sha256": "8c7b61a6f8b71d92417826786d335439e906455b804a2d63822bdc51ba967440"
+    },
+    {
       "file": "suite-manifest.json",
       "sha256": "99c5e84059d421422f11d57d4843728e0a5019dd882064b721b059d58e3db62b"
     },
@@ -766,5 +778,5 @@
       "sha256": "0531984e52519ac8e8c3dbca0861a19fc32aebc403481014908413bf650c392d"
     }
   ],
-  "amendedAt": "2026-11-04T16:19:37.540595+00:00"
+  "amendedAt": "2026-11-04T16:26:01.365358+00:00"
 }

@@ -1,0 +1,44 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "ciCheckoutSha": "d814942d48bd0ba49cce84f235f186c4297a318b",
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+  "jobUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126681909646",
+  "failedStep": "Publish artifacts - apps",
+  "cause": "GitHub runner hashFiles('./.buildartifacts/Apps/*') exceeded120seconds, template System.TimeoutException",
+  "errors": [
+    "2026-11-04T15:56:36.3841502Z ##[error]The template is not valid. System.TimeoutException: hashFiles('./.buildartifacts/Apps/*') couldn't finish within 120 seconds."
+  ],
+  "buildStep": "success",
+  "retry": {
+    "jobId": 126677983804,
+    "purpose": "FreshInitializationanddependentDefault/Testpair, notTestonly",
+    "response": "GitHub403 Resource not accessible by integration",
+    "newRunCreated": false
+  },
+  "owner": "Architect / CI owner",
+  "nextAction": "Use authorized Actions-write identity to start a fresh complete paired build, diagnose runner hash timeout if repeated; no source no-op, pipeline weakening or Test-only retry.",
+  "nativeTests": {
+    "executed": 196,
+    "passed": 196,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 37.115
+  },
+  "compilerVersion": "17.0.42.60745",
+  "ciPhysicalContainerId": "f0d8ac56a4e3",
+  "ciPhysicalContainerOwner": "CI pipeline; not developer environment",
+  "metadata": "Latest API run/job remain queued/in_progress despite terminal failed artifact step; log/step evidence retained. No overall green claimed.",
+  "candidateTreeSha": "08f82fc36d23be40eadd99349efcb587c36ab41f",
+  "ciMergeTreeSha": "08f82fc36d23be40eadd99349efcb587c36ab41f",
+  "ciMergeMatchesCandidateTree": true,
+  "compilerDiagnosticsObserved": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "selectedLogEvidence": [
+    "2026-11-04T15:48:08.9896130Z Microsoft (R) AL Compiler version 17.0.42.60745",
+    "2026-11-04T15:48:29.8131799Z Microsoft (R) AL Compiler version 17.0.42.60745",
+    "2026-11-04T15:56:36.3841502Z ##[error]The template is not valid. System.TimeoutException: hashFiles('./.buildartifacts/Apps/*') couldn't finish within 120 seconds.",
+    "2026-11-04T15:56:46.2583623Z - Bifrost Timesheets - Tests, 196 tests, 196 passed, 0 failed, 0 skipped, 37.115 seconds"
+  ]
+}

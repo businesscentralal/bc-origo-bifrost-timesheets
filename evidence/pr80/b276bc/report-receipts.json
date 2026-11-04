@@ -1,0 +1,15 @@
+{
+  "retry": {
+    "delivered": true,
+    "slackTs": "1793809466.261739",
+    "sourceUrl": "https://bifrst-group.slack.com/archives/C0C0XM70YF8/p1793809466261739",
+    "genuineFreshReceipt": true
+  },
+  "priorChangeAndBlockerReports": {
+    "delivered": true,
+    "deduplicated": true,
+    "claudeStep2": "24h-cooldown",
+    "genuineFreshReceipt": false
+  },
+  "secretaryAcknowledged": false
+}
