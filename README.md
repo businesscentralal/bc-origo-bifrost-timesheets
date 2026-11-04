@@ -376,3 +376,26 @@ It is a customized version of the [AL-Go-AppSource](https://github.com/microsoft
 
 Please go to https://aka.ms/AL-Go and [COSMO Docs](https://docs.cosmoconsult.com/en-us/cloud-service/alpaca) to learn more.
 <!-- AUTO-UPDATE-END -->
+
+
+### Create selected time sheets
+
+`Timesheets.TimeSheet.Create` creates weekly sheets for exactly one of `resourceNo`,
+`resourceNos` (a nonempty list) or `resourceGroup`. Numbers are literal identifiers,
+not BC filters. Send `startingDate` on the first weekday configured in Resources
+Setup; `numberOfPeriods` defaults to 1 and is limited to 52.
+`createLinesFromPlanning` defaults to false. The result contains `created` and
+`skipped` arrays with each sheet number, resource number and period dates.
+
+The standard Create Time Sheets action requires **Time Sheet Admin.**, resource
+owners/approvers, time sheet numbering and open accounting periods. The caller
+needs **BIFROST Timeshts ori** or equivalent native permissions. Normal queue
+execution commits the whole batch; a refusal creates no sheets. Existing sheets
+are never modified. The older `Clockify.TimeSheet.Create` remains available.
+
+```json
+{"type":"Timesheets.TimeSheet.Create","data":{"startingDate":"2030-01-07","resourceNos":["XRESOURCE"],"numberOfPeriods":2}}
+```
+
+Use `Help.Implementation.Get` for the full parameter, response and refusal contract
+in English or Icelandic (`lcid: 1039`).

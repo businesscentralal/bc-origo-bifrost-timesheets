@@ -1,5 +1,14 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.Period;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Planning;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Projects.Resources.Setup;
+using Microsoft.Projects.TimeSheet;
+using System.Security.User;
+
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
 /// rights on every Clockify object: the integration table, the HTTP client,
@@ -14,6 +23,24 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        codeunit "TS Sheet Create Impl ori" = X,
+        codeunit "TS Create Contract ori" = X,
+        codeunit "TS Create Writer ori" = X,
+        codeunit "TS Create Restrict ori" = X,
+        report "Create Time Sheets" = X,
+        tabledata "Time Sheet Header" = RIM,
+        tabledata "Time Sheet Line" = RIM,
+        tabledata "Time Sheet Detail" = RIM,
+        tabledata Resource = R,
+        tabledata "Resource Group" = R,
+        tabledata "Resources Setup" = R,
+        tabledata "No. Series" = R,
+        tabledata "No. Series Line" = RIM,
+        tabledata "User Setup" = R,
+        tabledata "Accounting Period" = R,
+        tabledata Job = R,
+        tabledata "Job Task" = R,
+        tabledata "Job Planning Line" = R,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,

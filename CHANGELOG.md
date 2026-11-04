@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added (2026-11-04) - Create selected weekly time sheets (#61)
+
+- `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
+- `TS Sheet Create Impl ori` (codeunit 10036874; enum value 10036873) validates all requested resources, types, limits, permissions and the configured first weekday before writing. `TS Create Writer ori` (10036847) runs standard **Create Time Sheets** report 950 in one isolated batch, retaining time-sheet administrator, resource, numbering and accounting-period checks.
+- `TS Create Contract ori` (10036848) supplies English/Icelandic discovery and help. `TS Create Restrict ori` (10036849) blocks generic Time Sheet Header writes and points to the dedicated type; reads stay open. The current Foundation table restriction event covers inserts and modifications, not only inserts.
+- `BIFROST Timeshts ori` (10036785) grants the required native data/report access; Full/Read extensions (10036866/10036867) grant their applicable feature objects. Native data access still requires the Timesheets set or equivalent base permissions. No new assignable set or Foundation setup grant is added.
+- `TS Create Tests` (95620) and `TS Create Permission Tests` (95621) cover native creation, planning lines, resource/period selection, literal identifiers, all-or-nothing validation, limits, existing sheets, generic-write restrictions, localization and whole-batch rollback.
+
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.

@@ -257,4 +257,10 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
     }
+    /// <summary>Creates time sheets for chosen resources and weeks.</summary>
+    value(10036873; "Timesheets.TimeSheet.Create")
+    {
+        Caption = 'Timesheets.TimeSheet.Create', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Create Impl ori", "Msg Contract ori" = "TS Sheet Create Impl ori", "Msg Discovery ori" = "TS Sheet Create Impl ori";
+    }
 }
