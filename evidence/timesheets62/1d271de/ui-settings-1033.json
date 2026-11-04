@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### Result\n\"My Settings - W13INV126\\n\\n\\nRole\\nBusiness Manager\\nCompany\\nCRONUS International Ltd.\\nWork Date\\nRegion\\nEnglish (United States)\\nLanguage\\nEnglish (United States)\\nTime Zone\\n(UTC) Coordinated Universal Time\\nNotifications\\nChange when I receive notifications.\\nTeaching Tips\\nLegacy Action Bar\\nSecurity\\nYour last sign in was on 11/04/26 11:06 AM.\\nOK\\nCancel\"\n### Ran Playwright code\n```js\nawait (async page => { return await (async(page)=>{await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByText('My Settings',{exact:true}).click();const f=page.frameLocator('iframe').first();await f.getByRole('button',{name:'Review or update the value for Language',exact:true}).waitFor();return (await f.getByRole('dialog').last().innerText());})(page); })(page);\n```"
+    }
+  ]
+}

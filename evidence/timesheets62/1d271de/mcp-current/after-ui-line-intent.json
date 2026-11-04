@@ -1,0 +1,11 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "get_records",
+  "args": {
+    "table": "Time Sheet Line",
+    "filter": "WHERE(Time Sheet No.=FILTER(TS62-A|TS62-B))",
+    "take": 100
+  },
+  "startedAt": "2026-11-04T11:17:34.369Z"
+}

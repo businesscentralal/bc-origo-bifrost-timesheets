@@ -1,0 +1,59 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "issue": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/62",
+  "pr": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/77",
+  "matrix": [
+    {
+      "ac": "AC01",
+      "status": "VERIFIED_DEVELOPER",
+      "proof": "Full142native +42queryMCP +manager/cardUI1033/1039: caller Submitted lines,resourceNo/SystemId,date/typefilters,take/skip,daily/project/absence/totals."
+    },
+    {
+      "ac": "AC02/AC06",
+      "status": "VERIFIED_NATIVE",
+      "proof": "Native restrictive-permission test95633 +no-write checks; four native table ReadPermission guards in IsEnabled/Execute. No separate restricted-MCP-user claim."
+    },
+    {
+      "ac": "AC03/AC04",
+      "status": "VERIFIED_DEVELOPER",
+      "proof": "Native andMCP exact code/error/nextStep/parameter acrossinvalidranges,missingpairedkeys,wrongtypes,unknownkeys,notfound/conflicts; nofixturechanges."
+    },
+    {
+      "ac": "AC05",
+      "status": "VERIFIED_DEVELOPER",
+      "proof": "Native/MCP noapprovals,foreignapprover,pastend success emptylist."
+    },
+    {
+      "ac": "AC07",
+      "status": "VERIFIED_REVISED_AC",
+      "authority": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/77#issuecomment-6626911774",
+      "proof": "Actualorigo helpchapters exactlyEnglishat1033/1039;Icelandiccataloguedescription and runtimeerrors/nextStep. All7parameters,eachrefusalfix,overview,response,examples present; nointernalobjectnames. Nativecontractlanguageassertionspassed."
+    },
+    {
+      "ac": "AC08",
+      "status": "VERIFIED_SCOPED_GUARDS",
+      "proof": "MixedLanguageLabels0before/0after; IcelandicXlfInSyncPASSbefore/PASSafter. Preserve282mainunitsidentically+20newunits; noorphans/replacedtargets. HelpLinks1identicalmissingunreleaseddirectoryprerequisiteerrorbefore/after;0newpages/extensions, nofullHelpLinkspassclaimed. Publicdocsdeferredbyruling; inapphelppassed."
+    },
+    {
+      "ac": "AC09",
+      "status": "VERIFIED_SCOPED_GUARD",
+      "proof": "ContractParameterKeys481before/481after,0addedfindings. Nativecontract7keys,andMCP unknownkeyrefusal verified; noallowlistmodification."
+    },
+    {
+      "ac": "AC10",
+      "status": "VERIFIED_SOURCE",
+      "proof": "Timesheets.PendingApproval.Get exactly3components."
+    },
+    {
+      "ac": "AC11",
+      "status": "VERIFIED_OWNED_CI_PENDING",
+      "proof": "Fullconfigured142/1420failed0skipped,rawJUnit independentlyparsed; changedunits95612/95630/95633 passed33/33twiceconsecutively. PairedGitHubCIpending."
+    },
+    {
+      "ac": "AC12",
+      "status": "PENDING_REVIEW_STEP",
+      "proof": "IndependentClaude receipt aftervalidreviewhandoff; notaprehandoffblocker."
+    }
+  ],
+  "fullDeliveryClaimed": false
+}

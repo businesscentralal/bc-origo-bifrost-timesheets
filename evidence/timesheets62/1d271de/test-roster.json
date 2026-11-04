@@ -1,0 +1,83 @@
+{
+  "total": 142,
+  "codeunits": [
+    {
+      "file": "test/test/ClockifyConnectorTests.Codeunit.al",
+      "id": 95601,
+      "name": "Clockify Connector Tests",
+      "tests": 70
+    },
+    {
+      "file": "test/test/ClockifyFieldRestrictTests.Codeunit.al",
+      "id": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "tests": 8
+    },
+    {
+      "file": "test/test/ClockifyHelpFixesTests.Codeunit.al",
+      "id": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "tests": 8
+    },
+    {
+      "file": "test/test/ClockifyRetenPolicyTests.Codeunit.al",
+      "id": 95607,
+      "name": "Clockify Reten. Policy Tests",
+      "tests": 2
+    },
+    {
+      "file": "test/test/ClockifyUserPagingTests.Codeunit.al",
+      "id": 95604,
+      "name": "Clockify User Paging Tests",
+      "tests": 11
+    },
+    {
+      "file": "test/test/MessageContractBatch1Tests.Codeunit.al",
+      "id": 95608,
+      "name": "Message Contract Batch 1 Tests",
+      "tests": 1
+    },
+    {
+      "file": "test/test/MessageContractBatch2Tests.Codeunit.al",
+      "id": 95609,
+      "name": "Message Contract Batch 2 Tests",
+      "tests": 1
+    },
+    {
+      "file": "test/test/MessageContractBatch3Tests.Codeunit.al",
+      "id": 95610,
+      "name": "Message Contract Batch 3 Tests",
+      "tests": 1
+    },
+    {
+      "file": "test/test/MessageContractEffectTests.Codeunit.al",
+      "id": 95611,
+      "name": "Message Contract Effect Tests",
+      "tests": 4
+    },
+    {
+      "file": "test/test/PhoneRoleCenterTests.Codeunit.al",
+      "id": 95615,
+      "name": "Phone Role Center Tests",
+      "tests": 10
+    },
+    {
+      "file": "test/test/TimesheetsRegistrationTests.Codeunit.al",
+      "id": 95606,
+      "name": "Timesheets Registration Tests",
+      "tests": 1
+    },
+    {
+      "file": "test/test/TSPendingApprovalTests.Codeunit.al",
+      "id": 95630,
+      "name": "TS Pending Approval Tests",
+      "tests": 24
+    },
+    {
+      "file": "test/test/TSPendingPermissionTests.Codeunit.al",
+      "id": 95633,
+      "name": "TS Pending Permission Tests",
+      "tests": 1
+    }
+  ]
+}

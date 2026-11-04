@@ -1,0 +1,233 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "type": "Timesheets.PendingApproval.Get",
+  "createsOwnData": true,
+  "executed": 43,
+  "passed": 43,
+  "failed": 0,
+  "skipped": 0,
+  "queryScenarios": 42,
+  "helpLanguagePolicy": "English chapters; Icelandic catalogue and refusals",
+  "unchangedFixture": true,
+  "results": [
+    {
+      "label": "absence-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "absence-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "bad-range-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "bad-range-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "caller-lines-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "caller-lines-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "conflicting-identifiers-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "conflicting-identifiers-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "date-and-type-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "date-and-type-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "first-page-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "first-page-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "foreign-approver-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "foreign-approver-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "invalid-date-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "invalid-date-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "invalid-enum-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "invalid-enum-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "matching-identifiers-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "matching-identifiers-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "missing-to-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "missing-to-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "negative-skip-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "negative-skip-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "not-found-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "not-found-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "outside-period-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "outside-period-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "past-end-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "past-end-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "resource-id-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "resource-id-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "resource-no-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "resource-no-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "second-page-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "second-page-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "take-zero-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "take-zero-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "unknown-key-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "unknown-key-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "wrong-type-1033",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "label": "wrong-type-1039",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "label": "help-chapters-English-catalogue-Icelandic",
+      "passed": true,
+      "lcids": [
+        1033,
+        1039
+      ]
+    }
+  ]
+}

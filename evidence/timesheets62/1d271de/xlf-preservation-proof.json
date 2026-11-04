@@ -1,0 +1,11 @@
+{
+  "sourceSha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "mainUnits": 282,
+  "candidateUnits": 302,
+  "existingTargetsChanged": 0,
+  "existingUnitsChanged": 0,
+  "removedUnits": 0,
+  "mainRelativeOrderUnchanged": true,
+  "newUnits": 20,
+  "guard": "PASS"
+}

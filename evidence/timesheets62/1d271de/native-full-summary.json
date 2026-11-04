@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "passed": 142,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "failures": null,
+  "durationMs": 150368,
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "fullSuite": true,
+  "sourceRoster": 142,
+  "junitProof": "/workspace/evidence/timesheets62-andvari-20261104/junit-count-proof.json"
+}

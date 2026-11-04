@@ -1,0 +1,22 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.PendingApproval.Get",
+    "data": {
+      "take": 1
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T11:11:17.062Z",
+  "finishedAt": "2026-11-04T11:11:17.303Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.PendingApproval.Get\",\n  \"status\": \"Success\",\n  \"lines\": [\n    {\n      \"timeSheetNo\": \"TS62-A\",\n      \"lineNo\": 10000,\n      \"resourceNo\": \"TS62-REGINN\",\n      \"from\": \"2026-11-02\",\n      \"to\": \"2026-11-08\",\n      \"type\": \"Job\",\n      \"projectNo\": \"TS62-PROJECT\",\n      \"taskNo\": \"TS62-TASK\",\n      \"causeOfAbsenceCode\": \"\",\n      \"days\": [\n        {\n          \"date\": \"2026-11-02\",\n          \"hours\": 3\n        },\n        {\n          \"date\": \"2026-11-03\",\n          \"hours\": 4\n        }\n      ],\n      \"totalHours\": 7\n    }\n  ],\n  \"hasMore\": true\n}"
+      }
+    ]
+  }
+}

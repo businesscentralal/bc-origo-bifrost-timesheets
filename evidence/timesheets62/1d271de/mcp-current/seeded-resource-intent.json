@@ -1,0 +1,11 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "get_records",
+  "args": {
+    "table": "Resource",
+    "filter": "WHERE(No.=FILTER(TS62-REGINN|TS62-OTHER))",
+    "take": 100
+  },
+  "startedAt": "2026-11-04T11:10:39.478Z"
+}

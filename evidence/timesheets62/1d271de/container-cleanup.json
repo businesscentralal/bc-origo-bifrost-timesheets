@@ -1,0 +1,16 @@
+{
+  "owner": "worker-5",
+  "name": "andvari-worker5-timesheets62-20261104",
+  "containerId": "f04ee182ab06",
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "startedAt": "2026-11-04T11:19:13.367Z",
+  "finishedAt": "2026-11-04T11:19:14.609Z",
+  "listBeforeStatus": 200,
+  "deleteStatus": 204,
+  "getAfterStatus": 404,
+  "listAfterStatus": 200,
+  "absentFromInventory": true,
+  "verified": true,
+  "fixtureCleanup": "Native cleanup plus independent origo reads verified zero ownedResource/Header/Line/Detail rows before container deletion",
+  "otherResourcesMutated": false
+}

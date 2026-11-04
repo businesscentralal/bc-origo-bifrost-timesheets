@@ -1,0 +1,14 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.PendingApproval.Get",
+    "data": {
+      "take": 1,
+      "skip": 1
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T11:11:28.942Z"
+}

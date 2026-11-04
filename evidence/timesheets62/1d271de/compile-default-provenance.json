@@ -1,0 +1,20 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "checks": [
+    {
+      "type": "app",
+      "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "df67467366926c7a3aec23952c9a546cef4195c8e22bf49968b595832b5af5c1"
+    }
+  ],
+  "analyzers": [
+    "CodeCop",
+    "UICop",
+    "AppSourceCop"
+  ],
+  "symbolProvenance": "Retained BC28.5 W1 and Foundation665 symbols; runtime dependency recorded separately.",
+  "testRulesetUnchanged": true
+}

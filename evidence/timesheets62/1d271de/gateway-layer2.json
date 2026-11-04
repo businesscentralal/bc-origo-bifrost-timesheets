@@ -1,0 +1,42 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "layer1": {
+    "evidence": "/workspace/evidence/timesheets62-andvari-20261104/gateway-layer1-diff.txt",
+    "filesScanned": 5,
+    "result": "20 pass / 3 flagged; flags reviewed below"
+  },
+  "layer2": {
+    "findings": [
+      {
+        "rule": "caption_translation",
+        "classification": "Technical protocol tokens intentionally Locked, not natural-language captions. 41 existing Clockify names plus new Timesheets.PendingApproval.Get are stable identifiers."
+      },
+      {
+        "rule": "one_statement_per_line",
+        "classification": "Four false positives: semicolon-delimited AL procedure argument declarations; each executable statement is on its own line."
+      },
+      {
+        "rule": "today_vs_workdate",
+        "classification": "Three false positives: permission entries reference existing page Phone Today Cust Part ori; no Today() calls added."
+      }
+    ],
+    "ids": "Product10036875, enumvalue10036874; test95630..95634 fit repository assigned app/test ranges",
+    "namespace": "Origo.Bifrost.Timesheets; repo-specific testnamespaceOrigo.Bifrost.Timesheets.Test",
+    "permissions": "Native four-table read permissions are checked before querying and in IsEnabled; own permission set already has native reads and new execution covered by Read/Full extensions. No Foundation Setup grants added.",
+    "backwardCompatibility": "No removed public procedures/fields; new internal implementation and enum value; no pipeline, suppressions, exclusions or production writes changed.",
+    "logic": "Caller UserId filter on Header approver plus Submitted status on Line. Stable native primarykey iteration; resource/date/type filters, bounded paging, contextual/daily totals, structured refusals before business writes. Permission coverage native restrictive path.",
+    "docs": "Contract/discovery/overview/examples/errors include new type; CHANGELOG lists IDs. English chapters and localized catalogue/refusals per ruling; no new pages. Public unreleased-app documentation not required by ruling.",
+    "sourceComparison": "main282XLF units preserved exactly byID,target andrelativeorder; new20queryunits inserted without replacing targets",
+    "currentNativeMcpUi": "Pending actual completion; no compile-only runtime pass claimed"
+  },
+  "appliedLessons": [
+    "timesheets62-reginn-fixture-isolation-native-caption-20261104",
+    "timesheets49-worker5-generator-harvest-preservation-20261104",
+    "timesheets73-worker5-native-help-lcid-contract-20261104"
+  ],
+  "standards": {
+    "commit": "52ba4754cfd614e4a7c50af87b30149b18b313e3",
+    "snapshotSyncedAt": "2026-11-02T12:13:28.054Z",
+    "freshSynchronizationClaimed": false
+  }
+}

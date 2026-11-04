@@ -1,0 +1,14 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.PendingApproval.Get",
+    "data": {
+      "resourceNo": "TS62-REGINN",
+      "resourceId": "986CFF69-40D8-F111-B7A5-9411543D563B"
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T11:11:15.363Z"
+}

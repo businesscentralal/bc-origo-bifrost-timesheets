@@ -1,0 +1,49 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "Playwright MCP",
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "languages": [
+    1033,
+    1039
+  ],
+  "scenarios": [
+    {
+      "scenario": "manager",
+      "lcid": 1033,
+      "passed": true,
+      "evidence": "ui-manager-1033-verified.json"
+    },
+    {
+      "scenario": "card",
+      "lcid": 1033,
+      "passed": true,
+      "evidence": "ui-card-1033-verified.json"
+    },
+    {
+      "scenario": "manager",
+      "lcid": 1039,
+      "passed": true,
+      "evidence": "ui-manager-1039-verified.json"
+    },
+    {
+      "scenario": "card",
+      "lcid": 1039,
+      "passed": true,
+      "evidence": "ui-card-1039-verified.json"
+    }
+  ],
+  "verified": "Caller manager sees onlyTS62-A;total35/open19/submitted16; reviewcard project3+4=7,absence4+5=9; actual English and Icelandic MySettings/shell/actions/dates/captions verified",
+  "preparationErrors": [
+    {
+      "evidence": "ui-manager-1039-preparation-error.json",
+      "reason": "English Review Time Sheet locator timed out after actual Icelandic language selected. Observed native action Yfirfara vinnusk\u00fdrslu and completed finalscenario; no productfailure."
+    },
+    {
+      "reason": "One ad hoc bridge request supplied code outside args; rejected before page action; corrected inspection query. Not a business check or pass."
+    }
+  ]
+}

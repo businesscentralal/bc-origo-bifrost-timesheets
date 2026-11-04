@@ -1,0 +1,562 @@
+{
+  "resource": {
+    "company": "CRONUS International Ltd.",
+    "table": "Resource",
+    "skip": 0,
+    "take": 100,
+    "count": 2,
+    "records": [
+      {
+        "id": "986CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "No_": "TS62-OTHER"
+        },
+        "fields": {
+          "Type": "Person",
+          "Name": "Issue 62 other resource",
+          "SearchName": "",
+          "Name2": "",
+          "Address": "",
+          "Address2": "",
+          "City": "",
+          "JobTitle": "",
+          "Education": "",
+          "ContractClass": "",
+          "EmploymentDate": "",
+          "ResourceGroupNo_": "",
+          "GlobalDimension1Code": "",
+          "GlobalDimension2Code": "",
+          "BaseUnitofMeasure": "",
+          "DirectUnitCost": "0",
+          "IndirectCost_": "0",
+          "UnitCost": "0",
+          "Profit_": "0",
+          "Price_ProfitCalculation": "Profit=Price-Cost",
+          "UnitPrice": "0",
+          "VendorNo_": "",
+          "LastDateModified": "",
+          "Blocked": "false",
+          "Gen_Prod_PostingGroup": "",
+          "PostCode": "",
+          "County": "",
+          "AutomaticExt_Texts": "false",
+          "No_Series": "",
+          "TaxGroupCode": "",
+          "VATProd_PostingGroup": "",
+          "Country_RegionCode": "",
+          "ICPartnerPurch_G_LAcc_No_": "",
+          "Image": "",
+          "PrivacyBlocked": "false",
+          "UseTimeSheet": "false",
+          "TimeSheetOwnerUserID": "",
+          "TimeSheetApproverUserID": "",
+          "DefaultDeferralTemplateCode": "",
+          "ServiceZoneFilter": "",
+          "DefaultSust_Account": "",
+          "DefaultCO2Emission": "0",
+          "DefaultCH4Emission": "0",
+          "DefaultN2OEmission": "0",
+          "CO2eperUnit": "0",
+          "CO2eLastDateModified": "",
+          "SystemCreatedAt": "2026-11-04T11:11:02.697Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.697Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "976CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "No_": "TS62-REGINN"
+        },
+        "fields": {
+          "Type": "Person",
+          "Name": "Issue 62 owned verification",
+          "SearchName": "",
+          "Name2": "",
+          "Address": "",
+          "Address2": "",
+          "City": "",
+          "JobTitle": "",
+          "Education": "",
+          "ContractClass": "",
+          "EmploymentDate": "",
+          "ResourceGroupNo_": "",
+          "GlobalDimension1Code": "",
+          "GlobalDimension2Code": "",
+          "BaseUnitofMeasure": "",
+          "DirectUnitCost": "0",
+          "IndirectCost_": "0",
+          "UnitCost": "0",
+          "Profit_": "0",
+          "Price_ProfitCalculation": "Profit=Price-Cost",
+          "UnitPrice": "0",
+          "VendorNo_": "",
+          "LastDateModified": "",
+          "Blocked": "false",
+          "Gen_Prod_PostingGroup": "",
+          "PostCode": "",
+          "County": "",
+          "AutomaticExt_Texts": "false",
+          "No_Series": "",
+          "TaxGroupCode": "",
+          "VATProd_PostingGroup": "",
+          "Country_RegionCode": "",
+          "ICPartnerPurch_G_LAcc_No_": "",
+          "Image": "",
+          "PrivacyBlocked": "false",
+          "UseTimeSheet": "true",
+          "TimeSheetOwnerUserID": "W13INV126",
+          "TimeSheetApproverUserID": "W13INV126",
+          "DefaultDeferralTemplateCode": "",
+          "ServiceZoneFilter": "",
+          "DefaultSust_Account": "",
+          "DefaultCO2Emission": "0",
+          "DefaultCH4Emission": "0",
+          "DefaultN2OEmission": "0",
+          "CO2eperUnit": "0",
+          "CO2eLastDateModified": "",
+          "SystemCreatedAt": "2026-11-04T11:11:02.697Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.697Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      }
+    ],
+    "noOfRecords": 2
+  },
+  "header": {
+    "company": "CRONUS International Ltd.",
+    "table": "Time Sheet Header",
+    "skip": 0,
+    "take": 100,
+    "count": 2,
+    "records": [
+      {
+        "id": "996CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "No_": "TS62-A"
+        },
+        "fields": {
+          "StartingDate": "2026-11-02",
+          "EndingDate": "2026-11-08",
+          "ResourceNo_": "TS62-REGINN",
+          "OwnerUserID": "W13INV126",
+          "ApproverUserID": "W13INV126",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T11:11:02.697Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.697Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "9A6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "No_": "TS62-B"
+        },
+        "fields": {
+          "StartingDate": "2026-11-02",
+          "EndingDate": "2026-11-08",
+          "ResourceNo_": "TS62-OTHER",
+          "OwnerUserID": "W13INV126",
+          "ApproverUserID": "TS62-FOREIGN",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T11:11:02.697Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.697Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      }
+    ],
+    "noOfRecords": 2
+  },
+  "line": {
+    "company": "CRONUS International Ltd.",
+    "table": "Time Sheet Line",
+    "skip": 0,
+    "take": 100,
+    "count": 4,
+    "records": [
+      {
+        "id": "9B6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "LineNo_": "10000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-11-02",
+          "Type": "Project",
+          "JobNo_": "TS62-PROJECT",
+          "JobTaskNo_": "TS62-TASK",
+          "CauseofAbsenceCode": "",
+          "Description": "Issue 62 owned verification",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "9E6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "LineNo_": "20000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-11-02",
+          "Type": "Resource",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "Description": "Issue 62 owned verification",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A16CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "LineNo_": "30000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-11-02",
+          "Type": "Absence",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "TS62",
+          "Description": "Issue 62 owned verification",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A46CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-B",
+          "LineNo_": "10000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-11-02",
+          "Type": "Resource",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "Description": "Issue 62 owned verification",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.703Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.703Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      }
+    ],
+    "noOfRecords": 4
+  },
+  "detail": {
+    "company": "CRONUS International Ltd.",
+    "table": "Time Sheet Detail",
+    "skip": 0,
+    "take": 100,
+    "count": 8,
+    "records": [
+      {
+        "id": "9C6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-11-02"
+        },
+        "fields": {
+          "Type": "Project",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "3",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "9D6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-11-03"
+        },
+        "fields": {
+          "Type": "Project",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "4",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "9F6CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "20000",
+          "Date": "2026-11-02"
+        },
+        "fields": {
+          "Type": "Resource",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "9",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A06CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "20000",
+          "Date": "2026-11-03"
+        },
+        "fields": {
+          "Type": "Resource",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "10",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.7Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.7Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A26CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "30000",
+          "Date": "2026-11-02"
+        },
+        "fields": {
+          "Type": "Absence",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "4",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.703Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.703Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A36CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-A",
+          "TimeSheetLineNo_": "30000",
+          "Date": "2026-11-03"
+        },
+        "fields": {
+          "Type": "Absence",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "5",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.703Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.703Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A56CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-B",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-11-02"
+        },
+        "fields": {
+          "Type": "Resource",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "7",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.703Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.703Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      },
+      {
+        "id": "A66CFF69-40D8-F111-B7A5-9411543D563B",
+        "primaryKey": {
+          "TimeSheetNo_": "TS62-B",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-11-03"
+        },
+        "fields": {
+          "Type": "Resource",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "8",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T11:11:02.703Z",
+          "SystemCreatedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1",
+          "SystemModifiedAt": "2026-11-04T11:11:02.703Z",
+          "SystemModifiedBy": "155FB6F2-1B6C-4A7F-A58C-33A6483828E1"
+        }
+      }
+    ],
+    "noOfRecords": 8
+  }
+}

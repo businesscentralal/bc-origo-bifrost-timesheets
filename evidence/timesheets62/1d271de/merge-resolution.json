@@ -1,0 +1,12 @@
+{
+  "rule": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/77#issuecomment-6626911774",
+  "mainUnits": 282,
+  "branchUnits": 279,
+  "appendedBranchUnique": 20,
+  "retainedMainTargets": true,
+  "captionExpectation": "Retained caption-derived exact error assertion; codes nextStep and no-write unchanged",
+  "base": "d0e5c5fc415bb7dd00a50dc2418299aa51a974db",
+  "newUnitsInsertedAtGeneratedPosition": 180,
+  "mainRelativeOrderUnchanged": true,
+  "existingTargetsChanged": 0
+}

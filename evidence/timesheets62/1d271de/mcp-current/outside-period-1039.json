@@ -1,0 +1,23 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "containerId": "f04ee182ab06",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.PendingApproval.Get",
+    "data": {
+      "from": "2027-01-01",
+      "to": "2027-01-02"
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T11:11:26.102Z",
+  "finishedAt": "2026-11-04T11:11:26.343Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.PendingApproval.Get\",\n  \"status\": \"Success\",\n  \"lines\": [],\n  \"hasMore\": false\n}"
+      }
+    ]
+  }
+}

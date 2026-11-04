@@ -1,0 +1,5 @@
+Exception: /workspace/timesheets62-main-baseline/tools/Test-HelpLinks.ps1:37
+Line |
+  37 |  … Test-Path -LiteralPath $dir)) { throw "Help folder not found: $dir" }
+     |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Help folder not found: /workspace/bifrost141-worker5/help/timesheets

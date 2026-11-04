@@ -1,0 +1,23 @@
+{
+  "candidateSha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "compilePreparation": [
+    {
+      "sha": "32a3c84f1578fa5e77cd29ca92ab829421186b5b",
+      "result": "1warningAL1026: translationXMLgroupclosingtag missing duringmanualordering. Corrected by1d271de; finalapp/test/Defaultall0errors0warnings. Intermediate candidate was not published as branchhead."
+    }
+  ],
+  "deploymentPreparation": [
+    {
+      "result": "Product publish422extensionstatelockwhileFoundationinstalling; platformrestoredoriginalstate. InspectedFoundationoperationcompletion thennormalretry200."
+    }
+  ],
+  "mcpHarnessPreparation": [
+    "Expected structured business refusal carriesMCPisErrortrue; harnesscorrected toassert shippingstatus/code/error/parameter/nextStep,distinctfromtransporterror; samefixtureindependentlyreadback andseednotreplayed.",
+    "Contracterrordocumentationusesfix,runtimerefusalusesnextStep; correctedhelpassertionafterinspectactualcontract; queryresponsesreused, no writesreplayed."
+  ],
+  "uiPreparation": [
+    "English ReviewTimeSheet locator timedout inactual1039nativeIcelandicclient; observedYfirfara vinnusk\u00fdrslu and completedfinalmanager/cardchecks.",
+    "One adhocbridgeinspection omitted args.code;TypeErrorbeforenavigation, correctedreadrequest."
+  ],
+  "finalClaim": "Only final executedandassertedscenarioscountedaspasses; preparationproblemsremain disclosed separately."
+}

@@ -1,0 +1,27 @@
+{
+  "contract": {
+    "baseline": 481,
+    "candidate": 481,
+    "added": [],
+    "removed": 0
+  },
+  "language": {
+    "baseline": "No procedure answers a Locked English sentence.\n",
+    "candidate": "No procedure answers a Locked English sentence.\n"
+  },
+  "xlf": {
+    "baseline": "The committed is-IS.xlf is what tools/Update-IcelandicXlf.ps1 generates from the build.\n",
+    "candidate": "The committed is-IS.xlf is what tools/Update-IcelandicXlf.ps1 generates from the build.\n"
+  },
+  "helpLinks": {
+    "baseline": "1 identical prerequisite error: unreleased Timesheets public help directory absent",
+    "candidate": "1 identical prerequisite error: unreleased Timesheets public help directory absent",
+    "newPages": 0,
+    "newPageExtensions": 0,
+    "addedFindings": 0,
+    "notClaimedFullGuardPass": true,
+    "docsSnapshotSha": "2642305707262445e9122a7dd0f733dd2d5cae30",
+    "authority": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/77#issuecomment-6626911774",
+    "inAppHelp": "Actual origo MCP Englishchapters identical at1033/1039, localizedcatalogue/refusalsverified"
+  }
+}

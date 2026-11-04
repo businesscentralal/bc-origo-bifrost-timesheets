@@ -1,0 +1,4 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "reason": "Expected business refusal carried MCP isError=true; corrected harness to assert structured refusal, never treat expected refusal as transport error. Existing ownedseed andqueryresponses reused after actual snapshotreadback; no writes replayed."
+}

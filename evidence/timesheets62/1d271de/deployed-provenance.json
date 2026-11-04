@@ -1,0 +1,22 @@
+{
+  "containerId": "f04ee182ab06",
+  "owner": "worker-5",
+  "rows": [
+    {
+      "kind": "app",
+      "sourceSha": "1d271de3c6d501926f52de172b74bf705d9be280",
+      "compiledSha256": "04dafcafb3235922284d47e396e19445693225511dcae0c0c4c0650124ae1ee0",
+      "downloadedSha256": "04dafcafb3235922284d47e396e19445693225511dcae0c0c4c0650124ae1ee0",
+      "equal": true,
+      "manifest": "app-manifest.xml"
+    },
+    {
+      "kind": "test",
+      "sourceSha": "1d271de3c6d501926f52de172b74bf705d9be280",
+      "compiledSha256": "728732229b96974da1b49bb60da364e3c2412d9ae72b2df34cacc711b6ae9e5c",
+      "downloadedSha256": "728732229b96974da1b49bb60da364e3c2412d9ae72b2df34cacc711b6ae9e5c",
+      "equal": true,
+      "manifest": "test-manifest.xml"
+    }
+  ]
+}
