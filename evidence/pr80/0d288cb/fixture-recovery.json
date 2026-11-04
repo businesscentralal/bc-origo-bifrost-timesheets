@@ -1,0 +1,26 @@
+{
+  "candidateSha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "fixtureSourceSha": "051ad16e1bedc9b177669f291c68e61ac5444171",
+  "firstSeedTest": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "persisted": false,
+    "reason": "Default native test isolation rolls back setup. Read back0owned sheets and0owned resources; no successful business write replayed."
+  },
+  "secondSeedTest": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "purpose": "Fixture setup only, runner130451 Disabled to retain new owned fixture for subsequent real MCP/UI",
+    "productTestsUnchanged": "All138 product tests already ran normally, no test exclusion/isolation change for product suite"
+  },
+  "mcpAttempt1": {
+    "executed": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "preflightFailed": true,
+    "reason": "Own fixtures absent; no Submit call or business write was attempted."
+  }
+}

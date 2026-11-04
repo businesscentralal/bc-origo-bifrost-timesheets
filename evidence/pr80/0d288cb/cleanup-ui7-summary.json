@@ -1,0 +1,20 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [],
+  "captures": [
+    {
+      "name": "cleanup-failure",
+      "text": "\n\nSomething went wrong.\nAn error has occurred\nDate and time: Wed, 04 Nov 2026 08:56:05 GMT\nMicrosoft Entra tenant:\nOperation:\nGo back home",
+      "controls": []
+    }
+  ],
+  "startedAt": "2026-11-04T08:55:56.741Z",
+  "verified": false,
+  "languageRestored": false,
+  "languageSelections": [],
+  "limitations": [],
+  "error": "Owned BC record did not load on page 95618: Submit verification fixtures",
+  "finishedAt": "2026-11-04T08:56:55.663Z"
+}

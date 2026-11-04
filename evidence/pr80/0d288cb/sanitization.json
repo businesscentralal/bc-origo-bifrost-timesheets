@@ -1,0 +1,5 @@
+{
+  "summary": "Only individually owned synthetic records. Test-user display string replaced; native XML installed-app properties omitted. Test case names/outcomes/timings and counts preserved. No credentials or private environment/settings files published.",
+  "originalJUnitSha256": "ca6f544dee1bb5250f7f139508b0faf71291355e10ecb4f51496dec2dfbf5ff4",
+  "sanitizedJUnitSha256": "974186fc18b3b453f5b5d1c2a391715e8dc984a14bb3215ecb79fae9d31b788f"
+}

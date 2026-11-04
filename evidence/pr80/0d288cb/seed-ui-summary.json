@@ -1,0 +1,10 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "owner": "worker-4",
+  "startedAt": "2026-11-04T08:34:16.103Z",
+  "method": "Existing candidate test fixture page95618 via BC Web Client",
+  "createsOwnData": true,
+  "error": "Fixture action unavailable: \nDynamics 365 Business Central\n\n\n\n\nG\n\n\n\n\n\n\n\nSubmit verification fixtures\nActions\n\nOwned data\nTime sheet\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.",
+  "finishedAt": "2026-11-04T08:35:21.932Z"
+}

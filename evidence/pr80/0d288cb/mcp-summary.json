@@ -1,0 +1,421 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "touchedMessageTypes": [
+    "Timesheets.TimeSheet.Submit"
+  ],
+  "createsOwnData": true,
+  "dataSetup": "Candidate test fixture page95618 invoked by published test-only driver051ad16, fixture setup runner130451; own XSINDRI60 resource and four weekly sheets with quantity8. Names inherited from test fixture; resources belong to Alviss fresh container.",
+  "executed": 24,
+  "passed": 24,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [
+    {
+      "name": "missing",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "MissingParameter",
+        "error": "A required key is missing.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Send the missing key.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "wrong-type",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidParameterFormat",
+        "error": "A key has the wrong JSON type.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Send the key with the documented type.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "unknown-key",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"unexpected\" is not declared by this message type. Nothing was executed.",
+        "parameter": "unexpected",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "not-found",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "RecordNotFound",
+        "error": "The identifier does not match a record.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Use an identifier that exists.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "conflict",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "ConflictingIdentifiers",
+        "error": "The request names the time sheet in more than one way.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Send only one identifier for the time sheet.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "not-owner",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "The caller is not the owner of the time sheet.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Only the owner can submit; ask the owner.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "no-lines",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PreconditionFailed",
+        "error": "The time sheet has no open lines.",
+        "parameter": "lineNos",
+        "nextStep": "Add lines first.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "invalid-native-line",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidLine",
+        "error": "Business Central rejected the line.",
+        "parameter": "lineNos",
+        "nextStep": "Fix the line and submit again.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "bad-line-selection",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidParameterFormat",
+        "error": "A key has the wrong JSON type.",
+        "parameter": "lineNos",
+        "nextStep": "Send the key with the documented type.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Submit\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "selected-line-submit",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "XSINDRI60-OK",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": true,
+            "lineType": "Resource"
+          }
+        ]
+      }
+    },
+    {
+      "name": "default-all-idempotent",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "XSINDRI60-OK",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": false,
+            "lineType": "Resource"
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "MissingParameter",
+        "error": "Nauðsynlegur lykill vantar.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Sendu lykilinn sem vantar.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "wrong-type",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidParameterFormat",
+        "error": "Lykill er af röngu JSON-tagi.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Sendu lykilinn með skráðu tagi.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "unknown-key",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"unexpected\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "unexpected",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "not-found",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "RecordNotFound",
+        "error": "Auðkennið passar ekki við færslu.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Notaðu auðkenni sem er til.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "conflict",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "ConflictingIdentifiers",
+        "error": "Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "not-owner",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Kallandinn er ekki eigandi tímaskýrslunnar.",
+        "parameter": "timeSheetNo",
+        "nextStep": "Aðeins eigandinn getur sent inn. Biddu eigandann.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "no-lines",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PreconditionFailed",
+        "error": "Tímaskýrslan hefur engar opnar línur.",
+        "parameter": "lineNos",
+        "nextStep": "Bættu við línum fyrst.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "invalid-native-line",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidLine",
+        "error": "Business Central hafnaði línunni.",
+        "parameter": "lineNos",
+        "nextStep": "Lagfærðu línuna og sendu aftur inn.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "bad-line-selection",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "InvalidParameterFormat",
+        "error": "Lykill er af röngu JSON-tagi.",
+        "parameter": "lineNos",
+        "nextStep": "Sendu lykilinn með skráðu tagi.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Submit\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "name": "resource-date-idempotent",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "XSINDRI60-OK",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": false,
+            "lineType": "Resource"
+          }
+        ]
+      }
+    },
+    {
+      "name": "default-all-idempotent",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "XSINDRI60-OK",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": false,
+            "lineType": "Resource"
+          }
+        ]
+      }
+    },
+    {
+      "name": "generic-status-field-write-blocked",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Field Status (20) in table 951 (Time Sheet Line) cannot be written via Data.Records.Set.",
+        "parameter": "data[0].fields.Status",
+        "received": "Submitted",
+        "expected": "a field the user may write (Bifrost Field Access)",
+        "nextStep": "Timesheets.TimeSheet.Submit",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Data.Records.Set\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "name": "all-refusals-write-nothing-and-success-readback",
+      "lcid": 1033,
+      "passed": true,
+      "result": [
+        {
+          "id": "61100FC2-2CD8-F111-B7A5-970C182C7604",
+          "primaryKey": {
+            "TimeSheetNo_": "XSINDRI60-BAD",
+            "LineNo_": "10000"
+          },
+          "fields": {
+            "Status": "Open"
+          }
+        },
+        {
+          "id": "5E100FC2-2CD8-F111-B7A5-970C182C7604",
+          "primaryKey": {
+            "TimeSheetNo_": "XSINDRI60-OK",
+            "LineNo_": "10000"
+          },
+          "fields": {
+            "Status": "Submitted"
+          }
+        },
+        {
+          "id": "64100FC2-2CD8-F111-B7A5-970C182C7604",
+          "primaryKey": {
+            "TimeSheetNo_": "XSINDRI60-OWNER",
+            "LineNo_": "10000"
+          },
+          "fields": {
+            "Status": "Open"
+          }
+        }
+      ]
+    }
+  ],
+  "startedAt": "2026-11-04T08:52:57.778Z",
+  "helpStatus": "BLOCKED: known Foundation English-only contract policy conflicts with literal AC10; no repeat of previously established failing bilingual help assertion.",
+  "identity": {
+    "user": "[owned test user]",
+    "company": "CRONUS International Ltd.",
+    "isSandbox": true,
+    "isProduction": false
+  },
+  "fixtureReadback": [
+    {
+      "id": "61100FC2-2CD8-F111-B7A5-970C182C7604",
+      "primaryKey": {
+        "TimeSheetNo_": "XSINDRI60-BAD",
+        "LineNo_": "10000"
+      },
+      "fields": {
+        "Status": "Open"
+      }
+    },
+    {
+      "id": "5E100FC2-2CD8-F111-B7A5-970C182C7604",
+      "primaryKey": {
+        "TimeSheetNo_": "XSINDRI60-OK",
+        "LineNo_": "10000"
+      },
+      "fields": {
+        "Status": "Submitted"
+      }
+    },
+    {
+      "id": "64100FC2-2CD8-F111-B7A5-970C182C7604",
+      "primaryKey": {
+        "TimeSheetNo_": "XSINDRI60-OWNER",
+        "LineNo_": "10000"
+      },
+      "fields": {
+        "Status": "Open"
+      }
+    }
+  ],
+  "functionalVerified": true,
+  "finishedAt": "2026-11-04T08:53:12.116Z"
+}

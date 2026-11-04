@@ -1,0 +1,5 @@
+--- a/pr-status-comment.cjs
++++ b/pr-status-comment.cjs
+@@
+-function statusBody(body){return typeof body==='string'&&/^(?:\s*<!--[\s\S]*?-->\s*)*Current state\s*[:\u2014-]/i.test(body);}
++function statusBody(body){return typeof body==='string'&&/^(?:\s*<!--[\s\S]*?-->\s*)*(?:#{1,6}\s+)?Current state\s*[:\u2014-]/i.test(body);}

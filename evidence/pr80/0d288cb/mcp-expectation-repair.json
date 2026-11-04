@@ -1,0 +1,15 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "classification": "Harness expectation defect, not a product defect or AC waiver",
+  "finding": "Harness expected helper-only UnknownParameter nextStep. Public Foundation dispatcher checks declared keys first and returns canonical full nextStep. AC05 requires a nextStep, no literal unknown-key text.",
+  "rootCause": "Local implementation message assumed to be the public dispatcher response",
+  "repair": "Assert exact canonical nextStep from Foundation668 MsgContractMgt and parameter=unexpected, preserving code/no-write checks. No product test or assertion was weakened.",
+  "priorRun": {
+    "executed": 3,
+    "passed": 2,
+    "failed": 1,
+    "skipped": 0,
+    "actualBusinessWrites": 0
+  },
+  "sourceEvidence": "/workspace/evidence/timesheets60-worker4-20261104/Foundation-UnknownParameter.reference.al"
+}

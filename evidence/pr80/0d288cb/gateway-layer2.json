@@ -1,0 +1,21 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "layer1": {
+    "summary": {
+      "ready": false,
+      "passed": 19,
+      "total": 23,
+      "failed": 4
+    },
+    "evidence": "/workspace/evidence/timesheets60-worker4-20261104/gateway-layer1-r2.log"
+  },
+  "layer2": {
+    "readIsolation": "FindSet(true) deliberately locks selected lines inside isolated native runner transaction. Guard is advisory; no plain read loop with weakened isolation was introduced.",
+    "todayWorkDate": "3 matches are page object names Phone Today Cust Part ori in permissions, not Today calls.",
+    "captionTranslations": "42 captions are locked message-type identifier tokens, intentionally stable and unlocalized; new user-facing labels are is-IS translated and XLF guard passes.",
+    "oneStatement": "9 matches are procedure parameter separators, not multiple AL statements.",
+    "logicReview": "Owner/typed identifier/line selection before isolated native Submit; read/write permissions include transitive detail writes; structured refusals and status field restriction; no ledger direct writes. Public help literal AC10 conflicts with known upstream English-only policy and remains unverified.",
+    "scope": "16-file Submit-only diff against main, no pipeline/tool edits, no existing public procedure removal observed.",
+    "runtime": "Full suite running, MCP/UI still pending; no review-readiness claim."
+  }
+}

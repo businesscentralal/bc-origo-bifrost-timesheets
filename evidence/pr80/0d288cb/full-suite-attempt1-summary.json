@@ -1,0 +1,12 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "executed": 0,
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "runnerErrors": 2,
+  "classification": "Client Services failed before any AL test execution; tool failed2 describes harness errors, not2 AL test failures",
+  "primary": "SSL handshake failure; fallback credentials failure secondary",
+  "actualResult": "/workspace/evidence/timesheets60-worker4-20261104/full-suite-attempt1.json"
+}

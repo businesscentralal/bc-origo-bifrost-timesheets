@@ -1,0 +1,89 @@
+{
+  "issue": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/60",
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "criteria": [
+    {
+      "id": "AC01",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Implemented timeSheetNo or resourceNo+date, optional lineNos; 21Submit/permission tests among138 configured; native/MCP current attempt pending."
+    },
+    {
+      "id": "AC02",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Owner check happens before selection/write; exact nextStep and native rollback regression present."
+    },
+    {
+      "id": "AC03",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "No-line refusal before native runner; exact Add lines first. asserted."
+    },
+    {
+      "id": "AC04",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Native isolated Codeunit.Run error maps InvalidLine; nonzero Job fixture verifies rollback."
+    },
+    {
+      "id": "AC05",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Strict string/number/array typing, identifier conflict, unknown key and missing-record regressions; native fullsuite pending."
+    },
+    {
+      "id": "AC06",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Submitted lines return changed:false; default selection supports already-submitted retry."
+    },
+    {
+      "id": "AC07",
+      "status": "VERIFIED native restrictive permission tests in full138-test suite; real MCP runs as authorized own-container SUPER user.",
+      "implementationEvidence": "Guard checks native Header/Line/Detail/Job/AccountingPeriod/Resource/Setup reads and Line/Detail writes; restrictive read-only and no-detail-write tests."
+    },
+    {
+      "id": "AC08",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Status field restriction+dedicated hint subscribers; dispatcher regression and current MCP still pending."
+    },
+    {
+      "id": "AC09",
+      "status": "VERIFIED at0d288cb: full native138/138 and functional MCP24/24, no failures/skips; UI4/4 for native success and rollback state.",
+      "implementationEvidence": "Actual BC28 symbols use page973 and codeunit951.Submit (story recalled page950.SubmitLines); native runner no direct Status assignment."
+    },
+    {
+      "id": "AC10",
+      "status": "BLOCKED literal full bilingual/no-internals public help: Foundation668 source deliberately English at every LCID (#777/#1239); app localized labels verified natively. Existing policy finding retained, no repeated failed bilingual probe.",
+      "implementationEvidence": "Contract labels localize directly, public Foundation chapters deliberately English; no acceptance waiver."
+    },
+    {
+      "id": "AC11",
+      "status": "XLF synchronization and MixedLanguageLabels PASS at0d288cb; HelpLinks missing Timesheets docs folders remains unresolved, no waiver.",
+      "implementationEvidence": "Fresh generated is-IS/XLF guard PASS; user-facing labels translated. HelpLinks expected docs folder is404."
+    },
+    {
+      "id": "AC12",
+      "status": "Submit4declared keys match4read keys. Repository ContractParameterKeys FAIL481 with0Submit findings; retained Andvari#46 repair remains required.",
+      "implementationEvidence": "Submit declared/read keys=timeSheetNo,resourceNo,date,lineNos; global guard481 findings, zero Submit findings, retained#46."
+    },
+    {
+      "id": "AC13",
+      "status": "VERIFIED static: exactly3dot-separated parts.",
+      "implementationEvidence": "Timesheets.TimeSheet.Submit has exactly3dot-separated parts."
+    },
+    {
+      "id": "AC14",
+      "status": "VERIFIED own full suite138 distinct configured tests passed,0failed0skipped, includes21Submit/security tests. Paired GitHub CI still503 before compile, Test skipped.",
+      "implementationEvidence": "138 configured tests; current AL runner has0executed in first attempt and second normal retry pending."
+    },
+    {
+      "id": "AC15",
+      "status": "PENDING after valid developer handoff: independent Claude exact-tip receipt, then Grok clearance/non-author approval; no independent pass claimed.",
+      "implementationEvidence": "Independent current-tip Claude verification is next-stage after valid developer handoff; no receipt or clearance claimed."
+    }
+  ],
+  "evidence": {
+    "native": "full-suite-summary.json",
+    "mcp": "mcp-summary.json",
+    "ui": "acceptance-ui-summary.json",
+    "compile": "compile-summary.json",
+    "guards": "guards.json",
+    "fixture": "fixture-driver-publication.json"
+  }
+}

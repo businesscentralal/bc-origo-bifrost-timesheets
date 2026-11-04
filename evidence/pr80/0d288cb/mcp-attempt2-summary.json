@@ -1,0 +1,24 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "touchedMessageTypes": [
+    "Timesheets.TimeSheet.Submit"
+  ],
+  "createsOwnData": true,
+  "dataSetup": "Candidate test fixture page95618 via Web Client; own XSINDRI60 resource and four weekly sheets with quantity8. Names inherited from test fixture; resources belong to Alviss fresh container.",
+  "executed": 0,
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [],
+  "startedAt": "2026-11-04T08:50:18.363Z",
+  "helpStatus": "BLOCKED: known Foundation English-only contract policy conflicts with literal AC10; no repeat of previously established failing bilingual help assertion.",
+  "identity": {
+    "user": "GUNNAR",
+    "company": "CRONUS International Ltd.",
+    "isSandbox": true,
+    "isProduction": false
+  },
+  "error": "Starting date readback required",
+  "finishedAt": "2026-11-04T08:50:21.457Z"
+}

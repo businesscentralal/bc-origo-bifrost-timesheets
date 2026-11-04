@@ -1,0 +1,20 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "fullSuite": true,
+  "finishedAt": "2026-11-04T08:33:57.387Z",
+  "passed": 138,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "executed": 138,
+  "configured": 138,
+  "countMatchesConfigured": true,
+  "method": "origo bc_dev_run_tests SSH, extensionId553214e3-b742-4ccf-8ecc-1ee86fbc96f9, DEFAULT suite; no codeunit/function filters or exclusions",
+  "junitReturned": true,
+  "junitReadback": "Owned remote native runner result file, fetched without rerunning tests",
+  "junitExecuted": 138,
+  "distinctCases": 138,
+  "missing": [],
+  "unexpected": []
+}

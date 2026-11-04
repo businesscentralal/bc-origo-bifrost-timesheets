@@ -1,0 +1,30 @@
+{
+  "containerId": "f01715a6f723",
+  "owner": "worker-4",
+  "startedAt": "2026-11-04T08:57:40.086Z",
+  "verified": true,
+  "allOwnedFixturesPurged": true,
+  "ownership": {
+    "id": "f01715a6f723",
+    "displayName": "alviss-worker4-timesheets60-20261104-w1"
+  },
+  "deleteAttemptedAt": "2026-11-04T08:57:40.347Z",
+  "deleteStatusCode": 204,
+  "readbacks": [
+    {
+      "at": "2026-11-04T08:57:40.523Z",
+      "statusCode": 404,
+      "exists": false
+    }
+  ],
+  "finishedAt": "2026-11-04T08:57:40.523Z",
+  "priorOwnedSelectionRestored": true,
+  "absentFromList": true,
+  "inventoryVerifiedAt": "2026-11-04T08:58:17.491733+00:00",
+  "nativeCleanupAttempt": {
+    "executed": false,
+    "reason": "Fixture Web Client navigation hit generic runtime page error before cleanup action; attempt evidence retained. Physical owned environment deletion is the completed cleanup.",
+    "evidence": "/workspace/evidence/timesheets60-worker4-20261104/cleanup-ui7-summary.json"
+  },
+  "fixturePurgeMethod": "Delete entire individually owned disposable environment; DELETE204/GET404 plus inventory absence confirms all owned fixtures gone. No foreign resource deleted."
+}

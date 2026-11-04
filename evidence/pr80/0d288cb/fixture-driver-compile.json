@@ -1,0 +1,14 @@
+{
+  "sourceSha": "051ad16e1bedc9b177669f291c68e61ac5444171",
+  "productCandidateSha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "startedAt": "2026-11-04T08:46:17.513204+00:00",
+  "finishedAt": "2026-11-04T08:46:27.692851+00:00",
+  "exitCode": 0,
+  "errors": 0,
+  "warnings": 0,
+  "analyzers": [
+    "CodeCop",
+    "UICop"
+  ],
+  "sha256": "9e746726d5879795dd8c39151e330b264dc6aa9640ca8241eef0d7df2a85c637"
+}

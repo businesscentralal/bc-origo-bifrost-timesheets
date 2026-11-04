@@ -1,0 +1,9 @@
+{
+  "appId": "8aa4b1be-e883-4359-8a02-2d0a2bc2c92e",
+  "codeunit": 95699,
+  "owner": "worker-4",
+  "containerId": "f01715a6f723",
+  "productCandidate": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "fixtureSource": "051ad16e1bedc9b177669f291c68e61ac5444171",
+  "purpose": "Invokes existing candidate test fixture page only, not product/guard/licensing bypass"
+}

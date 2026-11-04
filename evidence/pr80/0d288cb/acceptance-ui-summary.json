@@ -1,0 +1,163 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [
+    {
+      "lcid": 1033,
+      "name": "MCP Submit persisted as Submitted with quantity8",
+      "sheet": "XSINDRI60-OK",
+      "resource": "XSINDRI60",
+      "status": "Submitted",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "name": "Refusal leaves native sheet Open with quantity8",
+      "sheet": "XSINDRI60-BAD",
+      "resource": "XSINDRI60",
+      "status": "Open",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "name": "MCP Submit persisted as Submitted with quantity8",
+      "sheet": "XSINDRI60-OK",
+      "resource": "XSINDRI60",
+      "status": "Submitted",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "name": "Refusal leaves native sheet Open with quantity8",
+      "sheet": "XSINDRI60-BAD",
+      "resource": "XSINDRI60",
+      "status": "Open",
+      "passed": true
+    }
+  ],
+  "captures": [
+    {
+      "name": "XSINDRI60-OK-1033",
+      "text": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nSeptember 28, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow more\nResource No.\nXSINDRI60\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n28 Mon\n\t\n29 Tue\n\t\n30 Wed\n\t\n1 Thu\n\t\n2 Fri\n\t\n3 Sat\n\t\n4 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tResource\t\n\tSubmitted\t  \t\t\t\t\n\t\t8\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNo\nOpen0.00\nSubmitted8.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n28 Monday8.00/0.00\n29 Tuesday0.00/0.00\n30 Wednesday0.00/0.00\n1 Thursday0.00/0.00\n2 Friday0.00/0.00\n3 Saturday0.00/0.00\n4 Sunday0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nSeptember 28, 2026. Time Sheet\n\nList with title \"Lines\" now has one item",
+      "controls": [
+        {
+          "label": null,
+          "value": "on"
+        }
+      ]
+    },
+    {
+      "name": "XSINDRI60-BAD-1033",
+      "text": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nSeptember 21, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow more\nResource No.\nXSINDRI60\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n21 Mon\n\t\n22 Tue\n\t\n23 Wed\n\t\n24 Thu\n\t\n25 Fri\n\t\n26 Sat\n\t\n27 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tProject\t\n\tOpen\t  \t\t\t\t\n\t\t\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNo\nOpen8.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n21 Monday8.00/0.00\n22 Tuesday0.00/0.00\n23 Wednesday0.00/0.00\n24 Thursday0.00/0.00\n25 Friday0.00/0.00\n26 Saturday0.00/0.00\n27 Sunday0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nSeptember 21, 2026. Time Sheet\n\nList with title \"Lines\" now has one item",
+      "controls": [
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "8"
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "name": "XSINDRI60-OK-1039",
+      "text": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nseptember 28, 2026\nHeim\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nSýna meira\nResource No.\nXSINDRI60\nLines\nStjórna\nLine\n\n\nNý lína\nEyða línu\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n28 Mon\n\t\n29 Tue\n\t\n30 Wed\n\t\n1 Thu\n\t\n2 Fri\n\t\n3 Sat\n\t\n4 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tResource\t\n\tSubmitted\t  \t\t\t\t\n\t\t8\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNei\nOpen0.00\nSubmitted8.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n28 mánudagur8.00/0.00\n29 þriðjudagur0.00/0.00\n30 miðvikudagur0.00/0.00\n1 fimmtudagur0.00/0.00\n2 föstudagur0.00/0.00\n3 laugardagur0.00/0.00\n4 sunnudagur0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nNotaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.\n\nseptember 28, 2026. Time Sheet\n\nListi með titilinn „Lines“ hefur nú eitt atriði",
+      "controls": [
+        {
+          "label": null,
+          "value": "on"
+        }
+      ]
+    },
+    {
+      "name": "XSINDRI60-BAD-1039",
+      "text": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nseptember 21, 2026\nHeim\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nSýna meira\nResource No.\nXSINDRI60\nLines\nStjórna\nLine\n\n\nNý lína\nEyða línu\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n21 Mon\n\t\n22 Tue\n\t\n23 Wed\n\t\n24 Thu\n\t\n25 Fri\n\t\n26 Sat\n\t\n27 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tProject\t\n\tOpen\t  \t\t\t\t\n\t\t\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNei\nOpen8.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n21 mánudagur8.00/0.00\n22 þriðjudagur0.00/0.00\n23 miðvikudagur0.00/0.00\n24 fimmtudagur0.00/0.00\n25 föstudagur0.00/0.00\n26 laugardagur0.00/0.00\n27 sunnudagur0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nNotaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.\n\nseptember 21, 2026. Time Sheet\n\nListi með titilinn „Lines“ hefur nú eitt atriði",
+      "controls": [
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "8"
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "startedAt": "2026-11-04T08:54:02.335Z",
+  "verified": true,
+  "languageRestored": true,
+  "languageSelections": [
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nSeptember 28, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow more\nResource No.\nXSINDRI60\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n28 Mon\n\t\n29 Tue\n\t\n30 Wed\n\t\n1 Thu\n\t\n2 Fri\n\t\n3 Sat\n\t\n4 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tResource\t\n\tSubmitted\t  \t\t\t\t\n\t\t8\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNo\nOpen0.00\nSubmitted8.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n28 Monday8.00/0.00\n29 Tuesday0.00/0.00\n30 Wednesday0.00/0.00\n1 Thursday0.00/0.00\n2 Friday0.00/0.00\n3 Saturday0.00/0.00\n4 Sunday0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nMy Settings - [owned test user]\n\n\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 08:50 AM.\nOK\nCancel\nAvailable Languages\n\n\n\n\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\nOK\nCancel\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nSeptember 28, 2026. Time Sheet\n\nList with title \"Lines\" now has one item\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has 18 items\n\n18 suggestions available for English.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"English\"}]"
+    },
+    {
+      "label": "Icelandic (Iceland)",
+      "lcid": 1039,
+      "settings": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nSeptember 21, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow more\nResource No.\nXSINDRI60\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n21 Mon\n\t\n22 Tue\n\t\n23 Wed\n\t\n24 Thu\n\t\n25 Fri\n\t\n26 Sat\n\t\n27 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tProject\t\n\tOpen\t  \t\t\t\t\n\t\t\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNo\nOpen8.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n21 Monday8.00/0.00\n22 Tuesday0.00/0.00\n23 Wednesday0.00/0.00\n24 Thursday0.00/0.00\n25 Friday0.00/0.00\n26 Saturday0.00/0.00\n27 Sunday0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nMy Settings - [owned test user]\n\n\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 08:50 AM.\nOK\nCancel\nAvailable Languages\n\n\n\n\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tIcelandic (Iceland)\t\n\t\nOK\nCancel\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nSeptember 21, 2026. Time Sheet\n\nList with title \"Lines\" now has one item\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has one item\n\nOne suggestion available for Icelandic.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"8\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"Icelandic\"}]"
+    },
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\n\n\n\nG\n\n\nTime Sheet\n\n\n\n\n\n\nseptember 21, 2026\nHeim\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nSýna meira\nResource No.\nXSINDRI60\nLines\nStjórna\nLine\n\n\nNý lína\nEyða línu\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n21 Mon\n\t\n22 Tue\n\t\n23 Wed\n\t\n24 Thu\n\t\n25 Fri\n\t\n26 Sat\n\t\n27 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tProject\t\n\tOpen\t  \t\t\t\t\n\t\t\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNei\nOpen8.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n21 mánudagur8.00/0.00\n22 þriðjudagur0.00/0.00\n23 miðvikudagur0.00/0.00\n24 fimmtudagur0.00/0.00\n25 föstudagur0.00/0.00\n26 laugardagur0.00/0.00\n27 sunnudagur0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n  \n\nMínar stillingar - [owned test user]\n\n\nHlutverk\nBusiness Manager\nFyrirtæki\nCRONUS International Ltd.\nVinnudagsetning\nSvæði\nEnglish (United States)\nTungumál\nIcelandic (Iceland)\nTímabelti\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nKennsluábendingar\nEldri aðgerðarstika\nÖryggi\nSíðasta innskráning var 11/04/26 08:50 AM.\nÍ lagi\nHætta við\nTiltæk tungumál\n\n\n\n\n\t\t\nHeiti\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\nÍ lagi\nHætta við\nNotaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.\n\nseptember 21, 2026. Time Sheet\n\nListi með titilinn „Lines“ hefur nú eitt atriði\n\nHeiti, raðað í pöntunina Hækkandi\n\nListi með titilinn „Tiltæk tungumál“ hefur nú 18 atriði\n\n18 tillögur í boði fyrir English.\n[{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"8\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Leita Tiltæk tungumál\",\"value\":\"English\"}]"
+    }
+  ],
+  "limitations": [],
+  "finishedAt": "2026-11-04T08:54:45.186Z",
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0
+}

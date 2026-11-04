@@ -1,0 +1,20 @@
+[
+  {
+    "artifact": "Timesheets-Default",
+    "sha256": "fdc16935303c4d0a3cd7480e1a7ec25cd18566d48d8c2c0d407526de5c69bf02",
+    "manifestHasCandidateSha": true,
+    "version": "28.0.0.0"
+  },
+  {
+    "artifact": "Timesheets",
+    "sha256": "a5212e7fe7477513401cbe9643e10d376f1b86f990b0cd63c5e5652d3e0ad0a5",
+    "manifestHasCandidateSha": true,
+    "version": "28.0.0.0"
+  },
+  {
+    "artifact": "TimesheetsTests",
+    "sha256": "0ef3f5eaeca9c40767f4633c4eed2e8ef17b76ec485b7849fda6142d2592fe5d",
+    "manifestHasCandidateSha": true,
+    "version": "28.0.0.0"
+  }
+]

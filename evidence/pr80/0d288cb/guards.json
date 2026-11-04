@@ -1,0 +1,18 @@
+{
+  "Test-ContractParameterKeys": {
+    "exitCode": 1,
+    "tail": "act or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|journalTemplate\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|projectId\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|query\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|start\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|tagIds\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|taskId\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|userId\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|weeksAhead\nNew offender (fix the contract or the code, see #146, #357): Clockify.TimeSheet.Reopen|declared-not-read|workspaceId\n"
+  },
+  "Test-MixedLanguageLabels": {
+    "exitCode": 0,
+    "tail": "No procedure answers a Locked English sentence.\n"
+  },
+  "Test-IcelandicXlfInSync": {
+    "exitCode": 0,
+    "tail": "The committed is-IS.xlf is what tools/Update-IcelandicXlf.ps1 generates from the build.\n"
+  },
+  "Test-PermissionCoverage": {
+    "exitCode": 0,
+    "tail": "Every page, query, report and xmlport is granted by an assignable permission set.\n"
+  }
+}

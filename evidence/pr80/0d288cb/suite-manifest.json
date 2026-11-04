@@ -1,0 +1,558 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "count": 138,
+  "tests": [
+    {
+      "codeunit": 95601,
+      "name": "HelpTypeIsOutboundWithNoFilterTable"
+    },
+    {
+      "codeunit": 95601,
+      "name": "EveryClockifyTypeHasMetadataAndHelp"
+    },
+    {
+      "codeunit": 95601,
+      "name": "CompanyApiKeyRoundtrips"
+    },
+    {
+      "codeunit": 95601,
+      "name": "DefaultApiVersionIsVersion1"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WorkspaceListRoutesGetThroughClient"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ErrorResponseIsSurfacedWithStatusCode"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ProjectCreatePostsBodyToWorkspace"
+    },
+    {
+      "codeunit": 95601,
+      "name": "DefaultWorkspaceUsedWhenRequestOmitsIt"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WorkspaceLookupRequiresApiKey"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WorkspaceLookupReturnsSelection"
+    },
+    {
+      "codeunit": 95601,
+      "name": "RegisterCreatesWebhooksForEachTimeEntryEvent"
+    },
+    {
+      "codeunit": 95601,
+      "name": "RemoveDeletesRegisteredWebhooks"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ReverseTimeEntryWithNoLinkIsSkipped"
+    },
+    {
+      "codeunit": 95601,
+      "name": "JobJournalResolvesFromSetup"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeEntrySyncErrorsWhenNoJournalConfigured"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeEntrySyncRejectsInProgressEntries"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WorkTypeResolvesFromTagThenDefault"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncCreatesJobJournalLineWithWorkTypeFromTag"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncSkipsUnchangedThenUpdatesOnChange"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ReverseDeletesSyncedJournalLine"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WebhookDispatchCreatesJobJournalLine"
+    },
+    {
+      "codeunit": 95601,
+      "name": "IntegrationTableStampsAndClearsReversedAt"
+    },
+    {
+      "codeunit": 95601,
+      "name": "RetentionRegistersIntegrationTable"
+    },
+    {
+      "codeunit": 95601,
+      "name": "HelpIncludesIntegrationTracking"
+    },
+    {
+      "codeunit": 95601,
+      "name": "CurrencyListProjectsWorkspaceCurrencies"
+    },
+    {
+      "codeunit": 95601,
+      "name": "UserGroupListRoutesGetToWorkspacesUserGroups"
+    },
+    {
+      "codeunit": 95601,
+      "name": "UserGroupListForwardsQueryString"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeEntryListForwardsInProgressQueryParameter"
+    },
+    {
+      "codeunit": 95601,
+      "name": "CustomFieldListRoutesGetToWorkspacesCustomFields"
+    },
+    {
+      "codeunit": 95601,
+      "name": "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt"
+    },
+    {
+      "codeunit": 95601,
+      "name": "UserGroupListHelpExplainsIdUsage"
+    },
+    {
+      "codeunit": 95601,
+      "name": "CustomFieldListHelpExplainsIdUsage"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeEntryListHelpExplainsInProgressFilter"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeEntrySyncHelpWarnsAboutInProgressEntries"
+    },
+    {
+      "codeunit": 95601,
+      "name": "UserListHelpExplainsOptionalQueryEffects"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ClientUpdateHelpExplainsOptionalBodyEffects"
+    },
+    {
+      "codeunit": 95601,
+      "name": "OverviewListsLookupEndpoints"
+    },
+    {
+      "codeunit": 95601,
+      "name": "OverviewGotchasCallOutIdOnlyWrites"
+    },
+    {
+      "codeunit": 95601,
+      "name": "IntegrationGateAllowsWriteAccess"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangeIsInboundWithHelp"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangeErrorsWhenNoJournalConfigured"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangeCreatesLinesForEntriesInRange"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangePerEntryErrorDoesNotAbortBatch"
+    },
+    {
+      "codeunit": 95601,
+      "name": "AllInboundTimeTypesAreInboundWithHelp"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetCreateReturnsCountWithNoResources"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetApproveReturnsZeroWhenNothingOpen"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetArchiveReturnsZeroWhenNothingPosted"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetRejectReturnsZeroWhenNothingSubmitted"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetReopenReturnsZeroWhenNothingPending"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetPostErrorsWhenNoJournalConfigured"
+    },
+    {
+      "codeunit": 95601,
+      "name": "TimeSheetPostReturnsZeroWhenNoApprovedLines"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncToTimeSheetErrorsWhenNoMapping"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncToTimeSheetErrorsWhenNoOpenTimeSheet"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Scenario_AC08_RequireParamAnswersInIcelandic"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Scenario_AC08_RequireBodyAnswersInIcelandic"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncToTimeSheetCreatesDetailOnOpenSheet"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangeToTimeSheetCreatesDetailsForEntries"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SyncAllUsersSyncsMappedUserToTimeSheet"
+    },
+    {
+      "codeunit": 95601,
+      "name": "ReverseFromTimeSheetRemovesOpenDetail"
+    },
+    {
+      "codeunit": 95601,
+      "name": "WebhookSigningTokenIsRedactedFromTheResponseLog"
+    },
+    {
+      "codeunit": 95601,
+      "name": "SigningTokensAreRedactedInsideArraysAndNestedObjects"
+    },
+    {
+      "codeunit": 95601,
+      "name": "BodiesWithoutASigningTokenPassThroughUnchanged"
+    },
+    {
+      "codeunit": 95601,
+      "name": "NonJsonAndEmptyBodiesAreReturnedUnchanged"
+    },
+    {
+      "codeunit": 95601,
+      "name": "HelpClockifyGetUsesTableNameNotTable"
+    },
+    {
+      "codeunit": 95601,
+      "name": "InboundTimeTypesHaveNonEmptyRequestExamples"
+    },
+    {
+      "codeunit": 95601,
+      "name": "InboundHelpMarkdownShowsDirectionInbound"
+    },
+    {
+      "codeunit": 95601,
+      "name": "HelpTracksUppercaseClockifyTypeCodes"
+    },
+    {
+      "codeunit": 95612,
+      "name": "FieldRestrict_WebhookReceiverUrlWriteRestricted"
+    },
+    {
+      "codeunit": 95612,
+      "name": "FieldRestrict_WebhookReceiverUrlNotReadRestricted"
+    },
+    {
+      "codeunit": 95612,
+      "name": "FieldRestrict_NeighbourFieldsNotRestricted"
+    },
+    {
+      "codeunit": 95612,
+      "name": "FieldRestrict_TableLevelChecksStayFalse"
+    },
+    {
+      "codeunit": 95612,
+      "name": "FieldRestrict_HintForReceiverUrlEmptyForNeighbour"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Scenario_AC07_NameAlias_Refused"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Scenario_AC07_JsonAlias_Refused"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Scenario_AC07_WorkType_SaveAndClear"
+    },
+    {
+      "codeunit": 95613,
+      "name": "ClockifyWrites_DeclareInbound"
+    },
+    {
+      "codeunit": 95613,
+      "name": "BusinessCentralSideTypes_StayInbound"
+    },
+    {
+      "codeunit": 95613,
+      "name": "ReadTypes_StayOutbound"
+    },
+    {
+      "codeunit": 95613,
+      "name": "SyncParameters_MatchOptionalUsageInCode"
+    },
+    {
+      "codeunit": 95613,
+      "name": "SyncToTimeSheetParameters_MatchOptionalUsageInCode"
+    },
+    {
+      "codeunit": 95613,
+      "name": "WrongWorkspace_DocumentedAs400Not404"
+    },
+    {
+      "codeunit": 95613,
+      "name": "CustomFieldList_Documents403ForFreePlan"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Overview_DefinesDirectionByMutation"
+    },
+    {
+      "codeunit": 95607,
+      "name": "TC001_EnableDefaultPolicyInsertsEnabledRow"
+    },
+    {
+      "codeunit": 95607,
+      "name": "TC002_EnableDefaultPolicyReRunIsIdempotent"
+    },
+    {
+      "codeunit": 95604,
+      "name": "DefaultPageProcessesOneHundredUsers"
+    },
+    {
+      "codeunit": 95604,
+      "name": "ZeroTakeUsesDefaultPageSize"
+    },
+    {
+      "codeunit": 95604,
+      "name": "NegativeSkipFailsBeforeFetching"
+    },
+    {
+      "codeunit": 95604,
+      "name": "NegativeTakeFailsBeforeFetching"
+    },
+    {
+      "codeunit": 95604,
+      "name": "OversizedTakeIsClamped"
+    },
+    {
+      "codeunit": 95604,
+      "name": "NextSkipContinuesWithoutRepeatingUsers"
+    },
+    {
+      "codeunit": 95604,
+      "name": "FailedUserDoesNotStopThePage"
+    },
+    {
+      "codeunit": 95604,
+      "name": "SkipAtAndBeyondEndDoesNotFetch"
+    },
+    {
+      "codeunit": 95604,
+      "name": "EmptyMappingSetReturnsCompletedPage"
+    },
+    {
+      "codeunit": 95604,
+      "name": "HelpDescribesParametersResponseAndCallerLoop"
+    },
+    {
+      "codeunit": 95604,
+      "name": "ClockifyListsKeepTheirOwnPaging"
+    },
+    {
+      "codeunit": 95608,
+      "name": "Batch1TypesDeclareContractAndDiscovery"
+    },
+    {
+      "codeunit": 95609,
+      "name": "Batch2TypesDeclareContractAndDiscovery"
+    },
+    {
+      "codeunit": 95610,
+      "name": "Batch3TypesDeclareContractAndDiscovery"
+    },
+    {
+      "codeunit": 95611,
+      "name": "ClockifyApiWrites_DeclareIrreversible"
+    },
+    {
+      "codeunit": 95611,
+      "name": "ClockifyDeletesAndPost_DeclareIrreversible"
+    },
+    {
+      "codeunit": 95611,
+      "name": "BusinessCentralOnlyWrites_StayWrite"
+    },
+    {
+      "codeunit": 95611,
+      "name": "Reads_StayRead"
+    },
+    {
+      "codeunit": 95615,
+      "name": "ResolveCurrentResource_UserMapped_ReturnsResourceNo"
+    },
+    {
+      "codeunit": 95615,
+      "name": "ResolveCurrentResource_UserNotMapped_ReturnsFalse"
+    },
+    {
+      "codeunit": 95615,
+      "name": "PopulateTodayCustomers_NoApiKey_ReturnsEmpty"
+    },
+    {
+      "codeunit": 95615,
+      "name": "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer"
+    },
+    {
+      "codeunit": 95615,
+      "name": "PopulateTodayCustomers_RunningEntry_ReturnsCustomer"
+    },
+    {
+      "codeunit": 95615,
+      "name": "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes"
+    },
+    {
+      "codeunit": 95615,
+      "name": "PopulateCurrentCustomers_UsesMyCustomers"
+    },
+    {
+      "codeunit": 95615,
+      "name": "ResolveLastWorkday_Monday_ReturnsFriday"
+    },
+    {
+      "codeunit": 95615,
+      "name": "AddServiceItemLine_ReusesOpenInvoice"
+    },
+    {
+      "codeunit": 95615,
+      "name": "AddServiceItemLine_InvalidItem_Errors"
+    },
+    {
+      "codeunit": 95606,
+      "name": "AppRegistersItselfWithFoundation"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_MissingKey_Refused"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_UnknownKey_Refused"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC02_NotOwner_WritesNothing"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC03_NoLines_PreconditionFailed"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC01_AC06_SubmitAndRetry_Unchanged"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC04_BadJobLine_InvalidLine"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC01_ResourceAndDate_Submits"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC01_SelectedLine_LeavesOtherOpen"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC03_ApprovedOnly_PreconditionFailed"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC04_MixedValidInvalid_RollsBackAll"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_WrongTypedIdentifier_Refused"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_ConflictingIdentifiers_Refused"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_MissingSheet_RecordNotFound"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC06_EmptySelection_WritesNothing"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC05_OutOfRangeLineNo_CleanRefusal"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC09_OmitCommit_CleanRefusal"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC10_IcelandicHelp_IsLocalized"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC08_GenericStatusWrite_Denied"
+    },
+    {
+      "codeunit": 95616,
+      "name": "Scenario_AC09_EmptyLine_FollowsBCPolicy"
+    },
+    {
+      "codeunit": 95617,
+      "name": "Scenario_AC07_ReadOnly_DisabledAndDenied"
+    },
+    {
+      "codeunit": 95617,
+      "name": "Scenario_AC07_NoDetailWrite_DisabledAndDenied"
+    }
+  ]
+}

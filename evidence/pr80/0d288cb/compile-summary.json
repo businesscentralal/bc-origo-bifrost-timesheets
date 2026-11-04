@@ -1,0 +1,43 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "dirty": false,
+  "compiler": "/workspace/tools/al-language/extension/bin",
+  "analyzers": [
+    "CodeCop",
+    "UICop",
+    "AppSourceCop"
+  ],
+  "foundationProvenance": "/workspace/evidence/timesheets60-worker4-20261104/foundation-provenance.json",
+  "Default": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ]
+  },
+  "Test-product": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ]
+  },
+  "Test": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop"
+    ]
+  }
+}

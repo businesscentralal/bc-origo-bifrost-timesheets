@@ -1,0 +1,20 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "artifacts": [
+    {
+      "name": "Timesheets",
+      "sha256": "a5212e7fe7477513401cbe9643e10d376f1b86f990b0cd63c5e5652d3e0ad0a5",
+      "buildDownloadHashMatch": true,
+      "sourceCommitVerified": true,
+      "version": "28.0.0.0"
+    },
+    {
+      "name": "TimesheetsTests",
+      "sha256": "0ef3f5eaeca9c40767f4633c4eed2e8ef17b76ec485b7849fda6142d2592fe5d",
+      "buildDownloadHashMatch": true,
+      "sourceCommitVerified": true,
+      "version": "28.0.0.0"
+    }
+  ]
+}

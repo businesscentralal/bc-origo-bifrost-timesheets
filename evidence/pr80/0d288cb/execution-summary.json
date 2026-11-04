@@ -1,0 +1,90 @@
+{
+  "candidateSha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "owner": "worker-4",
+  "displayName": "Alv\u00edss",
+  "appVersion": "28.0.0.0",
+  "foundationVersion": "28.0.11.668",
+  "ownedContainerId": "f01715a6f723",
+  "compile": {
+    "productDefault": {
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ]
+    },
+    "testProduct": {
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ]
+    },
+    "testApp": {
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop"
+      ]
+    }
+  },
+  "tests": {
+    "fullSuite": true,
+    "executed": 138,
+    "passed": 138,
+    "failed": 0,
+    "skipped": 0,
+    "distinctConfiguredMethods": 138
+  },
+  "mcp": {
+    "type": "Timesheets.TimeSheet.Submit",
+    "executed": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "lcids": [
+      1033,
+      1039
+    ],
+    "createsOwnData": true
+  },
+  "ui": {
+    "executed": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "lcids": [
+      1033,
+      1039
+    ],
+    "scenarios": "Native Submitted8 after success; native Open8 after InvalidLine refusal, both languages"
+  },
+  "cleanup": {
+    "deleteStatusCode": 204,
+    "getStatusCode": 404,
+    "absentFromInventory": true,
+    "allOwnedFixturesPurged": true
+  },
+  "ci": {
+    "runId": 41783719353,
+    "conclusion": "failure",
+    "diagnosis": "DownloadProjectDependencies503 Egress over account limit before compilation; Test skipped",
+    "owner": "Architect"
+  },
+  "remaining": [
+    "Literal AC10 public bilingual/no-internals help conflicts with known Foundation English-only policy; Claude/Architect disposition required",
+    "ContractParameterKeys481 findings,0Submit findings; retained Andvari#46 repair",
+    "HelpLinks docs help/timesheets404; related47 remains parked/no action",
+    "Fresh paired green Default/Test CI",
+    "Current-state legacyMarkdown heading adoption runtime repair requested from root; no duplicate summary posted",
+    "Then valid developer handoff, independent Claude verification, Grok clearance/non-author approval, Architect merge/deploy and Tester UAT"
+  ],
+  "reviewHandoffPerformed": false,
+  "issueDelivered": false,
+  "capturedAt": "2026-11-04T09:01:23.130768+00:00"
+}

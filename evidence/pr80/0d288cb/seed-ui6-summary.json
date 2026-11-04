@@ -1,0 +1,9 @@
+{
+  "sha": "0d288cb96bf7017de7a67ec5ae9a4d238f5d9b90",
+  "containerId": "f01715a6f723",
+  "owner": "worker-4",
+  "startedAt": "2026-11-04T08:42:30.269Z",
+  "method": "Candidate test fixture95618 UI action, dynamic frame locator",
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('iframe').contentFrame().getByRole('menuitem', { name: 'Actions', exact: true })\n",
+  "finishedAt": "2026-11-04T08:43:06.549Z"
+}
