@@ -1,0 +1,21 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "environment": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.Usage.Approve",
+    "data": {
+      "entryNo": 318
+    },
+    "lcid": 1039
+  },
+  "finishedAt": "2026-11-04T23:45:59.324Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.Usage.Approve\",\n  \"status\": \"Success\",\n  \"line\": {\n    \"entryNo\": 318,\n    \"timeSheetNo\": \"ZZU84E45469EF55S\",\n    \"lineNo\": 10000,\n    \"resourceNo\": \"ZZU84E45469EF55R\",\n    \"type\": \"Resource\",\n    \"no\": \"ZZU84E45469EF55R\",\n    \"date\": \"2026-11-04\",\n    \"quantity\": 2,\n    \"unitOfMeasure\": \"E45469EF55\",\n    \"description\": \"Issue 84 self-seeded resource\",\n    \"status\": \"Approved\",\n    \"reversed\": false,\n    \"approvedBy\": \"W13INV126\",\n    \"approvedAt\": \"2026-11-04T23:45:59.3830000Z\",\n    \"journalTableNo\": 0,\n    \"journalTemplate\": \"\",\n    \"journalBatch\": \"\",\n    \"journalLineNo\": 0,\n    \"ledgerEntryNo\": 0,\n    \"comment\": \"\"\n  }\n}"
+      }
+    ]
+  }
+}

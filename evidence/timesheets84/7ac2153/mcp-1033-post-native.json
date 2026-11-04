@@ -1,0 +1,22 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "environment": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Test.UsageFixture.Manage",
+    "data": {
+      "action": "post",
+      "nonce": "6FDB0C8C63"
+    },
+    "lcid": 1033
+  },
+  "finishedAt": "2026-11-04T23:45:42.151Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Test.UsageFixture.Manage\",\n  \"status\": \"Success\",\n  \"timeSheetNo\": \"ZZU846FDB0C8C63S\",\n  \"resourceNo\": \"ZZU846FDB0C8C63R\",\n  \"itemNo\": \"ZZU846FDB0C8C63I\",\n  \"lineNo\": 10000,\n  \"journalTemplate\": \"6FDB0C8C63\",\n  \"journalBatch\": \"6FDB0C8C63\"\n}"
+      }
+    ]
+  }
+}

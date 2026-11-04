@@ -1,0 +1,19 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "containerId": "f073ff287f0d",
+  "owner": "worker-5",
+  "apps": [
+    {
+      "downloaded": "product.app",
+      "local": "app.app",
+      "sha256": "e7f769e85e2e08c12f30dfa5b3e2731329daa7f29cd192a22103149216fb8704",
+      "sourceCommit": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    },
+    {
+      "downloaded": "tests.app",
+      "local": "test.app",
+      "sha256": "04b661e9b144f4c6c3d354ba510f3b4585f225517db63c17669336a19345de69",
+      "sourceCommit": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    }
+  ]
+}

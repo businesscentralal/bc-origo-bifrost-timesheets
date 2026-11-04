@@ -1,0 +1,78 @@
+{
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/84",
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "updatedAt": "2026-11-04T23:51:37.527Z",
+  "allAcceptanceComplete": false,
+  "matrix": [
+    {
+      "ac": "AC01",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Native and MCP register Item/Resource, require sheet/line/owner and positive quantity; linked identifiers and Open state read back."
+    },
+    {
+      "ac": "AC02",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Current286suite twice covers unknown/blocked Item, distinct blocked Resource, date/quantity/unknown-key and link/owner refusals. Current bilingual MCP includes dedicated unknown-Resource refusals with no mutation and translated key-specific errors, plus other error-path scenarios."
+    },
+    {
+      "ac": "AC03",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Explicit rejected-to-Submitted regression plus Open/Submitted state assertions pass in full286suite twice."
+    },
+    {
+      "ac": "AC04",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Native/MCP independent approver accepts Submitted, self-approval refused, Reject records bounded comment, repeated/overlong rejection refuses atomically. Fixture actor handover is simulated in the test-only fixture; no credentials changed."
+    },
+    {
+      "ac": "AC05",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Native transfers Item, Resource and project-linked Item/Resource to their journal types; repeat call does not duplicate. Live MCP Resource journal mapping/idempotency verified."
+    },
+    {
+      "ac": "AC06",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Native batch with a valid first line and invalid second entry rolls back every journal and usage link."
+    },
+    {
+      "ac": "AC07",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Actual native Item, Resource and Job(Resource) posting uses standard RunWithCheck, firing real subscribers; exact owned ledger records/quantities and Posted state are asserted. Item/Job deletion before posting clears link; deletion after posting preserves Posted. Full286suite twice:0failed/0skipped."
+    },
+    {
+      "ac": "AC08",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Native and bilingual MCP one-time Posted reversal, optional negative journal and unchanged original ledger provenance. IS MCP inspects negative journal quantity."
+    },
+    {
+      "ac": "AC09",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Generic table-wide write restriction tested through public dispatcher and live MCP in both locales for Status/Reversed/journal fields; unchanged dedicated List readback."
+    },
+    {
+      "ac": "AC10",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Explicit week/status intersection excludes other week/status, retains matching entry and all3unchanged rows. Existing owner/approver visibility and continuation pass in full286suite twice."
+    },
+    {
+      "ac": "AC11",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Current full286suite passes twice, including actual restrictive read-only List/denied Register and usage-RIMD/journal-R Transfer refusal with nextStep, Approved state and zero journal/link mutation; fixture-only setup and cleanup."
+    },
+    {
+      "ac": "AC12",
+      "status": "implemented/native and applicable MCP verified",
+      "evidence": "Seven usage types have live help/discovery in both LCIDs; translated catalogue and English chapters; canonical typed related/workflow/effect chapters; English repo usage chapter."
+    },
+    {
+      "ac": "AC13",
+      "status": "existing allocation verified / disposition pending",
+      "evidence": "All objects inside unchanged existing registered app idRanges. Detailed binding makes extension conditional on exhaustion; actual per-type slots fit. No extension guessed or workbook row fabricated. Clarification request retained for Claude/Architect; all original AC text preserved."
+    },
+    {
+      "ac": "AC14",
+      "status": "implemented/native and bilingual WebClient verified",
+      "evidence": "Current TestPage and Playwright MCP Web Client1033/1039 see exact owned nonceA968C8A6FD usage row, translated captions and resource/status labels, with0editablebusinessfields. Screenshots/result receipts retained; English restored."
+    }
+  ]
+}

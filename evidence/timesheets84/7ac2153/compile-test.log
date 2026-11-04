@@ -1,0 +1,10 @@
+Microsoft (R) AL Compiler version 30.0.42.60748
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets - Tests' containing '39' files at '23:37:43.075'.
+
+timesheets84-andvari-worker5/test/test/TSUsageTests.Codeunit.al(22,1): info AA0477: The using statements are not in a sorted order.
+timesheets84-andvari-worker5/test/src/TSUsageFixtureori.Codeunit.al(4,1): info AA0477: The using statements are not in a sorted order.
+
+Compilation ended at '23:37:55.835'.
+

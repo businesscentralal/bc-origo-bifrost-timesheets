@@ -1,0 +1,228 @@
+{
+  "current": {
+    "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+    "nativeRuns": [
+      {
+        "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+        "fullSuite": true,
+        "configuredRoster": 286,
+        "runner": 130451,
+        "executed": 286,
+        "passed": 286,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+        "fullSuite": true,
+        "configuredRoster": 286,
+        "runner": 130451,
+        "executed": 286,
+        "passed": 286,
+        "failed": 0,
+        "skipped": 0
+      }
+    ],
+    "mcpCore": {
+      "executed": 48,
+      "passed": 48,
+      "failed": 0,
+      "skipped": 0
+    },
+    "mcpSupplemental": {
+      "executed": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "scenarios": [
+        "Generic protected-field guard",
+        "Unknown Resource refusal1033",
+        "Unknown Resource refusal1039"
+      ]
+    },
+    "ui": {
+      "executed": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "lcids": [
+        1033,
+        1039
+      ],
+      "restoredLanguage": 1033
+    },
+    "uiCleanup": {
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+      "nonce": "A968C8A6FD",
+      "verified": true,
+      "readbacks": 13,
+      "results": [
+        {
+          "table": "Resource",
+          "remaining": 0
+        },
+        {
+          "table": "Item",
+          "remaining": 0
+        },
+        {
+          "table": "Time Sheet Header",
+          "remaining": 0
+        },
+        {
+          "table": "Time Sheet Line",
+          "remaining": 0
+        },
+        {
+          "table": "TS Usage Line ori",
+          "remaining": 0
+        },
+        {
+          "table": "Res. Journal Line",
+          "remaining": 0
+        },
+        {
+          "table": "Res. Journal Batch",
+          "remaining": 0
+        },
+        {
+          "table": "Res. Journal Template",
+          "remaining": 0
+        },
+        {
+          "table": "Res. Ledger Entry",
+          "remaining": 0
+        },
+        {
+          "table": "Resource Unit of Measure",
+          "remaining": 0
+        },
+        {
+          "table": "Item Unit of Measure",
+          "remaining": 0
+        },
+        {
+          "table": "Unit of Measure",
+          "remaining": 0
+        },
+        {
+          "table": "Gen. Product Posting Group",
+          "remaining": 0
+        }
+      ]
+    },
+    "nativeCleanup": {
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+      "owner": "worker-5",
+      "verified": true,
+      "readbacks": 12,
+      "results": [
+        {
+          "table": "Resource",
+          "remaining": 0
+        },
+        {
+          "table": "Item",
+          "remaining": 0
+        },
+        {
+          "table": "Time Sheet Header",
+          "remaining": 0
+        },
+        {
+          "table": "Time Sheet Line",
+          "remaining": 0
+        },
+        {
+          "table": "TS Usage Line ori",
+          "remaining": 0
+        },
+        {
+          "table": "Item Journal Line",
+          "remaining": 0
+        },
+        {
+          "table": "Res. Ledger Entry",
+          "remaining": 0
+        },
+        {
+          "table": "Item Ledger Entry",
+          "remaining": 0
+        },
+        {
+          "table": "Value Entry",
+          "remaining": 0
+        },
+        {
+          "table": "Job Ledger Entry",
+          "remaining": 0
+        },
+        {
+          "table": "G/L Account",
+          "remaining": 0
+        },
+        {
+          "table": "G/L Entry",
+          "remaining": 0
+        }
+      ],
+      "at": "2026-11-04T23:51:10.583Z"
+    }
+  },
+  "historicalAttempts": [
+    {
+      "sha": "92858743a35d060778faca4720c13d3134535e21",
+      "executed": 254,
+      "passed": 249,
+      "failed": 5,
+      "skipped": 0,
+      "notes": "Wrong runner130450; configured130451 resolves three Phone failures without source changes. Two fixture prerequisites repaired."
+    },
+    {
+      "sha": "8b6f9c54bd1bfc3b34fbb7c3ec7ff71a4677313a",
+      "executed": 254,
+      "passed": 253,
+      "failed": 1,
+      "skipped": 0,
+      "notes": "Missing own Inventory Posting Setup."
+    },
+    {
+      "sha": "89b9caa43f691dc9944a8fb3a6a85038b987cd04",
+      "executed": 254,
+      "passed": 253,
+      "failed": 1,
+      "skipped": 0,
+      "notes": "Missing own inventory G/L account; seeded a unique zero-cost account."
+    },
+    {
+      "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+      "fullSuiteRuns": 2,
+      "executedPerRun": 254,
+      "passedPerRun": 254,
+      "failedPerRun": 0,
+      "skippedPerRun": 0,
+      "mcpCorePassed": 48,
+      "mcpSupplementalPassed": 1,
+      "uiFinalPassed": 2,
+      "uiInitialFailedAttempts": 1,
+      "notes": "Historical complete developer checks. English cleanup readback failure recovered with8read-only requests and0write replay; initial stale-bookmark UI setup was corrected. Main#72 advanced, requiring a normal merge."
+    }
+  ],
+  "compileFailure": {
+    "sha": "840edcccf22c963bd10989f26465e4e49f522e17",
+    "testErrors": 1,
+    "warnings": 0,
+    "published": false,
+    "repaired": true
+  },
+  "mainMerge": {
+    "mainSha": "c933686900f702b41b515a44c4c5b25e6721438a",
+    "mergeSha": "8945dfe972a321fd65183f43ad59e63c90f525d3",
+    "style": "normal two-parent merge",
+    "bothFeaturesPreserved": true,
+    "translationOrderRepair": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+    "preservedUnits": 624,
+    "allIdsTextTargetsNotesAttributesIdentical": true,
+    "initialDeploy503": "Startup only; source readback confirmed prior package before retry. Exact current deployment verified."
+  }
+}

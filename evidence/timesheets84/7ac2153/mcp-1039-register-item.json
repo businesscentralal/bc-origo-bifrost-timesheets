@@ -1,0 +1,26 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "environment": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.Usage.Register",
+    "data": {
+      "timeSheetNo": "ZZU84E45469EF55S",
+      "lineNo": 10000,
+      "type": "Item",
+      "no": "ZZU84E45469EF55I",
+      "date": "2026-11-04",
+      "quantity": 1
+    },
+    "lcid": 1039
+  },
+  "finishedAt": "2026-11-04T23:45:55.637Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.Usage.Register\",\n  \"status\": \"Success\",\n  \"line\": {\n    \"entryNo\": 319,\n    \"timeSheetNo\": \"ZZU84E45469EF55S\",\n    \"lineNo\": 10000,\n    \"resourceNo\": \"ZZU84E45469EF55R\",\n    \"type\": \"Item\",\n    \"no\": \"ZZU84E45469EF55I\",\n    \"date\": \"2026-11-04\",\n    \"quantity\": 1,\n    \"unitOfMeasure\": \"E45469EF55\",\n    \"description\": \"Issue 84 self-seeded item\",\n    \"status\": \"Open\",\n    \"reversed\": false,\n    \"approvedBy\": \"\",\n    \"approvedAt\": \"0001-01-01T00:00:00.0000000\",\n    \"journalTableNo\": 0,\n    \"journalTemplate\": \"\",\n    \"journalBatch\": \"\",\n    \"journalLineNo\": 0,\n    \"ledgerEntryNo\": 0,\n    \"comment\": \"\"\n  }\n}"
+      }
+    ]
+  }
+}

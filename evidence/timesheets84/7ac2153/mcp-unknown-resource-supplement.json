@@ -1,0 +1,23 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "scenario": "unknown-resource-refusal",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "scenario": "unknown-resource-refusal",
+      "lcid": 1039,
+      "passed": true
+    }
+  ],
+  "createsOwnData": true,
+  "fixtureNonce": "A968C8A6FD",
+  "unchangedReadback": true,
+  "cleanup": "shared UI fixture cleanup follows; refusal created no row"
+}

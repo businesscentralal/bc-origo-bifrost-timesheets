@@ -1,0 +1,16 @@
+[
+  "| AC01 | `Register` creates a usage line for the caller's Resource, linked to an existing time sheet and an existing line on it (both required, both owned by the caller's resource), type Item or Resource, quantity greater than zero. Status Open. | Test; refusal tests for missing link, foreign sheet, unknown line, zero quantity. |",
+  "| AC02 | Register refuses an item or resource that does not exist or is blocked, a date outside the sheet's week, and an unknown key, each with a translated refusal that names the key. | One test per refusal. |",
+  "| AC03 | A line can be submitted with the sheet's lines (reuse the sheet's submit state) or by its own state change; only Open or Rejected lines can be submitted. | State tests. |",
+  "| AC04 | `Approve` and `Reject` apply only to Submitted lines, only for the sheet's approver (`Approver User ID`), never for the line's own user; Reject takes an optional bounded comment. | Same cases as `TSDecisionTests` for usage lines. |",
+  "| AC05 | `Transfer` creates journal lines for Approved lines only, once: Item lines in an Item Journal, Resource lines in a Resource Journal, lines with a Job on the sheet line in a Job Journal. Template and batch come from Timesheets setup or the request. It creates journal lines; it does not post. | Test per journal type; repeat call creates nothing. |",
+  "| AC06 | The whole `Transfer` runs in one transaction: if one line fails, no journal line and no state change remain. | Rollback test with one invalid line. |",
+  "| AC07 | After Transfer the line stores journal template, batch and line number; when that journal line is posted, an event subscriber sets Status to Posted and stores the ledger entry number. Deleting the journal line before posting returns the line to Approved. | Tests for post and delete. |",
+  "| AC08 | `Reverse` flags a Posted line Reversed and, when requested, creates the reversing journal line (negative quantity) in the same transaction; a line can be reversed once. | Test; second reverse refused. |",
+  "| AC09 | A generic write to Status, Reversed or the journal fields through Data.Records.Set is refused with a hint naming the dedicated messages (as `TSSheetRestrict` does for sheet lines). | Test through the generic writer. |",
+  "| AC10 | `List` returns the caller's lines by sheet, week or status, and for an approver the Submitted lines addressed to them; it changes nothing; paged. | Tests. |",
+  "| AC11 | Permission set \"BIFROST Timeshts ori\" covers the new table and codeunits; a read-only role sees List only; Transfer needs write on the journal tables and is refused with a nextStep otherwise. | Permission tests for each role. |",
+  "| AC12 | Message types show in discovery with Icelandic description and keywords; help chapter (English) covers the flow, states and journal mapping. | Discovery test, help diff. |",
+  "| AC13 | Object range extension is registered and the new IDs are inside `idRanges`. | `app.json` diff and workbook row. |",
+  "| AC14 | A page \"TS Usage Lines\" for the approver lists lines by status (read-only except through the message types or approve actions). | Page test. |"
+]

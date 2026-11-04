@@ -1,0 +1,36 @@
+{
+  "verified": true,
+  "owner": "worker-5",
+  "targets": [
+    "ZZU8490A4DEF300784AC",
+    "ZZU849365F33479974F7"
+  ],
+  "savedIdentitiesChecked": true,
+  "creationWindowChecked": true,
+  "unrelatedRowsDeleted": 0,
+  "temporaryHelperUninstalled": true,
+  "temporaryHelperUnpublished": true,
+  "readbacks": [
+    {
+      "table": "Job",
+      "remaining": 0,
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    },
+    {
+      "table": "Job Task",
+      "remaining": 0,
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    },
+    {
+      "table": "Job Journal Template",
+      "remaining": 0,
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    },
+    {
+      "table": "Job Journal Batch",
+      "remaining": 0,
+      "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+    }
+  ],
+  "currentReadbackSourceSha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e"
+}
