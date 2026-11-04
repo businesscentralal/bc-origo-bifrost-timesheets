@@ -1,0 +1,14 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "owner": "worker-6",
+  "displayName": "reginn-worker6-timesheets65-r2-20261104-w1",
+  "startedAt": "2026-11-04T14:32:27.368Z",
+  "fixtureCompanyVerifiedAbsent": true,
+  "verifiedDeleted": true,
+  "deleteStatus": 204,
+  "getStatus": 404,
+  "absentFromInventory": true,
+  "finishedAt": "2026-11-04T14:32:29.094Z",
+  "priorOwnSelectionRestored": true
+}

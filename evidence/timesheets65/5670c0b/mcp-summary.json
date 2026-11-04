@@ -1,0 +1,1286 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "company": {
+    "id": "3bc83616-5bd8-f111-b7a5-964804568df7",
+    "name": "CRONUS REGINN65 Verification",
+    "verified": true,
+    "containerId": "f0d5f712c557",
+    "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+    "at": "2026-11-04T14:22:55.231Z"
+  },
+  "createsOwnData": true,
+  "touchedMessageTypes": [
+    "Timesheets.Absence.Register"
+  ],
+  "executed": 24,
+  "passed": 24,
+  "failed": 0,
+  "skipped": 0,
+  "checks": [
+    {
+      "label": "missing",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/7-1033-missing.json"
+    },
+    {
+      "label": "wrong-type",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/8-1033-wrong-type.json"
+    },
+    {
+      "label": "unknown-key",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/9-1033-unknown-key.json"
+    },
+    {
+      "label": "unknown-sheet",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/10-1033-unknown-sheet.json"
+    },
+    {
+      "label": "unknown-cause",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/11-1033-unknown-cause.json"
+    },
+    {
+      "label": "no-employee",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/12-1033-no-employee.json"
+    },
+    {
+      "label": "conflict",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/13-1033-conflict.json"
+    },
+    {
+      "label": "outside-date",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/14-1033-outside-date.json"
+    },
+    {
+      "label": "happy",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/18-1033-happy.json"
+    },
+    {
+      "label": "weekend",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/19-1033-weekend.json"
+    },
+    {
+      "label": "resource-date",
+      "lcid": 1033,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/20-1033-resource-date.json"
+    },
+    {
+      "label": "help-language-contract",
+      "lcid": 1033,
+      "type": "Help.Implementation.Get",
+      "subject": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/21-1033-help.json"
+    },
+    {
+      "label": "missing",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/25-1039-missing.json"
+    },
+    {
+      "label": "wrong-type",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/26-1039-wrong-type.json"
+    },
+    {
+      "label": "unknown-key",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/27-1039-unknown-key.json"
+    },
+    {
+      "label": "unknown-sheet",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/28-1039-unknown-sheet.json"
+    },
+    {
+      "label": "unknown-cause",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/29-1039-unknown-cause.json"
+    },
+    {
+      "label": "no-employee",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/30-1039-no-employee.json"
+    },
+    {
+      "label": "conflict",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/31-1039-conflict.json"
+    },
+    {
+      "label": "outside-date",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/32-1039-outside-date.json"
+    },
+    {
+      "label": "happy",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/36-1039-happy.json"
+    },
+    {
+      "label": "weekend",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/37-1039-weekend.json"
+    },
+    {
+      "label": "resource-date",
+      "lcid": 1039,
+      "type": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/38-1039-resource-date.json"
+    },
+    {
+      "label": "help-language-contract",
+      "lcid": 1039,
+      "type": "Help.Implementation.Get",
+      "subject": "Timesheets.Absence.Register",
+      "passed": true,
+      "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/39-1039-help.json"
+    }
+  ],
+  "readbacks": [
+    {
+      "label": "initial",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/1-initial-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/2-initial-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/3-initial-Time-Sheet-Detail.json"
+        }
+      ]
+    },
+    {
+      "label": "1033-before-refusals",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/4-1033-before-refusals-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/5-1033-before-refusals-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/6-1033-before-refusals-Time-Sheet-Detail.json"
+        }
+      ]
+    },
+    {
+      "label": "1033-after-refusals",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/15-1033-after-refusals-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/16-1033-after-refusals-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/17-1033-after-refusals-Time-Sheet-Detail.json"
+        }
+      ]
+    },
+    {
+      "label": "1039-before-refusals",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/22-1039-before-refusals-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [
+            {
+              "id": "A0EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "10000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.34Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.34Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A3EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "20000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.407Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.407Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A6EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "30000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/23-1039-before-refusals-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [
+            {
+              "id": "A1EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "10000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "4",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:13.347Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.363Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.363Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A4EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "20000",
+                "Date": "2026-11-07"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "3",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.407Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.41Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.41Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A7EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "30000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "2",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.697Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/24-1039-before-refusals-Time-Sheet-Detail.json"
+        }
+      ]
+    },
+    {
+      "label": "1039-after-refusals",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/33-1039-after-refusals-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [
+            {
+              "id": "A0EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "10000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.34Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.34Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A3EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "20000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.407Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.407Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A6EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "30000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/34-1039-after-refusals-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [
+            {
+              "id": "A1EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "10000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "4",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:13.347Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.363Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.363Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A4EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "20000",
+                "Date": "2026-11-07"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "3",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.407Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.41Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.41Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A7EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "30000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "2",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.697Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/35-1039-after-refusals-Time-Sheet-Detail.json"
+        }
+      ]
+    },
+    {
+      "label": "final",
+      "rows": [
+        {
+          "table": "Time Sheet Header",
+          "records": [
+            {
+              "id": "AA96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCP"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCP",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.44Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.44Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "AC96BB54-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "No_": "W2ABS65-MCPN"
+              },
+              "fields": {
+                "StartingDate": "2026-11-02",
+                "EndingDate": "2026-11-08",
+                "ResourceNo_": "W2A65-MCPN",
+                "OwnerUserID": "[owned verification user]",
+                "ApproverUserID": "[owned verification user]",
+                "Description": "",
+                "SystemCreatedAt": "2026-11-04T14:23:41.443Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:23:41.443Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/40-final-Time-Sheet-Header.json"
+        },
+        {
+          "table": "Time Sheet Line",
+          "records": [
+            {
+              "id": "A0EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "10000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.34Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.34Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A3EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "20000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.407Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.407Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A6EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "30000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "DE487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "40000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:24.39Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:24.39Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "E1487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "50000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:26.177Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:26.177Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "E4487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "LineNo_": "60000"
+              },
+              "fields": {
+                "TimeSheetStartingDate": "2026-11-02",
+                "Type": "Absence",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "Description": "Brokkr65 owned absence",
+                "WorkTypeCode": "",
+                "ApproverID": "GUNNAR",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Chargeable": "true",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "ApprovedBy": "",
+                "ApprovalDate": "",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:26.52Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:26.52Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/41-final-Time-Sheet-Line.json"
+        },
+        {
+          "table": "Time Sheet Detail",
+          "records": [
+            {
+              "id": "A1EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "10000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "4",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:13.347Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:13.363Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:13.363Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A4EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "20000",
+                "Date": "2026-11-07"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "3",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.407Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.41Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.41Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "A7EE4D89-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "30000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "2",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:16.697Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:16.697Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:16.697Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "DF487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "40000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "4",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:24.39Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:24.39Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:24.39Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "E2487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "50000",
+                "Date": "2026-11-07"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "3",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:26.18Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:26.21Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:26.21Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            },
+            {
+              "id": "E5487D8F-5BD8-F111-B7A5-964804568DF7",
+              "primaryKey": {
+                "TimeSheetNo_": "W2ABS65-MCP",
+                "TimeSheetLineNo_": "60000",
+                "Date": "2026-11-04"
+              },
+              "fields": {
+                "Type": "Absence",
+                "ResourceNo_": "",
+                "JobNo_": "",
+                "JobTaskNo_": "",
+                "CauseofAbsenceCode": "W2A65",
+                "ServiceOrderNo_": "",
+                "ServiceOrderLineNo_": "0",
+                "Quantity": "2",
+                "PostedQuantity": "0",
+                "AssemblyOrderNo_": "",
+                "AssemblyOrderLineNo_": "0",
+                "Status": "Open",
+                "Posted": "false",
+                "DimensionSetID": "0",
+                "LastModifiedDateTime": "2026-11-04T14:25:26.52Z",
+                "JobId": "00000000-0000-0000-0000-000000000000",
+                "SystemCreatedAt": "2026-11-04T14:25:26.523Z",
+                "SystemCreatedBy": "[owned verification user]",
+                "SystemModifiedAt": "2026-11-04T14:25:26.523Z",
+                "SystemModifiedBy": "[owned verification user]"
+              }
+            }
+          ],
+          "file": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/42-final-Time-Sheet-Detail.json"
+        }
+      ]
+    }
+  ]
+}

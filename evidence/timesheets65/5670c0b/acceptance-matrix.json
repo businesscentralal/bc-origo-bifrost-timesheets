@@ -1,0 +1,103 @@
+{
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/65",
+  "prUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71",
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "originalAcceptanceRetained": "issue-acceptance-original.md",
+  "scopeDisposition": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71#issuecomment-6626910201",
+  "criteria": [
+    {
+      "id": "AC01",
+      "originalCriterion": "Time sheet no. or resource/date; cause and daily hours; absence result",
+      "status": "verified-developer",
+      "priorProof": "Full132 + MCP six writes and native standard PostAbsence regression.",
+      "proof": "Full163 + MCP six writes and native standard PostAbsence regression."
+    },
+    {
+      "id": "AC02",
+      "originalCriterion": "No employee link: PreconditionFailed and prescribed nextStep; no write",
+      "status": "verified-developer",
+      "priorProof": "Native and both MCP LCIDs; before/after line/detail equality.",
+      "proof": "Native and both MCP LCIDs; before/after line/detail equality."
+    },
+    {
+      "id": "AC03",
+      "originalCriterion": "Unknown cause: RecordNotFound and prescribed nextStep; no write",
+      "status": "verified-developer",
+      "priorProof": "Native and both MCP LCIDs; exact localized refusal/nextStep.",
+      "proof": "Native and both MCP LCIDs; exact localized refusal/nextStep."
+    },
+    {
+      "id": "AC04",
+      "originalCriterion": "Common missing/type/unknown/notfound/conflict refusals with nextStep",
+      "status": "verified-developer",
+      "priorProof": "Native and both MCP LCIDs; exact codes/text; all refused calls preserve records.",
+      "proof": "Native and both MCP LCIDs; exact codes/text; all refused calls preserve records."
+    },
+    {
+      "id": "AC05",
+      "originalCriterion": "Non-working day accepts hours and warns",
+      "status": "verified-developer",
+      "priorProof": "Saturday3hours twice in MCP; exact localized warnings; native edge regression.",
+      "proof": "Saturday3hours twice in MCP; exact localized warnings; native edge regression."
+    },
+    {
+      "id": "AC06",
+      "originalCriterion": "Permissions and guarded reads, existing feature/Full grants; no new assignable or Setup grants",
+      "status": "verified-developer",
+      "priorProof": "Restrictive95617 passes full + eachrepeat; NativeMgt checks and existing Read/Full extensions reviewed.",
+      "proof": "Restrictive95617 passes full + eachrepeat; NativeMgt checks and existing Read/Full extensions reviewed."
+    },
+    {
+      "id": "AC07",
+      "originalCriterion": "Validate and isolated Codeunit.Run; no posted-table writes; commit documented",
+      "status": "verified-developer",
+      "priorProof": "Native PostAbsence and rollback tests; generic951/952write restrictions MCP4pass with unchanged rows.",
+      "proof": "Native PostAbsence and rollback tests; generic951/952write restrictions MCP4pass with unchanged rows."
+    },
+    {
+      "id": "AC08",
+      "originalCriterion": "Help purpose/parameters/result/refusals/nextStep/example in both requested LCIDs",
+      "status": "verified-developer",
+      "priorProof": "Ruling6626910201: chapters English atbothLCIDs, catalogue/refusals Icelandic at1039; native regression and MCP24including help2PASS.",
+      "proof": "Ruling6626910201: chapters English atbothLCIDs, catalogue/refusals Icelandic at1039; native regression and MCP24including help2PASS."
+    },
+    {
+      "id": "AC09",
+      "originalCriterion": "is-IS everylabel; XLF/MixedLanguage/HelpLinks guards",
+      "status": "verified-developer",
+      "priorProof": "XLFsyncPASS; MixedLanguagePASS; zero added contract findings481/481; unreleased in-app help per ruling, no new public documentation target.",
+      "proof": "341main XLFunits content/order preserved plus70new absence units. XLFsync/MixedLanguage PASS; no new guard findings; in-app documentation scope per ruling6626910201."
+    },
+    {
+      "id": "AC10",
+      "originalCriterion": "Msg Contract; declared keys equal keys read",
+      "status": "verified-developer",
+      "priorProof": "Own6keys match; sourcewide481before/481after/0introduced per ruling; no guard weakening.",
+      "proof": "Own6keys match; sourcewide481before/481after/0introduced per ruling; no guard weakening."
+    },
+    {
+      "id": "AC11",
+      "originalCriterion": "Exactly three dot-separated name parts",
+      "status": "verified-developer",
+      "priorProof": "Timesheets.Absence.Register reviewed.",
+      "proof": "Timesheets.Absence.Register reviewed."
+    },
+    {
+      "id": "AC12",
+      "originalCriterion": "Happy/invalid/edge/no-permission; full suite green",
+      "status": "verified-developer",
+      "priorProof": "Full132/132/0/0, changed95612|95616|95617twice23/23/0/0each, pairedCI132/132/0/0.",
+      "proof": "Full163/163/0/0 in owned container, changed/mergedunits each54/54/0/0twice; pairedCI41845483296 XML163/163/0/0. Source merge96a56c5tree equals candidate5670tree."
+    },
+    {
+      "id": "AC13",
+      "originalCriterion": "Independent Claude verification live1033/1039 before merge",
+      "status": "pending-independent-verification",
+      "proof": "Independent Claude verification remains a review step after developer handoff, then Grok clearance/approval and Architect merge/deployment/TesterUAT."
+    }
+  ],
+  "ui": "Both1033/1039passed; sixcausedabsence lines,weekday12+Saturday6=18",
+  "delivery": "Not complete: review, approval, Architect merge/deployment, Tester UAT remain.",
+  "previousVerifiedCandidate": "6d24ee027ef965d030e7dac7331368f84218c144",
+  "currentRuntimeVerification": "Exact5670developerverified:full163/163/0/0,repeats54/54/0/0twice,MCP28/28/0/0,UI2/2/0/0;pairedCI163/163/0/0"
+}

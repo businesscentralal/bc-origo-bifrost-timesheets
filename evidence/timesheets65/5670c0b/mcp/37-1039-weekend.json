@@ -1,0 +1,27 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "request": {
+    "companyId": "3bc83616-5bd8-f111-b7a5-964804568df7",
+    "type": "Timesheets.Absence.Register",
+    "data": {
+      "timeSheetNo": "W2ABS65-MCP",
+      "causeOfAbsenceCode": "W2A65",
+      "hours": [
+        {
+          "date": "2026-11-07",
+          "quantity": 3
+        }
+      ]
+    },
+    "lcid": 1039
+  },
+  "raw": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"company\": \"CRONUS REGINN65 Verification\", \"messageType\": \"Timesheets.Absence.Register\", \"status\": \"Success\", \"timeSheetNo\": \"W2ABS65-MCP\", \"lineNo\": 50000, \"causeOfAbsenceCode\": \"W2A65\", \"resourceNo\": \"W2A65-MCP\", \"hours\": [{\"date\": \"2026-11-07\", \"quantity\": 3}], \"warnings\": [{\"code\": \"InvalidParameter\", \"message\": \"Klukkustundir lenda á degi sem er ekki vinnudagur.\", \"parameter\": \"hours\", \"nextStep\": \"Staðfestu dagsetninguna eða færðu klukkustundirnar á vinnudag.\"}]}"
+      }
+    ]
+  }
+}

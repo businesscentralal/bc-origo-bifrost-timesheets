@@ -1,0 +1,68 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "tier": "Standard",
+  "targetBranch": "main",
+  "layer1": {
+    "ready": false,
+    "total": 23,
+    "passed": 18,
+    "failed": 5
+  },
+  "filesScanned": 10,
+  "advisories": {
+    "caption_translation": "44 Locked protocol identifier captions across newly included enum; no untranslated user label, XLFsync verified.",
+    "today_vs_workdate": "3 names of Phone Today page, not date function calls.",
+    "one_statement_per_line": "7 procedure signatures with semicolon-separated parameters, not multiple executable statements.",
+    "global_variables": "6 context fields transport one isolated native operation; ClearAll before/after invocation, required state not mixed business/UI logic.",
+    "read_isolation": "TimeSheetLine.FindLast uses default isolation while Header.LockTable/Get serializes same-sheet allocation; no partial record selection before insert. Advisory retained."
+  },
+  "layer2": {
+    "compile": "Default/Test product and test app 0errors/0warnings",
+    "IDs": "Absence helper IDs10036881..84, existing impl10036880/value10036879; test95621, permission95617, fixture95618/page95620. Main shared helpers/decision test95616 kept byte-for-byte. All within original ranges.",
+    "publicAPI": "No existing public interface removed; feature implementations internal.",
+    "permissions": "Assignable existing feature set plus Read/Full extensions; no Foundation Setup grants. Native read/write checks and restrictive permission test retained.",
+    "translations": "Every341main unit preserved content and relative order;70absence units added; XLFsyncPASS/MixedLanguagePASS; no new guard findings.",
+    "transactions": "Validate + isolated Codeunit.Run; failure clears context; detail.CopyFromTimeSheetLine preserves cause/type. Posting regression exercises standard BC Employee Absence.",
+    "tests": "Current candidatefull163/163/0/0; repeat/MCP/UI stillrunning.",
+    "docs": "Help documents writes/commit/refusals/parameters/examples; unreleased in-app help accepted by ruling6626910201; CHANGELOG includes object IDs.",
+    "remaining": "Finish same-tip repeat/MCP/UI/cleanup and pairedCI thenhandoff."
+  },
+  "standardsSnapshot": {
+    "commit": "52ba4754cfd614e4a7c50af87b30149b18b313e3",
+    "capturedAt": "2026-11-02T10:35:08.581Z",
+    "source": "OrigoSoftwareSolutions/bc-dev-standards",
+    "files": [
+      "roles/bindings/bifrost.yaml",
+      "roles/grok-bifrost-coder-gunnar.yaml",
+      "roles/prompts/grok-bifrost-coder-gunnar.md",
+      "skills/origo-bc-al-coding-standards/SKILL.md",
+      "skills/origo-bc-al-coding-standards/references/anti-patterns.md",
+      "skills/origo-bc-al-coding-standards/references/api-design-patterns.md",
+      "skills/origo-bc-al-coding-standards/references/code-patterns.md",
+      "skills/origo-bc-al-coding-standards/references/icelandic-translation-pattern.md",
+      "skills/origo-bc-al-coding-standards/references/naming-conventions.md",
+      "skills/origo-bc-al-coding-standards/references/object-id-ranges.md",
+      "skills/origo-bc-al-coding-standards/references/permission-architecture.md",
+      "skills/origo-bc-al-coding-standards/references/review-dimensions.md",
+      "skills/origo-bc-al-coding-standards/references/security-patterns.md",
+      "skills/origo-bc-al-coding-standards/references/sift-optimization.md",
+      "skills/origo-bc-al-coding-standards/references/telemetry-patterns.md",
+      "skills/origo-bc-al-coding-standards/references/translation-not-copypaste.md",
+      "skills/origo-bc-documentation-writer/SKILL.md",
+      "skills/origo-bc-documentation-writer/references/changelog-example.md",
+      "skills/origo-bc-documentation-writer/references/html-help-pages.md",
+      "skills/origo-bc-documentation-writer/references/message-type-doc-template.md",
+      "skills/origo-bc-extension-scaffold/SKILL.md",
+      "skills/origo-bc-extension-scaffold/references/layered-customer-solution.md",
+      "skills/origo-bc-test-writer/SKILL.md"
+    ],
+    "ref": "main",
+    "syncedAt": "2026-11-03T10:16:00.383Z",
+    "flag": "claudeStep2.standardsRefresh"
+  },
+  "lessons": [
+    "timesheets65-absence-detail-copy-posting-20261104",
+    "timesheets64-4fe5d4ba-help-language-acceptance-20261104"
+  ],
+  "at": "2026-11-04T14:22:49.963691+00:00"
+}

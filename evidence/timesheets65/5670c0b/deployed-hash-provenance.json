@@ -1,0 +1,16 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "checks": [
+    {
+      "deployed": "Origo.Bifrost_Timesheets.28.0.0.0.app",
+      "sha256": "49887de6b2c9183d9f05de91d592f0da26696cc68a49fa9b21b5239e4ca0199a",
+      "equalsBuilt": true
+    },
+    {
+      "deployed": "Origo.Bifrost_Timesheets_Tests.28.0.0.0.app",
+      "sha256": "bb2cef1456203119531f3b947ccc1e10f535071aeedf870595f15b4c5d3de265",
+      "equalsBuilt": true
+    }
+  ]
+}

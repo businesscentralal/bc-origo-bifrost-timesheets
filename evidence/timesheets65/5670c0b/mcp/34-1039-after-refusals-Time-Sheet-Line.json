@@ -1,0 +1,18 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "request": {
+    "companyId": "3bc83616-5bd8-f111-b7a5-964804568df7",
+    "table": "Time Sheet Line",
+    "filter": "WHERE(Time Sheet No.=FILTER(W2ABS65-*))",
+    "lcid": 1033
+  },
+  "raw": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"company\": \"CRONUS REGINN65 Verification\", \"table\": \"Time Sheet Line\", \"skip\": 0, \"take\": 50, \"count\": 3, \"records\": [{\"id\": \"A0EE4D89-5BD8-F111-B7A5-964804568DF7\", \"primaryKey\": {\"TimeSheetNo_\": \"W2ABS65-MCP\", \"LineNo_\": \"10000\"}, \"fields\": {\"TimeSheetStartingDate\": \"2026-11-02\", \"Type\": \"Absence\", \"JobNo_\": \"\", \"JobTaskNo_\": \"\", \"CauseofAbsenceCode\": \"W2A65\", \"Description\": \"Brokkr65 owned absence\", \"WorkTypeCode\": \"\", \"ApproverID\": \"GUNNAR\", \"ServiceOrderNo_\": \"\", \"ServiceOrderLineNo_\": \"0\", \"Chargeable\": \"true\", \"AssemblyOrderNo_\": \"\", \"AssemblyOrderLineNo_\": \"0\", \"Status\": \"Open\", \"ApprovedBy\": \"\", \"ApprovalDate\": \"\", \"Posted\": \"false\", \"DimensionSetID\": \"0\", \"JobId\": \"00000000-0000-0000-0000-000000000000\", \"SystemCreatedAt\": \"2026-11-04T14:25:13.34Z\", \"SystemCreatedBy\": \"[owned verification user]\", \"SystemModifiedAt\": \"2026-11-04T14:25:13.34Z\", \"SystemModifiedBy\": \"[owned verification user]\"}}, {\"id\": \"A3EE4D89-5BD8-F111-B7A5-964804568DF7\", \"primaryKey\": {\"TimeSheetNo_\": \"W2ABS65-MCP\", \"LineNo_\": \"20000\"}, \"fields\": {\"TimeSheetStartingDate\": \"2026-11-02\", \"Type\": \"Absence\", \"JobNo_\": \"\", \"JobTaskNo_\": \"\", \"CauseofAbsenceCode\": \"W2A65\", \"Description\": \"Brokkr65 owned absence\", \"WorkTypeCode\": \"\", \"ApproverID\": \"GUNNAR\", \"ServiceOrderNo_\": \"\", \"ServiceOrderLineNo_\": \"0\", \"Chargeable\": \"true\", \"AssemblyOrderNo_\": \"\", \"AssemblyOrderLineNo_\": \"0\", \"Status\": \"Open\", \"ApprovedBy\": \"\", \"ApprovalDate\": \"\", \"Posted\": \"false\", \"DimensionSetID\": \"0\", \"JobId\": \"00000000-0000-0000-0000-000000000000\", \"SystemCreatedAt\": \"2026-11-04T14:25:16.407Z\", \"SystemCreatedBy\": \"[owned verification user]\", \"SystemModifiedAt\": \"2026-11-04T14:25:16.407Z\", \"SystemModifiedBy\": \"[owned verification user]\"}}, {\"id\": \"A6EE4D89-5BD8-F111-B7A5-964804568DF7\", \"primaryKey\": {\"TimeSheetNo_\": \"W2ABS65-MCP\", \"LineNo_\": \"30000\"}, \"fields\": {\"TimeSheetStartingDate\": \"2026-11-02\", \"Type\": \"Absence\", \"JobNo_\": \"\", \"JobTaskNo_\": \"\", \"CauseofAbsenceCode\": \"W2A65\", \"Description\": \"Brokkr65 owned absence\", \"WorkTypeCode\": \"\", \"ApproverID\": \"GUNNAR\", \"ServiceOrderNo_\": \"\", \"ServiceOrderLineNo_\": \"0\", \"Chargeable\": \"true\", \"AssemblyOrderNo_\": \"\", \"AssemblyOrderLineNo_\": \"0\", \"Status\": \"Open\", \"ApprovedBy\": \"\", \"ApprovalDate\": \"\", \"Posted\": \"false\", \"DimensionSetID\": \"0\", \"JobId\": \"00000000-0000-0000-0000-000000000000\", \"SystemCreatedAt\": \"2026-11-04T14:25:16.697Z\", \"SystemCreatedBy\": \"[owned verification user]\", \"SystemModifiedAt\": \"2026-11-04T14:25:16.697Z\", \"SystemModifiedBy\": \"[owned verification user]\"}}], \"noOfRecords\": 3}"
+      }
+    ]
+  }
+}

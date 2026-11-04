@@ -1,0 +1,84 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "containerId": "f0d5f712c557",
+  "createsOwnData": true,
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "checks": [
+    {
+      "type": "Data.Records.Set",
+      "table": "Time Sheet Line",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Table 951 (Time Sheet Line) cannot be written via Data.Records.Set. This is an internal table.",
+        "parameter": "tableId",
+        "received": "951",
+        "expected": "a table the user may write through the generic data types",
+        "nextStep": "Choose a table the user may access through the generic data types. This restriction cannot be bypassed by the request.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Data.Records.Set\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "type": "Data.Records.Set",
+      "table": "Time Sheet Line",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Ekki er hægt að skrifa í töflu 951 (Time Sheet Line) með Data.Records.Set. Þetta er innri tafla.",
+        "parameter": "tableId",
+        "received": "951",
+        "expected": "tafla sem notandinn má skrifa í með almennu Data-gerðunum",
+        "nextStep": "Veldu töflu sem notandinn má nálgast með almennu Data-gerðunum. Beiðnin getur ekki sniðgengið þessa takmörkun.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Data.Records.Set\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    },
+    {
+      "type": "Data.Records.Set",
+      "table": "Time Sheet Detail",
+      "lcid": 1033,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Table 952 (Time Sheet Detail) cannot be written via Data.Records.Set. This is an internal table.",
+        "parameter": "tableId",
+        "received": "952",
+        "expected": "a table the user may write through the generic data types",
+        "nextStep": "Choose a table the user may access through the generic data types. This restriction cannot be bypassed by the request.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Data.Records.Set\". Always read the help before calling a message type."
+      }
+    },
+    {
+      "type": "Data.Records.Set",
+      "table": "Time Sheet Detail",
+      "lcid": 1039,
+      "passed": true,
+      "result": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Ekki er hægt að skrifa í töflu 952 (Time Sheet Detail) með Data.Records.Set. Þetta er innri tafla.",
+        "parameter": "tableId",
+        "received": "952",
+        "expected": "tafla sem notandinn má skrifa í með almennu Data-gerðunum",
+        "nextStep": "Veldu töflu sem notandinn má nálgast með almennu Data-gerðunum. Beiðnin getur ekki sniðgengið þessa takmörkun.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Data.Records.Set\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      }
+    }
+  ],
+  "files": [
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-before-Time-Sheet-Line.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-1033-Time-Sheet-Line.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-1039-Time-Sheet-Line.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-after-Time-Sheet-Line.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-before-Time-Sheet-Detail.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-1033-Time-Sheet-Detail.json",
+    "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/mcp-current/restriction-1039-Time-Sheet-Detail.json"
+  ]
+}
