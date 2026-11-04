@@ -13,7 +13,7 @@ using System.Security.User;
 /// Invoked explicitly by the owner in an ephemeral development environment. It does
 /// not change generic write guards, licensing, consent or Foundation setup.
 /// </summary>
-codeunit 95618 "TS Absence MCP Fixture"
+codeunit 95624 "TS Absence MCP Fixture"
 {
     Access = Internal;
 

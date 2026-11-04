@@ -4,7 +4,7 @@ namespace Origo.Bifrost.Timesheets;
 /// Session state for one native time-sheet write. The runner reads it inside
 /// Codeunit.Run so a failed write rolls back without a raw error to the caller.
 /// </summary>
-codeunit 10036883 "TS Absence Context ori"
+codeunit 10036856 "TS Absence Context ori"
 {
     Access = Internal;
     SingleInstance = true;

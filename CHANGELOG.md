@@ -13,6 +13,8 @@
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
 
+- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036872, 10036878–10036883; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95618 (`TS Fill Sheet Tests`) and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
+- Align test codeunit 95612 with Foundation 28.0.10’s table-caption refusal text; retain exact error and next-step assertions.
 ### Added (2026-11-04) - Create selected weekly time sheets (#61)
 
 - `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
@@ -37,6 +39,7 @@
 - `TS Absence MCP Fixture Cleanup` (95619) no longer deletes the running user's `User Setup`, which may predate the fixture; the owned verification container teardown removes it.
 
 ### Fixed
+- Issue #65 / PR #71: merge #64 main without dropping either feature. Move absence implementation/manager/contract/context to free codeunits 10036850/10036851/10036852/10036856 and its MCP fixture to 95624; retain runner 10036884, enum value 10036879, permission test 95623 and all assertions. The conflicting Fill/status table-hint contract remains an explicit failing verification dependency, not a pass.
 - Issue #65 / PR #71: retain the dedicated Submit/Approve/Reject next step when the absence table guard refuses generic Time Sheet Line writes before the Status field guard (codeunit 10036872; regression tests 95614/95622). Both table restrictions and exact refusal/no-write assertions remain.
 - Issue #65 / PR #71: move absence permission test codeunit from 95617 to free ID 95623 after the Submit merge; retain both permission suites and every assertion.
 
@@ -45,6 +48,7 @@
 - Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
 
 ### Changed
+- Resolve the native approval integration by retaining its helpers and assigning the issue #64 internal fill helpers to 10036880–10036883. Preserve both permission and write-protection contracts; move fill tests to 95618 to keep all decision tests at 95616.
 
 - Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, using a completed interval for the missing-journal scenario and preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
 
@@ -485,3 +489,5 @@ The following were found by the PR gateway run on 2026-09-07.
 
 Released as *Origo Cloud Events Clockify* on Origo Cloud Events Core. See the repository history
 before 2026-09-06.
+
+- Integrate current main for #64: retain Submit (95614) and Fill (95618) as separate test families, combine native permissions and preserve all main-ordered translations.

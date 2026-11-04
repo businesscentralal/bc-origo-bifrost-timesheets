@@ -12,7 +12,7 @@ using Origo.Bifrost;
 /// Each Execute procedure reads only that type's keys. Writes run in
 /// "TS Absence Runner ori" so a failure rolls back.
 /// </summary>
-codeunit 10036881 "TS Absence Mgt ori"
+codeunit 10036851 "TS Absence Mgt ori"
 {
     Access = Internal;
 
