@@ -20,6 +20,14 @@ codeunit 10036872 "TS Sheet Restrict ori"
             IsRestricted := true;
     end;
 
+    /// <summary>Preserves the status workflow hint when a table-wide guard refuses the write before the field guard.</summary>
+    [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnGetDedicatedMessageTypeHintForWrite, '', false, false)]
+    local procedure OnGetDedicatedMessageTypeHintForWrite(TableNo: Integer; var Hint: Text)
+    begin
+        if TableNo = Database::"Time Sheet Line" then
+            Hint := StatusHintTok;
+    end;
+
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnGetDedicatedMessageTypeHintForField, '', false, false)]
     local procedure OnGetDedicatedMessageTypeHintForField(TableNo: Integer; FieldNo: Integer; var Hint: Text)
     var

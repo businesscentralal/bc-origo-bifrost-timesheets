@@ -37,6 +37,7 @@
 - `TS Absence MCP Fixture Cleanup` (95619) no longer deletes the running user's `User Setup`, which may predate the fixture; the owned verification container teardown removes it.
 
 ### Fixed
+- Issue #65 / PR #71: retain the dedicated Submit/Approve/Reject next step when the absence table guard refuses generic Time Sheet Line writes before the Status field guard (codeunit 10036872; regression tests 95614/95622). Both table restrictions and exact refusal/no-write assertions remain.
 - Issue #65 / PR #71: move absence permission test codeunit from 95617 to free ID 95623 after the Submit merge; retain both permission suites and every assertion.
 
 - Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.

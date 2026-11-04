@@ -305,6 +305,7 @@ codeunit 95622 "TS Absence Reg Tests"
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Line", false), 'Line writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Detail", false), 'Detail writes must use dedicated messages.');
         Assert.IsFalse(TempArgument.IsTableReadRestrictedForDataRecords(Database::"Time Sheet Line"), 'Line reads remain available.');
+        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', TempArgument.GetDedicatedMessageTypeHintForWrite(Database::"Time Sheet Line"), 'The table guard must retain the native status workflow hint.');
     end;
 
     /// <summary>An out-of-period date is refused with the hours parameter and no write.</summary>
