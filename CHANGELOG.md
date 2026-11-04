@@ -3,7 +3,7 @@
 ## [Unreleased]
 
 ### Added
-- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036868–10036872, 10036878–10036879; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95616. Requires released Foundation 28.0.10 for its insert-restriction event.
+- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036868–10036872, 10036878–10036879; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95616 and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
 - Align test codeunit 95612 with Foundation 28.0.10’s table-caption refusal text; retain exact error and next-step assertions.
 
 
