@@ -2,12 +2,13 @@ namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
-
+using System.Security.User;
 
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
@@ -23,23 +24,35 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
-        codeunit "TS Native Mgt ori" = X,
-        codeunit "TS Native Context ori" = X,
-        codeunit "TS Native Runner ori" = X,
-        codeunit "TS Contract Parts ori" = X,
+        codeunit "TS Fill Mgt ori" = X,
+        codeunit "TS Fill Context ori" = X,
+        codeunit "TS Fill Runner ori" = X,
+        codeunit "TS Fill Contract ori" = X,
         codeunit "TS Line CopyPrev Impl ori" = X,
         codeunit "TS Line FromPlan Impl ori" = X,
-        codeunit "TS Sheet Restrict ori" = X,
-        tabledata "Time Sheet Header" = R,
-        tabledata "Resource" = R,
         tabledata "Resources Setup" = R,
         tabledata "Job" = R,
         tabledata "Job Task" = R,
         tabledata "Job Planning Line" = R,
-        tabledata "Cause of Absence" = R,
-        tabledata "Employee" = R,
+        codeunit "TS Native Mgt ori" = X,
+        codeunit "TS Contract Parts ori" = X,
+        codeunit "TS Native Context ori" = X,
+        codeunit "TS Native Runner ori" = X,
+        codeunit "TS Sheet Restrict ori" = X,
+        codeunit "TS Sheet Approve Impl ori" = X,
+        codeunit "TS Sheet Reject Impl ori" = X,
+        tabledata "Time Sheet Header" = R,
         tabledata "Time Sheet Line" = RIMD,
         tabledata "Time Sheet Detail" = RIMD,
+        tabledata "Time Sheet Comment Line" = RI,
+        tabledata "Time Sheet Posting Entry" = RI,
+        tabledata "Employee Absence" = RI,
+        tabledata "Cause of Absence" = R,
+        tabledata "Human Resource Unit of Measure" = R,
+        tabledata "Human Resources Setup" = R,
+        tabledata Employee = R,
+        tabledata Resource = R,
+        tabledata "User Setup" = R,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,

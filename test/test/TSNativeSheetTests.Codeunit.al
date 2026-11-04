@@ -12,7 +12,7 @@ using System.Security.User;
 using System.TestLibraries.Utilities;
 
 /// <summary>Issue64 owner, input, copy/planning, permissions and atomicity regressions.</summary>
-codeunit 95616 "TS Native Sheet Tests"
+codeunit 95618 "TS Native Sheet Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;
@@ -382,7 +382,7 @@ codeunit 95616 "TS Native Sheet Tests"
     var
         TempArgument: Record "Message Argument ori" temporary;
         Line: Record "Time Sheet Line";
-        Context: Codeunit "TS Native Context ori";
+        Context: Codeunit "TS Fill Context ori";
         Request: JsonObject;
         ResourceNo: Code[20];
         PreviousNo: Code[20];

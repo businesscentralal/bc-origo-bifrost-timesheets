@@ -1,57 +1,78 @@
 namespace Origo.Bifrost.Timesheets;
 
-/// <summary>Session-local request and response state for an isolated time-sheet fill operation.</summary>
+/// <summary>
+/// Session state for one native time-sheet write. The runner reads it inside
+/// Codeunit.Run so a failed write rolls back without a raw error to the caller.
+/// </summary>
 codeunit 10036870 "TS Native Context ori"
 {
     Access = Internal;
     SingleInstance = true;
 
     var
+        Operation: Integer;
         SheetNo: Code[20];
-        FromPlanning: Boolean;
-        Active: Boolean;
+        LineFilter: Text;
+        CommentText: Text;
         ResultText: Text;
 
-    /// <summary>Clears request and result state after success or refusal.</summary>
+    /// <summary>Drops the previous call so a later message cannot reuse it.</summary>
+    /// <summary>Clear for the time sheet decision contract.</summary>
     procedure Clear()
     begin
         ClearAll();
     end;
 
-    /// <summary>Starts one owner-authorized fill operation.</summary>
-    procedure SetFill(NewSheetNo: Code[20]; NewFromPlanning: Boolean)
+    /// <summary>SetApprove for the time sheet decision contract.</summary>
+    procedure SetApprove(NewSheetNo: Code[20]; NewLineFilter: Text)
     begin
         ClearAll();
+        Operation := 2;
         SheetNo := NewSheetNo;
-        FromPlanning := NewFromPlanning;
-        Active := true;
+        LineFilter := NewLineFilter;
     end;
 
-    /// <summary>Returns the destination time sheet.</summary>
+    /// <summary>SetReject for the time sheet decision contract.</summary>
+    procedure SetReject(NewSheetNo: Code[20]; NewLineFilter: Text; NewComment: Text)
+    begin
+        ClearAll();
+        Operation := 3;
+        SheetNo := NewSheetNo;
+        LineFilter := NewLineFilter;
+        CommentText := NewComment;
+    end;
+
+    /// <summary>GetOperation for the time sheet decision contract.</summary>
+    procedure GetOperation(): Integer
+    begin
+        exit(Operation);
+    end;
+
+    /// <summary>GetSheetNo for the time sheet decision contract.</summary>
     procedure GetSheetNo(): Code[20]
     begin
         exit(SheetNo);
     end;
 
-    /// <summary>Whether this operation fills from project planning.</summary>
-    procedure GetFromPlanning(): Boolean
+    /// <summary>GetLineFilter for the time sheet decision contract.</summary>
+    procedure GetLineFilter(): Text
     begin
-        exit(FromPlanning);
+        exit(LineFilter);
     end;
 
-    /// <summary>Limits empty-hours handling to this message's destination sheet.</summary>
-    procedure IsCopyDestination(TimeSheetNo: Code[20]): Boolean
+    /// <summary>GetComment for the time sheet decision contract.</summary>
+    procedure GetComment(): Text
     begin
-        exit(Active and not FromPlanning and (TimeSheetNo = SheetNo));
+        exit(CommentText);
     end;
 
-    /// <summary>Stores the response only after native processing succeeds.</summary>
+    /// <summary>SetResult for the time sheet decision contract.</summary>
     procedure SetResult(NewResult: Text)
     begin
         ResultText := NewResult;
     end;
 
-    /// <summary>Reads the successful isolated operation result.</summary>
+    /// <summary>GetResult for the time sheet decision contract.</summary>
     procedure GetResult(): Text
     begin
         exit(ResultText);

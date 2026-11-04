@@ -3,11 +3,18 @@
 ## [Unreleased]
 
 ### Added
-- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036868–10036872, 10036878–10036879; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95616 and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
+- Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036872, 10036878–10036883; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95618 and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
 - Align test codeunit 95612 with Foundation 28.0.10’s table-caption refusal text; retain exact error and next-step assertions.
 
 
 ### Changed
+- Resolve the native approval integration by retaining its helpers and assigning the issue #64 internal fill helpers to 10036880–10036883. Preserve both permission and write-protection contracts; move fill tests to 95618 to keep all decision tests at 95616.
+
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 
@@ -16,6 +23,7 @@
 - Regenerated Icelandic translations from the AL source comments, including the paged-user selection text and missing setup action labels.
 
 - `Clockify.TimeEntry.SyncAllUsers` (codeunit 10036846) now syncs one page of active user mappings: `skip` defaults to 0 and `take` defaults to 100, capped at 1000. Callers must repeat with `nextSkip` while `hasMore` is true to sync all users. The response includes `totalUsers`; failed users still advance the offset. Contract parts (10036855) document the limits and caller loop, and paging tests (95604) cover boundaries, continuation and isolated user failures (#23).
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
