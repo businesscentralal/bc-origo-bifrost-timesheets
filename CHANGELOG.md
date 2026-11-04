@@ -4,6 +4,8 @@
 
 ### Fixed
 
+- Issue #67 / codeunit 10036868: accept Foundation’s validated `expectedCount` confirmation parameter for native and legacy time-sheet posting. The platform confirmation gate stays enabled; test codeunit 95616 covers the public dispatcher path and unchanged ledger count on invalid input.
+
 - Issue #67 / test codeunit 95616: give every MCP fixture setup invocation fresh `X67` keys for time sheets, project, journal template and number series. Repeated verification no longer collides with an earlier retained or posted fixture; empty-key and fixture-content assertions remain, and earlier fixtures are never deleted. Native-sheet refusal tests assert the exact translated next steps when run in Icelandic.
 
 ### Added - Native time sheet names (#67)

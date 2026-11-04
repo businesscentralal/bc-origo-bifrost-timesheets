@@ -180,6 +180,8 @@ codeunit 10036868 "TS Native Mgt ori"
         RequestJson := Argument.GetRequestJson();
         Allowed.Add('journalTemplate');
         Allowed.Add('journalBatch');
+        // Foundation validates confirmation before dispatching irreversible operations.
+        Allowed.Add('expectedCount');
         if not AllowOnly(Argument, RequestJson, Allowed) then
             exit;
         SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);

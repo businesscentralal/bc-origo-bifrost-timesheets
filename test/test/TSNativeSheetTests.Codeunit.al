@@ -80,6 +80,39 @@ codeunit 95616 "TS Native Sheet Tests"
     end;
 
     [Test]
+    procedure Scenario_AC04_ConfirmedPost_InvalidTemplate_IsRefused()
+    var
+        LedgerEntry: Record "Job Ledger Entry";
+        Dispatcher: Codeunit "Dispatcher ori";
+        RequestContent: BigText;
+        ResponseContent: BigText;
+        Request: JsonObject;
+        Response: JsonObject;
+        RequestText: Text;
+        ResponseText: Text;
+        ResponseContentType: Text[100];
+        InitialLedgerCount: Integer;
+    begin
+        // Story #67, AC04/AC07 | Time: none | Risk: Foundation confirmation must reach handler validation
+        // [GIVEN] The platform's confirmed count and a deliberately invalid journal identifier type.
+        InitialLedgerCount := LedgerEntry.Count();
+        Request.Add('journalTemplate', 42);
+        Request.Add('expectedCount', 1);
+        Request.WriteTo(RequestText);
+        RequestContent.AddText(RequestText);
+        // [WHEN] The public dispatcher validates confirmation and runs the native handler.
+        Dispatcher.Execute("Message Type ori"::"Timesheets.TimeSheet.Post", "Message Version ori"::"1.0", '', 'X67CONFIRM', 'application/json', RequestContent, ResponseContent, ResponseContentType);
+        ResponseContent.GetSubText(ResponseText, 1);
+        Response.ReadFrom(ResponseText);
+        // [THEN] The journal type is refused; the confirmed platform key is accepted and nothing is posted.
+        Assert.AreEqual('Error', ReadText(Response, 'status'), 'The invalid journal identifier must be refused.');
+        Assert.AreEqual('InvalidParameterFormat', ReadText(Response, 'code'), 'Confirmation must reach journal validation.');
+        Assert.AreEqual('journalTemplate', ReadText(Response, 'parameter'), 'The journal identifier is the invalid key.');
+        Assert.AreEqual(GetExpectedNextStep('Send the key with the documented type.'), ReadText(Response, 'nextStep'), 'Keep the exact localized next step.');
+        Assert.AreEqual(InitialLedgerCount, LedgerEntry.Count(), 'The refused post must not create ledger entries.');
+    end;
+
+    [Test]
     procedure Scenario_AC04_ArchiveUnknownKey_RefusesWithoutWriting()
     var
         TempArgument: Record "Message Argument ori" temporary;
