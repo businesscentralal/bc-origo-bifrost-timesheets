@@ -1,11 +1,10 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
 
-using Microsoft.Foundation.NoSeries;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.Projects.Resources.Resource;
-using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
+using System.Security.User;
 
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
@@ -21,6 +20,22 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        codeunit "TS Native Mgt ori" = X,
+        codeunit "TS Contract Parts ori" = X,
+        codeunit "TS Native Context ori" = X,
+        codeunit "TS Native Runner ori" = X,
+        codeunit "TS Sheet Restrict ori" = X,
+        codeunit "TS Sheet Approve Impl ori" = X,
+        codeunit "TS Sheet Reject Impl ori" = X,
+        tabledata "Time Sheet Header" = R,
+        tabledata "Time Sheet Line" = RM,
+        tabledata "Time Sheet Detail" = RM,
+        tabledata "Time Sheet Comment Line" = RI,
+        tabledata "Time Sheet Posting Entry" = RI,
+        tabledata "Employee Absence" = RI,
+        tabledata Employee = R,
+        tabledata Resource = R,
+        tabledata "User Setup" = R,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,
@@ -88,33 +103,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify Help Overview Sub ori" = X,
         codeunit "Clockify ReqLog Masker ori" = X,
         codeunit "Clockify Field Restrict ori" = X,
-        codeunit "TS Native Mgt ori" = X,
-        codeunit "TS Contract Parts ori" = X,
-        codeunit "TS Native Context ori" = X,
-        codeunit "TS Native Runner ori" = X,
-        codeunit "TS Sheet Restrict ori" = X,
-        codeunit "TS Sheet Submit Impl ori" = X,
-        codeunit "TS Sheet Create Impl ori" = X,
-        codeunit "TS Pending Appr Impl ori" = X,
-        codeunit "TS Sheet Approve Impl ori" = X,
-        codeunit "TS Sheet Reject Impl ori" = X,
-        codeunit "TS Line CopyPrev Impl ori" = X,
-        codeunit "TS Line FromPlan Impl ori" = X,
-        codeunit "TS Absence Reg Impl ori" = X,
-        codeunit "TS Sheet Reopen Impl ori" = X,
-        codeunit "TS Sheet Post Impl ori" = X,
-        codeunit "TS Sheet Archive Impl ori" = X,
-        tabledata "Time Sheet Header" = RIMD,
-        tabledata "Time Sheet Line" = RIMD,
-        tabledata "Time Sheet Detail" = RIMD,
-        tabledata "Time Sheet Comment Line" = RIMD,
-        tabledata Resource = R,
-        tabledata "Resources Setup" = R,
-        tabledata "Resource Group" = R,
-        tabledata "Cause of Absence" = R,
-        tabledata Employee = R,
-        tabledata "No. Series" = R,
-        tabledata "No. Series Line" = RM,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,

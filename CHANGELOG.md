@@ -2,22 +2,11 @@
 
 ## [Unreleased]
 
-### Fixed (2026-10-16) - Native time sheet writes (#60, #61, #62, #63, #64, #65, #67)
+### Added
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 
-- `TS Native Mgt ori` (10036868) no longer wraps `TS Native Runner ori` (10036871) in a TryFunction. A TryFunction on this container refuses Insert and Modify. When the caller is not `Omit Commit` and a write transaction is already open, the manager commits that transaction and then captures `Codeunit.Run`, so a platform error rolls back only the runner and comes back as `InvalidLine` or `BusinessCentralError`. `Omit Commit` still runs the runner inside the caller's transaction.
-- A second submit, approve or reject of a sheet whose lines are already in the target status returns those lines with `changed` false instead of `PreconditionFailed` or an empty list.
-- A zero-quantity open line is submitted. Standard submit leaves it open when Resources Setup uses Empty Lines Not Submitted. A job line with no project or no project task is refused as `InvalidLine` and stays open.
-- Approve and reject copy the resource's time sheet approver onto the line before the standard check, so a line inserted without OnInsert can still be approved by that approver.
 
-### Added (2026-10-16) - Native time sheet message types (#60, #61, #62, #63, #64, #65, #67)
-
-- New message types on enumextension `Clockify Msg Type ori` (10036785): `Timesheets.TimeSheet.Submit` (10036872, codeunit `TS Sheet Submit Impl ori` 10036873), `Timesheets.TimeSheet.Create` (10036873, `TS Sheet Create Impl ori` 10036874), `Timesheets.PendingApproval.Get` (10036874, `TS Pending Appr Impl ori` 10036875), `Timesheets.TimeSheet.Approve` (10036875, `TS Sheet Approve Impl ori` 10036876), `Timesheets.TimeSheet.Reject` (10036876, `TS Sheet Reject Impl ori` 10036877), `Timesheets.TimeSheetLine.CopyFromPrevious` (10036877, `TS Line CopyPrev Impl ori` 10036878), `Timesheets.TimeSheetLine.CreateFromPlanning` (10036878, `TS Line FromPlan Impl ori` 10036879), `Timesheets.Absence.Register` (10036879, `TS Absence Reg Impl ori` 10036880), `Timesheets.TimeSheet.Reopen` (10036880, `TS Sheet Reopen Impl ori` 10036881), `Timesheets.TimeSheet.Post` (10036881, `TS Sheet Post Impl ori` 10036882) and `Timesheets.TimeSheet.Archive` (10036882, `TS Sheet Archive Impl ori` 10036883).
-- Shared dispatch `TS Native Mgt ori` (10036868), contract chapters `TS Contract Parts ori` (10036869), write isolation `TS Native Context ori` (10036870) and `TS Native Runner ori` (10036871). `TS Sheet Restrict ori` (10036872) blocks generic writes of Time Sheet Header and of Time Sheet Line Status.
-- The six existing `Clockify.TimeSheet.Create/Approve/Reject/Reopen/Post/Archive` names keep running. A successful call adds a `DeprecatedParameter` warning whose next step is `Use the native name.` Their help notes name the native replacement. Reopen, Post and Archive native names return the same success fields as the old names. Create, Approve and Reject native names are the new per-sheet operations, not aliases of the bulk Clockify operations.
-- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, resource, employee, cause of absence and number series data. No new assignable permission set and no Foundation `Setup ori` grant.
-- `Timesheets.Absence.Register` warns when hours fall on Saturday or Sunday. The BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
-- Object ids for the sixteen new codeunits moved by +12 to 10036868..10036883, and `TS Native Sheet Tests` moved from 95615 to 95616, so they stay clear of the phone role-center branch. Message enum values are unchanged. Behavior tests cover copy, planning, absence and the Clockify legacy-name warning.
-- Issues #66, #59 and #58 stay out of this change.
+## [Unreleased]
 
 ### Added (2026-10-16) - Phone Role Center (#6)
 
