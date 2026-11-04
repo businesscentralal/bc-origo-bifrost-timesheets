@@ -1161,18 +1161,6 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType AssignSetNextTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1312572432 - NamedType 940097948" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Business Central rejected the line.</source>
-          <target>Business Central hafnaði línunni.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Business Central hafnaði línunni.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType FixLineMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1312572432 - NamedType 579819786" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fix the line and submit again.</source>
-          <target>Lagfærðu línuna og sendu aftur inn.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Lagfærðu línuna og sendu aftur inn.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType FixLineNextTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 2087608894" size-unit="char" translate="yes" xml:space="preserve">
           <source>The identifier does not match a record.</source>
           <target>Auðkennið passar ekki við færslu.</target>
@@ -1222,9 +1210,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType OneIdentifierNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 1169825241" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Retry the call.</source>
-          <target>Reyndu kallið aftur.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Reyndu kallið aftur.</note>
+          <source>Correct the Business Central error and retry.</source>
+          <target>Leiðréttu Business Central villuna og reyndu aftur.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Leiðréttu Business Central villuna og reyndu aftur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType RetryNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 1128376433" size-unit="char" translate="yes" xml:space="preserve">
@@ -1304,6 +1292,12 @@
           <target>Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Reject: Hafnar innsendum tímaskýrslulínum.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1365144420 - NamedType 763692369" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject</source>
+          <target>Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Restrict ori - NamedType StatusHintTok</note>
         </trans-unit>
         <trans-unit id="Page 2536023114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clockify Integration</source>

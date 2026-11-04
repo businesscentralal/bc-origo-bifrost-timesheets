@@ -2,6 +2,7 @@ namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using System.Security.User;
@@ -33,6 +34,9 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata "Time Sheet Comment Line" = RI,
         tabledata "Time Sheet Posting Entry" = RI,
         tabledata "Employee Absence" = RI,
+        tabledata "Cause of Absence" = R,
+        tabledata "Human Resource Unit of Measure" = R,
+        tabledata "Human Resources Setup" = R,
         tabledata Employee = R,
         tabledata Resource = R,
         tabledata "User Setup" = R,

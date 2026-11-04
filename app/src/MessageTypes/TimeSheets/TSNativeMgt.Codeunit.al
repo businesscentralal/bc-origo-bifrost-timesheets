@@ -2,6 +2,7 @@ namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
@@ -24,17 +25,15 @@ codeunit 10036868 "TS Native Mgt ori"
         UnknownKeyNextTxt: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
         IdentifierNextTxt: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
         OneIdentifierNextTxt: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
-        FixLineNextTxt: Label 'Fix the line and submit again.', Comment = 'is-IS=Lagfærðu línuna og sendu aftur inn.';
         ApproverNextTxt: Label 'Only the approver named on the time sheet can approve.', Comment = 'is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.';
         SubmitFirstNextTxt: Label 'Submit it first with Timesheets.TimeSheet.Submit.', Comment = 'is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.';
         AssignSetNextTxt: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
-        RetryNextTxt: Label 'Retry the call.', Comment = 'is-IS=Reyndu kallið aftur.';
+        RetryNextTxt: Label 'Correct the Business Central error and retry.', Comment = 'is-IS=Leiðréttu Business Central villuna og reyndu aftur.';
         MissingKeyMsg: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
         TypeMsg: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
         UnknownKeyMsg: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
         IdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
         OneIdentifierMsg: Label 'The request names the time sheet in more than one way.', Comment = 'is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.';
-        FixLineMsg: Label 'Business Central rejected the line.', Comment = 'is-IS=Business Central hafnaði línunni.';
         ApproverMsg: Label 'The caller is not the approver named on the time sheet.', Comment = 'is-IS=Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.';
         SubmitFirstMsg: Label 'The line is not submitted.', Comment = 'is-IS=Línan hefur ekki verið send inn.';
         AssignSetMsg: Label 'The caller cannot write time sheets.', Comment = 'is-IS=Kallandinn getur ekki skrifað tímaskýrslur.';
@@ -42,6 +41,9 @@ codeunit 10036868 "TS Native Mgt ori"
     /// <summary>Checks access to the native action's reads and writes before discovery or execution.</summary>
     procedure CanMaintainSheets(IsReject: Boolean): Boolean
     var
+        CauseOfAbsence: Record "Cause of Absence";
+        HumanResourcesSetup: Record "Human Resources Setup";
+        HumanResourceUom: Record "Human Resource Unit of Measure";
         EmployeeAbsence: Record "Employee Absence";
         Employee: Record Employee;
         Resource: Record Resource;
@@ -57,7 +59,8 @@ codeunit 10036868 "TS Native Mgt ori"
             exit(false);
         if IsReject then
             exit(CommentLine.ReadPermission() and CommentLine.WritePermission());
-        exit(Employee.ReadPermission() and EmployeeAbsence.ReadPermission() and EmployeeAbsence.WritePermission() and
+        exit(CauseOfAbsence.ReadPermission() and HumanResourcesSetup.ReadPermission() and HumanResourceUom.ReadPermission() and
+            Employee.ReadPermission() and EmployeeAbsence.ReadPermission() and EmployeeAbsence.WritePermission() and
             PostingEntry.ReadPermission() and PostingEntry.WritePermission());
     end;
 
@@ -67,6 +70,7 @@ codeunit 10036868 "TS Native Mgt ori"
         ExecuteDecision(Argument, false, '');
     end;
 
+    /// <summary>Rejects submitted lines with an optional bounded comment.</summary>
     procedure ExecuteReject(var Argument: Record "Message Argument ori")
     var
         CommentLine: Record "Time Sheet Comment Line";
@@ -272,6 +276,7 @@ codeunit 10036868 "TS Native Mgt ori"
         Lines: JsonArray;
         Response: JsonObject;
     begin
+        Line.ReadIsolation := IsolationLevel::ReadCommitted;
         if LineFilter <> '' then begin
             Line.SetRange("Time Sheet No.", SheetNo);
             if LineFilter <> '*' then
@@ -317,10 +322,7 @@ codeunit 10036868 "TS Native Mgt ori"
         if not Codeunit.Run(Codeunit::"TS Native Runner ori") then begin
             Err := GetLastErrorText();
             Context.Clear();
-            if StrPos(Err, 'InvalidLine') > 0 then
-                Fail(Argument, "Bifrost Error Code ori"::InvalidLine, FixLineMsg, 'lineNos', FixLineNextTxt)
-            else
-                Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
             exit;
         end;
 

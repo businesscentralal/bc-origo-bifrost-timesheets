@@ -547,6 +547,75 @@ codeunit 95616 "TS Decision Tests"
         Assert.IsFalse(IsFieldRestricted(Line.FieldNo(Description), 'writeRestricted'), 'Unrelated fields remain writable.');
     end;
 
+    /// <summary>Native absence approval posts only its own employee absence and posting entry.</summary>
+    [Test]
+    procedure Scenario_AC09_ApproveAbsence_PostsNativeEntries()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Resource: Record Resource;
+        Employee: Record Employee;
+        Cause: Record "Cause of Absence";
+        HumanUom: Record "Human Resource Unit of Measure";
+        HrSetup: Record "Human Resources Setup";
+        Line: Record "Time Sheet Line";
+        Detail: Record "Time Sheet Detail";
+        Absence: Record "Employee Absence";
+        Posting: Record "Time Sheet Posting Entry";
+        SheetNo: Code[20];
+        Request: JsonObject;
+    begin
+        // Story #63, AC09 | Time: WorkDate fixture; native approval date uses Today | Risk: None
+        Resource.Get(CreateResource(true));
+        if not HumanUom.Get(Resource."Base Unit of Measure") then begin
+            HumanUom.Init();
+            HumanUom.Code := Resource."Base Unit of Measure";
+            HumanUom."Qty. per Unit of Measure" := 1;
+            HumanUom.Insert(false);
+        end;
+        if not HrSetup.Get() then begin
+            HrSetup.Init();
+            HrSetup.Insert(false);
+        end;
+        if HrSetup."Base Unit of Measure" = '' then begin
+            HrSetup."Base Unit of Measure" := HumanUom.Code;
+            HrSetup.Modify(false);
+        end;
+        Employee.Init();
+        Employee."No." := Resource."No.";
+        Employee."Resource No." := Resource."No.";
+        Employee.Insert(false);
+        Cause.Init();
+        Cause.Code := CopyStr('X' + DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Cause.Code));
+        Cause."Unit of Measure Code" := Resource."Base Unit of Measure";
+        Cause.Insert(false);
+        SheetNo := CreateSheet(Resource."No.", WorkDate(), UserId());
+        CreateLine(SheetNo, 10000, 'Submitted');
+        Line.Get(SheetNo, 10000);
+        Line.Type := Line.Type::Absence;
+        Line."Cause of Absence Code" := Cause.Code;
+        Line.Modify(false);
+        Detail.Init();
+        Detail."Time Sheet No." := SheetNo;
+        Detail."Time Sheet Line No." := 10000;
+        Detail.Date := WorkDate();
+        Detail.Type := Detail.Type::Absence;
+        Detail.Status := Detail.Status::Submitted;
+        Detail."Cause of Absence Code" := Cause.Code;
+        Detail.Quantity := 2;
+        Detail.Insert(false);
+        Request.Add('timeSheetNo', SheetNo);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Approve", Request);
+        Assert.AreEqual('Success', ReadText(TempArgument.GetResponseJson(), 'status'), 'Native absence approval succeeds.');
+        Line.Get(SheetNo, 10000);
+        Assert.IsTrue(Line.Posted, 'Native approval marks absence posted.');
+        Absence.SetRange("Employee No.", Employee."No.");
+        Assert.AreEqual(1, Absence.Count(), 'Exactly one owned employee absence.');
+        Absence.FindFirst();
+        Assert.AreEqual(2, Absence.Quantity, 'Native absence quantity is preserved.');
+        Posting.SetRange("Time Sheet No.", SheetNo);
+        Assert.AreEqual(1, Posting.Count(), 'Native posting entry created.');
+    end;
+
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
     var
         MsgInterface: Interface "Msg Interface ori";

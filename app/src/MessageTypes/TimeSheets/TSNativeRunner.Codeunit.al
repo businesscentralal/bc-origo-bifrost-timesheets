@@ -90,6 +90,7 @@ codeunit 10036871 "TS Native Runner ori"
         CommentLine: Record "Time Sheet Comment Line";
         LineNo: Integer;
     begin
+        CommentLine.ReadIsolation := IsolationLevel::UpdLock;
         CommentLine.SetRange("No.", TimeSheetLine."Time Sheet No.");
         CommentLine.SetRange("Time Sheet Line No.", TimeSheetLine."Line No.");
         if CommentLine.FindLast() then
