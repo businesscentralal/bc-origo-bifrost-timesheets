@@ -8,8 +8,6 @@ using Origo.Bifrost;
 /// </summary>
 permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full ori"
 {
-    IncludedPermissionSets = "BIFROST Timeshts ori";
-
     Permissions =
         codeunit "TS Native Mgt ori" = X,
         codeunit "TS Contract Parts ori" = X,
