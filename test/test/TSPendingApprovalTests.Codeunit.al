@@ -14,6 +14,7 @@ codeunit 95620 "TS Pending Approval Tests"
 
     var
         Assert: Codeunit "Library Assert";
+        IsInitialized: Boolean;
 
     /// <summary>Verifies Scenario AC01 SubmittedForCaller ReturnsDailyHoursOnly.</summary>
     [Test]
@@ -287,7 +288,10 @@ codeunit 95620 "TS Pending Approval Tests"
     var
         Fixture: Codeunit "TS Pending Fixture ori";
     begin
+        if IsInitialized then
+            exit;
         Fixture.Seed();
+        IsInitialized := true;
     end;
 
     local procedure Execute(Request: JsonObject): JsonObject
