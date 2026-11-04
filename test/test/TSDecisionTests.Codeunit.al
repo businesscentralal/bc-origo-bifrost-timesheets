@@ -647,8 +647,9 @@ codeunit 95616 "TS Decision Tests"
     local procedure AssertMissingSheetCaption(var TempArgument: Record "Message Argument ori" temporary)
     var
         Header: Record "Time Sheet Header";
+        ExpectedMsg: Label 'The identifier does not match a record in %1.', Locked = true, Comment = '%1 = table caption';
     begin
-        Assert.AreEqual(StrSubstNo('The identifier does not match a record in %1.', Header.TableCaption()),
+        Assert.AreEqual(StrSubstNo(ExpectedMsg, Header.TableCaption()),
             ReadText(TempArgument.GetResponseJson(), 'error'), 'Record refusal uses the native table caption.');
     end;
 
