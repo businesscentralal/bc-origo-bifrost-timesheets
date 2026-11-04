@@ -6,9 +6,8 @@ using Microsoft.HumanResources.Employee;
 using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
-using System.Security.User;
 
-/// <summary>Removes only records created by the owned absence MCP fixture.</summary>
+/// <summary>Removes only records created by the owned absence MCP fixture. User Setup is left in place because it may predate the fixture; the owned container teardown removes it.</summary>
 codeunit 95619 "TS Absence MCP Fixture Cleanup"
 {
     Access = Internal;
@@ -23,7 +22,6 @@ codeunit 95619 "TS Absence MCP Fixture Cleanup"
         CauseOfAbsence: Record "Cause of Absence";
         HumanResourceUnitOfMeasure: Record "Human Resource Unit of Measure";
         UnitOfMeasure: Record "Unit of Measure";
-        UserSetup: Record "User Setup";
     begin
         if CopyStr(CompanyName(), 1, 6) <> 'CRONUS' then
             Error(WrongCompanyErr);
@@ -44,8 +42,6 @@ codeunit 95619 "TS Absence MCP Fixture Cleanup"
             HumanResourceUnitOfMeasure.Delete(true);
         if UnitOfMeasure.Get(UnitCode()) then
             UnitOfMeasure.Delete(true);
-        if UserSetup.Get(CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID"))) then
-            UserSetup.Delete(true);
     end;
 
     var

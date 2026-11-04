@@ -32,6 +32,8 @@
 - Tests: test codeunits 95622 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`; fixture setup/cleanup codeunits 95618/95619. Existing and updated is-IS translation units are retained.
 
 - Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036881, 10036884; tests 95622). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
+- Merged with #61: `TS Absence Reg Tests` moved from test codeunit 95621 to 95622 because `TS Create Permission Tests` uses 95621; assertions are unchanged. The is-IS unit for `InvalidHoursDescriptionLbl` (codeunit 10036882) is added and units follow the generator order.
+- `TS Absence MCP Fixture Cleanup` (95619) no longer deletes the running user's `User Setup`, which may predate the fixture; the owned verification container teardown removes it.
 
 ### Fixed
 
