@@ -1,5 +1,7 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Foundation.Period;
+using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
@@ -93,7 +95,9 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Sheet Submit Impl ori" = X,
         tabledata "Time Sheet Header" = R,
         tabledata "Time Sheet Line" = RM,
-        tabledata "Time Sheet Detail" = R,
+        tabledata "Time Sheet Detail" = RM,
+        tabledata Job = R,
+        tabledata "Accounting Period" = R,
         tabledata Resource = R,
         tabledata "Resources Setup" = R,
         page "Timesheets Setup ori" = X,

@@ -32,4 +32,27 @@ codeunit 95617 "TS Submit Permission Tests"
         Assert.AreEqual('PermissionDenied', Response.GetText('code'), 'Read role must be denied.');
         Assert.AreEqual('Assign the BIFROST Timeshts ori permission set.', Response.GetText('nextStep'), 'Name the assignable feature set.');
     end;
+    [Test]
+    procedure Scenario_AC07_NoDetailWrite_DisabledAndDenied()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        LowerPermissions: Codeunit "Library - Lower Permissions";
+        Assert: Codeunit "Library Assert";
+        Impl: Codeunit "TS Sheet Submit Impl ori";
+        Response: JsonObject;
+    begin
+        // [GIVEN] Line write rights but only read rights on the details modified by BC's line trigger.
+        LowerPermissions.PushPermissionSetWithoutDefaults('TS SUBMIT LINE ONLY');
+        TempArgument.Type := "Message Type ori"::"Timesheets.TimeSheet.Submit";
+        TempArgument.Version := "Message Version ori"::"1.0";
+        TempArgument.ID := CreateGuid();
+        TempArgument.Insert();
+        // [WHEN] The transitive native write check runs before input resolution.
+        Assert.IsFalse(Impl.IsEnabled(), 'Missing detail writes must disable Submit even with line writes.');
+        Impl.ExecuteBifrostTask(TempArgument);
+        Response := TempArgument.GetResponseJson();
+        // [THEN] The refusal is PermissionDenied, never InvalidLine after a partial write.
+        Assert.AreEqual('PermissionDenied', Response.GetText('code'), 'Native detail write permission must be checked.');
+        Assert.AreEqual('Assign the BIFROST Timeshts ori permission set.', Response.GetText('nextStep'), 'Name the permission set.');
+    end;
 }

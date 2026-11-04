@@ -1,5 +1,7 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Foundation.Period;
+using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
@@ -40,13 +42,16 @@ codeunit 10036868 "TS Native Mgt ori"
     procedure CanMaintainSheets(): Boolean
     var
         Detail: Record "Time Sheet Detail";
+        Job: Record Job;
+        AccountingPeriod: Record "Accounting Period";
         Resource: Record Resource;
         ResourcesSetup: Record "Resources Setup";
         Header: Record "Time Sheet Header";
         Line: Record "Time Sheet Line";
     begin
         exit(Header.ReadPermission() and Line.ReadPermission() and Detail.ReadPermission() and
-             Resource.ReadPermission() and ResourcesSetup.ReadPermission() and Line.WritePermission());
+             Resource.ReadPermission() and ResourcesSetup.ReadPermission() and Job.ReadPermission() and
+             AccountingPeriod.ReadPermission() and Line.WritePermission() and Detail.WritePermission());
     end;
 
     /// <summary>Handles ExecuteSubmit for the Submit message contract.</summary>
