@@ -34,6 +34,7 @@ Ids added after the renumbering:
 | 10036838 | codeunit `Clockify Field Restrict ori` | Restricts generic writes to the webhook receiver URL (#41) |
 | 95612 | codeunit `Clockify Field Restrict Tests` | Webhook URL field restriction regression tests (#41) |
 | 95611 | codeunit `Message Contract Effect Tests` | Effect chapter of every writing type (#39) |
+| 95604 | codeunit `Clockify User Paging Tests` | Bounded SyncAllUsers paging, continuation and per-user failure tests (#23) |
 | 95613 | codeunit `Clockify Help Fixes Tests` | Direction, sync parameters, 400/403 errors and overview (#32) |
 
 Ids freed: 10036847-10036852 (the per-domain help codeunits, #36); 10036856-10036858
@@ -53,7 +54,7 @@ Repository: bc-origo-bifrost-timesheets (renamed 2026-09-06 from `origo-bc-cloud
 Default branch: main
 
 ## Dependencies
-- Bifrost Foundation (`7505e808-6e52-4b96-a328-82573391297a`, 28.0.0.0) - the only AL dependency.
+- Bifrost Foundation (`7505e808-6e52-4b96-a328-82573391297a`, 28.0.1.0) - the only AL dependency.
 
 ## Naming Rules
 - Every object carries the `ori` suffix (AppSource mandatory affix), max 30 characters;

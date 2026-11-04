@@ -270,6 +270,10 @@ codeunit 95630 "TS Pending Approval Tests"
         Contract: Codeunit "Msg Contract Mgt ori";
         Content: JsonObject;
         DescriptionEn: Text;
+        EnglishContract: JsonObject;
+        IcelandicContract: JsonObject;
+        Request: JsonObject;
+        Refusal: JsonObject;
         Language: Integer;
     begin
         // [GIVEN] The registered three-part type.
@@ -279,8 +283,20 @@ codeunit 95630 "TS Pending Approval Tests"
         Language := GlobalLanguage();
         GlobalLanguage(1033);
         DescriptionEn := Impl.GetDescription();
+        Assert.IsTrue(Contract.GetContract("Message Type ori"::"Timesheets.PendingApproval.Get", EnglishContract), 'English contract.');
         GlobalLanguage(1039);
         Assert.IsTrue(DescriptionEn <> Impl.GetDescription(), 'Localized description.');
+        // [THEN] Gunnar option B keeps chapters English and catalogue/refusals Icelandic.
+        Assert.IsTrue(Contract.GetContract("Message Type ori"::"Timesheets.PendingApproval.Get", IcelandicContract), 'Contract in Icelandic session.');
+        Assert.AreEqual(1039, GlobalLanguage(), 'Contract must restore caller language.');
+        Assert.AreEqual(EnglishContract.GetText('overview'), IcelandicContract.GetText('overview'), 'Overview stays English.');
+        Assert.AreEqual(Format(EnglishContract.GetArray('parameters')), Format(IcelandicContract.GetArray('parameters')), 'Parameter chapter stays English.');
+        Assert.AreEqual(Format(EnglishContract.GetArray('errors')), Format(IcelandicContract.GetArray('errors')), 'Refusal documentation stays English.');
+        Request.Add('from', '2026-11-04');
+        Request.Add('to', '2026-11-03');
+        Refusal := Execute(Request);
+        Assert.AreEqual('InvalidParameter', Refusal.GetText('code'), 'Stable refusal code in Icelandic session.');
+        Assert.AreEqual('Notaðu from <= to.', Refusal.GetText('nextStep'), 'Actual refusal next step is Icelandic.');
         GlobalLanguage(Language);
     end;
 
