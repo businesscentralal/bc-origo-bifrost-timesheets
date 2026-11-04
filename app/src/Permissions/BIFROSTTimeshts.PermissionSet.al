@@ -3,6 +3,8 @@
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.Projects.TimeSheet;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Projects.Resources.Setup;
 
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
@@ -95,6 +97,8 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata "Time Sheet Detail" = RIMD,
         tabledata "Cause of Absence" = R,
         tabledata Employee = R,
+        tabledata Resource = R,
+        tabledata "Resources Setup" = R,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,

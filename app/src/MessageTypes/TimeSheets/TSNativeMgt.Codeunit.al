@@ -40,11 +40,17 @@ codeunit 10036868 "TS Native Mgt ori"
     /// <summary>True when the caller may insert or modify time sheet header, line and detail.</summary>
     procedure CanMaintainSheets(): Boolean
     var
+        Cause: Record "Cause of Absence";
+        Employee: Record Employee;
+        Resource: Record Resource;
+        ResourcesSetup: Record "Resources Setup";
         Detail: Record "Time Sheet Detail";
         Header: Record "Time Sheet Header";
         Line: Record "Time Sheet Line";
     begin
-        exit(Header.WritePermission() and Line.WritePermission() and Detail.WritePermission());
+        exit(Header.ReadPermission() and Header.WritePermission() and Line.ReadPermission() and Line.WritePermission() and
+            Detail.ReadPermission() and Detail.WritePermission() and Cause.ReadPermission() and Employee.ReadPermission() and
+            Resource.ReadPermission() and ResourcesSetup.ReadPermission());
     end;
 
     /// <summary>Registers an absence line and its daily hours.</summary>

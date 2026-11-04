@@ -46,6 +46,7 @@ codeunit 10036871 "TS Native Runner ori"
         LineNo: Integer;
         PairPos: Integer;
     begin
+        Header.LockTable();
         Header.Get(Context.GetSheetNo());
         TimeSheetLine.SetRange("Time Sheet No.", Header."No.");
         if TimeSheetLine.FindLast() then
@@ -67,8 +68,9 @@ codeunit 10036871 "TS Native Runner ori"
             Evaluate(WorkDateValue, DateText, 9);
             Evaluate(Quantity, QtyText, 9);
             Detail.Init();
-            Detail.Validate("Time Sheet No.", Header."No.");
-            Detail.Validate("Time Sheet Line No.", LineNo);
+            Detail.CopyFromTimeSheetLine(TimeSheetLine);
+            if (WorkDateValue < Header."Starting Date") or (WorkDateValue > Header."Ending Date") then
+                Error(InvalidLineTok);
             Detail.Validate(Date, WorkDateValue);
             Detail.Validate(Quantity, Quantity);
             Detail.Insert(true);

@@ -10,6 +10,8 @@
 - Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
 - Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. The is-IS translation file is regenerated.
 
+- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036868, 10036871; tests 95616). Existing Foundation Read/Full permission extensions include absence discovery and the corresponding read/write grants.
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
@@ -428,3 +430,4 @@ The following were found by the PR gateway run on 2026-09-07.
 
 Released as *Origo Cloud Events Clockify* on Origo Cloud Events Core. See the repository history
 before 2026-09-06.
+

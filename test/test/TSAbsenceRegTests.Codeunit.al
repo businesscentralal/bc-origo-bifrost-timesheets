@@ -111,6 +111,8 @@ codeunit 95616 "TS Absence Reg Tests"
         Detail.SetRange(Date, HourDate);
         Assert.IsTrue(Detail.FindFirst(), 'The hour should be stored on the absence line.');
         Assert.AreEqual(4, Detail.Quantity, 'The stored quantity should match the request.');
+        Assert.AreEqual(Line.Type, Detail.Type, 'The detail must preserve the absence type for posting.');
+        Assert.AreEqual(CauseCode, Detail."Cause of Absence Code", 'Posting must receive the cause of absence.');
     end;
 
     [Test]
@@ -224,6 +226,82 @@ codeunit 95616 "TS Absence Reg Tests"
         Line.SetRange("Time Sheet No.", SheetNo);
         Line.SetRange(Type, Line.Type::Absence);
         Assert.IsFalse(Line.IsEmpty(), 'The absence line should be stored.');
+    end;
+
+    /// <summary>BC posts the registered details into Employee Absence with the requested cause.</summary>
+    [Test]
+    procedure Scenario_AC01_RegisteredAbsence_PostsWithCause()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Employee: Record Employee;
+        EmployeeAbsence: Record "Employee Absence";
+        ApprovalMgt: Codeunit "Time Sheet Approval Management";
+        Request: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+        CauseCode: Code[10];
+        HourDate: Date;
+    begin
+        // [GIVEN] A time sheet belonging to an employee-linked resource.
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        EnsureAccountingPeriod(WorkDate());
+        HourDate := DateInSheet(WorkDate(), false);
+        CauseCode := CreateCause();
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CauseCode);
+        AddHour(Request, HourDate, 4);
+        // [WHEN] Registration succeeds and standard BC posts the line.
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        Assert.AreEqual('Success', ReadText(TempArgument.GetResponseJson(), 'status'), 'Registration must succeed.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Line.FindFirst();
+        ApprovalMgt.PostAbsence(Line);
+        // [THEN] The employee absence carries the requested cause and hours.
+        Employee.SetRange("Resource No.", ResourceNo);
+        Employee.FindFirst();
+        EmployeeAbsence.SetRange("Employee No.", Employee."No.");
+        EmployeeAbsence.SetRange("Cause of Absence Code", CauseCode);
+        EmployeeAbsence.SetRange("From Date", HourDate);
+        Assert.IsTrue(EmployeeAbsence.FindFirst(), 'Standard posting must create the employee absence.');
+        Assert.AreEqual(4, EmployeeAbsence.Quantity, 'Posted absence quantity.');
+    end;
+
+    /// <summary>Generic writes cannot bypass time-sheet validation; reads stay available.</summary>
+    [Test]
+    procedure Scenario_AC07_GenericTimeSheetWrites_Restricted()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+    begin
+        Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Line", false), 'Line writes must use dedicated messages.');
+        Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Detail", false), 'Detail writes must use dedicated messages.');
+        Assert.IsFalse(TempArgument.IsTableReadRestrictedForDataRecords(Database::"Time Sheet Line"), 'Line reads remain available.');
+    end;
+
+    /// <summary>An out-of-week date rolls back the new line and all details.</summary>
+    [Test]
+    procedure Scenario_AC07_OutsideSheetDates_RollsBack()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Request: JsonObject;
+        ResourceNo: Code[20];
+        SheetNo: Code[20];
+    begin
+        EnsureHrSetup();
+        ResourceNo := CreateResource(true);
+        LinkEmployee(ResourceNo);
+        SheetNo := CreateSheet(ResourceNo, WorkDate(), UserId());
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('causeOfAbsenceCode', CreateCause());
+        AddHour(Request, WorkDate() + 7, 4);
+        Execute(TempArgument, "Message Type ori"::"Timesheets.Absence.Register", Request);
+        Assert.AreEqual('InvalidLine', ReadText(TempArgument.GetResponseJson(), 'code'), 'Out-of-week date must fail cleanly.');
+        Line.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Line.IsEmpty(), 'No partial line may survive the refusal.');
     end;
 
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)
@@ -370,6 +448,12 @@ codeunit 95616 "TS Absence Reg Tests"
         if not HumanResourcesSetup.Get() then begin
             HumanResourcesSetup.Init();
             HumanResourcesSetup.Insert();
+        end;
+        if not HumanResourceUnitOfMeasure.Get('HOUR') then begin
+            HumanResourceUnitOfMeasure.Init();
+            HumanResourceUnitOfMeasure.Code := 'HOUR';
+            HumanResourceUnitOfMeasure."Qty. per Unit of Measure" := 1;
+            HumanResourceUnitOfMeasure.Insert(true);
         end;
         if HumanResourcesSetup."Base Unit of Measure" <> '' then
             exit;

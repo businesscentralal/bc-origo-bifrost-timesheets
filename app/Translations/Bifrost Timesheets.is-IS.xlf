@@ -945,6 +945,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Magn verður að vera stærra en núll.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Phone Sales Quick Add ori - NamedType QuantityErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4220435530 - Method 4077369804 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registers an absence line on a time sheet.</source>
+          <target>Skráir fjarvistarlínu á tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráir fjarvistarlínu á tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Reg Impl ori - Method GetDescription - NamedType DescriptionLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4220435530 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>absence, time sheet, timesheets</source>
           <target>fjarvist, tímaskýrsla, tímaskýrslur</target>
@@ -956,6 +962,282 @@
           <target>Timesheets.Absence.Register: Skráir fjarvistarlínu á tímaskýrslu.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Absence.Register: Skráir fjarvistarlínu á tímaskýrslu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Absence Reg Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 639693855" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cause of absence.</source>
+          <target>Fjarvistarástæða.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarvistarástæða.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CauseDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 200760708" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The cause of absence was not found.</source>
+          <target>Fjarvistarástæðan fannst ekki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarvistarástæðan fannst ekki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CauseMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3378094947" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The code is not in Causes of Absence.</source>
+          <target>Kóðinn er ekki í fjarvistarástæðum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kóðinn er ekki í fjarvistarástæðum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CauseMissingDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3355508272" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use a code from Causes of Absence.</source>
+          <target>Notaðu kóða úr fjarvistarástæðum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu kóða úr fjarvistarástæðum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CauseNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3499452622" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cause of absence code.</source>
+          <target>Kóði fjarvistarástæðu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kóði fjarvistarástæðu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType CauseParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2427740555" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Adds an absence line and its daily hours to a time sheet. The write is committed when the call succeeds. A refused call writes nothing.</source>
+          <target>Bætir fjarvistarlínu og klukkustundum eftir dögum við tímaskýrslu. Skráning er staðfest þegar kallið tekst. Kall sem er hafnað skráir ekkert.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bætir fjarvistarlínu og klukkustundum eftir dögum við tímaskýrslu. Skráning er staðfest þegar kallið tekst. Kall sem er hafnað skráir ekkert.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ChangesDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 212738870" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Two identifiers were sent for one time sheet or resource.</source>
+          <target>Tvö auðkenni voru send fyrir eina tímaskýrslu eða auðlind.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tvö auðkenni voru send fyrir eina tímaskýrslu eða auðlind.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2255458049" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request names the record in more than one way.</source>
+          <target>Beiðnin nefnir færsluna á fleiri en einn hátt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin nefnir færsluna á fleiri en einn hátt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3299433917" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send only one identifier for the time sheet.</source>
+          <target>Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ConflictNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 327572489" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ISO date inside the time sheet, or the day of a single quantity.</source>
+          <target>ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType DateParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3373707642" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No employee has this resource number. Nothing is written.</source>
+          <target>Enginn starfsmaður hefur þetta auðlindarnúmer. Ekkert er skráð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Enginn starfsmaður hefur þetta auðlindarnúmer. Ekkert er skráð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EmployeeDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2965145405" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The resource is not linked to an employee.</source>
+          <target>Auðlindin er ekki tengd við starfsmann.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðlindin er ekki tengd við starfsmann.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EmployeeMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3559999745" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Link the resource to an employee in BC.</source>
+          <target>Tengdu auðlindina við starfsmann í BC.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tengdu auðlindina við starfsmann í BC.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType EmployeeNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2398176457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hours written, per day.</source>
+          <target>Skráðar klukkustundir eftir dögum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðar klukkustundir eftir dögum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType HoursDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1166202756" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Days as objects with date and quantity. Do not combine with quantity.</source>
+          <target>Dagar sem hlutir með date og quantity. Ekki nota með quantity.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Dagar sem hlutir með date og quantity. Ekki nota með quantity.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType HoursParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1969710609" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The time sheet, resource or cause was not found.</source>
+          <target>Tímaskýrslan, auðlindin eða fjarvistarástæðan fannst ekki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tímaskýrslan, auðlindin eða fjarvistarástæðan fannst ekki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IdentifierDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 285639478" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The identifier does not match a record.</source>
+          <target>Auðkennið passar ekki við færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðkennið passar ekki við færslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IdentifierMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 128457042" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use an identifier that exists.</source>
+          <target>Notaðu auðkenni sem er til.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IdentifierNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3939475470" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Absence line number.</source>
+          <target>Númer fjarvistarlínu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer fjarvistarlínu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType LineDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 35728492" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request omitted a key this type needs.</source>
+          <target>Lykil sem þessi tegund þarf vantar í beiðnina.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykil sem þessi tegund þarf vantar í beiðnina.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 939420775" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A required key is missing.</source>
+          <target>Nauðsynlegur lykill vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3129818787" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the missing key.</source>
+          <target>Sendu lykilinn sem vantar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn sem vantar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1720296865" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Link the resource to an employee in BC. Use a code from Causes of Absence. Hours on Saturday or Sunday are written and returned with a warning. Employee Absence is created when the line is posted by Business Central, not by this type. The write is committed when the call succeeds.</source>
+          <target>Tengdu auðlindina við starfsmann í BC. Notaðu kóða úr fjarvistarástæðum. Klukkustundir á laugardegi eða sunnudegi eru skráðar og skilað með viðvörun. Business Central stofnar starfsmannafjarvist þegar línan er bókuð. Skráning er staðfest þegar kallið tekst.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tengdu auðlindina við starfsmann í BC. Notaðu kóða úr fjarvistarástæðum. Klukkustundir á laugardegi eða sunnudegi eru skráðar og skilað með viðvörun. Business Central stofnar starfsmannafjarvist þegar línan er bókuð. Skráning er staðfest þegar kallið tekst.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotesDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 12623041" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Timesheets.Absence.Register adds an absence line with a cause of absence and hours per day to a time sheet. A refusal writes nothing. Unknown keys are refused.</source>
+          <target>Timesheets.Absence.Register bætir fjarvistarlínu með fjarvistarástæðu og klukkustundum eftir dögum við tímaskýrslu. Höfnun skráir ekkert. Óþekktum lyklum er hafnað.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.Absence.Register bætir fjarvistarlínu með fjarvistarástæðu og klukkustundum eftir dögum við tímaskýrslu. Höfnun skráir ekkert. Óþekktum lyklum er hafnað.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType OverviewDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1127077545" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This type needs write access to time sheets.</source>
+          <target>Þessi tegund þarf skrifheimild á tímaskýrslum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi tegund þarf skrifheimild á tímaskýrslum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1827263550" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller cannot run this type.</source>
+          <target>Kallandinn getur ekki keyrt þessa tegund.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn getur ekki keyrt þessa tegund.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3932376842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assign the BIFROST Timeshts ori permission set.</source>
+          <target>Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2530995935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The caller has the BIFROST Timeshts ori permission set.</source>
+          <target>Kallandinn hefur heimildasamstæðuna BIFROST Timeshts ori.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Kallandinn hefur heimildasamstæðuna BIFROST Timeshts ori.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType PermissionPreconditionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3258586172" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hours on date. Do not combine with hours.</source>
+          <target>Klukkustundir á date. Ekki nota með hours.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Klukkustundir á date. Ekki nota með hours.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType QuantityParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2691920837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The type is also listed with the other message types.</source>
+          <target>Tegundin birtist einnig með öðrum skilaboðategundum.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tegundin birtist einnig með öðrum skilaboðategundum.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType RelatedDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 70633538" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource number of the time sheet.</source>
+          <target>Númer auðlindar tímaskýrslunnar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer auðlindar tímaskýrslunnar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ResourceDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2820947227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource number, together with date, when timeSheetNo is omitted.</source>
+          <target>Númer auðlindar ásamt date þegar timeSheetNo er sleppt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType ResourceParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1012109797" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number.</source>
+          <target>Númer tímaskýrslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SheetDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1624332744" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number. Send this or resourceNo plus date.</source>
+          <target>Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SheetParameterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1266639732" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Business Central time sheet operation addressed by the request.</source>
+          <target>Aðgerðin á tímaskýrslu í Business Central sem beiðnin á við.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Aðgerðin á tímaskýrslu í Business Central sem beiðnin á við.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SubjectDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 156505705" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Success.</source>
+          <target>Tókst.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Tókst.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType SuccessDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 469131631" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time sheet number, or omit it and send resourceNo plus date.</source>
+          <target>Númer tímaskýrslu eða slepptu því og sendu resourceNo ásamt date.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Númer tímaskýrslu eða slepptu því og sendu resourceNo ásamt date.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType TargetDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1843374440" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A value was not the documented JSON type.</source>
+          <target>Gildi var ekki af skráðu JSON-tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Gildi var ekki af skráðu JSON-tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType TypeDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3080832043" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A key has the wrong JSON type.</source>
+          <target>Lykill er af röngu JSON-tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lykill er af röngu JSON-tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType TypeMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3549482879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the key with the documented type.</source>
+          <target>Sendu lykilinn með skráðu tagi.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sendu lykilinn með skráðu tagi.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType TypeNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1444959240" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This native type refuses keys it does not document. Processing stops.</source>
+          <target>Þessi tegund hafnar óskráðum lyklum. Vinnslan stöðvast.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi tegund hafnar óskráðum lyklum. Vinnslan stöðvast.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 3459672779" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request contains an unknown key.</source>
+          <target>Beiðnin inniheldur óþekktan lykil.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Beiðnin inniheldur óþekktan lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownMessageLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 2001379935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remove the unknown key.</source>
+          <target>Fjarlægðu óþekkta lykilinn.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Fjarlægðu óþekkta lykilinn.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType UnknownNextLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1008889415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Present when hours fall on a non-working day. The line is still written.</source>
+          <target>Birtist þegar klukkustundir lenda á degi sem er ekki vinnudagur. Línan er samt skráð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Birtist þegar klukkustundir lenda á degi sem er ekki vinnudagur. Línan er samt skráð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WarningsDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 1825898745" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Read the returned line before the next call. The line becomes an Employee Absence when the time sheet is posted.</source>
+          <target>Lestu línuna sem var skilað fyrir næsta kall. Línan verður að starfsmannafjarvist þegar tímaskýrslan er bókuð.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Lestu línuna sem var skilað fyrir næsta kall. Línan verður að starfsmannafjarvist þegar tímaskýrslan er bókuð.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WorkflowDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 932309119 - NamedType 525371959" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register the absence line and its hours.</source>
+          <target>Skráðu fjarvistarlínuna og klukkustundir hennar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Skráðu fjarvistarlínuna og klukkustundir hennar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType WorkflowStepDescriptionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 4266004086" size-unit="char" translate="yes" xml:space="preserve">
           <source>The caller cannot write time sheets.</source>

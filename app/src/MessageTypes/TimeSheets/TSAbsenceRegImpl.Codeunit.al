@@ -22,8 +22,10 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     end;
 
     procedure GetDescription(): Text[250]
+    var
+        DescriptionLbl: Label 'Registers an absence line on a time sheet.', Comment = 'is-IS=Skráir fjarvistarlínu á tímaskýrslu.';
     begin
-        exit('Registers an absence line on a time sheet.');
+        exit(DescriptionLbl);
     end;
 
     procedure GetKeywords(): Text

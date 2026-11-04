@@ -10,16 +10,64 @@ codeunit 10036869 "TS Contract Parts ori"
 {
     Access = Internal;
 
+    var
+        SheetParameterLbl: Label 'Time sheet number. Send this or resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.';
+        ResourceParameterLbl: Label 'Resource number, together with date, when timeSheetNo is omitted.', Comment = 'is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt.';
+        DateParameterLbl: Label 'ISO date inside the time sheet, or the day of a single quantity.', Comment = 'is-IS=ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.';
+        CauseParameterLbl: Label 'Cause of absence code.', Comment = 'is-IS=Kóði fjarvistarástæðu.';
+        HoursParameterLbl: Label 'Days as objects with date and quantity. Do not combine with quantity.', Comment = 'is-IS=Dagar sem hlutir með date og quantity. Ekki nota með quantity.';
+        QuantityParameterLbl: Label 'Hours on date. Do not combine with hours.', Comment = 'is-IS=Klukkustundir á date. Ekki nota með hours.';
+        SubjectDescriptionLbl: Label 'The Business Central time sheet operation addressed by the request.', Comment = 'is-IS=Aðgerðin á tímaskýrslu í Business Central sem beiðnin á við.';
+        TargetDescriptionLbl: Label 'Time sheet number, or omit it and send resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu eða slepptu því og sendu resourceNo ásamt date.';
+        SuccessDescriptionLbl: Label 'Success.', Comment = 'is-IS=Tókst.';
+        SheetDescriptionLbl: Label 'Time sheet number.', Comment = 'is-IS=Númer tímaskýrslu.';
+        LineDescriptionLbl: Label 'Absence line number.', Comment = 'is-IS=Númer fjarvistarlínu.';
+        CauseDescriptionLbl: Label 'Cause of absence.', Comment = 'is-IS=Fjarvistarástæða.';
+        ResourceDescriptionLbl: Label 'Resource number of the time sheet.', Comment = 'is-IS=Númer auðlindar tímaskýrslunnar.';
+        HoursDescriptionLbl: Label 'Hours written, per day.', Comment = 'is-IS=Skráðar klukkustundir eftir dögum.';
+        WarningsDescriptionLbl: Label 'Present when hours fall on a non-working day. The line is still written.', Comment = 'is-IS=Birtist þegar klukkustundir lenda á degi sem er ekki vinnudagur. Línan er samt skráð.';
+        MissingMessageLbl: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
+        MissingDescriptionLbl: Label 'The request omitted a key this type needs.', Comment = 'is-IS=Lykil sem þessi tegund þarf vantar í beiðnina.';
+        MissingNextLbl: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
+        TypeMessageLbl: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
+        TypeDescriptionLbl: Label 'A value was not the documented JSON type.', Comment = 'is-IS=Gildi var ekki af skráðu JSON-tagi.';
+        TypeNextLbl: Label 'Send the key with the documented type.', Comment = 'is-IS=Sendu lykilinn með skráðu tagi.';
+        UnknownMessageLbl: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
+        UnknownDescriptionLbl: Label 'This native type refuses keys it does not document. Processing stops.', Comment = 'is-IS=Þessi tegund hafnar óskráðum lyklum. Vinnslan stöðvast.';
+        UnknownNextLbl: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
+        IdentifierMessageLbl: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
+        IdentifierDescriptionLbl: Label 'The time sheet, resource or cause was not found.', Comment = 'is-IS=Tímaskýrslan, auðlindin eða fjarvistarástæðan fannst ekki.';
+        IdentifierNextLbl: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
+        ConflictMessageLbl: Label 'The request names the record in more than one way.', Comment = 'is-IS=Beiðnin nefnir færsluna á fleiri en einn hátt.';
+        ConflictDescriptionLbl: Label 'Two identifiers were sent for one time sheet or resource.', Comment = 'is-IS=Tvö auðkenni voru send fyrir eina tímaskýrslu eða auðlind.';
+        ConflictNextLbl: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
+        PermissionMessageLbl: Label 'The caller cannot run this type.', Comment = 'is-IS=Kallandinn getur ekki keyrt þessa tegund.';
+        PermissionDescriptionLbl: Label 'This type needs write access to time sheets.', Comment = 'is-IS=Þessi tegund þarf skrifheimild á tímaskýrslum.';
+        PermissionNextLbl: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
+        EmployeeMessageLbl: Label 'The resource is not linked to an employee.', Comment = 'is-IS=Auðlindin er ekki tengd við starfsmann.';
+        EmployeeDescriptionLbl: Label 'No employee has this resource number. Nothing is written.', Comment = 'is-IS=Enginn starfsmaður hefur þetta auðlindarnúmer. Ekkert er skráð.';
+        EmployeeNextLbl: Label 'Link the resource to an employee in BC.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC.';
+        CauseMessageLbl: Label 'The cause of absence was not found.', Comment = 'is-IS=Fjarvistarástæðan fannst ekki.';
+        CauseMissingDescriptionLbl: Label 'The code is not in Causes of Absence.', Comment = 'is-IS=Kóðinn er ekki í fjarvistarástæðum.';
+        CauseNextLbl: Label 'Use a code from Causes of Absence.', Comment = 'is-IS=Notaðu kóða úr fjarvistarástæðum.';
+        PermissionPreconditionLbl: Label 'The caller has the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Kallandinn hefur heimildasamstæðuna BIFROST Timeshts ori.';
+        ChangesDescriptionLbl: Label 'Adds an absence line and its daily hours to a time sheet. The write is committed when the call succeeds. A refused call writes nothing.', Comment = 'is-IS=Bætir fjarvistarlínu og klukkustundum eftir dögum við tímaskýrslu. Skráning er staðfest þegar kallið tekst. Kall sem er hafnað skráir ekkert.';
+        RelatedDescriptionLbl: Label 'The type is also listed with the other message types.', Comment = 'is-IS=Tegundin birtist einnig með öðrum skilaboðategundum.';
+        WorkflowStepDescriptionLbl: Label 'Register the absence line and its hours.', Comment = 'is-IS=Skráðu fjarvistarlínuna og klukkustundir hennar.';
+        WorkflowDescriptionLbl: Label 'Read the returned line before the next call. The line becomes an Employee Absence when the time sheet is posted.', Comment = 'is-IS=Lestu línuna sem var skilað fyrir næsta kall. Línan verður að starfsmannafjarvist þegar tímaskýrslan er bókuð.';
+        OverviewDescriptionLbl: Label 'Timesheets.Absence.Register adds an absence line with a cause of absence and hours per day to a time sheet. A refusal writes nothing. Unknown keys are refused.', Comment = 'is-IS=Timesheets.Absence.Register bætir fjarvistarlínu með fjarvistarástæðu og klukkustundum eftir dögum við tímaskýrslu. Höfnun skráir ekkert. Óþekktum lyklum er hafnað.';
+        NotesDescriptionLbl: Label 'Link the resource to an employee in BC. Use a code from Causes of Absence. Hours on Saturday or Sunday are written and returned with a warning. Employee Absence is created when the line is posted by Business Central, not by this type. The write is committed when the call succeeds.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC. Notaðu kóða úr fjarvistarástæðum. Klukkustundir á laugardegi eða sunnudegi eru skráðar og skilað með viðvörun. Business Central stofnar starfsmannafjarvist þegar línan er bókuð. Skráning er staðfest þegar kallið tekst.';
+
     procedure AddAbsenceParameters(var Parameters: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        Parameters.Add(ContractMgt.Parameter('timeSheetNo', 'string', false, 'Time sheet number. Send this or resourceNo plus date.'));
-        Parameters.Add(ContractMgt.Parameter('resourceNo', 'string', false, 'Resource number, together with date, when timeSheetNo is omitted.'));
-        Parameters.Add(ContractMgt.Parameter('date', 'string', false, 'ISO date inside the time sheet, or the day of a single quantity.'));
-        Parameters.Add(ContractMgt.Parameter('causeOfAbsenceCode', 'string', true, 'Cause of absence code.'));
-        Parameters.Add(ContractMgt.Parameter('hours', 'array', false, 'Days as objects with date and quantity. Do not combine with quantity.'));
-        Parameters.Add(ContractMgt.Parameter('quantity', 'decimal', false, 'Hours on date. Do not combine with hours.'));
+        Parameters.Add(ContractMgt.Parameter('timeSheetNo', 'string', false, SheetParameterLbl));
+        Parameters.Add(ContractMgt.Parameter('resourceNo', 'string', false, ResourceParameterLbl));
+        Parameters.Add(ContractMgt.Parameter('date', 'string', false, DateParameterLbl));
+        Parameters.Add(ContractMgt.Parameter('causeOfAbsenceCode', 'string', true, CauseParameterLbl));
+        Parameters.Add(ContractMgt.Parameter('hours', 'array', false, HoursParameterLbl));
+        Parameters.Add(ContractMgt.Parameter('quantity', 'decimal', false, QuantityParameterLbl));
         exit(true);
     end;
 
@@ -31,7 +79,7 @@ codeunit 10036869 "TS Contract Parts ori"
         Forms.Add('data');
         Subject.Add('use', 'optional');
         Subject.Add('forms', Forms);
-        Subject.Add('description', 'The Business Central time sheet operation addressed by the request.');
+        Subject.Add('description', SubjectDescriptionLbl);
         Envelope.Add('subject', Subject);
         Envelope.Add('dataRequired', true);
         Envelope.Add('version', '1.0');
@@ -45,7 +93,7 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Target.Add(ContractMgt.TargetEntry('data.timeSheetNo', 'string', 'Time sheet number, or omit it and send resourceNo plus date.'));
+        Target.Add(ContractMgt.TargetEntry('data.timeSheetNo', 'string', TargetDescriptionLbl));
         exit(true);
     end;
 
@@ -56,13 +104,13 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Fields.Add(ContractMgt.ResponseField('status', 'string', 'Success.'));
-        Fields.Add(ContractMgt.ResponseField('timeSheetNo', 'string', 'Time sheet number.'));
-        Fields.Add(ContractMgt.ResponseField('lineNo', 'integer', 'Absence line number.'));
-        Fields.Add(ContractMgt.ResponseField('causeOfAbsenceCode', 'string', 'Cause of absence.'));
-        Fields.Add(ContractMgt.ResponseField('resourceNo', 'string', 'Resource number of the time sheet.'));
-        Fields.Add(ContractMgt.ResponseField('hours', 'array', 'Hours written, per day.'));
-        Fields.Add(ContractMgt.ResponseField('warnings', 'array', 'Present when hours fall on a non-working day. The line is still written.'));
+        Fields.Add(ContractMgt.ResponseField('status', 'string', SuccessDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('timeSheetNo', 'string', SheetDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('lineNo', 'integer', LineDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('causeOfAbsenceCode', 'string', CauseDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('resourceNo', 'string', ResourceDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('hours', 'array', HoursDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('warnings', 'array', WarningsDescriptionLbl));
         Response.Add('contentType', 'text/json');
         Response.Add('fields', Fields);
         exit(true);
@@ -74,14 +122,14 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::MissingParameter, 'A required key is missing.', 'The request omitted a key this type needs.', 'Send the missing key.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidParameterFormat, 'A key has the wrong JSON type.', 'A value was not the documented JSON type.', 'Send the key with the documented type.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::UnknownParameter, 'The request contains an unknown key.', 'This native type refuses keys it does not document. Processing stops.', 'Remove the unknown key.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, 'The identifier does not match a record.', 'The time sheet, resource or cause was not found.', 'Use an identifier that exists.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, 'The request names the record in more than one way.', 'Two identifiers were sent for one time sheet or resource.', 'Send only one identifier for the time sheet.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, 'The caller cannot run this type.', 'This type needs write access to time sheets.', 'Assign the BIFROST Timeshts ori permission set.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PreconditionFailed, 'The resource is not linked to an employee.', 'No employee has this resource number. Nothing is written.', 'Link the resource to an employee in BC.'));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, 'The cause of absence was not found.', 'The code is not in Causes of Absence.', 'Use a code from Causes of Absence.'));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::MissingParameter, MissingMessageLbl, MissingDescriptionLbl, MissingNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidParameterFormat, TypeMessageLbl, TypeDescriptionLbl, TypeNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::UnknownParameter, UnknownMessageLbl, UnknownDescriptionLbl, UnknownNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, IdentifierMessageLbl, IdentifierDescriptionLbl, IdentifierNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, ConflictMessageLbl, ConflictDescriptionLbl, ConflictNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, PermissionMessageLbl, PermissionDescriptionLbl, PermissionNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PreconditionFailed, EmployeeMessageLbl, EmployeeDescriptionLbl, EmployeeNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, CauseMessageLbl, CauseMissingDescriptionLbl, CauseNextLbl));
         exit(true);
     end;
 
@@ -91,9 +139,9 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Preconditions.Add('The caller has the BIFROST Timeshts ori permission set.');
+        Preconditions.Add(PermissionPreconditionLbl);
         Effect.Add('effect', 'write');
-        Effect.Add('changes', 'Adds an absence line and its daily hours to a time sheet inside the caller transaction. A refused call writes nothing.');
+        Effect.Add('changes', ChangesDescriptionLbl);
         Effect.Add('idempotent', false);
         Effect.Add('permissionSet', 'BIFROST Timeshts ori');
         Effect.Add('preconditions', Preconditions);
@@ -106,7 +154,7 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Related.Add(ContractMgt.RelatedEntry('Help.MessageTypes.Get', 'The type is also listed with the other message types.'));
+        Related.Add(ContractMgt.RelatedEntry('Help.MessageTypes.Get', RelatedDescriptionLbl));
         exit(true);
     end;
 
@@ -117,9 +165,9 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Steps.Add(ContractMgt.WorkflowStep(MessageTypeName(MessageType), 'Register the absence line and its hours.'));
+        Steps.Add(ContractMgt.WorkflowStep(MessageTypeName(MessageType), WorkflowStepDescriptionLbl));
         Workflow.Add('steps', Steps);
-        Workflow.Add('text', 'Read the returned line before the next call. The line becomes an Employee Absence when the time sheet is posted.');
+        Workflow.Add('text', WorkflowDescriptionLbl);
         exit(true);
     end;
 
@@ -139,7 +187,7 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Overview := 'Timesheets.Absence.Register adds an absence line with a cause of absence and hours per day to a time sheet. A refusal writes nothing. Unknown keys are refused.';
+        Overview := OverviewDescriptionLbl;
         exit(true);
     end;
 
@@ -147,7 +195,7 @@ codeunit 10036869 "TS Contract Parts ori"
     begin
         if MessageType <> MessageType::"Timesheets.Absence.Register" then
             exit(false);
-        Notes := 'Link the resource to an employee in BC. Use a code from Causes of Absence. Hours on Saturday or Sunday are written and returned with a warning. Employee Absence is created when the line is posted by Business Central, not by this type. The write is committed when the call succeeds.';
+        Notes := NotesDescriptionLbl;
         exit(true);
     end;
 
