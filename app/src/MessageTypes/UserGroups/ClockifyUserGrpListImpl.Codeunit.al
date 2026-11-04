@@ -60,14 +60,14 @@ codeunit 10036823 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForUserGroupList(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForUserGroupList(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -153,12 +153,6 @@ codeunit 10036823 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
         RequestJson := Argument.GetRequestJson();
         if not RequestMgt.ResolveWorkspaceId(Argument, RequestJson, WorkspaceId) then
             exit;
-        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(RequestJson, UserGroupListPath(WorkspaceId)), false, '');
-    end;
-
-    /// <summary>Builds the Clockify resource path without placing the path literal next to the request JSON.</summary>
-    local procedure UserGroupListPath(WorkspaceId: Text): Text
-    begin
-        exit('/workspaces/' + WorkspaceId + '/user-groups');
+        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(RequestJson, '/workspaces/' + WorkspaceId + '/user-groups'), false, '');
     end;
 }

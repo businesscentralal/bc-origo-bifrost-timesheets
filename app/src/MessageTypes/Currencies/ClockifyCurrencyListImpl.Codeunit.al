@@ -60,14 +60,14 @@ codeunit 10036800 "Clockify CurrencyList Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForCurrencyList(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForCurrencyList(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean

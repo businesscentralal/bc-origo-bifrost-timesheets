@@ -56,14 +56,14 @@ codeunit 10036826 "Clockify WrkspaceList Impl ori" implements "Msg Interface ori
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForWorkspaceList(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForWorkspaceList(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -144,12 +144,6 @@ codeunit 10036826 "Clockify WrkspaceList Impl ori" implements "Msg Interface ori
         RequestMgt: Codeunit "Clockify Request Mgt ori";
     begin
         Argument.AssertVersion1();
-        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(Argument.GetRequestJson(), WorkspaceListPath()), false, '');
-    end;
-
-    /// <summary>Builds the Clockify resource path without placing the path literal next to the request JSON.</summary>
-    local procedure WorkspaceListPath(): Text
-    begin
-        exit('/workspaces');
+        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(Argument.GetRequestJson(), '/workspaces'), false, '');
     end;
 }

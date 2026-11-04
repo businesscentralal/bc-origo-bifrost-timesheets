@@ -16,10 +16,12 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
     Access = Internal;
 
     var
+        PostingDateErr: Label 'Cannot parse posting date from start value.', Comment = 'is-IS=Ekki tókst að lesa bókunardagsetningu úr start-gildinu.';
+        HoursCalcErr: Label 'Cannot calculate hours: start and end are required ISO 8601 datetime values.', Comment = 'is-IS=Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.';
+        JournalTemplateParamLbl: Label 'journalTemplate', Locked = true;
+        JournalBatchParamLbl: Label 'journalBatch', Locked = true;
         MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Comment = 'is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.';
         InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
-        HoursCalcErr: Label 'Cannot calculate hours: start and end are required ISO 8601 datetime values.', Comment = 'is-IS=Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.';
-        PostingDateErr: Label 'Cannot parse posting date from start value.', Comment = 'is-IS=Ekki tókst að lesa bókunardagsetningu úr start-gildinu.';
 
     procedure IsEnabled(): Boolean
     var
@@ -67,14 +69,14 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForTimeEntrySync(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForTimeEntrySync(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -211,10 +213,10 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
         // Journal template/batch: default to the Clockify Setup configuration,
         // then let the request override either value. Both must resolve to non-blank.
         SetupMgt.TryGetJobJournal(JournalTemplate, JournalBatch);
-        if RequestJson.Get('journalTemplate', JsonToken) then
+        if RequestJson.Get(JournalTemplateParamLbl, JsonToken) then
             if JsonToken.IsValue() then
                 JournalTemplate := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
-        if RequestJson.Get('journalBatch', JsonToken) then
+        if RequestJson.Get(JournalBatchParamLbl, JsonToken) then
             if JsonToken.IsValue() then
                 JournalBatch := CopyStr(JsonToken.AsValue().AsText(), 1, 10);
         if (JournalTemplate = '') or (JournalBatch = '') then begin

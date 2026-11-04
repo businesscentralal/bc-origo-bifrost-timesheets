@@ -61,14 +61,14 @@ codeunit 10036801 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForCustomFieldList(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForCustomFieldList(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
@@ -154,12 +154,6 @@ codeunit 10036801 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
         RequestJson := Argument.GetRequestJson();
         if not RequestMgt.ResolveWorkspaceId(Argument, RequestJson, WorkspaceId) then
             exit;
-        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(RequestJson, CustomFieldListPath(WorkspaceId)), false, '');
-    end;
-
-    /// <summary>Builds the Clockify resource path without placing the path literal next to the request JSON.</summary>
-    local procedure CustomFieldListPath(WorkspaceId: Text): Text
-    begin
-        exit('/workspaces/' + WorkspaceId + '/custom-fields');
+        RequestMgt.Execute(Argument, 'GET', RequestMgt.AppendQuery(RequestJson, '/workspaces/' + WorkspaceId + '/custom-fields'), false, '');
     end;
 }

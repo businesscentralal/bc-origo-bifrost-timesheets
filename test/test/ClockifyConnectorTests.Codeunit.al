@@ -1347,8 +1347,9 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
     end;
 
+    /// <summary>Verifies the #49 RequireParamAnswersInIcelandic refusal at LCID 1039.</summary>
     [Test]
-    procedure RequireParamAnswersInIcelandic()
+    procedure Scenario_AC08_RequireParamAnswersInIcelandic()
     var
         TempArgument: Record "Message Argument ori" temporary;
         RequestMgt: Codeunit "Clockify Request Mgt ori";
@@ -1373,8 +1374,9 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsFalse(ErrorText.Contains('Missing required'), 'The Icelandic refusal should not keep the English sentence.');
     end;
 
+    /// <summary>Verifies the #49 RequireBodyAnswersInIcelandic refusal at LCID 1039.</summary>
     [Test]
-    procedure RequireBodyAnswersInIcelandic()
+    procedure Scenario_AC08_RequireBodyAnswersInIcelandic()
     var
         TempArgument: Record "Message Argument ori" temporary;
         RequestMgt: Codeunit "Clockify Request Mgt ori";
@@ -1398,8 +1400,9 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsFalse(ErrorText.Contains('Missing required'), 'The Icelandic refusal should not keep the English sentence.');
     end;
 
+    /// <summary>Verifies the #49 SyncRangeMissingJournalAnswersInIcelandic refusal at LCID 1039.</summary>
     [Test]
-    procedure SyncRangeMissingJournalAnswersInIcelandic()
+    procedure Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic()
     var
         ClockifySetup: Record "Clockify Setup ori";
         TempArgument: Record "Message Argument ori" temporary;
@@ -1432,8 +1435,9 @@ codeunit 95601 "Clockify Connector Tests"
         LibraryAssert.IsFalse(ErrorText.Contains('Job Journal'), 'The Icelandic refusal should not keep the English sentence.');
     end;
 
+    /// <summary>Verifies the #49 NoOpenTimeSheetAnswersInIcelandic refusal at LCID 1039.</summary>
     [Test]
-    procedure NoOpenTimeSheetAnswersInIcelandic()
+    procedure Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic()
     var
         TempArgument: Record "Message Argument ori" temporary;
         JobNo: Code[20];

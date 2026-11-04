@@ -12,8 +12,8 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
     Access = Internal;
 
     var
-        InProgressSyncErr: Label 'In-progress time entries are not synced. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
         HoursDeriveErr: Label 'Cannot derive hours and posting date: start and end must be ISO-8601 datetimes.', Comment = 'is-IS=Ekki er hægt að leiða út klukkustundir og bókunardagsetningu: start og end verða að vera ISO-8601 dagsetningar og tímar.';
+        InProgressSyncErr: Label 'In-progress time entries are not synced. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
 
     procedure IsEnabled(): Boolean
     var
@@ -61,14 +61,14 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.TargetForTimeEntrySyncToTimeSheet(Target));
+        exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.ParametersForTimeEntrySyncToTimeSheet(Parameters));
+        exit(Parts.GetParameters(GetMessageType(), Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
