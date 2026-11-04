@@ -789,6 +789,7 @@ codeunit 95635 "TS Usage Tests"
         Item: Record Item;
         PostingGroup: Record "Inventory Posting Group";
         GeneralPostingSetup: Record "General Posting Setup";
+        InventoryPostingSetup: Record "Inventory Posting Setup";
         Journal: Record "Item Journal Line";
         JournalTemplate: Record "Item Journal Template";
         Batch: Record "Item Journal Batch";
@@ -809,6 +810,8 @@ codeunit 95635 "TS Usage Tests"
         PostingGroup.Insert(false);
         GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroup.Code;
         GeneralPostingSetup.Insert(false);
+        InventoryPostingSetup."Invt. Posting Group Code" := PostingGroup.Code;
+        InventoryPostingSetup.Insert(false);
         Item."Inventory Posting Group" := PostingGroup.Code;
         Item."Gen. Prod. Posting Group" := PostingGroup.Code;
         Item."Prevent Negative Inventory" := Item."Prevent Negative Inventory"::No;
@@ -843,6 +846,7 @@ codeunit 95635 "TS Usage Tests"
         Ledger.Delete(false);
         Batch.Delete(false);
         JournalTemplate.Delete(false);
+        InventoryPostingSetup.Delete(false);
         GeneralPostingSetup.Delete(false);
         PostingGroup.Delete(false);
         Cleanup(SheetNo, ItemNo);
