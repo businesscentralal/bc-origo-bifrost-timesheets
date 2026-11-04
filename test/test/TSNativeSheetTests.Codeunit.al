@@ -294,6 +294,8 @@ codeunit 95616 "TS Native Sheet Tests"
         TempArgument.Type := "Message Type ori"::"Timesheets.TimeSheet.Submit";
         TempArgument.Version := "Message Version ori"::"1.0";
         TempArgument."Omit Commit" := true;
+        TempArgument.ID := CreateGuid();
+        TempArgument.Insert();
         Request.Add('timeSheetNo', SheetNo);
         TempArgument.SetRequestJson(Request);
         Impl.ExecuteBifrostTask(TempArgument);

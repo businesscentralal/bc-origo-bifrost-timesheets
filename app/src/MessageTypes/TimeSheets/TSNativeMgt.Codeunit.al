@@ -49,6 +49,7 @@ codeunit 10036868 "TS Native Mgt ori"
              Resource.ReadPermission() and ResourcesSetup.ReadPermission() and Line.WritePermission());
     end;
 
+    /// <summary>Handles ExecuteSubmit for the Submit message contract.</summary>
     procedure ExecuteSubmit(var Argument: Record "Message Argument ori")
     var
         Header: Record "Time Sheet Header";
@@ -98,6 +99,7 @@ codeunit 10036868 "TS Native Mgt ori"
         ResourceNo: Code[20];
         SheetDate: Date;
     begin
+        Header.ReadIsolation := IsolationLevel::ReadCommitted;
         HasSheet := RequestJson.Get('timeSheetNo', SheetToken);
         HasResource := RequestJson.Get('resourceNo', ResourceToken);
         HasDate := RequestJson.Get('date', DateToken);
@@ -123,6 +125,10 @@ codeunit 10036868 "TS Native Mgt ori"
             Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'date', TypeNextTxt);
             exit(false);
         end;
+        if StrLen(ResourceToken.AsValue().AsText()) > MaxStrLen(ResourceNo) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'resourceNo', TypeNextTxt);
+            exit(false);
+        end;
         ResourceNo := CopyStr(ResourceToken.AsValue().AsText(), 1, MaxStrLen(ResourceNo));
         Header.SetRange("Resource No.", ResourceNo);
         Header.SetFilter("Starting Date", '<=%1', SheetDate);
@@ -143,6 +149,10 @@ codeunit 10036868 "TS Native Mgt ori"
         SheetNo: Code[20];
     begin
         if not IsJsonString(SheetToken) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetNo', TypeNextTxt);
+            exit(false);
+        end;
+        if StrLen(SheetToken.AsValue().AsText()) > MaxStrLen(SheetNo) then begin
             Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetNo', TypeNextTxt);
             exit(false);
         end;
@@ -188,6 +198,7 @@ codeunit 10036868 "TS Native Mgt ori"
         Line: Record "Time Sheet Line";
         LineNo: Integer;
     begin
+        Line.ReadIsolation := IsolationLevel::ReadCommitted;
         OpenCount := 0;
         if LineFilter = '*' then begin
             Line.SetRange("Time Sheet No.", Header."No.");

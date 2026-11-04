@@ -20,6 +20,7 @@ codeunit 10036870 "TS Native Context ori"
         ClearAll();
     end;
 
+    /// <summary>Handles SetSubmit for the Submit message contract.</summary>
     procedure SetSubmit(NewSheetNo: Code[20]; NewLineFilter: Text)
     begin
         ClearAll();
@@ -27,21 +28,25 @@ codeunit 10036870 "TS Native Context ori"
         LineFilter := NewLineFilter;
     end;
 
+    /// <summary>Returns GetSheetNo for the Submit message contract.</summary>
     procedure GetSheetNo(): Code[20]
     begin
         exit(SheetNo);
     end;
 
+    /// <summary>Returns GetLineFilter for the Submit message contract.</summary>
     procedure GetLineFilter(): Text
     begin
         exit(LineFilter);
     end;
 
+    /// <summary>Handles SetResult for the Submit message contract.</summary>
     procedure SetResult(NewResult: Text)
     begin
         ResultText := NewResult;
     end;
 
+    /// <summary>Returns GetResult for the Submit message contract.</summary>
     procedure GetResult(): Text
     begin
         exit(ResultText);

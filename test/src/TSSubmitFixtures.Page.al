@@ -96,6 +96,14 @@ page 95618 "TS Submit Fixtures"
         Header."No." := NewSheetNo;
         Header."Resource No." := ResourceNoTok;
         Header."Starting Date" := CalcDate('<-CW>', WorkDate());
+        case NewSheetNo of
+            'SINDRI60-BAD':
+                Header."Starting Date" -= 7;
+            'SINDRI60-OWNER':
+                Header."Starting Date" -= 14;
+            'SINDRI60-EMPTY':
+                Header."Starting Date" -= 21;
+        end;
         Header."Ending Date" := Header."Starting Date" + 6;
         Header."Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Header."Owner User ID"));
         if OtherOwner then

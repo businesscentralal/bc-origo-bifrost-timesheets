@@ -7,6 +7,7 @@ codeunit 10036869 "TS Contract Parts ori"
 {
     Access = Internal;
 
+    /// <summary>Handles AddSubmitParameters for the Submit message contract.</summary>
     procedure AddSubmitParameters(var Parameters: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -18,6 +19,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetEnvelope for the Submit message contract.</summary>
     procedure GetEnvelope(MessageType: Enum "Message Type ori"; var Envelope: JsonObject): Boolean
     var
         Subject: JsonObject;
@@ -33,6 +35,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetTarget for the Submit message contract.</summary>
     procedure GetTarget(MessageType: Enum "Message Type ori"; var Target: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -41,6 +44,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetResponse for the Submit message contract.</summary>
     procedure GetResponse(MessageType: Enum "Message Type ori"; var Response: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -53,6 +57,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetErrors for the Submit message contract.</summary>
     procedure GetErrors(MessageType: Enum "Message Type ori"; var Errors: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -69,6 +74,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetEffect for the Submit message contract.</summary>
     procedure GetEffect(MessageType: Enum "Message Type ori"; var Effect: JsonObject): Boolean
     begin
         Effect.Add('effect', 'write');
@@ -78,11 +84,13 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetRelated for the Submit message contract.</summary>
     procedure GetRelated(MessageType: Enum "Message Type ori"; var Related: JsonArray): Boolean
     begin
         exit(false);
     end;
 
+    /// <summary>Returns GetWorkflow for the Submit message contract.</summary>
     procedure GetWorkflow(MessageType: Enum "Message Type ori"; var Workflow: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -94,6 +102,7 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetExamples for the Submit message contract.</summary>
     procedure GetExamples(MessageType: Enum "Message Type ori"; var Examples: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
@@ -102,12 +111,14 @@ codeunit 10036869 "TS Contract Parts ori"
         exit(true);
     end;
 
+    /// <summary>Returns GetOverview for the Submit message contract.</summary>
     procedure GetOverview(MessageType: Enum "Message Type ori"; var Overview: Text): Boolean
     begin
         Overview := OverviewTxt;
         exit(true);
     end;
 
+    /// <summary>Returns GetNotes for the Submit message contract.</summary>
     procedure GetNotes(MessageType: Enum "Message Type ori"; var Notes: Text): Boolean
     begin
         Notes := NotesTxt;

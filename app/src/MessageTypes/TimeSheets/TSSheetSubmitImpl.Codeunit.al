@@ -9,6 +9,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
 {
     Access = Internal;
 
+    /// <summary>Handles IsEnabled for the Submit message contract.</summary>
     procedure IsEnabled(): Boolean
     var
         NativeMgt: Codeunit "TS Native Mgt ori";
@@ -16,16 +17,19 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(NativeMgt.CanMaintainSheets());
     end;
 
+    /// <summary>Returns GetFilterTableNo for the Submit message contract.</summary>
     procedure GetFilterTableNo(): Integer
     begin
         exit(0);
     end;
 
+    /// <summary>Returns GetDescription for the Submit message contract.</summary>
     procedure GetDescription(): Text[250]
     begin
         exit('Submits open time sheet lines for approval.');
     end;
 
+    /// <summary>Returns GetKeywords for the Submit message contract.</summary>
     procedure GetKeywords(): Text
     var
         KeywordsLbl: Label 'time sheet, submit, timesheets', Comment = 'is-IS=tímaskýrsla, senda inn, tímaskýrslur';
@@ -33,6 +37,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(KeywordsLbl);
     end;
 
+    /// <summary>Returns GetSelectionDescription for the Submit message contract.</summary>
     procedure GetSelectionDescription(): Text
     var
         SelectionLbl: Label 'Timesheets.TimeSheet.Submit: Submits open time sheet lines for approval.', Comment = 'is-IS=Timesheets.TimeSheet.Submit: Sendir opnar tímaskýrslulínur til samþykktar.';
@@ -40,6 +45,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(SelectionLbl);
     end;
 
+    /// <summary>Returns GetEnvelope for the Submit message contract.</summary>
     procedure GetEnvelope(var Envelope: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -47,6 +53,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetEnvelope(GetMessageType(), Envelope));
     end;
 
+    /// <summary>Returns GetTarget for the Submit message contract.</summary>
     procedure GetTarget(var Target: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -54,6 +61,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetTarget(GetMessageType(), Target));
     end;
 
+    /// <summary>Returns GetParameters for the Submit message contract.</summary>
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -61,6 +69,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.AddSubmitParameters(Parameters));
     end;
 
+    /// <summary>Returns GetResponse for the Submit message contract.</summary>
     procedure GetResponse(var Response: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -68,6 +77,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetResponse(GetMessageType(), Response));
     end;
 
+    /// <summary>Returns GetErrors for the Submit message contract.</summary>
     procedure GetErrors(var Errors: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -75,6 +85,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetErrors(GetMessageType(), Errors));
     end;
 
+    /// <summary>Returns GetEffect for the Submit message contract.</summary>
     procedure GetEffect(var Effect: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -82,11 +93,13 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetEffect(GetMessageType(), Effect));
     end;
 
+    /// <summary>Returns GetMetering for the Submit message contract.</summary>
     procedure GetMetering(var Metering: JsonObject): Boolean
     begin
         exit(false);
     end;
 
+    /// <summary>Returns GetRelated for the Submit message contract.</summary>
     procedure GetRelated(var Related: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -94,6 +107,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetRelated(GetMessageType(), Related));
     end;
 
+    /// <summary>Returns GetWorkflow for the Submit message contract.</summary>
     procedure GetWorkflow(var Workflow: JsonObject): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -101,6 +115,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetWorkflow(GetMessageType(), Workflow));
     end;
 
+    /// <summary>Returns GetExamples for the Submit message contract.</summary>
     procedure GetExamples(var Examples: JsonArray): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -108,6 +123,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetExamples(GetMessageType(), Examples));
     end;
 
+    /// <summary>Returns GetOverview for the Submit message contract.</summary>
     procedure GetOverview(var Overview: Text): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -115,6 +131,7 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Parts.GetOverview(GetMessageType(), Overview));
     end;
 
+    /// <summary>Returns GetNotes for the Submit message contract.</summary>
     procedure GetNotes(var Notes: Text): Boolean
     var
         Parts: Codeunit "TS Contract Parts ori";
@@ -127,11 +144,13 @@ codeunit 10036873 "TS Sheet Submit Impl ori" implements "Msg Interface ori", "Ms
         exit(Enum::"Message Type ori"::"Timesheets.TimeSheet.Submit");
     end;
 
+    /// <summary>Returns GetMessageDirection for the Submit message contract.</summary>
     procedure GetMessageDirection(): Enum "Msg Direction ori"
     begin
         exit(Enum::"Msg Direction ori"::Inbound);
     end;
 
+    /// <summary>Handles ExecuteBifrostTask for the Submit message contract.</summary>
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
         NativeMgt: Codeunit "TS Native Mgt ori";

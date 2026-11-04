@@ -22,6 +22,8 @@ codeunit 95617 "TS Submit Permission Tests"
         LowerPermissions.PushPermissionSetWithoutDefaults('BIFROST Read ori');
         TempArgument.Type := "Message Type ori"::"Timesheets.TimeSheet.Submit";
         TempArgument.Version := "Message Version ori"::"1.0";
+        TempArgument.ID := CreateGuid();
+        TempArgument.Insert();
         // [WHEN] Discovery and execution check the actual restricted caller.
         Assert.IsFalse(Impl.IsEnabled(), 'Read-only caller must not see Submit enabled.');
         Impl.ExecuteBifrostTask(TempArgument);
