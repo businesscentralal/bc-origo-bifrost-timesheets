@@ -9,6 +9,7 @@ using Origo.Bifrost;
 permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full ori"
 {
     Permissions =
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Phone Cust Buffer ori" = RIMD,
         codeunit "Phone Cust Buffer Mgt ori" = X,
         codeunit "Phone Sales Quick Add ori" = X,

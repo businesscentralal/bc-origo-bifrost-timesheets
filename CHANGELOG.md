@@ -1,3 +1,8 @@
+## Pending approval query (#62)
+
+- Add read-only `Timesheets.PendingApproval.Get` (codeunit/enum value 10036872): caller-scoped submitted lines, resource/date/type filters, daily hours and take/skip paging. Existing Timesheets permissions grant native reads; Foundation Read/Full extensions grant execution.
+- Add localized discovery/contract help and native acceptance tests (95620), with isolated verification fixtures (95621–95622).
+
 # Changelog
 
 ## [Unreleased]

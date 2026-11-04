@@ -1,4 +1,7 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
+
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Projects.TimeSheet;
 
 /// <summary>
 /// Full permission set for the Bifrost Timesheets connector. Grants execute
@@ -14,6 +17,11 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        tabledata "Time Sheet Header" = R,
+        tabledata "Time Sheet Line" = R,
+        tabledata "Time Sheet Detail" = R,
+        tabledata Resource = R,
+        codeunit "TS Pending Approval ori" = X,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,

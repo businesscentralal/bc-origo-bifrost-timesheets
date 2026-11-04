@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 
@@ -256,5 +256,11 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
     {
         Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
+    }
+    /// <summary>Lists submitted lines waiting for the authenticated manager.</summary>
+    value(10036872; "Timesheets.PendingApproval.Get")
+    {
+        Caption = 'Timesheets.PendingApproval.Get', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Pending Approval ori", "Msg Contract ori" = "TS Pending Approval ori", "Msg Discovery ori" = "TS Pending Approval ori";
     }
 }
