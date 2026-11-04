@@ -1,0 +1,48 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "containerId": "f03e18c0fef3",
+  "scenarios": 35,
+  "passed": 35,
+  "failed": 0,
+  "skipped": 0,
+  "actualToolCalls": 38,
+  "helpAssertions": 14,
+  "functionalScenarios": 18,
+  "invarianceAssertions": 3,
+  "types": [
+    "Clockify.TimeSheet.Approve",
+    "Clockify.TimeSheet.Reject",
+    "Clockify.TimeSheet.Reopen",
+    "Clockify.TimeSheet.Post",
+    "Clockify.TimeEntry.Sync",
+    "Clockify.TimeEntry.SyncRange",
+    "Clockify.TimeEntry.SyncToTimeSheet"
+  ],
+  "recordsBeforeAfter": [
+    [
+      "before-Time-Sheet-Header",
+      21
+    ],
+    [
+      "before-Time-Sheet-Line",
+      46
+    ],
+    [
+      "before-Time-Sheet-Detail",
+      21
+    ],
+    [
+      "after-Time-Sheet-Header",
+      21
+    ],
+    [
+      "after-Time-Sheet-Line",
+      46
+    ],
+    [
+      "after-Time-Sheet-Detail",
+      21
+    ]
+  ],
+  "allDataSelfCreated": true
+}

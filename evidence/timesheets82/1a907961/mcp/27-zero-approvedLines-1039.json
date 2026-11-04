@@ -1,0 +1,19 @@
+{
+  "name": "invoke_message_type",
+  "args": {
+    "companyId": "e3bebedf-25d7-f111-9263-3833c5d1d79b",
+    "type": "Clockify.TimeSheet.Approve",
+    "data": {
+      "endingDateTo": "1901-01-01"
+    },
+    "lcid": 1039
+  },
+  "raw": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"company\": \"CRONUS International Ltd.\", \"messageType\": \"Clockify.TimeSheet.Approve\", \"status\": \"Success\", \"approvedLines\": 0}"
+      }
+    ]
+  }
+}

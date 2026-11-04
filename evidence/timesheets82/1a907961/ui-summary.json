@@ -1,0 +1,51 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "containerId": "f03e18c0fef3",
+  "verified": true,
+  "status": "PASS",
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "lcids": [
+    1033,
+    1039
+  ],
+  "scenarios": [
+    {
+      "passed": true,
+      "lcid": 1033,
+      "sheetNo": "A3C6DF1A8629499FA47B",
+      "resourceNo": "GL00000001",
+      "values": {
+        "Total": "4.00",
+        "Open": "4.00",
+        "Submitted": "0.00",
+        "Approved": "0.00",
+        "Rejected": "0.00"
+      },
+      "scenario": "Native Time Sheets951 preserves own out-of-scope4Openhours and0Submitted/Approved/Rejected after cutoffMCPoperations"
+    },
+    {
+      "passed": true,
+      "lcid": 1039,
+      "sheetNo": "A3C6DF1A8629499FA47B",
+      "resourceNo": "GL00000001",
+      "values": {
+        "Samtals": "4.00",
+        "Opið": "4.00",
+        "Sent": "0.00",
+        "Samþykkt": "0.00",
+        "Hafnað": "0.00"
+      },
+      "scenario": "Native Time Sheets951 preserves own out-of-scope4Openhours and0Submitted/Approved/Rejected after cutoffMCPoperations"
+    }
+  ],
+  "screenshots": [
+    "ui-current/timesheets-1033.png",
+    "ui-current/timesheets-1039.png"
+  ],
+  "setup": "Ownexistingtest-created4hourheader; localTimeSheetAdmin row for ownlogin createdthroughnativeUserSetuppage119; nocredentialsorlicensingchanged. OfficialMicrosoftIcelandiclanguageinstalled; actualshelllanguageverified.",
+  "contextRestoration": "ActualEnglish(1033)shellrestoredandsettingsclosedbeforeownedcleanup",
+  "verifiedAt": "2026-11-04T17:59:19.874307+00:00"
+}

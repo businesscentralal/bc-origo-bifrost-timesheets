@@ -1,0 +1,14 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "containerId": "f03e18c0fef3",
+  "owner": "worker-6",
+  "displayName": "reginn-worker6-timesheets82-20261104-w1",
+  "startedAt": "2026-11-04T18:00:00.612Z",
+  "cleanupMethod": "Delete entire individually owned environment and all task-created fixture records",
+  "verifiedDeleted": true,
+  "deleteStatus": 204,
+  "getStatus": 404,
+  "absentFromInventory": true,
+  "finishedAt": "2026-11-04T18:00:02.068Z",
+  "priorOwnSelectionRestored": true
+}

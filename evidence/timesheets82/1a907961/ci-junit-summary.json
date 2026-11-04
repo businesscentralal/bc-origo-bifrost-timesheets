@@ -1,0 +1,886 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "sourceCommit": "d99951d18c301c9fb28729b1cc0aaed5a1003713",
+  "sourceTreeMatches": true,
+  "executed": 175,
+  "failed": 0,
+  "skipped": 0,
+  "passed": 175,
+  "methodNames": [
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "HelpTypeIsOutboundWithNoFilterTable",
+      "time": "0.83"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "EveryClockifyTypeHasMetadataAndHelp",
+      "time": "0.69"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "CompanyApiKeyRoundtrips",
+      "time": "0.046"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "DefaultApiVersionIsVersion1",
+      "time": "0.003"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WorkspaceListRoutesGetThroughClient",
+      "time": "0.063"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ErrorResponseIsSurfacedWithStatusCode",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ProjectCreatePostsBodyToWorkspace",
+      "time": "0.016"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "DefaultWorkspaceUsedWhenRequestOmitsIt",
+      "time": "0.017"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WorkspaceLookupRequiresApiKey",
+      "time": "0.03"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WorkspaceLookupReturnsSelection",
+      "time": "1.217"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "RegisterCreatesWebhooksForEachTimeEntryEvent",
+      "time": "0.06"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "RemoveDeletesRegisteredWebhooks",
+      "time": "0.037"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ReverseTimeEntryWithNoLinkIsSkipped",
+      "time": "0.033"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "JobJournalResolvesFromSetup",
+      "time": "0.03"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeEntrySyncErrorsWhenNoJournalConfigured",
+      "time": "0.044"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeEntrySyncRejectsInProgressEntries",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WorkTypeResolvesFromTagThenDefault",
+      "time": "0.046"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+      "time": "12.61"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncSkipsUnchangedThenUpdatesOnChange",
+      "time": "0.19"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ReverseDeletesSyncedJournalLine",
+      "time": "0.12"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WebhookDispatchCreatesJobJournalLine",
+      "time": "0.177"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "IntegrationTableStampsAndClearsReversedAt",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "RetentionRegistersIntegrationTable",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "HelpIncludesIntegrationTracking",
+      "time": "0.006"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "CurrencyListProjectsWorkspaceCurrencies",
+      "time": "0.016"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "UserGroupListRoutesGetToWorkspacesUserGroups",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "UserGroupListForwardsQueryString",
+      "time": "0.023"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeEntryListForwardsInProgressQueryParameter",
+      "time": "0.013"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "CustomFieldListRoutesGetToWorkspacesCustomFields",
+      "time": "0.014"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "UserGroupListHelpExplainsIdUsage",
+      "time": "0.006"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "CustomFieldListHelpExplainsIdUsage",
+      "time": "0.006"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeEntryListHelpExplainsInProgressFilter",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+      "time": "0.04"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "UserListHelpExplainsOptionalQueryEffects",
+      "time": "0.006"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ClientUpdateHelpExplainsOptionalBodyEffects",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "OverviewListsLookupEndpoints",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "OverviewGotchasCallOutIdOnlyWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "IntegrationGateAllowsWriteAccess",
+      "time": "0.004"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangeIsInboundWithHelp",
+      "time": "0.027"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangeErrorsWhenNoJournalConfigured",
+      "time": "0.017"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangeCreatesLinesForEntriesInRange",
+      "time": "0.163"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangePerEntryErrorDoesNotAbortBatch",
+      "time": "0.11"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "AllInboundTimeTypesAreInboundWithHelp",
+      "time": "0.2"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetCreateReturnsCountWithNoResources",
+      "time": "0.06"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetApproveReturnsZeroWhenNothingOpen",
+      "time": "0.263"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+      "time": "0.017"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+      "time": "0.02"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetReopenReturnsZeroWhenNothingPending",
+      "time": "0.02"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetPostErrorsWhenNoJournalConfigured",
+      "time": "0.014"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+      "time": "0.08"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncToTimeSheetErrorsWhenNoMapping",
+      "time": "0.04"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+      "time": "0.097"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "Scenario_AC08_RequireParamAnswersInIcelandic",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "Scenario_AC08_RequireBodyAnswersInIcelandic",
+      "time": "0.003"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic",
+      "time": "0.07"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncToTimeSheetCreatesDetailOnOpenSheet",
+      "time": "0.15"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangeToTimeSheetCreatesDetailsForEntries",
+      "time": "0.12"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+      "time": "0.077"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SyncAllUsersSyncsMappedUserToTimeSheet",
+      "time": "0.127"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "ReverseFromTimeSheetRemovesOpenDetail",
+      "time": "0.083"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "WebhookSigningTokenIsRedactedFromTheResponseLog",
+      "time": "0.014"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+      "time": "0.004"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "BodiesWithoutASigningTokenPassThroughUnchanged",
+      "time": "0.004"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+      "time": "0.004"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "HelpClockifyGetUsesTableNameNotTable",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "InboundTimeTypesHaveNonEmptyRequestExamples",
+      "time": "0.007"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "InboundHelpMarkdownShowsDirectionInbound",
+      "time": "0.01"
+    },
+    {
+      "classname": "95601 Clockify Connector Tests",
+      "name": "HelpTracksUppercaseClockifyTypeCodes",
+      "time": "0.01"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "DefaultPageProcessesOneHundredUsers",
+      "time": "0.113"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "ZeroTakeUsesDefaultPageSize",
+      "time": "0.173"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "NegativeSkipFailsBeforeFetching",
+      "time": "0.104"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "NegativeTakeFailsBeforeFetching",
+      "time": "0.074"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "OversizedTakeIsClamped",
+      "time": "0.894"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "NextSkipContinuesWithoutRepeatingUsers",
+      "time": "0.767"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "FailedUserDoesNotStopThePage",
+      "time": "0.02"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "SkipAtAndBeyondEndDoesNotFetch",
+      "time": "0.017"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "EmptyMappingSetReturnsCompletedPage",
+      "time": "0.01"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "HelpDescribesParametersResponseAndCallerLoop",
+      "time": "0.01"
+    },
+    {
+      "classname": "95604 Clockify User Paging Tests",
+      "name": "ClockifyListsKeepTheirOwnPaging",
+      "time": "0.013"
+    },
+    {
+      "classname": "95606 Timesheets Registration Tests",
+      "name": "AppRegistersItselfWithFoundation",
+      "time": "0.043"
+    },
+    {
+      "classname": "95607 Clockify Reten. Policy Tests",
+      "name": "TC001_EnableDefaultPolicyInsertsEnabledRow",
+      "time": "0.087"
+    },
+    {
+      "classname": "95607 Clockify Reten. Policy Tests",
+      "name": "TC002_EnableDefaultPolicyReRunIsIdempotent",
+      "time": "0.023"
+    },
+    {
+      "classname": "95608 Message Contract Batch 1 Tests",
+      "name": "Batch1TypesDeclareContractAndDiscovery",
+      "time": "0.037"
+    },
+    {
+      "classname": "95608 Message Contract Batch 1 Tests",
+      "name": "Scenario_AC08_EveryType_DeclaresOnlyItsOwnParameterNames",
+      "time": "0.016"
+    },
+    {
+      "classname": "95608 Message Contract Batch 1 Tests",
+      "name": "Scenario_AC06_SyncContracts_DescribeOptionalBillableAndDescription",
+      "time": "0.01"
+    },
+    {
+      "classname": "95609 Message Contract Batch 2 Tests",
+      "name": "Batch2TypesDeclareContractAndDiscovery",
+      "time": "0.027"
+    },
+    {
+      "classname": "95610 Message Contract Batch 3 Tests",
+      "name": "Batch3TypesDeclareContractAndDiscovery",
+      "time": "0.034"
+    },
+    {
+      "classname": "95611 Message Contract Effect Tests",
+      "name": "ClockifyApiWrites_DeclareIrreversible",
+      "time": "0.014"
+    },
+    {
+      "classname": "95611 Message Contract Effect Tests",
+      "name": "ClockifyDeletesAndPost_DeclareIrreversible",
+      "time": "0.01"
+    },
+    {
+      "classname": "95611 Message Contract Effect Tests",
+      "name": "BusinessCentralOnlyWrites_StayWrite",
+      "time": "0.01"
+    },
+    {
+      "classname": "95611 Message Contract Effect Tests",
+      "name": "Reads_StayRead",
+      "time": "0.007"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+      "time": "0.464"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+      "time": "0.01"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "FieldRestrict_NeighbourFieldsNotRestricted",
+      "time": "0.014"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "FieldRestrict_TableLevelChecksStayFalse",
+      "time": "0.013"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+      "time": "0.01"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "Scenario_AC07_NameAlias_Refused",
+      "time": "0.62"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "Scenario_AC07_JsonAlias_Refused",
+      "time": "0.016"
+    },
+    {
+      "classname": "95612 Clockify Field Restrict Tests",
+      "name": "Scenario_AC07_WorkType_SaveAndClear",
+      "time": "0.263"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "ClockifyWrites_DeclareInbound",
+      "time": "0.007"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "BusinessCentralSideTypes_StayInbound",
+      "time": "0.004"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "ReadTypes_StayOutbound",
+      "time": "0.004"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "SyncParameters_MatchOptionalUsageInCode",
+      "time": "0.007"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+      "time": "0.003"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "WrongWorkspace_DocumentedAs400Not404",
+      "time": "0.006"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "CustomFieldList_Documents403ForFreePlan",
+      "time": "0.006"
+    },
+    {
+      "classname": "95613 Clockify Help Fixes Tests",
+      "name": "Overview_DefinesDirectionByMutation",
+      "time": "0.026"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+      "time": "0.096"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+      "time": "0.013"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+      "time": "0.047"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+      "time": "0.126"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+      "time": "0.07"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+      "time": "0.133"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "PopulateCurrentCustomers_UsesMyCustomers",
+      "time": "0.11"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "ResolveLastWorkday_Monday_ReturnsFriday",
+      "time": "0.007"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "AddServiceItemLine_ReusesOpenInvoice",
+      "time": "6.097"
+    },
+    {
+      "classname": "95615 Phone Role Center Tests",
+      "name": "AddServiceItemLine_InvalidItem_Errors",
+      "time": "0.036"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC03_Approve_NotApprover_WritesNothing",
+      "time": "4.73"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC04_Approve_OpenLine_MustBeSubmittedFirst",
+      "time": "0.073"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC06_Approve_Submitted_ThenUnchanged",
+      "time": "0.127"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC02_Reject_WithComment",
+      "time": "0.423"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_MissingIdentifier_Refused",
+      "time": "0.006"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_WrongIdentifierType_Refused",
+      "time": "0.006"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_OverlongIdentifier_Refused",
+      "time": "0.006"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_UnknownKey_Refused",
+      "time": "0.003"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_UnknownSheet_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_ConflictingIdentifiers_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC07_Approve_ReadRole_Denied",
+      "time": "0.097"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC14_Approve_EmptySelection_WritesNothing",
+      "time": "0.054"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Approve_LineNumberOverflow_Refused",
+      "time": "0.07"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC04_Approve_MixedInvalidLines_WritesNothing",
+      "time": "0.06"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC14_Approve_NoSubmittedLines_ReturnsEmpty",
+      "time": "0.06"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_MissingIdentifier_Refused",
+      "time": "0.004"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_WrongIdentifierType_Refused",
+      "time": "0.004"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_OverlongIdentifier_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_UnknownKey_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_UnknownSheet_Refused",
+      "time": "0.01"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_ConflictingIdentifiers_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC07_Reject_ReadRole_Denied",
+      "time": "0.01"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC14_Reject_EmptySelection_WritesNothing",
+      "time": "0.06"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC05_Reject_LineNumberOverflow_Refused",
+      "time": "0.06"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC04_Reject_MixedInvalidLines_WritesNothing",
+      "time": "0.063"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC14_Reject_NoSubmittedLines_ReturnsEmpty",
+      "time": "0.057"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC02_Reject_OverlongComment_Refused",
+      "time": "0.007"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC01_Approve_SystemId_SelectsOnlySubmitted",
+      "time": "0.064"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC09_Approve_NativeFailure_RollsBackEarlierLine",
+      "time": "0.083"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC08_StatusField_RestrictedButReadable",
+      "time": "0.016"
+    },
+    {
+      "classname": "95616 TS Decision Tests",
+      "name": "Scenario_AC09_ApproveAbsence_PostsNativeEntries",
+      "time": "0.237"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC01_SubmittedForCaller_ReturnsDailyHoursOnly",
+      "time": "0.143"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC01_DateAndTypeFilters_RestrictHours",
+      "time": "0.02"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC01_Paging_PreservesStableOrder",
+      "time": "0.014"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC01_ResourceSystemId_ResolvesSameResource",
+      "time": "0.014"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_ConflictingResources_Refuses",
+      "time": "0.014"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC05_NoApprovals_ReturnsEmptySuccess",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC05_AfterLastPage_ReturnsEmptySuccess",
+      "time": "0.006"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC03_ReversedDates_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_MissingTo_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_MissingFrom_RefusesWithoutWrites",
+      "time": "0.01"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_WrongDateType_RefusesWithoutWrites",
+      "time": "0.01"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_BadDate_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_UnknownKey_RefusesWithoutWrites",
+      "time": "0.006"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_UnknownResource_RefusesWithoutWrites",
+      "time": "0.01"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_BadResourceId_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_BooleanTake_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_TextSkip_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_NegativeSkip_RefusesWithoutWrites",
+      "time": "0.006"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_FractionalTake_RefusesWithoutWrites",
+      "time": "0.01"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_ExcessiveTake_RefusesWithoutWrites",
+      "time": "0.01"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_ZeroTake_RefusesWithoutWrites",
+      "time": "0.007"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_NullType_RefusesWithoutWrites",
+      "time": "0.003"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC04_UnknownType_RefusesWithoutWrites",
+      "time": "0.006"
+    },
+    {
+      "classname": "95630 TS Pending Approval Tests",
+      "name": "Scenario_AC07_AC09_AC10_Contract_DiscoverableAndLocalized",
+      "time": "0.023"
+    },
+    {
+      "classname": "95633 TS Pending Permission Tests",
+      "name": "Scenario_AC02_AC06_NoNativeRead_RefusesWithPermissionHint",
+      "time": "0.02"
+    }
+  ]
+}

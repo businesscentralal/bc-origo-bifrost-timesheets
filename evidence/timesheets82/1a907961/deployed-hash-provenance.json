@@ -1,0 +1,18 @@
+[
+  {
+    "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+    "name": "test-product",
+    "deployedArtifact": "Origo.Bifrost_Timesheets.28.0.0.0.app",
+    "localHash": "3a19c02304865bfe93783ed1e4b336595b34a9320c69a0f92ddfe7fa9e5ae155",
+    "deployedHash": "3a19c02304865bfe93783ed1e4b336595b34a9320c69a0f92ddfe7fa9e5ae155",
+    "matches": true
+  },
+  {
+    "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+    "name": "test-app",
+    "deployedArtifact": "Origo.Bifrost_Timesheets_Tests.28.0.0.0.app",
+    "localHash": "bf08d15be07646d3c6c875f0a894ca3e5953354be85d10438e8a079dbefdc18e",
+    "deployedHash": "bf08d15be07646d3c6c875f0a894ca3e5953354be85d10438e8a079dbefdc18e",
+    "matches": true
+  }
+]

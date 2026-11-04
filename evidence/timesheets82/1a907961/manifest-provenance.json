@@ -1,0 +1,20 @@
+[
+  {
+    "file": "Origo.Bifrost_Timesheets.28.0.0.0.app",
+    "manifestSource": [
+      {
+        "Commit": "1a90796176cb87615a3fedeed5616032f431cfa1"
+      }
+    ],
+    "manifestContainsCandidate": true
+  },
+  {
+    "file": "Origo.Bifrost_Timesheets_Tests.28.0.0.0.app",
+    "manifestSource": [
+      {
+        "Commit": "1a90796176cb87615a3fedeed5616032f431cfa1"
+      }
+    ],
+    "manifestContainsCandidate": true
+  }
+]

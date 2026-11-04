@@ -1,0 +1,19 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "containerId": "f03e18c0fef3",
+  "isError": false,
+  "result": {
+    "passed": true,
+    "lcid": 1033,
+    "sheetNo": "A3C6DF1A8629499FA47B",
+    "resourceNo": "GL00000001",
+    "values": {
+      "Total": "4.00",
+      "Open": "4.00",
+      "Submitted": "0.00",
+      "Approved": "0.00",
+      "Rejected": "0.00"
+    },
+    "scenario": "Native Time Sheets951 preserves own out-of-scope4Openhours and0Submitted/Approved/Rejected after cutoffMCPoperations"
+  }
+}

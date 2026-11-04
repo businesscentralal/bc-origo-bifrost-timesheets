@@ -1,0 +1,28 @@
+# Timesheets #82 — current candidate verification
+
+Candidate **1a90796176cb87615a3fedeed5616032f431cfa1**, PR #83. Reginn (worker-6) retained this continuation; Brokkr's original checkout/evidence and Andvari's earlier CI diagnosis remain preserved.
+
+Only `test/test/ClockifyConnectorTests.Codeunit.al` and `CHANGELOG.md` differ from current main. No product message implementation, public API, permission or translation changed. The existing Approve/Reject/Reopen empty-result tests now create unique own fixtures, apply a historical ending-date cutoff, assert zero affected lines and unchanged own Open status, and delete their own test sheet. Seven refusal checks compare complete active-language messages. A completed interval reaches the intended missing-journal guard.
+
+## Executed checks at the candidate
+
+- Both product variants and test app: **0 errors, 0 warnings**. Product uses CodeCop/UICop/AppSourceCop; tests use configured CodeCop/UICop. Default strips IVT and inherited AS0081 suppression; no new suppression or exclusion.
+- Downloaded deployed product/test package hashes equal the compiled hashes, and both manifests embed the full candidate SHA. Owned BC 28.5 W1 uses Timesheets/Tests 28.0.0.0 and Foundation 28.0.11.667. CI uses Foundation 28.0.11.669 and app/test 28.0.2147483647.161; these are recorded separately, not represented as identical artifacts.
+- Owned full configured AL suite: **175 executed, 175 passed, 0 failed, 0 skipped**. Source roster contains exactly 175 tests.
+- Paired CI [41856520288](https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41856520288): green. Downloaded JUnit has **175/175/0/0**, matching every source test. Its synthetic d99951d18c301c9fb28729b1cc0aaed5a1003713 tree equals the candidate tree.
+- Codeunit 95601 on the same nonempty owned environment, explicit Codeunit isolation: **70/70 twice at 1033 and 70/70 twice at 1039**, total **280 passed, 0 failed, 0 skipped**. The private runner delta changes only import/helper paths and the actual Client Services culture.
+- Origo MCP: **35 scenarios passed, 0 failed, 0 skipped**, from **38 actual tool calls**: 14 bilingual help assertions, 18 functional scenarios and 3 complete before/after invariance assertions. Seven existing test-covered message types are listed in the summary. Zero-count cutoff operations, complete localized refusals, Post confirmation and exact expectedCount behavior were checked. All 21 task-created headers, 46 lines and 21 details remained byte-equivalent in the record snapshots.
+- Playwright MCP native Time Sheets list (951): **2/2**, in actual English and Icelandic Web Client sessions. The original own sheet shows 4 Open hours and 0 Submitted/Approved/Rejected hours. Actual shell locale and official Icelandic language app were verified; English restored.
+- Owned environment **reginn-worker6-timesheets82-20261104-w1 / f03e18c0fef3**: **DELETE 204, GET 404, absent from inventory**. This removes all task-created fixture data and the native User Setup row for the own login. Previous connection/settings restored byte-for-byte. No foreign/customer resources or licensing/EULA/trial/backend state were changed.
+
+## Scope and retained diagnostics
+
+The product date cutoff is company-wide: it excludes modern leftover sheets but cannot promise independence from arbitrary pre-1901 records. This limitation is disclosed; the test-only issue did not broaden product parameters. Approve internally submits; no standalone Submit test exists in 95601. Existing Post/Archive contracts were not expanded.
+
+The intentional one-test seed used Disabled isolation. The first four 70-test repeats inherited that setting and passed while leaving extra own fixtures. They are retained as diagnostic results; the acceptance repeats above explicitly select Codeunit isolation on that genuinely nonempty state. Initial MCP preflight expected one sheet and correctly stopped before feature calls; the corrected harness snapshots all owned records and identifies the original four-hour seed.
+
+Read-only help diagnostics exposed harness assumptions: no `chapters.examples` exists in either published contract; current main #46 added description/billable keys; Foundation adds expectedCount to destructive Post help; expected refusal tool results may be plain text plus help with isError=true. Final checks assert the current source inventory with the explicit Foundation augmentation and exact localized refusals. Saved successful calls were consumed without replaying the proven zero-count operations. Raw diagnostics remain in the private checkpoint, and their diagnosis is included here. No product assertion or native test was weakened.
+
+Gateway Layer 1 reports 23/23 with **0 changed product AL files scanned**; it excludes this test-only diff. Layer 2 explicitly reviews the actual test diff and scope. No new object, API, page, role or XLF unit was introduced.
+
+Independent current-head Claude verification, Grok clearance, eligible approval, Architect merge/deployment, Tester UAT and issue closure remain pending. This packet proves developer checks, not issue delivery. Secretary START is persisted; STOP/real ACK remain registrar obligations, with unpaid evidence retained.

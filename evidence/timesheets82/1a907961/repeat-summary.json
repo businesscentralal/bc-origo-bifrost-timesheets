@@ -1,0 +1,57 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "runs": [
+    {
+      "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+      "containerId": "f03e18c0fef3",
+      "lcid": 1033,
+      "culture": "en-US",
+      "iteration": 1,
+      "startedAt": "2026-11-04T17:48:43.770Z",
+      "passed": 70,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "exitCode": 0
+    },
+    {
+      "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+      "containerId": "f03e18c0fef3",
+      "lcid": 1033,
+      "culture": "en-US",
+      "iteration": 2,
+      "startedAt": "2026-11-04T17:49:04.193Z",
+      "passed": 70,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "exitCode": 0
+    },
+    {
+      "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+      "containerId": "f03e18c0fef3",
+      "lcid": 1039,
+      "culture": "is-IS",
+      "iteration": 1,
+      "startedAt": "2026-11-04T17:49:24.163Z",
+      "passed": 70,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "exitCode": 0
+    },
+    {
+      "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+      "containerId": "f03e18c0fef3",
+      "lcid": 1039,
+      "culture": "is-IS",
+      "iteration": 2,
+      "startedAt": "2026-11-04T17:49:43.722Z",
+      "passed": 70,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "exitCode": 0
+    }
+  ]
+}

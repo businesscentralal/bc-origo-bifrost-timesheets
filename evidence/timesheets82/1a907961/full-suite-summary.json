@@ -1,0 +1,13 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "containerId": "f03e18c0fef3",
+  "fullSuite": true,
+  "executed": 175,
+  "passed": 175,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "sourceRoster": 175,
+  "rosterMatchesCount": true,
+  "finishedAt": "2026-11-04T17:47:37.364Z"
+}

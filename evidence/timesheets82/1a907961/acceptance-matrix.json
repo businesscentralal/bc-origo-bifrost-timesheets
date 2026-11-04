@@ -1,0 +1,58 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/82",
+  "acceptance": [
+    {
+      "id": "AC01",
+      "implemented": true,
+      "verification": "Unique owned June 2026 sheet, explicit endingDateTo=1901-01-01, exact Success/zero count and unchanged Open status assertions. Full suite 175/175, explicit-isolation repeats 4x70, live zero-count calls in both locales, and native UI 2/2 preserve the original four-hour sheet. All 21 owned headers, 46 lines and 21 details are identical before/after MCP.",
+      "limitation": "The existing product cutoff is a company-wide date filter. It excludes modern leftover data but does not promise isolation from arbitrary pre-1901 records. Product parameters were not broadened."
+    },
+    {
+      "id": "AC02",
+      "implemented": true,
+      "verification": "Both apps compile at the current SHA with 0 errors and 0 warnings. Owned full suite 175/175/0/0; paired CI 41856520288 independently 175/175/0/0 with an identical source tree. Codeunit 95601 passes 70/70 twice in en-US and 70/70 twice in is-IS on the same nonempty owned environment, using explicit Codeunit isolation.",
+      "pending": "Independent review/clearance, approval, Architect merge/deployment and Tester UAT/issue closure remain separate delivery stages."
+    },
+    {
+      "id": "AC03",
+      "implemented": true,
+      "verification": "Reject and Reopen empty-result tests receive the same explicit cutoff, unique fixture, unchanged-status and cleanup checks. Approve calls native Submit internally. There is no standalone Submit test in codeunit 95601. Existing company-wide Post/Archive contracts are unchanged. Full suite, bilingual repeats and MCP cover these paths."
+    }
+  ],
+  "compile": "/workspace/evidence/timesheets82-reginn-20261104/compile-summary.json",
+  "fullSuite": "/workspace/evidence/timesheets82-reginn-20261104/full-suite-summary.json",
+  "repeats": "/workspace/evidence/timesheets82-reginn-20261104/isolated-repeat-summary.json",
+  "mcp": {
+    "scenarios": 35,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0,
+    "actualCalls": 38,
+    "messageTypes": [
+      "Clockify.TimeSheet.Approve",
+      "Clockify.TimeSheet.Reject",
+      "Clockify.TimeSheet.Reopen",
+      "Clockify.TimeSheet.Post",
+      "Clockify.TimeEntry.Sync",
+      "Clockify.TimeEntry.SyncRange",
+      "Clockify.TimeEntry.SyncToTimeSheet"
+    ],
+    "ownsAllData": true
+  },
+  "learning": [
+    "timesheets82-worker2-localized-repeat-20261104",
+    "timesheets82-reginn-native-isolation-retention-20261104",
+    "timesheets62-andvari-mcp-refusal-contract-shapes-20261104"
+  ],
+  "diagnostics": "/workspace/evidence/timesheets82-reginn-20261104/verification-preflight-diagnosis.json",
+  "updatedAt": "2026-11-04T17:57:51.146258+00:00",
+  "cleanup": {
+    "containerId": "f03e18c0fef3",
+    "deleteStatus": 204,
+    "getStatus": 404,
+    "absentFromInventory": true,
+    "allOwnedFixturesRemoved": true,
+    "priorConnectionRestored": true
+  }
+}

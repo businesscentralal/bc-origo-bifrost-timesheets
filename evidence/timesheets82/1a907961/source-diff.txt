@@ -1,0 +1,229 @@
+diff --git a/test/test/ClockifyConnectorTests.Codeunit.al b/test/test/ClockifyConnectorTests.Codeunit.al
+index e3af005..618cca4 100644
+--- a/test/test/ClockifyConnectorTests.Codeunit.al
++++ b/test/test/ClockifyConnectorTests.Codeunit.al
+@@ -1,4 +1,4 @@
+-namespace Origo.Bifrost.Timesheets.Test;
++﻿namespace Origo.Bifrost.Timesheets.Test;
+ 
+ using Microsoft.Projects.Project.Job;
+ using Microsoft.Projects.Project.Journal;
+@@ -241,7 +241,9 @@ codeunit 95601 "Clockify Connector Tests"
+         asserterror WorkspaceMgt.LookupWorkspace(WorkspaceId, WorkspaceName);
+ 
+         // [THEN] A guiding error is raised
+-        LibraryAssert.ExpectedError('Set the company Clockify API key before selecting a workspace.');
++        LibraryAssert.ExpectedError(ExpectedLocalizedText(
++            'Set the company Clockify API key before selecting a workspace.',
++            'Skráðu Clockify API lykil fyrirtækis áður en þú velur vinnusvæði.'));
+     end;
+ 
+     [Test]
+@@ -394,6 +396,9 @@ codeunit 95601 "Clockify Connector Tests"
+         RequestJson.Add('userId', 'U-1');
+         RequestJson.Add('entryId', 'E-1');
+         RequestJson.Add('projectId', 'P-1');
++        // A completed interval reaches the journal guard instead of the running-timer guard.
++        RequestJson.Add('start', '2026-06-09T08:00:00Z');
++        RequestJson.Add('end', '2026-06-09T12:00:00Z');
+ 
+         // [WHEN] The Clockify.TimeEntry.Sync task executes
+         ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeEntry.Sync", RequestJson);
+@@ -401,7 +406,7 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] It reports an error pointing at the missing Job Journal configuration
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
++        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
+     end;
+ 
+     [Test]
+@@ -432,7 +437,10 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] The request is rejected and clearly reports the in-progress rule
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'In-progress entries should be rejected.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('In-progress time entries'), 'The response should explain why the sync was blocked.');
++        LibraryAssert.AreEqual(ExpectedLocalizedText(
++            'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).',
++            'Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).'),
++            ReadText(ResponseJson, 'error'), 'The complete in-progress refusal should match the session language.');
+     end;
+ 
+     [Test]
+@@ -1045,7 +1053,7 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] It reports an error pointing at the missing Job Journal configuration
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal configuration.');
++        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
+     end;
+ 
+     [Test]
+@@ -1186,15 +1194,29 @@ codeunit 95601 "Clockify Connector Tests"
+     procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
+     var
+         TempArgument: Record "Message Argument ori" temporary;
++        TimeSheetLine: Record "Time Sheet Line";
++        RequestJson: JsonObject;
+         ResponseJson: JsonObject;
++        TimeSheetNo: Code[20];
+     begin
+-        // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
+-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Approve");
++        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
++        // The cut-off is far earlier than any other sheet in the company, so leftover or real
++        // sheets cannot affect the result (scoping is by the request's endingDateTo).
++        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
++        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
++
++        // [WHEN] Clockify.TimeSheet.Approve runs with that cut-off
++        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Approve", RequestJson);
+ 
+-        // [THEN] It succeeds and approves nothing
++        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Approve should succeed.');
+-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets should yield 0 approved lines.');
++        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets in scope should yield 0 approved lines.');
++        TimeSheetLine.Get(TimeSheetNo, 10000);
++        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
++
++        // Cleanup of the test's own fixture
++        DeleteOwnTimeSheet(TimeSheetNo);
+     end;
+ 
+     [Test]
+@@ -1216,30 +1238,58 @@ codeunit 95601 "Clockify Connector Tests"
+     procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
+     var
+         TempArgument: Record "Message Argument ori" temporary;
++        TimeSheetLine: Record "Time Sheet Line";
++        RequestJson: JsonObject;
+         ResponseJson: JsonObject;
++        TimeSheetNo: Code[20];
+     begin
+-        // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
+-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reject");
++        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
++        // The cut-off is far earlier than any other sheet in the company, so leftover or real
++        // sheets cannot affect the result (scoping is by the request's endingDateTo).
++        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
++        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
+ 
+-        // [THEN] It succeeds and rejects nothing
++        // [WHEN] Clockify.TimeSheet.Reject runs with that cut-off
++        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reject", RequestJson);
++
++        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reject should succeed.');
+-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets should yield 0 rejected lines.');
++        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets in scope should yield 0 rejected lines.');
++        TimeSheetLine.Get(TimeSheetNo, 10000);
++        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
++
++        // Cleanup of the test's own fixture
++        DeleteOwnTimeSheet(TimeSheetNo);
+     end;
+ 
+     [Test]
+     procedure TimeSheetReopenReturnsZeroWhenNothingPending()
+     var
+         TempArgument: Record "Message Argument ori" temporary;
++        TimeSheetLine: Record "Time Sheet Line";
++        RequestJson: JsonObject;
+         ResponseJson: JsonObject;
++        TimeSheetNo: Code[20];
+     begin
+-        // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
+-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reopen");
++        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
++        // The cut-off is far earlier than any other sheet in the company, so leftover or real
++        // sheets cannot affect the result (scoping is by the request's endingDateTo).
++        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
++        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
+ 
+-        // [THEN] It succeeds and reopens nothing
++        // [WHEN] Clockify.TimeSheet.Reopen runs with that cut-off
++        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reopen", RequestJson);
++
++        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reopen should succeed.');
+-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets should yield 0 reopened lines.');
++        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets in scope should yield 0 reopened lines.');
++        TimeSheetLine.Get(TimeSheetNo, 10000);
++        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
++
++        // Cleanup of the test's own fixture
++        DeleteOwnTimeSheet(TimeSheetNo);
+     end;
+ 
+     [Test]
+@@ -1262,7 +1312,7 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] It reports the missing Job Journal configuration
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'error').Contains('Job Journal'), 'The error should mention the Job Journal.');
++        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
+     end;
+ 
+     [Test]
+@@ -1312,7 +1362,10 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] It reports a missing mapping
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'An unmapped project should error.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('mapping'), 'The message should mention the missing mapping.');
++        LibraryAssert.AreEqual(StrSubstNo(ExpectedLocalizedText(
++            'No integration mapping found for Clockify project %1.',
++            'Engin Clockify-tenging fannst fyrir verkefni %1.'), 'UNMAPPED'),
++            ReadText(ResponseJson, 'message'), 'The complete missing-mapping refusal should match the session language.');
+     end;
+ 
+     [Test]
+@@ -1344,7 +1397,10 @@ codeunit 95601 "Clockify Connector Tests"
+         // [THEN] It reports the missing open time sheet
+         ResponseJson := TempArgument.GetResponseJson();
+         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'result'), 'A missing open sheet should error.');
+-        LibraryAssert.IsTrue(ReadText(ResponseJson, 'message').Contains('open time sheet'), 'The message should explain the missing sheet.');
++        LibraryAssert.AreEqual(StrSubstNo(ExpectedLocalizedText(
++            'No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.',
++            'Engin opin tímaskráning fannst fyrir tilfang %1 þann %2. Keyrðu Clockify.TimeSheet.Create fyrst.'), ResourceNo, DMY2Date(9, 6, 2026)),
++            ReadText(ResponseJson, 'message'), 'The complete missing-sheet refusal should match the session language.');
+     end;
+ 
+     /// <summary>Verifies the #49 RequireParamAnswersInIcelandic refusal at LCID 1039.</summary>
+@@ -1681,6 +1737,33 @@ codeunit 95601 "Clockify Connector Tests"
+         TimeSheetLine.Insert(false, true);
+     end;
+ 
++    local procedure ExpectedLocalizedText(EnglishText: Text; IcelandicText: Text): Text
++    begin
++        // The required repeat runs execute the real test session in both supported languages.
++        // Keep the full expected message; never force the session back to English.
++        if GlobalLanguage() = 1039 then
++            exit(IcelandicText);
++        exit(EnglishText);
++    end;
++
++    local procedure ExpectedMissingJournalError(): Text
++    begin
++        exit(ExpectedLocalizedText(
++            'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.',
++            'Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.'));
++    end;
++
++    local procedure DeleteOwnTimeSheet(TimeSheetNo: Code[20])
++    var
++        TimeSheetHeader: Record "Time Sheet Header";
++        TimeSheetLine: Record "Time Sheet Line";
++    begin
++        TimeSheetLine.SetRange("Time Sheet No.", TimeSheetNo);
++        TimeSheetLine.DeleteAll(false);
++        if TimeSheetHeader.Get(TimeSheetNo) then
++            TimeSheetHeader.Delete(false);
++    end;
++
+     local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])
+     var
+         Job: Record Job;

@@ -1,0 +1,318 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "77acf2742cc253cad597eda02af00d9e1ac052651ed5225cfb67b11a643128b1"
+  },
+  {
+    "path": "acceptance-matrix.json",
+    "sha256": "10e42d7f88a5a422c52ac79ad78bbc1187c9d367cf887ae6f279de6162e5cfcf"
+  },
+  {
+    "path": "ci-junit-summary.json",
+    "sha256": "26c83cc7bbc7b841054f01820d0de867cf49327494fd15d2c65ddf3b1e5cb232"
+  },
+  {
+    "path": "ci-roster-proof.json",
+    "sha256": "5e9394f31471f051a6694e10c69b868ac320df93c68fa9ca88b0d05b47f1263f"
+  },
+  {
+    "path": "ci-summary.json",
+    "sha256": "0fec0574c5f7e1a48b77a169ac121d7e98e929aacd6baa747f054c7d36840d17"
+  },
+  {
+    "path": "cleanup-owned.json",
+    "sha256": "df5a6cc9e5ff4de8d3af343fd067718870b607106c31a96c6db591ca08683733"
+  },
+  {
+    "path": "compile-summary.json",
+    "sha256": "70fb95e97501748ea9d26ab3ac67366132d9f86a0a4e3a64c0fa7cff0a52f3c3"
+  },
+  {
+    "path": "context-restoration.json",
+    "sha256": "4880edecb0be745cec54eca26e318cb421a28dfd7d9cc7fadc4ae5df789464e1"
+  },
+  {
+    "path": "default-app.log",
+    "sha256": "f9e835b2d82d6ff92ac01376f05c8b73d0fc01ca6243aba7447f16cb67eb5d51"
+  },
+  {
+    "path": "deployed-hash-provenance.json",
+    "sha256": "bcfefe207aa7a0859c00d739f45722051c57719f0712b3d95cb7c5aa7dbef766"
+  },
+  {
+    "path": "full-suite-summary.json",
+    "sha256": "55b72b519619bcf66894ba64eb548e024492531635190fce5185bf519e836ecd"
+  },
+  {
+    "path": "full-suite.json",
+    "sha256": "ee6238da7e3140966eaeabb498a1a7f3370a5314728c8e98b6d12e431910da82"
+  },
+  {
+    "path": "gateway-assessment.json",
+    "sha256": "09412b8f74c01a5cb18cca579d3cc48ef8f14e76cbcdb82747b9de480cb615bc"
+  },
+  {
+    "path": "gateway-layer1.json",
+    "sha256": "784dd52a1ff45c8fc8981a0da70554719da9cfb5bfd05fdf3547c6aa9d24718c"
+  },
+  {
+    "path": "github-publication.json",
+    "sha256": "e77eaa5a984487262ba876d3f825873bb2c4c90482392f92f66be1f183fbab37"
+  },
+  {
+    "path": "installed-app-versions.json",
+    "sha256": "cbe242a290c3a524c70510a1ab7526d70a8ef7e20c35e0449872d622491d1216"
+  },
+  {
+    "path": "isolated-repeat-1033-1.json",
+    "sha256": "57047b2960a1e9a8223dff5b9b5ff4f33198f09328de7e65aa85b00122f6f3c9"
+  },
+  {
+    "path": "isolated-repeat-1033-2.json",
+    "sha256": "ab0852c93352ad9956f98ae4d19676802f5e61c7041bdc189b902e4f9ff7cf21"
+  },
+  {
+    "path": "isolated-repeat-1039-1.json",
+    "sha256": "8ad93500f53587f19c9af6633386b85579497c1a0bca9d33f36cb248297cb447"
+  },
+  {
+    "path": "isolated-repeat-1039-2.json",
+    "sha256": "c6c2599cc6549af54b6ec1a65c66d22eebf6b60e1ec6c045a1094740ac9f2919"
+  },
+  {
+    "path": "isolated-repeat-summary.json",
+    "sha256": "b28a120925f1f0c0b58ccb86adde416e77ccd714438cb72146ec7a813b282dc8"
+  },
+  {
+    "path": "localized-runner-delta.patch",
+    "sha256": "0c449d44df8c88099f3e0b5e12878c9df4cb6b2dd0852f4aae9ff8948cd64cc8"
+  },
+  {
+    "path": "manifest-provenance.json",
+    "sha256": "d78f131da8afe49412d8c854a3db75f04309c34d489d69d01e277b54997df71c"
+  },
+  {
+    "path": "mcp/01-before-Time-Sheet-Header.json",
+    "sha256": "02ad1b7dc896e6f1fea0ff659e956a665e7c40bacc25061c198eb14df9deddb2"
+  },
+  {
+    "path": "mcp/02-before-Time-Sheet-Line.json",
+    "sha256": "a709688939ba4084eecfce16295b0f56431e2a5187a0b9689f2094ddb73a56c5"
+  },
+  {
+    "path": "mcp/03-before-Time-Sheet-Detail.json",
+    "sha256": "4a6d61ea814250b7d28549eadb1a4a3bf5b200167ac8ecd6c0eb84b970625459"
+  },
+  {
+    "path": "mcp/04-help-Clockify-TimeSheet-Approve-1033.json",
+    "sha256": "9bb36b37356e664f9dc225f4b137d90daa8ce5641bca00104da8719f8615a12e"
+  },
+  {
+    "path": "mcp/05-help-Clockify-TimeSheet-Reject-1033.json",
+    "sha256": "f1a28470d1bc3fb55cd0dcd115b200ab4ebf491375c9010cf545914605d93467"
+  },
+  {
+    "path": "mcp/06-help-Clockify-TimeSheet-Reopen-1033.json",
+    "sha256": "34a1abfa0f739c8f8a61fb2fa84d46ab5d8dc39e58c30051937eece1e72f2a33"
+  },
+  {
+    "path": "mcp/07-help-Clockify-TimeEntry-Sync-1033.json",
+    "sha256": "f896a488839c9bc0190fbac01e81844f7ea7f8a303905018612012a16026abe3"
+  },
+  {
+    "path": "mcp/08-help-Clockify-TimeEntry-SyncRange-1033.json",
+    "sha256": "08842fcc9fcec06c6705559f3cc696b2c340bf5810347008c89f5a05ef9243c7"
+  },
+  {
+    "path": "mcp/09-help-Clockify-TimeEntry-SyncToTimeSheet-1033.json",
+    "sha256": "c11fc8928ecb1d391d271e5c8ee64d9ba021228dba91135c2849bfd4bf2a8211"
+  },
+  {
+    "path": "mcp/10-help-Clockify-TimeSheet-Post-1033.json",
+    "sha256": "2e5e647db381ec1e747a51c083c30e808ff60ed7d2bb84f69a7a474bca64908d"
+  },
+  {
+    "path": "mcp/11-zero-approvedLines-1033.json",
+    "sha256": "9c73c1a491eab48243f67649dd221f350bb91265450d0ec0fb9b123b1b1b8b21"
+  },
+  {
+    "path": "mcp/12-zero-rejectedLines-1033.json",
+    "sha256": "f5d78d1b51e783c056d2acbca4d253e4f9527ef2386f1c0058aeff630127902d"
+  },
+  {
+    "path": "mcp/13-zero-reopenedLines-1033.json",
+    "sha256": "1ab054fd5a03a7f65e6d926f675c94682a3f150b67598ae86ccff1e08430bb10"
+  },
+  {
+    "path": "mcp/14-missing-journal-Clockify-TimeEntry-Sync-1033.json",
+    "sha256": "1b89ab3664b1c1021bfad8d9864091fc1bcb377b4847547ec991d56cb741618e"
+  },
+  {
+    "path": "mcp/15-missing-journal-Clockify-TimeEntry-SyncRange-1033.json",
+    "sha256": "3fec3f6993648f05caa7d20e720e3d36f7e905476a6c37410b3367f0d0c32a15"
+  },
+  {
+    "path": "mcp/16-confirmation-post-1033.json",
+    "sha256": "f5366fd777f63412e9d01b61e572f58ed2ef21328512529a2bad679e8c7e7739"
+  },
+  {
+    "path": "mcp/17-confirmed-missing-journal-post-1033.json",
+    "sha256": "a38cac38fc8ffb1691b8d5b3dac575501522e4640c9d59207b181d284be0aa57"
+  },
+  {
+    "path": "mcp/18-running-timer-1033.json",
+    "sha256": "1be71429e528547f18d50a2b4de8d4c8d9db026aaa9432bb6ba0277bc32431a9"
+  },
+  {
+    "path": "mcp/19-missing-mapping-1033.json",
+    "sha256": "7f4f3e1c624244be8490dc505501e13ecd126e832dec9d7172f7a309a99a3197"
+  },
+  {
+    "path": "mcp/20-help-Clockify-TimeSheet-Approve-1039.json",
+    "sha256": "2129c7709b660bacd606e597b7127b9f477b1cbc5395752dbdf68b5db20dc968"
+  },
+  {
+    "path": "mcp/21-help-Clockify-TimeSheet-Reject-1039.json",
+    "sha256": "cfbc00c4ddcee3635b1464bbaf9048fb43379014ad0600617607dbc4084e3fd9"
+  },
+  {
+    "path": "mcp/22-help-Clockify-TimeSheet-Reopen-1039.json",
+    "sha256": "bd5dd6d0a93ee36c78eb02709ca23a71a884b3c2162e4f7b98e8b4a2193349af"
+  },
+  {
+    "path": "mcp/23-help-Clockify-TimeEntry-Sync-1039.json",
+    "sha256": "d14a76befc2bc18fd2b78667213989af7311bff631df78599c8cb58e2f29961c"
+  },
+  {
+    "path": "mcp/24-help-Clockify-TimeEntry-SyncRange-1039.json",
+    "sha256": "d428cedd0d991d7d1fe6ffe505b895535a2af1edb5e9815b9628068632e6ff8e"
+  },
+  {
+    "path": "mcp/25-help-Clockify-TimeEntry-SyncToTimeSheet-1039.json",
+    "sha256": "102403b338997987ce92fa54f9161f4ff006a0abe4be2b984c2cb6b2e90df1b9"
+  },
+  {
+    "path": "mcp/26-help-Clockify-TimeSheet-Post-1039.json",
+    "sha256": "6e3c7fa1c027f2ae3baf01a8ca3bb252b5c302dbafe4c26aadfb57cd9a11667e"
+  },
+  {
+    "path": "mcp/27-zero-approvedLines-1039.json",
+    "sha256": "5ef09db2e53c8cf96008a83f7bffc5855cb678a60453b117ac6e561eeee08772"
+  },
+  {
+    "path": "mcp/28-zero-rejectedLines-1039.json",
+    "sha256": "a412d87bea3f92e2d0efc629f4052558e63bfae0b8c4ddb1311a9c88481c2ecd"
+  },
+  {
+    "path": "mcp/29-zero-reopenedLines-1039.json",
+    "sha256": "ba4e29ba51fc7155e562d11bd39ba128389a416fbcc8f2db00d35d2e268de098"
+  },
+  {
+    "path": "mcp/30-missing-journal-Clockify-TimeEntry-Sync-1039.json",
+    "sha256": "e7c38d1ec6e6b5d0e3e03b7fe93dffec7e3322eb2f5054af680e64eabf363947"
+  },
+  {
+    "path": "mcp/31-missing-journal-Clockify-TimeEntry-SyncRange-1039.json",
+    "sha256": "e8e79f57bdc362f25f7e40d1c7e7181172b0f4ae891cb42d858b1ba2d760f4b7"
+  },
+  {
+    "path": "mcp/32-confirmation-post-1039.json",
+    "sha256": "e8e35c138e1b4e26c83e08894dced87870aab405bc4e2fd1fd3e3e150e82d6f5"
+  },
+  {
+    "path": "mcp/33-confirmed-missing-journal-post-1039.json",
+    "sha256": "bf2569e6fcdf9ec1915811a59c18d00b96a40e8990c0c9bbdb4d5b51a1748aee"
+  },
+  {
+    "path": "mcp/34-running-timer-1039.json",
+    "sha256": "7b70685059efe72d3b9cabb46aa98461349f8c552aabf079a7b884398fd84580"
+  },
+  {
+    "path": "mcp/35-missing-mapping-1039.json",
+    "sha256": "486a1e6c8c7000ed8f8cdef82cf97ac5246d668a4e59458f455e4beb61f3dd8f"
+  },
+  {
+    "path": "mcp/36-after-Time-Sheet-Header.json",
+    "sha256": "02ad1b7dc896e6f1fea0ff659e956a665e7c40bacc25061c198eb14df9deddb2"
+  },
+  {
+    "path": "mcp/37-after-Time-Sheet-Line.json",
+    "sha256": "a709688939ba4084eecfce16295b0f56431e2a5187a0b9689f2094ddb73a56c5"
+  },
+  {
+    "path": "mcp/38-after-Time-Sheet-Detail.json",
+    "sha256": "4a6d61ea814250b7d28549eadb1a4a3bf5b200167ac8ecd6c0eb84b970625459"
+  },
+  {
+    "path": "mcp-count-summary.json",
+    "sha256": "ede666c753111a47c22929a51343eba56ae5ede81b0a861893a6f80ee59fb895"
+  },
+  {
+    "path": "mcp-summary.json",
+    "sha256": "00ff0fb5778ad04773ff9c75b4a539c5ab48889a3bde9394e26006a63c34e275"
+  },
+  {
+    "path": "repeat-1033-1.json",
+    "sha256": "d459b74fea739fa65d8b239bc4046523f96644adb52a7963c7ac6304e125d71a"
+  },
+  {
+    "path": "repeat-1033-2.json",
+    "sha256": "6ee3ee1d1eb2126cd637e7f196242e4bd2d909d08a99f355834980af30b25040"
+  },
+  {
+    "path": "repeat-1039-1.json",
+    "sha256": "dea2eb5b6f2a7d158aa9d4f3a1bbc5228ae3b25eff324475924f4dc05e61e54a"
+  },
+  {
+    "path": "repeat-1039-2.json",
+    "sha256": "6cc5f702e0bd3fc2beb86b148decc5ec69843120c7fd012be6e575c71259f97e"
+  },
+  {
+    "path": "repeat-summary.json",
+    "sha256": "795ae25d44fc96566398a68b309760c8a0001146927eb35a17e45775f30fe88e"
+  },
+  {
+    "path": "source-diff.txt",
+    "sha256": "2b817aef3443d8119e91af7c94a59ea7aebce7203e5b898f72c536fa1eda24ff"
+  },
+  {
+    "path": "source-parameter-inventory.json",
+    "sha256": "c0b3fd6441b4a7ac5e3690dfc96042fa98afa0667f78eec973bf2b43c59862c4"
+  },
+  {
+    "path": "source-test-roster.json",
+    "sha256": "22aa5f1fd0c6dfda356238d1f138e3cd00191058bcf49f1fe3a2060ef24dea18"
+  },
+  {
+    "path": "test-app.log",
+    "sha256": "17c4eefa56dad5a66d9f73b877b0ff9af5b57502216cd3df15035fcb32a9a273"
+  },
+  {
+    "path": "test-product.log",
+    "sha256": "b205be16bfff77d8d07b4a67f91cc98685c9ea18ebf0b6b9a1c517d964e2ecb5"
+  },
+  {
+    "path": "timesheets-1033.png",
+    "sha256": "8bdbb6787d9687ab0efbb510a8d6e7831814b58a40e9cfeda7a051a5606e88c3"
+  },
+  {
+    "path": "timesheets-1039.png",
+    "sha256": "909db7fbb976a292dc7b3da7c0a495c1d9d092f8ae883756d0876cdfe0bfc01e"
+  },
+  {
+    "path": "ui-1033-result.json",
+    "sha256": "b3637a4890af458e66988a4954e7f6347cba47b3636af76b55ac64a865175fef"
+  },
+  {
+    "path": "ui-1039-result.json",
+    "sha256": "8ac0941bf3e20f45caed3b9e44bc7eaed2a97c0c444fafdab79c8e9e78495048"
+  },
+  {
+    "path": "ui-summary.json",
+    "sha256": "d9e1941086dab42bcb89fb36b1054ad11c6ff2a16ddeaae66defc7d74e06ccd7"
+  },
+  {
+    "path": "verification-preflight-diagnosis.json",
+    "sha256": "657c3f5621592fed7483690a7149979b1141826a6605f510b454b57d9d95a2c0"
+  }
+]

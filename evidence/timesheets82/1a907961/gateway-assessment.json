@@ -1,0 +1,127 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "layer1": {
+    "project": "Bifrost Timesheets",
+    "version": "28.0.0.0",
+    "summary": {
+      "passed": 23,
+      "ready": true,
+      "failed": 0,
+      "total": 23
+    },
+    "files_scanned": 0,
+    "total_al_files": 101,
+    "publisher": "Origo",
+    "checks": {
+      "try_prefix_convention": {
+        "pass": true,
+        "findings": []
+      },
+      "read_isolation": {
+        "pass": true,
+        "findings": []
+      },
+      "page_code_minimal": {
+        "pass": true,
+        "findings": []
+      },
+      "data_classification": {
+        "pass": true,
+        "findings": []
+      },
+      "hardcoded_values": {
+        "pass": true,
+        "findings": []
+      },
+      "format_evaluate_enum": {
+        "pass": true,
+        "findings": []
+      },
+      "changelog": {
+        "pass": true,
+        "findings": []
+      },
+      "modernization": {
+        "pass": true,
+        "findings": []
+      },
+      "global_variables": {
+        "pass": true,
+        "findings": []
+      },
+      "confirm_in_page": {
+        "pass": true,
+        "findings": []
+      },
+      "one_statement_per_line": {
+        "pass": true,
+        "findings": []
+      },
+      "object_naming": {
+        "pass": true,
+        "findings": []
+      },
+      "namespace": {
+        "pass": true,
+        "findings": []
+      },
+      "xml_doc_comments": {
+        "pass": true,
+        "findings": []
+      },
+      "with_statements": {
+        "pass": true,
+        "findings": []
+      },
+      "reserved_var_names": {
+        "pass": true,
+        "findings": []
+      },
+      "app_json": {
+        "pass": true,
+        "findings": []
+      },
+      "commit_in_loop": {
+        "pass": true,
+        "findings": []
+      },
+      "caption_translation": {
+        "skipped": null,
+        "pass": true,
+        "findings": []
+      },
+      "today_vs_workdate": {
+        "pass": true,
+        "findings": []
+      },
+      "set_load_fields": {
+        "advisory": "Loops without SetLoadFields - consider it only for wide tables; not a gate failure",
+        "pass": true,
+        "findings": []
+      },
+      "format_guid": {
+        "pass": true,
+        "findings": []
+      },
+      "event_subscriber_placement": {
+        "pass": true,
+        "findings": []
+      }
+    },
+    "mode": "diff (vs origin/main)"
+  },
+  "layer2": {
+    "scope": "Only CHANGELOG and codeunit95601 differ from current main. No product, API, permissions, message parameters or XLF changes.",
+    "AC01": "Approve empty result creates unique own June2026 header/line, invokes endingDateTo1901-01-01, asserts Success+zero plus own line stillOpen then deletes own header/lines.",
+    "AC03": "Reject and Reopen had same company assumption and receive same repair; Approve engine invokes native Submit. No standalone Submit test in95601. Existing Post/Archive behavior outside this test-only scope.",
+    "localization": "Seven exact en-US/is-IS expected refusals replace English fragments. Completed start/end in missing-journal fixture reaches intended guard. Real Client Services cultures will prove both languages; no forcedEnglish or weakening.",
+    "fixtureLimitation": "Date cutoff excludes modern leftover sheets but is still a company-wide product date filter; it cannot promise independence from arbitrary pre1901 rows. Disclosed rather than widening product scope. Current owned checks seed nonempty modern fixture.",
+    "compile": "Both product variants and test app exactSHA0errors0warnings; no added warning exclusions; Default strips inheritedIVT/AS0081.",
+    "learning": [
+      "timesheets82-worker2-localized-repeat-20261104"
+    ],
+    "remaining": "Current-tip ownfull175, isolated4x70, MCP35 and UI2bothlocalescomplete; cleanup andactualreviewhandoffpending.",
+    "verification": "/workspace/evidence/timesheets82-reginn-20261104/acceptance-matrix.json"
+  },
+  "checkedAt": "2026-11-04T17:44:16.751870+00:00"
+}

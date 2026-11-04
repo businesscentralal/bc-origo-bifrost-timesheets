@@ -1,0 +1,24 @@
+{
+  "name": "invoke_message_type",
+  "args": {
+    "companyId": "e3bebedf-25d7-f111-9263-3833c5d1d79b",
+    "type": "Clockify.TimeEntry.SyncToTimeSheet",
+    "data": {
+      "workspaceId": "X82OWN",
+      "userId": "X82USER",
+      "entryId": "X82ENTRY",
+      "projectId": "X82UNMAPPED",
+      "start": "2026-06-09T08:00:00Z",
+      "end": "2026-06-09T12:00:00Z"
+    },
+    "lcid": 1039
+  },
+  "raw": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"company\": \"CRONUS International Ltd.\", \"messageType\": \"Clockify.TimeEntry.SyncToTimeSheet\", \"result\": \"Error\", \"message\": \"Engin Clockify-tenging fannst fyrir verkefni X82UNMAPPED.\", \"entryId\": \"X82ENTRY\", \"hours\": 4, \"postingDate\": \"2026-06-09\"}"
+      }
+    ]
+  }
+}

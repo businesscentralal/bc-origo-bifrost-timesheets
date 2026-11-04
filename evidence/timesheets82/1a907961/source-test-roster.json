@@ -1,0 +1,279 @@
+{
+  "sha": "1a90796176cb87615a3fedeed5616032f431cfa1",
+  "total": 175,
+  "codeunits": [
+    {
+      "file": "test/ClockifyConnectorTests.Codeunit.al",
+      "codeunit": 95601,
+      "count": 70,
+      "testMethods": [
+        "HelpTypeIsOutboundWithNoFilterTable",
+        "EveryClockifyTypeHasMetadataAndHelp",
+        "CompanyApiKeyRoundtrips",
+        "DefaultApiVersionIsVersion1",
+        "WorkspaceListRoutesGetThroughClient",
+        "ErrorResponseIsSurfacedWithStatusCode",
+        "ProjectCreatePostsBodyToWorkspace",
+        "DefaultWorkspaceUsedWhenRequestOmitsIt",
+        "WorkspaceLookupRequiresApiKey",
+        "WorkspaceLookupReturnsSelection",
+        "RegisterCreatesWebhooksForEachTimeEntryEvent",
+        "RemoveDeletesRegisteredWebhooks",
+        "ReverseTimeEntryWithNoLinkIsSkipped",
+        "JobJournalResolvesFromSetup",
+        "TimeEntrySyncErrorsWhenNoJournalConfigured",
+        "TimeEntrySyncRejectsInProgressEntries",
+        "WorkTypeResolvesFromTagThenDefault",
+        "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+        "SyncSkipsUnchangedThenUpdatesOnChange",
+        "ReverseDeletesSyncedJournalLine",
+        "WebhookDispatchCreatesJobJournalLine",
+        "IntegrationTableStampsAndClearsReversedAt",
+        "RetentionRegistersIntegrationTable",
+        "HelpIncludesIntegrationTracking",
+        "CurrencyListProjectsWorkspaceCurrencies",
+        "UserGroupListRoutesGetToWorkspacesUserGroups",
+        "UserGroupListForwardsQueryString",
+        "TimeEntryListForwardsInProgressQueryParameter",
+        "CustomFieldListRoutesGetToWorkspacesCustomFields",
+        "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+        "UserGroupListHelpExplainsIdUsage",
+        "CustomFieldListHelpExplainsIdUsage",
+        "TimeEntryListHelpExplainsInProgressFilter",
+        "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+        "UserListHelpExplainsOptionalQueryEffects",
+        "ClientUpdateHelpExplainsOptionalBodyEffects",
+        "OverviewListsLookupEndpoints",
+        "OverviewGotchasCallOutIdOnlyWrites",
+        "IntegrationGateAllowsWriteAccess",
+        "SyncRangeIsInboundWithHelp",
+        "SyncRangeErrorsWhenNoJournalConfigured",
+        "SyncRangeCreatesLinesForEntriesInRange",
+        "SyncRangePerEntryErrorDoesNotAbortBatch",
+        "AllInboundTimeTypesAreInboundWithHelp",
+        "TimeSheetCreateReturnsCountWithNoResources",
+        "TimeSheetApproveReturnsZeroWhenNothingOpen",
+        "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+        "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+        "TimeSheetReopenReturnsZeroWhenNothingPending",
+        "TimeSheetPostErrorsWhenNoJournalConfigured",
+        "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+        "SyncToTimeSheetErrorsWhenNoMapping",
+        "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+        "Scenario_AC08_RequireParamAnswersInIcelandic",
+        "Scenario_AC08_RequireBodyAnswersInIcelandic",
+        "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+        "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic",
+        "SyncToTimeSheetCreatesDetailOnOpenSheet",
+        "SyncRangeToTimeSheetCreatesDetailsForEntries",
+        "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+        "SyncAllUsersSyncsMappedUserToTimeSheet",
+        "ReverseFromTimeSheetRemovesOpenDetail",
+        "WebhookSigningTokenIsRedactedFromTheResponseLog",
+        "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+        "BodiesWithoutASigningTokenPassThroughUnchanged",
+        "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+        "HelpClockifyGetUsesTableNameNotTable",
+        "InboundTimeTypesHaveNonEmptyRequestExamples",
+        "InboundHelpMarkdownShowsDirectionInbound",
+        "HelpTracksUppercaseClockifyTypeCodes"
+      ]
+    },
+    {
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al",
+      "codeunit": 95612,
+      "count": 8,
+      "testMethods": [
+        "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+        "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+        "FieldRestrict_NeighbourFieldsNotRestricted",
+        "FieldRestrict_TableLevelChecksStayFalse",
+        "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+        "Scenario_AC07_NameAlias_Refused",
+        "Scenario_AC07_JsonAlias_Refused",
+        "Scenario_AC07_WorkType_SaveAndClear"
+      ]
+    },
+    {
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al",
+      "codeunit": 95613,
+      "count": 8,
+      "testMethods": [
+        "ClockifyWrites_DeclareInbound",
+        "BusinessCentralSideTypes_StayInbound",
+        "ReadTypes_StayOutbound",
+        "SyncParameters_MatchOptionalUsageInCode",
+        "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+        "WrongWorkspace_DocumentedAs400Not404",
+        "CustomFieldList_Documents403ForFreePlan",
+        "Overview_DefinesDirectionByMutation"
+      ]
+    },
+    {
+      "file": "test/ClockifyRetenPolicyTests.Codeunit.al",
+      "codeunit": 95607,
+      "count": 2,
+      "testMethods": [
+        "TC001_EnableDefaultPolicyInsertsEnabledRow",
+        "TC002_EnableDefaultPolicyReRunIsIdempotent"
+      ]
+    },
+    {
+      "file": "test/ClockifyUserPagingTests.Codeunit.al",
+      "codeunit": 95604,
+      "count": 11,
+      "testMethods": [
+        "DefaultPageProcessesOneHundredUsers",
+        "ZeroTakeUsesDefaultPageSize",
+        "NegativeSkipFailsBeforeFetching",
+        "NegativeTakeFailsBeforeFetching",
+        "OversizedTakeIsClamped",
+        "NextSkipContinuesWithoutRepeatingUsers",
+        "FailedUserDoesNotStopThePage",
+        "SkipAtAndBeyondEndDoesNotFetch",
+        "EmptyMappingSetReturnsCompletedPage",
+        "HelpDescribesParametersResponseAndCallerLoop",
+        "ClockifyListsKeepTheirOwnPaging"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch1Tests.Codeunit.al",
+      "codeunit": 95608,
+      "count": 3,
+      "testMethods": [
+        "Batch1TypesDeclareContractAndDiscovery",
+        "Scenario_AC08_EveryType_DeclaresOnlyItsOwnParameterNames",
+        "Scenario_AC06_SyncContracts_DescribeOptionalBillableAndDescription"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch2Tests.Codeunit.al",
+      "codeunit": 95609,
+      "count": 1,
+      "testMethods": [
+        "Batch2TypesDeclareContractAndDiscovery"
+      ]
+    },
+    {
+      "file": "test/MessageContractBatch3Tests.Codeunit.al",
+      "codeunit": 95610,
+      "count": 1,
+      "testMethods": [
+        "Batch3TypesDeclareContractAndDiscovery"
+      ]
+    },
+    {
+      "file": "test/MessageContractEffectTests.Codeunit.al",
+      "codeunit": 95611,
+      "count": 4,
+      "testMethods": [
+        "ClockifyApiWrites_DeclareIrreversible",
+        "ClockifyDeletesAndPost_DeclareIrreversible",
+        "BusinessCentralOnlyWrites_StayWrite",
+        "Reads_StayRead"
+      ]
+    },
+    {
+      "file": "test/PhoneRoleCenterTests.Codeunit.al",
+      "codeunit": 95615,
+      "count": 10,
+      "testMethods": [
+        "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+        "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+        "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+        "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+        "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+        "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+        "PopulateCurrentCustomers_UsesMyCustomers",
+        "ResolveLastWorkday_Monday_ReturnsFriday",
+        "AddServiceItemLine_ReusesOpenInvoice",
+        "AddServiceItemLine_InvalidItem_Errors"
+      ]
+    },
+    {
+      "file": "test/TimesheetsRegistrationTests.Codeunit.al",
+      "codeunit": 95606,
+      "count": 1,
+      "testMethods": [
+        "AppRegistersItselfWithFoundation"
+      ]
+    },
+    {
+      "file": "test/TSDecisionTests.Codeunit.al",
+      "codeunit": 95616,
+      "count": 31,
+      "testMethods": [
+        "Scenario_AC03_Approve_NotApprover_WritesNothing",
+        "Scenario_AC04_Approve_OpenLine_MustBeSubmittedFirst",
+        "Scenario_AC06_Approve_Submitted_ThenUnchanged",
+        "Scenario_AC02_Reject_WithComment",
+        "Scenario_AC05_Approve_MissingIdentifier_Refused",
+        "Scenario_AC05_Approve_WrongIdentifierType_Refused",
+        "Scenario_AC05_Approve_OverlongIdentifier_Refused",
+        "Scenario_AC05_Approve_UnknownKey_Refused",
+        "Scenario_AC05_Approve_UnknownSheet_Refused",
+        "Scenario_AC05_Approve_ConflictingIdentifiers_Refused",
+        "Scenario_AC07_Approve_ReadRole_Denied",
+        "Scenario_AC14_Approve_EmptySelection_WritesNothing",
+        "Scenario_AC05_Approve_LineNumberOverflow_Refused",
+        "Scenario_AC04_Approve_MixedInvalidLines_WritesNothing",
+        "Scenario_AC14_Approve_NoSubmittedLines_ReturnsEmpty",
+        "Scenario_AC05_Reject_MissingIdentifier_Refused",
+        "Scenario_AC05_Reject_WrongIdentifierType_Refused",
+        "Scenario_AC05_Reject_OverlongIdentifier_Refused",
+        "Scenario_AC05_Reject_UnknownKey_Refused",
+        "Scenario_AC05_Reject_UnknownSheet_Refused",
+        "Scenario_AC05_Reject_ConflictingIdentifiers_Refused",
+        "Scenario_AC07_Reject_ReadRole_Denied",
+        "Scenario_AC14_Reject_EmptySelection_WritesNothing",
+        "Scenario_AC05_Reject_LineNumberOverflow_Refused",
+        "Scenario_AC04_Reject_MixedInvalidLines_WritesNothing",
+        "Scenario_AC14_Reject_NoSubmittedLines_ReturnsEmpty",
+        "Scenario_AC02_Reject_OverlongComment_Refused",
+        "Scenario_AC01_Approve_SystemId_SelectsOnlySubmitted",
+        "Scenario_AC09_Approve_NativeFailure_RollsBackEarlierLine",
+        "Scenario_AC08_StatusField_RestrictedButReadable",
+        "Scenario_AC09_ApproveAbsence_PostsNativeEntries"
+      ]
+    },
+    {
+      "file": "test/TSPendingApprovalTests.Codeunit.al",
+      "codeunit": 95630,
+      "count": 24,
+      "testMethods": [
+        "Scenario_AC01_SubmittedForCaller_ReturnsDailyHoursOnly",
+        "Scenario_AC01_DateAndTypeFilters_RestrictHours",
+        "Scenario_AC01_Paging_PreservesStableOrder",
+        "Scenario_AC01_ResourceSystemId_ResolvesSameResource",
+        "Scenario_AC04_ConflictingResources_Refuses",
+        "Scenario_AC05_NoApprovals_ReturnsEmptySuccess",
+        "Scenario_AC05_AfterLastPage_ReturnsEmptySuccess",
+        "Scenario_AC03_ReversedDates_RefusesWithoutWrites",
+        "Scenario_AC04_MissingTo_RefusesWithoutWrites",
+        "Scenario_AC04_MissingFrom_RefusesWithoutWrites",
+        "Scenario_AC04_WrongDateType_RefusesWithoutWrites",
+        "Scenario_AC04_BadDate_RefusesWithoutWrites",
+        "Scenario_AC04_UnknownKey_RefusesWithoutWrites",
+        "Scenario_AC04_UnknownResource_RefusesWithoutWrites",
+        "Scenario_AC04_BadResourceId_RefusesWithoutWrites",
+        "Scenario_AC04_BooleanTake_RefusesWithoutWrites",
+        "Scenario_AC04_TextSkip_RefusesWithoutWrites",
+        "Scenario_AC04_NegativeSkip_RefusesWithoutWrites",
+        "Scenario_AC04_FractionalTake_RefusesWithoutWrites",
+        "Scenario_AC04_ExcessiveTake_RefusesWithoutWrites",
+        "Scenario_AC04_ZeroTake_RefusesWithoutWrites",
+        "Scenario_AC04_NullType_RefusesWithoutWrites",
+        "Scenario_AC04_UnknownType_RefusesWithoutWrites",
+        "Scenario_AC07_AC09_AC10_Contract_DiscoverableAndLocalized"
+      ]
+    },
+    {
+      "file": "test/TSPendingPermissionTests.Codeunit.al",
+      "codeunit": 95633,
+      "count": 1,
+      "testMethods": [
+        "Scenario_AC02_AC06_NoNativeRead_RefusesWithPermissionHint"
+      ]
+    }
+  ]
+}

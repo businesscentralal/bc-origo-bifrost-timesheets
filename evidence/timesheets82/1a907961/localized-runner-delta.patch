@@ -1,0 +1,31 @@
+--- installed/runTests.js
++++ private/localized-runTests.mjs
+@@ -33,8 +33,8 @@
+ import { join, dirname } from "node:path";
+ import { fileURLToPath } from "node:url";
+ import { randomBytes } from "node:crypto";
+-import { canConnectToSsh, ensureCosmoSsh, fetchCosmoSshInfo, sshUsable, wait, } from "../cosmo/ssh.js";
+-export { normalizeSshInfo, fetchCosmoSshInfo, sshUsable, wait } from "../cosmo/ssh.js";
++import { canConnectToSsh, ensureCosmoSsh, fetchCosmoSshInfo, sshUsable, wait, } from "/usr/local/lib/node_modules/origo-bc-mcp-server/dist/cosmo/ssh.js";
++export { normalizeSshInfo, fetchCosmoSshInfo, sshUsable, wait } from "/usr/local/lib/node_modules/origo-bc-mcp-server/dist/cosmo/ssh.js";
+ const COSMO_EXEC_TEST_NOTE = "Cosmo Alpaca OpenAPI has no /Container/Exec/{id} test-runner endpoint " +
+     "(only deployApp, appinfo, restartServerInstance, backup, dllCollection, eventlog, prepareForBaseApp). " +
+     "AL unit tests require SSH into the BC container; Cosmo SSH is in-container (Client Services / " +
+@@ -308,7 +308,7 @@
+ }
+ /** Resolve vendored PsTestFunctions + ClientContext next to compiled JS (or src checkout). */
+ export function resolvePsTestHelperPaths() {
+-    const here = dirname(fileURLToPath(import.meta.url));
++    const here = "/usr/local/lib/node_modules/origo-bc-mcp-server/dist/bc";
+     const candidates = [
+         join(here, "pstest"),
+         join(here, "..", "..", "src", "bc", "pstest"),
+@@ -565,7 +565,7 @@
+         `          Write-Host "[MCP] New-ClientContext + Run-Tests testPage=$testPage"`,
+         `          [Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }`,
+         `          if (Get-Command Disable-SslVerification -ErrorAction SilentlyContinue) { try { Disable-SslVerification } catch { } }`,
+-        `          $clientContext = New-ClientContext -serviceUrl $serviceUrl -auth $authType -credential $cred -interactionTimeout $interactionTimeout -culture 'en-US'`,
++        `          $clientContext = New-ClientContext -serviceUrl $serviceUrl -auth $authType -credential $cred -interactionTimeout $interactionTimeout -culture '${process.env.REGINN_TEST_CULTURE || "en-US"}'`,
+         `          $rtParams = @{`,
+         `            clientContext = $clientContext`,
+         `            TestSuite = $testSuite`,

@@ -1,0 +1,49 @@
+{
+  "Clockify.TimeEntry.Sync": [
+    "workspaceId",
+    "userId",
+    "entryId",
+    "projectId",
+    "taskId",
+    "description",
+    "start",
+    "end",
+    "billable",
+    "tagIds",
+    "journalTemplate",
+    "journalBatch"
+  ],
+  "Clockify.TimeEntry.SyncRange": [
+    "workspaceId",
+    "userId",
+    "start",
+    "end",
+    "journalTemplate",
+    "journalBatch"
+  ],
+  "Clockify.TimeEntry.SyncToTimeSheet": [
+    "workspaceId",
+    "userId",
+    "entryId",
+    "projectId",
+    "taskId",
+    "description",
+    "start",
+    "end",
+    "billable",
+    "tagIds"
+  ],
+  "Clockify.TimeSheet.Approve": [
+    "endingDateTo"
+  ],
+  "Clockify.TimeSheet.Reject": [
+    "endingDateTo"
+  ],
+  "Clockify.TimeSheet.Reopen": [
+    "endingDateTo"
+  ],
+  "Clockify.TimeSheet.Post": [
+    "journalTemplate",
+    "journalBatch"
+  ]
+}
