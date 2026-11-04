@@ -12,6 +12,8 @@
 - #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95614.
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+- Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036872, 10036878–10036883; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95618 (`TS Fill Sheet Tests`) and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
+- Align test codeunit 95612 with Foundation 28.0.10’s table-caption refusal text; retain exact error and next-step assertions.
 ### Added (2026-11-04) - Create selected weekly time sheets (#61)
 
 - `Timesheets.TimeSheet.Create` selects one literal resource number, a list or a resource group, creates 1–52 weekly periods and optionally creates project-planning lines. Existing periods are returned under `skipped` without modification. `Clockify.TimeSheet.Create` remains unchanged.
@@ -29,6 +31,7 @@
 - Preserve #49's translated refusals while substituting the exact request parameter keys in codeunits 10036821 and 10036832. Keep all Icelandic translation units in main's order and derive protected-field test expectations from field/table captions (95612).
 
 ### Changed
+- Resolve the native approval integration by retaining its helpers and assigning the issue #64 internal fill helpers to 10036880–10036883. Preserve both permission and write-protection contracts; move fill tests to 95618 to keep all decision tests at 95616.
 
 - Test codeunit 95601 checks complete localized refusal messages in English and Icelandic during repeated runs, using a completed interval for the missing-journal scenario and preserving status/result assertions for missing API keys, journals, mappings, open sheets and running timers (#82).
 
@@ -469,3 +472,5 @@ The following were found by the PR gateway run on 2026-09-07.
 
 Released as *Origo Cloud Events Clockify* on Origo Cloud Events Core. See the repository history
 before 2026-09-06.
+
+- Integrate current main for #64: retain Submit (95614) and Fill (95618) as separate test families, combine native permissions and preserve all main-ordered translations.
