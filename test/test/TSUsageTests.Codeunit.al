@@ -1,18 +1,23 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
-using Microsoft.Foundation.UOM;
 using Microsoft.Finance.GeneralLedger.Setup;
-using Microsoft.Projects.Resources.Ledger;
+using Microsoft.Foundation.UOM;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Journal;
+using Microsoft.Inventory.Ledger;
+using Microsoft.Inventory.Posting;
+using Microsoft.Inventory.Setup;
 using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
-using Microsoft.Sales.Customer;
+using Microsoft.Projects.Project.Ledger;
+using Microsoft.Projects.Project.Posting;
 using Microsoft.Projects.Resources.Journal;
+using Microsoft.Projects.Resources.Ledger;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
-using Origo.Bifrost;
+using Microsoft.Sales.Customer;
 using Origo.Bifrost.Timesheets;
+using Origo.Bifrost;
 using System.TestLibraries.Utilities;
 
 /// <summary>Owned-fixture usage lifecycle, authorization and transaction regressions for issue 84.</summary>
@@ -748,6 +753,160 @@ codeunit 95635 "TS Usage Tests"
         AssertJobJournalTransfer(true);
     end;
 
+    /// <summary>Registration refuses a blocked resource without creating usage.</summary>
+    [Test]
+    procedure Scenario_AC02_BlockedResourceRefusesWithoutWrite()
+    var
+        Header: Record "Time Sheet Header";
+        Resource: Record Resource;
+        Usage: Record "TS Usage Line ori";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        // Story #84, AC02 | Time: fixture WorkDate | Risk: None
+        Fixture(Request, SheetNo, ItemNo);
+        Header.Get(SheetNo);
+        Resource.Get(Header."Resource No.");
+        Resource.Blocked := true;
+        Resource.Modify(false);
+        Request.Replace('type', 'Resource');
+        Request.Replace('no', Resource."No.");
+        Response := Execute('Register', Request);
+        Assert.AreEqual('Error', TextValue(Response, 'status'), 'Blocked resource is refused.');
+        Assert.AreEqual('no', TextValue(Response, 'parameter'), 'Refusal names the resource key.');
+        Usage.SetRange("Time Sheet No.", SheetNo);
+        Assert.IsTrue(Usage.IsEmpty(), 'No usage is created.');
+        Cleanup(SheetNo, ItemNo);
+    end;
+
+    /// <summary>Real native item posting records the exact ledger and preserves Posted after journal deletion.</summary>
+    [Test]
+    procedure Scenario_AC07_ItemPostingTracksActualLedger()
+    var
+        Usage: Record "TS Usage Line ori";
+        Item: Record Item;
+        PostingGroup: Record "Inventory Posting Group";
+        Journal: Record "Item Journal Line";
+        JournalTemplate: Record "Item Journal Template";
+        Batch: Record "Item Journal Batch";
+        Ledger: Record "Item Ledger Entry";
+        ValueEntry: Record "Value Entry";
+        Application: Record "Item Application Entry";
+        ItemRegister: Record "Item Register";
+        PostLine: Codeunit "Item Jnl.-Post Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        // Story #84, AC07 | Time: fixture WorkDate | Risk: native zero-cost inventory posting
+        CreateUsage(Usage, SheetNo, ItemNo, true);
+        Item.Get(ItemNo);
+        PostingGroup.Code := Item."Base Unit of Measure";
+        PostingGroup.Insert(false);
+        Item."Inventory Posting Group" := PostingGroup.Code;
+        Item."Gen. Prod. Posting Group" := PostingGroup.Code;
+        Item."Prevent Negative Inventory" := Item."Prevent Negative Inventory"::No;
+        Item.Modify(false);
+        Usage.Status := Usage.Status::Approved;
+        Usage.Modify(false);
+        ItemJournalFixture(JournalTemplate, Batch);
+        Request.Add('entryNo', Usage."Entry No.");
+        Request.Add('journalTemplate', JournalTemplate.Name);
+        Request.Add('journalBatch', Batch.Name);
+        Response := Execute('Transfer', Request);
+        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Item Transfer succeeds.');
+        Usage.Get(Usage."Entry No.");
+        Journal.Get(Usage."Journal Template", Usage."Journal Batch", Usage."Journal Line No.");
+        PostLine.RunWithCheck(Journal);
+        Usage.Get(Usage."Entry No.");
+        Assert.AreEqual(Usage.Status::Posted, Usage.Status, 'Native item event marks usage Posted.');
+        Ledger.Get(Usage."Ledger Entry No.");
+        Assert.AreEqual(ItemNo, Ledger."Item No.", 'Actual ledger belongs to owned item.');
+        Assert.AreEqual(-Usage.Quantity, Ledger.Quantity, 'Negative adjustment consumes the usage quantity.');
+        Journal.Delete(true);
+        Usage.Get(Usage."Entry No.");
+        Assert.AreEqual(Usage.Status::Posted, Usage.Status, 'Deleting posted item journal preserves Posted.');
+        ItemRegister.SetRange("From Entry No.", Ledger."Entry No.");
+        ItemRegister.SetRange("To Entry No.", Ledger."Entry No.");
+        Assert.AreEqual(1, ItemRegister.Count(), 'Single-entry owned register is isolated.');
+        ValueEntry.SetRange("Item Ledger Entry No.", Ledger."Entry No.");
+        ValueEntry.DeleteAll(false);
+        Application.SetRange("Item Ledger Entry No.", Ledger."Entry No.");
+        Application.DeleteAll(false);
+        ItemRegister.DeleteAll(false);
+        Ledger.Delete(false);
+        Batch.Delete(false);
+        JournalTemplate.Delete(false);
+        PostingGroup.Delete(false);
+        Cleanup(SheetNo, ItemNo);
+    end;
+
+    /// <summary>Rejected usage can be corrected and submitted again by its owner.</summary>
+    [Test]
+    procedure Scenario_AC03_RejectedUsageCanBeSubmitted()
+    var
+        Usage: Record "TS Usage Line ori";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        // Story #84, AC03 | Time: fixture WorkDate | Risk: None
+        CreateUsage(Usage, SheetNo, ItemNo, false);
+        Usage.Status := Usage.Status::Rejected;
+        Usage.Modify(false);
+        Request.Add('entryNo', Usage."Entry No.");
+        Response := Execute('Submit', Request);
+        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Owner resubmits Rejected usage.');
+        Usage.Get(Usage."Entry No.");
+        Assert.AreEqual(Usage.Status::Submitted, Usage.Status, 'Rejected transitions to Submitted.');
+        Cleanup(SheetNo, ItemNo);
+    end;
+
+    /// <summary>Week and status filters intersect and List leaves all rows unchanged.</summary>
+    [Test]
+    procedure Scenario_AC10_WeekAndStatusFiltersIntersect()
+    var
+        First: Record "TS Usage Line ori";
+        Other: Record "TS Usage Line ori";
+        Request: JsonObject;
+        Response: JsonObject;
+        Token: JsonToken;
+        Lines: JsonArray;
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        // Story #84, AC10 | Time: fixture WorkDate and following week | Risk: None
+        CreateUsage(First, SheetNo, ItemNo, false);
+        Other := First;
+        Other."Entry No." := 0;
+        Other.Status := Other.Status::Rejected;
+        Other.Insert(true);
+        Other := First;
+        Other."Entry No." := 0;
+        Other.Date := First.Date + 7;
+        Other.Insert(true);
+        Request.Add('timeSheetNo', SheetNo);
+        Request.Add('week', First.Date);
+        Request.Add('status', 'Open');
+        Response := Execute('List', Request);
+        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Filtered List succeeds.');
+        Response.Get('lines', Token);
+        Lines := Token.AsArray();
+        Assert.AreEqual(1, Lines.Count(), 'Other status and other week are excluded.');
+        Lines.Get(0, Token);
+        Token.AsObject().Get('entryNo', Token);
+        Assert.AreEqual(First."Entry No.", Token.AsValue().AsInteger(), 'Exact matching row returned.');
+        Other.SetRange("Time Sheet No.", SheetNo);
+        Assert.AreEqual(3, Other.Count(), 'List deletes no rows.');
+        First.Get(First."Entry No.");
+        Assert.AreEqual(First.Status::Open, First.Status, 'List changes no status.');
+        Cleanup(SheetNo, ItemNo);
+    end;
+
     /// <summary>The approver page exposes read-only usage for an addressed sheet.</summary>
     [Test]
     procedure ApproverPageIsReadOnlyAndScoped()
@@ -777,6 +936,9 @@ codeunit 95635 "TS Usage Tests"
         JournalTemplate: Record "Job Journal Template";
         Batch: Record "Job Journal Batch";
         Journal: Record "Job Journal Line";
+        Ledger: Record "Job Ledger Entry";
+        JobRegister: Record "Job Register";
+        PostLine: Codeunit "Job Jnl.-Post Line";
         Request: JsonObject;
         Response: JsonObject;
         SheetNo: Code[20];
@@ -824,7 +986,28 @@ codeunit 95635 "TS Usage Tests"
         Assert.AreEqual(Job."No.", Journal."Job No.", 'Project preserved.');
         Assert.AreEqual(JobTask."Job Task No.", Journal."Job Task No.", 'Task preserved.');
         Assert.AreEqual(Usage."No.", Journal."No.", 'Usage entity preserved.');
+        if ResourceUsage then begin
+            // Story #84, AC07 | Time: fixture WorkDate | Risk: native project/resource posting prerequisites
+            PostLine.RunWithCheck(Journal);
+            Usage.Get(Usage."Entry No.");
+            Assert.AreEqual(Usage.Status::Posted, Usage.Status, 'Native project posting marks usage Posted.');
+            Ledger.Get(Usage."Ledger Entry No.");
+            Assert.AreEqual(Job."No.", Ledger."Job No.", 'Stored ledger belongs to the exact owned project.');
+            Assert.AreEqual(Usage.Quantity, Ledger.Quantity, 'Stored project ledger carries usage quantity.');
+            JobRegister.Get(Ledger."Job Register No.");
+            JobRegister.TestField("From Entry No.", Ledger."Entry No.");
+            JobRegister.TestField("To Entry No.", Ledger."Entry No.");
+            Ledger.Delete(false);
+            JobRegister.Delete(false);
+        end;
         Journal.Delete(true);
+        Usage.Get(Usage."Entry No.");
+        if ResourceUsage then
+            Assert.AreEqual(Usage.Status::Posted, Usage.Status, 'Deleting posted project journal retains Posted state.')
+        else begin
+            Assert.AreEqual(Usage.Status::Approved, Usage.Status, 'Unposted project deletion retains Approved state.');
+            Assert.AreEqual(0, Usage."Journal Line No.", 'Unposted project deletion clears link.');
+        end;
         Batch.Delete(false);
         JournalTemplate.Delete(false);
         JobTask.Delete(false);
