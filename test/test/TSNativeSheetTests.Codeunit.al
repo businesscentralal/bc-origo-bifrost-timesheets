@@ -12,6 +12,7 @@ using Origo.Bifrost.Timesheets;
 using System.Security.User;
 using System.TestLibraries.Security.AccessControl;
 using System.TestLibraries.Utilities;
+using System.Utilities;
 
 /// <summary>Issue 67 acceptance tests for native Reopen, Post and Archive names.</summary>
 codeunit 95616 "TS Native Sheet Tests"
@@ -84,14 +85,17 @@ codeunit 95616 "TS Native Sheet Tests"
     var
         LedgerEntry: Record "Job Ledger Entry";
         Dispatcher: Codeunit "Dispatcher ori";
+        ResponseBlob: Codeunit "Temp Blob";
         RequestContent: BigText;
-        ResponseContent: BigText;
         Request: JsonObject;
         Response: JsonObject;
         RequestText: Text;
-        ResponseText: Text;
         ResponseContentType: Text[100];
         InitialLedgerCount: Integer;
+        EmptyTaskId: Guid;
+        MessageId: Guid;
+        ResponseTime: Duration;
+        ResponseStream: InStream;
     begin
         // Story #67, AC04/AC07 | Time: none | Risk: Foundation confirmation must reach handler validation
         // [GIVEN] The platform's confirmed count and a deliberately invalid journal identifier type.
@@ -100,10 +104,11 @@ codeunit 95616 "TS Native Sheet Tests"
         Request.Add('expectedCount', 1);
         Request.WriteTo(RequestText);
         RequestContent.AddText(RequestText);
-        // [WHEN] The public dispatcher validates confirmation and runs the native handler.
-        Dispatcher.Execute("Message Type ori"::"Timesheets.TimeSheet.Post", "Message Version ori"::"1.0", '', 'X67CONFIRM', 'application/json', RequestContent, ResponseContent, ResponseContentType);
-        ResponseContent.GetSubText(ResponseText, 1);
-        Response.ReadFrom(ResponseText);
+        // [WHEN] The public dispatcher validates confirmation in the explicit caller language.
+        // Execute uses the company default; this overload preserves the test session LCID.
+        Dispatcher.EnqueueAndProcess("Message Type ori"::"Timesheets.TimeSheet.Post", "Message Version ori"::"1.0", '', 'X67CONFIRM', 'application/json', RequestContent, EmptyTaskId, GlobalLanguage(), MessageId, ResponseBlob, ResponseContentType, ResponseTime, true);
+        ResponseBlob.CreateInStream(ResponseStream);
+        Response.ReadFrom(ResponseStream);
         // [THEN] The journal type is refused; the confirmed platform key is accepted and nothing is posted.
         Assert.AreEqual('Error', ReadText(Response, 'status'), 'The invalid journal identifier must be refused.');
         Assert.AreEqual('InvalidParameterFormat', ReadText(Response, 'code'), 'Confirmation must reach journal validation.');
