@@ -430,4 +430,3 @@ The following were found by the PR gateway run on 2026-09-07.
 
 Released as *Origo Cloud Events Clockify* on Origo Cloud Events Core. See the repository history
 before 2026-09-06.
-
