@@ -6,6 +6,10 @@
   "codeCandidateUnchanged": true,
   "files": [
     {
+      "file": "README.md",
+      "sha256": "43c6034929673eaf6c08b4cc612245b323fde4761343310049398a9ffd3d614b"
+    },
+    {
       "file": "acceptance-matrix.json",
       "sha256": "8892eb8b987a2ffd2c2064234689de444b8f26a23735d847e0cb2c7db17e30f7"
     },
@@ -118,8 +122,16 @@
       "sha256": "c69524f32138b408e2d9eda95b2f36bd5f9c553b492cbf457532f3bc76ea92a3"
     },
     {
+      "file": "help-submit-1033.json",
+      "sha256": "6c5bccd5381020a131d66a446c16c8699ab778a41a4722a1701e27a631e1065a"
+    },
+    {
+      "file": "help-submit-1039.json",
+      "sha256": "53a07d0c4136ee9861eb15e92b250bd199d07dc53fa00008bb384cda3d8addf5"
+    },
+    {
       "file": "help-verification.json",
-      "sha256": "decd1205682f380ac8de488422da1cbac6145ec812ef4f6e99ba4a9964a3d9b4"
+      "sha256": "8b101243adcd1b43940568b435136f15097f8697b0afb47420a828c83da0cb9f"
     },
     {
       "file": "integration-lesson.json",
@@ -753,5 +765,6 @@
       "file": "xlf-preservation.json",
       "sha256": "0531984e52519ac8e8c3dbca0861a19fc32aebc403481014908413bf650c392d"
     }
-  ]
+  ],
+  "amendedAt": "2026-11-04T16:19:37.540595+00:00"
 }
