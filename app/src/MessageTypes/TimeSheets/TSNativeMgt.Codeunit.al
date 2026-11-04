@@ -1,6 +1,13 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
+using Microsoft.Projects.Project.Ledger;
+using Microsoft.Projects.Project.Planning;
+using Microsoft.Projects.Project.Setup;
+using Microsoft.Projects.Resources.Ledger;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
@@ -12,6 +19,8 @@ codeunit 10036868 "TS Native Mgt ori"
     Access = Internal;
 
     var
+        MissingJournalMsg: Label 'No Job Journal target is configured. Supply journalTemplate and journalBatch or configure the Timesheets journal.', Comment = 'is-IS=Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.';
+        JournalLengthMsg: Label 'A journal identifier exceeds the maximum length of 10 characters.', Comment = 'is-IS=Auðkenni verkbókar er lengra en 10 stafir sem eru hámarkslengd.';
         MissingKeyNextTxt: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
         TypeNextTxt: Label 'Send the key with the documented type.', Comment = 'is-IS=Sendu lykilinn með skráðu tagi.';
         UnknownKeyNextTxt: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
@@ -19,7 +28,6 @@ codeunit 10036868 "TS Native Mgt ori"
         NativeNameNextTxt: Label 'Use the native name.', Comment = 'is-IS=Notaðu innlenda heitið.';
         AssignSetNextTxt: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
         RetryNextTxt: Label 'Retry the call.', Comment = 'is-IS=Reyndu kallið aftur.';
-        MissingKeyMsg: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
         TypeMsg: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
         UnknownKeyMsg: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
         IdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
@@ -66,7 +74,33 @@ codeunit 10036868 "TS Native Mgt ori"
         JournalTemplateRecord: Record "Job Journal Template";
     begin
         exit(CanMaintainSheets() and CanReadSheets() and Batch.ReadPermission() and
-             JournalTemplateRecord.ReadPermission() and JournalLine.ReadPermission() and JournalLine.WritePermission());
+             JournalTemplateRecord.ReadPermission() and JournalLine.ReadPermission() and JournalLine.WritePermission() and CanPostLedgerRecords());
+    end;
+
+    local procedure CanPostLedgerRecords(): Boolean
+    var
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        Job: Record Job;
+        JobLedgerEntry: Record "Job Ledger Entry";
+        JobPlanningLine: Record "Job Planning Line";
+        JobRegister: Record "Job Register";
+        JobTask: Record "Job Task";
+        JobsSetup: Record "Jobs Setup";
+        SeriesLine: Record "No. Series Line";
+        Resource: Record Resource;
+        ResourceLedgerEntry: Record "Res. Ledger Entry";
+        ResourceRegister: Record "Resource Register";
+        PostingEntry: Record "Time Sheet Posting Entry";
+    begin
+        exit(GeneralLedgerSetup.ReadPermission() and JobsSetup.ReadPermission() and
+             Job.ReadPermission() and Job.WritePermission() and JobTask.ReadPermission() and
+             JobLedgerEntry.ReadPermission() and JobLedgerEntry.WritePermission() and
+             JobPlanningLine.ReadPermission() and JobPlanningLine.WritePermission() and
+             JobRegister.ReadPermission() and JobRegister.WritePermission() and
+             SeriesLine.ReadPermission() and SeriesLine.WritePermission() and Resource.ReadPermission() and
+             ResourceLedgerEntry.ReadPermission() and ResourceLedgerEntry.WritePermission() and
+             ResourceRegister.ReadPermission() and ResourceRegister.WritePermission() and
+             PostingEntry.ReadPermission() and PostingEntry.WritePermission());
     end;
 
     /// <summary>Checks the active and archive records used by bulk archiving.</summary>
@@ -154,6 +188,10 @@ codeunit 10036868 "TS Native Mgt ori"
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'journalTemplate', TypeNextTxt);
                 exit;
             end;
+            if StrLen(TemplateToken.AsValue().AsText()) > MaxStrLen(JournalTemplate) then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, JournalLengthMsg, 'journalTemplate', TypeNextTxt);
+                exit;
+            end;
             JournalTemplate := CopyStr(TemplateToken.AsValue().AsText(), 1, MaxStrLen(JournalTemplate));
         end;
         if RequestJson.Get('journalBatch', BatchToken) then begin
@@ -161,14 +199,18 @@ codeunit 10036868 "TS Native Mgt ori"
                 Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'journalBatch', TypeNextTxt);
                 exit;
             end;
+            if StrLen(BatchToken.AsValue().AsText()) > MaxStrLen(JournalBatch) then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, JournalLengthMsg, 'journalBatch', TypeNextTxt);
+                exit;
+            end;
             JournalBatch := CopyStr(BatchToken.AsValue().AsText(), 1, MaxStrLen(JournalBatch));
         end;
         if JournalTemplate = '' then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'journalTemplate', MissingKeyNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingJournalMsg, 'journalTemplate', MissingKeyNextTxt);
             exit;
         end;
         if JournalBatch = '' then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'journalBatch', MissingKeyNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingJournalMsg, 'journalBatch', MissingKeyNextTxt);
             exit;
         end;
         JournalTemplateRecord.ReadIsolation := IsolationLevel::ReadCommitted;

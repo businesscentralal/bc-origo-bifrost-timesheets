@@ -9,13 +9,14 @@ codeunit 10036872 "TS Sheet Restrict ori"
     Access = Internal;
 
     var
+        PostingHintTok: Label 'Timesheets.TimeSheet.Post', Locked = true;
         ArchiveHintTok: Label 'Timesheets.TimeSheet.Archive', Locked = true;
         StatusHintTok: Label 'Timesheets.TimeSheet.Reopen, Clockify.TimeSheet.Approve, Clockify.TimeSheet.Reject', Locked = true;
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsTableWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsTableWriteRestricted(TableNo: Integer; var IsRestricted: Boolean)
     begin
-        if IsArchiveTable(TableNo) then
+        if IsArchiveTable(TableNo) or (TableNo = Database::"Time Sheet Posting Entry") then
             IsRestricted := true;
     end;
 
@@ -24,24 +25,48 @@ codeunit 10036872 "TS Sheet Restrict ori"
     begin
         if IsArchiveTable(TableNo) then
             Hint := ArchiveHintTok;
+        if TableNo = Database::"Time Sheet Posting Entry" then
+            Hint := PostingHintTok;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsFieldWriteRestricted(TableNo: Integer; FieldNo: Integer; var IsRestricted: Boolean)
-    var
-        TimeSheetLine: Record "Time Sheet Line";
     begin
-        if (TableNo = Database::"Time Sheet Line") and (FieldNo = TimeSheetLine.FieldNo(Status)) then
+        if ManagedFieldHint(TableNo, FieldNo) <> '' then
             IsRestricted := true;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnGetDedicatedMessageTypeHintForField, '', false, false)]
     local procedure OnGetDedicatedMessageTypeHintForField(TableNo: Integer; FieldNo: Integer; var Hint: Text)
     var
-        TimeSheetLine: Record "Time Sheet Line";
+        ManagedHint: Text;
     begin
-        if (TableNo = Database::"Time Sheet Line") and (FieldNo = TimeSheetLine.FieldNo(Status)) then
-            Hint := StatusHintTok;
+        ManagedHint := ManagedFieldHint(TableNo, FieldNo);
+        if ManagedHint <> '' then
+            Hint := ManagedHint;
+    end;
+
+    local procedure ManagedFieldHint(TableNo: Integer; FieldNo: Integer): Text
+    var
+        Detail: Record "Time Sheet Detail";
+        Line: Record "Time Sheet Line";
+    begin
+        case TableNo of
+            Database::"Time Sheet Line":
+                begin
+                    if FieldNo = Line.FieldNo(Status) then
+                        exit(StatusHintTok);
+                    if FieldNo = Line.FieldNo(Posted) then
+                        exit(PostingHintTok);
+                end;
+            Database::"Time Sheet Detail":
+                begin
+                    if FieldNo = Detail.FieldNo(Status) then
+                        exit(StatusHintTok);
+                    if FieldNo in [Detail.FieldNo(Posted), Detail.FieldNo("Posted Quantity")] then
+                        exit(PostingHintTok);
+                end;
+        end;
     end;
 
     local procedure IsArchiveTable(TableNo: Integer): Boolean

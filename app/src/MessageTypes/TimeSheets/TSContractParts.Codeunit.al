@@ -9,8 +9,8 @@ codeunit 10036869 "TS Contract Parts ori"
 
     var
         CutoffHelpLbl: Label 'ISO date cutoff. Sheets ending after this date are left out. Defaults to the work date.', Comment = 'is-IS=Lokadagur á ISO-sniði. Tímaskýrslum sem lýkur eftir þann dag er sleppt. Sjálfgefið er vinnudagsetningin.';
-        JournalTemplateHelpLbl: Label 'Project journal template. The Timesheets setup value is used when omitted.', Comment = 'is-IS=Sniðmát verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.';
-        JournalBatchHelpLbl: Label 'Project journal batch. The Timesheets setup value is used when omitted.', Comment = 'is-IS=Keyrsla verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.';
+        JournalTemplateHelpLbl: Label 'Project journal template (maximum 10 characters). The Timesheets setup value is used when omitted.', Comment = 'is-IS=Sniðmát verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.';
+        JournalBatchHelpLbl: Label 'Project journal batch (maximum 10 characters). The Timesheets setup value is used when omitted.', Comment = 'is-IS=Keyrsla verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.';
         BulkSubjectLbl: Label 'The Business Central time sheet operation addressed by the request.', Comment = 'is-IS=Aðgerð tímaskýrslu í Business Central sem beiðnin á við.';
         ReopenedCountLbl: Label 'Lines reopened.', Comment = 'is-IS=Línur sem voru opnaðar aftur.';
         PostedCountLbl: Label 'Project journal lines posted.', Comment = 'is-IS=Línur verkbókar sem voru bókaðar.';

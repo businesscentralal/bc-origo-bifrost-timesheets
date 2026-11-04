@@ -1030,15 +1030,15 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType FormatNextLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 549465194" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Project journal batch. The Timesheets setup value is used when omitted.</source>
-          <target>Keyrsla verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Keyrsla verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</note>
+          <source>Project journal batch (maximum 10 characters). The Timesheets setup value is used when omitted.</source>
+          <target>Keyrsla verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrsla verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType JournalBatchHelpLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 281237470" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Project journal template. The Timesheets setup value is used when omitted.</source>
-          <target>Sniðmát verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Sniðmát verkbókar. Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</note>
+          <source>Project journal template (maximum 10 characters). The Timesheets setup value is used when omitted.</source>
+          <target>Sniðmát verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sniðmát verkbókar (mest 10 stafir). Gildið í uppsetningu tímaskýrslna er notað ef því er sleppt.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType JournalTemplateHelpLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 3201243754" size-unit="char" translate="yes" xml:space="preserve">
@@ -1185,17 +1185,23 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Notaðu auðkenni sem er til.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IdentifierNextTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1312572432 - NamedType 1105869328" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A journal identifier exceeds the maximum length of 10 characters.</source>
+          <target>Auðkenni verkbókar er lengra en 10 stafir sem eru hámarkslengd.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Auðkenni verkbókar er lengra en 10 stafir sem eru hámarkslengd.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType JournalLengthMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 455227520" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Clockify.TimeSheet name still runs. Use the native name.</source>
           <target>Clockify.TimeSheet heitið keyrir enn. Notaðu innlenda heitið.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet heitið keyrir enn. Notaðu innlenda heitið.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType LegacyMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1312572432 - NamedType 1591961950" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A required key is missing.</source>
-          <target>Nauðsynlegur lykill vantar.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegur lykill vantar.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingKeyMsg</note>
+        <trans-unit id="Codeunit 1312572432 - NamedType 437771904" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Job Journal target is configured. Supply journalTemplate and journalBatch or configure the Timesheets journal.</source>
+          <target>Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType MissingJournalMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 688066728" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send the missing key.</source>

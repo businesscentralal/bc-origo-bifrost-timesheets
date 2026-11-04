@@ -6,6 +6,7 @@
 
 - `Timesheets.TimeSheet.Reopen` (10036880), `Timesheets.TimeSheet.Post` (10036881) and `Timesheets.TimeSheet.Archive` (10036882) retain the existing BC engines and success count fields. The old Clockify names still work and add `DeprecatedParameter` with `Use the native name.`
 - Native implementation codeunits 10036881..10036883 share validation (10036868), bilingual contracts (10036869), isolated request state (10036870) and write runner (10036871). Posting commits and remains irreversible. Archive/status write restrictions use codeunit 10036872.
+- The posting engine now calls the standard posting procedure inside the outer write runner, so a failed posting is returned as a structured refusal instead of being hidden as a successful zero count. The real-post test checks the ledger entry and posted time sheet detail.
 - The existing Timesheets permission set and Foundation Full/Read extensions cover the native objects. No new assignable permission set or Foundation Setup grant.
 - Existing Icelandic target text is preserved. Source translation comments are aligned with the committed targets so the generated XLF guard is reproducible.
 - Test codeunit 95616 covers native-name validation, state transitions, response fields and missing permissions. Historical native work for other issues is preserved outside this #67-only deliverable.

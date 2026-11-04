@@ -1,7 +1,10 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
+using Microsoft.Foundation.NoSeries;
 using Microsoft.Foundation.UOM;
+using Microsoft.Projects.Project.Job;
 using Microsoft.Projects.Project.Journal;
+using Microsoft.Projects.Project.Ledger;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
@@ -231,6 +234,170 @@ codeunit 95616 "TS Native Sheet Tests"
         // [THEN] The open fixture is preserved.
         Assert.IsTrue(Header.Get(SheetNo), 'Open sheet must remain active.');
         Assert.IsTrue(TempArgument.GetResponseJson().Contains('archived'), 'Keep the old count field.');
+    end;
+
+    [Test]
+    procedure Scenario_AC01_PostApprovedJobDetail_CreatesLedgerEntry()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Batch: Record "Job Journal Batch";
+        Job: Record Job;
+        JobTask: Record "Job Task";
+        LedgerEntry: Record "Job Ledger Entry";
+        Detail: Record "Time Sheet Detail";
+        Line: Record "Time Sheet Line";
+        Series: Record "No. Series";
+        SeriesLine: Record "No. Series Line";
+        LibraryJob: Codeunit "Library - Job";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+        Token: JsonToken;
+    begin
+        // Story #67, AC01/AC07 | Time: WorkDate for posting | Risk: real BC project posting path
+        // [GIVEN] Self-created project, task, resource, journal and approved quantity.
+        LibraryJob.CreateJob(Job);
+        Job.Validate(Status, Job.Status::Open);
+        Job.Modify(true);
+        LibraryJob.CreateJobTask(Job, JobTask);
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        CreateLine(SheetNo, 10000, 'Approved');
+        Line.Get(SheetNo, 10000);
+        Line.Type := Line.Type::Job;
+        Line."Job No." := Job."No.";
+        Line."Job Task No." := JobTask."Job Task No.";
+        Line.Modify(false);
+        Detail.Init();
+        Detail."Time Sheet No." := SheetNo;
+        Detail."Time Sheet Line No." := 10000;
+        Detail.Date := WorkDate();
+        Detail.CopyFromTimeSheetLine(Line);
+        Detail.Validate(Quantity, 2);
+        Detail.Insert(true);
+        CreateNativeJournal(Request);
+        Request.Get('journalTemplate', Token);
+        Batch."Journal Template Name" := CopyStr(Token.AsValue().AsText(), 1, MaxStrLen(Batch."Journal Template Name"));
+        Request.Get('journalBatch', Token);
+        Batch.Name := CopyStr(Token.AsValue().AsText(), 1, MaxStrLen(Batch.Name));
+        Batch.Get(Batch."Journal Template Name", Batch.Name);
+        Series.Init();
+        Series.Code := CopyStr(DelChr(Format(CreateGuid(), 0, 4), '=', '{}-'), 1, MaxStrLen(Series.Code));
+        Series."Default Nos." := true;
+        Series.Insert(true);
+        SeriesLine.Init();
+        SeriesLine."Series Code" := Series.Code;
+        SeriesLine."Line No." := 10000;
+        SeriesLine."Starting No." := 'W467000001';
+        SeriesLine."Ending No." := 'W467999999';
+        SeriesLine."Increment-by No." := 1;
+        SeriesLine.Insert(true);
+        Batch.Validate("No. Series", Series.Code);
+        Batch.Modify(true);
+        // [WHEN] The native name invokes the actual project posting engine.
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Post", Request);
+        // [THEN] A real posted entry and the corresponding time sheet posting exist.
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Posting must succeed through the BC engine.');
+        Response.Get('postedLines', Token);
+        Assert.AreEqual(1, Token.AsValue().AsInteger(), 'One owned detail must actually post.');
+        LedgerEntry.SetRange("Job No.", Job."No.");
+        Assert.IsTrue(LedgerEntry.FindFirst(), 'A project ledger entry must be posted, not merely counted.');
+        Assert.AreEqual(2, LedgerEntry.Quantity, 'Posted resource quantity must match the owned detail.');
+        Detail.Get(SheetNo, 10000, WorkDate());
+        Assert.IsTrue(Detail.Posted, 'The BC posting path must mark the time sheet detail posted.');
+    end;
+
+    [Test]
+    procedure Scenario_AC04_PostOverlongTemplate_IsNotTruncated()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Request: JsonObject;
+        JournalToken: JsonToken;
+    begin
+        // Story #67, AC04 | Time: not used | Risk: truncation must not address another journal
+        // [GIVEN] A real ten-character template, followed by an extra character.
+        CreateNativeJournal(Request);
+        Request.Get('journalTemplate', JournalToken);
+        Request.Replace('journalTemplate', JournalToken.AsValue().AsText() + 'X');
+        // [WHEN] The overlong identifier is submitted.
+        Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Post", Request);
+        // [THEN] It is refused rather than silently resolving to the existing prefix.
+        AssertRefusal(TempArgument, 'InvalidParameterFormat', 'journalTemplate', 'Send the key with the documented type.');
+    end;
+
+    [Test]
+    procedure Scenario_AC05_LegacyNames_PreserveNativeResponseFields()
+    var
+        Request: JsonObject;
+    begin
+        // Story #67, AC05 | Time: old cutoff isolates reopen | Risk: both names can change records
+        // [GIVEN] Valid requests for each old/native pair.
+        Request.Add('endingDateTo', '2020-01-01');
+        // [WHEN/THEN] The success fields match, with warnings only on the old name.
+        AssertAliasCountField("Message Type ori"::"Clockify.TimeSheet.Reopen", "Message Type ori"::"Timesheets.TimeSheet.Reopen", Request, 'reopenedLines');
+        Clear(Request);
+        CreateNativeJournal(Request);
+        AssertAliasCountField("Message Type ori"::"Clockify.TimeSheet.Post", "Message Type ori"::"Timesheets.TimeSheet.Post", Request, 'postedLines');
+        Clear(Request);
+        AssertAliasCountField("Message Type ori"::"Clockify.TimeSheet.Archive", "Message Type ori"::"Timesheets.TimeSheet.Archive", Request, 'archived');
+    end;
+
+    local procedure AssertAliasCountField(LegacyType: Enum "Message Type ori"; NativeType: Enum "Message Type ori"; Request: JsonObject; CountField: Text)
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        LegacyResponse: JsonObject;
+        NativeResponse: JsonObject;
+        Counter: JsonToken;
+    begin
+        Execute(TempArgument, LegacyType, Request);
+        LegacyResponse := TempArgument.GetResponseJson();
+        Execute(TempArgument, NativeType, Request);
+        NativeResponse := TempArgument.GetResponseJson();
+        Assert.AreEqual('Success', ReadText(LegacyResponse, 'status'), 'Old name must keep working.');
+        Assert.AreEqual('Success', ReadText(NativeResponse, 'status'), 'Native name must work.');
+        Assert.IsTrue(LegacyResponse.Get(CountField, Counter), 'Old response count field.');
+        Assert.IsTrue(Counter.IsValue(), 'Old response count is a value.');
+        Assert.IsTrue(NativeResponse.Get(CountField, Counter), 'Native response count field.');
+        Assert.IsTrue(Counter.IsValue(), 'Native response count is a value.');
+        Assert.IsTrue(LegacyResponse.Contains('warnings'), 'Old name must warn about its replacement.');
+        Assert.IsFalse(NativeResponse.Contains('warnings'), 'Native name needs no deprecation warning.');
+        LegacyResponse.Remove('warnings');
+        Assert.AreEqual(LegacyResponse.Keys().Count(), NativeResponse.Keys().Count(), 'Optional warning is the only extra field.');
+    end;
+
+    [Test]
+    procedure Scenario_AC07_GenericStatusWrite_LeavesLineUnchanged()
+    var
+        TempArgument: Record "Message Argument ori" temporary;
+        Line: Record "Time Sheet Line";
+        Fields: JsonObject;
+        PrimaryKey: JsonObject;
+        RecordData: JsonObject;
+        Records: JsonArray;
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+    begin
+        // Story #67, AC07 | Time: WorkDate | Risk: subscriber must fire through public Data.Records.Set
+        // [GIVEN] An owned open line and a generic request to bypass its workflow.
+        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        CreateLine(SheetNo, 10000, 'Open');
+        PrimaryKey.Add('TimeSheetNo_', SheetNo);
+        PrimaryKey.Add('LineNo_', 10000);
+        Fields.Add('Status', 'Approved');
+        RecordData.Add('primaryKey', PrimaryKey);
+        RecordData.Add('fields', Fields);
+        Records.Add(RecordData);
+        Request.Add('tableId', Database::"Time Sheet Line");
+        Request.Add('data', Records);
+        // [WHEN] Foundation checks the generic write and raises the real subscriber event.
+        Execute(TempArgument, "Message Type ori"::"Data.Records.Set", Request);
+        // [THEN] The dedicated workflow cannot be bypassed.
+        Response := TempArgument.GetResponseJson();
+        Assert.AreEqual('Error', ReadText(Response, 'status'), 'Generic status write must be refused.');
+        Assert.AreEqual('FieldWriteRestricted', ReadText(Response, 'code'), 'The field subscriber must identify the refusal.');
+        Line.Get(SheetNo, 10000);
+        Assert.AreEqual(Line.Status::Open, Line.Status, 'Refused write must leave the line open.');
     end;
 
     [Test]
