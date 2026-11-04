@@ -5,7 +5,7 @@ using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>Exercises the real native permission refusal under restrictive permissions.</summary>
-codeunit 95623 "TS Pending Permission Tests"
+codeunit 95633 "TS Pending Permission Tests"
 {
     Subtype = Test;
     TestPermissions = Restrictive;

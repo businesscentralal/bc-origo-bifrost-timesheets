@@ -4,7 +4,7 @@ using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 
 /// <summary>Seeds isolated native records for issue 62 tests and owned MCP verification.</summary>
-codeunit 95621 "TS Pending Fixture ori"
+codeunit 95631 "TS Pending Fixture ori"
 {
     trigger OnRun()
     begin

@@ -7,7 +7,7 @@ using Origo.Bifrost.Timesheets;
 using System.TestLibraries.Utilities;
 
 /// <summary>Acceptance tests for caller isolation, read-only projection, filters and refusals.</summary>
-codeunit 95620 "TS Pending Approval Tests"
+codeunit 95630 "TS Pending Approval Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;

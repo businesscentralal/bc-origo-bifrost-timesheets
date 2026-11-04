@@ -5,7 +5,7 @@ using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 
 /// <summary>Lists submitted lines addressed to the calling time-sheet approver without changing records.</summary>
-codeunit 10036872 "TS Pending Approval ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
+codeunit 10036875 "TS Pending Approval ori" implements "Msg Interface ori", "Msg Contract ori", "Msg Discovery ori"
 {
     Access = Internal;
 
@@ -292,6 +292,7 @@ codeunit 10036872 "TS Pending Approval ori" implements "Msg Interface ori", "Msg
         Resource: Record Resource;
         ResourceId: Guid;
     begin
+        Resource.ReadIsolation := IsolationLevel::ReadCommitted;
         if Request.Contains('resourceNo') then begin
             ResourceNo := CopyStr(Request.GetText('resourceNo'), 1, MaxStrLen(ResourceNo));
             if not Resource.Get(ResourceNo) then
@@ -314,6 +315,7 @@ codeunit 10036872 "TS Pending Approval ori" implements "Msg Interface ori", "Msg
         Line: Record "Time Sheet Line";
         Seen: Integer;
     begin
+        Header.ReadIsolation := IsolationLevel::ReadCommitted;
         Header.SetLoadFields("No.", "Resource No.", "Starting Date", "Ending Date", "Approver User ID");
         Header.SetRange("Approver User ID", UserId());
         if ResourceNo <> '' then
@@ -324,6 +326,7 @@ codeunit 10036872 "TS Pending Approval ori" implements "Msg Interface ori", "Msg
         end;
         if Header.FindSet() then
             repeat
+                Line.ReadIsolation := IsolationLevel::ReadCommitted;
                 Line.SetLoadFields("Time Sheet No.", "Line No.", Type, "Job No.", "Job Task No.", "Cause of Absence Code", Status);
                 Line.SetRange("Time Sheet No.", Header."No.");
                 Line.SetRange(Status, Line.Status::Submitted);
@@ -349,6 +352,7 @@ codeunit 10036872 "TS Pending Approval ori" implements "Msg Interface ori", "Msg
         Day: JsonObject;
         TotalHours: Decimal;
     begin
+        Detail.ReadIsolation := IsolationLevel::ReadCommitted;
         Detail.SetLoadFields("Time Sheet No.", "Time Sheet Line No.", Date, Quantity);
         Detail.SetRange("Time Sheet No.", Line."Time Sheet No.");
         Detail.SetRange("Time Sheet Line No.", Line."Line No.");
