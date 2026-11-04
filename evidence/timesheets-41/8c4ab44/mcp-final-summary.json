@@ -1,0 +1,70 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "containerId": "f09faa50f660",
+  "createsOwnData": true,
+  "touchedMessageTypes": [
+    "Data.Records.Set"
+  ],
+  "relatedReadTypes": [
+    "Data.Records.Get",
+    "Help.Fields.Get"
+  ],
+  "executed": 10,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "field metadata preserves read access and restricts field13 only",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "name": "refuse Webhook Receiver URL and preserve both sent fields",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "name": "refuse WebhookReceiverURL and preserve both sent fields",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "name": "save neighboring field16 and preserve receiver URL",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "name": "clear neighboring field16 and preserve receiver URL",
+      "lcid": 1033,
+      "passed": true
+    },
+    {
+      "name": "field metadata preserves read access and restricts field13 only",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "name": "refuse Webhook Receiver URL and preserve both sent fields",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "name": "refuse WebhookReceiverURL and preserve both sent fields",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "name": "save neighboring field16 and preserve receiver URL",
+      "lcid": 1039,
+      "passed": true
+    },
+    {
+      "name": "clear neighboring field16 and preserve receiver URL",
+      "lcid": 1039,
+      "passed": true
+    }
+  ],
+  "callCount": 22,
+  "setup": "Own container, own setup URL https://zz41.invalid/original seeded by setup UI, own work type ZZ41 created by UI. Change Log modification coverage for own setup table enabled via BC UI; guard remains active and field bypass false. Reused six proven scenarios and captured first1039refusal after correcting harness expectations to current deployed locked hint/XLFcaption; no successful write replay. No force, trial, EULA, HTTP, licence or backend writes."
+}

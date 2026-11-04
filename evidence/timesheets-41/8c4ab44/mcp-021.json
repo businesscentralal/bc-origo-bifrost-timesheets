@@ -1,0 +1,35 @@
+{
+  "type": "Data.Records.Set",
+  "data": {
+    "tableId": 10036853,
+    "data": [
+      {
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "DefaultWorkType": ""
+        }
+      }
+    ]
+  },
+  "lcid": 1039,
+  "response": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Set",
+    "result": [
+      {
+        "id": "93F5A3F4-00D8-F111-B7A5-FC6408D284E8",
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "DefaultWorkType": ""
+        }
+      }
+    ],
+    "status": "Success",
+    "insertedCount": 0,
+    "modifiedCount": 1
+  }
+}

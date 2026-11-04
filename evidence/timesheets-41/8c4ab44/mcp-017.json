@@ -1,0 +1,29 @@
+{
+  "type": "Data.Records.Set",
+  "data": {
+    "tableId": 10036853,
+    "data": [
+      {
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "WebhookReceiverURL": "https://zz41.invalid/refused",
+          "DefaultWorkType": "ZZ41"
+        }
+      }
+    ]
+  },
+  "lcid": 1039,
+  "response": {
+    "status": "Error",
+    "code": "PermissionDenied",
+    "error": "Ekki er hægt að skrifa í reit Móttökuslóð vefkróks (13) í töflu 10036853 (Uppsetning Clockify) með Data.Records.Set.",
+    "parameter": "data[0].fields.WebhookReceiverURL",
+    "received": "https://zz41.invalid/refused",
+    "expected": "reitur sem notandinn má skrifa í (Reitaaðgangur Bifröst)",
+    "nextStep": "the Timesheets setup page (Clockify Setup)",
+    "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Data.Records.Set\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+  },
+  "isError": true
+}

@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### Result\n{\"restoredInitialUrl\":\"\",\"defaultWorkType\":\"Already cleared by MCP\",\"url\":\"https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f09faa50f660/?company=CRONUS%20International%20Ltd.&tenant=default&bookmark=B_dSaZAAJ7&page=10036853&dc=0\"}\n### Ran Playwright code\n```js\nawait (async page=>{const f=page.frames().find(x=>x!==page.mainFrame()),box=f.getByRole('textbox',{name:/^Móttökuslóð vefkróks/});if(!await box.isVisible())await f.getByRole('heading',{name:'Vefkrókar',exact:true}).click();await box.waitFor();await page.screenshot({path:'./ui-1039-url-visible.png'});if(await box.inputValue()!=='https://zz41.invalid/ui-is')throw Error('Unexpected fixture state; do not replay cleanup');await box.fill('');await box.press('Tab');await page.waitForTimeout(300);await page.reload();await page.waitForTimeout(1200);return {restoredInitialUrl:'',defaultWorkType:'Already cleared by MCP',url:page.url()};}\n)(page);\n```"
+    }
+  ]
+}

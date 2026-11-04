@@ -1,0 +1,18 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "containerId": "f09faa50f660",
+  "fullSuite": true,
+  "total": 102,
+  "executed": 102,
+  "passed": 102,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "sourceRosterCount": 102,
+  "ok": true,
+  "foundationVersion": "28.0.11.665",
+  "productVersion": "28.0.0.0",
+  "testAppVersion": "28.0.0.0",
+  "priorAttempt": "native-attempt1-harness-error.json ran0ALtests due mutually exclusive selectors",
+  "durationMs": 150738
+}

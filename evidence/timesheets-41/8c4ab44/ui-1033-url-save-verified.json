@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### Result\n{\"lcid\":1033,\"scenario\":\"Direct setup page URL edit persisted after reload\",\"value\":\"https://zz41.invalid/original\",\"url\":\"https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f09faa50f660/?company=CRONUS%20International%20Ltd.&tenant=default&bookmark=B_dSaZAAJ7&page=10036853&dc=0\",\"priorAttempt\":\"Save succeeded, post-reload locator detached; inspected fresh frame without repeating write\"}\n### Ran Playwright code\n```js\nawait (async page=>{const f=page.frames().find(x=>x!==page.mainFrame());await f.getByRole('button',{name:'Make changes on the page',exact:true}).click();const v=await f.getByRole('textbox',{name:/^Webhook Receiver URL/}).inputValue();if(v!=='https://zz41.invalid/original')throw Error('Saved URL mismatch');await page.screenshot({path:'./ui-1033-url-saved.png'});return {lcid:1033,scenario:'Direct setup page URL edit persisted after reload',value:v,url:page.url(),priorAttempt:'Save succeeded, post-reload locator detached; inspected fresh frame without repeating write'};}\n)(page);\n```"
+    }
+  ]
+}

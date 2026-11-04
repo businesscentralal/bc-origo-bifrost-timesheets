@@ -1,0 +1,28 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "checks": [
+    {
+      "type": "app",
+      "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "61e152bd3dc3b3cf979a5d2d5d545fb8fd7f50e826661e8bcc04ca8dc39c8c7c"
+    },
+    {
+      "type": "test",
+      "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "bbb520a7006f598a1753098fde82d0e8be6e1a0b06bb31622b0c3ea832fb08eb"
+    }
+  ],
+  "analyzers": [
+    "CodeCop",
+    "UICop",
+    "AppSourceCop"
+  ],
+  "symbolProvenance": "Existing own Microsoft BC28.5 W1 symbols plus exact CI dependency Foundation28.0.11.665 artifact13260925056/source50d37c0b58da421d649b8ca1aaf407dd318d0301; latest main dependency for new candidate, prior CI used664",
+  "testRulesetUnchanged": true
+}

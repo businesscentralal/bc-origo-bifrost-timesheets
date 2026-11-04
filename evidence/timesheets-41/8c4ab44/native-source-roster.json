@@ -1,0 +1,168 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "count": 102,
+  "codeunits": [
+    {
+      "file": "test/test/ClockifyConnectorTests.Codeunit.al",
+      "tests": [
+        "HelpTypeIsOutboundWithNoFilterTable",
+        "EveryClockifyTypeHasMetadataAndHelp",
+        "CompanyApiKeyRoundtrips",
+        "DefaultApiVersionIsVersion1",
+        "WorkspaceListRoutesGetThroughClient",
+        "ErrorResponseIsSurfacedWithStatusCode",
+        "ProjectCreatePostsBodyToWorkspace",
+        "DefaultWorkspaceUsedWhenRequestOmitsIt",
+        "WorkspaceLookupRequiresApiKey",
+        "WorkspaceLookupReturnsSelection",
+        "RegisterCreatesWebhooksForEachTimeEntryEvent",
+        "RemoveDeletesRegisteredWebhooks",
+        "ReverseTimeEntryWithNoLinkIsSkipped",
+        "JobJournalResolvesFromSetup",
+        "TimeEntrySyncErrorsWhenNoJournalConfigured",
+        "TimeEntrySyncRejectsInProgressEntries",
+        "WorkTypeResolvesFromTagThenDefault",
+        "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+        "SyncSkipsUnchangedThenUpdatesOnChange",
+        "ReverseDeletesSyncedJournalLine",
+        "WebhookDispatchCreatesJobJournalLine",
+        "IntegrationTableStampsAndClearsReversedAt",
+        "RetentionRegistersIntegrationTable",
+        "HelpIncludesIntegrationTracking",
+        "CurrencyListProjectsWorkspaceCurrencies",
+        "UserGroupListRoutesGetToWorkspacesUserGroups",
+        "UserGroupListForwardsQueryString",
+        "TimeEntryListForwardsInProgressQueryParameter",
+        "CustomFieldListRoutesGetToWorkspacesCustomFields",
+        "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+        "UserGroupListHelpExplainsIdUsage",
+        "CustomFieldListHelpExplainsIdUsage",
+        "TimeEntryListHelpExplainsInProgressFilter",
+        "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+        "UserListHelpExplainsOptionalQueryEffects",
+        "ClientUpdateHelpExplainsOptionalBodyEffects",
+        "OverviewListsLookupEndpoints",
+        "OverviewGotchasCallOutIdOnlyWrites",
+        "IntegrationGateAllowsWriteAccess",
+        "SyncRangeIsInboundWithHelp",
+        "SyncRangeErrorsWhenNoJournalConfigured",
+        "SyncRangeCreatesLinesForEntriesInRange",
+        "SyncRangePerEntryErrorDoesNotAbortBatch",
+        "AllInboundTimeTypesAreInboundWithHelp",
+        "TimeSheetCreateReturnsCountWithNoResources",
+        "TimeSheetApproveReturnsZeroWhenNothingOpen",
+        "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+        "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+        "TimeSheetReopenReturnsZeroWhenNothingPending",
+        "TimeSheetPostErrorsWhenNoJournalConfigured",
+        "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+        "SyncToTimeSheetErrorsWhenNoMapping",
+        "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+        "SyncToTimeSheetCreatesDetailOnOpenSheet",
+        "SyncRangeToTimeSheetCreatesDetailsForEntries",
+        "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+        "SyncAllUsersSyncsMappedUserToTimeSheet",
+        "ReverseFromTimeSheetRemovesOpenDetail",
+        "WebhookSigningTokenIsRedactedFromTheResponseLog",
+        "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+        "BodiesWithoutASigningTokenPassThroughUnchanged",
+        "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+        "HelpClockifyGetUsesTableNameNotTable",
+        "InboundTimeTypesHaveNonEmptyRequestExamples",
+        "InboundHelpMarkdownShowsDirectionInbound",
+        "HelpTracksUppercaseClockifyTypeCodes"
+      ],
+      "count": 66
+    },
+    {
+      "file": "test/test/ClockifyFieldRestrictTests.Codeunit.al",
+      "tests": [
+        "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+        "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+        "FieldRestrict_NeighbourFieldsNotRestricted",
+        "FieldRestrict_TableLevelChecksStayFalse",
+        "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+        "Scenario_AC07_NameAlias_Refused",
+        "Scenario_AC07_JsonAlias_Refused",
+        "Scenario_AC07_WorkType_SaveAndClear"
+      ],
+      "count": 8
+    },
+    {
+      "file": "test/test/ClockifyHelpFixesTests.Codeunit.al",
+      "tests": [
+        "ClockifyWrites_DeclareInbound",
+        "BusinessCentralSideTypes_StayInbound",
+        "ReadTypes_StayOutbound",
+        "SyncParameters_MatchOptionalUsageInCode",
+        "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+        "WrongWorkspace_DocumentedAs400Not404",
+        "CustomFieldList_Documents403ForFreePlan",
+        "Overview_DefinesDirectionByMutation"
+      ],
+      "count": 8
+    },
+    {
+      "file": "test/test/ClockifyRetenPolicyTests.Codeunit.al",
+      "tests": [
+        "TC001_EnableDefaultPolicyInsertsEnabledRow",
+        "TC002_EnableDefaultPolicyReRunIsIdempotent"
+      ],
+      "count": 2
+    },
+    {
+      "file": "test/test/MessageContractBatch1Tests.Codeunit.al",
+      "tests": [
+        "Batch1TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "file": "test/test/MessageContractBatch2Tests.Codeunit.al",
+      "tests": [
+        "Batch2TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "file": "test/test/MessageContractBatch3Tests.Codeunit.al",
+      "tests": [
+        "Batch3TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "file": "test/test/MessageContractEffectTests.Codeunit.al",
+      "tests": [
+        "ClockifyApiWrites_DeclareIrreversible",
+        "ClockifyDeletesAndPost_DeclareIrreversible",
+        "BusinessCentralOnlyWrites_StayWrite",
+        "Reads_StayRead"
+      ],
+      "count": 4
+    },
+    {
+      "file": "test/test/PhoneRoleCenterTests.Codeunit.al",
+      "tests": [
+        "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+        "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+        "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+        "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+        "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+        "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+        "PopulateCurrentCustomers_UsesMyCustomers",
+        "ResolveLastWorkday_Monday_ReturnsFriday",
+        "AddServiceItemLine_ReusesOpenInvoice",
+        "AddServiceItemLine_InvalidItem_Errors"
+      ],
+      "count": 10
+    },
+    {
+      "file": "test/test/TimesheetsRegistrationTests.Codeunit.al",
+      "tests": [
+        "AppRegistersItselfWithFoundation"
+      ],
+      "count": 1
+    }
+  ]
+}

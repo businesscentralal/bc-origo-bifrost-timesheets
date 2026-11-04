@@ -1,0 +1,19 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "native": {
+    "initialExecuted": 0,
+    "initialCause": "PsTestFunctions rejects simultaneous testSuite+extensionId selectors. Later fallback auth errors were not the primary failure.",
+    "corrected": "ExtensionId-only full suite:102executed102passed0failed0skipped; no source, credentials or exclusion change."
+  },
+  "mcp": {
+    "initialExecuted": 7,
+    "initialPassed": 6,
+    "initialFailed": 1,
+    "cause": "Harness expected translated nextStep and a caption from a different branch; #41 specifies a locked English hint and current main XLF uses vefkróks.",
+    "recovery": "Retained six proved scenarios; reused captured1039technical-alias refusal and prior read; read back unchanged fields, then completed remaining scenarios. Final10passed0failed0skipped;22actual acceptance calls. Raw prior attempts retained privately."
+  },
+  "ui": {
+    "cause": "Initial post-reload frame detached; later restore locator saw collapsed group.",
+    "recovery": "Read fresh frame and persisted state without replaying successful writes; expand group, restore blank initial URL, verify through MCP before owned deletion."
+  }
+}

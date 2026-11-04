@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### Result\n{\"selected\":\"Icelandic (Iceland)\",\"lcid\":1039,\"url\":\"https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f09faa50f660/?company=CRONUS%20International%20Ltd.&tenant=default&page=592&dc=0\"}\n### Ran Playwright code\n```js\nawait (async page=>{await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByText('My Settings',{exact:true}).click();const f=page.frames().find(x=>x!==page.mainFrame());await f.getByRole('dialog').waitFor();await f.getByRole('button',{name:'Review or update the value for Language',exact:true}).click();const d=f.getByRole('dialog',{name:'Available Languages',exact:true});await d.waitFor();const t=d.getByText('Icelandic (Iceland)',{exact:true});for(let n=0;n<20&&!await t.isVisible();n++){await d.getByRole('grid').hover();await page.mouse.wheel(0,450);await page.waitForTimeout(200);}await t.dblclick();await d.waitFor({state:'hidden'});const s=await f.getByRole('dialog').innerText();if(!s.includes('Icelandic (Iceland)'))throw Error('Locale selection not confirmed');await f.getByRole('dialog').getByRole('button',{name:'OK',exact:true}).click();await page.waitForTimeout(1700);return {selected:'Icelandic (Iceland)',lcid:1039,url:page.url()};}\n)(page);\n```\n### Page\n- Page URL: https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f09faa50f660/?company=CRONUS%20International%20Ltd.&tenant=default&page=592&dc=0\n- Page Title: Dynamics 365 Business Central"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "Data.Records.Set",
+  "data": {
+    "tableId": 10036853,
+    "data": [
+      {
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "Webhook Receiver URL": "https://zz41.invalid/refused",
+          "DefaultWorkType": "ZZ41"
+        }
+      }
+    ]
+  },
+  "lcid": 1033,
+  "response": {
+    "status": "Error",
+    "code": "PermissionDenied",
+    "error": "Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.",
+    "parameter": "data[0].fields.Webhook Receiver URL",
+    "received": "https://zz41.invalid/refused",
+    "expected": "a field the user may write (Bifrost Field Access)",
+    "nextStep": "the Timesheets setup page (Clockify Setup)",
+    "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Data.Records.Set\". Always read the help before calling a message type."
+  },
+  "isError": true
+}

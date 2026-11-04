@@ -1,0 +1,26 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "baseSha": "0bce539cf472c49f95c244a87efdee57e20acb01",
+  "changedFiles": [
+    "test/test/ClockifyFieldRestrictTests.Codeunit.al",
+    "CHANGELOG.md"
+  ],
+  "changedAssertion": "Exact expected table display name Clockify Setup ori -> Clockify Setup",
+  "preservedAssertions": [
+    "status Error",
+    "code PermissionDenied",
+    "exact field name/id and table id",
+    "exact full refusal",
+    "nextStep setup-page hint",
+    "parameter technical/canonical alias",
+    "stored URL unchanged",
+    "neighboring field unchanged on refusal",
+    "neighbor field16 save and clear"
+  ],
+  "productionCodeUnchanged": true,
+  "productVersionUnchanged": "28.0.0.0",
+  "testVersionUnchanged": "28.0.0.0",
+  "newSuppressions": false,
+  "introducedTestSkips": false,
+  "translationsUnchanged": true
+}

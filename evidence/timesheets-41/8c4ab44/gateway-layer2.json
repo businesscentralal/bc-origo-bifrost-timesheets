@@ -1,0 +1,23 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "target": "main",
+  "scope": "Existing CU95612 exact public-caption assertion plus changelog only",
+  "layer1": {
+    "evidence": "gateway-layer1.json",
+    "filesScanned": 15,
+    "summary": "Full test-folder scan used because root diff scan does not include test files (root result0invalid). Existing advisory findings retained; no scan script modified.",
+    "findingsDisposition": "Existing unchanged test-folder advisories disclosed; only changed AL statement is exact table-caption assertion. No gateway script, suppression or skip change."
+  },
+  "layer2": {
+    "compile": "Both apps zero errors/warnings with unchanged analyzers and manifests",
+    "breakingChanges": "No production AL changes, public APIs, object ids or versions changed",
+    "logic": "Expected public table caption now matches deployed compatible Foundation665 refusal; all other assertion bytes unchanged",
+    "coverage": "Full configured native suite102passed0failed0skipped; self-seeded MCP10/10; direct setup UI2/2 in1033/1039",
+    "documentation": "CHANGELOG names codeunit95612 and #41; no new help contract",
+    "translation": "No new label/caption and existing en-US/is-IS files unchanged",
+    "permissionWiring": "No new objects or permissions",
+    "unknown": "Independent Claude/Grok/approval, paired PR CI, Architect merge/deployment and UAT remain pending"
+  },
+  "ready": true,
+  "developerAcceptanceVerified": true
+}

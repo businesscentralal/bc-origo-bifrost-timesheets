@@ -1,0 +1,30 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "containerId": "f09faa50f660",
+  "tool": "Playwright MCP browser_run_code_unsafe through isolated local bridge",
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "lcids": [
+    1033,
+    1039
+  ],
+  "scenarios": [
+    {
+      "lcid": 1033,
+      "scenario": "Edit Webhook Receiver URL in Timesheets Setup, blur, reload, independently inspect persisted value",
+      "evidence": "ui-1033-url-save-verified.json",
+      "screenshot": "ui-1033-url-saved.png"
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Select genuine Icelandic (Iceland) locale in My Settings; edit receiver URL, blur, reload, inspect persisted value on Icelandic setup page",
+      "evidence": "ui-1039-url-save-verified.json",
+      "screenshot": "ui-1039-url-visible.png"
+    }
+  ],
+  "attempts": "Initial English save succeeded; post-reload frame locator detached. Fresh frame inspected without replaying write. All raw UI setup/navigation attempts retained privately.",
+  "setup": "Own synthetic receiver URL and new ZZ41 work type; scoped setup-table Change Log coverage enabled through UI; no webhook registration/provider call or credential/consent/licence changes.",
+  "fixtureRestoration": "UI restored initial blank receiver URL; MCP readback in mcp-fixture-restored-final.json confirms URL and field16 blank"
+}

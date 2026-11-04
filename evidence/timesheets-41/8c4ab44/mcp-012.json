@@ -1,0 +1,46 @@
+{
+  "type": "Help.Fields.Get",
+  "data": {
+    "tableId": 10036853,
+    "fieldNumbers": [
+      13,
+      16
+    ]
+  },
+  "lcid": 1039,
+  "response": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Help.Fields.Get",
+    "status": "Success",
+    "result": [
+      {
+        "id": 13,
+        "name": "Webhook Receiver URL",
+        "jsonName": "WebhookReceiverURL",
+        "caption": "Móttökuslóð vefkróks",
+        "class": "Normal",
+        "type": "Text",
+        "len": 250,
+        "isPartOfPrimaryKey": false,
+        "hasTableRelation": false,
+        "readRestricted": false,
+        "writeRestricted": true,
+        "writeOnce": false
+      },
+      {
+        "id": 16,
+        "name": "Default Work Type",
+        "jsonName": "DefaultWorkType",
+        "caption": "Sjálfgefin vinnutegund",
+        "class": "Normal",
+        "type": "Code",
+        "len": 10,
+        "isPartOfPrimaryKey": false,
+        "hasTableRelation": true,
+        "readRestricted": false,
+        "writeRestricted": false,
+        "writeOnce": false
+      }
+    ]
+  }
+}

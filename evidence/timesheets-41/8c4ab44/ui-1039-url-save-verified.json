@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### Result\n{\"lcid\":1039,\"language\":\"Icelandic (Iceland)\",\"visiblePageTitle\":\"Bifrost Timesheets - uppsetning\",\"scenario\":\"Direct setup URL edit persists after reload\",\"value\":\"https://zz41.invalid/ui-is\",\"url\":\"https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f09faa50f660/?company=CRONUS%20International%20Ltd.&tenant=default&bookmark=B_dSaZAAJ7&page=10036853&dc=0\"}\n### Ran Playwright code\n```js\nawait (async page=>{let f=page.frames().find(x=>x!==page.mainFrame());await f.getByRole('button',{name:'Gera breytingar á síðunni',exact:true}).click();const box=f.getByRole('textbox',{name:/^Móttökuslóð vefkróks/});if(await box.inputValue()!=='https://zz41.invalid/original')throw Error('MCP baseline changed');await box.fill('https://zz41.invalid/ui-is');await box.press('Tab');await page.waitForTimeout(300);await page.reload();await page.waitForTimeout(1500);f=page.frames().find(x=>x!==page.mainFrame());await f.getByRole('button',{name:'Gera breytingar á síðunni',exact:true}).click();let url=f.getByRole('textbox',{name:/^Móttökuslóð vefkróks/});if(!await url.isVisible())await f.getByRole('heading',{name:'Vefkrókar',exact:true}).click();const saved=await url.inputValue();if(saved!=='https://zz41.invalid/ui-is')throw Error('1039 URL not persisted');await page.screenshot({path:'./ui-1039-url-saved.png'});return {lcid:1039,language:'Icelandic (Iceland)',visiblePageTitle:await page.title(),scenario:'Direct setup URL edit persists after reload',value:saved,url:page.url()};}\n)(page);\n```"
+    }
+  ]
+}

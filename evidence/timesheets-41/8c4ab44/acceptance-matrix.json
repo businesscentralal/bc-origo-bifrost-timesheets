@@ -1,0 +1,55 @@
+{
+  "issue": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/41",
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "criteria": [
+    {
+      "id": "AC01",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC02",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC03",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC04",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC05",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC06",
+      "status": "verified-native",
+      "verification": "Full configured suite including codeunit95612",
+      "evidence": "full-suite-result.json;102/102, CU95612 all8pass"
+    },
+    {
+      "id": "AC07",
+      "status": "verified-developer",
+      "verification": "Self-seeded setup record; protected field13 via technical/canonical aliases refused with PermissionDenied,hint,parameter and no partial write; allowed field16 set+clear; direct setup-page URL save/reopen in1033/1039",
+      "evidence": "mcp-final-summary.json10/10 in1033/1039 and ui-summary.json2/2; no bypass, force, licence or provider writes"
+    },
+    {
+      "id": "AC08",
+      "status": "verified-source",
+      "verification": "CHANGELOG entry added; product/test app version untouched; production subscriber/webhook code unchanged"
+    }
+  ],
+  "retainedHistoricalEvidence": "Original PR42 implementation merged; old compile/runtime results are not current-tip passes",
+  "noExclusions": true
+}

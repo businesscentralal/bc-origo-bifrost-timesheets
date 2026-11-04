@@ -1,0 +1,29 @@
+{
+  "type": "Data.Records.Get",
+  "data": {
+    "tableId": 10036853,
+    "fieldNumbers": [
+      13,
+      16
+    ]
+  },
+  "lcid": 1033,
+  "response": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Get",
+    "status": "Success",
+    "noOfRecords": 1,
+    "result": [
+      {
+        "id": "93F5A3F4-00D8-F111-B7A5-FC6408D284E8",
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "WebhookReceiverURL": "https://zz41.invalid/original",
+          "DefaultWorkType": "ZZ41"
+        }
+      }
+    ]
+  }
+}

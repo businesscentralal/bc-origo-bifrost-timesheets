@@ -1,0 +1,16 @@
+{
+  "sha": "8c4ab44425fa367ed2a694bfd7bebe187e3946d6",
+  "containerId": "f09faa50f660",
+  "owner": "worker-5",
+  "displayName": "andvari-worker5-timesheets41-20261104",
+  "ownershipConfirmed": true,
+  "startedAt": "2026-11-04T03:52:59.904Z",
+  "finishedAt": "2026-11-04T03:53:01.193Z",
+  "deleteStatus": 204,
+  "getReadbackStatus": 404,
+  "listReadbackStatus": 200,
+  "absentFromContainerList": true,
+  "verified": true,
+  "fixtureCleanup": "All native/MCP/UI data belonged to this ephemeral worker-owned container and were removed with its lifecycle deletion. No individual UAT/customer/shared rows or foreign resources were deleted.",
+  "otherResourcesMutated": false
+}
