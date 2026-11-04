@@ -18,6 +18,20 @@ codeunit 95603 "Clockify Mock Client" implements "Clockify API Client ori"
         MockState: Codeunit "Clockify Mock State";
         QueuedSuccess: Boolean;
     begin
+        // A persisted, company-scoped test fixture supports separate shipping MCP sessions.
+        // Only the Clockify boundary is mocked; Foundation dispatch and paging run unchanged.
+        if (CompanyName() = 'CRONUS SINDRI23 Verification') and
+           ResourcePath.StartsWith('/workspaces/XSINDRI23/user/XSINDRI23-')
+        then begin
+            ResponseBody := '[]';
+            StatusCode := 200;
+            if ResourcePath.Contains('/user/XSINDRI23-000002/') then begin
+                ResponseBody := 'Simulated fixture user failure.';
+                StatusCode := 503;
+                exit(false);
+            end;
+            exit(true);
+        end;
         MockState.CaptureRequest(Method, ResourcePath, HasBody, RequestBody);
         if MockState.TryDequeueResponse(QueuedSuccess, StatusCode, ResponseBody) then
             exit(QueuedSuccess);
