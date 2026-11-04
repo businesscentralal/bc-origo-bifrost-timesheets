@@ -34,7 +34,7 @@ codeunit 10036865 "TS Usage Reject ori" implements "Msg Interface ori", "Msg Con
     /// <summary>GetKeywords for the usage reject contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, reject', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, reject', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, höfnun';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036865 "TS Usage Reject ori" implements "Msg Interface ori", "Msg Con
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Reject', Parameters));
+        exit(Parts.AddRejectParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage reject contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036865 "TS Usage Reject ori" implements "Msg Interface ori", "Msg Con
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Reject');
+        NativeMgt.ExecuteReject(Argument);
     end;
 }

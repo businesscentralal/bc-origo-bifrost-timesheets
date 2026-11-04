@@ -7,12 +7,14 @@ using Microsoft.Projects.Resources.Journal;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
+using System.Security.User;
 
 /// <summary>Owns usage authorization, validation and transaction dispatch.</summary>
 codeunit 10036850 "TS Usage Mgt ori"
 {
     Access = Internal;
     var
+        IsolatedLbl: Label 'Usage writes require an isolated transaction without omitCommit.', Comment = 'is-IS=Skrifaðgerðir notkunar krefjast einangraðrar færslu án omitCommit.';
         InvalidKeyLbl: Label 'The value for %1 is missing or invalid.', Comment = '%1 = request key; is-IS=Gildið fyrir %1 vantar eða er ógilt.';
         UnknownKeyLbl: Label 'Unknown request key: %1.', Comment = '%1 = request key; is-IS=Óþekktur beiðnilykill: %1.';
         PermissionLbl: Label 'The caller cannot perform this usage operation.', Comment = 'is-IS=Kallandinn má ekki framkvæma þessa notkunaraðgerð.';
@@ -35,8 +37,211 @@ codeunit 10036850 "TS Usage Mgt ori"
         exit(Usage.WritePermission() and Resource.ReadPermission() and Item.ReadPermission());
     end;
 
+    /// <summary>Validates the Register JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteRegister(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Register') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Register', RequestJson);
+        if not ValidateRegisterInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Register');
+    end;
+
+    [TryFunction]
+    local procedure ValidateRegisterInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Register', RequestJson);
+        ReadCode(RequestJson, 'timeSheetNo', 20, true);
+        ReadInteger(RequestJson, 'lineNo', true);
+        ReadText(RequestJson, 'type', 20, true);
+        ReadCode(RequestJson, 'no', 20, true);
+        ReadDate(RequestJson, 'date', true);
+        ReadDecimal(RequestJson, 'quantity', true);
+        ReadCode(RequestJson, 'unitOfMeasure', 10, false);
+        ReadText(RequestJson, 'description', 100, false);
+    end;
+
+    /// <summary>Validates the List JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteList(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'List') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('List', RequestJson);
+        if not ValidateListInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'List');
+    end;
+
+    [TryFunction]
+    local procedure ValidateListInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('List', RequestJson);
+        ReadCode(RequestJson, 'timeSheetNo', 20, false);
+        ReadDate(RequestJson, 'week', false);
+        ReadText(RequestJson, 'status', 20, false);
+        ReadInteger(RequestJson, 'afterEntryNo', false);
+        ReadInteger(RequestJson, 'limit', false);
+    end;
+
+    /// <summary>Validates the Submit JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteSubmit(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Submit') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Submit', RequestJson);
+        if not ValidateSubmitInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Submit');
+    end;
+
+    [TryFunction]
+    local procedure ValidateSubmitInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Submit', RequestJson);
+        ReadInteger(RequestJson, 'entryNo', true);
+    end;
+
+    /// <summary>Validates the Approve JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteApprove(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Approve') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Approve', RequestJson);
+        if not ValidateApproveInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Approve');
+    end;
+
+    [TryFunction]
+    local procedure ValidateApproveInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Approve', RequestJson);
+        ReadInteger(RequestJson, 'entryNo', true);
+    end;
+
+    /// <summary>Validates the Reject JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteReject(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Reject') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Reject', RequestJson);
+        if not ValidateRejectInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Reject');
+    end;
+
+    [TryFunction]
+    local procedure ValidateRejectInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Reject', RequestJson);
+        ReadInteger(RequestJson, 'entryNo', true);
+        ReadText(RequestJson, 'comment', 80, false);
+    end;
+
+    /// <summary>Validates the Transfer JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteTransfer(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Transfer') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Transfer', RequestJson);
+        if not ValidateTransferInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Transfer');
+    end;
+
+    [TryFunction]
+    local procedure ValidateTransferInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Transfer', RequestJson);
+        if not RequestJson.Contains('entryNos') then
+            ReadInteger(RequestJson, 'entryNo', true);
+        ReadCode(RequestJson, 'journalTemplate', 10, true);
+        ReadCode(RequestJson, 'journalBatch', 10, true);
+    end;
+
+    /// <summary>Validates the Reverse JSON shape before starting its isolated operation.</summary>
+    procedure ExecuteReverse(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+        RequestJson: JsonObject;
+    begin
+        if not Authorize(Argument, 'Reverse') then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        Context.Initialize('Reverse', RequestJson);
+        if not ValidateReverseInput(RequestJson) then begin
+            RespondValidationFailure(Argument);
+            exit;
+        end;
+        Execute(Argument, 'Reverse');
+    end;
+
+    [TryFunction]
+    local procedure ValidateReverseInput(RequestJson: JsonObject)
+    begin
+        CheckKeys('Reverse', RequestJson);
+        ReadInteger(RequestJson, 'entryNo', true);
+        if ReadBoolean(RequestJson, 'createJournal') then begin
+            ReadCode(RequestJson, 'journalTemplate', 10, true);
+            ReadCode(RequestJson, 'journalBatch', 10, true);
+        end;
+    end;
+
+    local procedure Authorize(var Argument: Record "Message Argument ori"; Operation: Text): Boolean
+    begin
+        if IsEnabled(Operation) then
+            exit(true);
+        Argument.RespondWithError("Bifrost Error Code ori"::PermissionDenied, PermissionLbl, '', '', '', NextStepLbl);
+        exit(false);
+    end;
+
+    local procedure RespondValidationFailure(var Argument: Record "Message Argument ori")
+    var
+        Context: Codeunit "TS Usage Context ori";
+    begin
+        Argument.RespondWithError(Context.GetErrorCode(), GetLastErrorText(), Context.GetParameter(), '', '', NextStepLbl);
+        Context.Reset();
+    end;
+
     /// <summary>Runs writes in an isolated runner and maps failures to structured refusals.</summary>
-    procedure Execute(var Argument: Record "Message Argument ori"; Operation: Text)
+    local procedure Execute(var Argument: Record "Message Argument ori"; Operation: Text)
     var
         Context: Codeunit "TS Usage Context ori";
         Failure: Text;
@@ -46,7 +251,7 @@ codeunit 10036850 "TS Usage Mgt ori"
             exit;
         end;
         if (Operation <> 'List') and Argument."Omit Commit" then begin
-            Argument.RespondWithError("Bifrost Error Code ori"::PreconditionFailed, StateLbl, 'omitCommit', '', '', NextStepLbl);
+            Argument.RespondWithError("Bifrost Error Code ori"::PreconditionFailed, IsolatedLbl, 'omitCommit', '', '', NextStepLbl);
             exit;
         end;
         Context.Initialize(Operation, Argument.GetRequestJson());
@@ -87,7 +292,7 @@ codeunit 10036850 "TS Usage Mgt ori"
     begin
         Operation := Context.GetOperation();
         Request := Context.GetRequest();
-        CheckKeys(Request, Operation);
+        CheckKeys(Operation, Request);
         if not IsEnabled(Operation) then
             Refuse("Bifrost Error Code ori"::PermissionDenied, '', PermissionLbl);
         if (Operation = 'Transfer') and Request.Contains('entryNos') then begin
@@ -243,11 +448,26 @@ codeunit 10036850 "TS Usage Mgt ori"
         Usage.Modify(true);
     end;
 
+    local procedure CheckJournalAuthority(Usage: Record "TS Usage Line ori")
+    var
+        Header: Record "Time Sheet Header";
+        UserSetup: Record "User Setup";
+    begin
+        Header.Get(Usage."Time Sheet No.");
+        if UserSetup.ReadPermission() then
+            if UserSetup.Get(UserId()) then
+                if UserSetup."Time Sheet Admin." then
+                    exit;
+        if (Header."Approver User ID" <> '') and (Header."Approver User ID" = UpperCase(UserId())) then
+            exit;
+        Refuse("Bifrost Error Code ori"::PermissionDenied, 'entryNo', PermissionLbl);
+    end;
+
     local procedure Transfer(var Usage: Record "TS Usage Line ori"; Request: JsonObject)
     var
         Journals: Codeunit "TS Usage Journals ori";
     begin
-        CheckApprover(Usage);
+        CheckJournalAuthority(Usage);
         if Usage.Status <> Usage.Status::Approved then
             Refuse("Bifrost Error Code ori"::InvalidLine, 'entryNo', StrSubstNo(StateLbl, 'Transfer'));
         if Usage."Journal Line No." <> 0 then
@@ -294,7 +514,7 @@ codeunit 10036850 "TS Usage Mgt ori"
     var
         Journals: Codeunit "TS Usage Journals ori";
     begin
-        CheckApprover(Usage);
+        CheckJournalAuthority(Usage);
         if (Usage.Status <> Usage.Status::Posted) or Usage.Reversed then
             Refuse("Bifrost Error Code ori"::InvalidLine, 'entryNo', StrSubstNo(StateLbl, 'Reverse'));
         if ReadBoolean(Request, 'createJournal') then
@@ -323,6 +543,8 @@ codeunit 10036850 "TS Usage Mgt ori"
         Week := ReadDate(Request, 'week', false);
         AfterEntry := ReadInteger(Request, 'afterEntryNo', false);
         Limit := ReadInteger(Request, 'limit', false);
+        if Request.Contains('limit') and (Limit = 0) then
+            Invalid('limit');
         if Limit = 0 then
             Limit := 50;
         if Limit > 200 then
@@ -402,7 +624,7 @@ codeunit 10036850 "TS Usage Mgt ori"
         Result.Add('comment', Usage."Rejection Comment");
     end;
 
-    local procedure CheckKeys(Request: JsonObject; Operation: Text)
+    local procedure CheckKeys(Operation: Text; Request: JsonObject)
     var
         Keys: List of [Text];
         Allowed: List of [Text];

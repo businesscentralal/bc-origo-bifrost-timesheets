@@ -34,7 +34,7 @@ codeunit 10036864 "TS Usage Approve ori" implements "Msg Interface ori", "Msg Co
     /// <summary>GetKeywords for the usage approve contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, approve', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, approve', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, samþykki';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036864 "TS Usage Approve ori" implements "Msg Interface ori", "Msg Co
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Approve', Parameters));
+        exit(Parts.AddApproveParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage approve contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036864 "TS Usage Approve ori" implements "Msg Interface ori", "Msg Co
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Approve');
+        NativeMgt.ExecuteApprove(Argument);
     end;
 }

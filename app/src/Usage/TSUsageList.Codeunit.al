@@ -34,7 +34,7 @@ codeunit 10036856 "TS Usage List ori" implements "Msg Interface ori", "Msg Contr
     /// <summary>GetKeywords for the usage list contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, list', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, list', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, listi';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036856 "TS Usage List ori" implements "Msg Interface ori", "Msg Contr
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('List', Parameters));
+        exit(Parts.AddListParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage list contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036856 "TS Usage List ori" implements "Msg Interface ori", "Msg Contr
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'List');
+        NativeMgt.ExecuteList(Argument);
     end;
 }

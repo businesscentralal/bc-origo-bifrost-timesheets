@@ -15,6 +15,7 @@ codeunit 10036860 "TS Usage Contract ori"
         quantityLbl: Label 'Positive usage quantity.', Comment = 'is-IS=Jákvætt notkunarmagn.';
         unitOfMeasureLbl: Label 'Unit of measure; defaults to base unit.', Comment = 'is-IS=Mælieining; grunnmælieining er sjálfgefin.';
         descriptionLbl: Label 'Optional description, at most 100 characters.', Comment = 'is-IS=Valfrjáls lýsing, mest 100 stafir.';
+        entryNosLbl: Label 'Alternative to entryNo: one to 200 usage entry numbers, transferred atomically.', Comment = 'is-IS=Valkostur við entryNo: eitt til 200 notkunarfærslunúmer, flutt saman í einni færslu.';
         entryNoLbl: Label 'Usage entry number.', Comment = 'is-IS=Númer notkunarfærslu.';
         commentLbl: Label 'Optional rejection comment, at most 80 characters.', Comment = 'is-IS=Valfrjáls höfnunarathugasemd, mest 80 stafir.';
         journalTemplateLbl: Label 'Existing journal template, at most 10 characters.', Comment = 'is-IS=Gilt sniðmát færslubókar, mest 10 stafir.';
@@ -30,49 +31,89 @@ codeunit 10036860 "TS Usage Contract ori"
         PermissionLbl: Label 'Assign the Timesheets permissions and the destination journal write permissions.', Comment = 'is-IS=Úthlutaðu tímaskýrsluheimildum og skrifheimildum í viðkomandi færslubók.';
         ErrorLbl: Label 'The key, ownership, permissions or usage state is invalid. No changes were retained.', Comment = 'is-IS=Lykill, eignarhald, heimildir eða notkunarstaða er ógild. Engar breytingar voru varðveittar.';
 
-    /// <summary>Lists only the keys consumed by this operation.</summary>
-    procedure AddParameters(Operation: Text; var Parameters: JsonArray): Boolean
+    /// <summary>Declares only the keys consumed by Register.</summary>
+    procedure AddRegisterParameters(var Parameters: JsonArray): Boolean
     var
         Contract: Codeunit "Msg Contract Mgt ori";
     begin
-        case Operation of
-            'Register': begin
-                Parameters.Add(Contract.Parameter('timeSheetNo', 'string', true, timeSheetNoLbl));
-                Parameters.Add(Contract.Parameter('lineNo', 'integer', true, lineNoLbl));
-                Parameters.Add(Contract.Parameter('type', 'string', true, typeLbl));
-                Parameters.Add(Contract.Parameter('no', 'string', true, noLbl));
-                Parameters.Add(Contract.Parameter('date', 'string', true, dateLbl));
-                Parameters.Add(Contract.Parameter('quantity', 'number', true, quantityLbl));
-                Parameters.Add(Contract.Parameter('unitOfMeasure', 'string', false, unitOfMeasureLbl));
-                Parameters.Add(Contract.Parameter('description', 'string', false, descriptionLbl));
-            end;
-            'List': begin
-                Parameters.Add(Contract.Parameter('timeSheetNo', 'string', false, timeSheetNoLbl));
-                Parameters.Add(Contract.Parameter('week', 'string', false, weekLbl));
-                Parameters.Add(Contract.Parameter('status', 'string', false, statusLbl));
-                Parameters.Add(Contract.Parameter('afterEntryNo', 'integer', false, afterEntryNoLbl));
-                Parameters.Add(Contract.Parameter('limit', 'integer', false, limitLbl));
-            end;
-            'Submit':
-                Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
-            'Approve':
-                Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
-            'Reject': begin
-                Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
-                Parameters.Add(Contract.Parameter('comment', 'string', false, commentLbl));
-            end;
-            'Transfer': begin
-                Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
-                Parameters.Add(Contract.Parameter('journalTemplate', 'string', true, journalTemplateLbl));
-                Parameters.Add(Contract.Parameter('journalBatch', 'string', true, journalBatchLbl));
-            end;
-            'Reverse': begin
-                Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
-                Parameters.Add(Contract.Parameter('createJournal', 'boolean', false, createJournalLbl));
-                Parameters.Add(Contract.Parameter('journalTemplate', 'string', false, journalTemplateLbl));
-                Parameters.Add(Contract.Parameter('journalBatch', 'string', false, journalBatchLbl));
-            end;
-        end;
+        Parameters.Add(Contract.Parameter('timeSheetNo', 'string', true, timeSheetNoLbl));
+        Parameters.Add(Contract.Parameter('lineNo', 'integer', true, lineNoLbl));
+        Parameters.Add(Contract.Parameter('type', 'string', true, typeLbl));
+        Parameters.Add(Contract.Parameter('no', 'string', true, noLbl));
+        Parameters.Add(Contract.Parameter('date', 'string', true, dateLbl));
+        Parameters.Add(Contract.Parameter('quantity', 'number', true, quantityLbl));
+        Parameters.Add(Contract.Parameter('unitOfMeasure', 'string', false, unitOfMeasureLbl));
+        Parameters.Add(Contract.Parameter('description', 'string', false, descriptionLbl));
+    
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by List.</summary>
+    procedure AddListParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('timeSheetNo', 'string', false, timeSheetNoLbl));
+        Parameters.Add(Contract.Parameter('week', 'string', false, weekLbl));
+        Parameters.Add(Contract.Parameter('status', 'string', false, statusLbl));
+        Parameters.Add(Contract.Parameter('afterEntryNo', 'integer', false, afterEntryNoLbl));
+        Parameters.Add(Contract.Parameter('limit', 'integer', false, limitLbl));
+    
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by Submit.</summary>
+    procedure AddSubmitParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by Approve.</summary>
+    procedure AddApproveParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by Reject.</summary>
+    procedure AddRejectParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
+        Parameters.Add(Contract.Parameter('comment', 'string', false, commentLbl));
+    
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by Transfer.</summary>
+    procedure AddTransferParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('entryNo', 'integer', false, entryNoLbl));
+        Parameters.Add(Contract.Parameter('journalTemplate', 'string', true, journalTemplateLbl));
+        Parameters.Add(Contract.Parameter('journalBatch', 'string', true, journalBatchLbl));
+    
+        Parameters.Add(Contract.Parameter('entryNos', 'array', false, entryNosLbl));
+        exit(true);
+    end;
+
+    /// <summary>Declares only the keys consumed by Reverse.</summary>
+    procedure AddReverseParameters(var Parameters: JsonArray): Boolean
+    var
+        Contract: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(Contract.Parameter('entryNo', 'integer', true, entryNoLbl));
+        Parameters.Add(Contract.Parameter('createJournal', 'boolean', false, createJournalLbl));
+        Parameters.Add(Contract.Parameter('journalTemplate', 'string', false, journalTemplateLbl));
+        Parameters.Add(Contract.Parameter('journalBatch', 'string', false, journalBatchLbl));
+    
         exit(true);
     end;
 

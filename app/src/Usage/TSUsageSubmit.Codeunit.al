@@ -34,7 +34,7 @@ codeunit 10036857 "TS Usage Submit ori" implements "Msg Interface ori", "Msg Con
     /// <summary>GetKeywords for the usage submit contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, submit', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, submit', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, innsending';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036857 "TS Usage Submit ori" implements "Msg Interface ori", "Msg Con
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Submit', Parameters));
+        exit(Parts.AddSubmitParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage submit contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036857 "TS Usage Submit ori" implements "Msg Interface ori", "Msg Con
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Submit');
+        NativeMgt.ExecuteSubmit(Argument);
     end;
 }

@@ -12,7 +12,7 @@
 
 - Add owned Item/Resource usage registration, explicit submission, independent approver decisions, bounded caller-scoped listing, journal transfer and one-time reversal through `Timesheets.Usage.*`.
 - Add the usage table (10036878), status/type enums (10036878–10036879), read-only approver page (10036878), read permission set (10036878), isolated runner/validation/contracts and native journal posting/deletion tracking. Codeunits use free per-type IDs 10036850–10036853, 10036856–10036857 and 10036860–10036867 within the existing app range; published native feature branches retain their existing IDs.
-- Add native regression codeunit 95635 and English usage-flow documentation. Generic usage writes are restricted to the dedicated messages. Transfer creates journals without posting.
+- Add native regression/permission codeunits 95635–95636, owned test-only MCP fixture codeunits 95637–95639 and English usage-flow documentation. Generic usage writes are restricted to the dedicated messages. Transfer creates journals without posting.
 
 
 ### Added

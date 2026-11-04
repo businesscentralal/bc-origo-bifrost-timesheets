@@ -34,7 +34,7 @@ codeunit 10036853 "TS Usage Register ori" implements "Msg Interface ori", "Msg C
     /// <summary>GetKeywords for the usage register contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, register', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, register', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, skráning';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036853 "TS Usage Register ori" implements "Msg Interface ori", "Msg C
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Register', Parameters));
+        exit(Parts.AddRegisterParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage register contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036853 "TS Usage Register ori" implements "Msg Interface ori", "Msg C
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Register');
+        NativeMgt.ExecuteRegister(Argument);
     end;
 }

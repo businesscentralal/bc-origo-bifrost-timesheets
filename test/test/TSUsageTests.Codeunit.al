@@ -1,8 +1,12 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Foundation.UOM;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Projects.Resources.Ledger;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Journal;
+using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Journal;
 using Microsoft.Projects.Resources.Journal;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
@@ -595,7 +599,12 @@ codeunit 95635 "TS Usage Tests"
     var
         Usage: Record "TS Usage Line ori";
         TempArgument: Record "Message Argument ori" temporary;
-        Implementation: Interface "Msg Interface ori";
+        Dispatcher: Codeunit "Dispatcher ori";
+        RequestContent: BigText;
+        ResponseContent: BigText;
+        ResponseContentType: Text[100];
+        RequestText: Text;
+        ResponseText: Text;
         Request: JsonObject;
         Row: JsonObject;
         Fields: JsonObject;
@@ -618,9 +627,11 @@ codeunit 95635 "TS Usage Tests"
         TempArgument.Version := TempArgument.Version::"1.0";
         TempArgument.Insert();
         TempArgument.SetRequestJson(Request);
-        Implementation := TempArgument.GetMessageTypeInterface();
-        Implementation.ExecuteBifrostTask(TempArgument);
-        Response := TempArgument.GetResponseJson();
+        Request.WriteTo(RequestText);
+        RequestContent.AddText(RequestText);
+        Dispatcher.Execute(Enum::"Message Type ori"::"Data.Records.Set", Enum::"Message Version ori"::"1.0", '', 'ZZU84', 'application/json', RequestContent, ResponseContent, ResponseContentType);
+        ResponseContent.GetSubText(ResponseText, 1);
+        Response.ReadFrom(ResponseText);
         Assert.AreEqual('Error', TextValue(Response, 'status'), 'Generic usage writes are refused.');
         Assert.IsTrue(TextValue(Response, 'nextStep').Contains('Timesheets.Usage'), 'Refusal points to dedicated messages.');
         Usage.Get(Usage."Entry No.");
@@ -722,6 +733,98 @@ codeunit 95635 "TS Usage Tests"
         Cleanup(SheetNo, ItemNo);
     end;
 
+    /// <summary>Project-linked Item usage routes to a Job Journal.</summary>
+    [Test]
+    procedure ProjectItemUsageRoutesToJobJournal()
+    begin
+        AssertJobJournalTransfer(false);
+    end;
+
+    /// <summary>Project-linked Resource usage routes to a Job Journal.</summary>
+    [Test]
+    procedure ProjectResourceUsageRoutesToJobJournal()
+    begin
+        AssertJobJournalTransfer(true);
+    end;
+
+    /// <summary>The approver page exposes read-only usage for an addressed sheet.</summary>
+    [Test]
+    procedure ApproverPageIsReadOnlyAndScoped()
+    var
+        Usage: Record "TS Usage Line ori";
+        UsagePage: TestPage "TS Usage Lines ori";
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        CreateUsage(Usage, SheetNo, ItemNo, true);
+        UsagePage.OpenView();
+        Assert.IsTrue(UsagePage.GoToRecord(Usage), 'Approver can see the addressed usage.');
+        Assert.IsFalse(UsagePage.Status.Editable(), 'Status is read-only in the worklist.');
+        Assert.IsFalse(UsagePage.Quantity.Editable(), 'Quantity is read-only in the worklist.');
+        UsagePage.Close();
+        Cleanup(SheetNo, ItemNo);
+    end;
+
+    local procedure AssertJobJournalTransfer(ResourceUsage: Boolean)
+    var
+        Usage: Record "TS Usage Line ori";
+        Header: Record "Time Sheet Header";
+        SheetLine: Record "Time Sheet Line";
+        Job: Record Job;
+        JobTask: Record "Job Task";
+        JournalTemplate: Record "Job Journal Template";
+        Batch: Record "Job Journal Batch";
+        Journal: Record "Job Journal Line";
+        Request: JsonObject;
+        Response: JsonObject;
+        SheetNo: Code[20];
+        ItemNo: Code[20];
+    begin
+        CreateUsage(Usage, SheetNo, ItemNo, true);
+        Header.Get(SheetNo);
+        if ResourceUsage then begin
+            Usage.Type := Usage.Type::Resource;
+            Usage."No." := Header."Resource No.";
+        end;
+        Usage.Status := Usage.Status::Approved;
+        Usage.Modify(false);
+        Job."No." := UniqueNo();
+        Job.Description := 'Usage test project';
+        Job.Status := Job.Status::Open;
+        Job.Insert(false);
+        JobTask."Job No." := Job."No.";
+        JobTask."Job Task No." := 'TASK';
+        JobTask."Job Task Type" := JobTask."Job Task Type"::Posting;
+        JobTask.Insert(false);
+        SheetLine.Get(SheetNo, 10000);
+        SheetLine.Type := SheetLine.Type::Job;
+        SheetLine."Job No." := Job."No.";
+        SheetLine."Job Task No." := JobTask."Job Task No.";
+        SheetLine.Modify(false);
+        JournalTemplate.Name := CopyStr(UniqueNo(), 6, 10);
+        JournalTemplate.Insert(false);
+        Batch."Journal Template Name" := JournalTemplate.Name;
+        Batch.Name := CopyStr(UniqueNo(), 6, 10);
+        Batch.Insert(false);
+        Request.Add('entryNo', Usage."Entry No.");
+        Request.Add('journalTemplate', JournalTemplate.Name);
+        Request.Add('journalBatch', Batch.Name);
+        Response := Execute('Transfer', Request);
+        Assert.AreEqual('Success', TextValue(Response, 'status'), 'Project Transfer succeeds.');
+        Usage.Get(Usage."Entry No.");
+        Assert.AreEqual(Database::"Job Journal Line", Usage."Journal Table No.", 'Project mapping wins over usage type.');
+        Journal.Get(JournalTemplate.Name, Batch.Name, Usage."Journal Line No.");
+        Assert.AreEqual(Job."No.", Journal."Job No.", 'Project preserved.');
+        Assert.AreEqual(JobTask."Job Task No.", Journal."Job Task No.", 'Task preserved.');
+        Assert.AreEqual(Usage."No.", Journal."No.", 'Usage entity preserved.');
+        Journal.Delete(true);
+        Batch.Delete(false);
+        JournalTemplate.Delete(false);
+        JobTask.Delete(false);
+        Job.Delete(false);
+        Cleanup(SheetNo, ItemNo);
+    end;
+
     local procedure ItemJournalFixture(var JournalTemplate: Record "Item Journal Template"; var Batch: Record "Item Journal Batch")
     begin
         JournalTemplate.Init();
@@ -738,6 +841,7 @@ codeunit 95635 "TS Usage Tests"
         Header: Record "Time Sheet Header";
         Line: Record "Time Sheet Line";
         Resource: Record Resource;
+        PostingGroup: Record "Gen. Product Posting Group";
         Item: Record Item;
         UnitOfMeasure: Record "Unit of Measure";
         ResourceUnit: Record "Resource Unit of Measure";
@@ -746,8 +850,11 @@ codeunit 95635 "TS Usage Tests"
         UnitOfMeasure.Init();
         UnitOfMeasure.Code := CopyStr(UniqueNo(), 6, 10);
         UnitOfMeasure.Insert(false);
+        PostingGroup.Code := UnitOfMeasure.Code;
+        PostingGroup.Insert(false);
         Resource.Init();
         Resource."No." := UniqueNo();
+        Resource."Gen. Prod. Posting Group" := PostingGroup.Code;
         Resource.Name := 'Usage test resource';
         Resource."Base Unit of Measure" := UnitOfMeasure.Code;
         Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, 50);
@@ -863,9 +970,11 @@ codeunit 95635 "TS Usage Tests"
         Line: Record "Time Sheet Line";
         Resource: Record Resource;
         Item: Record Item;
+        PostingGroup: Record "Gen. Product Posting Group";
         UnitOfMeasure: Record "Unit of Measure";
         ResourceUnit: Record "Resource Unit of Measure";
         ItemUnit: Record "Item Unit of Measure";
+        FixtureCleanup: Codeunit "TS Usage Fixture Cleanup";
     begin
         Usage.SetRange("Time Sheet No.", SheetNo);
         Usage.DeleteAll(false);
@@ -874,6 +983,7 @@ codeunit 95635 "TS Usage Tests"
         Header.Get(SheetNo);
         Resource.Get(Header."Resource No.");
         Header.Delete(false);
+        FixtureCleanup.DeleteResourceLedger(Resource."No.");
         ResourceUnit.SetRange("Resource No.", Resource."No.");
         ResourceUnit.DeleteAll(false);
         Resource.Delete(false);
@@ -882,6 +992,8 @@ codeunit 95635 "TS Usage Tests"
         ItemUnit.SetRange("Item No.", ItemNo);
         ItemUnit.DeleteAll(false);
         Item.Delete(false);
+        PostingGroup.Get(UnitOfMeasure.Code);
+        PostingGroup.Delete(false);
         UnitOfMeasure.Delete(false);
         Commit();
     end;

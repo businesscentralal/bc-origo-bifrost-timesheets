@@ -34,7 +34,7 @@ codeunit 10036866 "TS Usage Transfer ori" implements "Msg Interface ori", "Msg C
     /// <summary>GetKeywords for the usage transfer contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, transfer', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, transfer', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, flutningur';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036866 "TS Usage Transfer ori" implements "Msg Interface ori", "Msg C
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Transfer', Parameters));
+        exit(Parts.AddTransferParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage transfer contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036866 "TS Usage Transfer ori" implements "Msg Interface ori", "Msg C
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Transfer');
+        NativeMgt.ExecuteTransfer(Argument);
     end;
 }

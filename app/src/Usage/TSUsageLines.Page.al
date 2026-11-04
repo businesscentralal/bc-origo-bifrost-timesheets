@@ -11,6 +11,9 @@ page 10036878 "TS Usage Lines ori"
     UsageCategory = Lists;
     Caption = 'Time Sheet Usage Lines', Comment = 'is-IS=Notkunarlínur tímaskýrslu';
     Editable = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
     layout
     {
         area(Content)

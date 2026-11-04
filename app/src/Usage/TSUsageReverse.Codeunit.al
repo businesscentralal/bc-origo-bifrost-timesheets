@@ -34,7 +34,7 @@ codeunit 10036867 "TS Usage Reverse ori" implements "Msg Interface ori", "Msg Co
     /// <summary>GetKeywords for the usage reverse contract.</summary>
     procedure GetKeywords(): Text
     var
-        KeywordsLbl: Label 'time sheet, usage, item, resource, reverse', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði';
+        KeywordsLbl: Label 'time sheet, usage, item, resource, reverse', Comment = 'is-IS=tímaskýrsla, notkun, vara, forði, bakfærsla';
     begin
         exit(KeywordsLbl);
     end;
@@ -68,7 +68,7 @@ codeunit 10036867 "TS Usage Reverse ori" implements "Msg Interface ori", "Msg Co
     var
         Parts: Codeunit "TS Usage Contract ori";
     begin
-        exit(Parts.AddParameters('Reverse', Parameters));
+        exit(Parts.AddReverseParameters(Parameters));
     end;
 
     /// <summary>GetResponse for the usage reverse contract.</summary>
@@ -158,6 +158,6 @@ codeunit 10036867 "TS Usage Reverse ori" implements "Msg Interface ori", "Msg Co
         NativeMgt: Codeunit "TS Usage Mgt ori";
     begin
         Argument.AssertVersion1();
-        NativeMgt.Execute(Argument, 'Reverse');
+        NativeMgt.ExecuteReverse(Argument);
     end;
 }
