@@ -156,7 +156,6 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
                 AddRangeParameters(Parameters, ContractMgt, true, true);
         end;
-        end;
         exit(Parameters.Count() > 0);
     end;
 
