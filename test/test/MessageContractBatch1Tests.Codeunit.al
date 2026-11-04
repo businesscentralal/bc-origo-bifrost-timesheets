@@ -189,7 +189,7 @@ codeunit 95608 "Message Contract Batch 1 Tests"
             MessageType::"Clockify.TimeEntry.SyncRangeToTimeSheet":
                 exit('end, start, userId, workspaceId');
             MessageType::"Clockify.TimeEntry.SyncAllUsers":
-                exit('end, journalBatch, journalTemplate, start, target, userId, workspaceId');
+                exit('end, journalBatch, journalTemplate, skip, start, take, target, workspaceId');
             else
                 Error('No expected parameter list is fixed for %1.', MessageType.AsInteger());
         end;

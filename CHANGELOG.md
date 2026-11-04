@@ -6,6 +6,16 @@
 
 - Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.
 
+### Changed
+
+- Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
+
+- SyncAllUsers declares its own paging parameters, keeping them off unrelated Clockify types and removing the misleading `userId` help entry. Test page 95619 seeds a named, isolated paging company; the test-only Clockify mock supports cross-session MCP paging checks without external API calls.
+
+- Regenerated Icelandic translations from the AL source comments, including the paged-user selection text and missing setup action labels.
+
+- `Clockify.TimeEntry.SyncAllUsers` (codeunit 10036846) now syncs one page of active user mappings: `skip` defaults to 0 and `take` defaults to 100, capped at 1000. Callers must repeat with `nextSkip` while `hasMore` is true to sync all users. The response includes `totalUsers`; failed users still advance the offset. Contract parts (10036855) document the limits and caller loop, and paging tests (95604) cover boundaries, continuation and isolated user failures (#23).
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
