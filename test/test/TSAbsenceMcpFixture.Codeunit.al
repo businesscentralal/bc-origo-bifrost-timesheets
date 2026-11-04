@@ -3,6 +3,7 @@ namespace Origo.Bifrost.Timesheets.Test;
 using Microsoft.Foundation.UOM;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 using System.Security.User;
