@@ -1,0 +1,12 @@
+{
+  "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+  "baselineSha": "26881d6",
+  "contract": {
+    "candidate": 481,
+    "baseline": 481,
+    "introduced": []
+  },
+  "xlf": "PASS",
+  "mixedLanguage": "PASS",
+  "helpLinks": "Unreleased in-app help per PR71ruling6626910201; no new public target."
+}

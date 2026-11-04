@@ -1,0 +1,9 @@
+Microsoft (R) AL Compiler version 30.0.42.60748
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets' containing '105' files at '14:12:16.833'.
+
+evidence/timesheets65-reginn-main26881d6-20261104/build-source/app/src/Setup/ClockifyFieldRestrict.Codeunit.al(4,1): info AA0477: The using statements are not in a sorted order.
+
+Compilation ended at '14:12:32.350'.
+

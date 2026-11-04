@@ -1,0 +1,55 @@
+[
+  {
+    "name": "default-app",
+    "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+    "dirty": false,
+    "errors": 0,
+    "warnings": 0,
+    "exitCode": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ],
+    "artifact": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/Timesheets.Default.app",
+    "sha256": "996e4d9e4d6aa012aca383ece8b24724c309c7994fddb35bed516f1b18468d6a",
+    "startedAt": "2026-11-04T14:12:15.812473+00:00",
+    "finishedAt": "2026-11-04T14:12:32.492532+00:00",
+    "manifestTransform": "Default removes inherited AS0081 suppression and IVT"
+  },
+  {
+    "name": "test-product",
+    "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+    "dirty": false,
+    "errors": 0,
+    "warnings": 0,
+    "exitCode": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ],
+    "artifact": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/symbols/Origo_Bifrost Timesheets_28.0.0.0.app",
+    "sha256": "49887de6b2c9183d9f05de91d592f0da26696cc68a49fa9b21b5239e4ca0199a",
+    "startedAt": "2026-11-04T14:12:32.527209+00:00",
+    "finishedAt": "2026-11-04T14:12:55.694970+00:00",
+    "manifestTransform": "unchanged"
+  },
+  {
+    "name": "test-app",
+    "sha": "5670c0be3d55e609841e51970f17d99872fd21d7",
+    "dirty": false,
+    "errors": 0,
+    "warnings": 0,
+    "exitCode": 0,
+    "analyzers": [
+      "CodeCop",
+      "UICop"
+    ],
+    "artifact": "/workspace/evidence/timesheets65-reginn-main26881d6-20261104/symbols/Timesheets.Tests.app",
+    "sha256": "bb2cef1456203119531f3b947ccc1e10f535071aeedf870595f15b4c5d3de265",
+    "startedAt": "2026-11-04T14:12:55.719060+00:00",
+    "finishedAt": "2026-11-04T14:13:12.442258+00:00",
+    "manifestTransform": "unchanged"
+  }
+]

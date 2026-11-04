@@ -1,0 +1,9 @@
+Microsoft (R) AL Compiler version 30.0.42.60748
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets - Tests' containing '22' files at '14:12:57.378'.
+
+evidence/timesheets65-reginn-main26881d6-20261104/build-source/test/test/TSAbsenceRegTests.Codeunit.al(264,9): info AA0210: The table Employee does not contain a key with the field Resource No..
+
+Compilation ended at '14:13:12.285'.
+

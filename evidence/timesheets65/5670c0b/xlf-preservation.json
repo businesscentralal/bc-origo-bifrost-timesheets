@@ -1,0 +1,7 @@
+{
+  "mainUnits": 341,
+  "newUnits": 70,
+  "mainRelativeOrderPreserved": true,
+  "allMainUnitsByteContentPreserved": true,
+  "strategy": "Union existing main units with new compiler-generated absence units, retaining every existing unit and relative main order."
+}
