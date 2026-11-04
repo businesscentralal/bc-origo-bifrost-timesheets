@@ -1,0 +1,19 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "lcid": 1039,
+  "clientLanguage": "Icelandic (Iceland)",
+  "subject": "ZZ49-A6-075",
+  "type": "Clockify.TimeEntry.Sync",
+  "scenario": "missing-journal",
+  "passed": true,
+  "visibleResponse": {
+    "status": "Error",
+    "error": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+    "renderedText": "{\"status\":\"Error\",\"error\":\"Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.\",\"hint\":\"Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \n\"Help.Implementation.Get\n\" með subject \n\"Clockify.TimeEntry.Sync\n\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund.\"}",
+    "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+  },
+  "caption": "Bifröst skilaboð:",
+  "screenshot": "./ui-1039-missing-journal.png",
+  "at": "2026-11-04T03:08:25.815Z"
+}

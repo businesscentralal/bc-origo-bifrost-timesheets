@@ -1,0 +1,860 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "tier": "Standard",
+  "mechanicalSummary": {
+    "ready": false,
+    "failed": 4,
+    "total": 23,
+    "passed": 19
+  },
+  "disposition": {
+    "try_prefix_convention": "Unchanged existing boolean helper TryGetWorkspaceCurrencies; adding TryFunction would change runtime semantics outside #49.",
+    "one_statement_per_line": "22 false positives: procedure parameter delimiters, not executable statements.",
+    "read_isolation": "5 unchanged existing record reads outside label-only scope; disclosed, no locking changes made.",
+    "xml_doc_comments": "133 inherited undocumented procedures in the 10 scanned source files; no new production procedures; four new test procedures have XML docs."
+  },
+  "deepReview": {
+    "idsAndAffixes": "No objects added or renumbered. Existing CU95601 tests only.",
+    "breakingChanges": "Existing public procedures/fields/types unchanged.",
+    "logic": "Only label locking/comments and equivalent literal-to-label substitutions; no condition, error status, payload shape or HTTP mapping change.",
+    "english": "Existing labels byte-for-byte unchanged; four extracted English literal strings unchanged.",
+    "scope": "Final diff excludes donor contract-key, table, page, and pipeline edits.",
+    "translations": "All259existing Icelandic target texts are preserved;23newunitsadded. MixedLanguageLabels0findings. Full XLF-sync guard fails because generator/source comments disagree with existing targets; no unrelated source-comment edits authorized.",
+    "testAssertions": "All preexisting assertions unchanged.",
+    "runtime": "Current full106executed104passed2failed0skipped. MCP82passed0failed0skipped across34types; UI1033/1039freshverificationinprogress. Two CU95612 existing table-name-vs-caption assertions need scope disposition.",
+    "readiness": "NOT_READY; AC08/AC09 unmet, no PR or review handoff"
+  },
+  "rawFindings": {
+    "try_prefix_convention": {
+      "pass": false,
+      "findings": [
+        {
+          "procedure": "TryGetWorkspaceCurrencies",
+          "issue": "Procedure 'TryGetWorkspaceCurrencies' uses Try prefix but has no [TryFunction] attribute",
+          "line": 183,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        }
+      ]
+    },
+    "xml_doc_comments": {
+      "pass": false,
+      "findings": [
+        {
+          "procedure": "IsEnabled",
+          "line": 17,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 27,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 32,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 38,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 45,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 52,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 59,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 66,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 73,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 80,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 87,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 94,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 101,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 108,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 115,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 122,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 129,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 141,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 146,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 19,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 29,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 34,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 40,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 47,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 54,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 61,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 68,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 75,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 82,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 89,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 96,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 103,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 110,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 117,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 124,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 131,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 143,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 148,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 26,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 36,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 41,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 47,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 54,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 61,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 68,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 75,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 82,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 89,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 96,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 103,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 110,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 117,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 124,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 131,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 138,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 150,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 155,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 26,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 36,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 41,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 47,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 54,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 61,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 68,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 75,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 82,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 89,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 96,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 103,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 110,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 117,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 124,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 131,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 138,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 150,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 155,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 18,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 25,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 30,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 36,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 43,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 50,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 57,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 64,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 71,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 78,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 85,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 92,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 99,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 106,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 113,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 120,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 127,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 139,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 144,
+          "file": "ClockifyTSheetPostImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 19,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 29,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 34,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 40,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 47,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 54,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 61,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 68,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 75,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 82,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 89,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 96,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 103,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 110,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 117,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 124,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 131,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 143,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 148,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "procedure": "IsEnabled",
+          "line": 18,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetFilterTableNo",
+          "line": 28,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetDescription",
+          "line": 33,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetKeywords",
+          "line": 39,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetSelectionDescription",
+          "line": 46,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEnvelope",
+          "line": 53,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetTarget",
+          "line": 60,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetParameters",
+          "line": 67,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetResponse",
+          "line": 74,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetErrors",
+          "line": 81,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetEffect",
+          "line": 88,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMetering",
+          "line": 95,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetRelated",
+          "line": 102,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetWorkflow",
+          "line": 109,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetExamples",
+          "line": 116,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetOverview",
+          "line": 123,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetNotes",
+          "line": 130,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "GetMessageDirection",
+          "line": 142,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        },
+        {
+          "procedure": "ExecuteBifrostTask",
+          "line": 147,
+          "file": "ClockifyTSheetSyncImpl.Codeunit.al"
+        }
+      ]
+    },
+    "one_statement_per_line": {
+      "pass": false,
+      "findings": [
+        {
+          "text": "procedure Execute(var Argument: Record \"Message Argument ori\"; Method: Text; ResourcePath: Text; HasBody: Boolean; RequestBody: Text)",
+          "line": 31,
+          "file": "ClockifyRequestMgt.Codeunit.al"
+        },
+        {
+          "text": "procedure ResolveWorkspaceId(var Argument: Record \"Message Argument ori\"; RequestJson: JsonObject; var WorkspaceId: Text): Boolean",
+          "line": 95,
+          "file": "ClockifyRequestMgt.Codeunit.al"
+        },
+        {
+          "text": "procedure RequireParam(var Argument: Record \"Message Argument ori\"; RequestJson: JsonObject; PropertyName: Text; var Value: Text): Boolean",
+          "line": 142,
+          "file": "ClockifyRequestMgt.Codeunit.al"
+        },
+        {
+          "text": "procedure RequireBody(var Argument: Record \"Message Argument ori\"; RequestJson: JsonObject; var BodyText: Text): Boolean",
+          "line": 160,
+          "file": "ClockifyRequestMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure TryGetWorkspaceCurrencies(ResponseJson: JsonObject; WorkspaceId: Text; var CurrenciesArray: JsonArray): Boolean",
+          "line": 183,
+          "file": "ClockifyCurrencyListImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure SyncOneUser(WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; Target: Text; JournalTemplate: Code[10]; JournalBatch: Code[10]; var UsersArray: JsonArray; var Counts: Dictionary of [Text, Integer])",
+          "line": 215,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure SyncUserEntries(WorkspaceId: Text; UserId: Text; Entries: JsonArray; Target: Text; JournalTemplate: Code[10]; JournalBatch: Code[10]; var Counts: Dictionary of [Text, Integer]; var Created: Integer; var Skipped: Integer; var Updated: Integer; var Errors: Integer)",
+          "line": 244,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure GetInterval(EntryObject: JsonObject; var StartText: Text; var EndText: Text)",
+          "line": 307,
+          "file": "ClockifySyncAllUsersImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure FetchEntries(var Argument: Record \"Message Argument ori\"; WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; var Entries: JsonArray): Boolean",
+          "line": 213,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure SyncEntries(var TimeEntrySync: Codeunit \"Clockify Time Entry Sync ori\"; JournalTemplate: Code[10]; JournalBatch: Code[10]; WorkspaceId: Text; UserId: Text; Entries: JsonArray; var Results: JsonArray; var Counts: Dictionary of [Text, Integer])",
+          "line": 257,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure GetInterval(EntryObject: JsonObject; var StartText: Text; var EndText: Text)",
+          "line": 313,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure GetBoolean(JsonObject: JsonObject; PropertyName: Text; DefaultValue: Boolean): Boolean",
+          "line": 358,
+          "file": "ClockifyTEntryRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure GetOptionalParam(RequestJson: JsonObject; ParamName: Text; var ParamValue: Text)",
+          "line": 259,
+          "file": "ClockifyTEntrySyncImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure FindOpenTimeSheet(ResourceNo: Code[20]; PostingDate: Date; var TimeSheet: Record \"Time Sheet Header\"): Boolean",
+          "line": 142,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure FindOrCreateTimeSheetLine(TimeSheet: Record \"Time Sheet Header\"; JobTask: Record \"Job Task\"; WorkType: Code[10]; Description: Text; Billable: Boolean; var TimeSheetLine: Record \"Time Sheet Line\")",
+          "line": 153,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateNew(TimeSheet: Record \"Time Sheet Header\"; TimeSheetLine: Record \"Time Sheet Line\"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; PostingDate: Date; Hours: Decimal; Description: Text; var ResultMessage: Text): Enum \"Clockify Sync Result ori\"",
+          "line": 188,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure UpdateExisting(var Integration: Record \"Clockify Integration ori\"; TimeSheet: Record \"Time Sheet Header\"; TimeSheetLine: Record \"Time Sheet Line\"; PostingDate: Date; Hours: Decimal; ClockifyEntryId: Text[50]; var ResultMessage: Text): Enum \"Clockify Sync Result ori\"",
+          "line": 199,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure WriteDetail(TimeSheet: Record \"Time Sheet Header\"; TimeSheetLine: Record \"Time Sheet Line\"; PostingDate: Date; Hours: Decimal; var TimeSheetDetail: Record \"Time Sheet Detail\")",
+          "line": 224,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateIntegrationRecord(var Integration: Record \"Clockify Integration ori\"; ClockifyEntryId: Text[50]; ClockifyWorkspaceId: Text[50]; TimeSheetDetail: Record \"Time Sheet Detail\"; Description: Text; Hours: Decimal)",
+          "line": 253,
+          "file": "ClockifyTimeSheetSync.Codeunit.al"
+        },
+        {
+          "text": "local procedure FetchEntries(var Argument: Record \"Message Argument ori\"; WorkspaceId: Text; UserId: Text; StartText: Text; EndText: Text; var Entries: JsonArray): Boolean",
+          "line": 187,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure SyncEntries(WorkspaceId: Text; UserId: Text; Entries: JsonArray; var Results: JsonArray; var Counts: Dictionary of [Text, Integer])",
+          "line": 227,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        },
+        {
+          "text": "local procedure GetInterval(EntryObject: JsonObject; var StartText: Text; var EndText: Text)",
+          "line": 281,
+          "file": "ClockifyTSheetRangeImpl.Codeunit.al"
+        }
+      ]
+    },
+    "read_isolation": {
+      "pass": false,
+      "findings": [
+        {
+          "variable": "Integration",
+          "line": 250,
+          "file": "ClockifyTimeSheetSync.Codeunit.al",
+          "text": "exit(Integration.FindFirst());"
+        },
+        {
+          "variable": "TimeSheetLine",
+          "line": 169,
+          "file": "ClockifyTimeSheetSync.Codeunit.al",
+          "text": "if TimeSheetLine.FindFirst() then"
+        },
+        {
+          "variable": "Integration",
+          "line": 250,
+          "file": "ClockifyTimeSheetSync.Codeunit.al",
+          "text": "exit(Integration.FindFirst());"
+        },
+        {
+          "variable": "TimeSheetLine",
+          "line": 169,
+          "file": "ClockifyTimeSheetSync.Codeunit.al",
+          "text": "if TimeSheetLine.FindFirst() then"
+        },
+        {
+          "variable": "Integration",
+          "line": 250,
+          "file": "ClockifyTimeSheetSync.Codeunit.al",
+          "text": "exit(Integration.FindFirst());"
+        }
+      ]
+    }
+  }
+}

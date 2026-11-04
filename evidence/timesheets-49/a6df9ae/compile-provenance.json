@@ -1,0 +1,34 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "checks": [
+    {
+      "type": "app",
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "d7805e496bb9f6b2919006a29dd46244e712c7533bffb3ad4f058567b15f5827"
+    },
+    {
+      "type": "test",
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "e5cdabc69db243927e2453b8c4cff95d9b33a567851e116ed1b91b61da9cccc4"
+    }
+  ],
+  "analyzers": {
+    "app": [
+      "CodeCop",
+      "UICop",
+      "AppSourceCop"
+    ],
+    "testApp": [
+      "CodeCop",
+      "UICop"
+    ]
+  },
+  "symbolProvenance": "Existing worker-5 Microsoft BC28.5 W1 cache and Foundation28.0.11.665 published source50d37c0b58da421d649b8ca1aaf407dd318d0301 from retained dependency artifact13260925056. RuntimeBC28.5.54151.57488/W1. Not current Timesheets CI dependency proof.",
+  "testRulesetApplied": false
+}

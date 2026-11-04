@@ -1,0 +1,182 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "total": 106,
+  "codeunits": [
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "methods": [
+        "HelpTypeIsOutboundWithNoFilterTable",
+        "EveryClockifyTypeHasMetadataAndHelp",
+        "CompanyApiKeyRoundtrips",
+        "DefaultApiVersionIsVersion1",
+        "WorkspaceListRoutesGetThroughClient",
+        "ErrorResponseIsSurfacedWithStatusCode",
+        "ProjectCreatePostsBodyToWorkspace",
+        "DefaultWorkspaceUsedWhenRequestOmitsIt",
+        "WorkspaceLookupRequiresApiKey",
+        "WorkspaceLookupReturnsSelection",
+        "RegisterCreatesWebhooksForEachTimeEntryEvent",
+        "RemoveDeletesRegisteredWebhooks",
+        "ReverseTimeEntryWithNoLinkIsSkipped",
+        "JobJournalResolvesFromSetup",
+        "TimeEntrySyncErrorsWhenNoJournalConfigured",
+        "TimeEntrySyncRejectsInProgressEntries",
+        "WorkTypeResolvesFromTagThenDefault",
+        "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+        "SyncSkipsUnchangedThenUpdatesOnChange",
+        "ReverseDeletesSyncedJournalLine",
+        "WebhookDispatchCreatesJobJournalLine",
+        "IntegrationTableStampsAndClearsReversedAt",
+        "RetentionRegistersIntegrationTable",
+        "HelpIncludesIntegrationTracking",
+        "CurrencyListProjectsWorkspaceCurrencies",
+        "UserGroupListRoutesGetToWorkspacesUserGroups",
+        "UserGroupListForwardsQueryString",
+        "TimeEntryListForwardsInProgressQueryParameter",
+        "CustomFieldListRoutesGetToWorkspacesCustomFields",
+        "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+        "UserGroupListHelpExplainsIdUsage",
+        "CustomFieldListHelpExplainsIdUsage",
+        "TimeEntryListHelpExplainsInProgressFilter",
+        "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+        "UserListHelpExplainsOptionalQueryEffects",
+        "ClientUpdateHelpExplainsOptionalBodyEffects",
+        "OverviewListsLookupEndpoints",
+        "OverviewGotchasCallOutIdOnlyWrites",
+        "IntegrationGateAllowsWriteAccess",
+        "SyncRangeIsInboundWithHelp",
+        "SyncRangeErrorsWhenNoJournalConfigured",
+        "SyncRangeCreatesLinesForEntriesInRange",
+        "SyncRangePerEntryErrorDoesNotAbortBatch",
+        "AllInboundTimeTypesAreInboundWithHelp",
+        "TimeSheetCreateReturnsCountWithNoResources",
+        "TimeSheetApproveReturnsZeroWhenNothingOpen",
+        "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+        "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+        "TimeSheetReopenReturnsZeroWhenNothingPending",
+        "TimeSheetPostErrorsWhenNoJournalConfigured",
+        "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+        "SyncToTimeSheetErrorsWhenNoMapping",
+        "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+        "Scenario_AC08_RequireParamAnswersInIcelandic",
+        "Scenario_AC08_RequireBodyAnswersInIcelandic",
+        "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+        "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic",
+        "SyncToTimeSheetCreatesDetailOnOpenSheet",
+        "SyncRangeToTimeSheetCreatesDetailsForEntries",
+        "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+        "SyncAllUsersSyncsMappedUserToTimeSheet",
+        "ReverseFromTimeSheetRemovesOpenDetail",
+        "WebhookSigningTokenIsRedactedFromTheResponseLog",
+        "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+        "BodiesWithoutASigningTokenPassThroughUnchanged",
+        "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+        "HelpClockifyGetUsesTableNameNotTable",
+        "InboundTimeTypesHaveNonEmptyRequestExamples",
+        "InboundHelpMarkdownShowsDirectionInbound",
+        "HelpTracksUppercaseClockifyTypeCodes"
+      ],
+      "count": 70
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "methods": [
+        "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+        "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+        "FieldRestrict_NeighbourFieldsNotRestricted",
+        "FieldRestrict_TableLevelChecksStayFalse",
+        "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+        "Scenario_AC07_NameAlias_Refused",
+        "Scenario_AC07_JsonAlias_Refused",
+        "Scenario_AC07_WorkType_SaveAndClear"
+      ],
+      "count": 8
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "methods": [
+        "ClockifyWrites_DeclareInbound",
+        "BusinessCentralSideTypes_StayInbound",
+        "ReadTypes_StayOutbound",
+        "SyncParameters_MatchOptionalUsageInCode",
+        "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+        "WrongWorkspace_DocumentedAs400Not404",
+        "CustomFieldList_Documents403ForFreePlan",
+        "Overview_DefinesDirectionByMutation"
+      ],
+      "count": 8
+    },
+    {
+      "codeunit": 95607,
+      "name": "Clockify Reten. Policy Tests",
+      "methods": [
+        "TC001_EnableDefaultPolicyInsertsEnabledRow",
+        "TC002_EnableDefaultPolicyReRunIsIdempotent"
+      ],
+      "count": 2
+    },
+    {
+      "codeunit": 95608,
+      "name": "Message Contract Batch 1 Tests",
+      "methods": [
+        "Batch1TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "codeunit": 95609,
+      "name": "Message Contract Batch 2 Tests",
+      "methods": [
+        "Batch2TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "codeunit": 95610,
+      "name": "Message Contract Batch 3 Tests",
+      "methods": [
+        "Batch3TypesDeclareContractAndDiscovery"
+      ],
+      "count": 1
+    },
+    {
+      "codeunit": 95611,
+      "name": "Message Contract Effect Tests",
+      "methods": [
+        "ClockifyApiWrites_DeclareIrreversible",
+        "ClockifyDeletesAndPost_DeclareIrreversible",
+        "BusinessCentralOnlyWrites_StayWrite",
+        "Reads_StayRead"
+      ],
+      "count": 4
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "methods": [
+        "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+        "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+        "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+        "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+        "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+        "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+        "PopulateCurrentCustomers_UsesMyCustomers",
+        "ResolveLastWorkday_Monday_ReturnsFriday",
+        "AddServiceItemLine_ReusesOpenInvoice",
+        "AddServiceItemLine_InvalidItem_Errors"
+      ],
+      "count": 10
+    },
+    {
+      "codeunit": 95606,
+      "name": "Timesheets Registration Tests",
+      "methods": [
+        "AppRegistersItselfWithFoundation"
+      ],
+      "count": 1
+    }
+  ]
+}

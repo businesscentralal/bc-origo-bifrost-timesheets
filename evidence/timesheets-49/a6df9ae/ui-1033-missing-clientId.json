@@ -1,0 +1,19 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "lcid": 1033,
+  "clientLanguage": "English (United States)",
+  "subject": "ZZ49-A6-065",
+  "type": "Clockify.Client.Get",
+  "scenario": "missing-clientId",
+  "passed": true,
+  "visibleResponse": {
+    "status": "Error",
+    "error": "Missing required 'clientId' in the request.",
+    "renderedText": "{\"status\":\"Error\",\"error\":\"Missing required 'clientId' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.Client.Get\n\". Always read the help before calling a message type.\"}",
+    "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+  },
+  "caption": "Bifrost Messages:",
+  "screenshot": "./ui-1033-missing-clientId.png",
+  "at": "2026-11-04T03:04:57.315Z"
+}

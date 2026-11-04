@@ -1,0 +1,19 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "mixedLanguage": {
+    "exit": 0,
+    "findings": 0,
+    "scriptUnchanged": true,
+    "evidence": "guard-mixed-language.log"
+  },
+  "selfTest": {
+    "exit": 0,
+    "evidence": "guard-selftest.log"
+  },
+  "xlfSync": {
+    "exit": 1,
+    "reportedProblems": 1,
+    "evidence": "guard-xlf-sync.log",
+    "reason": "Preserved existing Icelandic targets differ from generator source-comment authority. No unrelated source-comment edits or script changes made."
+  }
+}

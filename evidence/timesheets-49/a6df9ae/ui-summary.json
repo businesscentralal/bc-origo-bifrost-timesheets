@@ -1,0 +1,96 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "lcids": [
+    1033,
+    1039
+  ],
+  "scenarios": [
+    "Missing clientId refusal rendered for own Clockify.Client.Get message",
+    "Missing journal refusal rendered for own Clockify.TimeEntry.Sync message"
+  ],
+  "results": [
+    {
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "containerId": "f0b264fbaa93",
+      "lcid": 1033,
+      "clientLanguage": "English (United States)",
+      "subject": "ZZ49-A6-067",
+      "type": "Clockify.TimeEntry.Sync",
+      "scenario": "missing-journal",
+      "passed": true,
+      "visibleResponse": {
+        "status": "Error",
+        "error": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+        "renderedText": "{\"status\":\"Error\",\"error\":\"No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.TimeEntry.Sync\n\". Always read the help before calling a message type.\"}",
+        "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+      },
+      "caption": "Bifrost Messages:",
+      "screenshot": "./ui-1033-missing-journal.png",
+      "at": "2026-11-04T03:03:39.426Z"
+    },
+    {
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "containerId": "f0b264fbaa93",
+      "lcid": 1033,
+      "clientLanguage": "English (United States)",
+      "subject": "ZZ49-A6-065",
+      "type": "Clockify.Client.Get",
+      "scenario": "missing-clientId",
+      "passed": true,
+      "visibleResponse": {
+        "status": "Error",
+        "error": "Missing required 'clientId' in the request.",
+        "renderedText": "{\"status\":\"Error\",\"error\":\"Missing required 'clientId' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.Client.Get\n\". Always read the help before calling a message type.\"}",
+        "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+      },
+      "caption": "Bifrost Messages:",
+      "screenshot": "./ui-1033-missing-clientId.png",
+      "at": "2026-11-04T03:04:57.315Z"
+    },
+    {
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "containerId": "f0b264fbaa93",
+      "lcid": 1039,
+      "clientLanguage": "Icelandic (Iceland)",
+      "subject": "ZZ49-A6-075",
+      "type": "Clockify.TimeEntry.Sync",
+      "scenario": "missing-journal",
+      "passed": true,
+      "visibleResponse": {
+        "status": "Error",
+        "error": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+        "renderedText": "{\"status\":\"Error\",\"error\":\"Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.\",\"hint\":\"Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \n\"Help.Implementation.Get\n\" með subject \n\"Clockify.TimeEntry.Sync\n\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund.\"}",
+        "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+      },
+      "caption": "Bifröst skilaboð:",
+      "screenshot": "./ui-1039-missing-journal.png",
+      "at": "2026-11-04T03:08:25.815Z"
+    },
+    {
+      "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+      "containerId": "f0b264fbaa93",
+      "lcid": 1039,
+      "clientLanguage": "Icelandic (Iceland)",
+      "subject": "ZZ49-A6-073",
+      "type": "Clockify.Client.Get",
+      "scenario": "missing-clientId",
+      "passed": true,
+      "visibleResponse": {
+        "status": "Error",
+        "error": "Nauðsynlegt 'clientId' vantar í beiðnina.",
+        "renderedText": "{\"status\":\"Error\",\"error\":\"Nauðsynlegt 'clientId' vantar í beiðnina.\",\"hint\":\"Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \n\"Help.Implementation.Get\n\" með subject \n\"Clockify.Client.Get\n\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund.\"}",
+        "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+      },
+      "caption": "Bifröst skilaboð:",
+      "screenshot": "./ui-1039-missing-clientId.png",
+      "at": "2026-11-04T03:08:29.463Z"
+    }
+  ],
+  "method": "Playwright MCP, real Web Client language settings, own-record URL filtering, visible read-only Response Data controls, complete exact rendered error fields and screenshots",
+  "preparationRetries": "Earlier browser connection/list-search/viewer-normalization retries are retained under root historical candidate evidence. Current candidate four final scenarios passed."
+}

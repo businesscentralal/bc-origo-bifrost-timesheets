@@ -1,0 +1,170 @@
+{
+  "sourceSha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "sourceBranch": "codex/andvari/timesheets49-mixed-language",
+  "branchUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/tree/codex/andvari/timesheets49-mixed-language",
+  "commitUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/commit/a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "owner": "worker-5",
+  "displayName": "Andvari",
+  "status": "BLOCKED / NOT PR READY",
+  "deliveryComplete": false,
+  "compile": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "checks": [
+      {
+        "type": "app",
+        "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+        "exit": 0,
+        "errors": 0,
+        "warnings": 0,
+        "artifactSha256": "d7805e496bb9f6b2919006a29dd46244e712c7533bffb3ad4f058567b15f5827"
+      },
+      {
+        "type": "test",
+        "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+        "exit": 0,
+        "errors": 0,
+        "warnings": 0,
+        "artifactSha256": "e5cdabc69db243927e2453b8c4cff95d9b33a567851e116ed1b91b61da9cccc4"
+      }
+    ],
+    "analyzers": {
+      "app": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ],
+      "testApp": [
+        "CodeCop",
+        "UICop"
+      ]
+    },
+    "symbolProvenance": "Existing worker-5 Microsoft BC28.5 W1 cache and Foundation28.0.11.665 published source50d37c0b58da421d649b8ca1aaf407dd318d0301 from retained dependency artifact13260925056. RuntimeBC28.5.54151.57488/W1. Not current Timesheets CI dependency proof.",
+    "testRulesetApplied": false
+  },
+  "fullSuite": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "containerId": "f0b264fbaa93",
+    "fullSuite": true,
+    "executed": 106,
+    "passed": 104,
+    "failed": 2,
+    "skipped": 0,
+    "failures": [
+      {
+        "name": "Scenario_AC07_NameAlias_Refused",
+        "message": "Assert.AreEqual failed. Expected:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.&gt; (Text). Actual:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.&gt; (Text). The field refusal stays in error. The setup hint is nextStep..",
+        "classname": "95612 Clockify Field Restrict Tests"
+      },
+      {
+        "name": "Scenario_AC07_JsonAlias_Refused",
+        "message": "Assert.AreEqual failed. Expected:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.&gt; (Text). Actual:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.&gt; (Text). The field refusal stays in error. The setup hint is nextStep..",
+        "classname": "95612 Clockify Field Restrict Tests"
+      }
+    ],
+    "durationMs": 26574
+  },
+  "translationTests": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "executed": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "methods": [
+      "Scenario_AC08_RequireParamAnswersInIcelandic",
+      "Scenario_AC08_RequireBodyAnswersInIcelandic",
+      "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+      "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic"
+    ],
+    "source": "native-result-preview.log from full-suite execution; not focused-run evidence"
+  },
+  "mcp": {
+    "executed": 82,
+    "passed": 82,
+    "failed": 0,
+    "skipped": 0,
+    "types": 34,
+    "evidence": "mcp-summary.json"
+  },
+  "ui": {
+    "executed": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "lcids": [
+      1033,
+      1039
+    ],
+    "evidence": "ui-summary.json"
+  },
+  "guards": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "mixedLanguage": {
+      "exit": 0,
+      "findings": 0,
+      "scriptUnchanged": true,
+      "evidence": "guard-mixed-language.log"
+    },
+    "selfTest": {
+      "exit": 0,
+      "evidence": "guard-selftest.log"
+    },
+    "xlfSync": {
+      "exit": 1,
+      "reportedProblems": 1,
+      "evidence": "guard-xlf-sync.log",
+      "reason": "Preserved existing Icelandic targets differ from generator source-comment authority. No unrelated source-comment edits or script changes made."
+    }
+  },
+  "xlfScope": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "existingTargetsPreserved": 259,
+    "newUnits": 23,
+    "removedUnits": 0,
+    "existingTargetTextChanges": 0
+  },
+  "cleanup": {
+    "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "containerId": "f0b264fbaa93",
+    "owner": "worker-5",
+    "displayName": "andvari-worker5-timesheets49-20261104",
+    "ownershipConfirmed": true,
+    "startedAt": "2026-11-04T03:12:07.384Z",
+    "finishedAt": "2026-11-04T03:12:09.716Z",
+    "deleteStatus": 204,
+    "getReadbackStatus": 404,
+    "listReadbackStatus": 200,
+    "absentFromContainerList": true,
+    "verified": true,
+    "fixtureCleanup": "All native/MCP/UI data belonged to this ephemeral worker-owned container and were removed with its lifecycle deletion. No individual UAT/customer/shared rows or foreign resources were deleted.",
+    "otherResourcesMutated": false
+  },
+  "blockers": [
+    {
+      "owner": "Architect",
+      "reason": "Current-tip full suite106executed104passed2failed0skipped; existing CU95612 exact table-name assertions conflict with current Foundation caption. Story explicitly prohibits editing existing English assertions; bounded one-line expected-caption patch awaits authorized scope disposition.",
+      "dependencyUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/49"
+    },
+    {
+      "owner": "Architect / Gunnar",
+      "reason": "AC09 full XLF-sync guard fails at current tip. Preserving all259existing targets avoids unrelated translation changes, but unmodified generator replaces them from disagreeing existing source comments. No unrelated table/page/comment or guard-script changes are authorized in #49; route or clarify this exact scope dependency.",
+      "dependencyUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/49"
+    }
+  ],
+  "prUrls": [],
+  "ci": "No PR opened or CI green claim; gates unmet",
+  "review": "No review handoff/clearance/approval/merge/UAT claimed",
+  "nextOwner": "Architect for exact scope disposition; worker-5 retains implementation/verification custody",
+  "nextAction": "Resolve named scope dependencies, then retained worker applies authorized bounded repair and performs all required verification at the changed candidate",
+  "priorCandidate": "94ef56db3618b0c9677778cbdda983370d6f631e evidence retained; none used as current-tip execution proof",
+  "runtime": {
+    "containerId": "f0b264fbaa93",
+    "owner": "worker-5",
+    "BCVersion": "28.5.54151.57488",
+    "locale": "W1 with genuine Microsoft Icelandic language app",
+    "productVersion": "28.0.0.0",
+    "testAppVersion": "28.0.0.0",
+    "foundationVersion": "28.0.11.665",
+    "artifactReadback": "deployed-source-readback.json matches both installed packages to this SHA and compile hashes"
+  },
+  "capturedAt": "2026-11-04T03:15:24.532394+00:00"
+}

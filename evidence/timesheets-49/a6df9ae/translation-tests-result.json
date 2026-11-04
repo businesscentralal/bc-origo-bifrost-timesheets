@@ -1,0 +1,14 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "methods": [
+    "Scenario_AC08_RequireParamAnswersInIcelandic",
+    "Scenario_AC08_RequireBodyAnswersInIcelandic",
+    "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+    "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic"
+  ],
+  "source": "native-result-preview.log from full-suite execution; not focused-run evidence"
+}

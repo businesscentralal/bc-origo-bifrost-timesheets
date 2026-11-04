@@ -1,0 +1,19 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "lcid": 1033,
+  "clientLanguage": "English (United States)",
+  "subject": "ZZ49-A6-067",
+  "type": "Clockify.TimeEntry.Sync",
+  "scenario": "missing-journal",
+  "passed": true,
+  "visibleResponse": {
+    "status": "Error",
+    "error": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+    "renderedText": "{\"status\":\"Error\",\"error\":\"No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.TimeEntry.Sync\n\". Always read the help before calling a message type.\"}",
+    "format": "BigText response with literal line breaks in help hint; exact rendered status and error fields matched"
+  },
+  "caption": "Bifrost Messages:",
+  "screenshot": "./ui-1033-missing-journal.png",
+  "at": "2026-11-04T03:03:39.426Z"
+}

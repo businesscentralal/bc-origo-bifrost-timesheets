@@ -1,0 +1,23 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "artifacts": [
+    {
+      "file": "Origo.Bifrost_Timesheets.28.0.0.0.app",
+      "hash": "d7805e496bb9f6b2919006a29dd46244e712c7533bffb3ad4f058567b15f5827",
+      "source": {
+        "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+        "Commit": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7"
+      }
+    },
+    {
+      "file": "Origo.Bifrost_Timesheets_Tests.28.0.0.0.app",
+      "hash": "e5cdabc69db243927e2453b8c4cff95d9b33a567851e116ed1b91b61da9cccc4",
+      "source": {
+        "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+        "Commit": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7"
+      }
+    }
+  ],
+  "compiledAndDeployedHashesMatch": true
+}

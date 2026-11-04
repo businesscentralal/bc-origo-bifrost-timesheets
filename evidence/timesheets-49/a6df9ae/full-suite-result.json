@@ -1,0 +1,22 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "containerId": "f0b264fbaa93",
+  "fullSuite": true,
+  "executed": 106,
+  "passed": 104,
+  "failed": 2,
+  "skipped": 0,
+  "failures": [
+    {
+      "name": "Scenario_AC07_NameAlias_Refused",
+      "message": "Assert.AreEqual failed. Expected:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.&gt; (Text). Actual:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.&gt; (Text). The field refusal stays in error. The setup hint is nextStep..",
+      "classname": "95612 Clockify Field Restrict Tests"
+    },
+    {
+      "name": "Scenario_AC07_JsonAlias_Refused",
+      "message": "Assert.AreEqual failed. Expected:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup ori) cannot be written via Data.Records.Set.&gt; (Text). Actual:&lt;Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.&gt; (Text). The field refusal stays in error. The setup hint is nextStep..",
+      "classname": "95612 Clockify Field Restrict Tests"
+    }
+  ],
+  "durationMs": 26574
+}

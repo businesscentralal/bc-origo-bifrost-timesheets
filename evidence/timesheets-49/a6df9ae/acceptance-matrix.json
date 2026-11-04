@@ -1,0 +1,61 @@
+{
+  "issue": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/49",
+  "owner": "worker-5",
+  "sourceDonor": "d1c7d7303aba0bd88a992723af9086d6854090d9",
+  "scope": "Only #49; unrelated donor-batch edits removed from final diff, historical checkpoints untouched",
+  "criteria": {
+    "AC01": {
+      "status": "verified at current candidate",
+      "evidence": "guard-candidate.txt; tools unchanged vs main"
+    },
+    "AC02": {
+      "status": "verified at current candidate",
+      "evidence": "guard-selftest.txt"
+    },
+    "AC03": {
+      "status": "verified at current candidate",
+      "evidence": "No tools/.github/.AL-Go diff; existing assertions unchanged"
+    },
+    "AC04": {
+      "status": "runtime/refusal coverage verified; independent review pending",
+      "evidence": "guard-mixed-language.log0findings; translation-tests-result.json4newpasses; MCP82passed across34types; UI4passedLCIDs1033/1039"
+    },
+    "AC05": {
+      "status": "verified at current candidate",
+      "evidence": "19 existing labels unlocked; no renaming; four new sentence labels"
+    },
+    "AC06": {
+      "status": "implemented; independent Icelandic review pending",
+      "evidence": "Icelandic donor text retained with body-case correction and exact setup caption; placeholders preserved"
+    },
+    "AC07": {
+      "status": "English source unchanged; two existing dependency assertion failures remain",
+      "evidence": "candidate-a6df9ae/source-proof.json; full106:104passed2existingcaptionassertionsfailed0skipped"
+    },
+    "AC08": {
+      "status": "PARTIAL - four new pass; full-suite gate failed",
+      "evidence": "candidate-a6df9ae/translation-tests-result.json names all4new passes; full-suite-result.json106executed104passed2failed0skipped"
+    },
+    "AC09": {
+      "status": "FAILED - scope disposition required",
+      "evidence": "candidate-a6df9ae/guard-xlf-sync.log reports1target/note/attribute mismatch; unmodified generator also replaces existing Icelandic target text. Preserved259existingtargets; added23newunits. No unrelated source-comment alignment authorized."
+    },
+    "AC10": {
+      "status": "verified at current candidate",
+      "evidence": "candidate-a6df9ae/compile-provenance.json and deployed-source-readback.json; both apps0errors0warnings,exact binary hashes match"
+    },
+    "AC11": {
+      "status": "verified at current candidate",
+      "evidence": "No table, field or page changes in final diff"
+    }
+  },
+  "mandatoryVerification": {
+    "compile": "PASSED exacta6df9ae both apps0errors0warnings and remote hashes match",
+    "fullSuite": "FAILED:106executed104passed2failed0skipped",
+    "mcp": "PASSED:82executed82passed0failed0skipped across34types",
+    "ui1033": "PASSED:2scenarios",
+    "ui1039": "PASSED:2scenarios",
+    "cleanup": "VERIFIED:owned f0b264fbaa93 deleted204,GET404,listabsent"
+  },
+  "candidateSha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7"
+}

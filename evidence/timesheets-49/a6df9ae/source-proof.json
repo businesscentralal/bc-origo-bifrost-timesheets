@@ -1,0 +1,34 @@
+{
+  "sha": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+  "allExistingEnglishLabelsUnchanged": true,
+  "existingAssertionChanges": false,
+  "files": [
+    "CHANGELOG.md",
+    "app/Translations/Bifrost Timesheets.is-IS.xlf",
+    "app/src/Integration/ClockifyRequestMgt.Codeunit.al",
+    "app/src/MessageTypes/Currencies/ClockifyCurrencyListImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifySyncAllUsersImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifyTEntryRangeImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifyTEntrySyncImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetPostImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetRangeImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetSyncImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTimeSheetSync.Codeunit.al",
+    "app/src/Setup/ClockifyFieldRestrict.Codeunit.al",
+    "test/test/ClockifyConnectorTests.Codeunit.al"
+  ],
+  "labelFiles": [
+    "app/src/Integration/ClockifyRequestMgt.Codeunit.al",
+    "app/src/MessageTypes/Currencies/ClockifyCurrencyListImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifySyncAllUsersImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifyTEntryRangeImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeEntries/ClockifyTEntrySyncImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetPostImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetRangeImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTSheetSyncImpl.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/ClockifyTimeSheetSync.Codeunit.al",
+    "app/src/Setup/ClockifyFieldRestrict.Codeunit.al"
+  ],
+  "unmodifiedScripts": true,
+  "pipelineTablesFieldsPagesUnchanged": true
+}
