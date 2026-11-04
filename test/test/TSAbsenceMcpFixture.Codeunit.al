@@ -39,9 +39,10 @@ codeunit 95618 "TS Absence MCP Fixture"
         Cause.Code := 'W2A65';
         Cause.Description := 'Brokkr65 owned absence';
         Cause.Insert(true);
-        if not UserSetup.Get(UserId()) then begin
+        // The owner identity is confirmed by the owned MCP preflight; service OnRun has a different session identity.
+        if not UserSetup.Get('CODEXW2') then begin
             UserSetup.Init();
-            UserSetup.Validate("User ID", CopyStr(UserId(), 1, MaxStrLen(UserSetup."User ID")));
+            UserSetup.Validate("User ID", 'CODEXW2');
             UserSetup.Insert(true);
         end;
         CreateResource('W2A65-MCP');
@@ -68,7 +69,7 @@ codeunit 95618 "TS Absence MCP Fixture"
         Resource.Insert(true);
         Resource.Validate(Type, Resource.Type::Person);
         Resource.Validate("Base Unit of Measure", 'W2A65');
-        Resource."Time Sheet Owner User ID" := CopyStr(UserId(), 1, MaxStrLen(Resource."Time Sheet Owner User ID"));
+        Resource."Time Sheet Owner User ID" := 'CODEXW2';
         Resource."Time Sheet Approver User ID" := Resource."Time Sheet Owner User ID";
         Resource.Validate("Use Time Sheet", true);
         Resource.Modify(true);
