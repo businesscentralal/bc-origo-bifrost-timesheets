@@ -10,6 +10,7 @@
 
 ### Fixed - Native layer integration (#67)
 
+- Test codeunit 95601 checks the complete localized native missing-journal refusal returned by the legacy Post alias. Clockify time-entry sync keeps its separate journal refusal expectations.
 - Merge main’s Approve/Reject shared codeunits 10036868–10036872 with Reopen/Post/Archive without replacing either operation family. Preserve both sets of enum values, permissions and translated contracts; use main’s corrective retry guidance.
 - Keep main’s decision tests at 95616 and move the #67 native-sheet regression tests to free codeunit 95617. Preserve main’s caption-derived protected-field assertions and fixture isolation.
 
