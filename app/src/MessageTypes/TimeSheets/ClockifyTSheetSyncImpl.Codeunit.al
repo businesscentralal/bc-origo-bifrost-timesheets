@@ -12,8 +12,7 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
     Access = Internal;
 
     var
-        InProgressSyncErr: Label 'In-progress time entries are not synced. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
-        HoursDeriveErr: Label 'Cannot derive hours and posting date: start and end must be ISO-8601 datetimes.', Comment = 'is-IS=Ekki er hægt að leiða út klukkustundir og bókunardagsetningu: start og end verða að vera ISO-8601 dagsetningar og tímar.';
+        InProgressSyncErr: Label 'In-progress time entries are not synced. Provide an entry with a non-empty ''end'' value (timer stopped).', Locked = true;
 
     procedure IsEnabled(): Boolean
     var
@@ -193,7 +192,7 @@ codeunit 10036840 "Clockify TSheetSync Impl ori" implements "Msg Interface ori",
         Hours := ParseHelper.CalculateHours(StartText, EndText);
         PostingDate := ParseHelper.ParseDate(StartText);
         if (Hours = 0) or (PostingDate = 0D) then begin
-            Argument.RespondWithError(HoursDeriveErr);
+            Argument.RespondWithError('Cannot derive hours and posting date: start and end must be ISO-8601 datetimes.');
             exit;
         end;
 

@@ -16,9 +16,8 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
     Access = Internal;
 
     var
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Comment = 'is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.';
-        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2';
-        UnexpectedListErr: Label 'Unexpected response from Clockify when listing time entries: expected a JSON array.', Comment = 'is-IS=Óvænt svar frá Clockify við lestur tímafærslna: búist var við JSON-fylki.';
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
+        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     procedure IsEnabled(): Boolean
@@ -241,7 +240,7 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
             Clear(PageArray);
             if ResponseBody <> '' then begin
                 if not PageToken.ReadFrom(ResponseBody) or not PageToken.IsArray() then begin
-                    Argument.RespondWithError(UnexpectedListErr);
+                    Argument.RespondWithError('Unexpected response from Clockify when listing time entries: expected a JSON array.');
                     exit(false);
                 end;
                 PageArray := PageToken.AsArray();

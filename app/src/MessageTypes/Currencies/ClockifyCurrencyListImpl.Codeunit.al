@@ -220,5 +220,5 @@ codeunit 10036800 "Clockify CurrencyList Impl ori" implements "Msg Interface ori
     end;
 
     var
-        WorkspaceNotFoundErr: Label 'The Clockify workspace ''%1'' was not found for the configured API key.', Comment = '%1 = workspace id. is-IS=Clockify-vinnusvæðið ''%1'' fannst ekki fyrir skráðan API-lykil.';
+        WorkspaceNotFoundErr: Label 'The Clockify workspace ''%1'' was not found for the configured API key.', Comment = '%1 = workspace id', Locked = true;
 }

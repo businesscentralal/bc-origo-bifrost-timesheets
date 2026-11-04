@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46).
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
@@ -16,14 +20,6 @@
 - Gunnar's 30 September decisions are the ones implemented. The 11 September note that every item type is offered is not applied. The item must be a service item on My Items.
 - `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
 - `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
-
-### Fixed (2026-10-16) - Contract parameter keys and translatable refusals (#46, #48, #49)
-
-- `Clockify Contract Parts ori` (10036855) declares each message type's parameters and target identifiers in their own procedures. The per-type implementation calls that procedure, so the contract lists only the keys that type reads. `billable` and `description` are declared on `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncToTimeSheet`. `Clockify.Workspace.List` declares `query` and no longer declares an unused `workspaceId`. `Help.Clockify.Get`, `Clockify.User.GetCurrent` and `Clockify.TimeSheet.Archive` declare no parameters. `Clockify.TimeEntry.Sync` and `Clockify.TimeEntry.SyncRange` read `journalTemplate` and `journalBatch` as request keys.
-- List implementations build the Clockify resource path in a local procedure before appending the request query, so a path fragment is not read as a parameter name. The HTTP path text is unchanged.
-- Refusal labels that the mixed-language guard reported are translatable, with Icelandic `is-IS=` comments. English label text is unchanged. Four English sentence literals in the sync and range implementations are labels: `UnexpectedListErr` on `Clockify TEntryRange Impl ori` (10036832), `HoursCalcErr` and `PostingDateErr` on `Clockify TEntrySync Impl ori` (10036821), and `HoursDeriveErr` on `Clockify TSheetSync Impl ori` (10036840).
-- `Clockify Contract Key Tests` (95614) asserts the parameter names of every Clockify message type.
-- `Clockify Field Restrict Tests` (95612) expects the Data.Records.Set field refusal without the setup hint in the error text. Bifrost Foundation 28.0.5 returns that hint in `nextStep` only.
 
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 

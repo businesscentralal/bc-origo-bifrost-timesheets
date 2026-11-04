@@ -16,10 +16,8 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
     Access = Internal;
 
     var
-        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Comment = 'is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.';
-        InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Comment = 'is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu ''end'' gildi (teljari stöðvaður).';
-        HoursCalcErr: Label 'Cannot calculate hours: start and end are required ISO 8601 datetime values.', Comment = 'is-IS=Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.';
-        PostingDateErr: Label 'Cannot parse posting date from start value.', Comment = 'is-IS=Ekki tókst að lesa bókunardagsetningu úr start-gildinu.';
+        MissingJournalErr: Label 'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.', Locked = true;
+        InProgressSyncErr: Label 'In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty ''end'' value (timer stopped).', Locked = true;
 
     procedure IsEnabled(): Boolean
     var
@@ -225,14 +223,14 @@ codeunit 10036821 "Clockify TEntrySync Impl ori" implements "Msg Interface ori",
         // Calculate hours from start/end
         Hours := CalculateHours(StartDateText, EndDateText);
         if Hours = 0 then begin
-            Argument.RespondWithError(HoursCalcErr);
+            Argument.RespondWithError('Cannot calculate hours: start and end are required ISO 8601 datetime values.');
             exit;
         end;
 
         // Parse posting date from start
         PostingDate := ParseDate(StartDateText);
         if PostingDate = 0D then begin
-            Argument.RespondWithError(PostingDateErr);
+            Argument.RespondWithError('Cannot parse posting date from start value.');
             exit;
         end;
 
