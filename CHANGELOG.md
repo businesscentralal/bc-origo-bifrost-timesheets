@@ -4,6 +4,8 @@
 
 ### Changed
 
+- Tests 95601 `TimeSheetApproveReturnsZeroWhenNothingOpen`, `TimeSheetRejectReturnsZeroWhenNothingSubmitted` and `TimeSheetReopenReturnsZeroWhenNothingPending` no longer assume the whole company has no time-sheet lines: they scope the request with `endingDateTo`, create and clean up their own sheet, and assert it is untouched, so they pass repeatedly on a reused container (#82).
+
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 
 - SyncAllUsers declares its own paging parameters, keeping them off unrelated Clockify types and removing the misleading `userId` help entry. Test page 95619 seeds a named, isolated paging company; the test-only Clockify mock supports cross-session MCP paging checks without external API calls.

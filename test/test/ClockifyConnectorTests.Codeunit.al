@@ -1186,15 +1186,29 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeSheetApproveReturnsZeroWhenNothingOpen()
     var
         TempArgument: Record "Message Argument ori" temporary;
+        TimeSheetLine: Record "Time Sheet Line";
+        RequestJson: JsonObject;
         ResponseJson: JsonObject;
+        TimeSheetNo: Code[20];
     begin
-        // [WHEN] Clockify.TimeSheet.Approve runs with no open sheets in range
-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Approve");
+        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
+        // The cut-off is far earlier than any other sheet in the company, so leftover or real
+        // sheets cannot affect the result (scoping is by the request's endingDateTo).
+        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
 
-        // [THEN] It succeeds and approves nothing
+        // [WHEN] Clockify.TimeSheet.Approve runs with that cut-off
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Approve", RequestJson);
+
+        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Approve should succeed.');
-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets should yield 0 approved lines.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'approvedLines'), 'No open sheets in scope should yield 0 approved lines.');
+        TimeSheetLine.Get(TimeSheetNo, 10000);
+        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
+
+        // Cleanup of the test's own fixture
+        DeleteOwnTimeSheet(TimeSheetNo);
     end;
 
     [Test]
@@ -1216,30 +1230,58 @@ codeunit 95601 "Clockify Connector Tests"
     procedure TimeSheetRejectReturnsZeroWhenNothingSubmitted()
     var
         TempArgument: Record "Message Argument ori" temporary;
+        TimeSheetLine: Record "Time Sheet Line";
+        RequestJson: JsonObject;
         ResponseJson: JsonObject;
+        TimeSheetNo: Code[20];
     begin
-        // [WHEN] Clockify.TimeSheet.Reject runs with no submitted sheets
-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reject");
+        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
+        // The cut-off is far earlier than any other sheet in the company, so leftover or real
+        // sheets cannot affect the result (scoping is by the request's endingDateTo).
+        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
 
-        // [THEN] It succeeds and rejects nothing
+        // [WHEN] Clockify.TimeSheet.Reject runs with that cut-off
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reject", RequestJson);
+
+        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reject should succeed.');
-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets should yield 0 rejected lines.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'rejectedLines'), 'No submitted sheets in scope should yield 0 rejected lines.');
+        TimeSheetLine.Get(TimeSheetNo, 10000);
+        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
+
+        // Cleanup of the test's own fixture
+        DeleteOwnTimeSheet(TimeSheetNo);
     end;
 
     [Test]
     procedure TimeSheetReopenReturnsZeroWhenNothingPending()
     var
         TempArgument: Record "Message Argument ori" temporary;
+        TimeSheetLine: Record "Time Sheet Line";
+        RequestJson: JsonObject;
         ResponseJson: JsonObject;
+        TimeSheetNo: Code[20];
     begin
-        // [WHEN] Clockify.TimeSheet.Reopen runs with no submitted/approved sheets
-        ExecuteType(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reopen");
+        // [GIVEN] A time sheet this test creates itself, ending after the cut-off used below.
+        // The cut-off is far earlier than any other sheet in the company, so leftover or real
+        // sheets cannot affect the result (scoping is by the request's endingDateTo).
+        TimeSheetNo := CreateOpenTimeSheet('', DMY2Date(1, 6, 2026), DMY2Date(30, 6, 2026));
+        RequestJson.Add('endingDateTo', Format(DMY2Date(1, 1, 1901), 0, 9));
 
-        // [THEN] It succeeds and reopens nothing
+        // [WHEN] Clockify.TimeSheet.Reopen runs with that cut-off
+        ExecuteTypeWithRequest(TempArgument, TempArgument."Type"::"Clockify.TimeSheet.Reopen", RequestJson);
+
+        // [THEN] It succeeds and changes nothing within its scope, and the own sheet is untouched
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Success', ReadText(ResponseJson, 'status'), 'Reopen should succeed.');
-        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets should yield 0 reopened lines.');
+        LibraryAssert.AreEqual(0, ReadInt(ResponseJson, 'reopenedLines'), 'No pending sheets in scope should yield 0 reopened lines.');
+        TimeSheetLine.Get(TimeSheetNo, 10000);
+        LibraryAssert.AreEqual(TimeSheetLine.Status::Open, TimeSheetLine.Status, 'The out-of-scope own sheet must not be touched.');
+
+        // Cleanup of the test's own fixture
+        DeleteOwnTimeSheet(TimeSheetNo);
     end;
 
     [Test]
@@ -1551,6 +1593,17 @@ codeunit 95601 "Clockify Connector Tests"
         TimeSheetLine.Type := TimeSheetLine.Type::Job;
         TimeSheetLine.Status := TimeSheetLine.Status::Open;
         TimeSheetLine.Insert(false, true);
+    end;
+
+    local procedure DeleteOwnTimeSheet(TimeSheetNo: Code[20])
+    var
+        TimeSheetHeader: Record "Time Sheet Header";
+        TimeSheetLine: Record "Time Sheet Line";
+    begin
+        TimeSheetLine.SetRange("Time Sheet No.", TimeSheetNo);
+        TimeSheetLine.DeleteAll(false);
+        if TimeSheetHeader.Get(TimeSheetNo) then
+            TimeSheetHeader.Delete(false);
     end;
 
     local procedure CreateSyncEnvironment(var JobNo: Code[20]; var JobTaskNo: Code[20]; var ResourceNo: Code[20]; var WorkTypeCode: Code[10]; var TemplateName: Code[10]; var BatchName: Code[10])
