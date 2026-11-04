@@ -23,6 +23,10 @@ permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full or
         codeunit "TS Sheet Restrict ori" = X,
         codeunit "TS Sheet Approve Impl ori" = X,
         codeunit "TS Sheet Reject Impl ori" = X,
+        codeunit "TS Sheet Create Impl ori" = X,
+        codeunit "TS Create Contract ori" = X,
+        codeunit "TS Create Writer ori" = X,
+        codeunit "TS Create Restrict ori" = X,
         codeunit "TS Pending Approval ori" = X,
         tabledata "Phone Cust Buffer ori" = RIMD,
         codeunit "Phone Cust Buffer Mgt ori" = X,
@@ -31,5 +35,6 @@ permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full or
         page "Phone Current Cust Part ori" = X,
         page "Phone Today Cust Part ori" = X,
         page "Phone LastDay Cust Part ori" = X,
-        page "Phone Add Service Item ori" = X;
+        page "Phone Add Service Item ori" = X,
+        codeunit "TS Sheet Submit Impl ori" = X;
 }

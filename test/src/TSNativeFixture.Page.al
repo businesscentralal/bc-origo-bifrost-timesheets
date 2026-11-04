@@ -35,7 +35,7 @@ page 95617 "TS Native Fixture"
 
                 trigger OnAction()
                 var
-                    NativeTests: Codeunit "TS Native Sheet Tests";
+                    NativeTests: Codeunit "TS Fill Sheet Tests";
                 begin
                     NativeTests.SeedMcpFixtures(UserId());
                     FixtureCreated := true;

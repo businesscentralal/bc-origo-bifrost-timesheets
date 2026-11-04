@@ -401,3 +401,25 @@ Discover localized parameters, refusals, next steps, and examples with `Help.Imp
 Send exactly one of `timeSheetNo` (number) or `timeSheetId` (GUID). Both operations require the destination owner and native read/write permissions. `BIFROST Timeshts ori` grants the required access; `BIFROST Full ori` exposes the feature objects and must be combined with the user's native Business Central permissions. Read-only users cannot execute these writes.
 
 A missing previous sheet returns `PreconditionFailed` / `Add lines by hand.`; a different owner returns `PermissionDenied` / `Ask the owner.`. Invalid or unknown parameters return actionable structured refusals. Native failures roll back all newly added lines. Successful writes commit; `omitCommit` is not supported. Pending work is committed before the isolated operation. Use `Help.Implementation.Get` for English contract chapters and examples in either session language; catalogue descriptions and refusals are localized in English and Icelandic.
+
+### Create selected time sheets
+
+`Timesheets.TimeSheet.Create` creates weekly sheets for exactly one of `resourceNo`,
+`resourceNos` (a nonempty list) or `resourceGroup`. Numbers are literal identifiers,
+not BC filters. Send `startingDate` on the first weekday configured in Resources
+Setup; `numberOfPeriods` defaults to 1 and is limited to 52.
+`createLinesFromPlanning` defaults to false. The result contains `created` and
+`skipped` arrays with each sheet number, resource number and period dates.
+
+The standard Create Time Sheets action requires **Time Sheet Admin.**, resource
+owners/approvers, time sheet numbering and open accounting periods. The caller
+needs **BIFROST Timeshts ori** or equivalent native permissions. Normal queue
+execution commits the whole batch; a refusal creates no sheets. Existing sheets
+are never modified. The older `Clockify.TimeSheet.Create` remains available.
+
+```json
+{"type":"Timesheets.TimeSheet.Create","data":{"startingDate":"2030-01-07","resourceNos":["XRESOURCE"],"numberOfPeriods":2}}
+```
+
+Use `Help.Implementation.Get` for the full parameter, response and refusal contract
+in English or Icelandic (`lcid: 1039`).
