@@ -102,7 +102,7 @@ codeunit 10036871 "TS Native Runner ori"
         CommentLine."Time Sheet Line No." := TimeSheetLine."Line No.";
         CommentLine."Line No." := LineNo;
         CommentLine.Validate(Date, WorkDate());
-        CommentLine.Validate(Comment, Comment);
+        CommentLine.Validate(Comment, CopyStr(Comment, 1, MaxStrLen(CommentLine.Comment)));
         CommentLine.Insert(true);
     end;
 

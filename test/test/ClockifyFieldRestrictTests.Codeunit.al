@@ -1,4 +1,4 @@
-namespace Origo.Bifrost.Timesheets.Test;
+﻿namespace Origo.Bifrost.Timesheets.Test;
 
 using Microsoft.Utilities;
 using Origo.Bifrost;
