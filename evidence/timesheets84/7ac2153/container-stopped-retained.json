@@ -1,0 +1,10 @@
+{
+  "id": "f073ff287f0d",
+  "name": "andvari-worker5-timesheets60-20261104-w1",
+  "state": "Stopped",
+  "statusCode": 200,
+  "owner": "worker-5",
+  "sourceCandidateSha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "retainedFor": "Timesheets60 closure per worker33 retained update; no deletion authorized before release",
+  "at": "2026-11-04T23:55:44.490Z"
+}
