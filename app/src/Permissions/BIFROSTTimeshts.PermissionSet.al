@@ -1,6 +1,10 @@
 namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Journal;
+using Microsoft.Projects.Project.Journal;
+using Microsoft.Projects.Resources.Journal;
 using Microsoft.Foundation.Period;
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
@@ -26,6 +30,31 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        tabledata "TS Usage Line ori" = RIMD,
+        table "TS Usage Line ori" = X,
+        page "TS Usage Lines ori" = X,
+        codeunit "TS Usage Mgt ori" = X,
+        codeunit "TS Usage Context ori" = X,
+        codeunit "TS Usage Runner ori" = X,
+        codeunit "TS Usage Contract ori" = X,
+        codeunit "TS Usage Restrict ori" = X,
+        codeunit "TS Usage Events ori" = X,
+        codeunit "TS Usage Journals ori" = X,
+        codeunit "TS Usage Register ori" = X,
+        codeunit "TS Usage List ori" = X,
+        codeunit "TS Usage Submit ori" = X,
+        codeunit "TS Usage Approve ori" = X,
+        codeunit "TS Usage Reject ori" = X,
+        codeunit "TS Usage Transfer ori" = X,
+        codeunit "TS Usage Reverse ori" = X,
+        tabledata Item = R,
+        tabledata "Item Journal Line" = RIMD,
+        tabledata "Item Journal Batch" = R,
+        tabledata "Res. Journal Line" = RIMD,
+        tabledata "Res. Journal Batch" = R,
+        tabledata "Job Journal Line" = RIMD,
+        tabledata "Job Journal Batch" = R,
+
         codeunit "TS Fill Mgt ori" = X,
         codeunit "TS Fill Context ori" = X,
         codeunit "TS Fill Runner ori" = X,

@@ -10,6 +10,24 @@ using Origo.Bifrost;
 permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full ori"
 {
     Permissions =
+        tabledata "TS Usage Line ori" = R,
+        table "TS Usage Line ori" = X,
+        page "TS Usage Lines ori" = X,
+        codeunit "TS Usage Mgt ori" = X,
+        codeunit "TS Usage Context ori" = X,
+        codeunit "TS Usage Runner ori" = X,
+        codeunit "TS Usage Contract ori" = X,
+        codeunit "TS Usage Restrict ori" = X,
+        codeunit "TS Usage Events ori" = X,
+        codeunit "TS Usage Journals ori" = X,
+        codeunit "TS Usage Register ori" = X,
+        codeunit "TS Usage List ori" = X,
+        codeunit "TS Usage Submit ori" = X,
+        codeunit "TS Usage Approve ori" = X,
+        codeunit "TS Usage Reject ori" = X,
+        codeunit "TS Usage Transfer ori" = X,
+        codeunit "TS Usage Reverse ori" = X,
+
         codeunit "TS Fill Mgt ori" = X,
         codeunit "TS Fill Context ori" = X,
         codeunit "TS Fill Runner ori" = X,
