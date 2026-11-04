@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Fixed (04.11.2026)
+- Align the codeunit 95612 field-write refusal tests with Foundation’s public Clockify Setup caption (#41); retain error code, setup hint, alias and no-write assertions.
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.
