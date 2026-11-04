@@ -2,217 +2,199 @@ namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 
-/// <summary>
-/// Contract chapters for the native Timesheets message types. Parameter lists are
-/// separate procedures so each type declares only the keys it reads.
-/// </summary>
+/// <summary>Localized contracts for issue 63 manager decisions.</summary>
 codeunit 10036869 "TS Contract Parts ori"
 {
     Access = Internal;
 
     var
-        SheetParameterLbl: Label 'Time sheet number. Send this or resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu. Sendu þetta eða resourceNo ásamt date.';
-        ResourceParameterLbl: Label 'Resource number, together with date, when timeSheetNo is omitted.', Comment = 'is-IS=Númer auðlindar ásamt date þegar timeSheetNo er sleppt.';
-        DateParameterLbl: Label 'ISO date inside the time sheet, or the day of a single quantity.', Comment = 'is-IS=ISO-dagsetning innan tímaskýrslunnar eða dagur staks quantity.';
-        CauseParameterLbl: Label 'Cause of absence code.', Comment = 'is-IS=Kóði fjarvistarástæðu.';
-        HoursParameterLbl: Label 'Days as objects with date and quantity. Do not combine with quantity.', Comment = 'is-IS=Dagar sem hlutir með date og quantity. Ekki nota með quantity.';
-        QuantityParameterLbl: Label 'Hours on date. Do not combine with hours.', Comment = 'is-IS=Klukkustundir á date. Ekki nota með hours.';
-        SubjectDescriptionLbl: Label 'The Business Central time sheet operation addressed by the request.', Comment = 'is-IS=Aðgerðin á tímaskýrslu í Business Central sem beiðnin á við.';
-        TargetDescriptionLbl: Label 'Time sheet number, or omit it and send resourceNo plus date.', Comment = 'is-IS=Númer tímaskýrslu eða slepptu því og sendu resourceNo ásamt date.';
-        SuccessDescriptionLbl: Label 'Success.', Comment = 'is-IS=Tókst.';
-        SheetDescriptionLbl: Label 'Time sheet number.', Comment = 'is-IS=Númer tímaskýrslu.';
-        LineDescriptionLbl: Label 'Absence line number.', Comment = 'is-IS=Númer fjarvistarlínu.';
-        CauseDescriptionLbl: Label 'Cause of absence.', Comment = 'is-IS=Fjarvistarástæða.';
-        ResourceDescriptionLbl: Label 'Resource number of the time sheet.', Comment = 'is-IS=Númer auðlindar tímaskýrslunnar.';
-        HoursDescriptionLbl: Label 'Hours written, per day.', Comment = 'is-IS=Skráðar klukkustundir eftir dögum.';
-        WarningsDescriptionLbl: Label 'Present when hours fall on a non-working day. The line is still written.', Comment = 'is-IS=Birtist þegar klukkustundir lenda á degi sem er ekki vinnudagur. Línan er samt skráð.';
-        MissingMessageLbl: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
-        MissingDescriptionLbl: Label 'The request omitted a key this type needs.', Comment = 'is-IS=Lykil sem þessi tegund þarf vantar í beiðnina.';
-        MissingNextLbl: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
-        TypeMessageLbl: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
-        TypeDescriptionLbl: Label 'A value was not the documented JSON type.', Comment = 'is-IS=Gildi var ekki af skráðu JSON-tagi.';
-        TypeNextLbl: Label 'Send the key with the documented type.', Comment = 'is-IS=Sendu lykilinn með skráðu tagi.';
-        UnknownMessageLbl: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
-        UnknownDescriptionLbl: Label 'This native type refuses keys it does not document. Processing stops.', Comment = 'is-IS=Þessi tegund hafnar óskráðum lyklum. Vinnslan stöðvast.';
-        UnknownNextLbl: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
-        IdentifierMessageLbl: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
-        IdentifierDescriptionLbl: Label 'The time sheet, resource or cause was not found.', Comment = 'is-IS=Tímaskýrslan, auðlindin eða fjarvistarástæðan fannst ekki.';
-        IdentifierNextLbl: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
-        ConflictMessageLbl: Label 'The request names the record in more than one way.', Comment = 'is-IS=Beiðnin nefnir færsluna á fleiri en einn hátt.';
-        ConflictDescriptionLbl: Label 'Two identifiers were sent for one time sheet or resource.', Comment = 'is-IS=Tvö auðkenni voru send fyrir eina tímaskýrslu eða auðlind.';
-        ConflictNextLbl: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
-        PermissionMessageLbl: Label 'The caller cannot run this type.', Comment = 'is-IS=Kallandinn getur ekki keyrt þessa tegund.';
-        PermissionDescriptionLbl: Label 'This type needs write access to time sheets.', Comment = 'is-IS=Þessi tegund þarf skrifheimild á tímaskýrslum.';
-        PermissionNextLbl: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
-        EmployeeMessageLbl: Label 'The resource is not linked to an employee.', Comment = 'is-IS=Auðlindin er ekki tengd við starfsmann.';
-        EmployeeDescriptionLbl: Label 'No employee has this resource number. Nothing is written.', Comment = 'is-IS=Enginn starfsmaður hefur þetta auðlindarnúmer. Ekkert er skráð.';
-        EmployeeNextLbl: Label 'Link the resource to an employee in BC.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC.';
-        CauseMessageLbl: Label 'The cause of absence was not found.', Comment = 'is-IS=Fjarvistarástæðan fannst ekki.';
-        CauseMissingDescriptionLbl: Label 'The code is not in Causes of Absence.', Comment = 'is-IS=Kóðinn er ekki í fjarvistarástæðum.';
-        CauseNextLbl: Label 'Use a code from Causes of Absence.', Comment = 'is-IS=Notaðu kóða úr fjarvistarástæðum.';
-        PermissionPreconditionLbl: Label 'The caller has the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Kallandinn hefur heimildasamstæðuna BIFROST Timeshts ori.';
-        ChangesDescriptionLbl: Label 'Adds an absence line and its daily hours to a time sheet. The write is committed when the call succeeds. A refused call writes nothing.', Comment = 'is-IS=Bætir fjarvistarlínu og klukkustundum eftir dögum við tímaskýrslu. Skráning er staðfest þegar kallið tekst. Kall sem er hafnað skráir ekkert.';
-        RelatedDescriptionLbl: Label 'The type is also listed with the other message types.', Comment = 'is-IS=Tegundin birtist einnig með öðrum skilaboðategundum.';
-        WorkflowStepDescriptionLbl: Label 'Register the absence line and its hours.', Comment = 'is-IS=Skráðu fjarvistarlínuna og klukkustundir hennar.';
-        WorkflowDescriptionLbl: Label 'Read the returned line before the next call. The line becomes an Employee Absence when the time sheet is posted.', Comment = 'is-IS=Lestu línuna sem var skilað fyrir næsta kall. Línan verður að starfsmannafjarvist þegar tímaskýrslan er bókuð.';
-        OverviewDescriptionLbl: Label 'Timesheets.Absence.Register adds an absence line with a cause of absence and hours per day to a time sheet. A refusal writes nothing. Unknown keys are refused.', Comment = 'is-IS=Timesheets.Absence.Register bætir fjarvistarlínu með fjarvistarástæðu og klukkustundum eftir dögum við tímaskýrslu. Höfnun skráir ekkert. Óþekktum lyklum er hafnað.';
-        NotesDescriptionLbl: Label 'Link the resource to an employee in BC. Use a code from Causes of Absence. Hours on Saturday or Sunday are written and returned with a warning. Employee Absence is created when the line is posted by Business Central, not by this type. The write is committed when the call succeeds.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC. Notaðu kóða úr fjarvistarástæðum. Klukkustundir á laugardegi eða sunnudegi eru skráðar og skilað með viðvörun. Business Central stofnar starfsmannafjarvist þegar línan er bókuð. Skráning er staðfest þegar kallið tekst.';
+        SheetTxt: Label 'Time sheet number. Send exactly one of timeSheetNo and timeSheetId.', Comment = 'is-IS=Númer tímaskýrslu. Sendu nákvæmlega annað hvort timeSheetNo eða timeSheetId.';
+        IdTxt: Label 'Time sheet SystemId as a GUID; alternative to timeSheetNo.', Comment = 'is-IS=SystemId tímaskýrslu sem GUID; valkostur við timeSheetNo.';
+        LinesTxt: Label 'Positive integer line numbers. Omitted selects all submitted lines; an empty array selects none.', Comment = 'is-IS=Jákvæðar heiltölur línunúmera. Sé sleppt eru allar innsendar línur valdar; tómt fylki velur engar.';
+        CommentTxt: Label 'Optional rejection comment, at most 80 characters, stored on every rejected line.', Comment = 'is-IS=Valfrjáls höfnunarathugasemd, að hámarki 80 stafir, vistuð á hverri hafnaðri línu.';
+        EnvelopeTxt: Label 'Identify the time sheet in data.', Comment = 'is-IS=Auðkenndu tímaskýrsluna í data.';
+        StatusTxt: Label 'Success or Error.', Comment = 'is-IS=Success eða Error.';
+        ResponseTxt: Label 'Selected lines: timeSheetNo, lineNo, status (Approved or Rejected), changed. Already approved selected lines return changed false for approval.', Comment = 'is-IS=Valdar línur: timeSheetNo, lineNo, status (Approved eða Rejected), changed. Þegar samþykktar valdar línur skila changed false við samþykki.';
+        PermissionTxt: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
+        ApproverTxt: Label 'Only the approver named on the time sheet can approve.', Comment = 'is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.';
+        SubmitTxt: Label 'Submit it first with Timesheets.TimeSheet.Submit.', Comment = 'is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.';
+        MissingTxt: Label 'A required identifier is missing.', Comment = 'is-IS=Nauðsynlegt auðkenni vantar.';
+        MissingNextTxt: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
+        FormatTxt: Label 'A key has an invalid type, length or value.', Comment = 'is-IS=Lykill er af röngu tagi, lengd eða gildi.';
+        FormatNextTxt: Label 'Send the key with the documented type.', Comment = 'is-IS=Sendu lykilinn með skráðu tagi.';
+        UnknownTxt: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
+        UnknownNextTxt: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
+        NotFoundTxt: Label 'The time sheet or selected line does not exist.', Comment = 'is-IS=Tímaskýrslan eða valin lína er ekki til.';
+        NotFoundNextTxt: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
+        ConflictTxt: Label 'Both timeSheetNo and timeSheetId were supplied.', Comment = 'is-IS=Bæði timeSheetNo og timeSheetId voru send.';
+        ConflictNextTxt: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
+        PermissionErrorTxt: Label 'The caller lacks access to a table used by this action.', Comment = 'is-IS=Kallandinn hefur ekki aðgang að töflu sem aðgerðin notar.';
+        ApproverErrorTxt: Label 'The caller is not the named approver.', Comment = 'is-IS=Kallandinn er ekki tilgreindur samþykktaraðili.';
+        InvalidLineTxt: Label 'The selected line is not Submitted. Approval alone accepts an already Approved line as unchanged.', Comment = 'is-IS=Valin lína er ekki innsend. Aðeins samþykki tekur við þegar samþykktri línu án breytinga.';
+        RuntimeTxt: Label 'Business Central refused the action; all selected changes were rolled back.', Comment = 'is-IS=Business Central hafnaði aðgerðinni; allar valdar breytingar voru afturkallaðar.';
+        RuntimeNextTxt: Label 'Correct the Business Central error and retry.', Comment = 'is-IS=Leiðréttu Business Central villuna og reyndu aftur.';
+        IsolatedTxt: Label 'This action requires an isolated transaction.', Comment = 'is-IS=Þessi aðgerð krefst einangraðrar færslu.';
+        IsolatedNextTxt: Label 'Run the request without omitCommit.', Comment = 'is-IS=Keyrðu beiðnina án omitCommit.';
+        EffectTxt: Label 'Approves or rejects selected submitted lines atomically through the native time sheet action. A successful call commits; a failed action rolls back all selected changes. Approving absence lines also posts their absence entries.', Comment = 'is-IS=Samþykkir eða hafnar völdum innsendum línum í einni færslu með innbyggðri tímaskýrsluaðgerð. Heppnað kall staðfestir; misheppnuð aðgerð afturkallar allar valdar breytingar. Samþykki fjarvistarlína bókar einnig fjarvistarfærslur.';
+        OverviewTxt: Label 'Manager approval and rejection of submitted time sheet lines. Only the sheet approver may act. Existing Clockify approval behavior is unchanged. Unknown keys are refused.', Comment = 'is-IS=Samþykki stjórnanda og höfnun innsendra tímaskýrslulína. Aðeins samþykktaraðili skýrslunnar má framkvæma aðgerðina. Núverandi samþykktarvirkni Clockify er óbreytt. Óþekktum lyklum er hafnað.';
+        NotesTxt: Label 'Omitted lineNos selects only submitted lines. Empty lineNos returns an empty list. Approval of an explicitly selected approved line returns changed false. Rejection requires Submitted for every selected line. Status is returned in a language-independent form. A successful action commits; omitCommit is not supported.', Comment = 'is-IS=Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.';
+        WorkflowTxt: Label 'Submit the lines, then let the sheet approver approve or reject them. Read the returned status and changed flag.', Comment = 'is-IS=Sendu línurnar inn, láttu síðan samþykktaraðila skýrslunnar samþykkja eða hafna þeim. Lestu stöðuna og changed merkið í svarinu.';
+        RelatedTxt: Label 'Discover the available time sheet operations.', Comment = 'is-IS=Finndu tiltækar tímaskýrsluaðgerðir.';
 
-    /// <summary>Declares exactly the six supported absence request keys.</summary>
-    procedure AddAbsenceParameters(var Parameters: JsonArray): Boolean
-    var
-        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    /// <summary>Declares the approval request keys.</summary>
+    procedure AddApproveParameters(var Parameters: JsonArray): Boolean
     begin
-        Parameters.Add(ContractMgt.Parameter('timeSheetNo', 'string', false, SheetParameterLbl));
-        Parameters.Add(ContractMgt.Parameter('resourceNo', 'string', false, ResourceParameterLbl));
-        Parameters.Add(ContractMgt.Parameter('date', 'string', false, DateParameterLbl));
-        Parameters.Add(ContractMgt.Parameter('causeOfAbsenceCode', 'string', true, CauseParameterLbl));
-        Parameters.Add(ContractMgt.Parameter('hours', 'array', false, HoursParameterLbl));
-        Parameters.Add(ContractMgt.Parameter('quantity', 'decimal', false, QuantityParameterLbl));
+        AddDecisionParameters(Parameters);
         exit(true);
     end;
 
-    /// <summary>Describes the supported task envelope.</summary>
+    /// <summary>Declares rejection keys including the optional comment.</summary>
+    procedure AddRejectParameters(var Parameters: JsonArray): Boolean
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        AddDecisionParameters(Parameters);
+        Parameters.Add(ContractMgt.Parameter('comment', 'string', false, CommentTxt));
+        exit(true);
+    end;
+
+    local procedure AddDecisionParameters(var Parameters: JsonArray)
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+    begin
+        Parameters.Add(ContractMgt.Parameter('timeSheetNo', 'string', false, SheetTxt));
+        Parameters.Add(ContractMgt.Parameter('timeSheetId', 'string', false, IdTxt));
+        Parameters.Add(ContractMgt.Parameter('lineNos', 'array', false, LinesTxt));
+    end;
+
+    /// <summary>Describes the versioned JSON envelope.</summary>
     procedure GetEnvelope(MessageType: Enum "Message Type ori"; var Envelope: JsonObject): Boolean
     var
-        Forms: JsonArray;
         Subject: JsonObject;
+        Forms: JsonArray;
     begin
         Forms.Add('data');
         Subject.Add('use', 'optional');
         Subject.Add('forms', Forms);
-        Subject.Add('description', SubjectDescriptionLbl);
+        Subject.Add('description', EnvelopeTxt);
         Envelope.Add('subject', Subject);
         Envelope.Add('dataRequired', true);
         Envelope.Add('version', '1.0');
         Envelope.Add('contentType', 'text/json');
-        exit(MessageType = MessageType::"Timesheets.Absence.Register");
+        exit(true);
     end;
 
-    /// <summary>Describes the time-sheet identifier.</summary>
+    /// <summary>Describes the alternative time sheet identifiers.</summary>
     procedure GetTarget(MessageType: Enum "Message Type ori"; var Target: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Target.Add(ContractMgt.TargetEntry('data.timeSheetNo', 'string', TargetDescriptionLbl));
+        Target.Add(ContractMgt.TargetEntry('data.timeSheetNo', 'string', SheetTxt));
+        Target.Add(ContractMgt.TargetEntry('data.timeSheetId', 'string', IdTxt));
         exit(true);
     end;
 
-    /// <summary>Describes the absence line returned on success.</summary>
+    /// <summary>Describes the returned decision lines.</summary>
     procedure GetResponse(MessageType: Enum "Message Type ori"; var Response: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
         Fields: JsonArray;
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Fields.Add(ContractMgt.ResponseField('status', 'string', SuccessDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('timeSheetNo', 'string', SheetDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('lineNo', 'integer', LineDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('causeOfAbsenceCode', 'string', CauseDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('resourceNo', 'string', ResourceDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('hours', 'array', HoursDescriptionLbl));
-        Fields.Add(ContractMgt.ResponseField('warnings', 'array', WarningsDescriptionLbl));
+        Fields.Add(ContractMgt.ResponseField('status', 'string', StatusTxt));
+        Fields.Add(ContractMgt.ResponseField('lines', 'array', ResponseTxt));
         Response.Add('contentType', 'text/json');
         Response.Add('fields', Fields);
         exit(true);
     end;
 
-    /// <summary>Lists documented refusals and recovery steps.</summary>
+    /// <summary>Lists refusals and corrective next steps.</summary>
     procedure GetErrors(MessageType: Enum "Message Type ori"; var Errors: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::MissingParameter, MissingMessageLbl, MissingDescriptionLbl, MissingNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidParameterFormat, TypeMessageLbl, TypeDescriptionLbl, TypeNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::UnknownParameter, UnknownMessageLbl, UnknownDescriptionLbl, UnknownNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, IdentifierMessageLbl, IdentifierDescriptionLbl, IdentifierNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, ConflictMessageLbl, ConflictDescriptionLbl, ConflictNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, PermissionMessageLbl, PermissionDescriptionLbl, PermissionNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PreconditionFailed, EmployeeMessageLbl, EmployeeDescriptionLbl, EmployeeNextLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, CauseMessageLbl, CauseMissingDescriptionLbl, CauseNextLbl));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::MissingParameter, MissingTxt, MissingTxt, MissingNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidParameterFormat, FormatTxt, FormatTxt, FormatNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::UnknownParameter, UnknownTxt, UnknownTxt, UnknownNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::RecordNotFound, NotFoundTxt, NotFoundTxt, NotFoundNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, ConflictTxt, ConflictTxt, ConflictNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, PermissionErrorTxt, PermissionErrorTxt, PermissionTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, ApproverErrorTxt, ApproverErrorTxt, ApproverTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::InvalidLine, InvalidLineTxt, InvalidLineTxt, SubmitTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::BusinessCentralError, RuntimeTxt, RuntimeTxt, RuntimeNextTxt));
+        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PreconditionFailed, IsolatedTxt, IsolatedTxt, IsolatedNextTxt));
         exit(true);
     end;
 
-    /// <summary>Describes the committed write and required permissions.</summary>
+    /// <summary>Documents commits and native absence posting side effects.</summary>
     procedure GetEffect(MessageType: Enum "Message Type ori"; var Effect: JsonObject): Boolean
     var
         Preconditions: JsonArray;
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Preconditions.Add(PermissionPreconditionLbl);
+        Preconditions.Add(PermissionTxt);
+        Preconditions.Add(ApproverTxt);
         Effect.Add('effect', 'write');
-        Effect.Add('changes', ChangesDescriptionLbl);
-        Effect.Add('idempotent', false);
+        Effect.Add('changes', EffectTxt);
+        Effect.Add('idempotent', MessageType = MessageType::"Timesheets.TimeSheet.Approve");
         Effect.Add('permissionSet', 'BIFROST Timeshts ori');
         Effect.Add('preconditions', Preconditions);
         exit(true);
     end;
 
-    /// <summary>Lists related discovery messages.</summary>
+    /// <summary>Links available message discovery.</summary>
     procedure GetRelated(MessageType: Enum "Message Type ori"; var Related: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Related.Add(ContractMgt.RelatedEntry('Help.MessageTypes.Get', RelatedDescriptionLbl));
+        Related.Add(ContractMgt.RelatedEntry('Help.MessageTypes.Get', RelatedTxt));
         exit(true);
     end;
 
-    /// <summary>Describes the absence registration workflow.</summary>
+    /// <summary>Explains the manager decision workflow.</summary>
     procedure GetWorkflow(MessageType: Enum "Message Type ori"; var Workflow: JsonObject): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
         Steps: JsonArray;
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Steps.Add(ContractMgt.WorkflowStep(MessageTypeName(MessageType), WorkflowStepDescriptionLbl));
+        Steps.Add(ContractMgt.WorkflowStep(MessageTypeName(MessageType), WorkflowTxt));
         Workflow.Add('steps', Steps);
-        Workflow.Add('text', WorkflowDescriptionLbl);
+        Workflow.Add('text', WorkflowTxt);
         exit(true);
     end;
 
-    /// <summary>Provides an absence registration request and response example.</summary>
+    /// <summary>Provides the action's request and response example.</summary>
     procedure GetExamples(MessageType: Enum "Message Type ori"; var Examples: JsonArray): Boolean
     var
         ContractMgt: Codeunit "Msg Contract Mgt ori";
-        Name: Text;
+        TypeName: Text;
+        RequestText: Text;
+        ResponseText: Text;
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Name := MessageTypeName(MessageType);
-        Examples.Add(ContractMgt.Example(Name, '{"type":"' + Name + '","data":{"timeSheetNo":"TS0001","causeOfAbsenceCode":"VAC","hours":[{"date":"2026-06-02","quantity":8}]}}', '{"status":"Success","timeSheetNo":"TS0001","lineNo":10000,"causeOfAbsenceCode":"VAC","resourceNo":"RES0001","hours":[{"date":"2026-06-02","quantity":8}]}'));
+        TypeName := MessageTypeName(MessageType);
+        RequestText := '{"type":"' + TypeName + '","data":{"timeSheetNo":"TS0001","lineNos":[10000]}}';
+        if MessageType = MessageType::"Timesheets.TimeSheet.Reject" then
+            ResponseText := '{"status":"Success","lines":[{"timeSheetNo":"TS0001","lineNo":10000,"status":"Rejected","changed":true}]}'
+        else
+            ResponseText := '{"status":"Success","lines":[{"timeSheetNo":"TS0001","lineNo":10000,"status":"Approved","changed":true}]}';
+        Examples.Add(ContractMgt.Example(TypeName, RequestText, ResponseText));
         exit(true);
     end;
 
-    /// <summary>Returns the localized purpose of the message.</summary>
+    /// <summary>Returns the localized purpose.</summary>
     procedure GetOverview(MessageType: Enum "Message Type ori"; var Overview: Text): Boolean
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Overview := OverviewDescriptionLbl;
+        Overview := OverviewTxt;
         exit(true);
     end;
 
-    /// <summary>Explains employee linking, weekend warnings and commit behavior.</summary>
+    /// <summary>Returns edge cases and transaction limitations.</summary>
     procedure GetNotes(MessageType: Enum "Message Type ori"; var Notes: Text): Boolean
     begin
-        if MessageType <> MessageType::"Timesheets.Absence.Register" then
-            exit(false);
-        Notes := NotesDescriptionLbl;
+        Notes := NotesTxt;
         exit(true);
     end;
 
-    /// <summary>Returns the stable message type name used in examples.</summary>
-    procedure MessageTypeName(MessageType: Enum "Message Type ori"): Text
+    local procedure MessageTypeName(MessageType: Enum "Message Type ori"): Text
     begin
-        exit(Enum::"Message Type ori".Names().Get(Enum::"Message Type ori".Ordinals().IndexOf(MessageType.AsInteger())));
+        exit(MessageType.Names().Get(MessageType.Ordinals().IndexOf(MessageType.AsInteger())));
     end;
 }

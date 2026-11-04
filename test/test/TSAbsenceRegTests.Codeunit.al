@@ -17,7 +17,7 @@ using System.Security.User;
 using System.TestLibraries.Utilities;
 
 /// <summary>Behavior tests for Timesheets.Absence.Register.</summary>
-codeunit 95616 "TS Absence Reg Tests"
+codeunit 95621 "TS Absence Reg Tests"
 {
     Subtype = Test;
     TestPermissions = Disabled;

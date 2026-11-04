@@ -2,20 +2,27 @@
 
 ## [Unreleased]
 
+### Added
+- Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
+- Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
 ### Added (2026-11-04) - Timesheets.Absence.Register (#65)
 
 - New message type `Timesheets.Absence.Register` on enumextension `Clockify Msg Type ori` (10036785), value 10036879, codeunit `TS Absence Reg Impl ori` (10036880). It adds an absence line with a cause of absence and hours per day to a time sheet, found by `timeSheetNo` or by `resourceNo` plus `date`.
-- Shared dispatch `TS Native Mgt ori` (10036868), contract chapters `TS Contract Parts ori` (10036869), write isolation `TS Native Context ori` (10036870) and `TS Native Runner ori` (10036871). The write runs in `Codeunit.Run`; a platform error answers `BusinessCentralError` and writes nothing. A successful call commits.
+- Absence dispatch `TS Absence Mgt ori` (10036881), contract chapters `TS Absence Contract ori` (10036882), write isolation `TS Absence Context ori` (10036883) and `TS Absence Runner ori` (10036884), separate from the already merged decision handlers. The write runs in `Codeunit.Run`; a platform error answers `BusinessCentralError` and writes nothing. A successful call commits.
 - Refusals with `nextStep`: `MissingParameter`, `InvalidParameterFormat`, `UnknownParameter`, `RecordNotFound` (sheet, resource or cause), `ConflictingIdentifiers`, `PermissionDenied`, and `PreconditionFailed` when the resource is not linked to an employee. Hours on Saturday or Sunday are written and returned with a warning; the BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
 - Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
 - Align the two existing webhook restriction assertions with the table caption returned by Foundation 28.0.11; keep the exact error and no-write checks.
 - Test-only fixture codeunit 95618 seeds isolated native records for MCP acceptance without changing generic write guards or licensing; it refuses duplicate setup and the owned environment is removed after verification.
 - Help regression follows the settled language policy: English chapters at both LCIDs, localized catalogue and runtime refusals. Test page 95620 invokes fixture 95618 only in the named isolated company and uses the authenticated user. Protected-field test expectations derive table/field captions.
-- Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. Existing is-IS translation units are retained.
+- Tests: test codeunits 95621 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. Existing is-IS translation units are retained.
 
-- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036868, 10036871; tests 95616). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
+- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036881, 10036884; tests 95621). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
 
 ### Changed
+
+- Issue #63: test codeunit 95616 explicitly creates or resets the caller's non-administrator time-sheet fixture, so native approval rollback and approver refusal tests also work when the container user is a time-sheet administrator. Test isolation restores the original setup.
+
+- Issue #63: record-not-found refusals in codeunit 10036868 use the native table caption; test codeunit 95616 derives its expected message from the same caption. English help chapters and Icelandic catalogue/refusals follow the approved language contract.
 
 - Updated the two protected-field refusal tests (95612) to match Foundation’s public table caption while retaining exact code, field, nextStep and no-partial-write assertions.
 
@@ -24,6 +31,7 @@
 - Regenerated Icelandic translations from the AL source comments, including the paged-user selection text and missing setup action labels.
 
 - `Clockify.TimeEntry.SyncAllUsers` (codeunit 10036846) now syncs one page of active user mappings: `skip` defaults to 0 and `take` defaults to 100, capped at 1000. Callers must repeat with `nextSkip` while `hasMore` is true to sync all users. The response includes `totalUsers`; failed users still advance the offset. Contract parts (10036855) document the limits and caller loop, and paging tests (95604) cover boundaries, continuation and isolated user failures (#23).
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.

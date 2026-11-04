@@ -1,5 +1,8 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 
 /// <summary>
@@ -16,84 +19,107 @@ codeunit 10036871 "TS Native Runner ori"
         Context: Codeunit "TS Native Context ori";
     begin
         case Context.GetOperation() of
-            6:
-                RegisterAbsence(Context);
-            else
-                Error(InvalidLineTok);
+            2:
+                Approve(Context);
+            3:
+                Reject(Context);
         end;
     end;
 
+    local procedure Approve(Context: Codeunit "TS Native Context ori")
     var
-        InvalidLineTok: Label 'InvalidLine', Locked = true;
-        NonWorkingMsg: Label 'Hours fall on a non-working day.', Comment = 'is-IS=Klukkustundir lenda á degi sem er ekki vinnudagur.';
-        NonWorkingNextTxt: Label 'Confirm the date or move the hours to a working day.', Comment = 'is-IS=Staðfestu dagsetninguna eða færðu klukkustundirnar á vinnudag.';
+        TimeSheetLine: Record "Time Sheet Line";
+        ApprovalMgt: Codeunit "Time Sheet Approval Management";
+        Lines: JsonArray;
+    begin
+        SelectLines(Context, TimeSheetLine);
+        if TimeSheetLine.FindSet(true) then
+            repeat
+                if TimeSheetLine.Status = TimeSheetLine.Status::Submitted then begin
+                    ApprovalMgt.Approve(TimeSheetLine);
+                    TimeSheetLine.Get(TimeSheetLine."Time Sheet No.", TimeSheetLine."Line No.");
+                    Lines.Add(LineNode(TimeSheetLine, true));
+                end else begin
+                    TimeSheetLine.TestField(Status, TimeSheetLine.Status::Approved);
+                    Lines.Add(LineNode(TimeSheetLine, false));
+                end;
+            until TimeSheetLine.Next() = 0;
+        StoreLines(Context, Lines);
+    end;
 
-    local procedure RegisterAbsence(Context: Codeunit "TS Native Context ori")
+    local procedure Reject(Context: Codeunit "TS Native Context ori")
+    var
+        TimeSheetLine: Record "Time Sheet Line";
+        ApprovalMgt: Codeunit "Time Sheet Approval Management";
+        Lines: JsonArray;
+    begin
+        SelectLines(Context, TimeSheetLine);
+        if TimeSheetLine.FindSet(true) then
+            repeat
+                TimeSheetLine.TestField(Status, TimeSheetLine.Status::Submitted);
+                ApprovalMgt.Reject(TimeSheetLine);
+                TimeSheetLine.Get(TimeSheetLine."Time Sheet No.", TimeSheetLine."Line No.");
+                if Context.GetComment() <> '' then
+                        WriteComment(TimeSheetLine, Context.GetComment());
+                Lines.Add(LineNode(TimeSheetLine, true));
+            until TimeSheetLine.Next() = 0;
+        StoreLines(Context, Lines);
+    end;
+
+    local procedure SelectLines(Context: Codeunit "TS Native Context ori"; var TimeSheetLine: Record "Time Sheet Line")
+    begin
+        CheckApprover(Context.GetSheetNo());
+        TimeSheetLine.SetRange("Time Sheet No.", Context.GetSheetNo());
+        if Context.GetLineFilter() <> '*' then
+            TimeSheetLine.SetFilter("Line No.", Context.GetLineFilter());
+    end;
+
+    local procedure CheckApprover(SheetNo: Code[20])
     var
         Header: Record "Time Sheet Header";
-        TimeSheetLine: Record "Time Sheet Line";
-        Detail: Record "Time Sheet Detail";
-        Pair: Text;
-        DateText: Text;
-        QtyText: Text;
-        Hours: JsonArray;
-        Hour: JsonObject;
-        Response: JsonObject;
-        Warnings: JsonArray;
-        Warning: JsonObject;
-        WorkDateValue: Date;
-        Quantity: Decimal;
-        LineNo: Integer;
-        PairPos: Integer;
+        ApproverErr: Label 'Only the approver named on the time sheet can approve.', Comment = 'is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.';
     begin
-        Header.LockTable();
-        Header.Get(Context.GetSheetNo());
-        TimeSheetLine.SetRange("Time Sheet No.", Header."No.");
-        if TimeSheetLine.FindLast() then
-            LineNo := TimeSheetLine."Line No." + 10000
+        Header.ReadIsolation := IsolationLevel::UpdLock;
+        Header.Get(SheetNo);
+        if (Header."Approver User ID" = '') or (Header."Approver User ID" <> UpperCase(UserId())) then
+            Error(ErrorInfo.Create(ApproverErr));
+    end;
+
+    local procedure WriteComment(TimeSheetLine: Record "Time Sheet Line"; Comment: Text)
+    var
+        CommentLine: Record "Time Sheet Comment Line";
+        LineNo: Integer;
+    begin
+        CommentLine.ReadIsolation := IsolationLevel::UpdLock;
+        CommentLine.SetRange("No.", TimeSheetLine."Time Sheet No.");
+        CommentLine.SetRange("Time Sheet Line No.", TimeSheetLine."Line No.");
+        if CommentLine.FindLast() then
+            LineNo := CommentLine."Line No." + 10000
         else
             LineNo := 10000;
-        TimeSheetLine.Init();
-        TimeSheetLine."Time Sheet No." := Header."No.";
-        TimeSheetLine."Line No." := LineNo;
-        TimeSheetLine."Time Sheet Starting Date" := Header."Starting Date";
-        TimeSheetLine.Validate(Type, TimeSheetLine.Type::Absence);
-        TimeSheetLine.Validate("Cause of Absence Code", Context.GetCause());
-        TimeSheetLine.Insert(true);
+        CommentLine.Init();
+        CommentLine."No." := TimeSheetLine."Time Sheet No.";
+        CommentLine."Time Sheet Line No." := TimeSheetLine."Line No.";
+        CommentLine."Line No." := LineNo;
+        CommentLine.Validate(Date, WorkDate());
+        CommentLine.Validate(Comment, CopyStr(Comment, 1, MaxStrLen(CommentLine.Comment)));
+        CommentLine.Insert(true);
+    end;
 
-        foreach Pair in Context.GetHoursText().Split(';') do begin
-            PairPos := StrPos(Pair, '|');
-            DateText := CopyStr(Pair, 1, PairPos - 1);
-            QtyText := CopyStr(Pair, PairPos + 1);
-            Evaluate(WorkDateValue, DateText, 9);
-            Evaluate(Quantity, QtyText, 9);
-            Detail.Init();
-            Detail.CopyFromTimeSheetLine(TimeSheetLine);
-            if (WorkDateValue < Header."Starting Date") or (WorkDateValue > Header."Ending Date") then
-                Error(InvalidLineTok);
-            Detail.Validate(Date, WorkDateValue);
-            Detail.Validate(Quantity, Quantity);
-            Detail.Insert(true);
-            Clear(Hour);
-            Hour.Add('date', DateText);
-            Hour.Add('quantity', Quantity);
-            Hours.Add(Hour);
-        end;
+    local procedure LineNode(TimeSheetLine: Record "Time Sheet Line"; Changed: Boolean) Node: JsonObject
+    begin
+        Node.Add('timeSheetNo', TimeSheetLine."Time Sheet No.");
+        Node.Add('lineNo', TimeSheetLine."Line No.");
+        Node.Add('status', TimeSheetLine.Status.Names().Get(TimeSheetLine.Status.Ordinals().IndexOf(TimeSheetLine.Status.AsInteger())));
+        Node.Add('changed', Changed);
+    end;
 
+    local procedure StoreLines(Context: Codeunit "TS Native Context ori"; Lines: JsonArray)
+    var
+        Response: JsonObject;
+    begin
         Response.Add('status', 'Success');
-        Response.Add('timeSheetNo', Header."No.");
-        Response.Add('lineNo', LineNo);
-        Response.Add('causeOfAbsenceCode', Context.GetCause());
-        Response.Add('resourceNo', Header."Resource No.");
-        Response.Add('hours', Hours);
-        if Context.GetFlagNonWorking() then begin
-            Warning.Add('code', 'InvalidParameter');
-            Warning.Add('message', NonWorkingMsg);
-            Warning.Add('parameter', 'hours');
-            Warning.Add('nextStep', NonWorkingNextTxt);
-            Warnings.Add(Warning);
-            Response.Add('warnings', Warnings);
-        end;
+        Response.Add('lines', Lines);
         Context.SetResult(JsonText(Response));
     end;
 

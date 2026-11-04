@@ -2,10 +2,11 @@ namespace Origo.Bifrost.Timesheets;
 
 using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
+using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
-using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
+using System.Security.User;
 
 /// <summary>
 /// Request checks and dispatch for the native Timesheets message types.
@@ -17,150 +18,156 @@ codeunit 10036868 "TS Native Mgt ori"
     Access = Internal;
 
     var
+        IsolatedMsg: Label 'This operation requires an isolated transaction.', Comment = 'is-IS=Þessi aðgerð krefst einangraðrar færslu.';
+        IsolatedNextTxt: Label 'Run the request without omitCommit.', Comment = 'is-IS=Keyrðu beiðnina án omitCommit.';
         MissingKeyNextTxt: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
         TypeNextTxt: Label 'Send the key with the documented type.', Comment = 'is-IS=Sendu lykilinn með skráðu tagi.';
         UnknownKeyNextTxt: Label 'Remove the unknown key.', Comment = 'is-IS=Fjarlægðu óþekkta lykilinn.';
         IdentifierNextTxt: Label 'Use an identifier that exists.', Comment = 'is-IS=Notaðu auðkenni sem er til.';
         OneIdentifierNextTxt: Label 'Send only one identifier for the time sheet.', Comment = 'is-IS=Sendu aðeins eitt auðkenni fyrir tímaskýrsluna.';
-        FixLineNextTxt: Label 'Fix the line and submit again.', Comment = 'is-IS=Lagfærðu línuna og sendu aftur inn.';
-        LinkEmployeeNextTxt: Label 'Link the resource to an employee in BC.', Comment = 'is-IS=Tengdu auðlindina við starfsmann í BC.';
-        CauseNextTxt: Label 'Use a code from Causes of Absence.', Comment = 'is-IS=Notaðu kóða úr fjarvistarástæðum.';
+        ApproverNextTxt: Label 'Only the approver named on the time sheet can approve.', Comment = 'is-IS=Aðeins samþykktaraðilinn sem er nefndur á tímaskýrslunni getur samþykkt.';
+        SubmitFirstNextTxt: Label 'Submit it first with Timesheets.TimeSheet.Submit.', Comment = 'is-IS=Sendu hana fyrst inn með Timesheets.TimeSheet.Submit.';
         AssignSetNextTxt: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
-        RetryNextTxt: Label 'Retry the call.', Comment = 'is-IS=Reyndu kallið aftur.';
+        RetryNextTxt: Label 'Correct the Business Central error and retry.', Comment = 'is-IS=Leiðréttu Business Central villuna og reyndu aftur.';
         MissingKeyMsg: Label 'A required key is missing.', Comment = 'is-IS=Nauðsynlegur lykill vantar.';
         TypeMsg: Label 'A key has the wrong JSON type.', Comment = 'is-IS=Lykill er af röngu JSON-tagi.';
         UnknownKeyMsg: Label 'The request contains an unknown key.', Comment = 'is-IS=Beiðnin inniheldur óþekktan lykil.';
-        IdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
+        IdentifierMsg: Label 'The identifier does not match a record in %1.', Comment = '%1 = table caption; is-IS=Auðkennið passar ekki við færslu í %1.';
         OneIdentifierMsg: Label 'The request names the time sheet in more than one way.', Comment = 'is-IS=Beiðnin nefnir tímaskýrsluna á fleiri en einn hátt.';
-        FixLineMsg: Label 'Business Central rejected the line.', Comment = 'is-IS=Business Central hafnaði línunni.';
-        LinkEmployeeMsg: Label 'The resource is not linked to an employee.', Comment = 'is-IS=Auðlindin er ekki tengd við starfsmann.';
-        CauseMsg: Label 'The cause of absence was not found.', Comment = 'is-IS=Fjarvistarástæðan fannst ekki.';
+        ApproverMsg: Label 'The caller is not the approver named on the time sheet.', Comment = 'is-IS=Kallandinn er ekki samþykktaraðilinn sem er nefndur á tímaskýrslunni.';
+        SubmitFirstMsg: Label 'The line is not submitted.', Comment = 'is-IS=Línan hefur ekki verið send inn.';
         AssignSetMsg: Label 'The caller cannot write time sheets.', Comment = 'is-IS=Kallandinn getur ekki skrifað tímaskýrslur.';
 
-    /// <summary>True when the caller may insert or modify time sheet header, line and detail.</summary>
-    procedure CanMaintainSheets(): Boolean
+    /// <summary>Checks access to the native action's reads and writes before discovery or execution.</summary>
+    procedure CanMaintainSheets(IsReject: Boolean): Boolean
     var
-        Cause: Record "Cause of Absence";
+        CauseOfAbsence: Record "Cause of Absence";
+        HumanResourcesSetup: Record "Human Resources Setup";
+        HumanResourceUom: Record "Human Resource Unit of Measure";
+        EmployeeAbsence: Record "Employee Absence";
         Employee: Record Employee;
         Resource: Record Resource;
-        ResourcesSetup: Record "Resources Setup";
+        CommentLine: Record "Time Sheet Comment Line";
         Detail: Record "Time Sheet Detail";
         Header: Record "Time Sheet Header";
         Line: Record "Time Sheet Line";
+        PostingEntry: Record "Time Sheet Posting Entry";
+        UserSetup: Record "User Setup";
     begin
-        exit(Header.ReadPermission() and Header.WritePermission() and Line.ReadPermission() and Line.WritePermission() and
-            Detail.ReadPermission() and Detail.WritePermission() and Cause.ReadPermission() and Employee.ReadPermission() and
-            Resource.ReadPermission() and ResourcesSetup.ReadPermission());
+        if not (Header.ReadPermission() and Line.ReadPermission() and Line.WritePermission() and
+                Detail.ReadPermission() and Detail.WritePermission() and Resource.ReadPermission() and UserSetup.ReadPermission()) then
+            exit(false);
+        if IsReject then
+            exit(CommentLine.ReadPermission() and CommentLine.WritePermission());
+        exit(CauseOfAbsence.ReadPermission() and HumanResourcesSetup.ReadPermission() and HumanResourceUom.ReadPermission() and
+            Employee.ReadPermission() and EmployeeAbsence.ReadPermission() and EmployeeAbsence.WritePermission() and
+            PostingEntry.ReadPermission() and PostingEntry.WritePermission());
     end;
 
-    /// <summary>Registers an absence line and its daily hours.</summary>
-    procedure ExecuteAbsence(var Argument: Record "Message Argument ori")
+    /// <summary>Approves submitted lines, preserving an explicitly selected already approved line.</summary>
+    procedure ExecuteApprove(var Argument: Record "Message Argument ori")
+    begin
+        ExecuteDecision(Argument, false, '');
+    end;
+
+    /// <summary>Rejects submitted lines with an optional bounded comment.</summary>
+    procedure ExecuteReject(var Argument: Record "Message Argument ori")
     var
-        Cause: Record "Cause of Absence";
-        Employee: Record Employee;
+        CommentLine: Record "Time Sheet Comment Line";
+        Comment: Text;
+        CommentToken: JsonToken;
+        RequestJson: JsonObject;
+    begin
+        if Deny(Argument, true) then
+            exit;
+        RequestJson := Argument.GetRequestJson();
+        if RequestJson.Get('comment', CommentToken) then begin
+            if not IsJsonString(CommentToken) then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'comment', TypeNextTxt);
+                exit;
+            end;
+            Comment := CommentToken.AsValue().AsText();
+            if StrLen(Comment) > MaxStrLen(CommentLine.Comment) then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'comment', TypeNextTxt);
+                exit;
+            end;
+        end;
+        ExecuteDecision(Argument, true, Comment);
+    end;
+
+    local procedure ExecuteDecision(var Argument: Record "Message Argument ori"; IsReject: Boolean; Comment: Text)
+    var
         Header: Record "Time Sheet Header";
         Context: Codeunit "TS Native Context ori";
+        Actionable: Integer;
         Allowed: List of [Text];
-        CauseCode: Code[10];
-        CauseToken: JsonToken;
-        DateToken: JsonToken;
-        HoursText: Text;
-        HoursToken: JsonToken;
-        NonWorking: Boolean;
-        QtyToken: JsonToken;
+        LineFilter: Text;
+        LinesToken: JsonToken;
+        Numbers: List of [Integer];
         RequestJson: JsonObject;
-        ResourceToken: JsonToken;
-        SheetToken: JsonToken;
     begin
-        if Deny(Argument) then
+        if Deny(Argument, IsReject) then
             exit;
         RequestJson := Argument.GetRequestJson();
         Allowed.Add('timeSheetNo');
-        Allowed.Add('resourceNo');
-        Allowed.Add('date');
-        Allowed.Add('causeOfAbsenceCode');
-        Allowed.Add('hours');
-        Allowed.Add('quantity');
+        Allowed.Add('timeSheetId');
+        Allowed.Add('lineNos');
+        if IsReject then
+            Allowed.Add('comment');
         if not AllowOnly(Argument, RequestJson, Allowed) then
             exit;
-        if not ResolveSheet(Argument, RequestJson, SheetToken, ResourceToken, DateToken, Header) then
+        if not ResolveSheet(Argument, RequestJson, Header) then
             exit;
-        if not RequestJson.Get('causeOfAbsenceCode', CauseToken) then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'causeOfAbsenceCode', MissingKeyNextTxt);
-            exit;
-        end;
-        if not IsJsonString(CauseToken) then begin
-            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'causeOfAbsenceCode', TypeNextTxt);
+        if not SameUser(Header."Approver User ID") then begin
+            Fail(Argument, "Bifrost Error Code ori"::PermissionDenied, ApproverMsg, 'timeSheetNo', ApproverNextTxt);
             exit;
         end;
-        CauseCode := CopyStr(CauseToken.AsValue().AsText(), 1, MaxStrLen(CauseCode));
-        if not Cause.Get(CauseCode) then begin
-            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, CauseMsg, 'causeOfAbsenceCode', CauseNextTxt);
+        if not ReadLineSelection(Argument, RequestJson, LinesToken, Numbers, LineFilter) then
+            exit;
+        if not DecisionSelection(Argument, Header, Numbers, LineFilter, Actionable, IsReject) then
+            exit;
+        if Actionable = 0 then begin
+            RespondExisting(Argument, Header."No.", LineFilter, true);
             exit;
         end;
-        if not ReadHours(Argument, RequestJson, HoursToken, QtyToken, DateToken, HoursText, NonWorking) then
-            exit;
-        if not Employee.ReadPermission() then begin
-            Fail(Argument, "Bifrost Error Code ori"::PermissionDenied, AssignSetMsg, '', AssignSetNextTxt);
-            exit;
-        end;
-        Employee.ReadIsolation := IsolationLevel::ReadCommitted;
-        Employee.SetLoadFields("Resource No.");
-        Employee.SetRange("Resource No.", Header."Resource No.");
-        if Employee.IsEmpty() then begin
-            Fail(Argument, "Bifrost Error Code ori"::PreconditionFailed, LinkEmployeeMsg, 'resourceNo', LinkEmployeeNextTxt);
-            exit;
-        end;
-        // Resource has no Base Calendar Code in the BC 28 symbol set this app compiles against.
-        // Non-working days are Saturday and Sunday (Date2DWY >= 6) only.
-        Context.SetAbsence(Header."No.", CauseCode, HoursText, NonWorking);
+        if IsReject then
+            Context.SetReject(Header."No.", LineFilter, Comment)
+        else
+            Context.SetApprove(Header."No.", LineFilter);
         RunAndRespond(Argument);
     end;
 
-    local procedure ResolveSheet(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var SheetToken: JsonToken; var ResourceToken: JsonToken; var DateToken: JsonToken; var Header: Record "Time Sheet Header"): Boolean
+    local procedure ResolveSheet(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var Header: Record "Time Sheet Header"): Boolean
     var
-        HasDate: Boolean;
-        HasResource: Boolean;
-        HasSheet: Boolean;
-        ResourceNo: Code[20];
-        SheetDate: Date;
+        SheetToken: JsonToken;
+        IdToken: JsonToken;
+        SheetId: Guid;
+        HasNo: Boolean;
+        HasId: Boolean;
     begin
-        HasSheet := RequestJson.Get('timeSheetNo', SheetToken);
-        HasResource := RequestJson.Get('resourceNo', ResourceToken);
-        HasDate := RequestJson.Get('date', DateToken);
-        if HasSheet and (HasResource or HasDate) then begin
+        HasNo := RequestJson.Get('timeSheetNo', SheetToken);
+        HasId := RequestJson.Get('timeSheetId', IdToken);
+        if HasNo and HasId then begin
             Fail(Argument, "Bifrost Error Code ori"::ConflictingIdentifiers, OneIdentifierMsg, 'timeSheetNo', OneIdentifierNextTxt);
             exit(false);
         end;
-        if not HasSheet and not HasResource then begin
+        if not (HasNo or HasId) then begin
             Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'timeSheetNo', MissingKeyNextTxt);
             exit(false);
         end;
-        if HasSheet then
-            exit(LoadSheetToken(Argument, SheetToken, Header));
-        if not HasDate then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'date', MissingKeyNextTxt);
-            exit(false);
-        end;
-        if not IsJsonString(ResourceToken) then begin
-            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'resourceNo', TypeNextTxt);
-            exit(false);
-        end;
-        if not ReadJsonDate(DateToken, SheetDate) then begin
-            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'date', TypeNextTxt);
-            exit(false);
-        end;
-        ResourceNo := CopyStr(ResourceToken.AsValue().AsText(), 1, MaxStrLen(ResourceNo));
         Header.ReadIsolation := IsolationLevel::ReadCommitted;
-        Header.SetRange("Resource No.", ResourceNo);
-        Header.SetFilter("Starting Date", '<=%1', SheetDate);
-        Header.SetFilter("Ending Date", '>=%1', SheetDate);
-        if Header.Count() > 1 then begin
-            Fail(Argument, "Bifrost Error Code ori"::ConflictingIdentifiers, OneIdentifierMsg, 'date', OneIdentifierNextTxt);
+        if HasNo then
+            exit(LoadSheetToken(Argument, SheetToken, Header));
+        if not IsJsonString(IdToken) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetId', TypeNextTxt);
             exit(false);
         end;
-        if not Header.FindFirst() then begin
-            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, IdentifierMsg, 'resourceNo', IdentifierNextTxt);
+        if not Evaluate(SheetId, IdToken.AsValue().AsText()) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetId', TypeNextTxt);
+            exit(false);
+        end;
+        if not Header.GetBySystemId(SheetId) then begin
+            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Header.TableCaption()), 'timeSheetId', IdentifierNextTxt);
             exit(false);
         end;
         exit(true);
@@ -174,91 +181,124 @@ codeunit 10036868 "TS Native Mgt ori"
             Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetNo', TypeNextTxt);
             exit(false);
         end;
+        if (StrLen(SheetToken.AsValue().AsText()) = 0) or (StrLen(SheetToken.AsValue().AsText()) > MaxStrLen(SheetNo)) then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'timeSheetNo', TypeNextTxt);
+            exit(false);
+        end;
         SheetNo := CopyStr(SheetToken.AsValue().AsText(), 1, MaxStrLen(SheetNo));
         if not Header.Get(SheetNo) then begin
-            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, IdentifierMsg, 'timeSheetNo', IdentifierNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Header.TableCaption()), 'timeSheetNo', IdentifierNextTxt);
             exit(false);
         end;
         exit(true);
     end;
 
-    local procedure ReadHours(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var HoursToken: JsonToken; var QtyToken: JsonToken; DateToken: JsonToken; var HoursText: Text; var NonWorking: Boolean): Boolean
+    local procedure ReadLineSelection(var Argument: Record "Message Argument ori"; RequestJson: JsonObject; var LinesToken: JsonToken; var Numbers: List of [Integer]; var LineFilter: Text): Boolean
     var
-        DateText: Text;
-        DateValueToken: JsonToken;
         Entry: JsonToken;
-        HasHours: Boolean;
-        HasQty: Boolean;
-        HourDate: Date;
         Index: Integer;
-        QtyValueToken: JsonToken;
-        Quantity: Decimal;
+        LineNo: Integer;
     begin
-        HasHours := RequestJson.Get('hours', HoursToken);
-        HasQty := RequestJson.Get('quantity', QtyToken);
-        if HasHours and HasQty then begin
-            Fail(Argument, "Bifrost Error Code ori"::ConflictingIdentifiers, OneIdentifierMsg, 'hours', OneIdentifierNextTxt);
-            exit(false);
-        end;
-        if not HasHours and not HasQty then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'hours', MissingKeyNextTxt);
-            exit(false);
-        end;
-        if HasQty then begin
-            if not RequestJson.Contains('date') then begin
-                Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'date', MissingKeyNextTxt);
-                exit(false);
-            end;
-            if not ReadJsonDecimal(QtyToken, Quantity) then begin
-                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'quantity', TypeNextTxt);
-                exit(false);
-            end;
-            if not ReadJsonDate(DateToken, HourDate) then begin
-                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'date', TypeNextTxt);
-                exit(false);
-            end;
-            DateText := Format(HourDate, 0, 9);
-            HoursText := DateText + '|' + Format(Quantity, 0, 9);
-            NonWorking := Date2DWY(HourDate, 1) >= 6;
+        if not RequestJson.Get('lineNos', LinesToken) then begin
+            LineFilter := '*';
             exit(true);
         end;
-        if not HoursToken.IsArray() then begin
-            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
+        if not LinesToken.IsArray() then begin
+            Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'lineNos', TypeNextTxt);
             exit(false);
         end;
-        if HoursToken.AsArray().Count() = 0 then begin
-            Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'hours', MissingKeyNextTxt);
-            exit(false);
-        end;
-        for Index := 0 to HoursToken.AsArray().Count() - 1 do begin
-            HoursToken.AsArray().Get(Index, Entry);
-            if not Entry.IsObject() then begin
-                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
+        LineFilter := '';
+        for Index := 0 to LinesToken.AsArray().Count() - 1 do begin
+            LinesToken.AsArray().Get(Index, Entry);
+            if not ReadJsonInteger(Entry, LineNo) then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'lineNos', TypeNextTxt);
                 exit(false);
             end;
-            if not Entry.AsObject().Get('date', DateValueToken) then begin
-                Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'hours', MissingKeyNextTxt);
+            if LineNo <= 0 then begin
+                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'lineNos', TypeNextTxt);
                 exit(false);
             end;
-            if not Entry.AsObject().Get('quantity', QtyValueToken) then begin
-                Fail(Argument, "Bifrost Error Code ori"::MissingParameter, MissingKeyMsg, 'hours', MissingKeyNextTxt);
-                exit(false);
-            end;
-            if not ReadJsonDate(DateValueToken, HourDate) then begin
-                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
-                exit(false);
-            end;
-            if not ReadJsonDecimal(QtyValueToken, Quantity) then begin
-                Fail(Argument, "Bifrost Error Code ori"::InvalidParameterFormat, TypeMsg, 'hours', TypeNextTxt);
-                exit(false);
-            end;
-            if HoursText <> '' then
-                HoursText += ';';
-            HoursText += Format(HourDate, 0, 9) + '|' + Format(Quantity, 0, 9);
-            if Date2DWY(HourDate, 1) >= 6 then
-                NonWorking := true;
+            if Numbers.Contains(LineNo) then
+                continue;
+            Numbers.Add(LineNo);
+            if LineFilter <> '' then
+                LineFilter += '|';
+            LineFilter += Format(LineNo, 0, 9);
         end;
         exit(true);
+    end;
+
+    local procedure DecisionSelection(var Argument: Record "Message Argument ori"; Header: Record "Time Sheet Header"; Numbers: List of [Integer]; var LineFilter: Text; var Actionable: Integer; IsReject: Boolean): Boolean
+    var
+        Line: Record "Time Sheet Line";
+        LineNo: Integer;
+    begin
+        Line.ReadIsolation := IsolationLevel::ReadCommitted;
+        Actionable := 0;
+        if LineFilter = '*' then begin
+            Line.SetRange("Time Sheet No.", Header."No.");
+            Line.SetRange(Status, Line.Status::Submitted);
+            Actionable := Line.Count();
+            LineFilter := FilterOf(Line);
+            exit(true);
+        end;
+        if Numbers.Count() = 0 then
+            exit(true);
+        foreach LineNo in Numbers do begin
+            if not Line.Get(Header."No.", LineNo) then begin
+                Fail(Argument, "Bifrost Error Code ori"::RecordNotFound, StrSubstNo(IdentifierMsg, Line.TableCaption()), 'lineNos', IdentifierNextTxt);
+                exit(false);
+            end;
+            if Line.Status = Line.Status::Submitted then
+                Actionable += 1
+            else
+                if IsReject or (Line.Status <> Line.Status::Approved) then begin
+                    Fail(Argument, "Bifrost Error Code ori"::InvalidLine, SubmitFirstMsg, 'lineNos', SubmitFirstNextTxt);
+                    exit(false);
+                end;
+        end;
+        exit(true);
+    end;
+
+    local procedure FilterOf(var Line: Record "Time Sheet Line") Result: Text
+    begin
+        if Line.FindSet() then
+            repeat
+                if Result <> '' then
+                    Result += '|';
+                Result += Format(Line."Line No.", 0, 9);
+            until Line.Next() = 0;
+    end;
+
+    local procedure RespondExisting(var Argument: Record "Message Argument ori"; SheetNo: Code[20]; LineFilter: Text; Decision: Boolean)
+    var
+        Line: Record "Time Sheet Line";
+        Lines: JsonArray;
+        Response: JsonObject;
+    begin
+        Line.ReadIsolation := IsolationLevel::ReadCommitted;
+        if LineFilter <> '' then begin
+            Line.SetRange("Time Sheet No.", SheetNo);
+            if LineFilter <> '*' then
+                Line.SetFilter("Line No.", LineFilter);
+            if Line.FindSet() then
+                repeat
+                    Lines.Add(ExistingNode(Line, Decision));
+                until Line.Next() = 0;
+        end;
+        Response.Add('status', 'Success');
+        Response.Add('lines', Lines);
+        Argument.SetResponseJson(Response);
+    end;
+
+    local procedure ExistingNode(Line: Record "Time Sheet Line"; Decision: Boolean) Node: JsonObject
+    begin
+        Node.Add('timeSheetNo', Line."Time Sheet No.");
+        Node.Add('lineNo', Line."Line No.");
+        Node.Add('status', Line.Status.Names().Get(Line.Status.Ordinals().IndexOf(Line.Status.AsInteger())));
+        Node.Add('changed', false);
+        if Decision then
+            Node.Add('decision', true);
     end;
 
     local procedure RunAndRespond(var Argument: Record "Message Argument ori")
@@ -267,13 +307,9 @@ codeunit 10036868 "TS Native Mgt ori"
         Err: Text;
         Response: JsonObject;
     begin
-        // Omit Commit stays inside the caller's write transaction. Capturing the return
-        // value of Codeunit.Run is illegal there, so a platform error propagates.
         if Argument."Omit Commit" then begin
-            Codeunit.Run(Codeunit::"TS Native Runner ori");
-            Response.ReadFrom(Context.GetResult());
             Context.Clear();
-            Argument.SetResponseJson(Response);
+            Fail(Argument, "Bifrost Error Code ori"::PreconditionFailed, IsolatedMsg, '', IsolatedNextTxt);
             exit;
         end;
 
@@ -286,10 +322,7 @@ codeunit 10036868 "TS Native Mgt ori"
         if not Codeunit.Run(Codeunit::"TS Native Runner ori") then begin
             Err := GetLastErrorText();
             Context.Clear();
-            if StrPos(Err, 'InvalidLine') > 0 then
-                Fail(Argument, "Bifrost Error Code ori"::InvalidLine, FixLineMsg, 'lineNos', FixLineNextTxt)
-            else
-                Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
+            Fail(Argument, "Bifrost Error Code ori"::BusinessCentralError, CopyStr(Err, 1, 250), '', RetryNextTxt);
             exit;
         end;
 
@@ -298,9 +331,9 @@ codeunit 10036868 "TS Native Mgt ori"
         Argument.SetResponseJson(Response);
     end;
 
-    local procedure Deny(var Argument: Record "Message Argument ori"): Boolean
+    local procedure Deny(var Argument: Record "Message Argument ori"; IsReject: Boolean): Boolean
     begin
-        if CanMaintainSheets() then
+        if CanMaintainSheets(IsReject) then
             exit(false);
         Fail(Argument, "Bifrost Error Code ori"::PermissionDenied, AssignSetMsg, '', AssignSetNextTxt);
         exit(true);
@@ -325,18 +358,11 @@ codeunit 10036868 "TS Native Mgt ori"
         exit(true);
     end;
 
-    local procedure ReadJsonDate(Token: JsonToken; var DateValue: Date): Boolean
+    local procedure SameUser(Stored: Code[50]): Boolean
     begin
-        if not IsJsonString(Token) then
+        if Stored = '' then
             exit(false);
-        exit(Evaluate(DateValue, Token.AsValue().AsText(), 9));
-    end;
-
-    local procedure ReadJsonDecimal(Token: JsonToken; var DecimalValue: Decimal): Boolean
-    begin
-        if not IsJsonNumber(Token) then
-            exit(false);
-        exit(Evaluate(DecimalValue, Token.AsValue().AsText(), 9));
+        exit(Stored = CopyStr(UserId(), 1, MaxStrLen(Stored)));
     end;
 
     local procedure IsJsonString(Token: JsonToken): Boolean
@@ -360,6 +386,22 @@ codeunit 10036868 "TS Native Mgt ori"
         Raw := DelChr(Raw, '<>', ' ');
         First := CopyStr(Raw, 1, 1);
         exit(First in ['-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
+    end;
+
+    local procedure ReadJsonInteger(Token: JsonToken; var IntValue: Integer): Boolean
+    var
+        DecimalValue: Decimal;
+    begin
+        if not IsJsonNumber(Token) then
+            exit(false);
+        if not Evaluate(DecimalValue, Token.AsValue().AsText(), 9) then
+            exit(false);
+        if (DecimalValue > 2147483647) or (DecimalValue < 1) then
+            exit(false);
+        if DecimalValue <> Round(DecimalValue, 1) then
+            exit(false);
+        IntValue := DecimalValue;
+        exit(true);
     end;
 
 }

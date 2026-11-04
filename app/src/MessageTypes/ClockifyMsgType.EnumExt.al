@@ -257,6 +257,27 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
     }
+    /// <summary>Submits open time sheet lines for approval.</summary>
+    /// <summary>Creates time sheets for chosen resources and weeks.</summary>
+    /// <summary>Lists submitted time sheet lines waiting for the caller.</summary>
+    /// <summary>Approves submitted time sheet lines.</summary>
+    value(10036875; "Timesheets.TimeSheet.Approve")
+    {
+        Caption = 'Timesheets.TimeSheet.Approve', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Approve Impl ori", "Msg Contract ori" = "TS Sheet Approve Impl ori", "Msg Discovery ori" = "TS Sheet Approve Impl ori";
+    }
+    /// <summary>Rejects submitted time sheet lines.</summary>
+    value(10036876; "Timesheets.TimeSheet.Reject")
+    {
+        Caption = 'Timesheets.TimeSheet.Reject', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Reject Impl ori", "Msg Contract ori" = "TS Sheet Reject Impl ori", "Msg Discovery ori" = "TS Sheet Reject Impl ori";
+    }
+    /// <summary>Copies lines from the previous time sheet.</summary>
+    /// <summary>Creates time sheet lines from project planning.</summary>
+    /// <summary>Registers an absence line on a time sheet.</summary>
+    /// <summary>Reopens submitted or approved time sheet lines.</summary>
+    /// <summary>Posts approved time sheet lines.</summary>
+    /// <summary>Archives posted time sheets.</summary>
     /// <summary>Registers an absence line on a time sheet.</summary>
     value(10036879; "Timesheets.Absence.Register")
     {

@@ -12,65 +12,67 @@ codeunit 10036870 "TS Native Context ori"
     var
         Operation: Integer;
         SheetNo: Code[20];
-        HoursText: Text;
-        CauseCode: Code[10];
-        FlagNonWorking: Boolean;
+        LineFilter: Text;
+        CommentText: Text;
         ResultText: Text;
 
     /// <summary>Drops the previous call so a later message cannot reuse it.</summary>
+    /// <summary>Clear for the time sheet decision contract.</summary>
     procedure Clear()
     begin
         ClearAll();
     end;
 
-    /// <summary>Stores an absence registration. Hours text is date|quantity pairs separated by ;.</summary>
-    procedure SetAbsence(NewSheetNo: Code[20]; NewCause: Code[10]; NewHours: Text; NonWorking: Boolean)
+    /// <summary>SetApprove for the time sheet decision contract.</summary>
+    procedure SetApprove(NewSheetNo: Code[20]; NewLineFilter: Text)
     begin
         ClearAll();
-        Operation := 6;
+        Operation := 2;
         SheetNo := NewSheetNo;
-        CauseCode := NewCause;
-        HoursText := NewHours;
-        FlagNonWorking := NonWorking;
+        LineFilter := NewLineFilter;
     end;
 
-    /// <summary>Returns the operation selected for the isolated writer.</summary>
+    /// <summary>SetReject for the time sheet decision contract.</summary>
+    procedure SetReject(NewSheetNo: Code[20]; NewLineFilter: Text; NewComment: Text)
+    begin
+        ClearAll();
+        Operation := 3;
+        SheetNo := NewSheetNo;
+        LineFilter := NewLineFilter;
+        CommentText := NewComment;
+    end;
+
+    /// <summary>GetOperation for the time sheet decision contract.</summary>
     procedure GetOperation(): Integer
     begin
         exit(Operation);
     end;
 
-    /// <summary>Returns the validated time sheet number.</summary>
+    /// <summary>GetSheetNo for the time sheet decision contract.</summary>
     procedure GetSheetNo(): Code[20]
     begin
         exit(SheetNo);
     end;
 
-    /// <summary>Returns the validated daily hours.</summary>
-    procedure GetHoursText(): Text
+    /// <summary>GetLineFilter for the time sheet decision contract.</summary>
+    procedure GetLineFilter(): Text
     begin
-        exit(HoursText);
+        exit(LineFilter);
     end;
 
-    /// <summary>Returns the validated cause of absence.</summary>
-    procedure GetCause(): Code[10]
+    /// <summary>GetComment for the time sheet decision contract.</summary>
+    procedure GetComment(): Text
     begin
-        exit(CauseCode);
+        exit(CommentText);
     end;
 
-    /// <summary>Indicates whether the request includes weekend hours.</summary>
-    procedure GetFlagNonWorking(): Boolean
-    begin
-        exit(FlagNonWorking);
-    end;
-
-    /// <summary>Stores the writer response for the dispatcher.</summary>
+    /// <summary>SetResult for the time sheet decision contract.</summary>
     procedure SetResult(NewResult: Text)
     begin
         ResultText := NewResult;
     end;
 
-    /// <summary>Returns the isolated writer response.</summary>
+    /// <summary>GetResult for the time sheet decision contract.</summary>
     procedure GetResult(): Text
     begin
         exit(ResultText);

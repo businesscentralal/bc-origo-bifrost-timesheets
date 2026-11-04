@@ -12,7 +12,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Checks the caller permissions required for absence registration.</summary>
     procedure IsEnabled(): Boolean
     var
-        NativeMgt: Codeunit "TS Native Mgt ori";
+        NativeMgt: Codeunit "TS Absence Mgt ori";
     begin
         exit(NativeMgt.CanMaintainSheets());
     end;
@@ -50,7 +50,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Describes the supported task envelope.</summary>
     procedure GetEnvelope(var Envelope: JsonObject): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetEnvelope(GetMessageType(), Envelope));
     end;
@@ -58,7 +58,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Describes the time-sheet identifier.</summary>
     procedure GetTarget(var Target: JsonArray): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetTarget(GetMessageType(), Target));
     end;
@@ -66,7 +66,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Lists the accepted absence registration parameters.</summary>
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.AddAbsenceParameters(Parameters));
     end;
@@ -74,7 +74,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Describes the absence line returned on success.</summary>
     procedure GetResponse(var Response: JsonObject): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetResponse(GetMessageType(), Response));
     end;
@@ -82,7 +82,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Lists documented refusals and recovery steps.</summary>
     procedure GetErrors(var Errors: JsonArray): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetErrors(GetMessageType(), Errors));
     end;
@@ -90,7 +90,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Describes the committed write and required permissions.</summary>
     procedure GetEffect(var Effect: JsonObject): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetEffect(GetMessageType(), Effect));
     end;
@@ -104,7 +104,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Lists related discovery messages.</summary>
     procedure GetRelated(var Related: JsonArray): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetRelated(GetMessageType(), Related));
     end;
@@ -112,7 +112,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Describes the absence registration workflow.</summary>
     procedure GetWorkflow(var Workflow: JsonObject): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetWorkflow(GetMessageType(), Workflow));
     end;
@@ -120,7 +120,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Provides an absence registration request and response example.</summary>
     procedure GetExamples(var Examples: JsonArray): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetExamples(GetMessageType(), Examples));
     end;
@@ -128,7 +128,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Returns the localized purpose of the message.</summary>
     procedure GetOverview(var Overview: Text): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetOverview(GetMessageType(), Overview));
     end;
@@ -136,7 +136,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Explains employee linking, weekend warnings and commit behavior.</summary>
     procedure GetNotes(var Notes: Text): Boolean
     var
-        Parts: Codeunit "TS Contract Parts ori";
+        Parts: Codeunit "TS Absence Contract ori";
     begin
         exit(Parts.GetNotes(GetMessageType(), Notes));
     end;
@@ -155,7 +155,7 @@ codeunit 10036880 "TS Absence Reg Impl ori" implements "Msg Interface ori", "Msg
     /// <summary>Validates the message version and dispatches isolated absence registration.</summary>
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        NativeMgt: Codeunit "TS Native Mgt ori";
+        NativeMgt: Codeunit "TS Absence Mgt ori";
     begin
         Argument.AssertVersion1();
         NativeMgt.ExecuteAbsence(Argument);
