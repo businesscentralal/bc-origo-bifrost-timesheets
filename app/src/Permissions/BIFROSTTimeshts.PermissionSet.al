@@ -1,8 +1,5 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
 
-using Microsoft.Foundation.NoSeries;
-using Microsoft.HumanResources.Absence;
-using Microsoft.HumanResources.Employee;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using Microsoft.Projects.TimeSheet;
@@ -94,27 +91,11 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Native Runner ori" = X,
         codeunit "TS Sheet Restrict ori" = X,
         codeunit "TS Sheet Submit Impl ori" = X,
-        codeunit "TS Sheet Create Impl ori" = X,
-        codeunit "TS Pending Appr Impl ori" = X,
-        codeunit "TS Sheet Approve Impl ori" = X,
-        codeunit "TS Sheet Reject Impl ori" = X,
-        codeunit "TS Line CopyPrev Impl ori" = X,
-        codeunit "TS Line FromPlan Impl ori" = X,
-        codeunit "TS Absence Reg Impl ori" = X,
-        codeunit "TS Sheet Reopen Impl ori" = X,
-        codeunit "TS Sheet Post Impl ori" = X,
-        codeunit "TS Sheet Archive Impl ori" = X,
-        tabledata "Time Sheet Header" = RIMD,
-        tabledata "Time Sheet Line" = RIMD,
-        tabledata "Time Sheet Detail" = RIMD,
-        tabledata "Time Sheet Comment Line" = RIMD,
+        tabledata "Time Sheet Header" = R,
+        tabledata "Time Sheet Line" = RM,
+        tabledata "Time Sheet Detail" = R,
         tabledata Resource = R,
         tabledata "Resources Setup" = R,
-        tabledata "Resource Group" = R,
-        tabledata "Cause of Absence" = R,
-        tabledata Employee = R,
-        tabledata "No. Series" = R,
-        tabledata "No. Series Line" = RM,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,
