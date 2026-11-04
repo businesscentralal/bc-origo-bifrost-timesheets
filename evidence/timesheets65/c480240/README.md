@@ -1,0 +1,3 @@
+Verification companion for issue65 at candidate c480240699d870c9825d2ac4049a62f9a826c26a.
+
+This separate test-only extension invokes the unchanged candidate fixture codeunit95618 through the normal AL test runner because Invoke-NAVCodeunit management authentication returned401 before execution. It does not change product/test source, permissions, generic write restrictions, licensing, consent or HTTP state. Product/test compile0errors0warnings and full131passed0failed0skipped belong to the candidate; the one fixture setup test is recorded separately. The fixture is isolated in owned worker4 COSMO f0c73a4f1444. All data is removed with verified owned cleanup. This branch is evidence, not a product PR or a readiness claim.
