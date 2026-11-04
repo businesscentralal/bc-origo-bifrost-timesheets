@@ -1,0 +1,20 @@
+{
+  "sha": "1d271de3c6d501926f52de172b74bf705d9be280",
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41818181214",
+  "jobUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41818181214/job/126537830518",
+  "dependency": "Foundation28.0.11.669",
+  "bcArtifact": "W1 28.5.54151.55751",
+  "executed": 142,
+  "passed": 142,
+  "failed": 0,
+  "skipped": 0,
+  "actualCountLines": [
+    "2026-11-04T11:17:48.9459842Z 1 TestApps, 142 tests, 0 failed, 0 skipped, 26.348 seconds",
+    "2026-11-04T11:17:48.9616875Z - Bifrost Timesheets - Tests, 142 tests, 142 passed, 0 failed, 0 skipped, 26.348 seconds"
+  ],
+  "compilerErrors": 0,
+  "compilerWarnings": 0,
+  "diagnostic": [
+    "2026-11-04T11:14:45.6430154Z   Extension 'Bifrost Foundation by Origo 28.0.11.669' does not have a publisher Microsoft Entra tenant ID, so it cannot use key vaults. The publisher's Microsoft Entra tenant ID must be specified at publish time."
+  ]
+}

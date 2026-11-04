@@ -46,8 +46,8 @@
     },
     {
       "ac": "AC11",
-      "status": "VERIFIED_OWNED_CI_PENDING",
-      "proof": "Fullconfigured142/1420failed0skipped,rawJUnit independentlyparsed; changedunits95612/95630/95633 passed33/33twiceconsecutively. PairedGitHubCIpending."
+      "status": "VERIFIED_DEVELOPER_AND_CI",
+      "proof": "Owned fullconfigured142/1420failed0skipped,rawJUnit independentlyparsed; changedunits95612/95630/95633 passed33/33twiceconsecutively. PairedCI41818181214Default/Test/cleanup/statusallgreen; actualCI142passed0failed0skipped onFoundation669. OwnfullnativeusedFoundation665; neitherdeploymentisclaimedasother."
     },
     {
       "ac": "AC12",
@@ -55,5 +55,6 @@
       "proof": "IndependentClaude receipt aftervalidreviewhandoff; notaprehandoffblocker."
     }
   ],
-  "fullDeliveryClaimed": false
+  "fullDeliveryClaimed": false,
+  "ciEvidence": "ci-test-proof.json"
 }
