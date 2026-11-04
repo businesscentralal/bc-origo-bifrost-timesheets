@@ -28,6 +28,11 @@
 - `Phone Sales Quick Add ori` suppresses the standard validation confirm while it writes the customer, item, quantity, job and job task the page already collected.
 - `Clockify Field Restrict Tests` (95612) expects Foundation 28.0.5 to keep the setup hint in `nextStep`. The same assertion is on the guard branch.
 
+### Fixed (2026-11-04) - Translatable Clockify refusals (#49)
+
+- Unlock the 19 user-facing refusal labels reported by MixedLanguageLabels and preserve their English text. Add Icelandic translations, including four sentence literals promoted to labels in Clockify TEntryRange Impl ori (10036832), Clockify TEntrySync Impl ori (10036821), and Clockify TSheetSync Impl ori (10036840).
+- Add four Icelandic refusal regression scenarios to Clockify Connector Tests (95601): missing parameter, missing body, missing journal, and no open time sheet. Generate the 23 new Icelandic translation units from compiler output and preserve all 259 existing Icelandic targets.
+
 ### Changed (2026-10-14) - Version reset to 28.0.0.0
 
 - Owner decision (Gunnar, 2026-10-14): `app/app.json` and `test/app.json` go from 29.0.0.0 to 28.0.0.0, so the first AppSource version aligns with the other Bifröst apps on Business Central 28. The test app's dependency on the app moves to 28.0.0.0 as well.
