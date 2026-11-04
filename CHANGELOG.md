@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added (2026-11-04) - Timesheets.Absence.Register (#65)
+
+- New message type `Timesheets.Absence.Register` on enumextension `Clockify Msg Type ori` (10036785), value 10036879, codeunit `TS Absence Reg Impl ori` (10036880). It adds an absence line with a cause of absence and hours per day to a time sheet, found by `timeSheetNo` or by `resourceNo` plus `date`.
+- Shared dispatch `TS Native Mgt ori` (10036868), contract chapters `TS Contract Parts ori` (10036869), write isolation `TS Native Context ori` (10036870) and `TS Native Runner ori` (10036871). The write runs in `Codeunit.Run`; a platform error answers `BusinessCentralError` and writes nothing. A successful call commits.
+- Refusals with `nextStep`: `MissingParameter`, `InvalidParameterFormat`, `UnknownParameter`, `RecordNotFound` (sheet, resource or cause), `ConflictingIdentifiers`, `PermissionDenied`, and `PreconditionFailed` when the resource is not linked to an employee. Hours on Saturday or Sunday are written and returned with a warning; the BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
+- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits and time sheet, cause of absence and employee data. No new assignable permission set and no Foundation `Setup ori` grant.
+- Tests: test codeunits 95616 `TS Absence Reg Tests` and 95617 `TS Absence Reg Perm Tests`. The is-IS translation file is regenerated.
+
 ### Added (2026-10-16) - Phone Role Center (#6)
 
 - `Phone Role Center ori` (page 10036860) and profile `Phone Role Center Profile ori` show three lists: current customers from My Customers, customers worked today (including a running Clockify timer), and customers worked on the previous Monday-to-Friday date.

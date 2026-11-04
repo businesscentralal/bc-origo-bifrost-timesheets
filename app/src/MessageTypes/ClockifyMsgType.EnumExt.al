@@ -257,4 +257,10 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
     }
+    /// <summary>Registers an absence line on a time sheet.</summary>
+    value(10036879; "Timesheets.Absence.Register")
+    {
+        Caption = 'Timesheets.Absence.Register', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Absence Reg Impl ori", "Msg Contract ori" = "TS Absence Reg Impl ori", "Msg Discovery ori" = "TS Absence Reg Impl ori";
+    }
 }
