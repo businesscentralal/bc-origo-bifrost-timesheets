@@ -62,14 +62,14 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetTarget(GetMessageType(), Target));
+        exit(Parts.TargetForTimeEntrySyncRangeToTimeSheet(Target));
     end;
 
     procedure GetParameters(var Parameters: JsonArray): Boolean
     var
         Parts: Codeunit "Clockify Contract Parts ori";
     begin
-        exit(Parts.GetParameters(GetMessageType(), Parameters));
+        exit(Parts.ParametersForTimeEntrySyncRangeToTimeSheet(Parameters));
     end;
 
     procedure GetResponse(var Response: JsonObject): Boolean
