@@ -315,6 +315,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ClientUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3822493569 - NamedType 2081172381" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Clockify workspace '%1' was not found for the configured API key.</source>
+          <target>Clockify-vinnusvæðið '%1' fannst ekki fyrir skráðan API-lykil.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = workspace id. is-IS=Clockify-vinnusvæðið '%1' fannst ekki fyrir skráðan API-lykil.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CurrencyList Impl ori - NamedType WorkspaceNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3822493569 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>currency, list, client, Clockify, timesheets</source>
           <target>gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur</target>
@@ -338,6 +344,12 @@
           <target>Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify CustFldList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1546909816 - NamedType 2138340339" size-unit="char" translate="yes" xml:space="preserve">
+          <source>the Timesheets setup page (Clockify Setup)</source>
+          <target>uppsetningarsíðu Bifrost Timesheets (Clockify Setup)</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=uppsetningarsíðu Bifrost Timesheets (Clockify Setup)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Field Restrict ori - NamedType ReceiverUrlHintTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 4021489847 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>help, overview, Clockify, timesheets</source>
@@ -417,6 +429,24 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.Project.Update: Uppfærir verkefni. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Stilltu userGroupIds og customFieldId hér og settu í geymslu áður en eytt er.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify ProjUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3266423967 - NamedType 3308190715" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing required 'body' object in the request.</source>
+          <target>Nauðsynlegan 'body' hlut vantar í beiðnina.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Nauðsynlegan 'body' hlut vantar í beiðnina.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Request Mgt ori - NamedType MissingBodyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3266423967 - NamedType 1735106122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing required '%1' in the request.</source>
+          <target>Nauðsynlegt '%1' vantar í beiðnina.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = parameter name. is-IS=Nauðsynlegt '%1' vantar í beiðnina.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Request Mgt ori - NamedType MissingParamErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3266423967 - NamedType 346853592" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.</source>
+          <target>Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Request Mgt ori - NamedType MissingWorkspaceErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1788831997 - NamedType 3584467716" size-unit="char" translate="yes" xml:space="preserve">
           <source>Remove the stored company Clockify API key?</source>
           <target>Fjarlægja geymdan Clockify API lykil fyrirtækis?</target>
@@ -428,6 +458,12 @@
           <target>Enginn API-lykill var sleginn inn.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Enginn API-lykill var sleginn inn.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify Setup Mgt ori - NamedType EmptyKeyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964021866 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch'.</source>
+          <target>target=journal krefst verkbókar. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch'.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=target=journal krefst verkbókar. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch'.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify SyncAllUsers Impl ori - NamedType MissingJournalErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1964021866 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time entry, sync, all users, Clockify, timesheets</source>
@@ -585,6 +621,24 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.List: Aðeins lesið. Listar tímaskráningar eins notanda. query.in-progress velur gangandi teljara eða loknar færslur. Notaðu Clockify.TimeEntry.Get fyrir eitt kenni.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1156826079 - NamedType 314657624" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to read time entries from Clockify (HTTP %1): %2</source>
+          <target>Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - NamedType ListFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1156826079 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.</source>
+          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - NamedType MissingJournalErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1156826079 - NamedType 2129296526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unexpected response from Clockify when listing time entries: expected a JSON array.</source>
+          <target>Óvænt svar frá Clockify við lestur tímafærslna: búist var við JSON-fylki.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Óvænt svar frá Clockify við lestur tímafærslna: búist var við JSON-fylki.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - NamedType UnexpectedListErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1156826079 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time entry, sync, range, journal, Clockify, timesheets</source>
           <target>tímaskráning, samstilla, tímabil, verkbók, Clockify, tímaskýrslur</target>
@@ -596,6 +650,30 @@
           <target>Clockify.TimeEntry.SyncRange: Samstillir loknar tímaskráningar notanda á tímabili við verkbókarlínur. Notaðu Clockify.TimeEntry.Sync fyrir eina færslu.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeEntry.SyncRange: Samstillir loknar tímaskráningar notanda á tímabili við verkbókarlínur. Notaðu Clockify.TimeEntry.Sync fyrir eina færslu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntryRange Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - NamedType 3834987093" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot calculate hours: start and end are required ISO 8601 datetime values.</source>
+          <target>Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekki er hægt að reikna klukkustundir: start og end verða að vera ISO 8601 dagsetningar og tímar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType HoursCalcErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - NamedType 1834329580" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty 'end' value (timer stopped).</source>
+          <target>Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType InProgressSyncErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.</source>
+          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType MissingJournalErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3065451015 - NamedType 2932411483" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot parse posting date from start value.</source>
+          <target>Ekki tókst að lesa bókunardagsetningu úr start-gildinu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekki tókst að lesa bókunardagsetningu úr start-gildinu.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TEntrySync Impl ori - NamedType PostingDateErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3065451015 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time entry, sync, journal, Clockify, timesheets</source>
@@ -687,6 +765,42 @@
           <note from="Developer" annotates="general" priority="2">%1 = week number|is-IS=Vika %1</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Mgt ori - NamedType WeekTok</note>
         </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 3113302811" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing taskId: cannot map to a BC Job Task.</source>
+          <target>taskId vantar: ekki er hægt að tengja við verkþátt í Business Central.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=taskId vantar: ekki er hægt að tengja við verkþátt í Business Central.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType MissingTaskIdErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 678402954" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Task %1 on job %2 does not exist in Business Central. Check the Clockify Integration mapping for task %3.</source>
+          <target>Verkþáttur %1 á verki %2 er ekki til í Business Central. Athugaðu Clockify-tengingu fyrir verkþátt %3.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = job task no., %2 = job no., %3 = Clockify task ID. is-IS=Verkþáttur %1 á verki %2 er ekki til í Business Central. Athugaðu Clockify-tengingu fyrir verkþátt %3.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType NoJobTaskErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 1072026998" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.</source>
+          <target>Engin opin tímaskráning fannst fyrir tilfang %1 þann %2. Keyrðu Clockify.TimeSheet.Create fyrst.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = resource no., %2 = date. is-IS=Engin opin tímaskráning fannst fyrir tilfang %1 þann %2. Keyrðu Clockify.TimeSheet.Create fyrst.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType NoOpenTimeSheetErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 4211997839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify project %1.</source>
+          <target>Engin Clockify-tenging fannst fyrir verkefni %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify project ID. is-IS=Engin Clockify-tenging fannst fyrir verkefni %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType NoProjectMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 1774939607" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify task %1.</source>
+          <target>Engin Clockify-tenging fannst fyrir verkþátt %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify task ID. is-IS=Engin Clockify-tenging fannst fyrir verkþátt %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType NoTaskMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 916967193 - NamedType 537269371" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No integration mapping found for Clockify user %1.</source>
+          <target>Engin Clockify-tenging fannst fyrir notanda %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Clockify user ID. is-IS=Engin Clockify-tenging fannst fyrir notanda %1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TimeSheet Sync ori - NamedType NoUserMappingErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 839322240 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time sheet, approve, Clockify, timesheets</source>
           <target>tímaskýrsla, samþykkja, Clockify, tímaskýrslur</target>
@@ -735,6 +849,12 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Post: Bókar samþykktar tímaskýrslulínur í verkbók. Kallar ekki á Clockify.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetPost Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 454857898 - NamedType 314657624" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to read time entries from Clockify (HTTP %1): %2</source>
+          <target>Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetRange Impl ori - NamedType ListFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 454857898 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time entry, range, time sheet, Clockify, timesheets</source>
           <target>tímaskráning, tímabil, tímaskýrsla, Clockify, tímaskýrslur</target>
@@ -770,6 +890,18 @@
           <target>Clockify.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur í stöðuna Open til lokadags.</target>
           <note from="Developer" annotates="general" priority="2">is-IS=Clockify.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur í stöðuna Open til lokadags.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetReopen Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2559077546 - NamedType 1733614201" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot derive hours and posting date: start and end must be ISO-8601 datetimes.</source>
+          <target>Ekki er hægt að leiða út klukkustundir og bókunardagsetningu: start og end verða að vera ISO-8601 dagsetningar og tímar.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ekki er hægt að leiða út klukkustundir og bókunardagsetningu: start og end verða að vera ISO-8601 dagsetningar og tímar.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetSync Impl ori - NamedType HoursDeriveErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2559077546 - NamedType 1834329580" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In-progress time entries are not synced. Provide an entry with a non-empty 'end' value (timer stopped).</source>
+          <target>Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetSync Impl ori - NamedType InProgressSyncErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2559077546 - Method 1027590672 - NamedType 1290244428" size-unit="char" translate="yes" xml:space="preserve">
           <source>time entry, sync, time sheet, Clockify, timesheets</source>

@@ -13,7 +13,7 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
     Access = Internal;
 
     var
-        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body', Locked = true;
+        ListFailedErr: Label 'Failed to read time entries from Clockify (HTTP %1): %2', Comment = '%1 = status code, %2 = error body. is-IS=Ekki tókst að lesa tímafærslur úr Clockify (HTTP %1): %2';
         NoFinishedIntervalMsg: Label 'Entry has no finished interval; counted as error.', Locked = true;
 
     procedure IsEnabled(): Boolean

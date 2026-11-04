@@ -16,12 +16,12 @@ codeunit 10036839 "Clockify TimeSheet Sync ori"
     Access = Internal;
 
     var
-        NoProjectMappingErr: Label 'No integration mapping found for Clockify project %1.', Comment = '%1 = Clockify project ID', Locked = true;
-        NoTaskMappingErr: Label 'No integration mapping found for Clockify task %1.', Comment = '%1 = Clockify task ID', Locked = true;
-        MissingTaskIdErr: Label 'Missing taskId: cannot map to a BC Job Task.', Locked = true;
-        NoJobTaskErr: Label 'Job Task %1 on job %2 does not exist in Business Central. Check the Clockify Integration mapping for task %3.', Comment = '%1 = job task no., %2 = job no., %3 = Clockify task ID', Locked = true;
-        NoUserMappingErr: Label 'No integration mapping found for Clockify user %1.', Comment = '%1 = Clockify user ID', Locked = true;
-        NoOpenTimeSheetErr: Label 'No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.', Comment = '%1 = resource no., %2 = date', Locked = true;
+        NoProjectMappingErr: Label 'No integration mapping found for Clockify project %1.', Comment = '%1 = Clockify project ID. is-IS=Engin Clockify-tenging fannst fyrir verkefni %1.';
+        NoTaskMappingErr: Label 'No integration mapping found for Clockify task %1.', Comment = '%1 = Clockify task ID. is-IS=Engin Clockify-tenging fannst fyrir verkþátt %1.';
+        MissingTaskIdErr: Label 'Missing taskId: cannot map to a BC Job Task.', Comment = 'is-IS=taskId vantar: ekki er hægt að tengja við verkþátt í Business Central.';
+        NoJobTaskErr: Label 'Job Task %1 on job %2 does not exist in Business Central. Check the Clockify Integration mapping for task %3.', Comment = '%1 = job task no., %2 = job no., %3 = Clockify task ID. is-IS=Verkþáttur %1 á verki %2 er ekki til í Business Central. Athugaðu Clockify-tengingu fyrir verkþátt %3.';
+        NoUserMappingErr: Label 'No integration mapping found for Clockify user %1.', Comment = '%1 = Clockify user ID. is-IS=Engin Clockify-tenging fannst fyrir notanda %1.';
+        NoOpenTimeSheetErr: Label 'No open time sheet found for resource %1 on %2. Run Clockify.TimeSheet.Create first.', Comment = '%1 = resource no., %2 = date. is-IS=Engin opin tímaskráning fannst fyrir tilfang %1 þann %2. Keyrðu Clockify.TimeSheet.Create fyrst.';
         CreatedMsg: Label 'Time entry %1 written to time sheet %2 line %3.', Comment = '%1 = Clockify ID, %2 = time sheet no., %3 = line no.', Locked = true;
         UpdatedMsg: Label 'Time entry %1 updated on time sheet %2 line %3.', Comment = '%1 = Clockify ID, %2 = time sheet no., %3 = line no.', Locked = true;
         SkippedMsg: Label 'Time entry %1 already on time sheet, unchanged. Skipped.', Comment = '%1 = Clockify ID', Locked = true;
