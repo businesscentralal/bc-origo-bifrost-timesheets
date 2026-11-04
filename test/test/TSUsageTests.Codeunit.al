@@ -1,5 +1,7 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Finance.GeneralLedger.Ledger;
 using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Foundation.UOM;
 using Microsoft.Inventory.Item;
@@ -790,6 +792,8 @@ codeunit 95635 "TS Usage Tests"
         PostingGroup: Record "Inventory Posting Group";
         GeneralPostingSetup: Record "General Posting Setup";
         InventoryPostingSetup: Record "Inventory Posting Setup";
+        Account: Record "G/L Account";
+        GeneralLedger: Record "G/L Entry";
         Journal: Record "Item Journal Line";
         JournalTemplate: Record "Item Journal Template";
         Batch: Record "Item Journal Batch";
@@ -808,9 +812,21 @@ codeunit 95635 "TS Usage Tests"
         Item.Get(ItemNo);
         PostingGroup.Code := Item."Base Unit of Measure";
         PostingGroup.Insert(false);
+        Account."No." := UniqueNo();
+        Account.Name := 'Usage zero-cost inventory account';
+        Account."Account Type" := Account."Account Type"::Posting;
+        Account."Direct Posting" := true;
+        Account.Insert(false);
         GeneralPostingSetup."Gen. Prod. Posting Group" := PostingGroup.Code;
+        GeneralPostingSetup."Invt. Adjmt. Account" := Account."No.";
+        GeneralPostingSetup."COGS Account" := Account."No.";
+        GeneralPostingSetup."COGS Account (Interim)" := Account."No.";
+        GeneralPostingSetup."Direct Cost Applied Account" := Account."No.";
+        GeneralPostingSetup."Overhead Applied Account" := Account."No.";
         GeneralPostingSetup.Insert(false);
         InventoryPostingSetup."Invt. Posting Group Code" := PostingGroup.Code;
+        InventoryPostingSetup."Inventory Account" := Account."No.";
+        InventoryPostingSetup."Inventory Account (Interim)" := Account."No.";
         InventoryPostingSetup.Insert(false);
         Item."Inventory Posting Group" := PostingGroup.Code;
         Item."Gen. Prod. Posting Group" := PostingGroup.Code;
@@ -849,6 +865,9 @@ codeunit 95635 "TS Usage Tests"
         InventoryPostingSetup.Delete(false);
         GeneralPostingSetup.Delete(false);
         PostingGroup.Delete(false);
+        GeneralLedger.SetRange("G/L Account No.", Account."No.");
+        Assert.IsTrue(GeneralLedger.IsEmpty(), 'Zero-cost owned inventory posts no financial amount.');
+        Account.Delete(false);
         Cleanup(SheetNo, ItemNo);
     end;
 
