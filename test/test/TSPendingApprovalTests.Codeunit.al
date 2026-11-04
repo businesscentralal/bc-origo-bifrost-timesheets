@@ -306,6 +306,8 @@ codeunit 95630 "TS Pending Approval Tests"
     begin
         if IsInitialized then
             exit;
+        // Runs without test isolation keep committed data: remove only the fixed TS62 keys of an earlier run before seeding.
+        Fixture.Cleanup();
         Fixture.Seed();
         IsInitialized := true;
     end;
