@@ -1,0 +1,60 @@
+{
+  "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+  "nonce": "24FA51EB99",
+  "verified": true,
+  "readbacks": 13,
+  "results": [
+    {
+      "table": "Resource",
+      "remaining": 0
+    },
+    {
+      "table": "Item",
+      "remaining": 0
+    },
+    {
+      "table": "Time Sheet Header",
+      "remaining": 0
+    },
+    {
+      "table": "Time Sheet Line",
+      "remaining": 0
+    },
+    {
+      "table": "TS Usage Line ori",
+      "remaining": 0
+    },
+    {
+      "table": "Res. Journal Line",
+      "remaining": 0
+    },
+    {
+      "table": "Res. Journal Batch",
+      "remaining": 0
+    },
+    {
+      "table": "Res. Journal Template",
+      "remaining": 0
+    },
+    {
+      "table": "Res. Ledger Entry",
+      "remaining": 0
+    },
+    {
+      "table": "Resource Unit of Measure",
+      "remaining": 0
+    },
+    {
+      "table": "Item Unit of Measure",
+      "remaining": 0
+    },
+    {
+      "table": "Unit of Measure",
+      "remaining": 0
+    },
+    {
+      "table": "Gen. Product Posting Group",
+      "remaining": 0
+    }
+  ]
+}

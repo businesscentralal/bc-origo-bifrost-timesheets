@@ -1,0 +1,67 @@
+{
+  "currentSha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+  "earlierAttempts": [
+    {
+      "sha": "92858743a35d060778faca4720c13d3134535e21",
+      "executed": 254,
+      "passed": 249,
+      "failed": 5,
+      "skipped": 0,
+      "notes": "Wrong runner130450 rather than configured130451; three Phone failures. Two new fixture failures repaired."
+    },
+    {
+      "sha": "8b6f9c54bd1bfc3b34fbb7c3ec7ff71a4677313a",
+      "executed": 254,
+      "passed": 253,
+      "failed": 1,
+      "skipped": 0,
+      "notes": "Missing own Inventory Posting Setup."
+    },
+    {
+      "sha": "89b9caa43f691dc9944a8fb3a6a85038b987cd04",
+      "executed": 254,
+      "passed": 253,
+      "failed": 1,
+      "skipped": 0,
+      "notes": "Missing own inventory G/L account; repaired with a unique zero-cost account and native setup."
+    }
+  ],
+  "compileFailure": {
+    "sha": "840edcccf22c963bd10989f26465e4e49f522e17",
+    "testErrors": 1,
+    "warnings": 0,
+    "published": false,
+    "repairedBy": "ea2f07284edf798510497907e61ab43d0d5641e2"
+  },
+  "ui": {
+    "finalScenarios": {
+      "executed": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    "allScenarioAttempts": {
+      "executed": 3,
+      "passed": 2,
+      "failed": 1,
+      "skipped": 0
+    },
+    "initialFailure": "Stale bookmark to deleted previous fixture; fresh navigation resolved setup. Final actual1033/1039results included.",
+    "restoredLanguage": 1033
+  },
+  "mcp": {
+    "coreScenarios": {
+      "executed": 48,
+      "passed": 48,
+      "failed": 0,
+      "skipped": 0
+    },
+    "supplementalGenericGuard": {
+      "executed": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "cleanupRecovery": "English cleanup succeeded; one read failed transiently, eight missing absence readbacks recovered without any write replay. Historical error preserved in summary."
+  }
+}

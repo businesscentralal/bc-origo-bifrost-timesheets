@@ -1,0 +1,31 @@
+{
+  "verified": true,
+  "owner": "worker-5",
+  "targets": [
+    "ZZU8490A4DEF300784AC",
+    "ZZU849365F33479974F7"
+  ],
+  "savedIdentitiesChecked": true,
+  "creationWindowChecked": true,
+  "unrelatedRowsDeleted": 0,
+  "temporaryHelperUninstalled": true,
+  "temporaryHelperUnpublished": true,
+  "readbacks": [
+    {
+      "table": "Job",
+      "remaining": 0
+    },
+    {
+      "table": "Job Task",
+      "remaining": 0
+    },
+    {
+      "table": "Job Journal Template",
+      "remaining": 0
+    },
+    {
+      "table": "Job Journal Batch",
+      "remaining": 0
+    }
+  ]
+}

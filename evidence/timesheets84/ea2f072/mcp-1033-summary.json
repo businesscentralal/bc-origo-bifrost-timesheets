@@ -1,0 +1,195 @@
+{
+  "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+  "lcid": 1033,
+  "nonce": "8FC835DEF2",
+  "executed": 24,
+  "passed": 24,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "help-Register",
+      "passed": true
+    },
+    {
+      "name": "help-List",
+      "passed": true
+    },
+    {
+      "name": "help-Submit",
+      "passed": true
+    },
+    {
+      "name": "help-Approve",
+      "passed": true
+    },
+    {
+      "name": "help-Reject",
+      "passed": true
+    },
+    {
+      "name": "help-Transfer",
+      "passed": true
+    },
+    {
+      "name": "help-Reverse",
+      "passed": true
+    },
+    {
+      "name": "register-resource",
+      "passed": true
+    },
+    {
+      "name": "register-item",
+      "passed": true
+    },
+    {
+      "name": "generic-state-write-refused",
+      "passed": true
+    },
+    {
+      "name": "zero-quantity-refusal",
+      "passed": true
+    },
+    {
+      "name": "unknown-key-refusal",
+      "passed": true
+    },
+    {
+      "name": "list-owner-paged",
+      "passed": true
+    },
+    {
+      "name": "submit-resource",
+      "passed": true
+    },
+    {
+      "name": "submit-item",
+      "passed": true
+    },
+    {
+      "name": "self-approval-refusal",
+      "passed": true
+    },
+    {
+      "name": "approve-independent",
+      "passed": true
+    },
+    {
+      "name": "reject-independent",
+      "passed": true
+    },
+    {
+      "name": "transfer-resource",
+      "passed": true
+    },
+    {
+      "name": "transfer-idempotent",
+      "passed": true
+    },
+    {
+      "name": "native-resource-posting",
+      "passed": true
+    },
+    {
+      "name": "reverse-posted-with-journal",
+      "passed": true
+    },
+    {
+      "name": "reversal-journal-negative",
+      "passed": true
+    },
+    {
+      "name": "second-reverse-refused",
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "step": "owned-fixture-delete",
+      "passed": true
+    },
+    {
+      "table": "Resource",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "table": "Item",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "table": "Time Sheet Header",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "table": "Time Sheet Line",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "table": "TS Usage Line ori",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "table": "Res. Journal Line",
+      "remaining": 0,
+      "passed": true
+    },
+    {
+      "passed": false,
+      "error": "Unexpected token 'e', \"fetch failed\" is not valid JSON"
+    }
+  ],
+  "cleanupRecovery": {
+    "at": "2026-11-04T23:21:29.990Z",
+    "writesReplayed": 0,
+    "verified": true,
+    "readbacks": [
+      {
+        "table": "Res. Ledger Entry",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Unit of Measure",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Gen. Product Posting Group",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Res. Journal Template",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Res. Journal Batch",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Resource Unit of Measure",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Item Unit of Measure",
+        "remaining": 0,
+        "passed": true
+      },
+      {
+        "table": "Resource Register",
+        "remaining": 0,
+        "passed": true
+      }
+    ]
+  },
+  "cleanupVerified": true
+}

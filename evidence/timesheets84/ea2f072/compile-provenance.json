@@ -1,0 +1,23 @@
+{
+  "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+  "checks": [
+    {
+      "type": "app",
+      "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "f01d94c83e5a11e8e9d042c0b4172b04585d4e4468a59b46dd110f755fe54c8b"
+    },
+    {
+      "type": "test",
+      "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 0,
+      "artifactSha256": "63939c449b883b2894064a288a42d7c55733d1b3d67619289c34bb7c03620dd2"
+    }
+  ],
+  "symbolProvenance": "Own retained MicrosoftBC28.5 W1 cache; Foundation28.0.11.665 artifact13260925056/source50d37c0b58da421d649b8ca1aaf407dd318d0301",
+  "dirty": ""
+}

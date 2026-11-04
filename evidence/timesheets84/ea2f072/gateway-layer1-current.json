@@ -1,0 +1,471 @@
+{
+  "project": "Bifrost Timesheets",
+  "files_scanned": 23,
+  "total_al_files": 125,
+  "publisher": "Origo",
+  "mode": "diff (vs origin/main)",
+  "checks": {
+    "app_json": {
+      "pass": true,
+      "findings": []
+    },
+    "hardcoded_values": {
+      "pass": true,
+      "findings": []
+    },
+    "read_isolation": {
+      "pass": true,
+      "findings": []
+    },
+    "changelog": {
+      "pass": true,
+      "findings": []
+    },
+    "event_subscriber_placement": {
+      "pass": true,
+      "findings": []
+    },
+    "namespace": {
+      "pass": true,
+      "findings": []
+    },
+    "page_code_minimal": {
+      "pass": true,
+      "findings": []
+    },
+    "today_vs_workdate": {
+      "pass": false,
+      "findings": [
+        {
+          "text": "page \"Phone Today Cust Part ori\" = X,",
+          "line": 168,
+          "file": "BIFROSTTimeshts.PermissionSet.al"
+        },
+        {
+          "text": "page \"Phone Today Cust Part ori\" = X,",
+          "line": 48,
+          "file": "PhoneRCFull.PermissionSetExt.al"
+        },
+        {
+          "text": "page \"Phone Today Cust Part ori\" = X,",
+          "line": 45,
+          "file": "PhoneRCRead.PermissionSetExt.al"
+        }
+      ]
+    },
+    "format_guid": {
+      "pass": true,
+      "findings": []
+    },
+    "one_statement_per_line": {
+      "pass": false,
+      "findings": [
+        {
+          "text": "procedure Refuse(Code: Enum \"Bifrost Error Code ori\"; KeyName: Text; Message: Text)",
+          "line": 51,
+          "file": "TSUsageContext.Codeunit.al"
+        },
+        {
+          "text": "local procedure UpdateUsage(TableNo: Integer; Template: Code[10]; Batch: Code[10]; LineNo: Integer; LedgerEntryNo: Integer)",
+          "line": 58,
+          "file": "TSUsageEvents.Codeunit.al"
+        },
+        {
+          "text": "procedure Create(var Usage: Record \"TS Usage Line ori\"; Template: Code[10]; Batch: Code[10]; Reversal: Boolean)",
+          "line": 15,
+          "file": "TSUsageJournals.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateItem(Usage: Record \"TS Usage Line ori\"; Template: Code[10]; Batch: Code[10]; Quantity: Decimal): Integer",
+          "line": 54,
+          "file": "TSUsageJournals.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateResource(Usage: Record \"TS Usage Line ori\"; Template: Code[10]; Batch: Code[10]; Quantity: Decimal): Integer",
+          "line": 83,
+          "file": "TSUsageJournals.Codeunit.al"
+        },
+        {
+          "text": "local procedure CreateJob(Usage: Record \"TS Usage Line ori\"; SheetLine: Record \"Time Sheet Line\"; Template: Code[10]; Batch: Code[10]; Quantity: Decimal): Integer",
+          "line": 112,
+          "file": "TSUsageJournals.Codeunit.al"
+        },
+        {
+          "text": "local procedure Decide(var Usage: Record \"TS Usage Line ori\"; Request: JsonObject; Reject: Boolean)",
+          "line": 433,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure ReadText(Request: JsonObject; KeyName: Text; MaxLength: Integer; Required: Boolean): Text",
+          "line": 653,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure ReadCode(Request: JsonObject; KeyName: Text; MaxLength: Integer; Required: Boolean): Code[20]",
+          "line": 675,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure ReadDecimal(Request: JsonObject; KeyName: Text; Required: Boolean): Decimal",
+          "line": 680,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure ReadInteger(Request: JsonObject; KeyName: Text; Required: Boolean): Integer",
+          "line": 701,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure ReadDate(Request: JsonObject; KeyName: Text; Required: Boolean): Date",
+          "line": 711,
+          "file": "TSUsageMgt.Codeunit.al"
+        },
+        {
+          "text": "local procedure Refuse(Code: Enum \"Bifrost Error Code ori\"; KeyName: Text; Message: Text)",
+          "line": 742,
+          "file": "TSUsageMgt.Codeunit.al"
+        }
+      ]
+    },
+    "confirm_in_page": {
+      "pass": true,
+      "findings": []
+    },
+    "format_evaluate_enum": {
+      "pass": true,
+      "findings": []
+    },
+    "modernization": {
+      "pass": true,
+      "findings": []
+    },
+    "try_prefix_convention": {
+      "pass": true,
+      "findings": []
+    },
+    "object_naming": {
+      "pass": true,
+      "findings": []
+    },
+    "caption_translation": {
+      "findings": [
+        {
+          "text": "Caption = 'Help.Clockify.Get', Locked = true;",
+          "line": 17,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Workspace.List', Locked = true;",
+          "line": 23,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.User.GetCurrent', Locked = true;",
+          "line": 29,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.User.List', Locked = true;",
+          "line": 35,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Client.List', Locked = true;",
+          "line": 41,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Client.Get', Locked = true;",
+          "line": 47,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Client.Create', Locked = true;",
+          "line": 53,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Client.Update', Locked = true;",
+          "line": 59,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Client.Delete', Locked = true;",
+          "line": 65,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Project.List', Locked = true;",
+          "line": 71,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Project.Get', Locked = true;",
+          "line": 77,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Project.Create', Locked = true;",
+          "line": 83,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Project.Update', Locked = true;",
+          "line": 89,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Project.Delete', Locked = true;",
+          "line": 95,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Task.List', Locked = true;",
+          "line": 101,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Task.Create', Locked = true;",
+          "line": 107,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Task.Update', Locked = true;",
+          "line": 113,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Task.Delete', Locked = true;",
+          "line": 119,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Tag.List', Locked = true;",
+          "line": 125,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Tag.Create', Locked = true;",
+          "line": 131,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Tag.Update', Locked = true;",
+          "line": 137,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Tag.Delete', Locked = true;",
+          "line": 143,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.List', Locked = true;",
+          "line": 149,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.Get', Locked = true;",
+          "line": 155,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.Create', Locked = true;",
+          "line": 161,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.Update', Locked = true;",
+          "line": 167,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.Delete', Locked = true;",
+          "line": 173,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.Currency.List', Locked = true;",
+          "line": 179,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.UserGroup.List', Locked = true;",
+          "line": 185,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.CustomField.List', Locked = true;",
+          "line": 191,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.Sync', Locked = true;",
+          "line": 197,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.SyncRange', Locked = true;",
+          "line": 203,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Create', Locked = true;",
+          "line": 209,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Approve', Locked = true;",
+          "line": 215,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Post', Locked = true;",
+          "line": 221,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Archive', Locked = true;",
+          "line": 227,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.SyncToTimeSheet', Locked = true;",
+          "line": 233,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.SyncRangeToTimeSheet', Locked = true;",
+          "line": 239,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Reject', Locked = true;",
+          "line": 245,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeSheet.Reopen', Locked = true;",
+          "line": 251,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;",
+          "line": 257,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.PendingApproval.Get', Locked = true;",
+          "line": 263,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.TimeSheet.Approve', Locked = true;",
+          "line": 272,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.TimeSheet.Reject', Locked = true;",
+          "line": 278,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.TimeSheet.Submit', Locked = true;",
+          "line": 291,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.TimeSheet.Create', Locked = true;",
+          "line": 297,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Register', Locked = true;",
+          "line": 303,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.List', Locked = true;",
+          "line": 309,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Submit', Locked = true;",
+          "line": 315,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Approve', Locked = true;",
+          "line": 321,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Reject', Locked = true;",
+          "line": 327,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Transfer', Locked = true;",
+          "line": 333,
+          "file": "ClockifyMsgType.EnumExt.al"
+        },
+        {
+          "text": "Caption = 'Timesheets.Usage.Reverse', Locked = true;",
+          "line": 339,
+          "file": "ClockifyMsgType.EnumExt.al"
+        }
+      ],
+      "pass": false,
+      "skipped": null
+    },
+    "xml_doc_comments": {
+      "pass": true,
+      "findings": []
+    },
+    "with_statements": {
+      "pass": true,
+      "findings": []
+    },
+    "set_load_fields": {
+      "findings": [
+        {
+          "severity": "low",
+          "text": "if Usage.FindSet(true) then",
+          "line": 70,
+          "file": "TSUsageEvents.Codeunit.al"
+        },
+        {
+          "severity": "low",
+          "text": "if Usage.FindSet() then",
+          "line": 562,
+          "file": "TSUsageMgt.Codeunit.al"
+        }
+      ],
+      "pass": true,
+      "advisory": "Loops without SetLoadFields - consider it only for wide tables; not a gate failure"
+    },
+    "commit_in_loop": {
+      "pass": true,
+      "findings": []
+    },
+    "reserved_var_names": {
+      "pass": true,
+      "findings": []
+    },
+    "data_classification": {
+      "pass": true,
+      "findings": []
+    },
+    "global_variables": {
+      "pass": true,
+      "findings": []
+    }
+  },
+  "summary": {
+    "failed": 3,
+    "total": 23,
+    "ready": false,
+    "passed": 20
+  },
+  "version": "28.0.0.0"
+}

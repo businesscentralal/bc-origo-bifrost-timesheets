@@ -1,0 +1,23 @@
+{
+  "sha": "ea2f07284edf798510497907e61ab43d0d5641e2",
+  "environment": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Timesheets.Usage.Transfer",
+    "data": {
+      "entryNo": 261,
+      "journalTemplate": "D50CF06782",
+      "journalBatch": "D50CF06782"
+    },
+    "lcid": 1039
+  },
+  "finishedAt": "2026-11-04T23:22:01.912Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.Usage.Transfer\",\n  \"status\": \"Success\",\n  \"line\": {\n    \"entryNo\": 261,\n    \"timeSheetNo\": \"ZZU84D50CF06782S\",\n    \"lineNo\": 10000,\n    \"resourceNo\": \"ZZU84D50CF06782R\",\n    \"type\": \"Resource\",\n    \"no\": \"ZZU84D50CF06782R\",\n    \"date\": \"2026-11-04\",\n    \"quantity\": 2,\n    \"unitOfMeasure\": \"D50CF06782\",\n    \"description\": \"Issue 84 self-seeded resource\",\n    \"status\": \"Approved\",\n    \"reversed\": false,\n    \"approvedBy\": \"W13INV126\",\n    \"approvedAt\": \"2026-11-04T23:22:01.4070000Z\",\n    \"journalTableNo\": 207,\n    \"journalTemplate\": \"D50CF06782\",\n    \"journalBatch\": \"D50CF06782\",\n    \"journalLineNo\": 10000,\n    \"ledgerEntryNo\": 0,\n    \"comment\": \"\"\n  }\n}"
+      }
+    ]
+  }
+}
