@@ -1,0 +1,79 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "lcid": 1039,
+  "executed": 17,
+  "passed": 17,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "missing",
+      "passed": true
+    },
+    {
+      "name": "wrong-type",
+      "passed": true
+    },
+    {
+      "name": "unknown",
+      "passed": true
+    },
+    {
+      "name": "not-found",
+      "passed": true
+    },
+    {
+      "name": "conflict",
+      "passed": true
+    },
+    {
+      "name": "not-owner",
+      "passed": true
+    },
+    {
+      "name": "no-lines",
+      "passed": true
+    },
+    {
+      "name": "invalid-line",
+      "passed": true
+    },
+    {
+      "name": "wrong-lines",
+      "passed": true
+    },
+    {
+      "name": "line-not-found",
+      "passed": true
+    },
+    {
+      "name": "empty-selection",
+      "passed": true
+    },
+    {
+      "name": "refusals-no-write",
+      "passed": true
+    },
+    {
+      "name": "submit-selected",
+      "passed": true
+    },
+    {
+      "name": "idempotent-retry",
+      "passed": true
+    },
+    {
+      "name": "resource-date-retry",
+      "passed": true
+    },
+    {
+      "name": "generic-status-denied",
+      "passed": true
+    },
+    {
+      "name": "protected-readback-no-write",
+      "passed": true
+    }
+  ]
+}

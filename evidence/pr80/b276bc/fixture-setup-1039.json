@@ -1,0 +1,9 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "owner": "worker-5",
+  "phase": 1039,
+  "at": "2026-11-04T15:54:24.433327+00:00",
+  "baseline": "cleanup1033.json verified all4tables0",
+  "setup": "Playwright MCP native fixturepage Create ownedfixtures; no blindreplay; newlyseededrecords"
+}

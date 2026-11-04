@@ -1,0 +1,47 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "tool": "PlaywrightMCP",
+  "executed": 4,
+  "passed": 4,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [
+    {
+      "name": "MCP submitted owned sheet XSINDRI60-OK shown Submitted8/Open0 in native card",
+      "lcid": 1033,
+      "verified": true,
+      "evidence": "ui-submit-1033.json",
+      "screenshot": "ui-submit-1033.png"
+    },
+    {
+      "name": "Invalid-line refusal leaves XSINDRI60-BAD Open8/Submitted0 in native card",
+      "lcid": 1033,
+      "verified": true,
+      "evidence": "ui-refusal-1033.json",
+      "screenshot": "ui-refusal-1033.png"
+    },
+    {
+      "name": "Fresh1039MCP submission XSINDRI60-OK shown Sent8/Opið0 in Icelandicnativecard",
+      "lcid": 1039,
+      "verified": true,
+      "evidence": "ui-submit-1039.json",
+      "screenshot": "ui-submit-1039.png"
+    },
+    {
+      "name": "Invalidline refusal XSINDRI60-BAD remains Opið8/Sent0 in Icelandicnativecard",
+      "lcid": 1039,
+      "verified": true,
+      "evidence": "ui-refusal-1039.json",
+      "screenshot": "ui-refusal-1039.png"
+    }
+  ],
+  "preparationRecoveries": [
+    "Firstpageopenedbeforetestappinstalled; recoveredafterdeployment.",
+    "StalerefwhenopeningSettings; currentDOMrolelocatorused.",
+    "LanguagefieldstatictextboxneededinnerTextinsteadofinputValue.",
+    "LanguagechoiceasynchronousreadbackcorrectedbeforeSave; nochoicewrite replay.",
+    "NativeIcelandicformcaptionisVinnuskýrsla; oneincorrectTímaskýrslalocator timedout before assertions."
+  ],
+  "preparationFailuresAreBusinessPasses": false
+}

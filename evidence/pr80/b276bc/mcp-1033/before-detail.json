@@ -1,0 +1,23 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "args": {
+    "type": "Data.Records.Get",
+    "data": {
+      "tableId": 952,
+      "tableView": "WHERE(\"Time Sheet No.\"=FILTER(XSINDRI60*))",
+      "take": 100
+    },
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T15:50:12.032Z",
+  "finishedAt": "2026-11-04T15:50:12.309Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Data.Records.Get\",\n  \"status\": \"Success\",\n  \"noOfRecords\": 3,\n  \"result\": [\n    {\n      \"id\": \"7D171D44-67D8-F111-B7A5-AB0158F9DA6F\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"XSINDRI60-BAD\",\n        \"TimeSheetLineNo_\": \"10000\",\n        \"Date\": \"2026-10-19\"\n      },\n      \"fields\": {\n        \"Type\": \" \",\n        \"ResourceNo_\": \"\",\n        \"JobNo_\": \"\",\n        \"JobTaskNo_\": \"\",\n        \"CauseofAbsenceCode\": \"\",\n        \"ServiceOrderNo_\": \"\",\n        \"ServiceOrderLineNo_\": \"0\",\n        \"Quantity\": \"8\",\n        \"PostedQuantity\": \"0\",\n        \"AssemblyOrderNo_\": \"\",\n        \"AssemblyOrderLineNo_\": \"0\",\n        \"Status\": \"Open\",\n        \"Posted\": \"false\",\n        \"DimensionSetID\": \"0\",\n        \"LastModifiedDateTime\": \"\",\n        \"JobId\": \"00000000-0000-0000-0000-000000000000\",\n        \"SystemCreatedAt\": \"2026-11-04T15:49:07.133Z\",\n        \"SystemCreatedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\",\n        \"SystemModifiedAt\": \"2026-11-04T15:49:07.133Z\",\n        \"SystemModifiedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\"\n      }\n    },\n    {\n      \"id\": \"7A171D44-67D8-F111-B7A5-AB0158F9DA6F\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"XSINDRI60-OK\",\n        \"TimeSheetLineNo_\": \"10000\",\n        \"Date\": \"2026-10-26\"\n      },\n      \"fields\": {\n        \"Type\": \" \",\n        \"ResourceNo_\": \"\",\n        \"JobNo_\": \"\",\n        \"JobTaskNo_\": \"\",\n        \"CauseofAbsenceCode\": \"\",\n        \"ServiceOrderNo_\": \"\",\n        \"ServiceOrderLineNo_\": \"0\",\n        \"Quantity\": \"8\",\n        \"PostedQuantity\": \"0\",\n        \"AssemblyOrderNo_\": \"\",\n        \"AssemblyOrderLineNo_\": \"0\",\n        \"Status\": \"Open\",\n        \"Posted\": \"false\",\n        \"DimensionSetID\": \"0\",\n        \"LastModifiedDateTime\": \"\",\n        \"JobId\": \"00000000-0000-0000-0000-000000000000\",\n        \"SystemCreatedAt\": \"2026-11-04T15:49:07.13Z\",\n        \"SystemCreatedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\",\n        \"SystemModifiedAt\": \"2026-11-04T15:49:07.13Z\",\n        \"SystemModifiedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\"\n      }\n    },\n    {\n      \"id\": \"80171D44-67D8-F111-B7A5-AB0158F9DA6F\",\n      \"primaryKey\": {\n        \"TimeSheetNo_\": \"XSINDRI60-OWNER\",\n        \"TimeSheetLineNo_\": \"10000\",\n        \"Date\": \"2026-10-12\"\n      },\n      \"fields\": {\n        \"Type\": \" \",\n        \"ResourceNo_\": \"\",\n        \"JobNo_\": \"\",\n        \"JobTaskNo_\": \"\",\n        \"CauseofAbsenceCode\": \"\",\n        \"ServiceOrderNo_\": \"\",\n        \"ServiceOrderLineNo_\": \"0\",\n        \"Quantity\": \"8\",\n        \"PostedQuantity\": \"0\",\n        \"AssemblyOrderNo_\": \"\",\n        \"AssemblyOrderLineNo_\": \"0\",\n        \"Status\": \"Open\",\n        \"Posted\": \"false\",\n        \"DimensionSetID\": \"0\",\n        \"LastModifiedDateTime\": \"\",\n        \"JobId\": \"00000000-0000-0000-0000-000000000000\",\n        \"SystemCreatedAt\": \"2026-11-04T15:49:07.133Z\",\n        \"SystemCreatedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\",\n        \"SystemModifiedAt\": \"2026-11-04T15:49:07.133Z\",\n        \"SystemModifiedBy\": \"BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD\"\n      }\n    }\n  ]\n}"
+      }
+    ]
+  }
+}

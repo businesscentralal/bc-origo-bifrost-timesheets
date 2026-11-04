@@ -1,0 +1,15 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Data.Records.Get",
+    "data": {
+      "tableId": 951,
+      "tableView": "WHERE(\"Time Sheet No.\"=FILTER(XSINDRI60*))",
+      "take": 100
+    },
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T15:54:38.695Z"
+}

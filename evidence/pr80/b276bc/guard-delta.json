@@ -1,0 +1,30 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "baselineSha": "649d2789294b40fd0cacba0fe65b78876dd59b98",
+  "contract": {
+    "baseline": 0,
+    "candidate": 0,
+    "newFindings": []
+  },
+  "language": {
+    "baseline": 0,
+    "candidate": 0,
+    "newFindings": []
+  },
+  "xlf": {
+    "baseline": 1,
+    "candidate": 1,
+    "finding": "out-of-order",
+    "newFindings": [],
+    "existingMainRelativeOrderRetained": true,
+    "allMainUnitsRetained": true,
+    "note": "Compiler enumeration differs from committed main order. Preserve main relative order per existing ruling, add only required Submit units; no exclusion or generator change."
+  },
+  "helpLinks": {
+    "baseline": "unreleased Timesheets docs absent",
+    "candidate": "same pages byte-identical to current main",
+    "addedPages": 0,
+    "newFindings": [],
+    "scope": "No action taken on parked docs issue. Existing repository-wide ruling treats in-app help as acceptance until release."
+  }
+}

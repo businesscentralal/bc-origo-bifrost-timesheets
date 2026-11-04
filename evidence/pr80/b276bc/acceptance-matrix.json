@@ -1,0 +1,228 @@
+{
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/60",
+  "prUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/80",
+  "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "owner": "worker-5",
+  "displayName": "Andvari",
+  "at": "2026-11-04T16:12:08.480339+00:00",
+  "includedIssues": [
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/60"
+  ],
+  "suspendedByGunnar": [],
+  "scopeRulingSource": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/77#issuecomment-6626911774",
+  "acceptanceCriteriaVerified": false,
+  "noNewSuppressions": true,
+  "rows": [
+    {
+      "id": "AC01",
+      "originalCriterion": "`Timesheets.TimeSheet.Submit` takes a time sheet no. (or resource + date) and optional line nos. (default all open lines) and answers the submitted lines and their new status.",
+      "originalProof": "AL unit test (happy path) + MCP on bc28-w1",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC02",
+      "originalCriterion": "Refusal: when the caller is not the time sheet owner, the type answers code `PermissionDenied` with a `nextStep` that says: \"Only the owner can submit; ask the owner.\" Nothing is written.",
+      "originalProof": "AL unit test (invalid input)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC03",
+      "originalCriterion": "Refusal: when no open lines to submit, the type answers code `PreconditionFailed` with a `nextStep` that says: \"Add lines first.\" Nothing is written.",
+      "originalProof": "AL unit test (invalid input)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC04",
+      "originalCriterion": "Refusal: when a line fails the BC submit check (for example a blocked project task), the type answers code `InvalidLine` with a `nextStep` that says: \"Fix the line and submit again.\" Nothing is written.",
+      "originalProof": "AL unit test (invalid input)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC05",
+      "originalCriterion": "Common refusals: a missing required key answers `MissingParameter`, a wrong-typed key `InvalidParameterFormat`, an unknown key `UnknownParameter`, an identifier that matches nothing `RecordNotFound`, and conflicting identifiers `ConflictingIdentifiers`; each with `nextStep`.",
+      "originalProof": "AL unit test (invalid input)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC06",
+      "originalCriterion": "Edge case: Submitting lines that are already submitted answers success with `changed: false` for those lines.",
+      "originalProof": "AL unit test (edge)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC07",
+      "originalCriterion": "Permissions: IsEnabled and Execute check write permission on every table the type touches; a caller without it gets `PermissionDenied` with a `nextStep` naming the permission set. Grants live on BIFROST Timeshts ori (and the Full extension) (feature app: no assignable set, no `Setup ori` grants). Hot-path reads of base-app tables are granted or guarded with `ReadPermission()`.",
+      "originalProof": "AL unit test (no-permission path)",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json"
+      ],
+      "notes": "Both actual restrictive permission tests95617 pass; transitive detail-write gate retained. Current permission set union preserves main and Submit grants."
+    },
+    {
+      "id": "AC08",
+      "originalCriterion": "Dedicated type blocks generic writes: a subscriber to the Foundation write-restriction event (the Foundation write-restriction event (subscriber in this app)) sets a field-level block for Time Sheet Line: Status (field-level block, changed only through the Timesheets types), so `Data.Records.Set` is refused there and points to `Timesheets.TimeSheet.Submit`. Reads stay allowed.",
+      "originalProof": "AL unit test",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json",
+        "mcp-1033/summary.json",
+        "mcp-1039/summary.json",
+        "ui-summary.json"
+      ]
+    },
+    {
+      "id": "AC09",
+      "originalCriterion": "Writes go through Validate and the BC codeunits/reports named above (never direct Insert/Modify of ledger or posted tables), inside the write-isolation `Codeunit.Run` pattern so a failure answers a clean error and not a raw runtime error. Post/Register types commit and the help says so (core#985).",
+      "originalProof": "AL unit test + code review",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json"
+      ],
+      "notes": "Submit uses native Approval Management951.Submit inside BooleanCodeunit.Run; distinct error/rollback mapping preserved; main Approve/Reject native regressions pass. No ledger/posted-table direct writes introduced."
+    },
+    {
+      "id": "AC10",
+      "originalCriterion": "Help: `Help.Implementation.Get` returns the help for each new type in en-US and is-IS (lcid 1039): purpose, parameters, response, every refusal code above with its nextStep, and an example. Help never names AL objects, codeunit numbers or internal procedures.",
+      "originalProof": "MCP on bc28-w1 and bc28-is",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "partial-blocked-external",
+      "evidence": [
+        "help-verification.json",
+        "foundation-deployed-provenance.json",
+        "foundation-current-help-comparison.json",
+        "ac10-conventions-gap.json"
+      ],
+      "notes": "Applied recorded repository-wide ruling: chapters English at1033/1039, catalogue and refusals Icelandic at1039. All type-owned chapters clean and refusal coverage verified. Literal full-answer no-internals assertion FAILED because Foundation appends AL APIs in global conventions. Needs explicit Claude/Architect issue60 disposition or separately scoped Foundation repair; not waived."
+    },
+    {
+      "id": "AC11",
+      "originalCriterion": "Translations: every new label has an is-IS entry in `app/Translations/Bifrost Timesheets.is-IS.xlf`; the IcelandicXlfInSync, MixedLanguageLabels and HelpLinks guards pass.",
+      "originalProof": "CI guards",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-zero-new-findings-per-recorded-ruling",
+      "evidence": [
+        "guard-delta.json",
+        "xlf-preservation.json",
+        "guard-xlf-final.log",
+        "baseline-xlf.log",
+        "guard-language.log"
+      ],
+      "notes": "All361main XLF units retained in relative order;399candidate units. Only intended main target update adds Submit to dedicated-status hint. Contract/Mixed0findings; XLF has same1ordering finding as compiled main; unreleased public HelpLinks prerequisite unchanged, zero new pages/findings. No exclusions or generator changes."
+    },
+    {
+      "id": "AC12",
+      "originalCriterion": "Contract: each type implements `Msg Contract ori`; the ContractParameterKeys guard passes (declared keys = keys read).",
+      "originalProof": "CI guard",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "guard-contract-final.log",
+        "baseline-contract.log"
+      ],
+      "notes": "0findings,0allowlisted. Submit-specific resolver name avoids overloading the main request resolver, which the guard otherwise conflates."
+    },
+    {
+      "id": "AC13",
+      "originalCriterion": "The message type name has exactly three dot-separated parts (Gunnar 16.10 naming rule).",
+      "originalProof": "Review",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "github-candidate.json"
+      ],
+      "notes": "Timesheets.TimeSheet.Submit has exactly3dot-separated parts. Enumvalue10036872avoids main pendingapproval ID; nativeSubmit test95621 avoids main decision test95616."
+    },
+    {
+      "id": "AC14",
+      "originalCriterion": "Tests: the test app has at least one happy-path, one invalid-input and one edge-case test per new type, and the no-permission test; the full suite is green.",
+      "originalProof": "CI",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "verified-developer",
+      "evidence": [
+        "suite-manifest.json",
+        "full-suite.junit.xml",
+        "junit-manifest-proof.json",
+        "native-verification.json"
+      ],
+      "notes": "Full196methods matched196JUnit cases;196passed0failed0skipped. Changed95616|95617|95621 ran52/52twice, no failures/skips."
+    },
+    {
+      "id": "AC15",
+      "originalCriterion": "Live verification: before merge, Claude Code verifies each type on bc28-w1 (and bc28-is for the Icelandic help) with self-created data and posts the receipt on the PR.",
+      "originalProof": "MCP receipt",
+      "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "status": "pending-independent-review-after-developer-handoff",
+      "evidence": [],
+      "notes": "Independent Claude verification follows valid developer handoff. Missing receipt is not a blocker; actualAC10gap remains a pre-handoff acceptance dependency."
+    }
+  ],
+  "postmergeAcceptance": [
+    "Architect mergecommit after exacttip Claude/Grok/approval/CI gates",
+    "SameSHA successfuldeployment, TesterUAT and actualissue acceptanceclosure",
+    "Ownedcontainerretention through closure, then authorized verifiedresourcecleanup"
+  ]
+}

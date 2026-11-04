@@ -1,0 +1,24 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "tool": "invoke_message_type",
+  "args": {
+    "type": "Data.Records.Set",
+    "data": {
+      "tableId": 951,
+      "data": [
+        {
+          "primaryKey": {
+            "TimeSheetNo_": "XSINDRI60-OK",
+            "LineNo_": "10000"
+          },
+          "fields": {
+            "Status": "Open"
+          }
+        }
+      ]
+    },
+    "lcid": 1039
+  },
+  "startedAt": "2026-11-04T15:54:37.480Z"
+}

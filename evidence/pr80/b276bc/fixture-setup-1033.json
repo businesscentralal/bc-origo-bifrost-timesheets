@@ -1,0 +1,22 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "environment": "f073ff287f0d",
+  "owner": "worker-5",
+  "at": "2026-11-04T15:49:07.824377+00:00",
+  "phase": "1033",
+  "setup": "Playwright MCP page95618 Create owned fixtures, original test-app native fixture; no generic Resource write bypass",
+  "baseline": {
+    "resource": 0,
+    "header": 0,
+    "line": 0,
+    "detail": 0
+  },
+  "fixtureKeys": [
+    "XSINDRI60",
+    "XSINDRI60-OK",
+    "XSINDRI60-BAD",
+    "XSINDRI60-OWNER",
+    "XSINDRI60-EMPTY"
+  ],
+  "cleanupPending": true
+}

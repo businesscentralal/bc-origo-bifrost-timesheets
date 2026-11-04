@@ -1,0 +1,21 @@
+{
+  "blobSha": "b036fdf6e85d86b3f6b69925d895f7a2aa2c6e6e",
+  "path": "app/src/Message Type/Discovery/MsgContractMgt.Codeunit.al",
+  "url": "https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core/blob/main/app/src/Message%20Type/Discovery/MsgContractMgt.Codeunit.al",
+  "matchingInternalReferences": [
+    "        // A refusal keeps the stripped payload. The text leaves this TryFunction in QueuedRequest",
+    "    /// strict TryFunction returns. Returns false when nothing secret-like was present.",
+    "    [TryFunction]",
+    "    [TryFunction]",
+    "    [TryFunction]"
+  ],
+  "contextOnly": true,
+  "foundationSourceModified": false,
+  "contextCheckedAt": "2026-11-04T16:08:50.479Z",
+  "currentFoundationMainSha": "c37cb240aa956ec7371cfbd22503a21bc6d0d798",
+  "immutableSourceUrl": "https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core/blob/c37cb240aa956ec7371cfbd22503a21bc6d0d798/app/src/Message Type/Discovery/MsgContractMgt.Codeunit.al",
+  "conclusion": "CurrentFoundationmainstillcontainsmatchingglobalconventions references. No newer source fix inferred; no Foundationcode modified or acceptanceclaimed there.",
+  "currentHelpImplBlob": "b7a9207c96b907d00d31422df1671a819d5f89dc",
+  "currentHelpConventionsInjection": "if NeedsConventions then begin\n            ConventionsJson.Add('errorsAndWarnings', GetErrorsAndWarningsSection().TrimStart());\n            ResponseJson.Add('conventions', ConventionsJson);\n        end;\n        Argument.SetResponseJson(ResponseJson);\n    end;\n\n    /// <summary>\n    /// Builds one result element per distinct requested name, in reque",
+  "currentHelpImplUrl": "https://github.com/OrigoSoftwareSolutions/bc-origo-bifrost-core/blob/c37cb240aa956ec7371cfbd22503a21bc6d0d798/app/src/Message%20Type/Implementations/Metadata/HelpImplGetImpl.Codeunit.al"
+}

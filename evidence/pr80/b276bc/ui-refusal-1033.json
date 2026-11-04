@@ -1,0 +1,9 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "lcid": 1033,
+  "scenario": "Invalid-line refusal leaves XSINDRI60-BAD Open8/Submitted0 in native card",
+  "verified": true,
+  "url": "https://cosmo-alpaca-enterprise.westeurope.cloudapp.azure.com/f073ff287f0d/?company=CRONUS%20International%20Ltd.&tenant=default&page=973&filter=%27Time%20Sheet%20Header%27.%27No.%27%20IS%20%27XSINDRI60-BAD%27&dc=0&bookmark=25_tgMAAAJ7_1gAUwBJAE4ARABSAEkANgAwAC0AQgBBAEQ",
+  "text": "\n\nTime Sheet\n\n\n\n\n\nOctober 19, 2026\nHome\nPrepare\n\nReopen\nSubmit\nComments\n\nGeneral\nShow less\nNo.\nXSINDRI60-BAD\nStarting Date\n10/19/2026\nEnding Date\n10/25/2026\nResource No.\nXSINDRI60\nDescription\nLines\nManage\nLine\n\n\nNew Line\nDelete Line\n\n\t\t\nType\n\t\n\t\nStatus\n\t\nDescription\n\t\nProject No.\n\t\nProject Task No.\n\t\nCause of Absence Code\n\t\nChargeable\n\t\nWork Type Code\n\t\n19 Mon\n\t\n20 Tue\n\t\n21 Wed\n\t\n22 Thu\n\t\n23 Fri\n\t\n24 Sat\n\t\n25 Sun\n\t\nTotal\n\t\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tProject\t\n\tOpen\t  \t\t\t\t\n\t\t\t\t\t\t\t\t\t8\t\nUnit of Measure\nTotal\n8\nTime Sheet Status\nCommentNo\nOpen8.00\nSubmitted0.00\nRejected0.00\nApproved0.00\nTotal8.00\nPosted0.00\nActual/Budgeted Summary\n19 Monday8.00/0.00\n20 Tuesday0.00/0.00\n21 Wednesday0.00/0.00\n22 Thursday0.00/0.00\n23 Friday0.00/0.00\n24 Saturday0.00/0.00\n25 Sunday0.00/0.00\nTotal8.00/0.00\nTotal Presence8.00\nTotal Absence0.00\nTime Sheet Line Details\nComments\n\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nOctober 19, 2026. Time Sheet\n\nList with title \"Lines\" now has one item"
+}

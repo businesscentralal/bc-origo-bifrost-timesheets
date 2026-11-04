@@ -1,0 +1,22 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "args": {
+    "type": "Timesheets.TimeSheet.Submit",
+    "data": {
+      "timeSheetNo": "XSINDRI60-OK",
+      "lineNos": []
+    },
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T15:50:17.811Z",
+  "finishedAt": "2026-11-04T15:50:18.031Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Timesheets.TimeSheet.Submit\",\n  \"status\": \"Success\",\n  \"lines\": []\n}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "at": "2026-11-04T16:04:17.540Z",
+  "snapshots": {
+    "resource": {
+      "args": {
+        "type": "Data.Records.Get",
+        "data": {
+          "tableId": 156,
+          "tableView": "WHERE(\"No.\"=FILTER(XSINDRI60*))",
+          "take": 100
+        },
+        "lcid": 1033
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Data.Records.Get\",\n  \"status\": \"Success\",\n  \"noOfRecords\": 0,\n  \"result\": []\n}"
+          }
+        ]
+      },
+      "payload": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Data.Records.Get",
+        "status": "Success",
+        "noOfRecords": 0,
+        "result": []
+      }
+    },
+    "header": {
+      "args": {
+        "type": "Data.Records.Get",
+        "data": {
+          "tableId": 950,
+          "tableView": "WHERE(\"No.\"=FILTER(XSINDRI60*))",
+          "take": 100
+        },
+        "lcid": 1033
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Data.Records.Get\",\n  \"status\": \"Success\",\n  \"noOfRecords\": 0,\n  \"result\": []\n}"
+          }
+        ]
+      },
+      "payload": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Data.Records.Get",
+        "status": "Success",
+        "noOfRecords": 0,
+        "result": []
+      }
+    },
+    "line": {
+      "args": {
+        "type": "Data.Records.Get",
+        "data": {
+          "tableId": 951,
+          "tableView": "WHERE(\"Time Sheet No.\"=FILTER(XSINDRI60*))",
+          "take": 100
+        },
+        "lcid": 1033
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Data.Records.Get\",\n  \"status\": \"Success\",\n  \"noOfRecords\": 0,\n  \"result\": []\n}"
+          }
+        ]
+      },
+      "payload": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Data.Records.Get",
+        "status": "Success",
+        "noOfRecords": 0,
+        "result": []
+      }
+    },
+    "detail": {
+      "args": {
+        "type": "Data.Records.Get",
+        "data": {
+          "tableId": 952,
+          "tableView": "WHERE(\"Time Sheet No.\"=FILTER(XSINDRI60*))",
+          "take": 100
+        },
+        "lcid": 1033
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"messageType\": \"Data.Records.Get\",\n  \"status\": \"Success\",\n  \"noOfRecords\": 0,\n  \"result\": []\n}"
+          }
+        ]
+      },
+      "payload": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Data.Records.Get",
+        "status": "Success",
+        "noOfRecords": 0,
+        "result": []
+      }
+    }
+  },
+  "verified": true
+}

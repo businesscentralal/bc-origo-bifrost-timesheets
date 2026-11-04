@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-04T16:06:31.893Z",
+  "ownedContainerId": "f073ff287f0d",
+  "restored": [
+    {
+      "file": "/home/node/.codex/active-bc-environment.json",
+      "byteIdentical": true,
+      "sha256": "e414ccb12c2c06f4e59c27e0a8be065fb40832167f93603aadbfa3e3fe3a04f1"
+    },
+    {
+      "file": "/home/node/.codex/origo-bc-settings.json",
+      "byteIdentical": true,
+      "sha256": "3773a8ff39d376bfe8c54558bc5b1db2ed208d9d4db5610328d30ed78ce02a55"
+    }
+  ],
+  "requestsToPreviousEnvironment": 0,
+  "noCredentialChanges": true
+}

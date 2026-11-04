@@ -1,0 +1,2 @@
+::error::The committed is-IS.xlf is not what tools/Update-IcelandicXlf.ps1 generates from the build (1 problem(s), #791). Compile the app, run tools/Update-IcelandicXlf.ps1 and commit the result.
+out-of-order: Bifrost Timesheets.is-IS.xlf holds the units of the build in a different order than tools/Update-IcelandicXlf.ps1 writes them

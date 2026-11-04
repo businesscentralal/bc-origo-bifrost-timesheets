@@ -1,0 +1,16 @@
+{
+  "mainUnits": 361,
+  "generatedUnits": 399,
+  "newOrChangedIds": [],
+  "mainUnitsRetained": true,
+  "existingMainRelativeOrderUnchanged": true,
+  "mainTargetEdits": [
+    {
+      "id": "Codeunit 1365144420 - NamedType 763692369",
+      "old": "Timesheets.TimeSheet.Approve e\u00f0a Timesheets.TimeSheet.Reject",
+      "new": "Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve e\u00f0a Timesheets.TimeSheet.Reject"
+    }
+  ],
+  "baselineXlfGuard": "1 out-of-order",
+  "candidateXlfGuard": "pending recheck; main units retained in main order"
+}

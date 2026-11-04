@@ -1,0 +1,44 @@
+{
+  "id": "timesheets80-worker5-shared-merge-contract-overload-20261104",
+  "repo": "businesscentralal/bc-origo-bifrost-timesheets",
+  "source": {
+    "kind": "owned integration self-audit",
+    "evidence": "/workspace/evidence/timesheets60-worker5-20261104/guard-contract.log"
+  },
+  "reviewedSha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "category": "shared helper integration",
+  "finding": "Merging Submit with main decision helpers exposed duplicate test95616 and contractguard4new findings when overloaded ResolveSheet methods were conflated.",
+  "rootCause": "Parallelbranches allocated same IDs; sourceguard follows procedures by name and combines overloadedrequest resolvers.",
+  "prevention": "Before merge compile enumerate currentmain object/enumIDs; retain main sharedbase. Use a Submit-specific resolver for its resource/date contract; no universal ban on overloads inferred.",
+  "fix": "Submit enum10036872/test95621; ResolveSubmitSheet distinct from main ResolveSheet; preserved main procedures and reused sharedparsing/runner.",
+  "status": "verified",
+  "verification": {
+    "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+    "compile": "app/default/test0errors0warnings",
+    "contractGuard": 0,
+    "nativeFull": {
+      "executed": 196,
+      "passed": 196,
+      "failed": 0,
+      "skipped": 0
+    },
+    "changedRepeats": [
+      52,
+      52
+    ],
+    "functionalMcp": {
+      "executed": 34,
+      "passed": 34,
+      "failed": 0,
+      "skipped": 0
+    },
+    "ui": {
+      "executed": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "occurrences": 1,
+  "recordedAt": "2026-11-04T16:12:08.503452+00:00"
+}

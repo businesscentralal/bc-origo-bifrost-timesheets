@@ -1,0 +1,54 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "displayName": "andvari-worker5-timesheets60-20261104-w1",
+  "owner": "worker-5",
+  "at": "2026-11-04T16:06:07.540854+00:00",
+  "fixtureCleanup": {
+    "1033": {
+      "Resource": 0,
+      "TimeSheetHeader": 0,
+      "TimeSheetLine": 0,
+      "TimeSheetDetail": 0
+    },
+    "1039": {
+      "Resource": 0,
+      "TimeSheetHeader": 0,
+      "TimeSheetLine": 0,
+      "TimeSheetDetail": 0
+    },
+    "nativeTestsX60Resource": 0,
+    "nativeTestsX60Header": 0
+  },
+  "uiLanguageRestored": {
+    "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+    "containerId": "f073ff287f0d",
+    "originalLanguage": 1033,
+    "actualSettingsLabel": "Settings",
+    "restored": true
+  },
+  "foreignResourcesTouched": false,
+  "containerDisposition": "Owned development container retained, verified Stopped, for PR80/amend/UAT closure under standing1792155806; no deletion or404claimed.",
+  "containerState": "Stopped",
+  "stopStatus": 204,
+  "stopReadbackStatus": 200,
+  "connectionRestored": {
+    "at": "2026-11-04T16:06:31.893Z",
+    "ownedContainerId": "f073ff287f0d",
+    "restored": [
+      {
+        "file": "/home/node/.codex/active-bc-environment.json",
+        "byteIdentical": true,
+        "sha256": "e414ccb12c2c06f4e59c27e0a8be065fb40832167f93603aadbfa3e3fe3a04f1"
+      },
+      {
+        "file": "/home/node/.codex/origo-bc-settings.json",
+        "byteIdentical": true,
+        "sha256": "3773a8ff39d376bfe8c54558bc5b1db2ed208d9d4db5610328d30ed78ce02a55"
+      }
+    ],
+    "requestsToPreviousEnvironment": 0,
+    "noCredentialChanges": true
+  },
+  "manualLicenceEulaTrialCounterBackendWrites": false
+}

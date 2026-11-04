@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="95601 Clockify Connector Tests" timestamp="2026-11-04T15:43:28" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="18.043" tests="0" failures="0" errors="0" skipped="0" total="70">
+    <testcase classname="95601 Clockify Connector Tests" name="HelpTypeIsOutboundWithNoFilterTable" time="0.693" />
+    <testcase classname="95601 Clockify Connector Tests" name="EveryClockifyTypeHasMetadataAndHelp" time="1.05" />
+    <testcase classname="95601 Clockify Connector Tests" name="CompanyApiKeyRoundtrips" time="0.06" />
+    <testcase classname="95601 Clockify Connector Tests" name="DefaultApiVersionIsVersion1" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="WorkspaceListRoutesGetThroughClient" time="0.09" />
+    <testcase classname="95601 Clockify Connector Tests" name="ErrorResponseIsSurfacedWithStatusCode" time="0.013" />
+    <testcase classname="95601 Clockify Connector Tests" name="ProjectCreatePostsBodyToWorkspace" time="0.02" />
+    <testcase classname="95601 Clockify Connector Tests" name="DefaultWorkspaceUsedWhenRequestOmitsIt" time="0.02" />
+    <testcase classname="95601 Clockify Connector Tests" name="WorkspaceLookupRequiresApiKey" time="0.033" />
+    <testcase classname="95601 Clockify Connector Tests" name="WorkspaceLookupReturnsSelection" time="1.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="RegisterCreatesWebhooksForEachTimeEntryEvent" time="0.07" />
+    <testcase classname="95601 Clockify Connector Tests" name="RemoveDeletesRegisteredWebhooks" time="0.047" />
+    <testcase classname="95601 Clockify Connector Tests" name="ReverseTimeEntryWithNoLinkIsSkipped" time="0.04" />
+    <testcase classname="95601 Clockify Connector Tests" name="JobJournalResolvesFromSetup" time="0.037" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeEntrySyncErrorsWhenNoJournalConfigured" time="0.054" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeEntrySyncRejectsInProgressEntries" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="WorkTypeResolvesFromTagThenDefault" time="0.063" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncCreatesJobJournalLineWithWorkTypeFromTag" time="12.083" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncSkipsUnchangedThenUpdatesOnChange" time="0.143" />
+    <testcase classname="95601 Clockify Connector Tests" name="ReverseDeletesSyncedJournalLine" time="0.523" />
+    <testcase classname="95601 Clockify Connector Tests" name="WebhookDispatchCreatesJobJournalLine" time="0.126" />
+    <testcase classname="95601 Clockify Connector Tests" name="IntegrationTableStampsAndClearsReversedAt" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="RetentionRegistersIntegrationTable" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="HelpIncludesIntegrationTracking" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="CurrencyListProjectsWorkspaceCurrencies" time="0.02" />
+    <testcase classname="95601 Clockify Connector Tests" name="UserGroupListRoutesGetToWorkspacesUserGroups" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="UserGroupListForwardsQueryString" time="0.014" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeEntryListForwardsInProgressQueryParameter" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="CustomFieldListRoutesGetToWorkspacesCustomFields" time="0.014" />
+    <testcase classname="95601 Clockify Connector Tests" name="LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="UserGroupListHelpExplainsIdUsage" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="CustomFieldListHelpExplainsIdUsage" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeEntryListHelpExplainsInProgressFilter" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeEntrySyncHelpWarnsAboutInProgressEntries" time="0.047" />
+    <testcase classname="95601 Clockify Connector Tests" name="UserListHelpExplainsOptionalQueryEffects" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="ClientUpdateHelpExplainsOptionalBodyEffects" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="OverviewListsLookupEndpoints" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="OverviewGotchasCallOutIdOnlyWrites" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="IntegrationGateAllowsWriteAccess" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangeIsInboundWithHelp" time="0.03" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangeErrorsWhenNoJournalConfigured" time="0.016" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangeCreatesLinesForEntriesInRange" time="0.136" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangePerEntryErrorDoesNotAbortBatch" time="0.087" />
+    <testcase classname="95601 Clockify Connector Tests" name="AllInboundTimeTypesAreInboundWithHelp" time="0.237" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetCreateReturnsCountWithNoResources" time="0.047" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetApproveReturnsZeroWhenNothingOpen" time="0.123" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetArchiveReturnsZeroWhenNothingPosted" time="0.016" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetRejectReturnsZeroWhenNothingSubmitted" time="0.016" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetReopenReturnsZeroWhenNothingPending" time="0.016" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetPostErrorsWhenNoJournalConfigured" time="0.013" />
+    <testcase classname="95601 Clockify Connector Tests" name="TimeSheetPostReturnsZeroWhenNoApprovedLines" time="0.066" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncToTimeSheetErrorsWhenNoMapping" time="0.037" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncToTimeSheetErrorsWhenNoOpenTimeSheet" time="0.064" />
+    <testcase classname="95601 Clockify Connector Tests" name="Scenario_AC08_RequireParamAnswersInIcelandic" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="Scenario_AC08_RequireBodyAnswersInIcelandic" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic" time="0.064" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncToTimeSheetCreatesDetailOnOpenSheet" time="0.167" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangeToTimeSheetCreatesDetailsForEntries" time="0.13" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncRangeToTimeSheetPerEntryErrorDoesNotAbort" time="0.087" />
+    <testcase classname="95601 Clockify Connector Tests" name="SyncAllUsersSyncsMappedUserToTimeSheet" time="0.12" />
+    <testcase classname="95601 Clockify Connector Tests" name="ReverseFromTimeSheetRemovesOpenDetail" time="0.084" />
+    <testcase classname="95601 Clockify Connector Tests" name="WebhookSigningTokenIsRedactedFromTheResponseLog" time="0.02" />
+    <testcase classname="95601 Clockify Connector Tests" name="SigningTokensAreRedactedInsideArraysAndNestedObjects" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="BodiesWithoutASigningTokenPassThroughUnchanged" time="0.004" />
+    <testcase classname="95601 Clockify Connector Tests" name="NonJsonAndEmptyBodiesAreReturnedUnchanged" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="HelpClockifyGetUsesTableNameNotTable" time="0.007" />
+    <testcase classname="95601 Clockify Connector Tests" name="InboundTimeTypesHaveNonEmptyRequestExamples" time="0.006" />
+    <testcase classname="95601 Clockify Connector Tests" name="InboundHelpMarkdownShowsDirectionInbound" time="0.01" />
+    <testcase classname="95601 Clockify Connector Tests" name="HelpTracksUppercaseClockifyTypeCodes" time="0.01" />
+  </testsuite>
+  <testsuite name="95604 Clockify User Paging Tests" timestamp="2026-11-04T15:43:33" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="1.74" tests="0" failures="0" errors="0" skipped="0" total="11">
+    <testcase classname="95604 Clockify User Paging Tests" name="DefaultPageProcessesOneHundredUsers" time="0.1" />
+    <testcase classname="95604 Clockify User Paging Tests" name="ZeroTakeUsesDefaultPageSize" time="0.143" />
+    <testcase classname="95604 Clockify User Paging Tests" name="NegativeSkipFailsBeforeFetching" time="0.1" />
+    <testcase classname="95604 Clockify User Paging Tests" name="NegativeTakeFailsBeforeFetching" time="0.054" />
+    <testcase classname="95604 Clockify User Paging Tests" name="OversizedTakeIsClamped" time="0.734" />
+    <testcase classname="95604 Clockify User Paging Tests" name="NextSkipContinuesWithoutRepeatingUsers" time="0.53" />
+    <testcase classname="95604 Clockify User Paging Tests" name="FailedUserDoesNotStopThePage" time="0.016" />
+    <testcase classname="95604 Clockify User Paging Tests" name="SkipAtAndBeyondEndDoesNotFetch" time="0.02" />
+    <testcase classname="95604 Clockify User Paging Tests" name="EmptyMappingSetReturnsCompletedPage" time="0.017" />
+    <testcase classname="95604 Clockify User Paging Tests" name="HelpDescribesParametersResponseAndCallerLoop" time="0.013" />
+    <testcase classname="95604 Clockify User Paging Tests" name="ClockifyListsKeepTheirOwnPaging" time="0.013" />
+  </testsuite>
+  <testsuite name="95606 Timesheets Registration Tests" timestamp="2026-11-04T15:43:36" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.033" tests="0" failures="0" errors="0" skipped="0" total="1">
+    <testcase classname="95606 Timesheets Registration Tests" name="AppRegistersItselfWithFoundation" time="0.033" />
+  </testsuite>
+  <testsuite name="95607 Clockify Reten. Policy Tests" timestamp="2026-11-04T15:43:39" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.056" tests="0" failures="0" errors="0" skipped="0" total="2">
+    <testcase classname="95607 Clockify Reten. Policy Tests" name="TC001_EnableDefaultPolicyInsertsEnabledRow" time="0.043" />
+    <testcase classname="95607 Clockify Reten. Policy Tests" name="TC002_EnableDefaultPolicyReRunIsIdempotent" time="0.013" />
+  </testsuite>
+  <testsuite name="95608 Message Contract Batch 1 Tests" timestamp="2026-11-04T15:43:41" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.048" tests="0" failures="0" errors="0" skipped="0" total="3">
+    <testcase classname="95608 Message Contract Batch 1 Tests" name="Batch1TypesDeclareContractAndDiscovery" time="0.027" />
+    <testcase classname="95608 Message Contract Batch 1 Tests" name="Scenario_AC08_EveryType_DeclaresOnlyItsOwnParameterNames" time="0.014" />
+    <testcase classname="95608 Message Contract Batch 1 Tests" name="Scenario_AC06_SyncContracts_DescribeOptionalBillableAndDescription" time="0.007" />
+  </testsuite>
+  <testsuite name="95609 Message Contract Batch 2 Tests" timestamp="2026-11-04T15:43:43" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.027" tests="0" failures="0" errors="0" skipped="0" total="1">
+    <testcase classname="95609 Message Contract Batch 2 Tests" name="Batch2TypesDeclareContractAndDiscovery" time="0.027" />
+  </testsuite>
+  <testsuite name="95610 Message Contract Batch 3 Tests" timestamp="2026-11-04T15:43:46" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.04" tests="0" failures="0" errors="0" skipped="0" total="1">
+    <testcase classname="95610 Message Contract Batch 3 Tests" name="Batch3TypesDeclareContractAndDiscovery" time="0.04" />
+  </testsuite>
+  <testsuite name="95611 Message Contract Effect Tests" timestamp="2026-11-04T15:43:48" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.039" tests="0" failures="0" errors="0" skipped="0" total="4">
+    <testcase classname="95611 Message Contract Effect Tests" name="ClockifyApiWrites_DeclareIrreversible" time="0.013" />
+    <testcase classname="95611 Message Contract Effect Tests" name="ClockifyDeletesAndPost_DeclareIrreversible" time="0.01" />
+    <testcase classname="95611 Message Contract Effect Tests" name="BusinessCentralOnlyWrites_StayWrite" time="0.01" />
+    <testcase classname="95611 Message Contract Effect Tests" name="Reads_StayRead" time="0.006" />
+  </testsuite>
+  <testsuite name="95612 Clockify Field Restrict Tests" timestamp="2026-11-04T15:43:53" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="1.871" tests="0" failures="0" errors="0" skipped="0" total="8">
+    <testcase classname="95612 Clockify Field Restrict Tests" name="FieldRestrict_WebhookReceiverUrlWriteRestricted" time="0.67" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="FieldRestrict_WebhookReceiverUrlNotReadRestricted" time="0.01" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="FieldRestrict_NeighbourFieldsNotRestricted" time="0.017" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="FieldRestrict_TableLevelChecksStayFalse" time="0.013" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="FieldRestrict_HintForReceiverUrlEmptyForNeighbour" time="0.01" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="Scenario_AC07_NameAlias_Refused" time="0.77" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="Scenario_AC07_JsonAlias_Refused" time="0.017" />
+    <testcase classname="95612 Clockify Field Restrict Tests" name="Scenario_AC07_WorkType_SaveAndClear" time="0.364" />
+  </testsuite>
+  <testsuite name="95613 Clockify Help Fixes Tests" timestamp="2026-11-04T15:43:56" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.079" tests="0" failures="0" errors="0" skipped="0" total="8">
+    <testcase classname="95613 Clockify Help Fixes Tests" name="ClockifyWrites_DeclareInbound" time="0.01" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="BusinessCentralSideTypes_StayInbound" time="0.007" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="ReadTypes_StayOutbound" time="0.007" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="SyncParameters_MatchOptionalUsageInCode" time="0.01" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="SyncToTimeSheetParameters_MatchOptionalUsageInCode" time="0.006" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="WrongWorkspace_DocumentedAs400Not404" time="0.01" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="CustomFieldList_Documents403ForFreePlan" time="0.003" />
+    <testcase classname="95613 Clockify Help Fixes Tests" name="Overview_DefinesDirectionByMutation" time="0.026" />
+  </testsuite>
+  <testsuite name="95615 Phone Role Center Tests" timestamp="2026-11-04T15:44:06" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="7.624" tests="0" failures="0" errors="0" skipped="0" total="10">
+    <testcase classname="95615 Phone Role Center Tests" name="ResolveCurrentResource_UserMapped_ReturnsResourceNo" time="0.117" />
+    <testcase classname="95615 Phone Role Center Tests" name="ResolveCurrentResource_UserNotMapped_ReturnsFalse" time="0.017" />
+    <testcase classname="95615 Phone Role Center Tests" name="PopulateTodayCustomers_NoApiKey_ReturnsEmpty" time="0.053" />
+    <testcase classname="95615 Phone Role Center Tests" name="PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer" time="0.25" />
+    <testcase classname="95615 Phone Role Center Tests" name="PopulateTodayCustomers_RunningEntry_ReturnsCustomer" time="0.077" />
+    <testcase classname="95615 Phone Role Center Tests" name="PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes" time="0.13" />
+    <testcase classname="95615 Phone Role Center Tests" name="PopulateCurrentCustomers_UsesMyCustomers" time="0.13" />
+    <testcase classname="95615 Phone Role Center Tests" name="ResolveLastWorkday_Monday_ReturnsFriday" time="0.01" />
+    <testcase classname="95615 Phone Role Center Tests" name="AddServiceItemLine_ReusesOpenInvoice" time="6.8" />
+    <testcase classname="95615 Phone Role Center Tests" name="AddServiceItemLine_InvalidItem_Errors" time="0.04" />
+  </testsuite>
+  <testsuite name="95616 TS Decision Tests" timestamp="2026-11-04T15:44:17" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="7.209" tests="0" failures="0" errors="0" skipped="0" total="31">
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC03_Approve_NotApprover_WritesNothing" time="5.51" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC04_Approve_OpenLine_MustBeSubmittedFirst" time="0.067" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC06_Approve_Submitted_ThenUnchanged" time="0.14" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC02_Reject_WithComment" time="0.397" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_MissingIdentifier_Refused" time="0.01" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_WrongIdentifierType_Refused" time="0.006" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_OverlongIdentifier_Refused" time="0.007" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_UnknownKey_Refused" time="0.004" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_UnknownSheet_Refused" time="0.01" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_ConflictingIdentifiers_Refused" time="0.007" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC07_Approve_ReadRole_Denied" time="0.107" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC14_Approve_EmptySelection_WritesNothing" time="0.054" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Approve_LineNumberOverflow_Refused" time="0.047" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC04_Approve_MixedInvalidLines_WritesNothing" time="0.054" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC14_Approve_NoSubmittedLines_ReturnsEmpty" time="0.047" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_MissingIdentifier_Refused" time="0.006" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_WrongIdentifierType_Refused" time="0.01" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_OverlongIdentifier_Refused" time="0.007" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_UnknownKey_Refused" time="0.007" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_UnknownSheet_Refused" time="0.007" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_ConflictingIdentifiers_Refused" time="0.006" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC07_Reject_ReadRole_Denied" time="0.01" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC14_Reject_EmptySelection_WritesNothing" time="0.057" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC05_Reject_LineNumberOverflow_Refused" time="0.053" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC04_Reject_MixedInvalidLines_WritesNothing" time="0.063" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC14_Reject_NoSubmittedLines_ReturnsEmpty" time="0.073" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC02_Reject_OverlongComment_Refused" time="0.006" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC01_Approve_SystemId_SelectsOnlySubmitted" time="0.07" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC09_Approve_NativeFailure_RollsBackEarlierLine" time="0.09" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC08_StatusField_RestrictedButReadable" time="0.02" />
+    <testcase classname="95616 TS Decision Tests" name="Scenario_AC09_ApproveAbsence_PostsNativeEntries" time="0.257" />
+  </testsuite>
+  <testsuite name="95617 TS Submit Permission Tests" timestamp="2026-11-04T15:44:21" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.066" tests="0" failures="0" errors="0" skipped="0" total="2">
+    <testcase classname="95617 TS Submit Permission Tests" name="Scenario_AC07_ReadOnly_DisabledAndDenied" time="0.046" />
+    <testcase classname="95617 TS Submit Permission Tests" name="Scenario_AC07_NoDetailWrite_DisabledAndDenied" time="0.02" />
+  </testsuite>
+  <testsuite name="95621 TS Native Sheet Tests" timestamp="2026-11-04T15:44:26" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="1.347" tests="0" failures="0" errors="0" skipped="0" total="19">
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_MissingKey_Refused" time="0.016" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_UnknownKey_Refused" time="0.006" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC02_NotOwner_WritesNothing" time="0.1" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC03_NoLines_PreconditionFailed" time="0.07" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC01_AC06_SubmitAndRetry_Unchanged" time="0.097" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC04_BadJobLine_InvalidLine" time="0.167" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC01_ResourceAndDate_Submits" time="0.077" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC01_SelectedLine_LeavesOtherOpen" time="0.077" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC03_ApprovedOnly_PreconditionFailed" time="0.056" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC04_MixedValidInvalid_RollsBackAll" time="0.073" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_WrongTypedIdentifier_Refused" time="0.01" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_ConflictingIdentifiers_Refused" time="0.006" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_MissingSheet_RecordNotFound" time="0.007" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC06_EmptySelection_WritesNothing" time="0.064" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC05_OutOfRangeLineNo_CleanRefusal" time="0.06" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC09_OmitCommit_CleanRefusal" time="0.06" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC10_IcelandicHelp_IsLocalized" time="0.037" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC08_GenericStatusWrite_Denied" time="0.28" />
+    <testcase classname="95621 TS Native Sheet Tests" name="Scenario_AC09_EmptyLine_FollowsBCPolicy" time="0.084" />
+  </testsuite>
+  <testsuite name="95630 TS Pending Approval Tests" timestamp="2026-11-04T15:44:30" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.374" tests="0" failures="0" errors="0" skipped="0" total="24">
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC01_SubmittedForCaller_ReturnsDailyHoursOnly" time="0.13" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC01_DateAndTypeFilters_RestrictHours" time="0.02" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC01_Paging_PreservesStableOrder" time="0.013" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC01_ResourceSystemId_ResolvesSameResource" time="0.02" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_ConflictingResources_Refuses" time="0.013" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC05_NoApprovals_ReturnsEmptySuccess" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC05_AfterLastPage_ReturnsEmptySuccess" time="0.01" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC03_ReversedDates_RefusesWithoutWrites" time="0.01" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_MissingTo_RefusesWithoutWrites" time="0.02" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_MissingFrom_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_WrongDateType_RefusesWithoutWrites" time="0.01" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_BadDate_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_UnknownKey_RefusesWithoutWrites" time="0.01" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_UnknownResource_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_BadResourceId_RefusesWithoutWrites" time="0.006" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_BooleanTake_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_TextSkip_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_NegativeSkip_RefusesWithoutWrites" time="0.006" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_FractionalTake_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_ExcessiveTake_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_ZeroTake_RefusesWithoutWrites" time="0.006" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_NullType_RefusesWithoutWrites" time="0.01" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC04_UnknownType_RefusesWithoutWrites" time="0.007" />
+    <testcase classname="95630 TS Pending Approval Tests" name="Scenario_AC07_AC09_AC10_Contract_DiscoverableAndLocalized" time="0.027" />
+  </testsuite>
+  <testsuite name="95633 TS Pending Permission Tests" timestamp="2026-11-04T15:44:34" hostname="f073ff287f0d-business-central-5569c7464c-bswn5" time="0.013" tests="0" failures="0" errors="0" skipped="0" total="1">
+    <testcase classname="95633 TS Pending Permission Tests" name="Scenario_AC02_AC06_NoNativeRead_RefusesWithPermissionHint" time="0.013" />
+  </testsuite>
+</testsuites>

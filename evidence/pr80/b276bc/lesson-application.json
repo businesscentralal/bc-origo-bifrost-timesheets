@@ -1,0 +1,11 @@
+{
+  "worker": "worker-5",
+  "at": "2026-11-04T15:39:01.255Z",
+  "candidateSha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "appliedSources": [
+    "/team-queue/owner-inbox/worker-5/andvari-timesheets62-ruling6626911774-applied-20261104.json",
+    "/team-queue/review-lessons/timesheets60-worker3-dispatch-native-fixture-20261104.json",
+    "/team-queue/review-lessons/timesheets80-worker4-public-dispatch-nextstep-20261104.json"
+  ],
+  "application": "Existing repository-wide help/guard/XLF ruling read as accepted context: English chapters at1039, Icelandic catalogue/refusals; exact caption-derived errors; zero new guard findings. No unrelated issue intake or source changes. Existing private source and evidence preserved; all issue60 acceptance retained with matrix mapping to standing policy."
+}

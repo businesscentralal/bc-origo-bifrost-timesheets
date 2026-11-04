@@ -1,0 +1,1182 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "count": 196,
+  "tests": [
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "HelpTypeIsOutboundWithNoFilterTable",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "EveryClockifyTypeHasMetadataAndHelp",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "CompanyApiKeyRoundtrips",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "DefaultApiVersionIsVersion1",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WorkspaceListRoutesGetThroughClient",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ErrorResponseIsSurfacedWithStatusCode",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ProjectCreatePostsBodyToWorkspace",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "DefaultWorkspaceUsedWhenRequestOmitsIt",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WorkspaceLookupRequiresApiKey",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WorkspaceLookupReturnsSelection",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "RegisterCreatesWebhooksForEachTimeEntryEvent",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "RemoveDeletesRegisteredWebhooks",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ReverseTimeEntryWithNoLinkIsSkipped",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "JobJournalResolvesFromSetup",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeEntrySyncErrorsWhenNoJournalConfigured",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeEntrySyncRejectsInProgressEntries",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WorkTypeResolvesFromTagThenDefault",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncCreatesJobJournalLineWithWorkTypeFromTag",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncSkipsUnchangedThenUpdatesOnChange",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ReverseDeletesSyncedJournalLine",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WebhookDispatchCreatesJobJournalLine",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "IntegrationTableStampsAndClearsReversedAt",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "RetentionRegistersIntegrationTable",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "HelpIncludesIntegrationTracking",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "CurrencyListProjectsWorkspaceCurrencies",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "UserGroupListRoutesGetToWorkspacesUserGroups",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "UserGroupListForwardsQueryString",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeEntryListForwardsInProgressQueryParameter",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "CustomFieldListRoutesGetToWorkspacesCustomFields",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "LookupEndpointsUseDefaultWorkspaceWhenRequestOmitsIt",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "UserGroupListHelpExplainsIdUsage",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "CustomFieldListHelpExplainsIdUsage",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeEntryListHelpExplainsInProgressFilter",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeEntrySyncHelpWarnsAboutInProgressEntries",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "UserListHelpExplainsOptionalQueryEffects",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ClientUpdateHelpExplainsOptionalBodyEffects",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "OverviewListsLookupEndpoints",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "OverviewGotchasCallOutIdOnlyWrites",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "IntegrationGateAllowsWriteAccess",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangeIsInboundWithHelp",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangeErrorsWhenNoJournalConfigured",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangeCreatesLinesForEntriesInRange",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangePerEntryErrorDoesNotAbortBatch",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "AllInboundTimeTypesAreInboundWithHelp",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetCreateReturnsCountWithNoResources",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetApproveReturnsZeroWhenNothingOpen",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetArchiveReturnsZeroWhenNothingPosted",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetRejectReturnsZeroWhenNothingSubmitted",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetReopenReturnsZeroWhenNothingPending",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetPostErrorsWhenNoJournalConfigured",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "TimeSheetPostReturnsZeroWhenNoApprovedLines",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncToTimeSheetErrorsWhenNoMapping",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncToTimeSheetErrorsWhenNoOpenTimeSheet",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "Scenario_AC08_RequireParamAnswersInIcelandic",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "Scenario_AC08_RequireBodyAnswersInIcelandic",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "Scenario_AC08_SyncRangeMissingJournalAnswersInIcelandic",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "Scenario_AC08_NoOpenTimeSheetAnswersInIcelandic",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncToTimeSheetCreatesDetailOnOpenSheet",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangeToTimeSheetCreatesDetailsForEntries",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncRangeToTimeSheetPerEntryErrorDoesNotAbort",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SyncAllUsersSyncsMappedUserToTimeSheet",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "ReverseFromTimeSheetRemovesOpenDetail",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "WebhookSigningTokenIsRedactedFromTheResponseLog",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "SigningTokensAreRedactedInsideArraysAndNestedObjects",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "BodiesWithoutASigningTokenPassThroughUnchanged",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "NonJsonAndEmptyBodiesAreReturnedUnchanged",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "HelpClockifyGetUsesTableNameNotTable",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "InboundTimeTypesHaveNonEmptyRequestExamples",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "InboundHelpMarkdownShowsDirectionInbound",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95601,
+      "name": "Clockify Connector Tests",
+      "method": "HelpTracksUppercaseClockifyTypeCodes",
+      "file": "test/ClockifyConnectorTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "FieldRestrict_WebhookReceiverUrlWriteRestricted",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "FieldRestrict_WebhookReceiverUrlNotReadRestricted",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "FieldRestrict_NeighbourFieldsNotRestricted",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "FieldRestrict_TableLevelChecksStayFalse",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "FieldRestrict_HintForReceiverUrlEmptyForNeighbour",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "Scenario_AC07_NameAlias_Refused",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "Scenario_AC07_JsonAlias_Refused",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95612,
+      "name": "Clockify Field Restrict Tests",
+      "method": "Scenario_AC07_WorkType_SaveAndClear",
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "ClockifyWrites_DeclareInbound",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "BusinessCentralSideTypes_StayInbound",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "ReadTypes_StayOutbound",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "SyncParameters_MatchOptionalUsageInCode",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "SyncToTimeSheetParameters_MatchOptionalUsageInCode",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "WrongWorkspace_DocumentedAs400Not404",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "CustomFieldList_Documents403ForFreePlan",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95613,
+      "name": "Clockify Help Fixes Tests",
+      "method": "Overview_DefinesDirectionByMutation",
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95607,
+      "name": "Clockify Reten. Policy Tests",
+      "method": "TC001_EnableDefaultPolicyInsertsEnabledRow",
+      "file": "test/ClockifyRetenPolicyTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95607,
+      "name": "Clockify Reten. Policy Tests",
+      "method": "TC002_EnableDefaultPolicyReRunIsIdempotent",
+      "file": "test/ClockifyRetenPolicyTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "DefaultPageProcessesOneHundredUsers",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "ZeroTakeUsesDefaultPageSize",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "NegativeSkipFailsBeforeFetching",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "NegativeTakeFailsBeforeFetching",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "OversizedTakeIsClamped",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "NextSkipContinuesWithoutRepeatingUsers",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "FailedUserDoesNotStopThePage",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "SkipAtAndBeyondEndDoesNotFetch",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "EmptyMappingSetReturnsCompletedPage",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "HelpDescribesParametersResponseAndCallerLoop",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95604,
+      "name": "Clockify User Paging Tests",
+      "method": "ClockifyListsKeepTheirOwnPaging",
+      "file": "test/ClockifyUserPagingTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95608,
+      "name": "Message Contract Batch 1 Tests",
+      "method": "Batch1TypesDeclareContractAndDiscovery",
+      "file": "test/MessageContractBatch1Tests.Codeunit.al"
+    },
+    {
+      "codeunit": 95608,
+      "name": "Message Contract Batch 1 Tests",
+      "method": "Scenario_AC08_EveryType_DeclaresOnlyItsOwnParameterNames",
+      "file": "test/MessageContractBatch1Tests.Codeunit.al"
+    },
+    {
+      "codeunit": 95608,
+      "name": "Message Contract Batch 1 Tests",
+      "method": "Scenario_AC06_SyncContracts_DescribeOptionalBillableAndDescription",
+      "file": "test/MessageContractBatch1Tests.Codeunit.al"
+    },
+    {
+      "codeunit": 95609,
+      "name": "Message Contract Batch 2 Tests",
+      "method": "Batch2TypesDeclareContractAndDiscovery",
+      "file": "test/MessageContractBatch2Tests.Codeunit.al"
+    },
+    {
+      "codeunit": 95610,
+      "name": "Message Contract Batch 3 Tests",
+      "method": "Batch3TypesDeclareContractAndDiscovery",
+      "file": "test/MessageContractBatch3Tests.Codeunit.al"
+    },
+    {
+      "codeunit": 95611,
+      "name": "Message Contract Effect Tests",
+      "method": "ClockifyApiWrites_DeclareIrreversible",
+      "file": "test/MessageContractEffectTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95611,
+      "name": "Message Contract Effect Tests",
+      "method": "ClockifyDeletesAndPost_DeclareIrreversible",
+      "file": "test/MessageContractEffectTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95611,
+      "name": "Message Contract Effect Tests",
+      "method": "BusinessCentralOnlyWrites_StayWrite",
+      "file": "test/MessageContractEffectTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95611,
+      "name": "Message Contract Effect Tests",
+      "method": "Reads_StayRead",
+      "file": "test/MessageContractEffectTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "ResolveCurrentResource_UserMapped_ReturnsResourceNo",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "ResolveCurrentResource_UserNotMapped_ReturnsFalse",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "PopulateTodayCustomers_NoApiKey_ReturnsEmpty",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "PopulateTodayCustomers_FinishedEntryToday_ReturnsCustomer",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "PopulateTodayCustomers_RunningEntry_ReturnsCustomer",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "PopulateTodayCustomers_TwoJobsSameCustomer_Dedupes",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "PopulateCurrentCustomers_UsesMyCustomers",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "ResolveLastWorkday_Monday_ReturnsFriday",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "AddServiceItemLine_ReusesOpenInvoice",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95615,
+      "name": "Phone Role Center Tests",
+      "method": "AddServiceItemLine_InvalidItem_Errors",
+      "file": "test/PhoneRoleCenterTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95606,
+      "name": "Timesheets Registration Tests",
+      "method": "AppRegistersItselfWithFoundation",
+      "file": "test/TimesheetsRegistrationTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC03_Approve_NotApprover_WritesNothing",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC04_Approve_OpenLine_MustBeSubmittedFirst",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC06_Approve_Submitted_ThenUnchanged",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC02_Reject_WithComment",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_MissingIdentifier_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_WrongIdentifierType_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_OverlongIdentifier_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_UnknownKey_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_UnknownSheet_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_ConflictingIdentifiers_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC07_Approve_ReadRole_Denied",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC14_Approve_EmptySelection_WritesNothing",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Approve_LineNumberOverflow_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC04_Approve_MixedInvalidLines_WritesNothing",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC14_Approve_NoSubmittedLines_ReturnsEmpty",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_MissingIdentifier_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_WrongIdentifierType_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_OverlongIdentifier_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_UnknownKey_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_UnknownSheet_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_ConflictingIdentifiers_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC07_Reject_ReadRole_Denied",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC14_Reject_EmptySelection_WritesNothing",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC05_Reject_LineNumberOverflow_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC04_Reject_MixedInvalidLines_WritesNothing",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC14_Reject_NoSubmittedLines_ReturnsEmpty",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC02_Reject_OverlongComment_Refused",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC01_Approve_SystemId_SelectsOnlySubmitted",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC09_Approve_NativeFailure_RollsBackEarlierLine",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC08_StatusField_RestrictedButReadable",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95616,
+      "name": "TS Decision Tests",
+      "method": "Scenario_AC09_ApproveAbsence_PostsNativeEntries",
+      "file": "test/TSDecisionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_MissingKey_Refused",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_UnknownKey_Refused",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC02_NotOwner_WritesNothing",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC03_NoLines_PreconditionFailed",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC01_AC06_SubmitAndRetry_Unchanged",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC04_BadJobLine_InvalidLine",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC01_ResourceAndDate_Submits",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC01_SelectedLine_LeavesOtherOpen",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC03_ApprovedOnly_PreconditionFailed",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC04_MixedValidInvalid_RollsBackAll",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_WrongTypedIdentifier_Refused",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_ConflictingIdentifiers_Refused",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_MissingSheet_RecordNotFound",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC06_EmptySelection_WritesNothing",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC05_OutOfRangeLineNo_CleanRefusal",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC09_OmitCommit_CleanRefusal",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC10_IcelandicHelp_IsLocalized",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC08_GenericStatusWrite_Denied",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95621,
+      "name": "TS Native Sheet Tests",
+      "method": "Scenario_AC09_EmptyLine_FollowsBCPolicy",
+      "file": "test/TSNativeSheetTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC01_SubmittedForCaller_ReturnsDailyHoursOnly",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC01_DateAndTypeFilters_RestrictHours",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC01_Paging_PreservesStableOrder",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC01_ResourceSystemId_ResolvesSameResource",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_ConflictingResources_Refuses",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC05_NoApprovals_ReturnsEmptySuccess",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC05_AfterLastPage_ReturnsEmptySuccess",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC03_ReversedDates_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_MissingTo_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_MissingFrom_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_WrongDateType_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_BadDate_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_UnknownKey_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_UnknownResource_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_BadResourceId_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_BooleanTake_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_TextSkip_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_NegativeSkip_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_FractionalTake_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_ExcessiveTake_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_ZeroTake_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_NullType_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC04_UnknownType_RefusesWithoutWrites",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95630,
+      "name": "TS Pending Approval Tests",
+      "method": "Scenario_AC07_AC09_AC10_Contract_DiscoverableAndLocalized",
+      "file": "test/TSPendingApprovalTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95633,
+      "name": "TS Pending Permission Tests",
+      "method": "Scenario_AC02_AC06_NoNativeRead_RefusesWithPermissionHint",
+      "file": "test/TSPendingPermissionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95617,
+      "name": "TS Submit Permission Tests",
+      "method": "Scenario_AC07_ReadOnly_DisabledAndDenied",
+      "file": "test/TSSubmitPermissionTests.Codeunit.al"
+    },
+    {
+      "codeunit": 95617,
+      "name": "TS Submit Permission Tests",
+      "method": "Scenario_AC07_NoDetailWrite_DisabledAndDenied",
+      "file": "test/TSSubmitPermissionTests.Codeunit.al"
+    }
+  ]
+}

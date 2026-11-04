@@ -1,0 +1,350 @@
+{
+  "resource": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Get",
+    "status": "Success",
+    "noOfRecords": 1,
+    "result": [
+      {
+        "id": "B60ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "No_": "XSINDRI60"
+        },
+        "fields": {
+          "Type": "Person",
+          "Name": "",
+          "SearchName": "",
+          "Name2": "",
+          "Address": "",
+          "Address2": "",
+          "City": "",
+          "JobTitle": "",
+          "Education": "",
+          "ContractClass": "",
+          "EmploymentDate": "",
+          "ResourceGroupNo_": "",
+          "GlobalDimension1Code": "",
+          "GlobalDimension2Code": "",
+          "BaseUnitofMeasure": "",
+          "DirectUnitCost": "0",
+          "IndirectCost_": "0",
+          "UnitCost": "0",
+          "Profit_": "0",
+          "Price_ProfitCalculation": "Profit=Price-Cost",
+          "UnitPrice": "0",
+          "VendorNo_": "",
+          "LastDateModified": "",
+          "Blocked": "false",
+          "Gen_Prod_PostingGroup": "",
+          "PostCode": "",
+          "County": "",
+          "AutomaticExt_Texts": "false",
+          "No_Series": "",
+          "TaxGroupCode": "",
+          "VATProd_PostingGroup": "",
+          "Country_RegionCode": "",
+          "ICPartnerPurch_G_LAcc_No_": "",
+          "Image": "",
+          "PrivacyBlocked": "false",
+          "UseTimeSheet": "true",
+          "TimeSheetOwnerUserID": "W13INV126",
+          "TimeSheetApproverUserID": "W13INV126",
+          "DefaultDeferralTemplateCode": "",
+          "ServiceZoneFilter": "",
+          "DefaultSust_Account": "",
+          "DefaultCO2Emission": "0",
+          "DefaultCH4Emission": "0",
+          "DefaultN2OEmission": "0",
+          "CO2eperUnit": "0",
+          "CO2eLastDateModified": "",
+          "SystemCreatedAt": "2026-11-04T15:54:23.677Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.677Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      }
+    ]
+  },
+  "header": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Get",
+    "status": "Success",
+    "noOfRecords": 4,
+    "result": [
+      {
+        "id": "BA0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "No_": "XSINDRI60-BAD"
+        },
+        "fields": {
+          "StartingDate": "2026-10-19",
+          "EndingDate": "2026-10-25",
+          "ResourceNo_": "XSINDRI60",
+          "OwnerUserID": "W13INV126",
+          "ApproverUserID": "W13INV126",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "C00ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "No_": "XSINDRI60-EMPTY"
+        },
+        "fields": {
+          "StartingDate": "2026-10-05",
+          "EndingDate": "2026-10-11",
+          "ResourceNo_": "XSINDRI60",
+          "OwnerUserID": "W13INV126",
+          "ApproverUserID": "W13INV126",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "B70ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "No_": "XSINDRI60-OK"
+        },
+        "fields": {
+          "StartingDate": "2026-10-26",
+          "EndingDate": "2026-11-01",
+          "ResourceNo_": "XSINDRI60",
+          "OwnerUserID": "W13INV126",
+          "ApproverUserID": "W13INV126",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T15:54:23.677Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.677Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "BD0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "No_": "XSINDRI60-OWNER"
+        },
+        "fields": {
+          "StartingDate": "2026-10-12",
+          "EndingDate": "2026-10-18",
+          "ResourceNo_": "XSINDRI60",
+          "OwnerUserID": "XSINDRI60-OTHER",
+          "ApproverUserID": "W13INV126",
+          "Description": "",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      }
+    ]
+  },
+  "line": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Get",
+    "status": "Success",
+    "noOfRecords": 3,
+    "result": [
+      {
+        "id": "BB0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-BAD",
+          "LineNo_": "10000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-10-19",
+          "Type": "Project",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "Description": "",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "B80ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-OK",
+          "LineNo_": "10000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-10-26",
+          "Type": "Resource",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "Description": "",
+          "WorkTypeCode": "",
+          "ApproverID": "W13INV126",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:35.63Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "BE0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-OWNER",
+          "LineNo_": "10000"
+        },
+        "fields": {
+          "TimeSheetStartingDate": "2026-10-12",
+          "Type": "Resource",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "Description": "",
+          "WorkTypeCode": "",
+          "ApproverID": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Chargeable": "true",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "ApprovedBy": "",
+          "ApprovalDate": "",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      }
+    ]
+  },
+  "detail": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Data.Records.Get",
+    "status": "Success",
+    "noOfRecords": 3,
+    "result": [
+      {
+        "id": "BC0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-BAD",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-10-19"
+        },
+        "fields": {
+          "Type": " ",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "8",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "B90ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-OK",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-10-26"
+        },
+        "fields": {
+          "Type": "Resource",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "8",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Submitted",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "2026-11-04T15:54:35.627Z",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:35.627Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      },
+      {
+        "id": "BF0ECC00-68D8-F111-B7A5-D247D69DE56F",
+        "primaryKey": {
+          "TimeSheetNo_": "XSINDRI60-OWNER",
+          "TimeSheetLineNo_": "10000",
+          "Date": "2026-10-12"
+        },
+        "fields": {
+          "Type": " ",
+          "ResourceNo_": "",
+          "JobNo_": "",
+          "JobTaskNo_": "",
+          "CauseofAbsenceCode": "",
+          "ServiceOrderNo_": "",
+          "ServiceOrderLineNo_": "0",
+          "Quantity": "8",
+          "PostedQuantity": "0",
+          "AssemblyOrderNo_": "",
+          "AssemblyOrderLineNo_": "0",
+          "Status": "Open",
+          "Posted": "false",
+          "DimensionSetID": "0",
+          "LastModifiedDateTime": "",
+          "JobId": "00000000-0000-0000-0000-000000000000",
+          "SystemCreatedAt": "2026-11-04T15:54:23.68Z",
+          "SystemCreatedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD",
+          "SystemModifiedAt": "2026-11-04T15:54:23.68Z",
+          "SystemModifiedBy": "BE23E6B3-6FB6-47D1-B3F8-AC6B185322BD"
+        }
+      }
+    ]
+  }
+}

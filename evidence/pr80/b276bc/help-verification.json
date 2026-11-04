@@ -1,0 +1,32 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "executed": 5,
+  "passed": 4,
+  "failed": 1,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "English chapters equal at1033and1039",
+      "passed": true
+    },
+    {
+      "name": "Catalogue description and selection localized",
+      "passed": true
+    },
+    {
+      "name": "All accepted refusal codes and literal corrective steps documented",
+      "passed": true
+    },
+    {
+      "name": "Submit-owned chapters have no internal AL APIs",
+      "passed": true
+    },
+    {
+      "name": "Literal full public response contains no internal AL APIs",
+      "passed": false,
+      "error": "Foundation global conventions still expose internal AL APIs; explicit AC10 disposition or separate Foundation repair required"
+    }
+  ],
+  "scope": "No waived assertion; native34functionalMCP scenarios are counted separately. Existing English-help rule applied; full-answer no-internals remains literal failed criterion."
+}

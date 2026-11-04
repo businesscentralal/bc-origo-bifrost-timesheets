@@ -1,0 +1,1115 @@
+{
+  "total_count": 12,
+  "jobs": [
+    {
+      "id": 126677982838,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfpiedg",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126677982838",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126677982838",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-04T15:37:56Z",
+      "started_at": "2026-11-04T15:37:58Z",
+      "completed_at": "2026-11-04T15:38:11Z",
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Initialization",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:37:59Z",
+          "completed_at": "2026-11-04T15:38:00Z"
+        },
+        {
+          "name": "Initialization",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:38:00Z",
+          "completed_at": "2026-11-04T15:38:09Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:38:09Z",
+          "completed_at": "2026-11-04T15:38:09Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126677982838",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000029753,
+      "runner_name": "GitHub Actions 1000029753",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126677983481,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfpig-Q",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126677983481",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126677983481",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-04T15:37:56Z",
+      "started_at": "2026-11-04T15:37:58Z",
+      "completed_at": "2026-11-04T15:38:30Z",
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Settings Files Check / COSMO Alpaca Settings Files Check",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:37:59Z",
+          "completed_at": "2026-11-04T15:38:01Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:38:01Z",
+          "completed_at": "2026-11-04T15:38:02Z"
+        },
+        {
+          "name": "Initialize the workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:38:02Z",
+          "completed_at": "2026-11-04T15:38:12Z"
+        },
+        {
+          "name": "Read settings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T15:38:12Z",
+          "completed_at": "2026-11-04T15:38:14Z"
+        },
+        {
+          "name": "Read secrets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-04T15:38:14Z",
+          "completed_at": "2026-11-04T15:38:23Z"
+        },
+        {
+          "name": "Calculate Commit Options",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T15:38:23Z",
+          "completed_at": "2026-11-04T15:38:24Z"
+        },
+        {
+          "name": "Check Settings Files",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-04T15:38:24Z",
+          "completed_at": "2026-11-04T15:38:26Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-04T15:38:26Z",
+          "completed_at": "2026-11-04T15:38:27Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-04T15:38:27Z",
+          "completed_at": "2026-11-04T15:38:27Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126677983481",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000029754,
+      "runner_name": "GitHub Actions 1000029754",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126677983804,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfpiiPA",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126677983804",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126677983804",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-04T15:37:56Z",
+      "started_at": "2026-11-04T15:37:58Z",
+      "completed_at": "2026-11-04T15:38:31Z",
+      "name": "Initialization",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:37:59Z",
+          "completed_at": "2026-11-04T15:38:00Z"
+        },
+        {
+          "name": "Dump Workflow Information",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:38:00Z",
+          "completed_at": "2026-11-04T15:38:06Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:38:06Z",
+          "completed_at": "2026-11-04T15:38:09Z"
+        },
+        {
+          "name": "Initialize the workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T15:38:09Z",
+          "completed_at": "2026-11-04T15:38:11Z"
+        },
+        {
+          "name": "Read settings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-04T15:38:11Z",
+          "completed_at": "2026-11-04T15:38:13Z"
+        },
+        {
+          "name": "Set AL Code Analysis Var output",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T15:38:13Z",
+          "completed_at": "2026-11-04T15:38:14Z"
+        },
+        {
+          "name": "Determine Workflow Depth",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-04T15:38:14Z",
+          "completed_at": "2026-11-04T15:38:14Z"
+        },
+        {
+          "name": "Determine Projects To Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-04T15:38:14Z",
+          "completed_at": "2026-11-04T15:38:27Z"
+        },
+        {
+          "name": "Plan sequential Default and Test builds",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-04T15:38:27Z",
+          "completed_at": "2026-11-04T15:38:28Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-04T15:38:28Z",
+          "completed_at": "2026-11-04T15:38:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-04T15:38:28Z",
+          "completed_at": "2026-11-04T15:38:28Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126677983804",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000029755,
+      "runner_name": "GitHub Actions 1000029755",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126677985759,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfpip3w",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126677985759",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126677985759",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-11-04T15:37:56Z",
+      "started_at": "2026-11-04T15:37:56Z",
+      "completed_at": "2026-11-04T15:37:56Z",
+      "name": "PregateCheck",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126677985759",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 126678343317,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfp4elQ",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126678343317",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126678343317",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-04T15:38:32Z",
+      "started_at": "2026-11-04T15:38:34Z",
+      "completed_at": "2026-11-04T15:38:56Z",
+      "name": "Create COSMO Alpaca Containers / Create COSMO Alpaca Containers",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:38:35Z",
+          "completed_at": "2026-11-04T15:38:36Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:38:36Z",
+          "completed_at": "2026-11-04T15:38:38Z"
+        },
+        {
+          "name": "Create Containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:38:38Z",
+          "completed_at": "2026-11-04T15:38:54Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T15:38:54Z",
+          "completed_at": "2026-11-04T15:38:54Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-04T15:38:54Z",
+          "completed_at": "2026-11-04T15:38:54Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126678343317",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000029759,
+      "runner_name": "GitHub Actions 1000029759",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126678596393,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdfqH7KQ",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126678596393",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126678596393",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-04T15:38:57Z",
+      "started_at": "2026-11-04T15:38:59Z",
+      "completed_at": "2026-11-04T15:44:21Z",
+      "name": "Build . (Default then Test) / Default / . (Default)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:39:00Z",
+          "completed_at": "2026-11-04T15:39:02Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:39:02Z",
+          "completed_at": "2026-11-04T15:39:09Z"
+        },
+        {
+          "name": "Validate shared pipeline hooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:39:09Z",
+          "completed_at": "2026-11-04T15:39:10Z"
+        },
+        {
+          "name": "Read settings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T15:39:10Z",
+          "completed_at": "2026-11-04T15:39:13Z"
+        },
+        {
+          "name": "Run Build Initialize hook",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-11-04T15:39:13Z",
+          "completed_at": "2026-11-04T15:39:13Z"
+        },
+        {
+          "name": "Determine whether to build project",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T15:39:13Z",
+          "completed_at": "2026-11-04T15:39:15Z"
+        },
+        {
+          "name": "Read secrets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-04T15:39:15Z",
+          "completed_at": "2026-11-04T15:39:26Z"
+        },
+        {
+          "name": "Checkout Submodules",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-11-04T15:39:26Z",
+          "completed_at": "2026-11-04T15:39:26Z"
+        },
+        {
+          "name": "Determine ArtifactUrl",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-04T15:39:26Z",
+          "completed_at": "2026-11-04T15:39:46Z"
+        },
+        {
+          "name": "Cache Business Central Artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-04T15:39:46Z",
+          "completed_at": "2026-11-04T15:39:57Z"
+        },
+        {
+          "name": "Download Project Dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-04T15:39:57Z",
+          "completed_at": "2026-11-04T15:40:12Z"
+        },
+        {
+          "name": "Download Previous Release",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-04T15:40:12Z",
+          "completed_at": "2026-11-04T15:40:14Z"
+        },
+        {
+          "name": "Compile Apps",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-11-04T15:40:14Z",
+          "completed_at": "2026-11-04T15:40:14Z"
+        },
+        {
+          "name": "Save needs context to file",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-04T15:40:14Z",
+          "completed_at": "2026-11-04T15:40:14Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-04T15:40:14Z",
+          "completed_at": "2026-11-04T15:43:42Z"
+        },
+        {
+          "name": "Record container identity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-04T15:43:42Z",
+          "completed_at": "2026-11-04T15:43:43Z"
+        },
+        {
+          "name": "Sign",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17,
+          "started_at": "2026-11-04T15:43:43Z",
+          "completed_at": "2026-11-04T15:43:43Z"
+        },
+        {
+          "name": "Calculate Artifact names",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-04T15:43:43Z",
+          "completed_at": "2026-11-04T15:43:45Z"
+        },
+        {
+          "name": "Publish artifacts - apps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-04T15:43:45Z",
+          "completed_at": "2026-11-04T15:43:48Z"
+        },
+        {
+          "name": "Publish artifacts - dependencies",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-11-04T15:43:48Z",
+          "completed_at": "2026-11-04T15:43:48Z"
+        },
+        {
+          "name": "Publish artifacts - test apps",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 21,
+          "started_at": "2026-11-04T15:43:48Z",
+          "completed_at": "2026-11-04T15:43:48Z"
+        },
+        {
+          "name": "Publish artifacts - build output",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-04T15:43:48Z",
+          "completed_at": "2026-11-04T15:43:50Z"
+        },
+        {
+          "name": "Publish artifacts - container event log",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 23,
+          "started_at": "2026-11-04T15:43:50Z",
+          "completed_at": "2026-11-04T15:43:50Z"
+        },
+        {
+          "name": "Publish artifacts - test results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 24,
+          "started_at": "2026-11-04T15:43:50Z",
+          "completed_at": "2026-11-04T15:43:50Z"
+        },
+        {
+          "name": "Publish artifacts - bcpt test results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 25,
+          "started_at": "2026-11-04T15:43:50Z",
+          "completed_at": "2026-11-04T15:43:50Z"
+        },
+        {
+          "name": "Publish artifacts - page scripting test results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 26,
+          "started_at": "2026-11-04T15:43:50Z",
+          "completed_at": "2026-11-04T15:43:50Z"
+        },
+        {
+          "name": "Publish artifacts - page scripting test result details",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 27,
+          "started_at": "2026-11-04T15:43:50Z",
+          "completed_at": "2026-11-04T15:43:51Z"
+        },
+        {
+          "name": "Publish artifacts - ErrorLogs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 28,
+          "started_at": "2026-11-04T15:43:51Z",
+          "completed_at": "2026-11-04T15:43:51Z"
+        },
+        {
+          "name": "Analyze Test Results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 29,
+          "started_at": "2026-11-04T15:43:51Z",
+          "completed_at": "2026-11-04T15:43:51Z"
+        },
+        {
+          "name": "Analyze BCPT Test Results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-11-04T15:43:51Z",
+          "completed_at": "2026-11-04T15:43:53Z"
+        },
+        {
+          "name": "Analyze Page Scripting Test Results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-11-04T15:43:53Z",
+          "completed_at": "2026-11-04T15:43:56Z"
+        },
+        {
+          "name": "Cleanup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-11-04T15:43:56Z",
+          "completed_at": "2026-11-04T15:44:15Z"
+        },
+        {
+          "name": "Post Cache Business Central Artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 63,
+          "started_at": "2026-11-04T15:44:15Z",
+          "completed_at": "2026-11-04T15:44:15Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 64,
+          "started_at": "2026-11-04T15:44:15Z",
+          "completed_at": "2026-11-04T15:44:19Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 65,
+          "started_at": "2026-11-04T15:44:19Z",
+          "completed_at": "2026-11-04T15:44:20Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126678596393",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000029761,
+      "runner_name": "GitHub Actions 1000029761",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126681907077,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdftR_hQ",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126681907077",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126681907077",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-11-04T15:44:22Z",
+      "started_at": "2026-11-04T15:44:22Z",
+      "completed_at": "2026-11-04T15:44:22Z",
+      "name": "Build . (Default then Test) / Default / Remove COSMO Alpaca Containers",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126681907077",
+      "labels": [],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 126681909646,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdftSJjg",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126681909646",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126681909646",
+      "status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-11-04T15:44:23Z",
+      "started_at": "2026-11-04T15:44:26Z",
+      "completed_at": null,
+      "name": "Build . (Default then Test) / Test / . (Test)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T15:44:27Z",
+          "completed_at": "2026-11-04T15:44:30Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T15:44:31Z",
+          "completed_at": "2026-11-04T15:44:56Z"
+        },
+        {
+          "name": "Validate shared pipeline hooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T15:44:56Z",
+          "completed_at": "2026-11-04T15:44:57Z"
+        },
+        {
+          "name": "Read settings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T15:44:57Z",
+          "completed_at": "2026-11-04T15:45:04Z"
+        },
+        {
+          "name": "Run Build Initialize hook",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-11-04T15:45:04Z",
+          "completed_at": "2026-11-04T15:45:04Z"
+        },
+        {
+          "name": "Determine whether to build project",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T15:45:04Z",
+          "completed_at": "2026-11-04T15:45:06Z"
+        },
+        {
+          "name": "Read secrets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-04T15:45:06Z",
+          "completed_at": "2026-11-04T15:45:30Z"
+        },
+        {
+          "name": "Checkout Submodules",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-11-04T15:45:30Z",
+          "completed_at": "2026-11-04T15:45:30Z"
+        },
+        {
+          "name": "Determine ArtifactUrl",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-04T15:45:30Z",
+          "completed_at": "2026-11-04T15:46:02Z"
+        },
+        {
+          "name": "Cache Business Central Artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-04T15:46:02Z",
+          "completed_at": "2026-11-04T15:46:19Z"
+        },
+        {
+          "name": "Download Project Dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-04T15:46:19Z",
+          "completed_at": "2026-11-04T15:46:36Z"
+        },
+        {
+          "name": "Download Previous Release",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-11-04T15:46:36Z",
+          "completed_at": "2026-11-04T15:46:36Z"
+        },
+        {
+          "name": "Compile Apps",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-11-04T15:46:36Z",
+          "completed_at": "2026-11-04T15:46:36Z"
+        },
+        {
+          "name": "Save needs context to file",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-04T15:46:36Z",
+          "completed_at": "2026-11-04T15:46:36Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-04T15:46:36Z",
+          "completed_at": "2026-11-04T15:52:36Z"
+        },
+        {
+          "name": "Record container identity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-04T15:52:36Z",
+          "completed_at": "2026-11-04T15:52:51Z"
+        },
+        {
+          "name": "Sign",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 17,
+          "started_at": "2026-11-04T15:52:51Z",
+          "completed_at": "2026-11-04T15:52:51Z"
+        },
+        {
+          "name": "Calculate Artifact names",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-04T15:52:51Z",
+          "completed_at": "2026-11-04T15:52:53Z"
+        },
+        {
+          "name": "Publish artifacts - apps",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 19,
+          "started_at": "2026-11-04T15:52:53Z",
+          "completed_at": "2026-11-04T15:56:36Z"
+        },
+        {
+          "name": "Publish artifacts - dependencies",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-11-04T15:56:36Z",
+          "completed_at": "2026-11-04T15:56:36Z"
+        },
+        {
+          "name": "Publish artifacts - test apps",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 21,
+          "started_at": "2026-11-04T15:56:36Z",
+          "completed_at": "2026-11-04T15:56:36Z"
+        },
+        {
+          "name": "Publish artifacts - build output",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-04T15:56:36Z",
+          "completed_at": "2026-11-04T15:56:41Z"
+        },
+        {
+          "name": "Publish artifacts - container event log",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 23,
+          "started_at": "2026-11-04T15:56:41Z",
+          "completed_at": "2026-11-04T15:56:41Z"
+        },
+        {
+          "name": "Publish artifacts - test results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-11-04T15:56:41Z",
+          "completed_at": "2026-11-04T15:56:44Z"
+        },
+        {
+          "name": "Publish artifacts - bcpt test results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 25,
+          "started_at": "2026-11-04T15:56:44Z",
+          "completed_at": "2026-11-04T15:56:44Z"
+        },
+        {
+          "name": "Publish artifacts - page scripting test results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 26,
+          "started_at": "2026-11-04T15:56:44Z",
+          "completed_at": "2026-11-04T15:56:44Z"
+        },
+        {
+          "name": "Publish artifacts - page scripting test result details",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 27,
+          "started_at": "2026-11-04T15:56:44Z",
+          "completed_at": "2026-11-04T15:56:44Z"
+        },
+        {
+          "name": "Publish artifacts - ErrorLogs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 28,
+          "started_at": "2026-11-04T15:56:44Z",
+          "completed_at": "2026-11-04T15:56:44Z"
+        },
+        {
+          "name": "Analyze Test Results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-11-04T15:56:44Z",
+          "completed_at": "2026-11-04T15:56:47Z"
+        },
+        {
+          "name": "Analyze BCPT Test Results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-11-04T15:56:47Z",
+          "completed_at": "2026-11-04T15:56:50Z"
+        },
+        {
+          "name": "Analyze Page Scripting Test Results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-11-04T15:56:50Z",
+          "completed_at": "2026-11-04T15:56:52Z"
+        },
+        {
+          "name": "Cleanup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-11-04T15:56:52Z",
+          "completed_at": "2026-11-04T15:57:09Z"
+        },
+        {
+          "name": "Post Cache Business Central Artifacts",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 63,
+          "started_at": "2026-11-04T15:57:09Z",
+          "completed_at": "2026-11-04T15:57:09Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 64,
+          "started_at": "2026-11-04T15:57:09Z",
+          "completed_at": "2026-11-04T15:57:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 65,
+          "started_at": "2026-11-04T15:57:12Z",
+          "completed_at": "2026-11-04T15:57:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126681909646",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000029764,
+      "runner_name": "GitHub Actions 1000029764",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 126689252111,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdf0STDw",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126689252111",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126689252111",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-11-04T15:57:16Z",
+      "started_at": "2026-11-04T15:57:16Z",
+      "completed_at": "2026-11-04T15:57:15Z",
+      "name": "Build . (Default then Test) / Test / Remove COSMO Alpaca Containers",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126689252111",
+      "labels": [],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 126689252325,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdf0ST5Q",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126689252325",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126689252325",
+      "status": "queued",
+      "conclusion": null,
+      "created_at": "2026-11-04T15:57:16Z",
+      "started_at": "2026-11-04T15:57:16Z",
+      "completed_at": null,
+      "name": "Remove COSMO Alpaca Containers / Remove COSMO Alpaca Containers",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126689252325",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 126689253666,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdf0SZIg",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126689253666",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126689253666",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-11-04T15:57:16Z",
+      "started_at": "2026-11-04T15:57:16Z",
+      "completed_at": "2026-11-04T15:57:16Z",
+      "name": "Code Analysis Processing",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126689253666",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 126689365263,
+      "run_id": 41859756129,
+      "workflow_name": "Pull Request Build",
+      "head_branch": "codex/worker-3/timesheets-submit-60",
+      "run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT4W13M8AAAAdf0ZNDw",
+      "head_sha": "b276bc640f4938fba061365471e3a931fc83e364",
+      "url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/actions/jobs/126689365263",
+      "html_url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41859756129/job/126689365263",
+      "status": "queued",
+      "conclusion": null,
+      "created_at": "2026-11-04T15:57:29Z",
+      "started_at": "2026-11-04T15:57:29Z",
+      "completed_at": null,
+      "name": "Pull Request Status Check",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/businesscentralal/bc-origo-bifrost-timesheets/check-runs/126689365263",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ]
+}

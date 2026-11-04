@@ -1,0 +1,29 @@
+{
+  "sha": "b276bc640f4938fba061365471e3a931fc83e364",
+  "containerId": "f073ff287f0d",
+  "owner": "worker-5",
+  "apps": [
+    {
+      "downloaded": "product.app",
+      "local": "app.app",
+      "sha256": "1fd59953ef4cea8eea0311dced880afa4994bbced21cf3edbb1385f2d440db61",
+      "source": [
+        {
+          "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+          "Commit": "b276bc640f4938fba061365471e3a931fc83e364"
+        }
+      ]
+    },
+    {
+      "downloaded": "tests.app",
+      "local": "test.app",
+      "sha256": "3c2c8c666c72a4771086705fb3f78f04e852aa53eef42caab002ce016fe1e22d",
+      "source": [
+        {
+          "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+          "Commit": "b276bc640f4938fba061365471e3a931fc83e364"
+        }
+      ]
+    }
+  ]
+}
