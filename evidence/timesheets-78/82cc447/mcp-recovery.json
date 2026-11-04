@@ -1,0 +1,7 @@
+{
+  "at": "2026-11-04T04:59:46.074Z",
+  "attempt1Executed": 0,
+  "attempt1Writes": 0,
+  "diagnosis": "Harness used nonexistent Default Workspace ID; metadata proves current field Default Workspace. Only4readonlyidentity/help/metadata/get calls occurred; no fixture seed or mutations attempted. Corrected metadata name and Data.Records.Set documented tableName parameter before first write.",
+  "currentSha": "82cc44767af738600b33d44a6b471a9d1dce5695"
+}

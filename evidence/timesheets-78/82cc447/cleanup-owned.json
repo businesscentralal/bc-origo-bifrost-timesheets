@@ -1,0 +1,22 @@
+{
+  "containerId": "f00055bdfa4e",
+  "owner": "worker-4",
+  "startedAt": "2026-11-04T05:07:04.011Z",
+  "verified": true,
+  "allOwnedFixturesPurged": true,
+  "ownership": {
+    "id": "f00055bdfa4e",
+    "displayName": "alviss-worker4-timesheets78-20261104-w1"
+  },
+  "deleteAttemptedAt": "2026-11-04T05:07:04.262Z",
+  "deleteStatusCode": 204,
+  "readbacks": [
+    {
+      "at": "2026-11-04T05:07:04.429Z",
+      "statusCode": 404,
+      "exists": false
+    }
+  ],
+  "finishedAt": "2026-11-04T05:07:04.429Z",
+  "priorOwnedSelectionRestored": true
+}

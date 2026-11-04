@@ -1,0 +1,25 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [],
+  "captures": [
+    {
+      "name": "language-restored-1033",
+      "text": "\nGetting ready...\nGetting ready...",
+      "controls": []
+    }
+  ],
+  "startedAt": "2026-11-04T05:06:20.351Z",
+  "verified": true,
+  "languageRestored": true,
+  "languageSelections": [
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\n\n\n\nG\nFara í aðalefni\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAllar skýrslur\n\nBifröst skilaboð:\nAllt\n\n\nEyða\nBreyta lista\nVinnsla\n\nBeiðni\n\nSvar\n\nFlytja út\n\n\n\n\n\t\nKenni\n\t\n\t\nÚtgáfa\n\t\nTegund\n\t\nStaða\n\t\nUppruni\n\t\nKöllunarleið\n\t\nViðfangsefni\n\t\nTungumál\n\t\nDagsetning og tími\n\t\nDagsetning\n\t\nNotandakenni\n\t\nSíðast breytt\n\t\nSvartími\n\t\nEfnistegund gagna\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{b2de8cd9-73df-4b30-b151-f0b12e28038a}\t\n\t1.0\tClockify.Client.Get\tBakgrunnsverkefni lokið (Error)\tOrigo-BC Cloud Events MCP\tVerk\tZZW478-065\tEnglish (United States)\t11/4/2026 5:03 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:03 AM\t40 millisekúndur\ttext/json\t\nGögn beiðni\nSvargögn\nLengd efnis240\nAuðkenni kallara\nNafnGUNNAR\nTegundNotandi\nMínar stillingar - GUNNAR\n\n\nHlutverk\nBusiness Manager\nFyrirtæki\nCRONUS International Ltd.\nVinnudagsetning\nSvæði\nEnglish (United States)\nTungumál\nIcelandic (Iceland)\nTímabelti\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nKennsluábendingar\nEldri aðgerðarstika\nÖryggi\nSíðasta innskráning var 11/04/26 05:05 AM.\nÍ lagi\nHætta við\nTiltæk tungumál\n\n\n\n\n\t\t\nHeiti\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\nÍ lagi\nHætta við\nNotaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.\n\nListi með titilinn „Bifröst skilaboð“ hefur nú eitt atriði\n\nSíðast breytt, raðað í pöntunina Lækkandi\n\nHeiti, raðað í pöntunina Hækkandi\n\nListi með titilinn „Tiltæk tungumál“ hefur nú 18 atriði\n\n18 tillögur í boði fyrir English.\n[{\"label\":\"Leita Bifröst skilaboð\",\"value\":\"\"},{\"label\":null,\"value\":\"{\\\"workspaceId\\\":\\\"ZZW478-WORKSPACE\\\"}\"},{\"label\":null,\"value\":\"{\\\"status\\\":\\\"Error\\\",\\\"error\\\":\\\"Missing required 'clientId' in the request.\\\",\\\"hint\\\":\\\"For usage details, call the \\n\\\"Help.Implementation.Get\\n\\\" message type with subject \\n\\\"Clockify.Client.Get\\n\\\". Always read the help before calling a message type.\\\"}\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Leita Tiltæk tungumál\",\"value\":\"English\"}]"
+    }
+  ],
+  "limitations": [],
+  "finishedAt": "2026-11-04T05:06:31.662Z"
+}

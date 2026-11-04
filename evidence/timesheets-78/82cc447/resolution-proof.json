@@ -1,0 +1,12 @@
+{
+  "candidateSha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "currentMainUnitsPreserved": 259,
+  "newBranchUnitsPreserved": 23,
+  "mainUnitContentChanges": 0,
+  "removedMainUnits": 0,
+  "manualAlTestResolutionChanges": 0,
+  "fullXlfSyncGuard": "PASS after compile",
+  "mixedLanguageGuard": "PASS",
+  "selfTest": "PASS",
+  "historicalBlockers": "Prior full XLF generator drift superseded by maincd24ef3 generator consistency. Prior caption assertions now repaired by reviewed mainPR75; no additional test edit in this repair."
+}

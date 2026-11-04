@@ -1,0 +1,30 @@
+{
+  "heads": {
+    "ours": "a6df9ae426c01fb9afbc002d4da30d04f598f9c7",
+    "theirs": "cd24ef323e7fa043e6a833dbdb7df59407416920",
+    "base": "0bce539cf472c49f95c244a87efdee57e20acb01"
+  },
+  "units": {
+    "ours": 282,
+    "theirs": 259,
+    "base": 259
+  },
+  "conflictHunks": 180,
+  "targetTextConflictHunks": 47,
+  "oursExistingTargetChanges": [],
+  "mainExistingTargetChanges": 44,
+  "samples": [
+    [
+      "          <target state=\"translated\">Enginn API-lykill Clockify er geymdur. Opnaðu Clockify-uppsetningu og skráðu API-lykil fyrirtækisins.</target>\n",
+      "          <target>Enginn Clockify API lykill er geymdur. Opnaðu uppsetningu Clockify og skráðu API lykil fyrirtækis.</target>\n"
+    ],
+    [
+      "          <target state=\"translated\">Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">is-IS=Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify ClientUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 3822493569 - NamedType 2081172381\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>The Clockify workspace '%1' was not found for the configured API key.</source>\n          <target>Clockify-vinnusvæðið '%1' fannst ekki fyrir skráðan API-lykil.</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">%1 = workspace id. is-IS=Clockify-vinnusvæðið '%1' fannst ekki fyrir skráðan API-lykil.</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify CurrencyList Impl ori - NamedType WorkspaceNotFoundErr</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 3822493569 - Method 1027590672 - NamedType 1290244428\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>currency, list, client, Clockify, timesheets</source>\n          <target state=\"translated\">gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur</target>\n",
+      "          <target>Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">is-IS=Clockify.Client.Update: Uppfærir viðskiptavin. Sleppir reitir í viðbótinni halda núverandi Clockify gildum. Settu í geymslu hér áður en Clockify.Client.Delete er keyrt.</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify ClientUpdate Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 3822493569 - Method 1027590672 - NamedType 1290244428\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>currency, list, client, Clockify, timesheets</source>\n          <target>gjaldmiðill, listi, viðskiptavinur, Clockify, tímaskýrslur</target>\n"
+    ],
+    [
+      "          <target state=\"translated\">Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">is-IS=Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify CustFldList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 1546909816 - NamedType 2138340339\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>the Timesheets setup page (Clockify Setup)</source>\n          <target>uppsetningarsíðu Bifrost Timesheets (Clockify Setup)</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">is-IS=uppsetningarsíðu Bifrost Timesheets (Clockify Setup)</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify Field Restrict ori - NamedType ReceiverUrlHintTok</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 4021489847 - Method 1027590672 - NamedType 1290244428\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>help, overview, Clockify, timesheets</source>\n          <target state=\"translated\">hjálp, yfirlit, Clockify, tímaskýrslur</target>\n",
+      "          <target>Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</target>\n          <note from=\"Developer\" annotates=\"general\" priority=\"2\">is-IS=Clockify.CustomField.List: Aðeins lesið. Listar sérsniðin svæði vinnusvæðis. Notaðu kenni sem customFieldId í skrifum á tímaskráningar og verkefni.</note>\n          <note from=\"Xliff Generator\" annotates=\"general\" priority=\"3\">Codeunit Clockify CustFldList Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>\n        </trans-unit>\n        <trans-unit id=\"Codeunit 4021489847 - Method 1027590672 - NamedType 1290244428\" size-unit=\"char\" translate=\"yes\" xml:space=\"preserve\">\n          <source>help, overview, Clockify, timesheets</source>\n          <target>hjálp, yfirlit, Clockify, tímaskýrslur</target>\n"
+    ]
+  ]
+}

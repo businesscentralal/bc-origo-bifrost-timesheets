@@ -1,0 +1,29 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "tool": "get_records",
+  "args": {
+    "table": "Clockify Setup ori",
+    "fields": [
+      "Primary Key",
+      "Default Workspace ID",
+      "Job Jnl. Template",
+      "Job Jnl. Batch",
+      "Webhook Receiver URL"
+    ],
+    "take": 10,
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T04:59:11.749Z",
+  "status": "responded",
+  "finishedAt": "2026-11-04T04:59:11.983Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Field 'Default Workspace ID' not found in table 'Clockify Setup ori'."
+      }
+    ],
+    "isError": true
+  }
+}

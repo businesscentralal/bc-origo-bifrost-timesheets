@@ -1,0 +1,79 @@
+
+Dynamics 365 Business Central
+
+
+
+
+G
+Skip to main content
+CRONUS International Ltd.
+Finance
+Cash Management
+Sales
+Purchasing
+Shopify
+All Reports
+
+Bifrost Messages:
+All
+
+
+Delete
+Edit List
+Task
+
+Request
+
+Response
+
+Export
+
+
+
+
+	
+Id
+	
+	
+Version
+	
+Type
+	
+Status
+	
+Source
+	
+Invocation Source
+	
+Subject
+	
+Language
+	
+Date & Time
+	
+Date
+	
+User ID
+	
+Last Modified
+	
+Response Time
+	
+Data Content Type
+	
+		
+														
+	{7afa3333-c567-4c87-bde1-937c97dc3084}	
+	1.0	Clockify.TimeEntry.Sync	Task completed (Error)	Origo-BC Cloud Events MCP	Task	ZZW478-067	English (United States)	11/4/2026 5:03 AM	11/4/2026	GUNNAR	11/4/2026 5:03 AM	14 milliseconds	text/json	
+Request Data
+Response Data
+Content Length365
+Caller Identity
+NameGUNNAR
+TypeUser
+Use the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.
+
+List with title "Bifrost Messages" now has one item
+
+Last Modified, sorted in Descending order
+[{"label":"Search Bifrost Messages","value":""},{"label":null,"value":"{\"workspaceId\":\"ZZW478-WORKSPACE\",\"userId\":\"ZZW478-USER\",\"entryId\":\"ZZW478-ENTRY\",\"projectId\":\"ZZW478-PROJECT\",\"start\":\"2026-11-02T08:00:00Z\",\"end\":\"2026-11-02T09:00:00Z\"}"},{"label":null,"value":"{\"status\":\"Error\",\"error\":\"No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.TimeEntry.Sync\n\". Always read the help before calling a message type.\"}"}]

@@ -1,0 +1,165 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "method": "Playwright MCP browser_run_code_unsafe",
+  "scenarios": [
+    {
+      "lcid": 1033,
+      "subject": "ZZW478-065",
+      "type": "Clockify.Client.Get",
+      "name": "missing-clientId",
+      "expected": "Missing required 'clientId' in the request.",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "subject": "ZZW478-067",
+      "type": "Clockify.TimeEntry.Sync",
+      "name": "missing-journal",
+      "expected": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "subject": "ZZW478-R5-073",
+      "type": "Clockify.Client.Get",
+      "name": "missing-clientId",
+      "expected": "Nau\u00f0synlegt 'clientId' vantar \u00ed bei\u00f0nina.",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "subject": "ZZW478-R5-075",
+      "type": "Clockify.TimeEntry.Sync",
+      "name": "missing-journal",
+      "expected": "Engin verkb\u00f3k er stillt. Stilltu verkb\u00f3karsni\u00f0m\u00e1t og verkb\u00f3karflokk \u00ed Clockify-uppsetningu, e\u00f0a sendu 'journalTemplate' og 'journalBatch' \u00ed bei\u00f0ninni.",
+      "passed": true
+    }
+  ],
+  "captures": [
+    {
+      "name": "missing-clientId-1033",
+      "text": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nSkip to main content\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAll Reports\n\ue700\nBifrost Messages:\nAll\n\ue70d\n\ue721\nDelete\nEdit List\nTask\n\ue70d\nRequest\n\ue70d\nResponse\n\ue70d\nExport\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nId\n\t\n\t\nVersion\n\t\nType\n\t\nStatus\n\t\nSource\n\t\nInvocation Source\n\t\nSubject\n\t\nLanguage\n\t\nDate & Time\n\t\nDate\n\t\nUser ID\n\t\nLast Modified\n\t\nResponse Time\n\t\nData Content Type\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{b2de8cd9-73df-4b30-b151-f0b12e28038a}\t\n\t1.0\tClockify.Client.Get\tTask completed (Error)\tOrigo-BC Cloud Events MCP\tTask\tZZW478-065\tEnglish (United States)\t11/4/2026 5:03 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:03 AM\t40 milliseconds\ttext/json\t\nRequest Data\nResponse Data\nContent Length240\nCaller Identity\nNameGUNNAR\nTypeUser\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nList with title \"Bifrost Messages\" now has one item\n\nLast Modified, sorted in Descending order",
+      "controls": [
+        {
+          "label": "Search Bifrost Messages",
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "{\"workspaceId\":\"ZZW478-WORKSPACE\"}"
+        },
+        {
+          "label": null,
+          "value": "{\"status\":\"Error\",\"error\":\"Missing required 'clientId' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.Client.Get\n\". Always read the help before calling a message type.\"}"
+        }
+      ]
+    },
+    {
+      "name": "missing-journal-1033",
+      "text": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nSkip to main content\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAll Reports\n\ue700\nBifrost Messages:\nAll\n\ue70d\n\ue721\nDelete\nEdit List\nTask\n\ue70d\nRequest\n\ue70d\nResponse\n\ue70d\nExport\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nId\n\t\n\t\nVersion\n\t\nType\n\t\nStatus\n\t\nSource\n\t\nInvocation Source\n\t\nSubject\n\t\nLanguage\n\t\nDate & Time\n\t\nDate\n\t\nUser ID\n\t\nLast Modified\n\t\nResponse Time\n\t\nData Content Type\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{7afa3333-c567-4c87-bde1-937c97dc3084}\t\n\t1.0\tClockify.TimeEntry.Sync\tTask completed (Error)\tOrigo-BC Cloud Events MCP\tTask\tZZW478-067\tEnglish (United States)\t11/4/2026 5:03 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:03 AM\t14 milliseconds\ttext/json\t\nRequest Data\nResponse Data\nContent Length365\nCaller Identity\nNameGUNNAR\nTypeUser\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nList with title \"Bifrost Messages\" now has one item\n\nLast Modified, sorted in Descending order",
+      "controls": [
+        {
+          "label": "Search Bifrost Messages",
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "{\"workspaceId\":\"ZZW478-WORKSPACE\",\"userId\":\"ZZW478-USER\",\"entryId\":\"ZZW478-ENTRY\",\"projectId\":\"ZZW478-PROJECT\",\"start\":\"2026-11-02T08:00:00Z\",\"end\":\"2026-11-02T09:00:00Z\"}"
+        },
+        {
+          "label": null,
+          "value": "{\"status\":\"Error\",\"error\":\"No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.TimeEntry.Sync\n\". Always read the help before calling a message type.\"}"
+        }
+      ]
+    },
+    {
+      "name": "missing-clientId-1039",
+      "text": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nFara \u00ed a\u00f0alefni\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAllar sk\u00fdrslur\n\ue700\nBifr\u00f6st skilabo\u00f0:\nS\u00e9rstilling s\u00edu\u00f0\n\ue70d\n\ue721\nEy\u00f0a\nBreyta lista\nVinnsla\n\ue70d\nBei\u00f0ni\n\ue70d\nSvar\n\ue70d\nFlytja \u00fat\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nKenni\n\t\n\t\n\u00datg\u00e1fa\n\t\nTegund\n\t\nSta\u00f0a\n\t\nUppruni\n\t\nK\u00f6llunarlei\u00f0\n\t\nVi\u00f0fangsefni\n\t\nTungum\u00e1l\n\t\nDagsetning og t\u00edmi\n\t\nDagsetning\n\t\nNotandakenni\n\t\nS\u00ed\u00f0ast breytt\n\t\nSvart\u00edmi\n\t\nEfnistegund gagna\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{fb2c4b5f-0070-4f36-a298-d90ddef9b48b}\t\n\t1.0\tClockify.Client.Get\tBakgrunnsverkefni loki\u00f0 (Error)\tOrigo-BC Cloud Events MCP\tVerk\tZZW478-R5-073\tIcelandic (Iceland)\t11/4/2026 5:04 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:04 AM\t8 millisek\u00fandur\ttext/json\t\nG\u00f6gn bei\u00f0ni\nSvarg\u00f6gn\nLengd efnis284\nAu\u00f0kenni kallara\nNafnGUNNAR\nTegundNotandi\nNota\u00f0u h\u00e6gri og vinstri \u00f6rvalyklana til a\u00f0 stilla st\u00e6r\u00f0ina. Nota\u00f0u Escape-lykilinn til a\u00f0 afturkalla e\u00f0a Enter-lykilinn til a\u00f0 sta\u00f0festa.\n\nS\u00ed\u00f0ast breytt, ra\u00f0a\u00f0 \u00ed p\u00f6ntunina L\u00e6kkandi",
+      "controls": [
+        {
+          "label": "Leita Bifr\u00f6st skilabo\u00f0",
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "{\"workspaceId\":\"ZZW478-WORKSPACE\"}"
+        },
+        {
+          "label": null,
+          "value": "{\"status\":\"Error\",\"error\":\"Nau\u00f0synlegt 'clientId' vantar \u00ed bei\u00f0nina.\",\"hint\":\"Til a\u00f0 sj\u00e1 notkunaruppl\u00fdsingar skaltu kalla \u00e1 skilabo\u00f0ategundina \n\"Help.Implementation.Get\n\" me\u00f0 subject \n\"Clockify.Client.Get\n\". Lestu alltaf hj\u00e1lpina \u00e1\u00f0ur en \u00fe\u00fa kallar \u00e1 skilabo\u00f0ategund.\"}"
+        }
+      ]
+    },
+    {
+      "name": "missing-journal-1039",
+      "text": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nFara \u00ed a\u00f0alefni\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAllar sk\u00fdrslur\n\ue700\nBifr\u00f6st skilabo\u00f0:\nAllt\n\ue70d\n\ue721\nEy\u00f0a\nBreyta lista\nVinnsla\n\ue70d\nBei\u00f0ni\n\ue70d\nSvar\n\ue70d\nFlytja \u00fat\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nKenni\n\t\n\t\n\u00datg\u00e1fa\n\t\nTegund\n\t\nSta\u00f0a\n\t\nUppruni\n\t\nK\u00f6llunarlei\u00f0\n\t\nVi\u00f0fangsefni\n\t\nTungum\u00e1l\n\t\nDagsetning og t\u00edmi\n\t\nDagsetning\n\t\nNotandakenni\n\t\nS\u00ed\u00f0ast breytt\n\t\nSvart\u00edmi\n\t\nEfnistegund gagna\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{0f10dbb1-8071-4f11-92fe-0a01faf2734c}\t\n\t1.0\tClockify.TimeEntry.Sync\tBakgrunnsverkefni loki\u00f0 (Error)\tOrigo-BC Cloud Events MCP\tVerk\tZZW478-R5-075\tIcelandic (Iceland)\t11/4/2026 5:04 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:04 AM\t11 millisek\u00fandur\ttext/json\t\nG\u00f6gn bei\u00f0ni\nSvarg\u00f6gn\nLengd efnis403\nAu\u00f0kenni kallara\nNafnGUNNAR\nTegundNotandi\nNota\u00f0u h\u00e6gri og vinstri \u00f6rvalyklana til a\u00f0 stilla st\u00e6r\u00f0ina. Nota\u00f0u Escape-lykilinn til a\u00f0 afturkalla e\u00f0a Enter-lykilinn til a\u00f0 sta\u00f0festa.\n\nListi me\u00f0 titilinn \u201eBifr\u00f6st skilabo\u00f0\u201c hefur n\u00fa eitt atri\u00f0i\n\nS\u00ed\u00f0ast breytt, ra\u00f0a\u00f0 \u00ed p\u00f6ntunina L\u00e6kkandi",
+      "controls": [
+        {
+          "label": "Leita Bifr\u00f6st skilabo\u00f0",
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "{\"workspaceId\":\"ZZW478-WORKSPACE\",\"userId\":\"ZZW478-USER\",\"entryId\":\"ZZW478-ENTRY\",\"projectId\":\"ZZW478-PROJECT\",\"start\":\"2026-11-02T08:00:00Z\",\"end\":\"2026-11-02T09:00:00Z\"}"
+        },
+        {
+          "label": null,
+          "value": "{\"status\":\"Error\",\"error\":\"Engin verkb\u00f3k er stillt. Stilltu verkb\u00f3karsni\u00f0m\u00e1t og verkb\u00f3karflokk \u00ed Clockify-uppsetningu, e\u00f0a sendu 'journalTemplate' og 'journalBatch' \u00ed bei\u00f0ninni.\",\"hint\":\"Til a\u00f0 sj\u00e1 notkunaruppl\u00fdsingar skaltu kalla \u00e1 skilabo\u00f0ategundina \n\"Help.Implementation.Get\n\" me\u00f0 subject \n\"Clockify.TimeEntry.Sync\n\". Lestu alltaf hj\u00e1lpina \u00e1\u00f0ur en \u00fe\u00fa kallar \u00e1 skilabo\u00f0ategund.\"}"
+        }
+      ]
+    },
+    {
+      "name": "failure",
+      "text": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nH\u00e6kkandi\nL\u00e6kkandi\nAfm\u00f6rkun...\nAfmarka \u00ed \u00feetta gildi\nHreinsa s\u00edu\nBreyta st\u00e6r\u00f0\nHva\u00f0 er \u00feetta?\nFara \u00ed a\u00f0alefni\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAllar sk\u00fdrslur\n\ue700\nBifr\u00f6st skilabo\u00f0:\nAllt\n\ue70d\n\ue721\nEy\u00f0a\nBreyta lista\nVinnsla\n\ue70d\nBei\u00f0ni\n\ue70d\nSvar\n\ue70d\nFlytja \u00fat\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nKenni\n\t\n\t\n\u00datg\u00e1fa\n\t\nTegund\n\t\nSta\u00f0a\n\t\nUppruni\n\t\nK\u00f6llunarlei\u00f0\n\t\nVi\u00f0fangsefni\n\t\nTungum\u00e1l\n\t\nDagsetning og t\u00edmi\n\t\nDagsetning\n\t\nNotandakenni\n\t\nS\u00ed\u00f0ast breytt\n\t\nSvart\u00edmi\n\t\nEfnistegund gagna\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{0f10dbb1-8071-4f11-92fe-0a01faf2734c}\t\n\t1.0\tClockify.TimeEntry.Sync\tBakgrunnsverkefni loki\u00f0 (Error)\tOrigo-BC Cloud Events MCP\tVerk\tZZW478-R5-075\tIcelandic (Iceland)\t11/4/2026 5:04 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:04 AM\t11 millisek\u00fandur\ttext/json\t\nG\u00f6gn bei\u00f0ni\nSvarg\u00f6gn\nLengd efnis403\nAu\u00f0kenni kallara\nNafnGUNNAR\nTegundNotandi\nM\u00ednar stillingar - GUNNAR\n\ue740\n\ue8bb\nHlutverk\nBusiness Manager\nFyrirt\u00e6ki\nCRONUS International Ltd.\nVinnudagsetning\nSv\u00e6\u00f0i\nEnglish (United States)\nTungum\u00e1l\nIcelandic (Iceland)\nT\u00edmabelti\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nKennslu\u00e1bendingar\nEldri a\u00f0ger\u00f0arstika\n\u00d6ryggi\nS\u00ed\u00f0asta innskr\u00e1ning var 11/04/26 04:57 AM.\n\u00cd lagi\nH\u00e6tta vi\u00f0\nNota\u00f0u h\u00e6gri og vinstri \u00f6rvalyklana til a\u00f0 stilla st\u00e6r\u00f0ina. Nota\u00f0u Escape-lykilinn til a\u00f0 afturkalla e\u00f0a Enter-lykilinn til a\u00f0 sta\u00f0festa.\n\nListi me\u00f0 titilinn \u201eBifr\u00f6st skilabo\u00f0\u201c hefur n\u00fa eitt atri\u00f0i\n\nS\u00ed\u00f0ast breytt, ra\u00f0a\u00f0 \u00ed p\u00f6ntunina L\u00e6kkandi",
+      "controls": [
+        {
+          "label": "Leita Bifr\u00f6st skilabo\u00f0",
+          "value": ""
+        },
+        {
+          "label": null,
+          "value": "{\"workspaceId\":\"ZZW478-WORKSPACE\",\"userId\":\"ZZW478-USER\",\"entryId\":\"ZZW478-ENTRY\",\"projectId\":\"ZZW478-PROJECT\",\"start\":\"2026-11-02T08:00:00Z\",\"end\":\"2026-11-02T09:00:00Z\"}"
+        },
+        {
+          "label": null,
+          "value": "{\"status\":\"Error\",\"error\":\"Engin verkb\u00f3k er stillt. Stilltu verkb\u00f3karsni\u00f0m\u00e1t og verkb\u00f3karflokk \u00ed Clockify-uppsetningu, e\u00f0a sendu 'journalTemplate' og 'journalBatch' \u00ed bei\u00f0ninni.\",\"hint\":\"Til a\u00f0 sj\u00e1 notkunaruppl\u00fdsingar skaltu kalla \u00e1 skilabo\u00f0ategundina \n\"Help.Implementation.Get\n\" me\u00f0 subject \n\"Clockify.TimeEntry.Sync\n\". Lestu alltaf hj\u00e1lpina \u00e1\u00f0ur en \u00fe\u00fa kallar \u00e1 skilabo\u00f0ategund.\"}"
+        },
+        {
+          "label": null,
+          "value": "10/1/2026"
+        },
+        {
+          "label": null,
+          "value": "on"
+        },
+        {
+          "label": null,
+          "value": "on"
+        }
+      ]
+    }
+  ],
+  "startedAt": "2026-11-04T05:04:35.542Z",
+  "verified": false,
+  "languageRestored": false,
+  "languageSelections": [
+    {
+      "label": "English (United States)",
+      "lcid": 1033,
+      "settings": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nSkip to main content\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAll Reports\n\ue700\nBifrost Messages:\nCustom filtered\n\ue70d\n\ue721\nDelete\nEdit List\nTask\n\ue70d\nRequest\n\ue70d\nResponse\n\ue70d\nExport\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nId\n\t\n\t\nVersion\n\t\nType\n\t\nStatus\n\t\nSource\n\t\nInvocation Source\n\t\nSubject\n\t\nLanguage\n\t\nDate & Time\n\t\nDate\n\t\nUser ID\n\t\nLast Modified\n\t\nResponse Time\n\t\nData Content Type\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{b2de8cd9-73df-4b30-b151-f0b12e28038a}\t\n\t1.0\tClockify.Client.Get\tTask completed (Error)\tOrigo-BC Cloud Events MCP\tTask\tZZW478-065\tEnglish (United States)\t11/4/2026 5:03 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:03 AM\t40 milliseconds\ttext/json\t\nRequest Data\nResponse Data\nContent Length240\nCaller Identity\nNameGUNNAR\nTypeUser\nMy Settings - GUNNAR\n\ue740\n\ue8bb\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 04:57 AM.\nOK\nCancel\nAvailable Languages\n\ue721\n\ue70d\n\ue740\n\ue8bb\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tEnglish (Australia)\t\t\n\t\tEnglish (Belize)\t\t\n\t\tEnglish (Canada)\t\t\n\t\tEnglish (Caribbean)\t\t\n\t\tEnglish (Hong Kong SAR)\t\t\n\t\tEnglish (India)\t\t\n\t\tEnglish (Indonesia)\t\t\n\t\tEnglish (Ireland)\t\t\n\t\tEnglish (Jamaica)\t\t\n\t\tEnglish (Malaysia)\t\t\n\t\tEnglish (New Zealand)\t\t\n\t\tEnglish (Philippines)\t\t\n\t\tEnglish (Singapore)\t\t\n\t\tEnglish (South Africa)\t\t\n\t\tEnglish (Trinidad & Tobago)\t\t\n\t\tEnglish (United Kingdom)\t\t\n\t\tEnglish (United States)\t\n\t\n\t\tEnglish (Zimbabwe)\t\t\nOK\nCancel\n\nLast Modified, sorted in Descending order\n\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has 18 items\n\n18 suggestions available for English.\n[{\"label\":\"Search Bifrost Messages\",\"value\":\"\"},{\"label\":null,\"value\":\"{\\\"workspaceId\\\":\\\"ZZW478-WORKSPACE\\\"}\"},{\"label\":null,\"value\":\"{\\\"status\\\":\\\"Error\\\",\\\"error\\\":\\\"Missing required 'clientId' in the request.\\\",\\\"hint\\\":\\\"For usage details, call the \\n\\\"Help.Implementation.Get\\n\\\" message type with subject \\n\\\"Clockify.Client.Get\\n\\\". Always read the help before calling a message type.\\\"}\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"English\"}]"
+    },
+    {
+      "label": "Icelandic (Iceland)",
+      "lcid": 1039,
+      "settings": "\nDynamics 365 Business Central\n\ue721\n\uea8f\n\ue713\n\ue897\nG\nSkip to main content\nCRONUS International Ltd.\nFinance\nCash Management\nSales\nPurchasing\nShopify\nAll Reports\n\ue700\nBifrost Messages:\nAll\n\ue70d\n\ue721\nDelete\nEdit List\nTask\n\ue70d\nRequest\n\ue70d\nResponse\n\ue70d\nExport\n\ue70d\n\ue72d\n\ue71c\n\uf167\n\t\nId\n\t\n\t\nVersion\n\t\nType\n\t\nStatus\n\t\nSource\n\t\nInvocation Source\n\t\nSubject\n\t\nLanguage\n\t\nDate & Time\n\t\nDate\n\t\nUser ID\n\t\nLast Modified\n\t\nResponse Time\n\t\nData Content Type\n\t\n\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t{7afa3333-c567-4c87-bde1-937c97dc3084}\t\n\t1.0\tClockify.TimeEntry.Sync\tTask completed (Error)\tOrigo-BC Cloud Events MCP\tTask\tZZW478-067\tEnglish (United States)\t11/4/2026 5:03 AM\t11/4/2026\tGUNNAR\t11/4/2026 5:03 AM\t14 milliseconds\ttext/json\t\nRequest Data\nResponse Data\nContent Length365\nCaller Identity\nNameGUNNAR\nTypeUser\nMy Settings - GUNNAR\n\ue740\n\ue8bb\nRole\nBusiness Manager\nCompany\nCRONUS International Ltd.\nWork Date\nRegion\nEnglish (United States)\nLanguage\nEnglish (United States)\nTime Zone\n(UTC) Coordinated Universal Time\nNotifications\nChange when I receive notifications.\nTeaching Tips\nLegacy Action Bar\nSecurity\nYour last sign in was on 11/04/26 04:57 AM.\nOK\nCancel\nAvailable Languages\n\ue721\n\ue70d\n\ue740\n\ue8bb\n\t\t\nName\n\t\n\t\n\t\t\t\n\t\n\t\tIcelandic (Iceland)\t\n\t\nOK\nCancel\nUse the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.\n\nList with title \"Bifrost Messages\" now has one item\n\nLast Modified, sorted in Descending order\n\nName, sorted in Ascending order\n\nList with title \"Available Languages\" now has one item\n\nOne suggestion available for Icelandic.\n[{\"label\":\"Search Bifrost Messages\",\"value\":\"\"},{\"label\":null,\"value\":\"{\\\"workspaceId\\\":\\\"ZZW478-WORKSPACE\\\",\\\"userId\\\":\\\"ZZW478-USER\\\",\\\"entryId\\\":\\\"ZZW478-ENTRY\\\",\\\"projectId\\\":\\\"ZZW478-PROJECT\\\",\\\"start\\\":\\\"2026-11-02T08:00:00Z\\\",\\\"end\\\":\\\"2026-11-02T09:00:00Z\\\"}\"},{\"label\":null,\"value\":\"{\\\"status\\\":\\\"Error\\\",\\\"error\\\":\\\"No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.\\\",\\\"hint\\\":\\\"For usage details, call the \\n\\\"Help.Implementation.Get\\n\\\" message type with subject \\n\\\"Clockify.TimeEntry.Sync\\n\\\". Always read the help before calling a message type.\\\"}\"},{\"label\":null,\"value\":\"10/1/2026\"},{\"label\":null,\"value\":\"on\"},{\"label\":null,\"value\":\"on\"},{\"label\":\"Search Available Languages\",\"value\":\"Icelandic\"}]"
+    }
+  ],
+  "limitations": [],
+  "error": "Expected BC control unavailable",
+  "executed": 5,
+  "passed": 4,
+  "failed": 1,
+  "skipped": 0,
+  "finishedAt": "2026-11-04T05:05:42.211Z"
+}

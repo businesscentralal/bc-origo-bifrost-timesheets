@@ -1,0 +1,28 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "tool": "get_records",
+  "args": {
+    "table": "Clockify Setup ori",
+    "fields": [
+      "Primary Key",
+      "Default Workspace",
+      "Job Jnl. Template",
+      "Job Jnl. Batch",
+      "Webhook Receiver URL"
+    ],
+    "take": 10,
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T05:00:33.956Z",
+  "status": "responded",
+  "finishedAt": "2026-11-04T05:00:34.402Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"company\": \"CRONUS International Ltd.\",\n  \"table\": \"Clockify Setup ori\",\n  \"skip\": 0,\n  \"take\": 10,\n  \"count\": 1,\n  \"records\": [\n    {\n      \"id\": \"7364472F-0CD8-F111-B7A5-BB2CD95E6050\",\n      \"primaryKey\": {\n        \"PrimaryKey\": \"\"\n      },\n      \"fields\": {\n        \"DefaultWorkspace\": \"\",\n        \"JobJnl_Template\": \"\",\n        \"JobJnl_Batch\": \"\",\n        \"WebhookReceiverURL\": \"\"\n      }\n    }\n  ],\n  \"noOfRecords\": 1\n}"
+      }
+    ]
+  }
+}

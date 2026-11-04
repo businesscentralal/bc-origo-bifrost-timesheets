@@ -1,0 +1,26 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "base": "cd24ef323e7fa043e6a833dbdb7df59407416920",
+  "scope": "PR78 bounded conflict repair plus required developer verification; original issue49 acceptance retained",
+  "layers": {
+    "1": "gateway-layer1-retry.json; first invocation failed unset USERPROFILE onLinux, retry passed execution; findings disclosed, no suppression added",
+    "2": {
+      "conflictPreservation": "259current-main units exact byte XML match plus23branch-only units; resolution-proof.json",
+      "authoredManualAlTestChanges": 0,
+      "tests": "4new lcid1039tests kept; main pagingtests and reviewed caption repair imported unchanged; current fullsuite running",
+      "publicEnglish": "#49 refusal English labels unchanged; reviewed main SyncAllUsers paging behavior retained",
+      "excludedScope": "No additional tables/pages/fields/guards/workflows/pipeline edits; imported main testfixture only; no new fixture duplicate",
+      "compatibility": "No removed/renamed public procedure/field in bounded repair; required CodeCop/UICop/AppSourceCop compile0/0",
+      "documentation": "Existing CHANGELOG entries for #49 and main #23 preserved in normal merge",
+      "translation": "Full unmodified XLFsync after fresh compilePASS; no old-target regressions against currentmain",
+      "verificationLimits": "MCP/UI/fullsuite pending; no green/review-ready claim"
+    }
+  },
+  "lessonsApplied": [
+    "timesheets49-worker5-generator-harvest-preservation-20261104",
+    "timesheets41-worker5-public-caption-contract-20261104",
+    "core-pr853-worker8-20261004-conflict-preservation",
+    "core1160-review5631990011-worker10-xlf-global-id"
+  ],
+  "widerFindings": "Full-repo gateway includes pre-existing globals/XML docs/naming/readisolation/style advisories outside this label-only conflict repair; see full report; not suppressed or represented as repaired."
+}

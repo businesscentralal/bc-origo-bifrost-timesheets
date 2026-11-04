@@ -1,0 +1,33 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "tool": "set_records",
+  "args": {
+    "table": "Clockify Setup ori",
+    "data": [
+      {
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "DefaultWorkspace": "",
+          "JobJnl_Template": "",
+          "JobJnl_Batch": ""
+        }
+      }
+    ],
+    "lcid": 1033
+  },
+  "startedAt": "2026-11-04T04:59:49.117Z",
+  "status": "responded",
+  "finishedAt": "2026-11-04T04:59:49.581Z",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"status\":\"Error\",\"code\":\"BlockedByWriteGuard\",\"error\":\"Field \\\"Primary Key, Default Workspace, Job Jnl. Template, Job Jnl. Batch\\\" in table 10036853 must be included in the change log write guard setup to be updated via Bifrost.\",\"parameter\":\"data[0].primaryKey.PrimaryKey\",\"expected\":\"a field the change log write guard allows\",\"nextStep\":\"Add the field to the change log write guard setup, or send force true when the guard mode is Via force and you hold the force permission.\",\"hint\":\"For usage details, call the \\\"Help.Implementation.Get\\\" message type with subject \\\"Data.Records.Set\\\". Always read the help before calling a message type.\",\"blockedFields\":[{\"fieldNo\":1,\"fieldName\":\"Primary Key\",\"fieldCaption\":\"Primary Key\"},{\"fieldNo\":11,\"fieldName\":\"Default Workspace\",\"fieldCaption\":\"Default Workspace ID\"},{\"fieldNo\":14,\"fieldName\":\"Job Jnl. Template\",\"fieldCaption\":\"Job Journal Template\"},{\"fieldNo\":15,\"fieldName\":\"Job Jnl. Batch\",\"fieldCaption\":\"Job Journal Batch\"}],\"guardMode\":\"Blocked\",\"forceAvailable\":false}"
+      }
+    ],
+    "isError": true
+  }
+}

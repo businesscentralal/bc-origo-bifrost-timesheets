@@ -1,0 +1,79 @@
+
+Dynamics 365 Business Central
+
+
+
+
+G
+Skip to main content
+CRONUS International Ltd.
+Finance
+Cash Management
+Sales
+Purchasing
+Shopify
+All Reports
+
+Bifrost Messages:
+All
+
+
+Delete
+Edit List
+Task
+
+Request
+
+Response
+
+Export
+
+
+
+
+	
+Id
+	
+	
+Version
+	
+Type
+	
+Status
+	
+Source
+	
+Invocation Source
+	
+Subject
+	
+Language
+	
+Date & Time
+	
+Date
+	
+User ID
+	
+Last Modified
+	
+Response Time
+	
+Data Content Type
+	
+		
+														
+	{b2de8cd9-73df-4b30-b151-f0b12e28038a}	
+	1.0	Clockify.Client.Get	Task completed (Error)	Origo-BC Cloud Events MCP	Task	ZZW478-065	English (United States)	11/4/2026 5:03 AM	11/4/2026	GUNNAR	11/4/2026 5:03 AM	40 milliseconds	text/json	
+Request Data
+Response Data
+Content Length240
+Caller Identity
+NameGUNNAR
+TypeUser
+Use the Left and Right arrow keys to adjust the size. Use the Escape key to undo or the Enter key to accept.
+
+List with title "Bifrost Messages" now has one item
+
+Last Modified, sorted in Descending order
+[{"label":"Search Bifrost Messages","value":""},{"label":null,"value":"{\"workspaceId\":\"ZZW478-WORKSPACE\"}"},{"label":null,"value":"{\"status\":\"Error\",\"error\":\"Missing required 'clientId' in the request.\",\"hint\":\"For usage details, call the \n\"Help.Implementation.Get\n\" message type with subject \n\"Clockify.Client.Get\n\". Always read the help before calling a message type.\"}"}]

@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-04T05:01:49.710Z",
+  "priorAcceptanceAttempt": {
+    "executed": 1,
+    "passed": 0,
+    "failed": 1,
+    "reason": "Malformed harness request included expectedCount not declared on deployed releasedFoundation632 contract. No connector executed and no business write occurred."
+  },
+  "fix": "Build synthetic request envelope from actual current deployed help; supply expectedCount only if declared. Exact refusal assertion is unchanged; no source edits, guard/consent/HTTP toggles or assertion suppression.",
+  "candidateSha": "82cc44767af738600b33d44a6b471a9d1dce5695"
+}

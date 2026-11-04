@@ -1,0 +1,60 @@
+{
+  "expectedDeclaredTests": 117,
+  "roster": [
+    {
+      "file": "test/ClockifyConnectorTests.Codeunit.al",
+      "tests": 70,
+      "codeunit": "95601"
+    },
+    {
+      "file": "test/ClockifyFieldRestrictTests.Codeunit.al",
+      "tests": 8,
+      "codeunit": "95612"
+    },
+    {
+      "file": "test/ClockifyHelpFixesTests.Codeunit.al",
+      "tests": 8,
+      "codeunit": "95613"
+    },
+    {
+      "file": "test/ClockifyRetenPolicyTests.Codeunit.al",
+      "tests": 2,
+      "codeunit": "95607"
+    },
+    {
+      "file": "test/ClockifyUserPagingTests.Codeunit.al",
+      "tests": 11,
+      "codeunit": "95604"
+    },
+    {
+      "file": "test/MessageContractBatch1Tests.Codeunit.al",
+      "tests": 1,
+      "codeunit": "95608"
+    },
+    {
+      "file": "test/MessageContractBatch2Tests.Codeunit.al",
+      "tests": 1,
+      "codeunit": "95609"
+    },
+    {
+      "file": "test/MessageContractBatch3Tests.Codeunit.al",
+      "tests": 1,
+      "codeunit": "95610"
+    },
+    {
+      "file": "test/MessageContractEffectTests.Codeunit.al",
+      "tests": 4,
+      "codeunit": "95611"
+    },
+    {
+      "file": "test/PhoneRoleCenterTests.Codeunit.al",
+      "tests": 10,
+      "codeunit": "95615"
+    },
+    {
+      "file": "test/TimesheetsRegistrationTests.Codeunit.al",
+      "tests": 1,
+      "codeunit": "95606"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+
+Dynamics 365 Business Central
+
+
+
+
+G
+Fara í aðalefni
+CRONUS International Ltd.
+Finance
+Cash Management
+Sales
+Purchasing
+Shopify
+Allar skýrslur
+
+Bifröst skilaboð:
+Allt
+
+
+Eyða
+Breyta lista
+Vinnsla
+
+Beiðni
+
+Svar
+
+Flytja út
+
+
+
+
+	
+Kenni
+	
+	
+Útgáfa
+	
+Tegund
+	
+Staða
+	
+Uppruni
+	
+Köllunarleið
+	
+Viðfangsefni
+	
+Tungumál
+	
+Dagsetning og tími
+	
+Dagsetning
+	
+Notandakenni
+	
+Síðast breytt
+	
+Svartími
+	
+Efnistegund gagna
+	
+		
+														
+	{0f10dbb1-8071-4f11-92fe-0a01faf2734c}	
+	1.0	Clockify.TimeEntry.Sync	Bakgrunnsverkefni lokið (Error)	Origo-BC Cloud Events MCP	Verk	ZZW478-R5-075	Icelandic (Iceland)	11/4/2026 5:04 AM	11/4/2026	GUNNAR	11/4/2026 5:04 AM	11 millisekúndur	text/json	
+Gögn beiðni
+Svargögn
+Lengd efnis403
+Auðkenni kallara
+NafnGUNNAR
+TegundNotandi
+Notaðu hægri og vinstri örvalyklana til að stilla stærðina. Notaðu Escape-lykilinn til að afturkalla eða Enter-lykilinn til að staðfesta.
+
+Listi með titilinn „Bifröst skilaboð“ hefur nú eitt atriði
+
+Síðast breytt, raðað í pöntunina Lækkandi
+[{"label":"Leita Bifröst skilaboð","value":""},{"label":null,"value":"{\"workspaceId\":\"ZZW478-WORKSPACE\",\"userId\":\"ZZW478-USER\",\"entryId\":\"ZZW478-ENTRY\",\"projectId\":\"ZZW478-PROJECT\",\"start\":\"2026-11-02T08:00:00Z\",\"end\":\"2026-11-02T09:00:00Z\"}"},{"label":null,"value":"{\"status\":\"Error\",\"error\":\"Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.\",\"hint\":\"Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \n\"Help.Implementation.Get\n\" með subject \n\"Clockify.TimeEntry.Sync\n\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund.\"}"}]

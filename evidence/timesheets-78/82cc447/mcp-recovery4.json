@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-04T05:03:36.368Z",
+  "priorAttempt": {
+    "executed": 69,
+    "passed": 68,
+    "failed": 1
+  },
+  "diagnosis": "TimeSheet.Post is a native operation with journal parameters only; harness incorrectly sent workspaceId. UnknownParameter stopped before execution. No business/provider writes occurred; all68valid previous assertions retained at the samecandidate/environment; only remaining14acceptance scenarios will run with corrected native envelope.",
+  "candidateSha": "82cc44767af738600b33d44a6b471a9d1dce5695"
+}

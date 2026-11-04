@@ -1,0 +1,35 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "owner": "worker-4",
+  "apps": [
+    {
+      "role": "Product",
+      "name": "Bifrost Timesheets",
+      "version": "28.0.0.0",
+      "source": [
+        {
+          "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+          "Commit": "82cc44767af738600b33d44a6b471a9d1dce5695"
+        }
+      ],
+      "installedSha256": "72fdd789b5542719d27cbf903e545de76add116c4292e4b31cd20975273aecd1",
+      "builtSha256": "72fdd789b5542719d27cbf903e545de76add116c4292e4b31cd20975273aecd1",
+      "exactArtifactMatch": true
+    },
+    {
+      "role": "Test",
+      "name": "Bifrost Timesheets - Tests",
+      "version": "28.0.0.0",
+      "source": [
+        {
+          "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+          "Commit": "82cc44767af738600b33d44a6b471a9d1dce5695"
+        }
+      ],
+      "installedSha256": "a3dae808050b4fc27df5f7abf5c18d7e370bed5ab0b0dcfdf1ce6e14e797ac7d",
+      "builtSha256": "a3dae808050b4fc27df5f7abf5c18d7e370bed5ab0b0dcfdf1ce6e14e797ac7d",
+      "exactArtifactMatch": true
+    }
+  ]
+}

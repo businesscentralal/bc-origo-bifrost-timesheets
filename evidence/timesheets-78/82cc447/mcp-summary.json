@@ -1,0 +1,1681 @@
+{
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "containerId": "f00055bdfa4e",
+  "createsOwnData": true,
+  "setup": "Own synthetic subjects/payloads, own Clockify Setup singleton; no external credentials/provider calls or business mutations. Empty workspace/journal asserted. Cleanup by verified owned-container deletion.",
+  "executed": 82,
+  "passed": 82,
+  "failed": 0,
+  "skipped": 0,
+  "types": [
+    "Clockify.Client.Create",
+    "Clockify.Client.Delete",
+    "Clockify.Client.Get",
+    "Clockify.Client.List",
+    "Clockify.Client.Update",
+    "Clockify.Currency.List",
+    "Clockify.CustomField.List",
+    "Clockify.Project.Create",
+    "Clockify.Project.Delete",
+    "Clockify.Project.Get",
+    "Clockify.Project.List",
+    "Clockify.Project.Update",
+    "Clockify.Tag.Create",
+    "Clockify.Tag.Delete",
+    "Clockify.Tag.List",
+    "Clockify.Tag.Update",
+    "Clockify.Task.Create",
+    "Clockify.Task.Delete",
+    "Clockify.Task.List",
+    "Clockify.Task.Update",
+    "Clockify.TimeEntry.SyncAllUsers",
+    "Clockify.TimeEntry.Create",
+    "Clockify.TimeEntry.Delete",
+    "Clockify.TimeEntry.Get",
+    "Clockify.TimeEntry.List",
+    "Clockify.TimeEntry.SyncRange",
+    "Clockify.TimeEntry.Sync",
+    "Clockify.TimeEntry.Update",
+    "Clockify.TimeEntry.SyncRangeToTimeSheet",
+    "Clockify.TimeEntry.SyncToTimeSheet",
+    "Clockify.UserGroup.List",
+    "Clockify.User.List",
+    "Clockify.TimeSheet.Post",
+    "Data.Records.Set"
+  ],
+  "results": [
+    {
+      "type": "Clockify.Client.Create",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-001",
+      "args": {
+        "type": "Clockify.Client.Create",
+        "data": {},
+        "subject": "ZZW478-001",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Create",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-002",
+      "args": {
+        "type": "Clockify.Client.Create",
+        "data": {},
+        "subject": "ZZW478-002",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Delete",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-003",
+      "args": {
+        "type": "Clockify.Client.Delete",
+        "data": {},
+        "subject": "ZZW478-003",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Delete",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-004",
+      "args": {
+        "type": "Clockify.Client.Delete",
+        "data": {},
+        "subject": "ZZW478-004",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Get",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-005",
+      "args": {
+        "type": "Clockify.Client.Get",
+        "data": {},
+        "subject": "ZZW478-005",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Get",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-006",
+      "args": {
+        "type": "Clockify.Client.Get",
+        "data": {},
+        "subject": "ZZW478-006",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-007",
+      "args": {
+        "type": "Clockify.Client.List",
+        "data": {},
+        "subject": "ZZW478-007",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-008",
+      "args": {
+        "type": "Clockify.Client.List",
+        "data": {},
+        "subject": "ZZW478-008",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Update",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-009",
+      "args": {
+        "type": "Clockify.Client.Update",
+        "data": {},
+        "subject": "ZZW478-009",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Update",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-010",
+      "args": {
+        "type": "Clockify.Client.Update",
+        "data": {},
+        "subject": "ZZW478-010",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Currency.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-011",
+      "args": {
+        "type": "Clockify.Currency.List",
+        "data": {},
+        "subject": "ZZW478-011",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Currency.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-012",
+      "args": {
+        "type": "Clockify.Currency.List",
+        "data": {},
+        "subject": "ZZW478-012",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.CustomField.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-013",
+      "args": {
+        "type": "Clockify.CustomField.List",
+        "data": {},
+        "subject": "ZZW478-013",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.CustomField.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-014",
+      "args": {
+        "type": "Clockify.CustomField.List",
+        "data": {},
+        "subject": "ZZW478-014",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Create",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-015",
+      "args": {
+        "type": "Clockify.Project.Create",
+        "data": {},
+        "subject": "ZZW478-015",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Create",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-016",
+      "args": {
+        "type": "Clockify.Project.Create",
+        "data": {},
+        "subject": "ZZW478-016",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Delete",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-017",
+      "args": {
+        "type": "Clockify.Project.Delete",
+        "data": {},
+        "subject": "ZZW478-017",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Delete",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-018",
+      "args": {
+        "type": "Clockify.Project.Delete",
+        "data": {},
+        "subject": "ZZW478-018",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Get",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-019",
+      "args": {
+        "type": "Clockify.Project.Get",
+        "data": {},
+        "subject": "ZZW478-019",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Get",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-020",
+      "args": {
+        "type": "Clockify.Project.Get",
+        "data": {},
+        "subject": "ZZW478-020",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-021",
+      "args": {
+        "type": "Clockify.Project.List",
+        "data": {},
+        "subject": "ZZW478-021",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-022",
+      "args": {
+        "type": "Clockify.Project.List",
+        "data": {},
+        "subject": "ZZW478-022",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Update",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-023",
+      "args": {
+        "type": "Clockify.Project.Update",
+        "data": {},
+        "subject": "ZZW478-023",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Project.Update",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-024",
+      "args": {
+        "type": "Clockify.Project.Update",
+        "data": {},
+        "subject": "ZZW478-024",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Create",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-025",
+      "args": {
+        "type": "Clockify.Tag.Create",
+        "data": {},
+        "subject": "ZZW478-025",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Create",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-026",
+      "args": {
+        "type": "Clockify.Tag.Create",
+        "data": {},
+        "subject": "ZZW478-026",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Delete",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-027",
+      "args": {
+        "type": "Clockify.Tag.Delete",
+        "data": {},
+        "subject": "ZZW478-027",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Delete",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-028",
+      "args": {
+        "type": "Clockify.Tag.Delete",
+        "data": {},
+        "subject": "ZZW478-028",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-029",
+      "args": {
+        "type": "Clockify.Tag.List",
+        "data": {},
+        "subject": "ZZW478-029",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-030",
+      "args": {
+        "type": "Clockify.Tag.List",
+        "data": {},
+        "subject": "ZZW478-030",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Update",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-031",
+      "args": {
+        "type": "Clockify.Tag.Update",
+        "data": {},
+        "subject": "ZZW478-031",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Tag.Update",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-032",
+      "args": {
+        "type": "Clockify.Tag.Update",
+        "data": {},
+        "subject": "ZZW478-032",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Create",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-033",
+      "args": {
+        "type": "Clockify.Task.Create",
+        "data": {},
+        "subject": "ZZW478-033",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Create",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-034",
+      "args": {
+        "type": "Clockify.Task.Create",
+        "data": {},
+        "subject": "ZZW478-034",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Delete",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-035",
+      "args": {
+        "type": "Clockify.Task.Delete",
+        "data": {},
+        "subject": "ZZW478-035",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Delete",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-036",
+      "args": {
+        "type": "Clockify.Task.Delete",
+        "data": {},
+        "subject": "ZZW478-036",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-037",
+      "args": {
+        "type": "Clockify.Task.List",
+        "data": {},
+        "subject": "ZZW478-037",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-038",
+      "args": {
+        "type": "Clockify.Task.List",
+        "data": {},
+        "subject": "ZZW478-038",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Update",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-039",
+      "args": {
+        "type": "Clockify.Task.Update",
+        "data": {},
+        "subject": "ZZW478-039",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Task.Update",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-040",
+      "args": {
+        "type": "Clockify.Task.Update",
+        "data": {},
+        "subject": "ZZW478-040",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-041",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncAllUsers",
+        "data": {},
+        "subject": "ZZW478-041",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-042",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncAllUsers",
+        "data": {},
+        "subject": "ZZW478-042",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Create",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-043",
+      "args": {
+        "type": "Clockify.TimeEntry.Create",
+        "data": {},
+        "subject": "ZZW478-043",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Create",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-044",
+      "args": {
+        "type": "Clockify.TimeEntry.Create",
+        "data": {},
+        "subject": "ZZW478-044",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Delete",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-045",
+      "args": {
+        "type": "Clockify.TimeEntry.Delete",
+        "data": {},
+        "subject": "ZZW478-045",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Delete",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-046",
+      "args": {
+        "type": "Clockify.TimeEntry.Delete",
+        "data": {},
+        "subject": "ZZW478-046",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Get",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-047",
+      "args": {
+        "type": "Clockify.TimeEntry.Get",
+        "data": {},
+        "subject": "ZZW478-047",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Get",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-048",
+      "args": {
+        "type": "Clockify.TimeEntry.Get",
+        "data": {},
+        "subject": "ZZW478-048",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-049",
+      "args": {
+        "type": "Clockify.TimeEntry.List",
+        "data": {},
+        "subject": "ZZW478-049",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-050",
+      "args": {
+        "type": "Clockify.TimeEntry.List",
+        "data": {},
+        "subject": "ZZW478-050",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRange",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-051",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRange",
+        "data": {},
+        "subject": "ZZW478-051",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRange",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-052",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRange",
+        "data": {},
+        "subject": "ZZW478-052",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-053",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {},
+        "subject": "ZZW478-053",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-054",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {},
+        "subject": "ZZW478-054",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Update",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-055",
+      "args": {
+        "type": "Clockify.TimeEntry.Update",
+        "data": {},
+        "subject": "ZZW478-055",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Update",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-056",
+      "args": {
+        "type": "Clockify.TimeEntry.Update",
+        "data": {},
+        "subject": "ZZW478-056",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRangeToTimeSheet",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-057",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRangeToTimeSheet",
+        "data": {},
+        "subject": "ZZW478-057",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRangeToTimeSheet",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-058",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRangeToTimeSheet",
+        "data": {},
+        "subject": "ZZW478-058",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncToTimeSheet",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-059",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncToTimeSheet",
+        "data": {},
+        "subject": "ZZW478-059",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncToTimeSheet",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-060",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncToTimeSheet",
+        "data": {},
+        "subject": "ZZW478-060",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.UserGroup.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-061",
+      "args": {
+        "type": "Clockify.UserGroup.List",
+        "data": {},
+        "subject": "ZZW478-061",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.UserGroup.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-062",
+      "args": {
+        "type": "Clockify.UserGroup.List",
+        "data": {},
+        "subject": "ZZW478-062",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.User.List",
+      "lcid": 1033,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-063",
+      "args": {
+        "type": "Clockify.User.List",
+        "data": {},
+        "subject": "ZZW478-063",
+        "lcid": 1033
+      },
+      "expected": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "actual": "No workspace was supplied. Provide 'workspaceId' in the request or set a Default Workspace ID on Clockify Setup.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.User.List",
+      "lcid": 1039,
+      "scenario": "missing-workspace",
+      "subject": "ZZW478-064",
+      "args": {
+        "type": "Clockify.User.List",
+        "data": {},
+        "subject": "ZZW478-064",
+        "lcid": 1039
+      },
+      "expected": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "actual": "Ekkert vinnusvæði var gefið upp. Gefðu upp 'workspaceId' í beiðninni eða stilltu sjálfgefið vinnusvæði í Clockify-uppsetningu.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Get",
+      "lcid": 1033,
+      "scenario": "missing-clientId",
+      "subject": "ZZW478-065",
+      "args": {
+        "type": "Clockify.Client.Get",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE"
+        },
+        "subject": "ZZW478-065",
+        "lcid": 1033
+      },
+      "expected": "Missing required 'clientId' in the request.",
+      "actual": "Missing required 'clientId' in the request.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Create",
+      "lcid": 1033,
+      "scenario": "missing-body",
+      "subject": "ZZW478-066",
+      "args": {
+        "type": "Clockify.Client.Create",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE"
+        },
+        "subject": "ZZW478-066",
+        "lcid": 1033
+      },
+      "expected": "Missing required 'body' object in the request.",
+      "actual": "Missing required 'body' object in the request.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1033,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-067",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z"
+        },
+        "subject": "ZZW478-067",
+        "lcid": 1033
+      },
+      "expected": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "actual": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRange",
+      "lcid": 1033,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-068",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRange",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z"
+        },
+        "subject": "ZZW478-068",
+        "lcid": 1033
+      },
+      "expected": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "actual": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeSheet.Post",
+      "lcid": 1033,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-069",
+      "args": {
+        "type": "Clockify.TimeSheet.Post",
+        "data": {},
+        "subject": "ZZW478-R5-069",
+        "lcid": 1033
+      },
+      "expected": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "actual": "No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "lcid": 1033,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-070",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncAllUsers",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z",
+          "target": "journal"
+        },
+        "subject": "ZZW478-R5-070",
+        "lcid": 1033
+      },
+      "expected": "target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch'.",
+      "actual": "target=journal requires a Job Journal. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch'.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1033,
+      "scenario": "in-progress-refusal",
+      "subject": "ZZW478-R5-071",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z"
+        },
+        "subject": "ZZW478-R5-071",
+        "lcid": 1033
+      },
+      "expected": "In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty 'end' value (timer stopped).",
+      "actual": "In-progress time entries are not synced to Job Journal. Provide an entry with a non-empty 'end' value (timer stopped).",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncToTimeSheet",
+      "lcid": 1033,
+      "scenario": "in-progress-refusal",
+      "subject": "ZZW478-R5-072",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncToTimeSheet",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z"
+        },
+        "subject": "ZZW478-R5-072",
+        "lcid": 1033
+      },
+      "expected": "In-progress time entries are not synced. Provide an entry with a non-empty 'end' value (timer stopped).",
+      "actual": "In-progress time entries are not synced. Provide an entry with a non-empty 'end' value (timer stopped).",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Get",
+      "lcid": 1039,
+      "scenario": "missing-clientId",
+      "subject": "ZZW478-R5-073",
+      "args": {
+        "type": "Clockify.Client.Get",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE"
+        },
+        "subject": "ZZW478-R5-073",
+        "lcid": 1039
+      },
+      "expected": "Nauðsynlegt 'clientId' vantar í beiðnina.",
+      "actual": "Nauðsynlegt 'clientId' vantar í beiðnina.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.Client.Create",
+      "lcid": 1039,
+      "scenario": "missing-body",
+      "subject": "ZZW478-R5-074",
+      "args": {
+        "type": "Clockify.Client.Create",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE"
+        },
+        "subject": "ZZW478-R5-074",
+        "lcid": 1039
+      },
+      "expected": "Nauðsynlegan 'body' hlut vantar í beiðnina.",
+      "actual": "Nauðsynlegan 'body' hlut vantar í beiðnina.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1039,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-075",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z"
+        },
+        "subject": "ZZW478-R5-075",
+        "lcid": 1039
+      },
+      "expected": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "actual": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncRange",
+      "lcid": 1039,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-076",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncRange",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z"
+        },
+        "subject": "ZZW478-R5-076",
+        "lcid": 1039
+      },
+      "expected": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "actual": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeSheet.Post",
+      "lcid": 1039,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-077",
+      "args": {
+        "type": "Clockify.TimeSheet.Post",
+        "data": {},
+        "subject": "ZZW478-R5-077",
+        "lcid": 1039
+      },
+      "expected": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "actual": "Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncAllUsers",
+      "lcid": 1039,
+      "scenario": "missing-journal",
+      "subject": "ZZW478-R5-078",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncAllUsers",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "start": "2026-11-02T08:00:00Z",
+          "end": "2026-11-02T09:00:00Z",
+          "target": "journal"
+        },
+        "subject": "ZZW478-R5-078",
+        "lcid": 1039
+      },
+      "expected": "target=journal krefst verkbókar. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch'.",
+      "actual": "target=journal krefst verkbókar. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch'.",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.Sync",
+      "lcid": 1039,
+      "scenario": "in-progress-refusal",
+      "subject": "ZZW478-R5-079",
+      "args": {
+        "type": "Clockify.TimeEntry.Sync",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z"
+        },
+        "subject": "ZZW478-R5-079",
+        "lcid": 1039
+      },
+      "expected": "Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).",
+      "actual": "Ólokin tímafærsla er ekki samstillt í verkbók. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).",
+      "passed": true
+    },
+    {
+      "type": "Clockify.TimeEntry.SyncToTimeSheet",
+      "lcid": 1039,
+      "scenario": "in-progress-refusal",
+      "subject": "ZZW478-R5-080",
+      "args": {
+        "type": "Clockify.TimeEntry.SyncToTimeSheet",
+        "data": {
+          "workspaceId": "ZZW478-WORKSPACE",
+          "userId": "ZZW478-USER",
+          "entryId": "ZZW478-ENTRY",
+          "projectId": "ZZW478-PROJECT",
+          "start": "2026-11-02T08:00:00Z"
+        },
+        "subject": "ZZW478-R5-080",
+        "lcid": 1039
+      },
+      "expected": "Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).",
+      "actual": "Ólokin tímafærsla er ekki samstillt. Sendu færslu með útfylltu 'end' gildi (teljari stöðvaður).",
+      "passed": true
+    },
+    {
+      "type": "Data.Records.Set",
+      "lcid": 1033,
+      "scenario": "protected-webhook-url-refusal-with-localized-setup-hint",
+      "subject": "ZZW478-R5-081",
+      "args": {
+        "type": "Data.Records.Set",
+        "data": {
+          "tableName": "Clockify Setup ori",
+          "data": [
+            {
+              "id": "7364472F-0CD8-F111-B7A5-BB2CD95E6050",
+              "fields": {
+                "WebhookReceiverURL": "https://invalid.example/ZZW478"
+              }
+            }
+          ]
+        },
+        "subject": "ZZW478-R5-081",
+        "lcid": 1033
+      },
+      "actual": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Field Webhook Receiver URL (13) in table 10036853 (Clockify Setup) cannot be written via Data.Records.Set.",
+        "parameter": "data[0].fields.WebhookReceiverURL",
+        "received": "https://invalid.example/ZZW478",
+        "expected": "a field the user may write (Bifrost Field Access)",
+        "nextStep": "the Timesheets setup page (Clockify Setup)",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Data.Records.Set\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Data.Records.Set",
+      "lcid": 1039,
+      "scenario": "protected-webhook-url-refusal-with-localized-setup-hint",
+      "subject": "ZZW478-R5-082",
+      "args": {
+        "type": "Data.Records.Set",
+        "data": {
+          "tableName": "Clockify Setup ori",
+          "data": [
+            {
+              "id": "7364472F-0CD8-F111-B7A5-BB2CD95E6050",
+              "fields": {
+                "WebhookReceiverURL": "https://invalid.example/ZZW478"
+              }
+            }
+          ]
+        },
+        "subject": "ZZW478-R5-082",
+        "lcid": 1039
+      },
+      "actual": {
+        "status": "Error",
+        "code": "PermissionDenied",
+        "error": "Ekki er hægt að skrifa í reit Móttökuslóð vefkróka (13) í töflu 10036853 (Uppsetning Clockify) með Data.Records.Set.",
+        "parameter": "data[0].fields.WebhookReceiverURL",
+        "received": "https://invalid.example/ZZW478",
+        "expected": "reitur sem notandinn má skrifa í (Reitaaðgangur Bifröst)",
+        "nextStep": "uppsetningarsíðu Bifrost Timesheets (Clockify Setup)",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Data.Records.Set\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    }
+  ],
+  "startedAt": "2026-11-04T05:03:36.531Z",
+  "verified": true,
+  "recovery": {
+    "priorPassed": 68,
+    "malformedPriorProbe": "TimeSheet.Post does not declare workspaceId; request stopped before connector. Corrected payload; exact refusal expectation unchanged. Prior68successful negative scenarios are retained at sameSHA/container without replay."
+  },
+  "identity": {
+    "company": "CRONUS International Ltd.",
+    "messageType": "Help.WhoAmI.Get",
+    "status": "Success",
+    "environment": {
+      "name": "Sandbox",
+      "entraTenantId": "313E18DD-A7B6-4F44-B146-1554A8D25D8B",
+      "companyId": "68567D1C-5DC0-F111-85BF-3833C5D19C4C",
+      "companyName": "CRONUS International Ltd.",
+      "companyDisplayName": "",
+      "isSaaS": true,
+      "isOnPremises": true,
+      "isProduction": false,
+      "isSandbox": true
+    },
+    "user": {
+      "userSecurityId": "37AE7E89-37E0-4076-8B1D-AEB09217DBCC",
+      "userName": "GUNNAR",
+      "fullName": "",
+      "contactEmail": "",
+      "authenticationEmail": ""
+    },
+    "personalization": {
+      "profileId": "BUSINESS MANAGER",
+      "languageId": 1033,
+      "localeId": 1033,
+      "company": "",
+      "timeZone": "UTC"
+    },
+    "sessionSourceApproval": {
+      "approvalType": "Automatic",
+      "requiresApproval": false
+    },
+    "userSetup": null,
+    "approvalSetup": null,
+    "notificationSetup": [
+      {
+        "notificationType": "New Record",
+        "notificationMethod": "Email"
+      },
+      {
+        "notificationType": "Approval",
+        "notificationMethod": "Email"
+      },
+      {
+        "notificationType": "Overdue",
+        "notificationMethod": "Email"
+      }
+    ],
+    "resource": null,
+    "salesperson": null,
+    "employee": null,
+    "manager": null,
+    "companyInfo": {
+      "name": "CRONUS International Ltd.",
+      "name2": "",
+      "address": "5 The Ring",
+      "city": "London",
+      "postCode": "W2 8HG",
+      "countryRegionCode": "GB",
+      "phoneNo": "0666-666-6666",
+      "email": "",
+      "homePage": "",
+      "vatRegistrationNo": "777777777",
+      "registrationNo": ""
+    },
+    "warehouseLocations": null,
+    "responsibilityCenters": null,
+    "dueFromToOwner": null,
+    "customer": null,
+    "vendor": null,
+    "contact": null,
+    "systemPrompt": null,
+    "unreadNotifications": [],
+    "pendingApprovals": null,
+    "canUpdateCompanyMemory": true,
+    "canSendAndCancelApprovalRequests": true
+  },
+  "fieldNames": {
+    "Primary Key": "PrimaryKey",
+    "API Version": "APIVersion",
+    "Default Workspace": "DefaultWorkspace",
+    "Workspace Name": "WorkspaceName",
+    "Webhook Receiver URL": "WebhookReceiverURL",
+    "Job Jnl. Template": "JobJnl_Template",
+    "Job Jnl. Batch": "JobJnl_Batch",
+    "Default Work Type": "DefaultWorkType",
+    "$systemId": "systemId",
+    "SystemCreatedAt": "SystemCreatedAt",
+    "SystemCreatedBy": "SystemCreatedBy",
+    "SystemModifiedAt": "SystemModifiedAt",
+    "SystemModifiedBy": "SystemModifiedBy"
+  },
+  "setupId": "7364472F-0CD8-F111-B7A5-BB2CD95E6050",
+  "fixtureOrigin": "Same-task full117test native suite created this singleton in our new ephemeral container; no shared/customer fixture. Generic reseed attempt was refused and not replayed; guard remains Blocked.",
+  "selfSeededSetup": {
+    "company": "CRONUS International Ltd.",
+    "table": "Clockify Setup ori",
+    "skip": 0,
+    "take": 10,
+    "count": 1,
+    "records": [
+      {
+        "id": "7364472F-0CD8-F111-B7A5-BB2CD95E6050",
+        "primaryKey": {
+          "PrimaryKey": ""
+        },
+        "fields": {
+          "DefaultWorkspace": "",
+          "JobJnl_Template": "",
+          "JobJnl_Batch": "",
+          "WebhookReceiverURL": ""
+        }
+      }
+    ],
+    "noOfRecords": 1
+  },
+  "liveDeclaredParameters": {
+    "Clockify.Client.Create": [
+      "workspaceId",
+      "body"
+    ],
+    "Clockify.Client.Delete": [
+      "workspaceId",
+      "clientId"
+    ],
+    "Clockify.Client.Get": [
+      "workspaceId",
+      "clientId"
+    ],
+    "Clockify.Client.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.Client.Update": [
+      "workspaceId",
+      "clientId",
+      "body"
+    ],
+    "Clockify.Currency.List": [
+      "workspaceId"
+    ],
+    "Clockify.CustomField.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.Project.Create": [
+      "workspaceId",
+      "body"
+    ],
+    "Clockify.Project.Delete": [
+      "workspaceId",
+      "projectId"
+    ],
+    "Clockify.Project.Get": [
+      "workspaceId",
+      "projectId"
+    ],
+    "Clockify.Project.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.Project.Update": [
+      "workspaceId",
+      "projectId",
+      "body"
+    ],
+    "Clockify.Tag.Create": [
+      "workspaceId",
+      "body"
+    ],
+    "Clockify.Tag.Delete": [
+      "workspaceId",
+      "tagId"
+    ],
+    "Clockify.Tag.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.Tag.Update": [
+      "workspaceId",
+      "tagId",
+      "body"
+    ],
+    "Clockify.Task.Create": [
+      "workspaceId",
+      "projectId",
+      "body"
+    ],
+    "Clockify.Task.Delete": [
+      "workspaceId",
+      "projectId",
+      "taskId"
+    ],
+    "Clockify.Task.List": [
+      "workspaceId",
+      "projectId",
+      "query"
+    ],
+    "Clockify.Task.Update": [
+      "workspaceId",
+      "projectId",
+      "taskId",
+      "body"
+    ],
+    "Clockify.TimeEntry.SyncAllUsers": [
+      "workspaceId",
+      "start",
+      "end",
+      "target",
+      "skip",
+      "take",
+      "journalTemplate",
+      "journalBatch"
+    ],
+    "Clockify.TimeEntry.Create": [
+      "workspaceId",
+      "userId",
+      "body"
+    ],
+    "Clockify.TimeEntry.Delete": [
+      "workspaceId",
+      "timeEntryId"
+    ],
+    "Clockify.TimeEntry.Get": [
+      "workspaceId",
+      "timeEntryId"
+    ],
+    "Clockify.TimeEntry.List": [
+      "workspaceId",
+      "userId",
+      "query"
+    ],
+    "Clockify.TimeEntry.SyncRange": [
+      "workspaceId",
+      "userId",
+      "start",
+      "end",
+      "journalTemplate",
+      "journalBatch"
+    ],
+    "Clockify.TimeEntry.Sync": [
+      "workspaceId",
+      "userId",
+      "entryId",
+      "projectId",
+      "taskId",
+      "start",
+      "end",
+      "tagIds",
+      "journalTemplate",
+      "journalBatch"
+    ],
+    "Clockify.TimeEntry.Update": [
+      "workspaceId",
+      "timeEntryId",
+      "body"
+    ],
+    "Clockify.TimeEntry.SyncRangeToTimeSheet": [
+      "workspaceId",
+      "userId",
+      "start",
+      "end"
+    ],
+    "Clockify.TimeEntry.SyncToTimeSheet": [
+      "workspaceId",
+      "userId",
+      "entryId",
+      "projectId",
+      "taskId",
+      "start",
+      "end",
+      "tagIds"
+    ],
+    "Clockify.UserGroup.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.User.List": [
+      "workspaceId",
+      "query"
+    ],
+    "Clockify.TimeSheet.Post": [
+      "journalTemplate",
+      "journalBatch"
+    ],
+    "Data.Records.Set": [
+      "tableName",
+      "tableNumber",
+      "data",
+      "force"
+    ]
+  },
+  "setupUnchanged": true,
+  "finishedAt": "2026-11-04T05:03:56.028Z"
+}

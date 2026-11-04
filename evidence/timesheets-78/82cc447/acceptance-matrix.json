@@ -1,0 +1,173 @@
+{
+  "issueUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/49",
+  "prUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/78",
+  "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+  "scope": "Mechanical own conflict repair; import approved mainPR75 unchanged,preserveissue49refusals and tests",
+  "criteria": [
+    {
+      "id": "AC01",
+      "criterion": "MixedLanguageLabels exits0,emptyallowlists",
+      "status": "verified",
+      "evidence": "guard-mixed-language.log"
+    },
+    {
+      "id": "AC02",
+      "criterion": "MixedLanguageLabelsSelfTest exits0",
+      "status": "verified",
+      "evidence": "guard-selftest.log"
+    },
+    {
+      "id": "AC03",
+      "criterion": "No assertion weakening/no sourceguard orpipeline changes",
+      "status": "verified",
+      "evidence": "gateway-layer2.json"
+    },
+    {
+      "id": "AC04",
+      "criterion": "All10mixed-languageprocedures resolved;1039refusals",
+      "status": "verified native117,MCP82,UI4bothlanguages",
+      "evidence": "full-suite-summary.json"
+    },
+    {
+      "id": "AC05",
+      "criterion": "19labels translated,no renameevasion",
+      "status": "verified guard/source",
+      "evidence": "guard-mixed-language.log"
+    },
+    {
+      "id": "AC06",
+      "criterion": "RealIcelandic and placeholders preserved",
+      "status": "developer sourcecheck done;independent review subsequent",
+      "evidence": "resolution-proof.json"
+    },
+    {
+      "id": "AC07",
+      "criterion": "DefaultEnglish labels retained;existingtests valid",
+      "status": "verified117native",
+      "evidence": "full-suite-summary.json"
+    },
+    {
+      "id": "AC08",
+      "criterion": "4new1039tests plusconfiguredexistingtests allgreen",
+      "status": "verified117of117",
+      "evidence": "full-suite-summary.json"
+    },
+    {
+      "id": "AC09",
+      "criterion": "Freshcompile thenunmodifiedXLFsync",
+      "status": "verified",
+      "evidence": "guard-xlf-sync-after-build.log"
+    },
+    {
+      "id": "AC10",
+      "criterion": "Product/testapp0errors0warnings",
+      "status": "verified",
+      "evidence": "compile-summary.json"
+    },
+    {
+      "id": "AC11",
+      "criterion": "No newissue56table/field/page change",
+      "status": "verified boundedmerge",
+      "evidence": "gateway-layer2.json"
+    }
+  ],
+  "remainingRequired": [
+    "Meaningful pairedCI currenttip; required checks still running",
+    "Guardedhandoff thenindependentClaude/Grok/eligibleapproval",
+    "Architectmerge/deployment andsameSHA TesterUAT; originalissue49delivery acceptance remains"
+  ],
+  "issueComplete": false,
+  "nativeVerification": {
+    "sourceSha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+    "configured117Tests": 117,
+    "executed": 117,
+    "passed": 117,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "full-suite-summary.json",
+    "deployedPackageIdentity": "deployed-provenance.json"
+  },
+  "mcpVerification": {
+    "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+    "containerId": "f00055bdfa4e",
+    "executed": 82,
+    "passed": 82,
+    "failed": 0,
+    "skipped": 0,
+    "verified": true,
+    "touchedMessageTypes": [
+      "Clockify.Client.Create",
+      "Clockify.Client.Delete",
+      "Clockify.Client.Get",
+      "Clockify.Client.List",
+      "Clockify.Client.Update",
+      "Clockify.Currency.List",
+      "Clockify.CustomField.List",
+      "Clockify.Project.Create",
+      "Clockify.Project.Delete",
+      "Clockify.Project.Get",
+      "Clockify.Project.List",
+      "Clockify.Project.Update",
+      "Clockify.Tag.Create",
+      "Clockify.Tag.Delete",
+      "Clockify.Tag.List",
+      "Clockify.Tag.Update",
+      "Clockify.Task.Create",
+      "Clockify.Task.Delete",
+      "Clockify.Task.List",
+      "Clockify.Task.Update",
+      "Clockify.TimeEntry.SyncAllUsers",
+      "Clockify.TimeEntry.Create",
+      "Clockify.TimeEntry.Delete",
+      "Clockify.TimeEntry.Get",
+      "Clockify.TimeEntry.List",
+      "Clockify.TimeEntry.SyncRange",
+      "Clockify.TimeEntry.Sync",
+      "Clockify.TimeEntry.Update",
+      "Clockify.TimeEntry.SyncRangeToTimeSheet",
+      "Clockify.TimeEntry.SyncToTimeSheet",
+      "Clockify.UserGroup.List",
+      "Clockify.User.List",
+      "Clockify.TimeSheet.Post",
+      "Data.Records.Set"
+    ],
+    "createsOwnData": true,
+    "fixtureOrigin": "Same-task full117test native suite created this singleton in our new ephemeral container; no shared/customer fixture. Generic reseed attempt was refused and not replayed; guard remains Blocked.",
+    "setupUnchanged": true,
+    "coverage": "Missing-workspace across all32outboundtypes; missingclient/body; missingjournal/inprogressnative refusal; protectedWebhookURL. BothLCIDs1033/1039. No liveprovider/secret/license/http mutations.",
+    "harnessRecovery": "Full raw attempt history retained; malformed request probes were corrected without product/testsource changes or assertion weakening; valid final acceptance comprises68retained sameSHA/container passes plus14remaining passes."
+  },
+  "uiVerification": {
+    "sha": "82cc44767af738600b33d44a6b471a9d1dce5695",
+    "containerId": "f00055bdfa4e",
+    "executed": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "verified": true,
+    "languageRestored": true
+  },
+  "cleanup": {
+    "containerId": "f00055bdfa4e",
+    "owner": "worker-4",
+    "startedAt": "2026-11-04T05:07:04.011Z",
+    "verified": true,
+    "allOwnedFixturesPurged": true,
+    "ownership": {
+      "id": "f00055bdfa4e",
+      "displayName": "alviss-worker4-timesheets78-20261104-w1"
+    },
+    "deleteAttemptedAt": "2026-11-04T05:07:04.262Z",
+    "deleteStatusCode": 204,
+    "readbacks": [
+      {
+        "at": "2026-11-04T05:07:04.429Z",
+        "statusCode": 404,
+        "exists": false
+      }
+    ],
+    "finishedAt": "2026-11-04T05:07:04.429Z",
+    "priorOwnedSelectionRestored": true
+  },
+  "developerAcceptanceVerified": true
+}

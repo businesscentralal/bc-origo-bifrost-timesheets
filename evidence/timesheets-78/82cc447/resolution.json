@@ -1,0 +1,29 @@
+{
+  "method": "Preserve current main XLF bytes and insert only23 branch-only units in original order",
+  "inserted": [
+    "Codeunit 3822493569 - NamedType 2081172381",
+    "Codeunit 1546909816 - NamedType 2138340339",
+    "Codeunit 3266423967 - NamedType 3308190715",
+    "Codeunit 3266423967 - NamedType 1735106122",
+    "Codeunit 3266423967 - NamedType 346853592",
+    "Codeunit 1964021866 - NamedType 2958635972",
+    "Codeunit 1156826079 - NamedType 314657624",
+    "Codeunit 1156826079 - NamedType 2958635972",
+    "Codeunit 1156826079 - NamedType 2129296526",
+    "Codeunit 3065451015 - NamedType 3834987093",
+    "Codeunit 3065451015 - NamedType 1834329580",
+    "Codeunit 3065451015 - NamedType 2958635972",
+    "Codeunit 3065451015 - NamedType 2932411483",
+    "Codeunit 916967193 - NamedType 3113302811",
+    "Codeunit 916967193 - NamedType 678402954",
+    "Codeunit 916967193 - NamedType 1072026998",
+    "Codeunit 916967193 - NamedType 4211997839",
+    "Codeunit 916967193 - NamedType 1774939607",
+    "Codeunit 916967193 - NamedType 537269371",
+    "Codeunit 1239616675 - NamedType 2958635972",
+    "Codeunit 454857898 - NamedType 314657624",
+    "Codeunit 2559077546 - NamedType 1733614201",
+    "Codeunit 2559077546 - NamedType 1834329580"
+  ],
+  "count": 23
+}
