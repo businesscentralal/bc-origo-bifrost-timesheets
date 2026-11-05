@@ -300,12 +300,23 @@ codeunit 95622 "TS Absence Reg Tests"
     procedure Scenario_AC07_GenericTimeSheetWrites_Restricted()
     var
         TempArgument: Record "Message Argument ori" temporary;
+        TableNo: Integer;
     begin
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Header", false), 'Header writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Line", false), 'Line writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Detail", false), 'Detail writes must use dedicated messages.');
         Assert.IsFalse(TempArgument.IsTableReadRestrictedForDataRecords(Database::"Time Sheet Line"), 'Line reads remain available.');
-        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', TempArgument.GetDedicatedMessageTypeHintForWrite(Database::"Time Sheet Line"), 'The table guard must retain the native status workflow hint.');
+        foreach TableNo in [Database::"Time Sheet Line", Database::"Time Sheet Detail"] do begin
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheetLine.CopyFromPrevious') > 0, 'The shared table hint must name Timesheets.TimeSheetLine.CopyFromPrevious.');
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheetLine.CreateFromPlanning') > 0, 'The shared table hint must name Timesheets.TimeSheetLine.CreateFromPlanning.');
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.Absence.Register') > 0, 'The shared table hint must name Timesheets.Absence.Register.');
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheet.Reopen') > 0, 'The shared table hint must name Timesheets.TimeSheet.Reopen.');
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheet.Post') > 0, 'The shared table hint must name Timesheets.TimeSheet.Post.');
+            Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheet.Archive') > 0, 'The shared table hint must name Timesheets.TimeSheet.Archive.');
+        end;
+        Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(Database::"Time Sheet Line"), 'Timesheets.TimeSheet.Submit') > 0, 'The hint must name Timesheets.TimeSheet.Submit.');
+        Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(Database::"Time Sheet Line"), 'Timesheets.TimeSheet.Approve') > 0, 'The hint must name Timesheets.TimeSheet.Approve.');
+        Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(Database::"Time Sheet Line"), 'Timesheets.TimeSheet.Reject') > 0, 'The hint must name Timesheets.TimeSheet.Reject.');
     end;
 
     /// <summary>An out-of-period date is refused with the hours parameter and no write.</summary>

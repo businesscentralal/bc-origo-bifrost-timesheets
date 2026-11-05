@@ -1,6 +1,5 @@
 ﻿namespace Origo.Bifrost.Timesheets;
 
-using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 
 /// <summary>
@@ -15,9 +14,9 @@ codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori
 
     procedure IsEnabled(): Boolean
     var
-        TimeSheetHeader: Record "Time Sheet Header";
+        NativeMgt: Codeunit "TS Native Mgt ori";
     begin
-        exit(TimeSheetHeader.WritePermission());
+        exit(NativeMgt.CanReopenSheets());
     end;
 
     procedure GetFilterTableNo(): Integer
@@ -141,24 +140,17 @@ codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori
 
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
-        RequestJson: JsonObject;
+        NativeMgt: Codeunit "TS Native Mgt ori";
         ResponseJson: JsonObject;
-        JsonToken: JsonToken;
-        EndingDateTo: Date;
-        ReopenedLineCount: Integer;
+        StatusToken: JsonToken;
     begin
         Argument.AssertVersion1();
-        RequestJson := Argument.GetRequestJson();
-        if RequestJson.Get('endingDateTo', JsonToken) then
-            if JsonToken.IsValue() then
-                if not Evaluate(EndingDateTo, JsonToken.AsValue().AsText(), 9) then
-                    EndingDateTo := 0D;
-
-        ReopenedLineCount := TimeSheetMgt.ReopenTimeSheets(EndingDateTo);
-
-        ResponseJson.Add('status', 'Success');
-        ResponseJson.Add('reopenedLines', ReopenedLineCount);
-        Argument.SetResponseJson(ResponseJson);
+        NativeMgt.ExecuteReopen(Argument);
+        ResponseJson := Argument.GetResponseJson();
+        if ResponseJson.Get('status', StatusToken) then
+            if StatusToken.AsValue().AsText() = 'Success' then begin
+                NativeMgt.AddLegacyNameWarning(ResponseJson);
+                Argument.SetResponseJson(ResponseJson);
+            end;
     end;
 }
