@@ -1816,9 +1816,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reject Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
       <trans-unit id="Codeunit 1365144420 - NamedType 763692369" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject</source>
-          <target>Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject</note>
+          <source>Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject or Timesheets.TimeSheet.Reopen</source>
+          <target>Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject eða Timesheets.TimeSheet.Reopen</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject eða Timesheets.TimeSheet.Reopen</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Restrict ori - NamedType StatusHintTok</note>
         </trans-unit>
       <trans-unit id="Codeunit 3471428701 - NamedType 650235816" size-unit="char" translate="yes" xml:space="preserve">

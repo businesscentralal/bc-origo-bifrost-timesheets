@@ -347,7 +347,7 @@ codeunit 95614 "TS Native Sheet Tests"
         DispatchGenericWrite(TempArgument, Request);
         // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
         Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
-        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
+        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject or Timesheets.TimeSheet.Reopen', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
         Line.Get(SheetNo, 10000);
         Assert.AreEqual(Line.Status::Open, Line.Status, 'Generic status writes must leave the line open.');
     end;

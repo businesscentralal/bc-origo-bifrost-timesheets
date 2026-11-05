@@ -9,11 +9,10 @@ codeunit 10036872 "TS Sheet Restrict ori"
     Access = Internal;
 
     var
-        ReopenHintTok: Label 'Timesheets.TimeSheet.Reopen', Locked = true;
         PostingHintTok: Label 'Timesheets.TimeSheet.Post', Locked = true;
         ArchiveHintTok: Label 'Timesheets.TimeSheet.Archive', Locked = true;
         FillHintTok: Label 'Timesheets.TimeSheetLine.CopyFromPrevious, Timesheets.TimeSheetLine.CreateFromPlanning', Locked = true;
-        StatusHintTok: Label 'Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve or Timesheets.TimeSheet.Reject', Comment = 'is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve eða Timesheets.TimeSheet.Reject';
+        StatusHintTok: Label 'Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject or Timesheets.TimeSheet.Reopen', Comment = 'is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject eða Timesheets.TimeSheet.Reopen';
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsFieldWriteRestricted(TableNo: Integer; FieldNo: Integer; var IsRestricted: Boolean)
@@ -57,14 +56,14 @@ codeunit 10036872 "TS Sheet Restrict ori"
             Database::"Time Sheet Line":
                 begin
                     if FieldNo = Line.FieldNo(Status) then
-                        exit(StatusHintTok + ', ' + ReopenHintTok);
+                        exit(StatusHintTok);
                     if FieldNo = Line.FieldNo(Posted) then
                         exit(PostingHintTok);
                 end;
             Database::"Time Sheet Detail":
                 begin
                     if FieldNo = Detail.FieldNo(Status) then
-                        exit(StatusHintTok + ', ' + ReopenHintTok);
+                        exit(StatusHintTok);
                     if FieldNo in [Detail.FieldNo(Posted), Detail.FieldNo("Posted Quantity")] then
                         exit(PostingHintTok);
                 end;

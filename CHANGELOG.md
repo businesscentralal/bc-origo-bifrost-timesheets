@@ -10,6 +10,8 @@
 
 ### Fixed - Native layer integration (#67)
 
+- Combine Submit/Approve/Reject/Reopen status-write guidance in one localized hint. Update Submit’s exact expected hint while retaining the PermissionDenied, protected-field and unchanged-record assertions.
+
 - Integrate Submit and line-fill changes from main while preserving their contracts, permission checks, enum values and both independent test suites. Bulk permission checks remain separate from Submit.
 - Move unpublished native Reopen/Post/Archive implementations to free codeunits 10036864–10036866 and bulk tests to 95619 to avoid main’s fill/Submit IDs. Retain all native and legacy message names.
 
