@@ -332,6 +332,7 @@ codeunit 95614 "TS Native Sheet Tests"
         Records: JsonArray;
         SheetNo: Code[20];
         LanguageId: Integer;
+        LanguageIds: List of [Integer];
         PreviousLanguage: Integer;
     begin
         // [GIVEN] An owned open line, with no bypass of field restrictions or write guards.
@@ -346,7 +347,9 @@ codeunit 95614 "TS Native Sheet Tests"
         Request.Add('tableId', Database::"Time Sheet Line");
         Request.Add('data', Records);
         PreviousLanguage := GlobalLanguage();
-        foreach LanguageId in [1033, 1039] do begin
+        LanguageIds.Add(1033);
+        LanguageIds.Add(1039);
+        foreach LanguageId in LanguageIds do begin
             GlobalLanguage(LanguageId);
             // [WHEN] The real generic message implementation processes the protected field.
             DispatchGenericWrite(TempArgument, Request);

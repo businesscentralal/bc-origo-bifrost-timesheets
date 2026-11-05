@@ -301,12 +301,15 @@ codeunit 95622 "TS Absence Reg Tests"
     var
         TempArgument: Record "Message Argument ori" temporary;
         TableNo: Integer;
+        TableNumbers: List of [Integer];
     begin
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Header", false), 'Header writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Line", false), 'Line writes must use dedicated messages.');
         Assert.IsTrue(TempArgument.IsTableWriteRestrictedForDataRecords(Database::"Time Sheet Detail", false), 'Detail writes must use dedicated messages.');
         Assert.IsFalse(TempArgument.IsTableReadRestrictedForDataRecords(Database::"Time Sheet Line"), 'Line reads remain available.');
-        foreach TableNo in [Database::"Time Sheet Line", Database::"Time Sheet Detail"] do begin
+        TableNumbers.Add(Database::"Time Sheet Line");
+        TableNumbers.Add(Database::"Time Sheet Detail");
+        foreach TableNo in TableNumbers do begin
             Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheetLine.CopyFromPrevious') > 0, 'The shared table hint must name Timesheets.TimeSheetLine.CopyFromPrevious.');
             Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.TimeSheetLine.CreateFromPlanning') > 0, 'The shared table hint must name Timesheets.TimeSheetLine.CreateFromPlanning.');
             Assert.IsTrue(StrPos(TempArgument.GetDedicatedMessageTypeHintForWrite(TableNo), 'Timesheets.Absence.Register') > 0, 'The shared table hint must name Timesheets.Absence.Register.');
