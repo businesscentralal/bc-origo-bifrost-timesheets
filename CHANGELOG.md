@@ -10,6 +10,7 @@
 
 ### Fixed - Absence recovery guidance (#65)
 
+- Move owned fixture cleanup to free test codeunit 95625 after main takes 95619; preserve both helpers. Retain current-main translations and all active absence units; remove only the archived orphan for the legacy posting label deleted by main.
 - Codeunit 10036872 builds one catalogue-derived native write hint for Time Sheet Line and Detail, following Claude’s recovery contract. Status and absence tests check relevant message names while preserving refusal codes and no-write assertions. New native writer enum entries join the shared hint automatically.
 
 

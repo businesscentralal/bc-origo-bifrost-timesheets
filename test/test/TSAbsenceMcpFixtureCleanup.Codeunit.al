@@ -8,7 +8,7 @@ using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.TimeSheet;
 
 /// <summary>Removes only records created by the owned absence MCP fixture. User Setup is left in place because it may predate the fixture; the owned container teardown removes it.</summary>
-codeunit 95619 "TS Absence MCP Fixture Cleanup"
+codeunit 95625 "TS Absence MCP Fixture Cleanup"
 {
     Access = Internal;
 

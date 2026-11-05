@@ -3417,13 +3417,6 @@
           <note from="Developer" annotates="general" priority="2">is-IS=Timesheets.TimeSheet.Reopen: Opnar aftur innsendar eða samþykktar tímaskýrslulínur.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Sheet Reopen Impl ori - Method GetSelectionDescription - NamedType SelectionLbl</note>
         </trans-unit>
-
-        <trans-unit id="Codeunit 1239616675 - NamedType 2958635972" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass 'journalTemplate' and 'journalBatch' in the request.</source>
-          <target>Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu 'journalTemplate' og 'journalBatch' í beiðninni.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Clockify TSheetPost Impl ori - NamedType MissingJournalErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2970237504 - NamedType 639693855" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cause of absence.</source>
           <target>Fjarvistarástæða.</target>
