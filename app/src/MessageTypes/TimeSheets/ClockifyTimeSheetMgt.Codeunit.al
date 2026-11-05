@@ -189,6 +189,7 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
         TimeSheetHeader: Record "Time Sheet Header";
         TempTimeSheetLine: Record "Time Sheet Line" temporary;
         NoSeries: Codeunit "No. Series";
+        JobJournalPostLine: Codeunit "Job Jnl.-Post Line";
         NextDocNo: Code[20];
         QtyToPost: Decimal;
     begin
@@ -236,11 +237,11 @@ codeunit 10036833 "Clockify TimeSheet Mgt ori"
                             JobJnlLine.Validate(Quantity, QtyToPost);
                             JobJnlLine.Validate(Chargeable, TempTimeSheetLine.Chargeable);
                             JobJnlLine."Reason Code" := JobJnlBatch."Reason Code";
-                            // Count only what actually posted. Codeunit.Run returns false and rolls
-                            // its own write transaction back when posting fails, so incrementing
-                            // unconditionally reported lines that were never written.
-                            if Codeunit.Run(Codeunit::"Job Jnl.-Post Line", JobJnlLine) then
-                                PostedLineCount += 1;
+                            // The native/legacy message runner owns the transaction boundary.
+                            // A nested captured Codeunit.Run is invalid after number-series writes
+                            // and used to hide a failed posting as a successful zero count.
+                            JobJournalPostLine.RunWithCheck(JobJnlLine);
+                            PostedLineCount += 1;
                         end;
                     until TimeSheetDetail.Next() = 0;
             until TempTimeSheetLine.Next() = 0;

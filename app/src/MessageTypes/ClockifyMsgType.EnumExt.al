@@ -297,6 +297,24 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         Caption = 'Timesheets.TimeSheet.Create', Locked = true;
         Implementation = "Msg Interface ori" = "TS Sheet Create Impl ori", "Msg Contract ori" = "TS Sheet Create Impl ori", "Msg Discovery ori" = "TS Sheet Create Impl ori";
     }
+    /// <summary>Reopens submitted or approved time sheet lines.</summary>
+    value(10036880; "Timesheets.TimeSheet.Reopen")
+    {
+        Caption = 'Timesheets.TimeSheet.Reopen', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Reopen Impl ori", "Msg Contract ori" = "TS Sheet Reopen Impl ori", "Msg Discovery ori" = "TS Sheet Reopen Impl ori";
+    }
+    /// <summary>Posts approved time sheet lines.</summary>
+    value(10036881; "Timesheets.TimeSheet.Post")
+    {
+        Caption = 'Timesheets.TimeSheet.Post', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Post Impl ori", "Msg Contract ori" = "TS Sheet Post Impl ori", "Msg Discovery ori" = "TS Sheet Post Impl ori";
+    }
+    /// <summary>Archives posted time sheets.</summary>
+    value(10036882; "Timesheets.TimeSheet.Archive")
+    {
+        Caption = 'Timesheets.TimeSheet.Archive', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Archive Impl ori", "Msg Contract ori" = "TS Sheet Archive Impl ori", "Msg Discovery ori" = "TS Sheet Archive Impl ori";
+    }
 
     /// <summary>Copies previous time sheet lines without daily hours.</summary>
     value(10036877; "Timesheets.TimeSheetLine.CopyFromPrevious")

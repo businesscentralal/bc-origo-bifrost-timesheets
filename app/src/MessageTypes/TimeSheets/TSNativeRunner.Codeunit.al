@@ -25,6 +25,8 @@ codeunit 10036871 "TS Native Runner ori"
                 Approve(Context);
             3:
                 Reject(Context);
+            8, 9, 10:
+                RunBulkTimeSheetOperation(Context);
         end;
     end;
 
@@ -136,6 +138,25 @@ codeunit 10036871 "TS Native Runner ori"
     begin
         Response.WriteTo(Result);
         exit(Result);
+    end;
+
+    local procedure RunBulkTimeSheetOperation(Context: Codeunit "TS Native Context ori")
+    var
+        TimeSheetMgt: Codeunit "Clockify TimeSheet Mgt ori";
+        Response: JsonObject;
+        ResponseText: Text;
+    begin
+        Response.Add('status', 'Success');
+        case Context.GetOperation() of
+            8:
+                Response.Add('reopenedLines', TimeSheetMgt.ReopenTimeSheets(Context.GetStartDate()));
+            9:
+                Response.Add('postedLines', TimeSheetMgt.PostApprovedTimeSheets(Context.GetJournalTemplate(), Context.GetJournalBatch()));
+            10:
+                Response.Add('archived', TimeSheetMgt.ArchivePostedTimeSheets());
+        end;
+        Response.WriteTo(ResponseText);
+        Context.SetResult(ResponseText);
     end;
 
     local procedure Submit(Context: Codeunit "TS Native Context ori")

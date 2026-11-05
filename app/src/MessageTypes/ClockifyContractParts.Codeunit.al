@@ -1615,11 +1615,11 @@ codeunit 10036855 "Clockify Contract Parts ori"
             MessageType::"Clockify.TimeSheet.Reject":
                 Notes := 'BC-side only. Rejects submitted lines up to endingDateTo.';
             MessageType::"Clockify.TimeSheet.Reopen":
-                Notes := 'BC-side only. Reopens submitted or approved lines back to Open up to endingDateTo.';
+                Notes := 'BC-side only. Reopens submitted or approved lines back to Open up to endingDateTo. Use the native name Timesheets.TimeSheet.Reopen.';
             MessageType::"Clockify.TimeSheet.Post":
-                Notes := 'BC-side only. Posts approved, unposted job lines.';
+                Notes := 'BC-side only. Posts approved, unposted job lines. Use the native name Timesheets.TimeSheet.Post.';
             MessageType::"Clockify.TimeSheet.Archive":
-                Notes := 'BC-side only. Archives fully posted sheets and removes empty posted sheets. The request example is { }.';
+                Notes := 'BC-side only. Archives fully posted sheets and removes empty posted sheets. The request example is { }. Use the native name Timesheets.TimeSheet.Archive.';
         end;
         if IsCollection(MessageType) and (MessageType <> MessageType::"Clockify.TimeEntry.List") and (MessageType <> MessageType::"Clockify.User.List") then
             Notes := Notes + ' Agent guidance — optional parameter effects. query.* parameters such as page-size only shape the returned data.';

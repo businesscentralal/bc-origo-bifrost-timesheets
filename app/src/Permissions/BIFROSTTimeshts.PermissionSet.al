@@ -6,6 +6,7 @@ using Microsoft.HumanResources.Absence;
 using Microsoft.HumanResources.Employee;
 using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Journal;
 using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
@@ -42,11 +43,11 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Sheet Restrict ori" = X,
         codeunit "TS Sheet Approve Impl ori" = X,
         codeunit "TS Sheet Reject Impl ori" = X,
-        tabledata "Time Sheet Header" = RIM,
+        tabledata "Time Sheet Header" = RIMD,
         tabledata "Time Sheet Line" = RIMD,
         tabledata "Time Sheet Detail" = RIMD,
+        tabledata "Time Sheet Comment Line" = RIMD,
         codeunit "TS Pending Approval ori" = X,
-        tabledata "Time Sheet Comment Line" = RI,
         tabledata "Time Sheet Posting Entry" = RI,
         tabledata "Employee Absence" = RI,
         tabledata "Cause of Absence" = R,
@@ -132,6 +133,16 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "Clockify Help Overview Sub ori" = X,
         codeunit "Clockify ReqLog Masker ori" = X,
         codeunit "Clockify Field Restrict ori" = X,
+        codeunit "TS Sheet Reopen Impl ori" = X,
+        codeunit "TS Sheet Post Impl ori" = X,
+        codeunit "TS Sheet Archive Impl ori" = X,
+        tabledata "Time Sheet Header Archive" = RIMD,
+        tabledata "Time Sheet Line Archive" = RIMD,
+        tabledata "Time Sheet Detail Archive" = RIMD,
+        tabledata "Time Sheet Cmt. Line Archive" = RIMD,
+        tabledata "Job Journal Template" = R,
+        tabledata "Job Journal Batch" = R,
+        tabledata "Job Journal Line" = RIMD,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,

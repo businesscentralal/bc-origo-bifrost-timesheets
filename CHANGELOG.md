@@ -8,6 +8,33 @@
 
 ## [Unreleased]
 
+### Fixed - Native layer integration (#67)
+
+- Combine Submit/Approve/Reject/Reopen status-write guidance in one localized hint. Update Submit’s exact expected hint while retaining the PermissionDenied, protected-field and unchanged-record assertions.
+
+- Integrate Submit and line-fill changes from main while preserving their contracts, permission checks, enum values and both independent test suites. Bulk permission checks remain separate from Submit.
+- Move unpublished native Reopen/Post/Archive implementations to free codeunits 10036864–10036866 and bulk tests to 95619 to avoid main’s fill/Submit IDs. Retain all native and legacy message names.
+
+- Test codeunit 95601 checks the complete localized native missing-journal refusal returned by the legacy Post alias. Clockify time-entry sync keeps its separate journal refusal expectations.
+- Merge main’s Approve/Reject shared codeunits 10036868–10036872 with Reopen/Post/Archive without replacing either operation family. Preserve both sets of enum values, permissions and translated contracts; use main’s corrective retry guidance.
+- Keep main’s decision tests at 95616 and move the #67 native-sheet regression tests to free codeunit 95617. Preserve main’s caption-derived protected-field assertions and fixture isolation.
+
+### Fixed
+
+- Issue #67 / codeunit 10036868: accept Foundation’s validated `expectedCount` confirmation parameter for native and legacy time-sheet posting. The platform confirmation gate stays enabled; test codeunit 95616 covers the public dispatcher path and unchanged ledger count on invalid input.
+
+- Issue #67 / test codeunit 95616: give every MCP fixture setup invocation fresh `X67` keys for time sheets, project, journal template and number series. Repeated verification no longer collides with an earlier retained or posted fixture; empty-key and fixture-content assertions remain, and earlier fixtures are never deleted. Native-sheet refusal tests assert the exact translated next steps when run in Icelandic.
+
+### Added - Native time sheet names (#67)
+
+- `Timesheets.TimeSheet.Reopen` (10036880), `Timesheets.TimeSheet.Post` (10036881) and `Timesheets.TimeSheet.Archive` (10036882) retain the existing BC engines and success count fields. The old Clockify names still work and add `DeprecatedParameter` with `Use the native name.`
+- Native implementation codeunits 10036881..10036883 share validation (10036868), bilingual contracts (10036869), isolated request state (10036870) and write runner (10036871). Posting commits and remains irreversible. Archive/status write restrictions use codeunit 10036872.
+- The posting engine now calls the standard posting procedure inside the outer write runner, so a failed posting is returned as a structured refusal instead of being hidden as a successful zero count. The real-post test checks the ledger entry and posted time sheet detail.
+- The existing Timesheets permission set and Foundation Full/Read extensions cover the native objects. No new assignable permission set or Foundation Setup grant.
+- Existing Icelandic target text is preserved. Source translation comments are aligned with the committed targets so the generated XLF guard is reproducible.
+- Test codeunit 95616 covers native-name validation, state transitions, response fields and missing permissions. Historical native work for other issues is preserved outside this #67-only deliverable.
+
+
 ### Added
 - #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95614.
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.

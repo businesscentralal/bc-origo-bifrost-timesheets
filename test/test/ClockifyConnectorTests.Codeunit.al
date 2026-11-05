@@ -1312,7 +1312,7 @@ codeunit 95601 "Clockify Connector Tests"
         // [THEN] It reports the missing Job Journal configuration
         ResponseJson := TempArgument.GetResponseJson();
         LibraryAssert.AreEqual('Error', ReadText(ResponseJson, 'status'), 'Missing journal config should map to Error.');
-        LibraryAssert.AreEqual(ExpectedMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete missing-journal refusal should match the session language.');
+        LibraryAssert.AreEqual(ExpectedNativeMissingJournalError(), ReadText(ResponseJson, 'error'), 'The complete native missing-journal refusal should match the session language.');
     end;
 
     [Test]
@@ -1751,6 +1751,13 @@ codeunit 95601 "Clockify Connector Tests"
         exit(ExpectedLocalizedText(
             'No Job Journal target is configured. Set the Clockify Job Journal Template and Batch on Clockify Setup, or pass ''journalTemplate'' and ''journalBatch'' in the request.',
             'Engin verkbók er stillt. Stilltu verkbókarsniðmát og verkbókarflokk í Clockify-uppsetningu, eða sendu ''journalTemplate'' og ''journalBatch'' í beiðninni.'));
+    end;
+
+    local procedure ExpectedNativeMissingJournalError(): Text
+    begin
+        exit(ExpectedLocalizedText(
+            'No Job Journal target is configured. Supply journalTemplate and journalBatch or configure the Timesheets journal.',
+            'Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.'));
     end;
 
     local procedure DeleteOwnTimeSheet(TimeSheetNo: Code[20])
