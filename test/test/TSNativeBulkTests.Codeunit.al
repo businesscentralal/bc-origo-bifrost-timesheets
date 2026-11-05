@@ -408,6 +408,7 @@ codeunit 95619 "TS Native Bulk Tests"
     procedure Scenario_AC07_GenericStatusWrite_LeavesLineUnchanged()
     var
         Line: Record "Time Sheet Line";
+        TempArgument: Record "Message Argument ori" temporary;
         Dispatcher: Codeunit "Dispatcher ori";
         RequestContent: BigText;
         ResponseContent: BigText;
@@ -444,7 +445,8 @@ codeunit 95619 "TS Native Bulk Tests"
         // No Licensed Call flag or consent/trial/licence state is fabricated.
         Assert.AreEqual('Error', ReadText(Response, 'status'), 'Generic status write must be refused.');
         Assert.AreEqual('PermissionDenied', ReadText(Response, 'code'), 'Foundation reports protected fields as PermissionDenied.');
-        Assert.AreEqual('data[0].fields.Status', ReadText(Response, 'parameter'), 'The refusal must identify the protected field.');
+        Assert.AreEqual('tableId', ReadText(Response, 'parameter'), 'The absence table guard refuses the whole write before field validation.');
+        Assert.IsTrue(TempArgument.GetDedicatedMessageTypeHintForField(Database::"Time Sheet Line", Line.FieldNo(Status)).Contains('Timesheets.TimeSheet.Reopen'), 'The status field subscriber must also retain native recovery guidance.');
         Assert.IsTrue(ReadText(Response, 'nextStep').Contains('Timesheets.TimeSheet.Reopen'), 'The real subscriber must name the dedicated native operation.');
         Line.Get(SheetNo, 10000);
         Assert.AreEqual(Line.Status::Open, Line.Status, 'Refused write must leave the line open.');
