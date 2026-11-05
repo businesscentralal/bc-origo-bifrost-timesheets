@@ -16,6 +16,12 @@ permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full or
         codeunit "Clockify TimeSheet Mgt ori" = X,
         codeunit "Clockify Setup Mgt ori" = X,
         tabledata "Clockify Setup ori" = R,
+        codeunit "TS Fill Mgt ori" = X,
+        codeunit "TS Fill Context ori" = X,
+        codeunit "TS Fill Runner ori" = X,
+        codeunit "TS Fill Contract ori" = X,
+        codeunit "TS Line CopyPrev Impl ori" = X,
+        codeunit "TS Line FromPlan Impl ori" = X,
         codeunit "TS Native Mgt ori" = X,
         codeunit "TS Contract Parts ori" = X,
         codeunit "TS Native Context ori" = X,
@@ -35,5 +41,6 @@ permissionsetextension 10036866 "Phone RC Full Ext ori" extends "BIFROST Full or
         page "Phone Current Cust Part ori" = X,
         page "Phone Today Cust Part ori" = X,
         page "Phone LastDay Cust Part ori" = X,
-        page "Phone Add Service Item ori" = X;
+        page "Phone Add Service Item ori" = X,
+        codeunit "TS Sheet Submit Impl ori" = X;
 }

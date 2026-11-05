@@ -121,4 +121,13 @@ codeunit 10036870 "TS Native Context ori"
     begin
         exit(StartDate);
     end;
+
+    /// <summary>Handles SetSubmit for the Submit message contract.</summary>
+    procedure SetSubmit(NewSheetNo: Code[20]; NewLineFilter: Text)
+    begin
+        ClearAll();
+        Operation := 1;
+        SheetNo := NewSheetNo;
+        LineFilter := NewLineFilter;
+    end;
 }

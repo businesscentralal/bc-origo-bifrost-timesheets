@@ -390,6 +390,17 @@ Please go to https://aka.ms/AL-Go and [COSMO Docs](https://docs.cosmoconsult.com
 Assign the existing **BIFROST Timeshts ori** set for native table permissions. The Foundation Read and Full extensions expose the handlers but do not grant permissions on Microsoft tables. Insufficient permissions and a different approver are refused before writing. A successful native action commits; `omitCommit` is not supported. Approving absence lines also posts their absence entries through the standard action. Existing Clockify message behavior is unchanged.
 
 Discover localized parameters, refusals, next steps, and examples with `Help.Implementation.Get` in LCIDs 1033 and 1039. Generic writes to the Time Sheet Line Status field are blocked; reads remain available.
+## Fill an owned time sheet
+
+```json
+{"type":"Timesheets.TimeSheetLine.CopyFromPrevious","data":{"timeSheetNo":"TS0001"}}
+```
+
+`Timesheets.TimeSheetLine.CopyFromPrevious` copies line definitions from the immediately preceding sheet for the resource. `Timesheets.TimeSheetLine.CreateFromPlanning` creates lines from that resource's project planning within the destination period. Both leave daily hours empty and return only newly added `lines`, with a `copied` or `created` count. Zero is a successful result. Repeating a copy adds the source lines again; planning skips existing project/task combinations.
+
+Send exactly one of `timeSheetNo` (number) or `timeSheetId` (GUID). Both operations require the destination owner and native read/write permissions. `BIFROST Timeshts ori` grants the required access; `BIFROST Full ori` exposes the feature objects and must be combined with the user's native Business Central permissions. Read-only users cannot execute these writes.
+
+A missing previous sheet returns `PreconditionFailed` / `Add lines by hand.`; a different owner returns `PermissionDenied` / `Ask the owner.`. Invalid or unknown parameters return actionable structured refusals. Native failures roll back all newly added lines. Successful writes commit; `omitCommit` is not supported. Pending work is committed before the isolated operation. Use `Help.Implementation.Get` for English contract chapters and examples in either session language; catalogue descriptions and refusals are localized in English and Icelandic.
 
 ### Create selected time sheets
 

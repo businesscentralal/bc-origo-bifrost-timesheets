@@ -284,6 +284,13 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
     /// <summary>Reopens submitted or approved time sheet lines.</summary>
     /// <summary>Posts approved time sheet lines.</summary>
     /// <summary>Archives posted time sheets.</summary>
+
+    /// <summary>Submits open time sheet lines for approval.</summary>
+    value(10036872; "Timesheets.TimeSheet.Submit")
+    {
+        Caption = 'Timesheets.TimeSheet.Submit', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Sheet Submit Impl ori", "Msg Contract ori" = "TS Sheet Submit Impl ori", "Msg Discovery ori" = "TS Sheet Submit Impl ori";
+    }
     /// <summary>Creates time sheets for chosen resources and weeks.</summary>
     value(10036873; "Timesheets.TimeSheet.Create")
     {
@@ -307,5 +314,18 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
     {
         Caption = 'Timesheets.TimeSheet.Archive', Locked = true;
         Implementation = "Msg Interface ori" = "TS Sheet Archive Impl ori", "Msg Contract ori" = "TS Sheet Archive Impl ori", "Msg Discovery ori" = "TS Sheet Archive Impl ori";
+    }
+
+    /// <summary>Copies previous time sheet lines without daily hours.</summary>
+    value(10036877; "Timesheets.TimeSheetLine.CopyFromPrevious")
+    {
+        Caption = 'Timesheets.TimeSheetLine.CopyFromPrevious', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Line CopyPrev Impl ori", "Msg Contract ori" = "TS Line CopyPrev Impl ori", "Msg Discovery ori" = "TS Line CopyPrev Impl ori";
+    }
+    /// <summary>Creates time sheet lines from resource project planning.</summary>
+    value(10036878; "Timesheets.TimeSheetLine.CreateFromPlanning")
+    {
+        Caption = 'Timesheets.TimeSheetLine.CreateFromPlanning', Locked = true;
+        Implementation = "Msg Interface ori" = "TS Line FromPlan Impl ori", "Msg Contract ori" = "TS Line FromPlan Impl ori", "Msg Discovery ori" = "TS Line FromPlan Impl ori";
     }
 }

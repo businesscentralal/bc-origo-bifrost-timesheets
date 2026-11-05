@@ -12,6 +12,12 @@ permissionsetextension 10036867 "Phone RC Read Ext ori" extends "BIFROST Read or
         codeunit "TS Sheet Reopen Impl ori" = X,
         codeunit "TS Sheet Post Impl ori" = X,
         codeunit "TS Sheet Archive Impl ori" = X,
+        codeunit "TS Fill Mgt ori" = X,
+        codeunit "TS Fill Context ori" = X,
+        codeunit "TS Fill Runner ori" = X,
+        codeunit "TS Fill Contract ori" = X,
+        codeunit "TS Line CopyPrev Impl ori" = X,
+        codeunit "TS Line FromPlan Impl ori" = X,
         codeunit "TS Native Mgt ori" = X,
         codeunit "TS Contract Parts ori" = X,
         codeunit "TS Native Context ori" = X,
@@ -28,5 +34,6 @@ permissionsetextension 10036867 "Phone RC Read Ext ori" extends "BIFROST Read or
         page "Phone Role Center ori" = X,
         page "Phone Current Cust Part ori" = X,
         page "Phone Today Cust Part ori" = X,
-        page "Phone LastDay Cust Part ori" = X;
+        page "Phone LastDay Cust Part ori" = X,
+        codeunit "TS Sheet Submit Impl ori" = X;
 }

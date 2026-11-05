@@ -27,6 +27,15 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        codeunit "TS Fill Mgt ori" = X,
+        codeunit "TS Fill Context ori" = X,
+        codeunit "TS Fill Runner ori" = X,
+        codeunit "TS Fill Contract ori" = X,
+        codeunit "TS Line CopyPrev Impl ori" = X,
+        codeunit "TS Line FromPlan Impl ori" = X,
+        tabledata "Resources Setup" = R,
+        tabledata "Job Task" = R,
+        tabledata "Job Planning Line" = R,
         codeunit "TS Native Mgt ori" = X,
         codeunit "TS Contract Parts ori" = X,
         codeunit "TS Native Context ori" = X,
@@ -53,13 +62,10 @@ permissionset 10036785 "BIFROST Timeshts ori"
         codeunit "TS Create Restrict ori" = X,
         report "Create Time Sheets" = X,
         tabledata "Resource Group" = R,
-        tabledata "Resources Setup" = R,
         tabledata "No. Series" = R,
         tabledata "No. Series Line" = RIM,
         tabledata "Accounting Period" = R,
         tabledata Job = R,
-        tabledata "Job Task" = R,
-        tabledata "Job Planning Line" = R,
         tabledata "Clockify Setup ori" = RIMD,
         tabledata "Clockify Integration ori" = RIMD,
         tabledata "Clockify Webhook ori" = RIMD,
@@ -149,5 +155,6 @@ permissionset 10036785 "BIFROST Timeshts ori"
         page "Phone Current Cust Part ori" = X,
         page "Phone Today Cust Part ori" = X,
         page "Phone LastDay Cust Part ori" = X,
-        page "Phone Add Service Item ori" = X;
+        page "Phone Add Service Item ori" = X,
+        codeunit "TS Sheet Submit Impl ori" = X;
 }
