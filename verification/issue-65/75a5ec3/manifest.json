@@ -59,22 +59,28 @@
     }
   },
   "remaining": [
-    "PairedCI42000061825mustfinishgreenatthissameSHA",
-    "Canonicalhandoffmustexecute; existingpr:amendreviewerlabelnotdeveloper-cleared",
-    "IndependentClaude/Grokexacttipreview,eligibleapproval,Architectmerge/deployandTesterUATpending"
+    "Rootruntimeownerreconcilescanonicalre-reviewguard;worker7rerunscanonicalhandoffaftermaterialfix/disposition",
+    "IndependentClaude/Grokexacttipverification/reviewandeligibleapproval",
+    "Architectmerge/deployandTesterUAT;actualSecretaryACK"
   ],
   "issueComplete": false,
-  "ciResult": "PENDINGatpacketpublication; notclaimedgreen",
+  "ciResult": "Exact75a5ec3pairedCI42000061825success;285/285/0/0ALtests,22codeunits;bothapp/test0errors0warnings.",
   "privateExclusions": "No credentials,cookies,privatekeys,rawenvironmentsettingsorprivateauthresourcesincluded",
   "files": {
-    "acceptance-matrix.json": "9fb0b6233aa51916f7ab0306ea0e03a72d4c1003d9daaa3be2bc06ccbd3ea84c",
+    "acceptance-matrix.json": "81f90b2c6968e523578b7b865eff0898f4df9ffd2706bb0b92fc1f103154039e",
     "app.log": "b64233d2480940b971a808d20d2e89814a9fde5e45ba4b2aa161e86324a47916",
+    "ci-Default-compile.log": "2fc541a54b21638005cd2fbd876e2472f5f3f2b98d5e50d2515852d95a0916b9",
+    "ci-full-suite.junit.xml": "9487e2290b4bbaeaabd0cfcfe7a8273a119fb1bc8770606da9a937983d371850",
+    "ci-summary.json": "6a3f2e505e914343eb6ab54d657dbb4c2ba1adf5a1d842f244fc8c209fce95f2",
+    "ci-Test-compile.log": "f24d3025e1ea476db9d60c14105434106d936854c77b6528ddaa31f312e94a3a",
     "compile-result.json": "1b00a63c9b1bbfae8c73a542d2db233138075e11e997796d3ddedc6e05f9252c",
     "container-cleanup-final.json": "459d09827ef98e42215e5550f035cc417d60de79650d74a88069b14d11f3103d",
     "deployment-provenance.json": "c97fa2f38d9c3f9b4f3f974386b437228abd39750b30a0fbb2874e5be9014e51",
     "gateway-layer1-detail-75a5ec3.log": "f49b420293d66f2c79a7e08d93617e149dde91458f0ecbe242d0660cba5a05c8",
     "gateway-layer2.json": "5c3320ae9e2e0387096a1459c6f81243b813e057d2f0c2d0c53f059667867e34",
     "guards.json": "8e2eb856efdc6c8313724d02d4d84a08e4ab8c2881c32ecf769f2c8b7e7f81b1",
+    "handoff-evidence.json": "ec765e069a764ef857aebef67cbdcddd31c7f38d950054e6d1b1309ba60fe6c4",
+    "handoff-result.json": "1e2ef905a32be2e882cd3410b6388c6d6031c696cb8edb8202cc96214c1488f2",
     "historical-4c194c9-native-summary.json": "903344fee7dc4ec3f9a8c6565dfa167e40d93cf73f576cb9472dfb6b689ea345",
     "mcp-cleanup-final.json": "851c80d2987a0e8745471ffd40d2f5e54ca39030dd831d6bcd2ca1d075b9b9d9",
     "mcp-corrected-refusals.log": "f3dc7683189179de128d262761766c951223843ed4925a4f660e88b37a653a76",
@@ -92,5 +98,13 @@
     "ui-verified-1039.png": "ab115a62ce60e2f07fe6999b97f262c19927a587cbc1efe9712fdb4641fa4f51",
     "xlf-comparison.json": "bd77e84c6cca56e35caab18a5fb5c4167685bdbc1603ff758a4a0affdb71030a",
     "xlf-union.json": "c355cd8e514923e1f3b63d591106d20328abecfa72bfce60fba623c42cbd0b0a"
+  },
+  "updatedAt": "2026-11-05T09:33:32.014359+00:00",
+  "canonicalHandoff": {
+    "attempted": true,
+    "handedOver": false,
+    "exitCode": 1,
+    "error": "Existingpr:amend rejected by canonicalwrapper",
+    "nextOwner": "root runtime owner forcanonicalre-reviewcapability;worker7retainssourceandrerunsafteractualfix"
   }
 }

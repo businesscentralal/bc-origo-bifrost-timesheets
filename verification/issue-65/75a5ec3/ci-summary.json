@@ -1,0 +1,110 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "runId": 42000061825,
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/42000061825",
+  "status": "completed",
+  "conclusion": "success",
+  "compile": [
+    {
+      "job": "Default",
+      "artifactId": 13402806782,
+      "errors": 0,
+      "warnings": 0,
+      "info": 0
+    },
+    {
+      "job": "Test",
+      "artifactId": 13403281045,
+      "errors": 0,
+      "warnings": 0,
+      "info": 1
+    }
+  ],
+  "appVersion": "28.0.2147483647.186",
+  "tests": {
+    "fullSuite": true,
+    "executed": 285,
+    "passed": 285,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "codeunits": 22,
+    "artifactId": 13402363992,
+    "xmlSha256": "9487e2290b4bbaeaabd0cfcfe7a8273a119fb1bc8770606da9a937983d371850"
+  },
+  "jobs": [
+    {
+      "id": 127153549766,
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Initialization",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127153549995,
+      "name": "Initialize COSMO Alpaca / COSMO Alpaca Settings Files Check / COSMO Alpaca Settings Files Check",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127153550188,
+      "name": "Initialization",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127153551520,
+      "name": "PregateCheck",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "id": 127153770299,
+      "name": "Create COSMO Alpaca Containers / Create COSMO Alpaca Containers",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127153904519,
+      "name": "Build . (Default then Test) / Default / . (Default)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127156970477,
+      "name": "Build . (Default then Test) / Default / Remove COSMO Alpaca Containers",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "id": 127156970484,
+      "name": "Build . (Default then Test) / Test / . (Test)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127160442332,
+      "name": "Remove COSMO Alpaca Containers / Remove COSMO Alpaca Containers",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127160442589,
+      "name": "Build . (Default then Test) / Test / Remove COSMO Alpaca Containers",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "id": 127160445635,
+      "name": "Code Analysis Processing",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "id": 127160511901,
+      "name": "Pull Request Status Check",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "note": "Workflow-conditional skips are distinct from0skippedALcases. Test compile has1infoAA0210and0warnings/errors; no suppression or weakening."
+}

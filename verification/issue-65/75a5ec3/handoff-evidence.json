@@ -1,0 +1,83 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "acceptanceCriteriaVerified": true,
+  "noSuppressions": true,
+  "summary": "Issue65 developer ACs verified: absence registration/refusals/weekend/native posting/permissions; Claude6652387534 shared recovery contract and bulk table+field precedence regression preserve no-write protections. Main2f07fd7 merged; app/test0errors0warnings; own full285/285, changed58/58twice, finalself-seededMCP59/59 andUI1033+1039 2/2;8fixturetables0andownedCOSMO404cleanup. SixinitialMCPharness expectationfailures retained with6safe-refusalcorrections; no successfulwrites repeated. Guard/public-docscope followsClaude6626910201; independentAC13review remains next, no clearance/merge/UAT claimed.",
+  "compile": {
+    "app": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "errors": 0,
+      "warnings": 0,
+      "evidenceUrls": [
+        "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/compile-result.json",
+        "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/app.log"
+      ]
+    },
+    "testApp": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "errors": 0,
+      "warnings": 0,
+      "evidenceUrls": [
+        "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/compile-result.json",
+        "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/test.log"
+      ]
+    }
+  },
+  "tests": {
+    "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "fullSuite": true,
+    "total": 285,
+    "passed": 285,
+    "failed": 0,
+    "skipped": 0,
+    "evidenceUrls": [
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/native-summary.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/native-focused-1-summary.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/native-focused-2-summary.json"
+    ]
+  },
+  "ui": {
+    "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "verified": true,
+    "executed": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "languages": [
+      1033,
+      1039
+    ],
+    "summary": "Owned TimeSheet card in1033/1039: correctcompany,3openabsence lines/causeXTS65 and20hours; actualEnglish/Icelandicshell/date; W1businesscaptionsEnglish. DOMandvisualscreenshots verified.",
+    "evidenceUrls": [
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/ui-summary.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/ui-verified-1033.png",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/ui-verified-1039.png"
+    ]
+  },
+  "mcp": {
+    "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "touchedMessageTypes": [
+      "Timesheets.Absence.Register",
+      "Data.Records.Set"
+    ],
+    "verified": true,
+    "createsOwnData": true,
+    "passed": 59,
+    "failed": 0,
+    "skipped": 0,
+    "summary": "Final59scenarios: ownedabsencehappy/refusals/helps and genericLine/Detailshared9nativewriterhints/no-mutation bothLCIDs; extra mergednative help/refusals. Selfcreated2headers/3absencelines/3details20hours;8tables0cleanup. Initial6extra wrong-contract harness assertions retained inraw53/59;6safe-refusalreexecpassed, no successfulwrites repeated (65totalassertionexecutions).",
+    "evidenceUrls": [
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/mcp-final-summary.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/mcp-summary.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/mcp-cleanup-final.json",
+      "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/container-cleanup-final.json"
+    ]
+  },
+  "evidenceUrls": [
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/manifest.json",
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/acceptance-matrix.json",
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/blob/4318edf4b6ddd3dfee731239ebb841473869b191/verification/issue-65/75a5ec3/deployment-provenance.json",
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/42000061825",
+    "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/42000061189"
+  ]
+}
