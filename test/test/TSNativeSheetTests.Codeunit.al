@@ -355,9 +355,9 @@ codeunit 95614 "TS Native Sheet Tests"
             DispatchGenericWrite(TempArgument, Request);
             // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
             Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
-            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'Timesheets.TimeSheet.Submit') > 0, 'The hint must name Timesheets.TimeSheet.Submit.');
-            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'Timesheets.TimeSheet.Approve') > 0, 'The hint must name Timesheets.TimeSheet.Approve.');
-            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'Timesheets.TimeSheet.Reject') > 0, 'The hint must name Timesheets.TimeSheet.Reject.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Submit') > 0, 'The hint must name Timesheets.TimeSheet.Submit.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Approve') > 0, 'The hint must name Timesheets.TimeSheet.Approve.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Reject') > 0, 'The hint must name Timesheets.TimeSheet.Reject.');
             Line.Get(SheetNo, 10000);
             Assert.AreEqual(Line.Status::Open, Line.Status, 'Generic status writes must leave the line open.');
         end;
