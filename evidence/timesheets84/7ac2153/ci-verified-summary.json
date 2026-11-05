@@ -1,0 +1,90 @@
+{
+  "sha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "runId": 41935361083,
+  "conclusion": "success",
+  "artifacts": [
+    {
+      "kind": "test-results",
+      "files": [
+        "TestResults.xml"
+      ]
+    },
+    {
+      "kind": "default-build-output",
+      "files": [
+        "BuildOutput.txt"
+      ]
+    },
+    {
+      "kind": "test-build-output",
+      "files": [
+        "BuildOutput.txt"
+      ]
+    },
+    {
+      "kind": "default-apps",
+      "files": [
+        "Origo_Bifrost Timesheets_28.0.2147483647.181.app"
+      ],
+      "manifest": {
+        "attributes": {},
+        "appAttributes": [
+          {
+            "Id": "d4560cf5-947d-42b5-b812-33ae8dd009af",
+            "Name": "Bifrost Timesheets",
+            "Publisher": "Origo",
+            "Version": "28.0.2147483647.181",
+            "Platform": "28.0.0.0",
+            "Application": "28.0.0.0",
+            "Runtime": "17.0",
+            "Target": "Cloud",
+            "ShowMyCode": "False"
+          }
+        ],
+        "sources": [
+          {
+            "RepositoryUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets",
+            "Commit": "0ecb97d8b1f23a6d3ec0c08e70abed8389a3597c"
+          }
+        ],
+        "internalsVisibleToEntries": [
+          {}
+        ]
+      }
+    }
+  ],
+  "tests": {
+    "fullSuite": true,
+    "executed": 286,
+    "passed": 286,
+    "failed": 0,
+    "skipped": 0,
+    "artifactId": 13374127719,
+    "resultFile": "TestResults.xml"
+  },
+  "compile": {
+    "default": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "test": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "defaultInternalsVisibleToEmpty": true,
+  "pairedPhysicalContainer": {
+    "default": "f09ca3d298e2",
+    "test": "f09ca3d298e2",
+    "same": true
+  },
+  "ciProductVersion": "28.0.2147483647.181",
+  "ciTestVersion": "28.0.2147483647.181",
+  "ciFoundationVersion": "28.0.11.670",
+  "testProductRepublishVerified": true,
+  "sourceHeadSha": "7ac21537cf675069cb9b3e6118a8f9d73671b40e",
+  "defaultJobUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41935361083/job/126943027818",
+  "testJobUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41935361083/job/126946135278",
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/41935361083",
+  "notes": "Own container and CI environment/version evidence are separate. Structural job skips are not AL test skips; the result artifact contains286passed0failed0skipped."
+}

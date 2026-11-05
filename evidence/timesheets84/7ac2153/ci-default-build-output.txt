@@ -1,0 +1,9 @@
+Microsoft (R) AL Compiler version 17.0.42.60745
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets' containing '131' files at '23:43:44.021'.
+
+src\Permissions\BIFROSTTimeshts.PermissionSet.al(8,1): info AA0477: The using statements are not in a sorted order.
+
+Compilation ended at '23:43:56.018'.
+

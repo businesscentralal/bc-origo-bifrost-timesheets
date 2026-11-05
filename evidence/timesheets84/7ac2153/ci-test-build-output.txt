@@ -1,0 +1,19 @@
+Microsoft (R) AL Compiler version 17.0.42.60745
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets' containing '131' files at '23:50:11.522'.
+
+src\Permissions\BIFROSTTimeshts.PermissionSet.al(8,1): info AA0477: The using statements are not in a sorted order.
+
+Compilation ended at '23:50:18.598'.
+
+Microsoft (R) AL Compiler version 17.0.42.60745
+Copyright (C) Microsoft Corporation. All rights reserved
+
+Compilation started for project 'Bifrost Timesheets - Tests' containing '39' files at '23:50:25.327'.
+
+src\TSUsageFixtureori.Codeunit.al(4,1): info AA0477: The using statements are not in a sorted order.
+test\TSUsageTests.Codeunit.al(22,1): info AA0477: The using statements are not in a sorted order.
+
+Compilation ended at '23:50:31.307'.
+
