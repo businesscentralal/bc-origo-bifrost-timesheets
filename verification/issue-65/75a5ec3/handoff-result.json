@@ -1,9 +1,21 @@
 {
-  "at": "2026-11-05T09:27:50.388Z",
   "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
-  "ciUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/42000061825",
-  "exitCode": 1,
-  "stdout": "",
-  "stderr": "Operating agreement v2: Claude/Grok amendment findings remain open; developer claims do not clear them\n",
-  "handedOver": false
+  "at": "2026-11-05T09:38:12.844Z",
+  "canonicalExitCode": 0,
+  "handedOver": true,
+  "state": "open",
+  "draft": false,
+  "readbackHead": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "readbackLabels": [
+    "pr:needs-review",
+    "pr:needs-approval",
+    "wip:codex-sindri"
+  ],
+  "reviewRequested": true,
+  "initialRejection": "handoff-initial-rejection.json",
+  "resolvedBy": "Fresh external current-head CLEARED comment6654498107 and removal ofpr:amend; command retried only after this material state change. No shared-runtime patch or reviewer-label override applied.",
+  "canonicalReturnedSlackTs": "1793803146.290149",
+  "notification": "24h cooldown suppressed a fresh exact-tip post. Returned timestamp is an older deduplicated reference; no new Slack delivery/Secretary ACK claimed.",
+  "independentClaudeVerification": "pending; no trusted current-head receipt inferred",
+  "mergeDeploymentUat": "pending"
 }

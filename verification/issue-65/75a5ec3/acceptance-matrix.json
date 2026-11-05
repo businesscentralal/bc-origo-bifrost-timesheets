@@ -87,9 +87,9 @@
     },
     {
       "id": "AC13",
-      "status": "pending-independent-review-after-canonical-handoff",
+      "status": "awaiting-independent-review",
       "implementation": "Claude exact-tip receipt follows canonical handoff under current assignment; Grok clearance/approval/Architect merge/deploy/Tester UAT pending.",
-      "evidence": "Canonicalhandoffattemptatgreen75a5ec3rejectedexistingpr:amendbysharedwrapper; actualresultretained. Namedtechnicaldependencyrootruntimeowner. No reviewer/Claude clearance claimed; currenttaskplacesreviewafterhandoff."
+      "evidence": "Actualcanonicalhandoffsuccessat75a5ec3afterexternalCLEARED6654498107removedpr:amend;pr:needs-reviewverified; independentClaudeexactheadreceiptpending."
     }
   ],
   "verification": {
@@ -659,5 +659,19 @@
       ],
       "note": "Workflow-conditional skips are distinct from0skippedALcases. Test compile has1infoAA0210and0warnings/errors; no suppression or weakening."
     }
+  },
+  "handoff": {
+    "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "status": "handed-over-for-review",
+    "canonicalExitCode": 0,
+    "readback": "pr-after-handoff.json",
+    "labels": [
+      "pr:needs-review",
+      "pr:needs-approval"
+    ],
+    "notMergeOrIssueCompletion": true,
+    "initialRejectionRetained": "handoff-initial-rejection.json",
+    "resolvedBy": "Externalcurrent-headCLEARED6654498107removedpr:amend; repeatonlyaftermaterialstatechange",
+    "notification": "CanonicalreturnoldSlacktimestamp1793803146.290149deduplicated24h; sharedrecordshowsSuppressedAt09:38:12Z. No fresh exacttipSlackpostorSecretaryACKclaimed."
   }
 }

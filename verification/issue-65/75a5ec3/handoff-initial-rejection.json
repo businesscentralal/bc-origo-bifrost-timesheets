@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-05T09:27:50.388Z",
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "ciUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/42000061825",
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "Operating agreement v2: Claude/Grok amendment findings remain open; developer claims do not clear them\n",
+  "handedOver": false
+}

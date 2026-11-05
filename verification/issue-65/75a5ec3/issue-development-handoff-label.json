@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/65",
+    "taskId": "flow-continue-businesscentralal_bc-origo-bifrost-timesheets_65-2026-11-05T08_27",
+    "at": "2026-11-05T09:42:08.612Z",
+    "status": "verified",
+    "changed": true,
+    "labels": [
+      "enhancement",
+      "intake:ready",
+      "intake:handed-off"
+    ],
+    "worker": "worker-7",
+    "phase": "complete",
+    "revision": "gunnar-worker-owner-labels-20261028"
+  }
+]
