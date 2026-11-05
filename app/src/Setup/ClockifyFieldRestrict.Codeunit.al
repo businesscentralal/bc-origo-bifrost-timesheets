@@ -1,5 +1,6 @@
 namespace Origo.Bifrost.Timesheets;
 
+using Microsoft.Projects.TimeSheet;
 using Origo.Bifrost;
 
 /// <summary>
@@ -18,6 +19,14 @@ codeunit 10036838 "Clockify Field Restrict ori"
 
     var
         ReceiverUrlHintTok: Label 'the Timesheets setup page (Clockify Setup)', Comment = 'is-IS=uppsetningarsíðu Bifrost Timesheets (Clockify Setup)';
+
+    // Keep generic writes from bypassing validated absence registration.
+    [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsTableWriteRestrictedForDataRecords, '', false, false)]
+    local procedure RestrictTimeSheetWrites(TableNo: Integer; Force: Boolean; var IsRestricted: Boolean)
+    begin
+        if TableNo in [Database::"Time Sheet Header", Database::"Time Sheet Line", Database::"Time Sheet Detail"] then
+            IsRestricted := true;
+    end;
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
     local procedure OnAfterIsFieldWriteRestricted(TableNo: Integer;

@@ -331,6 +331,9 @@ codeunit 95614 "TS Native Sheet Tests"
         Fields: JsonObject;
         Records: JsonArray;
         SheetNo: Code[20];
+        LanguageId: Integer;
+        LanguageIds: List of [Integer];
+        PreviousLanguage: Integer;
     begin
         // [GIVEN] An owned open line, with no bypass of field restrictions or write guards.
         SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
@@ -343,13 +346,22 @@ codeunit 95614 "TS Native Sheet Tests"
         Records.Add(RecordJson);
         Request.Add('tableId', Database::"Time Sheet Line");
         Request.Add('data', Records);
-        // [WHEN] The real generic message implementation processes the protected field.
-        DispatchGenericWrite(TempArgument, Request);
-        // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
-        Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
-        Assert.AreEqual('Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject or Timesheets.TimeSheet.Reopen', ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Name the dedicated type without composed punctuation.');
-        Line.Get(SheetNo, 10000);
-        Assert.AreEqual(Line.Status::Open, Line.Status, 'Generic status writes must leave the line open.');
+        PreviousLanguage := GlobalLanguage();
+        LanguageIds.Add(1033);
+        LanguageIds.Add(1039);
+        foreach LanguageId in LanguageIds do begin
+            GlobalLanguage(LanguageId);
+            // [WHEN] The real generic message implementation processes the protected field.
+            DispatchGenericWrite(TempArgument, Request);
+            // [THEN] The dedicated-type hint is composed by Foundation and nothing is written.
+            Assert.AreEqual('PermissionDenied', ReadText(TempArgument.GetResponseJson(), 'code'), 'Status must be protected.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Submit') > 0, 'The hint must name Timesheets.TimeSheet.Submit.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Approve') > 0, 'The hint must name Timesheets.TimeSheet.Approve.');
+            Assert.IsTrue(StrPos(ReadText(TempArgument.GetResponseJson(), 'nextStep'), 'Timesheets.TimeSheet.Reject') > 0, 'The hint must name Timesheets.TimeSheet.Reject.');
+            Line.Get(SheetNo, 10000);
+            Assert.AreEqual(Line.Status::Open, Line.Status, 'Generic status writes must leave the line open.');
+        end;
+        GlobalLanguage(PreviousLanguage);
     end;
 
     [Test]

@@ -27,6 +27,10 @@ permissionset 10036785 "BIFROST Timeshts ori"
     Caption = 'Bifrost Timesheets', MaxLength = 30, Comment = 'is-IS=Bifröst tímaskýrslur';
 
     Permissions =
+        codeunit "TS Absence Mgt ori" = X,
+        codeunit "TS Absence Contract ori" = X,
+        codeunit "TS Absence Context ori" = X,
+        codeunit "TS Absence Runner ori" = X,
         codeunit "TS Fill Mgt ori" = X,
         codeunit "TS Fill Context ori" = X,
         codeunit "TS Fill Runner ori" = X,
@@ -143,6 +147,7 @@ permissionset 10036785 "BIFROST Timeshts ori"
         tabledata "Job Journal Template" = R,
         tabledata "Job Journal Batch" = R,
         tabledata "Job Journal Line" = RIMD,
+        codeunit "TS Absence Reg Impl ori" = X,
         page "Timesheets Setup ori" = X,
         page "Clockify Set Secret Dialog ori" = X,
         page "Clockify Workspace Lookup ori" = X,

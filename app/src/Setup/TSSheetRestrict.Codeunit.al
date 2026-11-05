@@ -11,7 +11,6 @@ codeunit 10036872 "TS Sheet Restrict ori"
     var
         PostingHintTok: Label 'Timesheets.TimeSheet.Post', Locked = true;
         ArchiveHintTok: Label 'Timesheets.TimeSheet.Archive', Locked = true;
-        FillHintTok: Label 'Timesheets.TimeSheetLine.CopyFromPrevious, Timesheets.TimeSheetLine.CreateFromPlanning', Locked = true;
         StatusHintTok: Label 'Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject or Timesheets.TimeSheet.Reopen', Comment = 'is-IS=Timesheets.TimeSheet.Submit, Timesheets.TimeSheet.Approve, Timesheets.TimeSheet.Reject eða Timesheets.TimeSheet.Reopen';
 
     [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnAfterIsFieldWriteRestrictedForDataRecords, '', false, false)]
@@ -45,6 +44,8 @@ codeunit 10036872 "TS Sheet Restrict ori"
             Hint := ArchiveHintTok;
         if TableNo = Database::"Time Sheet Posting Entry" then
             Hint := PostingHintTok;
+        if TableNo in [Database::"Time Sheet Line", Database::"Time Sheet Detail"] then
+            Hint := NativeWriteHint();
     end;
 
     local procedure ManagedFieldHint(TableNo: Integer; FieldNo: Integer): Text
@@ -82,11 +83,24 @@ codeunit 10036872 "TS Sheet Restrict ori"
             IsRestricted := true;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Message Argument ori", OnGetDedicatedMessageTypeHintForWrite, '', false, false)]
-    local procedure FillHint(TableNo: Integer; var Hint: Text)
+    // The table-level event has no field/operation context. Derive one shared list
+    // from the native message catalogue so subsequent native writers join it too.
+    local procedure NativeWriteHint(): Text
+    var
+        MessageType: Enum "Message Type ori";
+        MessageName: Text;
+        Hint: Text;
     begin
-        if TableNo = Database::"Time Sheet Line" then
-            Hint := FillHintTok;
+        foreach MessageName in MessageType.Names() do
+            if ((MessageName.StartsWith('Timesheets.TimeSheet.') and (MessageName <> 'Timesheets.TimeSheet.Create')) or
+                MessageName.StartsWith('Timesheets.TimeSheetLine.') or (MessageName = 'Timesheets.Absence.Register')) and
+               not (MessageName.EndsWith('.Get') or MessageName.EndsWith('.List'))
+            then begin
+                if Hint <> '' then
+                    Hint += ', ';
+                Hint += MessageName;
+            end;
+        exit(Hint);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Time Sheet Management", OnBeforeTimeSheetDetailInsert, '', false, false)]

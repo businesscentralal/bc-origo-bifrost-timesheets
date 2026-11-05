@@ -8,6 +8,13 @@
 
 ## [Unreleased]
 
+### Fixed - Absence recovery guidance (#65)
+
+- Move owned fixture cleanup to free test codeunit 95625 after main takes 95619; preserve both helpers. Retain current-main translations and all active absence units; remove only the archived orphan for the legacy posting label deleted by main.
+- Preserve the bulk Status regression after the absence table fence preempts field validation: assert the exact table refusal parameter, field recovery guidance, PermissionDenied and unchanged status together.
+- Codeunit 10036872 builds one catalogue-derived native write hint for Time Sheet Line and Detail, following Claude’s recovery contract. Status and absence tests check relevant message names while preserving refusal codes and no-write assertions. New native writer enum entries join the shared hint automatically.
+
+
 ### Fixed - Native layer integration (#67)
 
 - Combine Submit/Approve/Reject/Reopen status-write guidance in one localized hint. Update Submit’s exact expected hint while retaining the PermissionDenied, protected-field and unchanged-record assertions.
@@ -39,6 +46,7 @@
 - #60: `Timesheets.TimeSheet.Submit` submits owner-selected open lines through Business Central approval checks, with isolated rollback, structured refusals and field-level Status protection. Objects: codeunits 10036868–10036873, enum value 10036872; tests 95617 and 95614.
 - Issue #63: `Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` approve or reject submitted lines through the native manager action, with atomic refusal, explicit approver checks, scoped status-write protection and en-US/is-IS contracts. Codeunits 10036868–10036872, 10036876–10036877; enum values 10036875–10036876; test codeunit 95616. Existing Clockify behavior is unchanged.
 - Updated the two existing codeunit 95612 refusal assertions to use the native table caption returned by current Foundation; exact refusal content and no-write assertions remain.
+
 - Issue #64: `Timesheets.TimeSheetLine.CopyFromPrevious` and `Timesheets.TimeSheetLine.CreateFromPlanning` fill an owned time sheet through native BC processing, return only newly added lines, and leave daily hours empty. Added strict identifier/input refusals, atomic rollback, permission checks, generic-insert protection, bilingual contracts and acceptance tests. Objects: codeunits 10036872, 10036878–10036883; existing enum extension 10036785 and permission sets/extensions 10036785/10036866/10036867; test codeunit 95618 (`TS Fill Sheet Tests`) and owned-company fixture page 95617. Requires released Foundation 28.0.10 for its insert-restriction event.
 - Align test codeunit 95612 with Foundation 28.0.10’s table-caption refusal text; retain exact error and next-step assertions.
 ### Added (2026-11-04) - Create selected weekly time sheets (#61)
@@ -50,8 +58,24 @@
 - The existing `Clockify Field Restrict Tests` (95612) compose the exact refusal from native field/table captions, matching Foundation while retaining code, hint and no-partial-write assertions.
 - `TS Create Tests` (95620) and `TS Create Permission Tests` (95621) cover native creation, planning lines, resource/period selection, literal identifiers, all-or-nothing validation, limits, existing sheets, generic-write restrictions, localization and whole-batch rollback.
 
+### Added (2026-11-04) - Timesheets.Absence.Register (#65)
+
+- New message type `Timesheets.Absence.Register` on enumextension `Clockify Msg Type ori` (10036785), value 10036879, codeunit `TS Absence Reg Impl ori` (10036880). It adds an absence line with a cause of absence and hours per day to a time sheet, found by `timeSheetNo` or by `resourceNo` plus `date`.
+- Absence dispatch `TS Absence Mgt ori` (10036881), contract chapters `TS Absence Contract ori` (10036882), write isolation `TS Absence Context ori` (10036883) and `TS Absence Runner ori` (10036884), separate from the already merged decision handlers. The write runs in `Codeunit.Run`; a platform error answers `BusinessCentralError` and writes nothing. A successful call commits.
+- Refusals with `nextStep`: `MissingParameter`, `InvalidParameterFormat`, `UnknownParameter`, `RecordNotFound` (sheet, resource or cause), `ConflictingIdentifiers`, `InvalidLine` (hour dates must be unique and inside the sheet period), `PermissionDenied`, and `PreconditionFailed` when the resource is not linked to an employee. Hours on Saturday or Sunday are written and returned with a warning; the BC 28 Resource table in this compile has no Base Calendar Code, so closed base-calendar days are not detected.
+- Permission set `BIFROST Timeshts ori` (10036785) grants the new codeunits, read/insert/modify line and detail access, and cause of absence and employee data. Header insert/modify comes from the merged `Timesheets.TimeSheet.Create` (#61); generic Data.Records header, line and detail writes stay restricted. No new assignable permission set and no Foundation `Setup ori` grant.
+- Test-only fixture codeunit 95618 seeds isolated native records in a CRONUS verification company for MCP acceptance without changing licensing; it refuses duplicate setup and the owned environment is removed after verification.
+- Help regression follows the settled language policy: English chapters at both LCIDs, localized catalogue and runtime refusals. Test page 95620 invokes fixture 95618 and uses the authenticated user; it is hidden from page search.
+- Tests: test codeunits 95622 `TS Absence Reg Tests` and 95623 `TS Absence Reg Perm Tests`; fixture setup/cleanup codeunits 95618/95619. Existing and updated is-IS translation units are retained.
+
+- Preserve absence cause/type on daily details for standard Employee Absence posting; isolate invalid dates and restrict generic time-sheet writes (codeunits 10036838, 10036881, 10036884; tests 95622). Existing Foundation Read/Full permission extensions grant absence discovery and execution on feature objects. Base-app table access is granted by BIFROST Timeshts ori and checked before execution.
+- Merged with #61: `TS Absence Reg Tests` moved from test codeunit 95621 to 95622 because `TS Create Permission Tests` uses 95621; assertions are unchanged. The is-IS unit for `InvalidHoursDescriptionLbl` (codeunit 10036882) is added and units follow the generator order.
+- `TS Absence MCP Fixture Cleanup` (95619) no longer deletes the running user's `User Setup`, which may predate the fixture; the owned verification container teardown removes it.
 
 ### Fixed
+- Issue #65 / PR #71: merge #64 main without dropping either feature. Move absence implementation/manager/contract/context to free codeunits 10036850/10036851/10036852/10036856 and its MCP fixture to 95624; retain runner 10036884, enum value 10036879, permission test 95623 and all assertions. The conflicting Fill/status table-hint contract remains an explicit failing verification dependency, not a pass.
+- Issue #65 / PR #71: retain the dedicated Submit/Approve/Reject next step when the absence table guard refuses generic Time Sheet Line writes before the Status field guard (codeunit 10036872; regression tests 95614/95622). Both table restrictions and exact refusal/no-write assertions remain.
+- Issue #65 / PR #71: move absence permission test codeunit from 95617 to free ID 95623 after the Submit merge; retain both permission suites and every assertion.
 
 - Clockify contract parameters and targets now match each message type's request keys (codeunit 10036855 and Clockify implementations). List URL construction is unchanged. Sync contracts document optional billable and description values. Exact parameter-name regression expectations cover every Clockify type in codeunit 95608 (#46). Field restriction tests (95612) keep the exact refusal and next-step checks using the public table caption returned by the current Foundation build.
 
