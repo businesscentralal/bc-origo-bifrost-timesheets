@@ -1,0 +1,49 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "containerId": "f0ddbd880366",
+  "at": "2026-11-05T09:19:36.089Z",
+  "verified": true,
+  "results": [
+    {
+      "table": "Time Sheet Detail",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Time Sheet Line",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Time Sheet Header",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Resource",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Employee",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Cause of Absence",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Human Resource Unit of Measure",
+      "remaining": 0,
+      "verified": true
+    },
+    {
+      "table": "Unit of Measure",
+      "remaining": 0,
+      "verified": true
+    }
+  ],
+  "userSetup": "Existing fixture cleanup preserves User Setup; owned-container teardown removes task-created setup"
+}

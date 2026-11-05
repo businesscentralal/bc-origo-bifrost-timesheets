@@ -1,0 +1,81 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "containerId": "f0ddbd880366",
+  "owner": "worker-7",
+  "taskId": "flow-continue-businesscentralal_bc-origo-bifrost-timesheets_65-2026-11-05T08_27",
+  "bcVersion": "28.5.54151.57488",
+  "country": "w1",
+  "company": "CRONUS International Ltd.",
+  "product": {
+    "version": "28.0.0.0",
+    "artifactSha256": "52df105e8240969e613fcf82f4aa7385764c990107a1211366e913cc25657401",
+    "publish": "2026-11-05T09:09:37.567Z"
+  },
+  "testApp": {
+    "version": "28.0.0.0",
+    "artifactSha256": "e302a5f762a96e7178b70416d36e637d54e9202462a4f00cf341870b3654efdb",
+    "publish": "2026-11-05T09:09:45.324Z"
+  },
+  "foundation": {
+    "version": "28.0.11.669",
+    "artifactSha256": "050cb3b6f2c77ee74ab155831664a96b790781e27890c3632e32c29837452c08"
+  },
+  "installedApps": [
+    {
+      "schemaState": "Synced",
+      "name": "Bifrost Foundation",
+      "id": "7505e808-6e52-4b96-a328-82573391297a",
+      "installed": true,
+      "version": "28.0.11.669"
+    },
+    {
+      "schemaState": "Synced",
+      "name": "Bifrost Timesheets - Tests",
+      "id": "553214e3-b742-4ccf-8ecc-1ee86fbc96f9",
+      "installed": true,
+      "version": "28.0.0.0"
+    },
+    {
+      "schemaState": "Synced",
+      "name": "Bifrost Timesheets",
+      "id": "d4560cf5-947d-42b5-b812-33ae8dd009af",
+      "installed": true,
+      "version": "28.0.0.0"
+    },
+    {
+      "schemaState": "Synced",
+      "name": "Library Assert",
+      "id": "dd0be2ea-f733-4d65-bb34-a28f4624fb14",
+      "installed": true,
+      "version": "28.5.54151.57488"
+    },
+    {
+      "schemaState": "Synced",
+      "name": "Test Runner",
+      "id": "23de40a6-dfe8-4f80-80db-d70f83ce8caf",
+      "installed": true,
+      "version": "28.5.54151.57488"
+    },
+    {
+      "schemaState": "Synced",
+      "name": "Tests-TestLibraries",
+      "id": "5d86850b-0d76-4eca-bd7b-951ad998e997",
+      "installed": true,
+      "version": "28.5.54151.57488"
+    }
+  ],
+  "publication": {
+    "repo": "businesscentralal/bc-origo-bifrost-timesheets",
+    "branch": "codex/gandalfr/timesheets-65-absence-register",
+    "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "branchUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/tree/codex/gandalfr/timesheets-65-absence-register",
+    "commitUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/commit/75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+    "remoteVerifiedAt": "2026-11-05T09:09:23.308Z"
+  },
+  "priorCandidate": {
+    "sha": "4c194c9691901999a53123180bf940b8a597213b",
+    "result": "285/284/1/0"
+  },
+  "reusedOwnedContainer": true,
+  "fixturesNotCreatedBeforeNative": true
+}

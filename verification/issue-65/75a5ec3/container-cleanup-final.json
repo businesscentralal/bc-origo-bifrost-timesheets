@@ -1,0 +1,14 @@
+{
+  "id": "f0ddbd880366",
+  "owner": "worker-7",
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "startedAt": "2026-11-05T09:20:41.558Z",
+  "beforeStatus": 200,
+  "beforeState": "Running",
+  "fixtureCleanup": true,
+  "deleteHttp": 204,
+  "readbackHttp": 404,
+  "verifiedDeleted": true,
+  "finishedAt": "2026-11-05T09:20:41.966Z",
+  "localRoutingRestored": true
+}

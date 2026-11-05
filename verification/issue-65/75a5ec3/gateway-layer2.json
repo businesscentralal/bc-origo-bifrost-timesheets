@@ -1,0 +1,30 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "targetBranch": "main",
+  "tier": "Standard",
+  "layer1": {
+    "files_scanned": 11,
+    "passed": 18,
+    "failed": 5,
+    "countsAreAdvisory": true,
+    "details": "gateway-layer1-detail.log"
+  },
+  "layer2": {
+    "breakingChanges": "No public APIs/fields removed or renamed. Unreleased object identity collision resolved only for own cleanup helper; keep main source and names.",
+    "logic": "One table hint subscriber forLine/Detail; catalogue-derived names; exact refusal/no-mutation checks preserved; both locales exercised by native generic dispatch test. Native operations preserved from main.",
+    "permissions": "Union of main and absence grants; no new assignable set or Foundation Setup access. Restrictive permission tests retained.",
+    "isolation": "Absence runner locks header before allocating new line number, serializing same-sheet writes; existing no-ReadIsolation scanner finding reviewed against explicit locks and codeunit-isolation pattern.",
+    "sourceRegexFindings": [
+      "Semicolons are procedure parameter separators, not multiple AL statements",
+      "Today in object/page names is not date logic",
+      "Locked message-name captions are protocol identifiers",
+      "SingleInstance request context needs6state fields; no new global added"
+    ],
+    "translations": "Main compiler0errors0warnings; actualmain and candidate both1order-only.0new ContractParameterKeys/MixedLanguageLabels/IcelandicXlfInSync findings under ruling6626910201. Public help deferment explicit for unreleased app; in-app help tested current tip pending.",
+    "documentation": "CHANGELOG includes recovery hint and merge identity repair; original in-app English chapter/Icelandic catalogue policy remains; Closes#65 preserved.",
+    "coverage": "All285tests executed/passed; changed95614/19/22/23executed58passedtwice. Publicgeneric table+fieldguardcomposition regression and liveLine/Detailhints testedbothLCIDs.",
+    "security": "No licence/EULA/trial/counter/backend/customer changes, no generic fence bypass, no secrets in source or planned evidence."
+  },
+  "runtimeStatus": "Full285/285, repeats58/58twice, MCP59/59final(initial6harnessfailuresretained), UI2/2; cleanup8tables0remaining, containerdeletepending; CIrunning",
+  "at": "2026-11-05T09:04:05.318591+00:00"
+}

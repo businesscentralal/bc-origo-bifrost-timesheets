@@ -1,0 +1,337 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "containerId": "f0ddbd880366",
+  "server": "origo-bc-mcp",
+  "executed": 59,
+  "passed": 59,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "lcid": 1033,
+      "scenario": "Missing required cause",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Unknown parameter",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Wrong identifier type",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Missing sheet",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Missing cause",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Resource without employee",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Duplicate hours date no partial writes",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Out of period no partial writes",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Help follows approved English chapters and localized catalogue",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Missing required cause",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Unknown parameter",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Wrong identifier type",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Missing sheet",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Missing cause",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Resource without employee",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Duplicate hours date no partial writes",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Out of period no partial writes",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Help follows approved English chapters and localized catalogue",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Hours array writes absence details",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Sheet date quantity writes absence",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Resource date weekend writes with warning",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Generic status write retains dedicated hint and no mutation",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheet.Create help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheet.Submit help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheet.Create help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheet.Submit help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious refuses missing identifier",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning refuses missing identifier",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Catalogue description uses requested language",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious refuses missing identifier",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning refuses missing identifier",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Catalogue description uses requested language",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Generic status write preserves localized dedicated hint and all owned rows",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Approve help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Approve refuses missing identifier without mutation",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reject help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reject refuses missing identifier without mutation",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reopen help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Post help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Archive help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Approve help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Approve refuses missing identifier without mutation",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reject help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reject refuses missing identifier without mutation",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reopen help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Post help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Archive help discovered",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Generic detail write shares all native recovery names and preserves rows",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Generic detail write shares all native recovery names and preserves rows",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reopen documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Reopen",
+      "code": "InvalidParameterFormat",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Post documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Post",
+      "code": "ConfirmationRequired",
+      "passed": true
+    },
+    {
+      "lcid": 1033,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Archive documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Archive",
+      "code": "UnknownParameter",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Reopen documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Reopen",
+      "code": "InvalidParameterFormat",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Post documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Post",
+      "code": "ConfirmationRequired",
+      "passed": true
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Shared recovery Timesheets.TimeSheet.Archive documented refusal preserves owned rows",
+      "type": "Timesheets.TimeSheet.Archive",
+      "code": "UnknownParameter",
+      "passed": true
+    }
+  ],
+  "initialHarness": {
+    "scenarios": 59,
+    "passed": 53,
+    "failed": 6,
+    "explanation": "Six extra harness checks incorrectly expected MissingParameter for existing bulk Reopen/Archive and confirmation-gated Post. Actual Reopen/Archive successful results were0mutations. Source contracts inspected; only six safe refusal paths re-executed. No successful absence writes or zero-work bulk operations replayed.",
+    "evidence": "mcp-summary.json"
+  },
+  "correctedRefusalExecutions": 6,
+  "totalScenarioAssertionExecutions": 65,
+  "rawAssertionPassed": 59,
+  "rawAssertionFailed": 6,
+  "ownedData": {
+    "headers": 2,
+    "absenceLines": 3,
+    "details": 3,
+    "hours": 20
+  },
+  "fixture": "Self-created once through authenticated page95620 after0header preflight; fixture state inspected before refusal-only recovery",
+  "cleanup": "Verified0rowsin8ownedfixturetables; ownedCOSMODELETE204/GET404"
+}

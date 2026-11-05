@@ -1,0 +1,36 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "dependency": {
+    "path": "/workspace/evidence/service5-worker7-20261104/dependency-release/Origo_Bifrost Foundation_28.0.11.669.app",
+    "sha256": "050cb3b6f2c77ee74ab155831664a96b790781e27890c3632e32c29837452c08"
+  },
+  "checks": {
+    "app": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "startedAt": "2026-11-05T09:08:29.882892+00:00",
+      "finishedAt": "2026-11-05T09:08:45.606348+00:00",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ],
+      "artifactSha256": "52df105e8240969e613fcf82f4aa7385764c990107a1211366e913cc25657401"
+    },
+    "test": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "startedAt": "2026-11-05T09:08:45.656027+00:00",
+      "finishedAt": "2026-11-05T09:08:58.467686+00:00",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop"
+      ],
+      "artifactSha256": "e302a5f762a96e7178b70416d36e637d54e9202462a4f00cf341870b3654efdb"
+    }
+  }
+}

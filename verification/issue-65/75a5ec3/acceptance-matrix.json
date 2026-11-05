@@ -1,0 +1,553 @@
+{
+  "issue": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/issues/65",
+  "pr": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71",
+  "retainedRepairOwner": "D\u00e1inn(worker-7)",
+  "ruling": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71#issuecomment-6626910201",
+  "notIssueCompletion": true,
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "baseSha": "2f07fd75bff65a8d9603a746b4dd9b9313505840",
+  "hintContractRuling": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71#issuecomment-6652387534",
+  "repairScope": [
+    "Merged currentmain2f07fd7; keep native implementations and permissions union",
+    "Shared catalogue-derived native Line/Detail hint; relevant-name tests/no-write assertions in1033/1039",
+    "Move own cleanup95619\u219295625; preserve current-main XLF units and all active absence units; archive obsolete deleted-source label"
+  ],
+  "criteria": [
+    {
+      "id": "AC01",
+      "status": "developer-verified",
+      "implementation": "Native happy paths + self-seeded MCP hours array, sheet/date/quantity and resource/weekend;3lines/3details20hours",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC02",
+      "status": "developer-verified",
+      "implementation": "No employee: PreconditionFailed and translated recovery; native+MCP bothLCIDs",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC03",
+      "status": "developer-verified",
+      "implementation": "Missing cause RecordNotFound + exact recovery; native+MCP bothLCIDs",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC04",
+      "status": "developer-verified",
+      "implementation": "Native full suite covers missing/type/unknown/notfound/conflicting identifiers; live refusal checks bothLCIDs",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC05",
+      "status": "developer-verified",
+      "implementation": "Weekend4hours committed with warning; native and live readback",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC06",
+      "status": "developer-verified",
+      "implementation": "Renumbered restrictive permission codeunit95623 passes current full suite. Currentmain RIMD line/detail grants preserved; generic write/force guards retained.",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC07",
+      "status": "developer-verified",
+      "implementation": "Shared hint contract plus exact table refusal and field recovery/no-mutation composition proven by current native suite; bothLCIDs in95614.",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC08",
+      "status": "developer-verified",
+      "implementation": "Help English atbothLCIDs, catalogue/refusals1039; ruling6626910201 replaces full Icelandic chapters; no internal-object help change",
+      "evidence": "Exact75a5ec3 native285/285, consecutive58/58twice; self-seeded MCP final59/59 (initial6wrong-harness expectations retained;6safe-refusalchecks reexecuted). See native-summary and mcp-final-summary. English help/Icelandiccatalogue/refusals follow6626910201; no-write/table&field recovery composition proven."
+    },
+    {
+      "id": "AC09",
+      "status": "verified-incremental-ruling",
+      "implementation": "596union units retain all539prior and521main IDs/source/targets; missing0/changed0. Order-only1 in actualmainc933 baseline and current. Existing ruling accepts0new findings and unreleased in-app help.",
+      "evidence": "Current75a5ec3and actualmain2f07fd7both1order-only.644units,0missing/orphan/sourcechanges,all569mainunits/targetsretained. Ruling6626910201applies; Englishin-apphelp/IcelandiccatalogueandrefusalspassbothLCIDs."
+    },
+    {
+      "id": "AC10",
+      "status": "verified",
+      "implementation": "ContractParameterKeys0\u21920; no contract/request-key changes",
+      "evidence": "Current ContractParameterKeys0 findings."
+    },
+    {
+      "id": "AC11",
+      "status": "verified",
+      "implementation": "Timesheets.Absence.Register has3parts; live discovery/help verified",
+      "evidence": "Timesheets.Absence.Register exactly3parts."
+    },
+    {
+      "id": "AC12",
+      "status": "owned-suite-passed-CI-pending",
+      "implementation": "Exact-tip owned and pairedCI41934435693:263executed/261passed/2failed/0skipped/0errors. No full-suite pass; failed names95614 genericStatus and95622 genericrestriction hint.",
+      "evidence": "285executed/285passed/0failed/0skipped at75a5ec3."
+    },
+    {
+      "id": "AC13",
+      "status": "pending-independent-review",
+      "implementation": "Claude exact-tip receipt follows canonical handoff under current assignment; Grok clearance/approval/Architect merge/deploy/Tester UAT pending.",
+      "evidence": "Prior724d533 evidence is historical; fresh current-tip results pending"
+    }
+  ],
+  "verification": {
+    "native": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "containerId": "f0ddbd880366",
+      "at": "2026-11-05T09:11:31.634Z",
+      "fullSuite": true,
+      "executed": 285,
+      "passed": 285,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "failures": [],
+      "ok": true,
+      "durationMs": 80169
+    },
+    "mcp": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "containerId": "f0ddbd880366",
+      "server": "origo-bc-mcp",
+      "executed": 59,
+      "passed": 59,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "lcid": 1033,
+          "scenario": "Missing required cause",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Unknown parameter",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Wrong identifier type",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Missing sheet",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Missing cause",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Resource without employee",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Duplicate hours date no partial writes",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Out of period no partial writes",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Help follows approved English chapters and localized catalogue",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Missing required cause",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Unknown parameter",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Wrong identifier type",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Missing sheet",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Missing cause",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Resource without employee",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Duplicate hours date no partial writes",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Out of period no partial writes",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Help follows approved English chapters and localized catalogue",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Hours array writes absence details",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Sheet date quantity writes absence",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Resource date weekend writes with warning",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Generic status write retains dedicated hint and no mutation",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheet.Create help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheet.Submit help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheet.Create help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheet.Submit help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious refuses missing identifier",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning refuses missing identifier",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Catalogue description uses requested language",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheetLine.CopyFromPrevious refuses missing identifier",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Merged Timesheets.TimeSheetLine.CreateFromPlanning refuses missing identifier",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Catalogue description uses requested language",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Generic status write preserves localized dedicated hint and all owned rows",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Approve help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Approve refuses missing identifier without mutation",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reject help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reject refuses missing identifier without mutation",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reopen help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Post help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Archive help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Approve help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Approve refuses missing identifier without mutation",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reject help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reject refuses missing identifier without mutation",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reopen help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Post help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Archive help discovered",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Generic detail write shares all native recovery names and preserves rows",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Generic detail write shares all native recovery names and preserves rows",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reopen documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Reopen",
+          "code": "InvalidParameterFormat",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Post documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Post",
+          "code": "ConfirmationRequired",
+          "passed": true
+        },
+        {
+          "lcid": 1033,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Archive documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Archive",
+          "code": "UnknownParameter",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Reopen documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Reopen",
+          "code": "InvalidParameterFormat",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Post documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Post",
+          "code": "ConfirmationRequired",
+          "passed": true
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Shared recovery Timesheets.TimeSheet.Archive documented refusal preserves owned rows",
+          "type": "Timesheets.TimeSheet.Archive",
+          "code": "UnknownParameter",
+          "passed": true
+        }
+      ],
+      "initialHarness": {
+        "scenarios": 59,
+        "passed": 53,
+        "failed": 6,
+        "explanation": "Six extra harness checks incorrectly expected MissingParameter for existing bulk Reopen/Archive and confirmation-gated Post. Actual Reopen/Archive successful results were0mutations. Source contracts inspected; only six safe refusal paths re-executed. No successful absence writes or zero-work bulk operations replayed.",
+        "evidence": "mcp-summary.json"
+      },
+      "correctedRefusalExecutions": 6,
+      "totalScenarioAssertionExecutions": 65,
+      "rawAssertionPassed": 59,
+      "rawAssertionFailed": 6,
+      "ownedData": {
+        "headers": 2,
+        "absenceLines": 3,
+        "details": 3,
+        "hours": 20
+      },
+      "fixture": "Self-created once through authenticated page95620 after0header preflight; fixture state inspected before refusal-only recovery",
+      "cleanup": "PENDING"
+    },
+    "repeatNative": [
+      {
+        "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+        "containerId": "f0ddbd880366",
+        "at": "2026-11-05T09:12:04.965Z",
+        "fullSuite": false,
+        "executed": 58,
+        "passed": 58,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "failures": [],
+        "ok": true,
+        "durationMs": 18049
+      },
+      {
+        "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+        "containerId": "f0ddbd880366",
+        "at": "2026-11-05T09:12:50.130Z",
+        "fullSuite": false,
+        "executed": 58,
+        "passed": 58,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "failures": [],
+        "ok": true,
+        "durationMs": 35527
+      }
+    ],
+    "ui": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "containerId": "f0ddbd880366",
+      "verified": true,
+      "executed": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "scenarios": [
+        {
+          "lcid": 1033,
+          "scenario": "Owned native Time Sheet card shows3open absence lines/causeXTS65,20hours and actuallocale shell/date",
+          "passed": true,
+          "evidence": "ui-verify1033-result.json",
+          "screenshot": "ui-verified-1033.png"
+        },
+        {
+          "lcid": 1039,
+          "scenario": "Owned native Time Sheet card shows3open absence lines/causeXTS65,20hours and actuallocale shell/date",
+          "passed": true,
+          "evidence": "ui-verify1039-result.json",
+          "screenshot": "ui-verified-1039.png"
+        }
+      ],
+      "note": "W1 base-app captions remain English; My Settings plus locale-specific shell/date verified."
+    },
+    "cleanup": {
+      "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+      "containerId": "f0ddbd880366",
+      "at": "2026-11-05T09:19:36.089Z",
+      "verified": true,
+      "results": [
+        {
+          "table": "Time Sheet Detail",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Time Sheet Line",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Time Sheet Header",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Resource",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Employee",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Cause of Absence",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Human Resource Unit of Measure",
+          "remaining": 0,
+          "verified": true
+        },
+        {
+          "table": "Unit of Measure",
+          "remaining": 0,
+          "verified": true
+        }
+      ],
+      "userSetup": "Existing fixture cleanup preserves User Setup; owned-container teardown removes task-created setup"
+    }
+  }
+}

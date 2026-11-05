@@ -1,0 +1,38 @@
+{
+  "PermissionCoverage": {
+    "exitCode": 0,
+    "summary": "Every page, query, report and xmlport is granted by an assignable permission set.\n"
+  },
+  "IcelandicXlfInSync": {
+    "exitCode": 1,
+    "summary": "::error::The committed is-IS.xlf is not what tools/Update-IcelandicXlf.ps1 generates from the build (1 problem(s), #791). Compile the app, run tools/Update-IcelandicXlf.ps1 and commit the result.\nout-of-order: Bifrost Timesheets.is-IS.xlf holds the units of the build in a different order than tools/Update-IcelandicXlf.ps1 writes them\n"
+  },
+  "MixedLanguageLabels": {
+    "exitCode": 0,
+    "summary": "No procedure answers a Locked English sentence.\n"
+  },
+  "ContractParameterKeys": {
+    "exitCode": 0,
+    "summary": "Every contract parameter is a key the code reads, and every key the code reads is declared (0 allow-listed).\n"
+  },
+  "NoObsolete": {
+    "exitCode": 0,
+    "summary": "No obsolete declaration and no AL0432/AL0667 pragma in the app, apart from the allow-listed VAT Amount Line pragmas.\n"
+  },
+  "IcelandicKeywordCounts": {
+    "exitCode": 0,
+    "summary": "Every Icelandic keyword list has at least as many entries as the English one (52 in the source, 52 in the xlf).\n"
+  },
+  "ValidatedTableView": {
+    "exitCode": 0,
+    "summary": "Every applied tableView is validated first.\n"
+  },
+  "NoClientCallstack": {
+    "exitCode": 0,
+    "summary": "No call stack is returned or documented to callers.\n"
+  },
+  "HelpLinks": {
+    "exitCode": 1,
+    "summary": "Exception: /workspace/timesheets71-worker7/tools/Test-HelpLinks.ps1:37\nLine |\n  37 |  \u2026 Test-Path -LiteralPath $dir)) { throw \"Help folder not found: $dir\" }\n     |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n     | Help folder not found: /workspace/timesheets71-worker7/help/timesheets\n"
+  }
+}

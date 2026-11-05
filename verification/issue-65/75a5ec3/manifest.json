@@ -1,0 +1,96 @@
+{
+  "candidateSha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "owner": "worker-7",
+  "displayName": "D\u00e1inn",
+  "taskId": "flow-continue-businesscentralal_bc-origo-bifrost-timesheets_65-2026-11-05T08_27",
+  "capturedAt": "2026-11-05T09:22:40.259869+00:00",
+  "developerAcceptance": {
+    "compile": {
+      "appErrors": 0,
+      "appWarnings": 0,
+      "testErrors": 0,
+      "testWarnings": 0
+    },
+    "fullTests": {
+      "executed": 285,
+      "passed": 285,
+      "failed": 0,
+      "skipped": 0
+    },
+    "consecutiveChangedCodeunits": [
+      {
+        "executed": 58,
+        "passed": 58,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "executed": 58,
+        "passed": 58,
+        "failed": 0,
+        "skipped": 0
+      }
+    ],
+    "mcp": {
+      "finalDistinctScenarios": 59,
+      "passed": 59,
+      "failed": 0,
+      "skipped": 0,
+      "initialHarnessAssertionFailures": 6,
+      "safeRefusalReexecutions": 6,
+      "totalScenarioAssertions": 65,
+      "successfulAbsenceWritesReplayed": 0
+    },
+    "ui": {
+      "executed": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "lcids": [
+        1033,
+        1039
+      ]
+    },
+    "cleanup": {
+      "fixtureTables": 8,
+      "remainingOwnedRows": 0,
+      "containerDelete": 204,
+      "containerReadback": 404
+    }
+  },
+  "remaining": [
+    "PairedCI42000061825mustfinishgreenatthissameSHA",
+    "Canonicalhandoffmustexecute; existingpr:amendreviewerlabelnotdeveloper-cleared",
+    "IndependentClaude/Grokexacttipreview,eligibleapproval,Architectmerge/deployandTesterUATpending"
+  ],
+  "issueComplete": false,
+  "ciResult": "PENDINGatpacketpublication; notclaimedgreen",
+  "privateExclusions": "No credentials,cookies,privatekeys,rawenvironmentsettingsorprivateauthresourcesincluded",
+  "files": {
+    "acceptance-matrix.json": "9fb0b6233aa51916f7ab0306ea0e03a72d4c1003d9daaa3be2bc06ccbd3ea84c",
+    "app.log": "b64233d2480940b971a808d20d2e89814a9fde5e45ba4b2aa161e86324a47916",
+    "compile-result.json": "1b00a63c9b1bbfae8c73a542d2db233138075e11e997796d3ddedc6e05f9252c",
+    "container-cleanup-final.json": "459d09827ef98e42215e5550f035cc417d60de79650d74a88069b14d11f3103d",
+    "deployment-provenance.json": "c97fa2f38d9c3f9b4f3f974386b437228abd39750b30a0fbb2874e5be9014e51",
+    "gateway-layer1-detail-75a5ec3.log": "f49b420293d66f2c79a7e08d93617e149dde91458f0ecbe242d0660cba5a05c8",
+    "gateway-layer2.json": "5c3320ae9e2e0387096a1459c6f81243b813e057d2f0c2d0c53f059667867e34",
+    "guards.json": "8e2eb856efdc6c8313724d02d4d84a08e4ab8c2881c32ecf769f2c8b7e7f81b1",
+    "historical-4c194c9-native-summary.json": "903344fee7dc4ec3f9a8c6565dfa167e40d93cf73f576cb9472dfb6b689ea345",
+    "mcp-cleanup-final.json": "851c80d2987a0e8745471ffd40d2f5e54ca39030dd831d6bcd2ca1d075b9b9d9",
+    "mcp-corrected-refusals.log": "f3dc7683189179de128d262761766c951223843ed4925a4f660e88b37a653a76",
+    "mcp-final-summary.json": "8e1b92300d186a6b3b3a3c6a0161c1533ea132829f5b2aa64d3f12c67eeff1f2",
+    "mcp-summary.json": "b921a24a176f6580220feda3d2741f2c8dc4d229889e113852e335b407079459",
+    "native-focused-1-summary.json": "70e6b9d44061aeb1b01da61139bd6c67b8950c704d92c3d3c027f0f4778620c7",
+    "native-focused-2-summary.json": "265601f2a107e60cac9d17e25d792136dec575333df39dfa72b775afb0da3ddb",
+    "native-summary.json": "29d9811bae34e3778e96298ccaff0a9ede56160591a2ef399d20be9d2d632279",
+    "obsolete-main-removed-label.xml": "d8d3c673a32d31454194cd6b322d4a26e8dac4e1831cf93a2ae0f4d267bd44e8",
+    "publication.json": "259ca1057adaf81e19c2e9e7365a4e907fc4fd6adaeecc9706adc4d9b84ca231",
+    "source-test-roster.json": "df926493304e6c1ccd571458579fc34d69ba58f97a9e70de86ddbf9fe4780085",
+    "test.log": "99fafeccdfe49a1cbc5c5946174fc3bf65f0550af3636e98d33d17782e8d21e2",
+    "ui-summary.json": "a84ee59d285d8496ae292e82ad8257f630dcd97202aa734cbf6f20cf129aaf35",
+    "ui-verified-1033.png": "3f562d9efad80d5b729594f9c35732881afbe3ee737282ca795161ffd7278070",
+    "ui-verified-1039.png": "ab115a62ce60e2f07fe6999b97f262c19927a587cbc1efe9712fdb4641fa4f51",
+    "xlf-comparison.json": "bd77e84c6cca56e35caab18a5fb5c4167685bdbc1603ff758a4a0affdb71030a",
+    "xlf-union.json": "c355cd8e514923e1f3b63d591106d20328abecfa72bfce60fba623c42cbd0b0a"
+  }
+}

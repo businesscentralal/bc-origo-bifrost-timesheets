@@ -1,0 +1,26 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "containerId": "f0ddbd880366",
+  "verified": true,
+  "executed": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "scenarios": [
+    {
+      "lcid": 1033,
+      "scenario": "Owned native Time Sheet card shows3open absence lines/causeXTS65,20hours and actuallocale shell/date",
+      "passed": true,
+      "evidence": "ui-verify1033-result.json",
+      "screenshot": "ui-verified-1033.png"
+    },
+    {
+      "lcid": 1039,
+      "scenario": "Owned native Time Sheet card shows3open absence lines/causeXTS65,20hours and actuallocale shell/date",
+      "passed": true,
+      "evidence": "ui-verify1039-result.json",
+      "screenshot": "ui-verified-1039.png"
+    }
+  ],
+  "note": "W1 base-app captions remain English; My Settings plus locale-specific shell/date verified."
+}

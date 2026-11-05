@@ -1,0 +1,20 @@
+{
+  "sha": "4c194c9691901999a53123180bf940b8a597213b",
+  "containerId": "f0ddbd880366",
+  "at": "2026-11-05T09:07:07.438Z",
+  "fullSuite": true,
+  "executed": 285,
+  "passed": 284,
+  "failed": 1,
+  "skipped": 0,
+  "errors": 0,
+  "failures": [
+    {
+      "name": "Scenario_AC07_GenericStatusWrite_LeavesLineUnchanged",
+      "message": "Assert.AreEqual failed. Expected:&lt;data[0].fields.Status&gt; (Text). Actual:&lt;tableId&gt; (Text). The refusal must identify the protected field..",
+      "classname": "95619 TS Native Bulk Tests"
+    }
+  ],
+  "ok": false,
+  "durationMs": 217836
+}

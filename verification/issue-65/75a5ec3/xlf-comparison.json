@@ -1,0 +1,15 @@
+{
+  "sha": "75a5ec376d9362555ec40fdff5e7cd8ab926e52c",
+  "generated": 644,
+  "committed": 644,
+  "missing": [],
+  "orphaned": [],
+  "sourceChanges": [],
+  "mainUnits": 569,
+  "mainUnitsLost": [],
+  "mainTargetsChanged": [],
+  "baselineGuard": "1order-only",
+  "currentGuard": "1order-only at75a5ec3; current compile uses same appsource as4c194c9 (delta onlytest/CHANGELOG)",
+  "ruling": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/71#issuecomment-6626910201",
+  "obsoleteRemovedSourceLabelArchived": "obsolete-main-removed-label.xml"
+}
