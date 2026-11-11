@@ -17,6 +17,7 @@
 ### Fixed
 
 - Timesheets Registration ori (10036854) has inherent execute permissions and entitlements, with both subscriber skip flags left false, so the Foundation licence-admin role can open Bifrost Setup (#86, #70).
+- The licence-admin test checks one registry row, no duplicate on a second enumeration, unchanged Clockify setup, API-key presence, HTTP allow count, time sheets and jobs, and a PermissionDenied refusal for Timesheets.TimeSheet.Submit (#70).
 
 ## [Unreleased]
 
