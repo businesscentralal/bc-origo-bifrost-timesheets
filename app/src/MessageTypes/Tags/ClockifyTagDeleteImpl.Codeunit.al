@@ -131,7 +131,8 @@ codeunit 10036810 "Clockify Tag Delete Impl ori" implements "Msg Interface ori",
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Tag.Delete");
+        // exit(Enum::"Message Type ori"::"Clockify.Tag.Delete");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

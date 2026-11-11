@@ -88,8 +88,7 @@ codeunit 10036869 "TS Contract Parts ori"
         PermissionNextLbl: Label 'Assign the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori.';
         RuntimeHelpLbl: Label 'Business Central rejected the operation.', Comment = 'is-IS=Business Central hafnaði aðgerðinni.';
         RetryHelpLbl: Label 'Review the time sheet and journal setup, then retry the call.', Comment = 'is-IS=Farðu yfir tímaskýrsluna og uppsetningu verkbókar og reyndu kallið aftur.';
-        LegacyHelpLbl: Label 'The older Clockify.TimeSheet name still works and returns a deprecation warning.', Comment = 'is-IS=Eldra heitið Clockify.TimeSheet virkar enn og skilar viðvörun um úrelt heiti.';
-        LegacyNextLbl: Label 'Use the native name.', Comment = 'is-IS=Notaðu innlenda heitið.';
+        // LegacyHelpLbl and LegacyNextLbl described the retired Clockify.TimeSheet alias. 28.0.0.0 does not keep that alias.
         BulkPreconditionLbl: Label 'The caller has the BIFROST Timeshts ori permission set.', Comment = 'is-IS=Kallandinn hefur heimildasamstæðuna BIFROST Timeshts ori.';
         BulkChangesLbl: Label 'Changes eligible Business Central time sheets. A refused operation rolls back its own writes.', Comment = 'is-IS=Breytir gjaldgengum tímaskýrslum í Business Central. Ef aðgerð er hafnað eru eigin skrif hennar afturkölluð.';
         PostChangesLbl: Label 'Posts approved time sheet lines through the project journal and commits. Posted entries cannot be undone.', Comment = 'is-IS=Bókar samþykktar tímaskýrslulínur í gegnum verkbók og staðfestir færslurnar. Ekki er hægt að afturkalla bókaðar færslur.';
@@ -99,9 +98,9 @@ codeunit 10036869 "TS Contract Parts ori"
         ReopenOverviewLbl: Label 'Reopens submitted or approved time sheet lines up to a cutoff date. Unknown keys are refused.', Comment = 'is-IS=Opnar aftur innsendar eða samþykktar tímaskýrslulínur til lokadags. Óþekktum lyklum er hafnað.';
         PostOverviewLbl: Label 'Posts approved time sheet lines and commits. This operation is irreversible. Unknown keys are refused.', Comment = 'is-IS=Bókar samþykktar tímaskýrslulínur og staðfestir færslurnar. Aðgerðin er óafturkræf. Óþekktum lyklum er hafnað.';
         ArchiveOverviewLbl: Label 'Archives fully posted time sheets and removes empty eligible sheets. The request has no parameters.', Comment = 'is-IS=Setur fullbókaðar tímaskýrslur í geymslu og fjarlægir tómar gjaldgengar skýrslur. Beiðnin hefur engar færibreytur.';
-        ReopenNotesLbl: Label 'Returns reopenedLines, as Clockify.TimeSheet.Reopen does. The old name keeps working and warns: Use the native name.', Comment = 'is-IS=Skilar reopenedLines, eins og Clockify.TimeSheet.Reopen. Eldra heitið virkar áfram og varar við: Notaðu innlenda heitið.';
-        PostNotesLbl: Label 'Returns postedLines, as Clockify.TimeSheet.Post does. Posting commits. The old name keeps working and warns: Use the native name.', Comment = 'is-IS=Skilar postedLines, eins og Clockify.TimeSheet.Post. Bókun staðfestir færslurnar. Eldra heitið virkar áfram og varar við: Notaðu innlenda heitið.';
-        ArchiveNotesLbl: Label 'Returns archived, as Clockify.TimeSheet.Archive does. The old name keeps working and warns: Use the native name.', Comment = 'is-IS=Skilar archived, eins og Clockify.TimeSheet.Archive. Eldra heitið virkar áfram og varar við: Notaðu innlenda heitið.';
+        ReopenNotesLbl: Label 'Returns reopenedLines. Unknown keys are refused.', Comment = 'is-IS=Skilar reopenedLines. Óþekktum lyklum er hafnað.';
+        PostNotesLbl: Label 'Returns postedLines. Posting commits. Posted entries cannot be undone.', Comment = 'is-IS=Skilar postedLines. Bókun staðfestir færslurnar. Ekki er hægt að afturkalla bókaðar færslur.';
+        ArchiveNotesLbl: Label 'Returns archived. The request has no parameters.', Comment = 'is-IS=Skilar archived. Beiðnin hefur engar færibreytur.';
 
     /// <summary>Declares the approval request keys.</summary>
     procedure AddApproveParameters(var Parameters: JsonArray): Boolean
@@ -385,7 +384,6 @@ codeunit 10036869 "TS Contract Parts ori"
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::ConflictingIdentifiers, ConflictHelpLbl, ConflictHelpLbl, ConflictNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::PermissionDenied, PermissionHelpLbl, PermissionHelpLbl, PermissionNextLbl));
         Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::BusinessCentralError, RuntimeHelpLbl, RuntimeHelpLbl, RetryHelpLbl));
-        Errors.Add(ContractMgt.ErrorEntry("Bifrost Error Code ori"::DeprecatedParameter, LegacyHelpLbl, LegacyHelpLbl, LegacyNextLbl));
         exit(true);
     end;
 

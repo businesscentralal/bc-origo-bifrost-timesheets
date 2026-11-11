@@ -135,7 +135,8 @@ codeunit 10036823 "Clockify UserGrpList Impl ori" implements "Msg Interface ori"
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.UserGroup.List");
+        // exit(Enum::"Message Type ori"::"Clockify.UserGroup.List");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

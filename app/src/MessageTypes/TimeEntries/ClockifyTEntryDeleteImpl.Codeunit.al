@@ -131,7 +131,8 @@ codeunit 10036818 "Clockify TEntryDelete Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeEntry.Delete");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeEntry.Delete");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

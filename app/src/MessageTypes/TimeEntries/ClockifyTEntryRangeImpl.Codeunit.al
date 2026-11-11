@@ -145,7 +145,8 @@ codeunit 10036832 "Clockify TEntryRange Impl ori" implements "Msg Interface ori"
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRange");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRange");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

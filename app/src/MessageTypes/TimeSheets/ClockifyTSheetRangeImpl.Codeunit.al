@@ -137,7 +137,8 @@ codeunit 10036841 "Clockify TSheetRange Impl ori" implements "Msg Interface ori"
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncRangeToTimeSheet");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

@@ -130,7 +130,8 @@ codeunit 10036844 "Clockify TSheetReopen Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeSheet.Reopen");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"
