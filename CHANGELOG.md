@@ -6,6 +6,19 @@
 
 # Changelog
 
+## [28.0.0.0] - 2026-11-11
+
+### Changed
+
+- Comment out the 41 Clockify and Help.Clockify.Get message types (enum values 10036785–10036825) with plain line comments. The eleven native Timesheets types remain the release surface. Clockify connector objects, object IDs and Clockify TimeSheet Mgt ori stay in the app.
+- Disable the Clockify.TimeSheet legacy alias. Native Timesheets names do not emit the old-name warning, and help no longer says those names still work.
+- Describe the eleven native types in app.json and README. Refresh the Icelandic translation file for the captions and labels taken out of compilation.
+
+### Fixed
+
+- Timesheets Registration ori (10036854) has inherent execute permissions and entitlements, with both subscriber skip flags left false, so the Foundation licence-admin role can open Bifrost Setup (#86, #70).
+- The licence-admin test checks one registry row, no duplicate on a second enumeration, unchanged Clockify setup, API-key presence, HTTP allow count, time sheets and jobs, and a PermissionDenied refusal for Timesheets.TimeSheet.Submit (#70).
+
 ## [Unreleased]
 
 ### Fixed - Absence recovery guidance (#65)

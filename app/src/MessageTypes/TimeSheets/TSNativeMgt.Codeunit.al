@@ -56,10 +56,10 @@ codeunit 10036868 "TS Native Mgt ori"
         AssignSetMsg: Label 'The caller cannot write time sheets.', Comment = 'is-IS=Kallandinn getur ekki skrifað tímaskýrslur.';
         MissingJournalMsg: Label 'No Job Journal target is configured. Supply journalTemplate and journalBatch or configure the Timesheets journal.', Comment = 'is-IS=Engin verkbók er skilgreind. Sendu journalTemplate og journalBatch eða skilgreindu verkbók tímaskýrslna.';
         JournalLengthMsg: Label 'A journal identifier exceeds the maximum length of 10 characters.', Comment = 'is-IS=Auðkenni verkbókar er lengra en 10 stafir sem eru hámarkslengd.';
-        NativeNameNextTxt: Label 'Use the native name.', Comment = 'is-IS=Notaðu innlenda heitið.';
+        // NativeNameNextTxt: Label 'Use the native name.', Comment = 'is-IS=Notaðu innlenda heitið.';
         JournalIdentifierMsg: Label 'The identifier does not match a record.', Comment = 'is-IS=Auðkennið passar ekki við færslu.';
         FixLineMsg: Label 'Business Central rejected the line.', Comment = 'is-IS=Business Central hafnaði línunni.';
-        LegacyMsg: Label 'The Clockify.TimeSheet name still runs. Use the native name.', Comment = 'is-IS=Clockify.TimeSheet heitið keyrir enn. Notaðu innlenda heitið.';
+        // LegacyMsg: Label 'The Clockify.TimeSheet name still runs. Use the native name.', Comment = 'is-IS=Clockify.TimeSheet heitið keyrir enn. Notaðu innlenda heitið.';
 
     /// <summary>Checks access to the native action's reads and writes before discovery or execution.</summary>
     procedure CanMaintainSheets(IsReject: Boolean): Boolean
@@ -521,18 +521,12 @@ codeunit 10036868 "TS Native Mgt ori"
              LineArchive.ReadPermission() and LineArchive.WritePermission());
     end;
 
-    /// <summary>Adds the deprecation warning the old Clockify.TimeSheet names return on success.</summary>
+    /// <summary>Clockify.TimeSheet names are not aliases in 28.0.0.0, so this path adds no warning.</summary>
     procedure AddLegacyNameWarning(var ResponseJson: JsonObject)
-    var
-        Warning: JsonObject;
-        Warnings: JsonArray;
     begin
-        Warning.Add('code', 'DeprecatedParameter');
-        Warning.Add('message', LegacyMsg);
-        Warning.Add('parameter', 'type');
-        Warning.Add('nextStep', NativeNameNextTxt);
-        Warnings.Add(Warning);
-        ResponseJson.Add('warnings', Warnings);
+        // The old Clockify.TimeSheet names are commented out of the message enum and must not warn or run.
+        if ResponseJson.Contains('warnings') then
+            exit;
     end;
 
     /// <summary>Reopens submitted or approved lines under the native name.</summary>

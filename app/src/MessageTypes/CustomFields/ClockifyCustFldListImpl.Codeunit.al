@@ -136,7 +136,8 @@ codeunit 10036801 "Clockify CustFldList Impl ori" implements "Msg Interface ori"
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.CustomField.List");
+        // exit(Enum::"Message Type ori"::"Clockify.CustomField.List");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

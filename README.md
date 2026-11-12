@@ -2,7 +2,7 @@
 
 **App name:** Bifrost Timesheets  
 **App ID:** `d4560cf5-947d-42b5-b812-33ae8dd009af`  
-**App ID Range:** 10036785–10036884 (highest id in use: 10036867). Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.
+**App ID Range:** 10036785–10036884. Test app `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`, range 95600–95699.
 **Publisher:** Origo — **Version:** 28.0.0.0 — **Namespace:** `Origo.Bifrost.Timesheets`  
 **Target:** Cloud (AppSource) — application/platform 28.0.0.0, runtime 17.0
 
@@ -20,11 +20,27 @@ Both containers are defined in `app/.vscode/launch.json`, which is git-ignored a
 
 ## Overview
 
-Bifrost Timesheets exposes the [Clockify](https://docs.developer.clockify.me) time-tracking REST API as 41 Bifröst message types on top of Bifrost Foundation, and synchronises finished Clockify time entries into Business Central Job Journals or Time Sheets. Workspaces, users, user groups, clients, projects, tasks, tags, currencies, custom fields and time entries are readable and writable over the Bifröst queue API (`origo/bifrost/v1.0`), so an external system or an AI agent can drive Clockify from Business Central the same way a user would.
+Version 28.0.0.0 publishes eleven native `Timesheets.*` message types. Clockify connector tables, pages, codeunits and permission sets remain in the app, but the 41 `Clockify.*` types and `Help.Clockify.Get` are commented out of the message enum and are not part of the published API surface.
 
-On the BC side the connector writes time entries either into a Job Journal — with deduplication, update detection and correction posting — or into the resource's open Time Sheet, and it manages the Time Sheet lifecycle (create, approve, reject, reopen, post, archive). A webhook receiver keeps the sync real-time. Links between BC records and Clockify objects are held in the `Clockify Integration ori` table; rows are never deleted, only marked `Reversed` and purged later by a retention policy.
+| Message type | Role |
+| --- | --- |
+| `Timesheets.TimeSheet.Submit` | Submits open time sheet lines. |
+| `Timesheets.TimeSheet.Create` | Creates time sheets for chosen resources and weeks. |
+| `Timesheets.PendingApproval.Get` | Lists submitted lines waiting for the caller. |
+| `Timesheets.TimeSheet.Approve` | Approves submitted lines. |
+| `Timesheets.TimeSheet.Reject` | Rejects submitted lines. |
+| `Timesheets.TimeSheetLine.CopyFromPrevious` | Copies lines from the previous time sheet. |
+| `Timesheets.TimeSheetLine.CreateFromPlanning` | Creates lines from resource project planning. |
+| `Timesheets.Absence.Register` | Registers an absence line. |
+| `Timesheets.TimeSheet.Reopen` | Reopens submitted or approved lines. |
+| `Timesheets.TimeSheet.Post` | Posts approved lines. |
+| `Timesheets.TimeSheet.Archive` | Archives posted time sheets. |
 
-This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same app id, same version line as the other Bifröst apps (28.0.0.0; it was developed as 29.0.0.0 until the reset of 2026-10-14). It was never published, so there is no data take-over codeunit. The app was migrated under the name *Bifrost Clockify* and renamed to **Bifrost Timesheets** before its first release (repository `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`). Object names keep the `Clockify` domain word, and the 41 message-type keys never changed. The documentation slug is still `clockify` until the folders in the site repository are renamed.
+Callers use these names on the Bifröst queue API (`origo/bifrost/v1.0`). The old `Clockify.TimeSheet.*` names are not aliases in this version.
+
+The Clockify connector objects still synchronise Clockify data inside the app when that integration is configured. They are not discoverable as message types in 28.0.0.0. Links between BC records and Clockify objects stay in `Clockify Integration ori`.
+
+This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same app id, same version line as the other Bifröst apps (28.0.0.0; it was developed as 29.0.0.0 until the reset of 2026-10-14). It was never published, so there is no data take-over codeunit. The app was migrated under the name *Bifrost Clockify* and renamed to **Bifrost Timesheets** before its first release (repository `origo-bc-cloudevents-clockify` -> `bc-origo-bifrost-timesheets`). Object names keep the `Clockify` domain word. The documentation slug is still `clockify` until the folders in the site repository are renamed.
 
 ---
 
@@ -35,7 +51,7 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 3. The administrator picks a default workspace from **Clockify Workspace Lookup ori**, which lists the workspaces the key can reach, and fills in the Job Journal template, batch and default work type.
 4. **Register Webhooks** creates the Clockify webhooks that push time-entry changes back to BC. Registered webhooks are listed on `Clockify Webhooks ori`.
 5. BC records are linked to Clockify objects. A link is one row in `Clockify Integration ori` — BC table no. plus SystemId or code on one side, Clockify type, workspace id and object id on the other. `Clockify Integration List ori` shows them.
-6. A caller (external system, AI agent, or the Job Queue) sends a Bifröst message over the queue API: `POST .../tasks` with a CloudEvents 1.0 envelope naming one of the 41 message types, then reads the answer from `.../responses({taskId})/data`.
+6. A caller (external system, AI agent, or the Job Queue) sends a Bifröst message over the queue API: `POST .../tasks` with a CloudEvents 1.0 envelope naming one of the eleven native `Timesheets.*` types, then reads the answer from `.../responses({taskId})/data`. `Clockify.*` and `Help.Clockify.Get` are not accepted names in 28.0.0.0.
 7. Read types (`*.List`, `*.Get`) return the Clockify data as JSON. Write types (`*.Create`, `*.Update`, `*.Delete`) change Clockify and record the resulting link. Sync types pull finished time entries into BC.
 8. `Clockify.TimeEntry.Sync` / `.SyncRange` / `.SyncAllUsers` create Job Journal lines. `Clockify.TimeEntry.SyncToTimeSheet` / `.SyncRangeToTimeSheet` write Time Sheet lines and details instead.
 9. `Clockify.TimeSheet.Create` / `.Approve` / `.Reject` / `.Reopen` / `.Post` / `.Archive` drive the Time Sheet through its lifecycle.
@@ -46,15 +62,15 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 ## Benefits
 
-- **One API surface for Clockify from BC** — 41 message types cover workspaces, users, user groups, clients, projects, tasks, tags, currencies, custom fields, time entries and time sheets. Callers use the Bifröst queue API and never talk to Clockify directly.
+- **Eleven native time sheet messages** — submit, create, pending approval, approve, reject, copy, planning, absence, reopen, post and archive. Callers use the Bifröst queue API. Clockify message types are not published in 28.0.0.0.
 - **No duplicate journal lines** — `Clockify Time Entry Sync ori` checks `Clockify Integration ori` before writing, so re-running a sync skips entries that are already in the journal.
 - **Corrections instead of silent overwrites** — when a synced entry changes in Clockify (hours, project, task or work type), the connector writes a reversal line plus a new line rather than editing the existing one.
 - **Real-time sync without polling** — registered Clockify webhooks call `Clockify Webhook Handler ori`, which routes the change straight to the sync engine.
 - **Two sync targets** — the same time entry can go to a Job Journal or to the resource's open Time Sheet, chosen by the message type.
 - **Auditable links that survive deletion** — integration rows are marked `Reversed` rather than deleted, and `Clockify Reten. Policy ori` removes them later through the BC retention-policy framework.
 - **API key out of the database** — the key lives in this app's IsolatedStorage (Company scope), and `Clockify ReqLog Masker ori` governs what the request log stores.
-- **Self-documenting at runtime** — `Help.Clockify.Get` returns the connector directory and every message type answers its own Markdown contract, so a caller can discover the API without reading the source.
-- **Bilingual** — every caption, label and enum value carries an `is-IS` comment, and `Bifrost Timesheets.is-IS.xlf` ships all 130 translation units translated.
+- **Self-documenting at runtime** — each native `Timesheets.*` type answers its own Markdown contract, so a caller can discover the release surface without reading the source. `Help.Clockify.Get` is not published in 28.0.0.0.
+- **Bilingual** — every caption, label and enum value carries an `is-IS` comment, and `Bifrost Timesheets.is-IS.xlf` ships the Icelandic translation units for the compiled texts.
 
 ---
 
@@ -62,7 +78,7 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 **Message dispatch**
 
-1. Bifrost Foundation receives the CloudEvents envelope, creates a `Message ori` record and resolves the `type` against the `Message Type ori` enum. `Clockify Msg Type ori` (10036785) contributes the 41 Clockify values.
+1. Bifrost Foundation receives the CloudEvents envelope, creates a `Message ori` record and resolves the `type` against the `Message Type ori` enum. `Clockify Msg Type ori` (10036785) contributes the eleven native `Timesheets.*` values. The Clockify message values in that enum extension are commented out in 28.0.0.0.
 2. Foundation instantiates the `Msg Interface ori` implementation registered for the value and calls `ExecuteBifrostTask(var Argument)`.
 3. The `Clockify <Name> Impl ori` codeunit reads its parameters from the argument, calls `Clockify Request Mgt ori` for the shared plumbing, and writes the answer back through the argument.
 4. Failures are returned as `status = Error` with a message through `Argument.RespondWithError`. An unhandled exception never reaches the API.
@@ -92,7 +108,7 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 **Housekeeping**
 
 15. `Clockify Install ori` runs on install. `Clockify Reten. Policy ori` registers `Clockify Integration ori` with the retention-policy framework and enables a default policy that removes reversed links.
-16. `Clockify Help Builder ori` renders the shared Markdown skeleton; the seven per-domain help codeunits fill it with a `case` on the message type. `Clockify Help Overview Sub ori` adds the `Help.Clockify.Get` line to Foundation's `Help.Bifrost.Get` directory.
+16. `Clockify Help Builder ori` remains in the app for the connector objects. `Clockify Help Overview Sub ori` does not add `Help.Clockify.Get` to Foundation's `Help.Bifrost.Get` directory in 28.0.0.0.
 
 ---
 
@@ -207,8 +223,8 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036799 | Clockify Help Builder ori | Renders the shared Markdown skeleton for the connector's help documents. |
 | Codeunit | 10036800 | Clockify CurrencyList Impl ori | Implements `Clockify.Currency.List`. |
 | Codeunit | 10036801 | Clockify CustFldList Impl ori | Implements `Clockify.CustomField.List`. |
-| Codeunit | 10036802 | Clockify Help Get Impl ori | Implements `Help.Clockify.Get`. |
-| Codeunit | 10036803 | Clockify Help Overview Sub ori | Adds the `Help.Clockify.Get` entry to Foundation's `Help.Bifrost.Get` directory. |
+| Codeunit | 10036802 | Clockify Help Get Impl ori | Kept in the app. `Help.Clockify.Get` is not a published message type in 28.0.0.0. |
+| Codeunit | 10036803 | Clockify Help Overview Sub ori | Kept in the app. It does not add `Help.Clockify.Get` to Foundation's directory in 28.0.0.0. |
 | Codeunit | 10036804 | Clockify ProjCreate Impl ori | Implements `Clockify.Project.Create`. |
 | Codeunit | 10036805 | Clockify ProjDelete Impl ori | Implements `Clockify.Project.Delete`. |
 | Codeunit | 10036806 | Clockify Project Get Impl ori | Implements `Clockify.Project.Get`. |
@@ -308,24 +324,13 @@ Help pages are addressed by Docusaurus slug rather than by HTML file name, resol
 
 ### Runtime help
 
-Message-type contracts are also served by the app itself at runtime. `Help.Clockify.Get` returns the connector directory, and every message type answers its own Markdown help through `get_message_type_help` / `Help.Implementation.Get`. The source of those documents is the per-domain help codeunits under `app/src/MessageTypes/`.
+Message-type contracts are served at runtime by the eleven native `Timesheets.*` types. Each answers its own Markdown help through `get_message_type_help` / `Help.Implementation.Get`. `Help.Clockify.Get` is not a published type in 28.0.0.0.
 
 ---
 
 ## Message types
 
-| Domain | Message types |
-| --- | --- |
-| Directory | `Help.Clockify.Get` |
-| Workspace | `Clockify.Workspace.List`, `Clockify.User.GetCurrent`, `Clockify.User.List`, `Clockify.UserGroup.List`, `Clockify.Currency.List`, `Clockify.CustomField.List` |
-| Clients | `Clockify.Client.List` / `.Get` / `.Create` / `.Update` / `.Delete` |
-| Projects | `Clockify.Project.List` / `.Get` / `.Create` / `.Update` / `.Delete` |
-| Tasks | `Clockify.Task.List` / `.Create` / `.Update` / `.Delete` |
-| Tags | `Clockify.Tag.List` / `.Create` / `.Update` / `.Delete` |
-| Time entries | `Clockify.TimeEntry.List` / `.Get` / `.Create` / `.Update` / `.Delete` |
-| Journal sync | `Clockify.TimeEntry.Sync`, `Clockify.TimeEntry.SyncRange`, `Clockify.TimeEntry.SyncAllUsers` |
-| Time sheet sync | `Clockify.TimeEntry.SyncToTimeSheet`, `Clockify.TimeEntry.SyncRangeToTimeSheet` |
-| Time sheets | `Clockify.TimeSheet.Create` / `.Approve` / `.Reject` / `.Reopen` / `.Post` / `.Archive` |
+The published surface in 28.0.0.0 is the eleven native types listed in the overview. `Clockify.*` and `Help.Clockify.Get` are commented out of the enum. Clockify connector objects remain in the app and are not message types in this release.
 
 The keys are the published API contract and never change.
 

@@ -131,7 +131,8 @@ codeunit 10036812 "Clockify Tag Update Impl ori" implements "Msg Interface ori",
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Tag.Update");
+        // exit(Enum::"Message Type ori"::"Clockify.Tag.Update");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

@@ -139,7 +139,8 @@ codeunit 10036846 "Clockify SyncAllUsers Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncAllUsers");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeEntry.SyncAllUsers");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

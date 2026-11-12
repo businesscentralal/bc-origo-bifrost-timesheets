@@ -129,7 +129,8 @@ codeunit 10036837 "Clockify TSheetArch Impl ori" implements "Msg Interface ori",
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeSheet.Archive");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

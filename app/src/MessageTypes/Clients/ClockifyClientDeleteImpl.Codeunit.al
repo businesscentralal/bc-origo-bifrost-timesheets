@@ -131,7 +131,8 @@ codeunit 10036795 "Clockify ClientDelete Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Client.Delete");
+        // exit(Enum::"Message Type ori"::"Clockify.Client.Delete");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

@@ -131,7 +131,8 @@ codeunit 10036817 "Clockify TEntryCreate Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.TimeEntry.Create");
+        // exit(Enum::"Message Type ori"::"Clockify.TimeEntry.Create");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

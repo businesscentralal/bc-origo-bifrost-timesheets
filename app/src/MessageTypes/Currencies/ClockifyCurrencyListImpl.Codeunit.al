@@ -135,7 +135,8 @@ codeunit 10036800 "Clockify CurrencyList Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Currency.List");
+        // exit(Enum::"Message Type ori"::"Clockify.Currency.List");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

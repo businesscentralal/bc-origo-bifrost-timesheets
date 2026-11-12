@@ -131,7 +131,8 @@ codeunit 10036809 "Clockify Tag Create Impl ori" implements "Msg Interface ori",
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Tag.Create");
+        // exit(Enum::"Message Type ori"::"Clockify.Tag.Create");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

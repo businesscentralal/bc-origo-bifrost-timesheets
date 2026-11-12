@@ -131,7 +131,8 @@ codeunit 10036798 "Clockify ClientUpdate Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.Client.Update");
+        // exit(Enum::"Message Type ori"::"Clockify.Client.Update");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

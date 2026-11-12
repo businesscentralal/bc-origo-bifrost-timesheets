@@ -132,7 +132,8 @@ codeunit 10036824 "Clockify User Current Impl ori" implements "Msg Interface ori
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Clockify.User.GetCurrent");
+        // exit(Enum::"Message Type ori"::"Clockify.User.GetCurrent");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"

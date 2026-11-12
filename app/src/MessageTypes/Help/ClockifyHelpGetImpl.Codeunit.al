@@ -132,7 +132,8 @@ codeunit 10036802 "Clockify Help Get Impl ori" implements "Msg Interface ori", "
 
     local procedure GetMessageType(): Enum "Message Type ori"
     begin
-        exit(Enum::"Message Type ori"::"Help.Clockify.Get");
+        // exit(Enum::"Message Type ori"::"Help.Clockify.Get");
+        exit;
     end;
 
     procedure GetMessageDirection(): Enum "Msg Direction ori"
