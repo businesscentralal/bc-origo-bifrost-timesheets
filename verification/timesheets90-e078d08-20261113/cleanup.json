@@ -1,0 +1,133 @@
+{
+  "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+  "tenant": "w129-12",
+  "verificationAppsAbsent": true,
+  "nativeReadback": [
+    {
+      "table": "Time Sheet Header",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Time Sheet Line",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Time Sheet Detail",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Resource",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Job",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Job Ledger Entry",
+      "count": 0,
+      "records": []
+    },
+    {
+      "table": "Employee",
+      "count": 0,
+      "records": []
+    }
+  ],
+  "actions": [
+    {
+      "packageId": "92afd5a0-a2f2-4679-a701-7e2b73de9425",
+      "step": "uninstall",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"uninstallAndDeleteExtensionData\",\n  \"packageId\": \"92afd5a0-a2f2-4679-a701-7e2b73de9425\",\n  \"statusCode\": 204,\n  \"durationMs\": 282,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    },
+    {
+      "packageId": "92afd5a0-a2f2-4679-a701-7e2b73de9425",
+      "step": "unpublish",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"unpublish\",\n  \"packageId\": \"92afd5a0-a2f2-4679-a701-7e2b73de9425\",\n  \"statusCode\": 204,\n  \"durationMs\": 321,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    },
+    {
+      "packageId": "6c99c2eb-bc3d-4044-85b5-fa05f9b61fc9",
+      "step": "uninstall",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"uninstallAndDeleteExtensionData\",\n  \"packageId\": \"6c99c2eb-bc3d-4044-85b5-fa05f9b61fc9\",\n  \"statusCode\": 204,\n  \"durationMs\": 367,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    },
+    {
+      "packageId": "6c99c2eb-bc3d-4044-85b5-fa05f9b61fc9",
+      "step": "unpublish",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"unpublish\",\n  \"packageId\": \"6c99c2eb-bc3d-4044-85b5-fa05f9b61fc9\",\n  \"statusCode\": 204,\n  \"durationMs\": 228,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    },
+    {
+      "packageId": "dac932b6-3581-4614-8530-6bfd18304696",
+      "step": "uninstall",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"uninstallAndDeleteExtensionData\",\n  \"packageId\": \"dac932b6-3581-4614-8530-6bfd18304696\",\n  \"statusCode\": 204,\n  \"durationMs\": 423,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    },
+    {
+      "packageId": "dac932b6-3581-4614-8530-6bfd18304696",
+      "step": "unpublish",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"action\": \"unpublish\",\n  \"packageId\": \"dac932b6-3581-4614-8530-6bfd18304696\",\n  \"statusCode\": 204,\n  \"durationMs\": 322,\n  \"ok\": true,\n  \"body\": null\n}"
+          }
+        ]
+      }
+    }
+  ],
+  "before": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"entity\": \"extensions\",\n  \"method\": \"GET\",\n  \"statusCode\": 200,\n  \"durationMs\": 76,\n  \"rowCount\": 7,\n  \"hasMore\": false,\n  \"rows\": [\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzY3NjcwNDU2MDEyMTU3MzEyMTIxOzAwOyc=\\\"\",\n      \"packageId\": \"17b2f818-4798-4df0-9904-10f093f9f7d6\",\n      \"id\": \"7505e808-6e52-4b96-a328-82573391297a\",\n      \"displayName\": \"Bifrost Foundation\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 13,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzMzMTk4MTA4NzUwMzMzMDM4MzQxOzAwOyc=\\\"\",\n      \"packageId\": \"e3346674-d704-413d-9e4f-97c7ab36ad87\",\n      \"id\": \"f1722684-0c24-4022-a2e0-0f63154aca76\",\n      \"displayName\": \"Bifrost Language Models\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 3,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzIwOzEzMDY1MjI3MzMwOTUyMDI4NTY2MTswMDsn\\\"\",\n      \"packageId\": \"c07f6c9b-bc86-4973-a4bc-3beba53a0d1e\",\n      \"id\": \"9c452c6e-df9b-4eb0-9a54-7ea8f32483ec\",\n      \"displayName\": \"Bifrost Language Models - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 3,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzEyOTYzNzA3MjgzMzI0MzUxMTUxOzAwOyc=\\\"\",\n      \"packageId\": \"12d3557f-d93b-495f-a440-65cf0dad6a6e\",\n      \"id\": \"7da3f512-5c19-47cd-bbe4-4c2bc713f1db\",\n      \"displayName\": \"Bifrost Orchestrator\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 4,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzEwMzY1MjE3NDQ5MTAzMTg2OTcxOzAwOyc=\\\"\",\n      \"packageId\": \"af278c76-1305-4eea-af92-efbf21d8c56e\",\n      \"id\": \"194ecd04-5688-4af6-94bc-732c714251fc\",\n      \"displayName\": \"Bifrost Orchestrator - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 4,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzQzODY2NTYyMTI4MjE4NzM1NDQxOzAwOyc=\\\"\",\n      \"packageId\": \"cba67763-78b1-436f-8c55-7a2bc4847297\",\n      \"id\": \"a1a7e927-8beb-4ab5-b2c3-68d0f339e43b\",\n      \"displayName\": \"Bifrost Subcontracting\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 0,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzIwOzEzMzMzMTA1NTk2MzcyNzA4NjI0MTswMDsn\\\"\",\n      \"packageId\": \"162ecac6-85b9-42f4-9dcb-ea94e56f03fd\",\n      \"id\": \"81cc895f-e3a4-4ef2-93e4-1ef8da227d59\",\n      \"displayName\": \"Bifrost Subcontracting - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 0,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    }\n  ],\n  \"odataContext\": \"http://host.docker.internal:7048/BC290/api/microsoft/automation/v2.0/$metadata#companies(233157a0-f5bb-f111-85bd-6045bdfdea7c)/extensions\"\n}"
+      }
+    ]
+  },
+  "after": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"entity\": \"extensions\",\n  \"method\": \"GET\",\n  \"statusCode\": 200,\n  \"durationMs\": 66,\n  \"rowCount\": 7,\n  \"hasMore\": false,\n  \"rows\": [\n    {\n      \"@odata.etag\": \"W/\\\"JzIwOzEzNzk0MDUzOTEwNTcxNTYxODIyMTswMDsn\\\"\",\n      \"packageId\": \"f4dd41fe-cbe7-467d-98fd-9a571ddde63b\",\n      \"id\": \"7505e808-6e52-4b96-a328-82573391297a\",\n      \"displayName\": \"Bifrost Foundation\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 13,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzMzMTk4MTA4NzUwMzMzMDM4MzQxOzAwOyc=\\\"\",\n      \"packageId\": \"e3346674-d704-413d-9e4f-97c7ab36ad87\",\n      \"id\": \"f1722684-0c24-4022-a2e0-0f63154aca76\",\n      \"displayName\": \"Bifrost Language Models\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 3,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzIwOzEzMDY1MjI3MzMwOTUyMDI4NTY2MTswMDsn\\\"\",\n      \"packageId\": \"c07f6c9b-bc86-4973-a4bc-3beba53a0d1e\",\n      \"id\": \"9c452c6e-df9b-4eb0-9a54-7ea8f32483ec\",\n      \"displayName\": \"Bifrost Language Models - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 3,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzEyOTYzNzA3MjgzMzI0MzUxMTUxOzAwOyc=\\\"\",\n      \"packageId\": \"12d3557f-d93b-495f-a440-65cf0dad6a6e\",\n      \"id\": \"7da3f512-5c19-47cd-bbe4-4c2bc713f1db\",\n      \"displayName\": \"Bifrost Orchestrator\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 4,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzEwMzY1MjE3NDQ5MTAzMTg2OTcxOzAwOyc=\\\"\",\n      \"packageId\": \"af278c76-1305-4eea-af92-efbf21d8c56e\",\n      \"id\": \"194ecd04-5688-4af6-94bc-732c714251fc\",\n      \"displayName\": \"Bifrost Orchestrator - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 4,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzE5OzQzODY2NTYyMTI4MjE4NzM1NDQxOzAwOyc=\\\"\",\n      \"packageId\": \"cba67763-78b1-436f-8c55-7a2bc4847297\",\n      \"id\": \"a1a7e927-8beb-4ab5-b2c3-68d0f339e43b\",\n      \"displayName\": \"Bifrost Subcontracting\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 0,\n      \"versionRevision\": 0,\n      \"isInstalled\": true,\n      \"publishedAs\": \" Dev\"\n    },\n    {\n      \"@odata.etag\": \"W/\\\"JzIwOzEzMzMzMTA1NTk2MzcyNzA4NjI0MTswMDsn\\\"\",\n      \"packageId\": \"162ecac6-85b9-42f4-9dcb-ea94e56f03fd\",\n      \"id\": \"81cc895f-e3a4-4ef2-93e4-1ef8da227d59\",\n      \"displayName\": \"Bifrost Subcontracting - Tests\",\n      \"publisher\": \"Origo\",\n      \"versionMajor\": 28,\n      \"versionMinor\": 0,\n      \"versionBuild\": 0,\n      \"versionRevision\": 0,\n      \"isInstalled\": false,\n      \"publishedAs\": \" Dev\"\n    }\n  ],\n  \"odataContext\": \"http://host.docker.internal:7048/BC290/api/microsoft/automation/v2.0/$metadata#companies(233157a0-f5bb-f111-85bd-6045bdfdea7c)/extensions\"\n}"
+      }
+    ]
+  },
+  "notes": "Full suite ran with codeunit test isolation. Readback shows zero rows modified since native run start for seven native fixture tables. Removed Timesheets, Timesheets Tests and Foundation Tests with deleteExtensionData then unpublish; current-main locally compiled Foundation retained on permanent owned tenant. Other Origo package identities and install state retained. No external providers called."
+}

@@ -1,0 +1,215 @@
+{
+  "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+  "results": [
+    {
+      "type": "Timesheets.TimeSheet.Approve",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Approve\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Reject",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Reject\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Reopen",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Reopen\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Post",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Post\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Archive",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Archive\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheetLine.CopyFromPrevious",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheetLine.CopyFromPrevious\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheetLine.CreateFromPlanning",
+      "lcid": 1033,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Parameter \"omitCommit\" is not declared by this message type. Nothing was executed.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "declared request parameters",
+        "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+        "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheetLine.CreateFromPlanning\". Always read the help before calling a message type."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Approve",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Approve\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Reject",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Reject\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Reopen",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Reopen\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Post",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Post\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheet.Archive",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Archive\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheetLine.CopyFromPrevious",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheetLine.CopyFromPrevious\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    },
+    {
+      "type": "Timesheets.TimeSheetLine.CreateFromPlanning",
+      "lcid": 1039,
+      "result": {
+        "status": "Error",
+        "code": "UnknownParameter",
+        "error": "Viðfangið \"omitCommit\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+        "parameter": "omitCommit",
+        "received": "true",
+        "expected": "skilgreind beiðniviðföng",
+        "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+        "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheetLine.CreateFromPlanning\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+      },
+      "passed": true
+    }
+  ]
+}

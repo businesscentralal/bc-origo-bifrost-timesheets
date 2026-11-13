@@ -1,0 +1,27 @@
+{
+  "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+  "tenant": "w129-12",
+  "results": [
+    {
+      "lcid": 1033,
+      "type": "Timesheets.TimeSheetLine.CopyFromPrevious",
+      "passed": true,
+      "file": "/workspace/private/timesheets90-evidence/ui-help-1033-Timesheets.TimeSheetLine.CopyFromPrevious.json",
+      "bytes": 12240
+    },
+    {
+      "lcid": 1033,
+      "type": "Timesheets.TimeSheetLine.CreateFromPlanning",
+      "passed": true,
+      "file": "/workspace/private/timesheets90-evidence/ui-help-1033-Timesheets.TimeSheetLine.CreateFromPlanning.json",
+      "bytes": 12050
+    }
+  ],
+  "passed": 2,
+  "failed": 1,
+  "failure": {
+    "stage": "download 1039 Timesheets.TimeSheetLine.CopyFromPrevious",
+    "error": "locator.click: Timeout 30000ms exceeded."
+  },
+  "englishRestored": true
+}
