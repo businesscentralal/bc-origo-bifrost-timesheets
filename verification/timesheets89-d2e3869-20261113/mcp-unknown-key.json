@@ -1,0 +1,62 @@
+[
+  {
+    "lcid": 1033,
+    "type": "Approve",
+    "requestSheet": "X67471F299REOPEN",
+    "response": {
+      "status": "Error",
+      "code": "UnknownParameter",
+      "error": "Parameter \"internalFlagTypo\" is not declared by this message type. Nothing was executed.",
+      "parameter": "internalFlagTypo",
+      "received": "true",
+      "expected": "declared request parameters",
+      "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+      "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Approve\". Always read the help before calling a message type."
+    }
+  },
+  {
+    "lcid": 1033,
+    "type": "Reject",
+    "requestSheet": "X67471F299REOPEN",
+    "response": {
+      "status": "Error",
+      "code": "UnknownParameter",
+      "error": "Parameter \"internalFlagTypo\" is not declared by this message type. Nothing was executed.",
+      "parameter": "internalFlagTypo",
+      "received": "true",
+      "expected": "declared request parameters",
+      "nextStep": "Remove this key or consult Help.Implementation.Get for the declared parameters.",
+      "hint": "For usage details, call the \"Help.Implementation.Get\" message type with subject \"Timesheets.TimeSheet.Reject\". Always read the help before calling a message type."
+    }
+  },
+  {
+    "lcid": 1039,
+    "type": "Approve",
+    "requestSheet": "X671F96F3BREOPEN",
+    "response": {
+      "status": "Error",
+      "code": "UnknownParameter",
+      "error": "Viðfangið \"internalFlagTypo\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+      "parameter": "internalFlagTypo",
+      "received": "true",
+      "expected": "skilgreind beiðniviðföng",
+      "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+      "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Approve\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+    }
+  },
+  {
+    "lcid": 1039,
+    "type": "Reject",
+    "requestSheet": "X671F96F3BREOPEN",
+    "response": {
+      "status": "Error",
+      "code": "UnknownParameter",
+      "error": "Viðfangið \"internalFlagTypo\" er ekki skilgreint fyrir þessa skilaboðategund. Ekkert var keyrt.",
+      "parameter": "internalFlagTypo",
+      "received": "true",
+      "expected": "skilgreind beiðniviðföng",
+      "nextStep": "Fjarlægðu þennan lykil eða skoðaðu Help.Implementation.Get til að sjá skilgreind viðföng.",
+      "hint": "Til að sjá notkunarupplýsingar skaltu kalla á skilaboðategundina \"Help.Implementation.Get\" með subject \"Timesheets.TimeSheet.Reject\". Lestu alltaf hjálpina áður en þú kallar á skilaboðategund."
+    }
+  }
+]

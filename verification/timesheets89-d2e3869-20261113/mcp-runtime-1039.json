@@ -1,0 +1,152 @@
+{
+  "created": [
+    {
+      "id": "6E5640C5-46DF-F111-B6FB-00090FFE0001",
+      "primaryKey": {
+        "No_": "X671F96F3BEMPTY"
+      },
+      "fields": {
+        "SystemCreatedAt": "2026-11-13T09:44:09.2Z"
+      }
+    },
+    {
+      "id": "7B5640C5-46DF-F111-B6FB-00090FFE0001",
+      "primaryKey": {
+        "No_": "X671F96F3BPOST"
+      },
+      "fields": {
+        "SystemCreatedAt": "2026-11-13T09:44:10.23Z"
+      }
+    },
+    {
+      "id": "6A5640C5-46DF-F111-B6FB-00090FFE0001",
+      "primaryKey": {
+        "No_": "X671F96F3BREOPEN"
+      },
+      "fields": {
+        "SystemCreatedAt": "2026-11-13T09:44:09.187Z"
+      }
+    }
+  ],
+  "results": [
+    {
+      "type": "Timesheets.TimeSheet.Submit",
+      "data": {
+        "timeSheetNo": "X671F96F3BREOPEN",
+        "lineNos": [
+          10000
+        ]
+      },
+      "lcid": 1039,
+      "response": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "X671F96F3BREOPEN",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": true,
+            "lineType": "Resource"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Timesheets.TimeSheet.Approve",
+      "data": {
+        "timeSheetNo": "X671F96F3BREOPEN",
+        "lineNos": [
+          10000
+        ]
+      },
+      "lcid": 1039,
+      "response": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Approve",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "X671F96F3BREOPEN",
+            "lineNo": 10000,
+            "status": "Approved",
+            "changed": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "Timesheets.TimeSheet.Approve",
+      "data": {
+        "timeSheetNo": "X671F96F3BREOPEN",
+        "lineNos": [
+          10000
+        ]
+      },
+      "lcid": 1039,
+      "response": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Approve",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "X671F96F3BREOPEN",
+            "lineNo": 10000,
+            "status": "Approved",
+            "changed": false,
+            "decision": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "Timesheets.TimeSheet.Submit",
+      "data": {
+        "timeSheetNo": "X671F96F3BPOST",
+        "lineNos": [
+          10000
+        ]
+      },
+      "lcid": 1039,
+      "response": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Submit",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "X671F96F3BPOST",
+            "lineNo": 10000,
+            "status": "Submitted",
+            "changed": true,
+            "lineType": "Job"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Timesheets.TimeSheet.Reject",
+      "data": {
+        "timeSheetNo": "X671F96F3BPOST",
+        "lineNos": [
+          10000
+        ],
+        "comment": "Andvari issue89 eigin prófun"
+      },
+      "lcid": 1039,
+      "response": {
+        "company": "CRONUS International Ltd.",
+        "messageType": "Timesheets.TimeSheet.Reject",
+        "status": "Success",
+        "lines": [
+          {
+            "timeSheetNo": "X671F96F3BPOST",
+            "lineNo": 10000,
+            "status": "Rejected",
+            "changed": true
+          }
+        ]
+      }
+    }
+  ]
+}

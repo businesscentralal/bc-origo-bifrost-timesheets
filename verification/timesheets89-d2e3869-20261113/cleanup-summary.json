@@ -1,0 +1,25 @@
+{
+  "tenant": "w129-15",
+  "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+  "manifestRows": 2394,
+  "fixtureRowsDeleted": 2391,
+  "installedAppConfigurationRetained": [
+    {
+      "tableId": 3901,
+      "tableName": "Retention Policy Setup"
+    },
+    {
+      "tableId": 3902,
+      "tableName": "Retention Policy Setup Line"
+    },
+    {
+      "tableId": 3903,
+      "tableName": "Retention Policy Allowed Table"
+    }
+  ],
+  "verifiedAbsent": true,
+  "temporaryCleanupAppRemoved": true,
+  "postingWindowRestored": true,
+  "englishUiRestored": true,
+  "manifestSha256": "37dbc67c1210bb666b4d63aba817ce7c1aec825189b5e114cf48c26b474a0a13"
+}

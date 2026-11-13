@@ -1,0 +1,139 @@
+{
+  "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+  "repo": "businesscentralal/bc-origo-bifrost-timesheets",
+  "issue": 89,
+  "owner": "worker-5",
+  "displayName": "Andvari",
+  "environment": {
+    "tenant": "w129-15",
+    "server": "BC290",
+    "company": "CRONUS International Ltd.",
+    "productVersion": "28.0.0.0",
+    "testVersion": "28.0.0.0",
+    "foundationVersion": "28.0.13.0"
+  },
+  "compile": {
+    "app": {
+      "errors": 0,
+      "warnings": 0,
+      "analyzers": [
+        "CodeCop",
+        "UICop",
+        "AppSourceCop"
+      ]
+    },
+    "testApp": {
+      "errors": 0,
+      "warnings": 0,
+      "info": 1,
+      "analyzers": [
+        "CodeCop",
+        "UICop"
+      ]
+    }
+  },
+  "tests": {
+    "fullSuite": true,
+    "total": 215,
+    "passed": 215,
+    "failed": 0,
+    "skipped": 0,
+    "runner": "130451 Disabled",
+    "note": "Existing zero-method legacy codeunits emit Skipped headings; no active test function skipped."
+  },
+  "ui": {
+    "verified": true,
+    "lcids": [
+      1033,
+      1039
+    ],
+    "downloads": 4,
+    "summary": "Select Approve and Reject in each localized catalogue; download each full help response, parse JSON and verify the internal flag is absent. English user language restored."
+  },
+  "mcp": {
+    "types": [
+      "Timesheets.TimeSheet.Approve",
+      "Timesheets.TimeSheet.Reject"
+    ],
+    "lcids": [
+      1033,
+      1039
+    ],
+    "currentPassedCalls": 18,
+    "currentFailedCalls": 0,
+    "skipped": 0,
+    "breakdown": {
+      "fullHelpDiscovery": 4,
+      "successfulDecisionCalls": 6,
+      "unknownKeyRefusals": 4,
+      "setupSubmissions": 4
+    },
+    "fixtures": "Two explicit test-only native seed runs generate six fresh X67 headers, resources, jobs and journals. These are setup only, never a substitute for the public calls.",
+    "exploratoryFailure": {
+      "count": 1,
+      "reason": "The fixed TS62 fixture dates belong to closed2026 accounting periods; cleaned and replaced by fresh2028X67 fixtures."
+    }
+  },
+  "foundationGuard": {
+    "sha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+    "codeunit": 98869,
+    "test": "Contract_NoMessageTypeNamesOmitCommitAsAKey",
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "finding": "Approve/Reject no longer leak; unchanged CopyFromPrevious public help still names omitCommit via separate TS Fill Contract10036881. CreateFromPlanning shares that contract. Guard unchanged; wider repair/disposition goes to Architect."
+  },
+  "acceptance": {
+    "AC01": "PASS",
+    "AC02": "PARTIAL: target type gets past unchanged guard; global test fails a separate type. No overall guard pass claimed.",
+    "AC03": "PASS: four new complete-contract regressions1033/1039 for Approve/Reject",
+    "AC04": "PASS: all decision tests and public MCP runtime calls pass",
+    "AC05": "PASS: no core, app.json/version, .github or .AL-Go changes; unreleased changelog updated"
+  },
+  "cleanup": {
+    "tenant": "w129-15",
+    "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+    "manifestRows": 2394,
+    "fixtureRowsDeleted": 2391,
+    "installedAppConfigurationRetained": [
+      {
+        "tableId": 3901,
+        "tableName": "Retention Policy Setup"
+      },
+      {
+        "tableId": 3902,
+        "tableName": "Retention Policy Setup Line"
+      },
+      {
+        "tableId": 3903,
+        "tableName": "Retention Policy Allowed Table"
+      }
+    ],
+    "verifiedAbsent": true,
+    "temporaryCleanupAppRemoved": true,
+    "postingWindowRestored": true,
+    "englishUiRestored": true,
+    "manifestSha256": "37dbc67c1210bb666b4d63aba817ce7c1aec825189b5e114cf48c26b474a0a13",
+    "cleanupAppRemaining": 0,
+    "nativeReadback": {
+      "Time Sheet Header": 0,
+      "Time Sheet Line": 0,
+      "Time Sheet Detail": 0,
+      "Resource": 0,
+      "Job Ledger Entry": 0
+    }
+  },
+  "appliedLessons": [
+    "timesheets79-foundation-help-baseline-669-20261104",
+    "timesheets73-worker5-native-help-lcid-contract-20261104",
+    "timesheets73-worker3-6623059690-ui-mcp-tip-gap"
+  ],
+  "sourceTrees": {
+    "app": "994da87a76efebd8e2eaec328cd1ecb942f725e3",
+    "test": "5e849c26f0b3bd7514127efe162ebf7fd28ea78a"
+  },
+  "artifactSha256": {
+    "Timesheets.app": "0bb686cbb1f85a807f5ac285fc00d0d1fc4dbfbab87e48a243ce05e8771422b2",
+    "Timesheets.Tests.app": "f5db8ea1793752e3181e7083e96a8c808d189adcd7d4e30a062e974d1c8171b3"
+  }
+}

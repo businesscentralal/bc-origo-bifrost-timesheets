@@ -1,0 +1,121 @@
+[
+  {
+    "type": "Timesheets.TimeSheet.Submit",
+    "data": {
+      "timeSheetNo": "X67471F299REOPEN",
+      "lineNos": [
+        10000
+      ]
+    },
+    "lcid": 1033,
+    "response": {
+      "company": "CRONUS International Ltd.",
+      "messageType": "Timesheets.TimeSheet.Submit",
+      "status": "Success",
+      "lines": [
+        {
+          "timeSheetNo": "X67471F299REOPEN",
+          "lineNo": 10000,
+          "status": "Submitted",
+          "changed": true,
+          "lineType": "Resource"
+        }
+      ]
+    }
+  },
+  {
+    "type": "Timesheets.TimeSheet.Approve",
+    "data": {
+      "timeSheetNo": "X67471F299REOPEN",
+      "lineNos": [
+        10000
+      ]
+    },
+    "lcid": 1033,
+    "response": {
+      "company": "CRONUS International Ltd.",
+      "messageType": "Timesheets.TimeSheet.Approve",
+      "status": "Success",
+      "lines": [
+        {
+          "timeSheetNo": "X67471F299REOPEN",
+          "lineNo": 10000,
+          "status": "Approved",
+          "changed": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Timesheets.TimeSheet.Approve",
+    "data": {
+      "timeSheetNo": "X67471F299REOPEN",
+      "lineNos": [
+        10000
+      ]
+    },
+    "lcid": 1033,
+    "response": {
+      "company": "CRONUS International Ltd.",
+      "messageType": "Timesheets.TimeSheet.Approve",
+      "status": "Success",
+      "lines": [
+        {
+          "timeSheetNo": "X67471F299REOPEN",
+          "lineNo": 10000,
+          "status": "Approved",
+          "changed": false,
+          "decision": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Timesheets.TimeSheet.Submit",
+    "data": {
+      "timeSheetNo": "X67471F299POST",
+      "lineNos": [
+        10000
+      ]
+    },
+    "lcid": 1033,
+    "response": {
+      "company": "CRONUS International Ltd.",
+      "messageType": "Timesheets.TimeSheet.Submit",
+      "status": "Success",
+      "lines": [
+        {
+          "timeSheetNo": "X67471F299POST",
+          "lineNo": 10000,
+          "status": "Submitted",
+          "changed": true,
+          "lineType": "Job"
+        }
+      ]
+    }
+  },
+  {
+    "type": "Timesheets.TimeSheet.Reject",
+    "data": {
+      "timeSheetNo": "X67471F299POST",
+      "lineNos": [
+        10000
+      ],
+      "comment": "Andvari issue89 self-seeded"
+    },
+    "lcid": 1033,
+    "response": {
+      "company": "CRONUS International Ltd.",
+      "messageType": "Timesheets.TimeSheet.Reject",
+      "status": "Success",
+      "lines": [
+        {
+          "timeSheetNo": "X67471F299POST",
+          "lineNo": 10000,
+          "status": "Rejected",
+          "changed": true
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "tenant": "w129-15",
+  "company": "CRONUS International Ltd.",
+  "recordId": "2F19A6AD-F5BB-F111-85BD-6045BDFDEA7C",
+  "baseline": {
+    "AllowPostingFrom": "2026-01-01",
+    "AllowPostingTo": "2026-12-31"
+  },
+  "testSetup": {
+    "AllowPostingFrom": "2028-01-27",
+    "AllowPostingTo": "2028-01-27"
+  },
+  "reason": "Demo WorkDate is2028-01-27 while2026 periods are closed; configure a one-day posting window for the real native test, using documented authorized force flow. Restore baseline immediately after suite. No accounting periods/consent/licence/credentials modified.",
+  "restored": true
+}
