@@ -32,7 +32,7 @@ codeunit 10036880 "TS Fill Mgt ori"
         PreviousMsg: Label 'The resource has no previous time sheet.', Comment = 'is-IS=Auðlindin hefur enga fyrri tímaskýrslu.';
         PreviousNextTxt: Label 'Add lines by hand.', Comment = 'is-IS=Bættu við línum handvirkt.';
         TransactionMsg: Label 'This operation requires an isolated transaction.', Comment = 'is-IS=Þessi aðgerð krefst einangraðrar færslumeðhöndlunar.';
-        TransactionNextTxt: Label 'Run this operation outside a transaction with omitCommit disabled.', Comment = 'is-IS=Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.';
+        TransactionNextTxt: Label 'Run this action outside an uncommitted batch.', Comment = 'is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.';
         NativeMsg: Label 'Business Central could not fill the time sheet. No lines were added.', Comment = 'is-IS=Business Central gat ekki fyllt út tímaskýrsluna. Engum línum var bætt við.';
         NativeNextTxt: Label 'Check the time sheet and source lines in Business Central, then retry.', Comment = 'is-IS=Athugaðu tímaskýrsluna og upprunalínurnar í Business Central og reyndu aftur.';
 

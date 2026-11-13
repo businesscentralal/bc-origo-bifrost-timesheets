@@ -336,7 +336,7 @@ codeunit 95619 "TS Native Bulk Tests"
         Execute(TempArgument, "Message Type ori"::"Timesheets.TimeSheet.Post", Request);
         // [THEN] A real posted entry and the corresponding time sheet posting exist.
         Response := TempArgument.GetResponseJson();
-        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Posting must succeed through the BC engine.');
+        Assert.AreEqual('Success', ReadText(Response, 'status'), 'Posting must succeed through the BC engine. ' + ReadText(Response, 'error') + ' ' + ReadText(Response, 'nextStep') + ' ' + GetLastErrorText());
         Response.Get('postedLines', Token);
         Assert.AreEqual(1, Token.AsValue().AsInteger(), 'One owned detail must actually post.');
         LedgerEntry.SetRange("Job No.", Job."No.");
