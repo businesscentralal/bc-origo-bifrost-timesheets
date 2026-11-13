@@ -25,6 +25,38 @@ codeunit 95616 "TS Decision Tests"
     var
         Assert: Codeunit "Library Assert";
 
+    /// <summary>Issue 89: Approve help hides internal parameters at locale 1033.</summary>
+    [Test]
+    procedure ApproveHelp1033_HidesInternalParameters()
+    begin
+        // [SCENARIO] The complete decision contract exposes only public request parameters.
+        AssertPublicDecisionContract("Message Type ori"::"Timesheets.TimeSheet.Approve", 1033);
+    end;
+
+    /// <summary>Issue 89: Approve help hides internal parameters at locale 1039.</summary>
+    [Test]
+    procedure ApproveHelp1039_HidesInternalParameters()
+    begin
+        // [SCENARIO] The complete decision contract exposes only public request parameters.
+        AssertPublicDecisionContract("Message Type ori"::"Timesheets.TimeSheet.Approve", 1039);
+    end;
+
+    /// <summary>Issue 89: Reject help hides internal parameters at locale 1033.</summary>
+    [Test]
+    procedure RejectHelp1033_HidesInternalParameters()
+    begin
+        // [SCENARIO] The complete decision contract exposes only public request parameters.
+        AssertPublicDecisionContract("Message Type ori"::"Timesheets.TimeSheet.Reject", 1033);
+    end;
+
+    /// <summary>Issue 89: Reject help hides internal parameters at locale 1039.</summary>
+    [Test]
+    procedure RejectHelp1039_HidesInternalParameters()
+    begin
+        // [SCENARIO] The complete decision contract exposes only public request parameters.
+        AssertPublicDecisionContract("Message Type ori"::"Timesheets.TimeSheet.Reject", 1039);
+    end;
+
     [Test]
     procedure Scenario_AC03_Approve_NotApprover_WritesNothing()
     var
@@ -616,6 +648,35 @@ codeunit 95616 "TS Decision Tests"
         Assert.AreEqual(2, Absence.Quantity, 'Native absence quantity is preserved.');
         Posting.SetRange("Time Sheet No.", SheetNo);
         Assert.AreEqual(1, Posting.Count(), 'Native posting entry created.');
+    end;
+
+    local procedure AssertPublicDecisionContract(MessageType: Enum "Message Type ori"; LanguageId: Integer)
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Contract: JsonObject;
+        ParametersToken: JsonToken;
+        ParameterToken: JsonToken;
+        NameToken: JsonToken;
+        InternalToken: JsonToken;
+        ContractText: Text;
+        PreviousLanguage: Integer;
+        HasContract: Boolean;
+    begin
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(LanguageId);
+        HasContract := ContractMgt.GetContract(MessageType, Contract);
+        GlobalLanguage(PreviousLanguage);
+        Assert.IsTrue(HasContract, 'The decision type must have a public contract.');
+        Contract.WriteTo(ContractText);
+        Assert.IsFalse(LowerCase(ContractText).Contains('omitcommit'), 'No chapter may expose omitCommit.');
+        Assert.IsTrue(Contract.Get('parameters', ParametersToken), 'The public parameters must be present.');
+        Assert.IsTrue(ParametersToken.AsArray().Count() > 0, 'The parameter check must not be empty.');
+        foreach ParameterToken in ParametersToken.AsArray() do begin
+            Assert.IsTrue(ParameterToken.AsObject().Get('name', NameToken), 'Each parameter has a public name.');
+            Assert.IsFalse(LowerCase(NameToken.AsValue().AsText()).Contains('omitcommit'), 'omitCommit is internal.');
+            if ParameterToken.AsObject().Get('internalOnly', InternalToken) then
+                Assert.IsFalse(InternalToken.AsValue().AsBoolean(), 'No public parameter may be internal-only.');
+        end;
     end;
 
     local procedure Execute(var TempArgument: Record "Message Argument ori" temporary; MessageType: Enum "Message Type ori"; RequestJson: JsonObject)

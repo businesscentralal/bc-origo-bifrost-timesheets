@@ -1678,9 +1678,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType InvalidLineTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Run the request without omitCommit.</source>
-          <target>Keyrðu beiðnina án omitCommit.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <source>Run this action outside an uncommitted batch.</source>
+          <target>Keyrðu þessa aðgerð utan óstaðfestrar lotu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType IsolatedNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 919938375" size-unit="char" translate="yes" xml:space="preserve">
@@ -1732,9 +1732,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType MissingTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 774924109" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Omitted lineNos selects only submitted lines. Empty lineNos returns an empty list. Approval of an explicitly selected approved line returns changed false. Rejection requires Submitted for every selected line. Status is returned in a language-independent form. A successful action commits; omitCommit is not supported.</source>
-          <target>Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir; omitCommit er ekki stutt.</note>
+          <source>Omitted lineNos selects only submitted lines. Empty lineNos returns an empty list. Approval of an explicitly selected approved line returns changed false. Rejection requires Submitted for every selected line. Status is returned in a language-independent form. A successful action commits.</source>
+          <target>Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Sé lineNos sleppt eru aðeins innsendar línur valdar. Tómt lineNos skilar tómum lista. Samþykki sérstaklega valinnar samþykktrar línu skilar changed false. Höfnun krefst þess að allar valdar línur séu innsendar. Staða er skilað óháð tungumáli. Heppnuð aðgerð staðfestir.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Contract Parts ori - NamedType NotesTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 932309119 - NamedType 1798906676" size-unit="char" translate="yes" xml:space="preserve">

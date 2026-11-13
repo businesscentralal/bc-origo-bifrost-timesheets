@@ -21,6 +21,10 @@
 
 ## [Unreleased]
 
+### Fixed - Public decision help (#89)
+
+- Remove internal transaction parameter wording from Approve and Reject public help, including Icelandic translations (TS Contract Parts ori, 10036869). Keep decision execution unchanged and add complete-contract regression checks at LCIDs 1033 and 1039 (TS Decision Tests, 95616).
+
 ### Fixed - Absence recovery guidance (#65)
 
 - Move owned fixture cleanup to free test codeunit 95625 after main takes 95619; preserve both helpers. Retain current-main translations and all active absence units; remove only the archived orphan for the legacy posting label deleted by main.
