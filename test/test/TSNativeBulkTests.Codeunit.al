@@ -1,5 +1,6 @@
 namespace Origo.Bifrost.Timesheets.Test;
 
+using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Foundation.NoSeries;
 using Microsoft.Foundation.UOM;
 using Microsoft.Projects.Project.Job;
@@ -290,16 +291,18 @@ codeunit 95619 "TS Native Bulk Tests"
         LibraryJob: Codeunit "Library - Job";
         Request: JsonObject;
         Response: JsonObject;
+        PostingDate: Date;
         SheetNo: Code[20];
         Token: JsonToken;
     begin
-        // Story #67, AC01/AC07 | Time: WorkDate for posting | Risk: real BC project posting path
+        // Story #67, AC01/AC07 | Time: a permitted fixture date | Risk: real BC project posting path
         // [GIVEN] Self-created project, task, resource, journal and approved quantity.
+        PostingDate := GetAllowedFixturePostingDate();
         LibraryJob.CreateJob(Job);
         Job.Validate(Status, Job.Status::Open);
         Job.Modify(true);
         LibraryJob.CreateJobTask(Job, JobTask);
-        SheetNo := CreateSheet(CreateResource(true), WorkDate(), UserId());
+        SheetNo := CreateSheet(CreateResource(true), PostingDate, UserId());
         CreateLine(SheetNo, 10000, 'Approved');
         Line.Get(SheetNo, 10000);
         Line.Type := Line.Type::Job;
@@ -309,7 +312,7 @@ codeunit 95619 "TS Native Bulk Tests"
         Detail.Init();
         Detail."Time Sheet No." := SheetNo;
         Detail."Time Sheet Line No." := 10000;
-        Detail.Date := WorkDate();
+        Detail.Date := PostingDate;
         Detail.CopyFromTimeSheetLine(Line);
         Detail.Validate(Quantity, 2);
         Detail.Insert(true);
@@ -639,6 +642,36 @@ codeunit 95619 "TS Native Bulk Tests"
         Detail.CopyFromTimeSheetLine(Line);
         Detail.Validate(Quantity, Quantity);
         Detail.Insert(true);
+    end;
+
+    local procedure GetAllowedFixturePostingDate() PostingDate: Date
+    var
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        UserSetup: Record "User Setup";
+        UserSetupMgt: Codeunit "User Setup Management";
+        AllowPostingFrom: Date;
+        AllowPostingTo: Date;
+    begin
+        // Select a date inside the existing effective range; never relax posting controls.
+        if UserSetup.Get(UserId()) then begin
+            UserSetupMgt.GetDateRange(UserSetup."Allow Posting From", UserSetup."Allow Posting To",
+                UserSetup."Allow Posting From DateFormula", UserSetup."Allow Posting To DateFormula", UserSetup.RecordId());
+            AllowPostingFrom := UserSetup."Allow Posting From";
+            AllowPostingTo := UserSetup."Allow Posting To";
+        end;
+        if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
+            GeneralLedgerSetup.Get();
+            UserSetupMgt.GetDateRange(GeneralLedgerSetup."Allow Posting From", GeneralLedgerSetup."Allow Posting To",
+                GeneralLedgerSetup."Allow Posting From DateFormula", GeneralLedgerSetup."Allow Posting To DateFormula", GeneralLedgerSetup.RecordId());
+            AllowPostingFrom := GeneralLedgerSetup."Allow Posting From";
+            AllowPostingTo := GeneralLedgerSetup."Allow Posting To";
+        end;
+        PostingDate := WorkDate();
+        if PostingDate < AllowPostingFrom then
+            PostingDate := AllowPostingFrom;
+        if (AllowPostingTo <> 0D) and (PostingDate > AllowPostingTo) then
+            PostingDate := AllowPostingTo;
+        Assert.IsTrue(UserSetupMgt.IsPostingDateValid(PostingDate), 'The owned posting fixture uses an allowed date.');
     end;
 
     local procedure CreateNativeJournal(var Request: JsonObject)

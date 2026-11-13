@@ -23,6 +23,8 @@
 
 ### Fixed - Public decision help (#89)
 
+- Make the existing native posting regression choose a date inside the effective posting range, without changing posting controls; retain the engine error in failure diagnostics (TS Native Bulk Tests, 95619).
+
 - Remove internal transaction parameter wording from Approve and Reject public help, including Icelandic translations (TS Contract Parts ori, 10036869). Keep decision execution unchanged and add complete-contract regression checks at LCIDs 1033 and 1039 (TS Decision Tests, 95616).
 
 ### Fixed - Absence recovery guidance (#65)
