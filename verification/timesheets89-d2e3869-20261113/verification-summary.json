@@ -121,6 +121,18 @@
       "Time Sheet Detail": 0,
       "Resource": 0,
       "Job Ledger Entry": 0
+    },
+    "setupReferenceRepair": {
+      "recordedAt": "2026-11-13T10:16:50.271494+00:00",
+      "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+      "tenant": "w129-15",
+      "action": "Repair the test-written Resources Setup Time Sheet Nos. reference after deleting its owned fixture series.",
+      "previousReference": "X613FA0916EF9D94EC7B",
+      "newReference": "TS",
+      "provenance": "Existing CRONUS Time Sheet series TS, SystemCreatedAt2026-09-29T11:05:40.833Z, predates this task. Original pre-test Resources Setup value was not captured; this is a compatible baseline repair, not an asserted exact historical restore.",
+      "path": "Native BC Resources Setup page462 through Playwright MCP; validated and saved; Data.Records.Get readback returnsTS.",
+      "genericApiAttempt": "BlockedByWriteGuard, retained as a failed administrative attempt. No write guard configuration was changed.",
+      "notCountedAsFeatureAcceptance": true
     }
   },
   "appliedLessons": [
@@ -135,5 +147,200 @@
   "artifactSha256": {
     "Timesheets.app": "0bb686cbb1f85a807f5ac285fc00d0d1fc4dbfbab87e48a243ce05e8771422b2",
     "Timesheets.Tests.app": "f5db8ea1793752e3181e7083e96a8c808d189adcd7d4e30a062e974d1c8171b3"
+  },
+  "ci": {
+    "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+    "runId": 43406529496,
+    "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/43406529496",
+    "executed": 215,
+    "passed": 215,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "95601 Clockify Connector Tests",
+        "timestamp": "2026-11-13T10:19:16",
+        "hostname": "runnervmm7ud1",
+        "time": "13.54",
+        "tests": "23",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95606 Timesheets Registration Tests",
+        "timestamp": "2026-11-13T10:19:20",
+        "hostname": "runnervmm7ud1",
+        "time": "0.033",
+        "tests": "1",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95607 Clockify Reten. Policy Tests",
+        "timestamp": "2026-11-13T10:19:20",
+        "hostname": "runnervmm7ud1",
+        "time": "0.091",
+        "tests": "2",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95612 Clockify Field Restrict Tests",
+        "timestamp": "2026-11-13T10:19:23",
+        "hostname": "runnervmm7ud1",
+        "time": "1.514",
+        "tests": "8",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95614 TS Native Sheet Tests",
+        "timestamp": "2026-11-13T10:19:30",
+        "hostname": "runnervmm7ud1",
+        "time": "5.79",
+        "tests": "19",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95615 Phone Role Center Tests",
+        "timestamp": "2026-11-13T10:19:39",
+        "hostname": "runnervmm7ud1",
+        "time": "7.992",
+        "tests": "10",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95616 TS Decision Tests",
+        "timestamp": "2026-11-13T10:19:41",
+        "hostname": "runnervmm7ud1",
+        "time": "1.917",
+        "tests": "35",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95617 TS Submit Permission Tests",
+        "timestamp": "2026-11-13T10:19:42",
+        "hostname": "runnervmm7ud1",
+        "time": "0.044",
+        "tests": "2",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95618 TS Fill Sheet Tests",
+        "timestamp": "2026-11-13T10:19:43",
+        "hostname": "runnervmm7ud1",
+        "time": "0.923",
+        "tests": "32",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95619 TS Native Bulk Tests",
+        "timestamp": "2026-11-13T10:19:50",
+        "hostname": "runnervmm7ud1",
+        "time": "6.058",
+        "tests": "20",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95620 TS Create Tests",
+        "timestamp": "2026-11-13T10:19:52",
+        "hostname": "runnervmm7ud1",
+        "time": "1.671",
+        "tests": "17",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95621 TS Create Permission Tests",
+        "timestamp": "2026-11-13T10:19:54",
+        "hostname": "runnervmm7ud1",
+        "time": "2.01",
+        "tests": "1",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95622 TS Absence Reg Tests",
+        "timestamp": "2026-11-13T10:19:56",
+        "hostname": "runnervmm7ud1",
+        "time": "0.747",
+        "tests": "16",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95623 TS Absence Reg Perm Tests",
+        "timestamp": "2026-11-13T10:19:56",
+        "hostname": "runnervmm7ud1",
+        "time": "0.016",
+        "tests": "1",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95630 TS Pending Approval Tests",
+        "timestamp": "2026-11-13T10:19:57",
+        "hostname": "runnervmm7ud1",
+        "time": "0.259",
+        "tests": "24",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95633 TS Pending Permission Tests",
+        "timestamp": "2026-11-13T10:19:57",
+        "hostname": "runnervmm7ud1",
+        "time": "0.01",
+        "tests": "1",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95635 TS LicAdm Setup Tests",
+        "timestamp": "2026-11-13T10:20:08",
+        "hostname": "runnervmm7ud1",
+        "time": "10.244",
+        "tests": "2",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "95636 TS Release Surface Tests",
+        "timestamp": "2026-11-13T10:20:08",
+        "hostname": "runnervmm7ud1",
+        "time": "0.017",
+        "tests": "1",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0"
+      }
+    ],
+    "compileErrors": 0,
+    "compileWarnings": 0,
+    "pairedDefaultAndTest": true,
+    "ownedCiCleanup": "success"
   }
 }

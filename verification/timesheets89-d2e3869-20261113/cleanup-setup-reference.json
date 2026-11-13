@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-11-13T10:16:50.271494+00:00",
+  "candidateSha": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+  "tenant": "w129-15",
+  "action": "Repair the test-written Resources Setup Time Sheet Nos. reference after deleting its owned fixture series.",
+  "previousReference": "X613FA0916EF9D94EC7B",
+  "newReference": "TS",
+  "provenance": "Existing CRONUS Time Sheet series TS, SystemCreatedAt2026-09-29T11:05:40.833Z, predates this task. Original pre-test Resources Setup value was not captured; this is a compatible baseline repair, not an asserted exact historical restore.",
+  "path": "Native BC Resources Setup page462 through Playwright MCP; validated and saved; Data.Records.Get readback returnsTS.",
+  "genericApiAttempt": "BlockedByWriteGuard, retained as a failed administrative attempt. No write guard configuration was changed.",
+  "notCountedAsFeatureAcceptance": true
+}
