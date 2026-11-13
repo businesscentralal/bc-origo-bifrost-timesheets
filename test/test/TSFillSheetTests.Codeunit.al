@@ -20,6 +20,46 @@ codeunit 95618 "TS Fill Sheet Tests"
     var
         Assert: Codeunit "Library Assert";
 
+    /// <summary>Checks every public CopyFromPrevious help chapter in language 1033 for internal transaction details.</summary>
+    [Test]
+    procedure CopyHelp1033_HidesInternalParameters()
+    begin
+        // [GIVEN] The localized public contract for the fill operation.
+        // [WHEN] Every chapter and parameter is inspected.
+        // [THEN] Internal transaction flags are absent.
+        AssertPublicFillContract("Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", 1033);
+    end;
+
+    /// <summary>Checks every public CopyFromPrevious help chapter in language 1039 for internal transaction details.</summary>
+    [Test]
+    procedure CopyHelp1039_HidesInternalParameters()
+    begin
+        // [GIVEN] The localized public contract for the fill operation.
+        // [WHEN] Every chapter and parameter is inspected.
+        // [THEN] Internal transaction flags are absent.
+        AssertPublicFillContract("Message Type ori"::"Timesheets.TimeSheetLine.CopyFromPrevious", 1039);
+    end;
+
+    /// <summary>Checks every public CreateFromPlanning help chapter in language 1033 for internal transaction details.</summary>
+    [Test]
+    procedure PlanningHelp1033_HidesInternalParameters()
+    begin
+        // [GIVEN] The localized public contract for the fill operation.
+        // [WHEN] Every chapter and parameter is inspected.
+        // [THEN] Internal transaction flags are absent.
+        AssertPublicFillContract("Message Type ori"::"Timesheets.TimeSheetLine.CreateFromPlanning", 1033);
+    end;
+
+    /// <summary>Checks every public CreateFromPlanning help chapter in language 1039 for internal transaction details.</summary>
+    [Test]
+    procedure PlanningHelp1039_HidesInternalParameters()
+    begin
+        // [GIVEN] The localized public contract for the fill operation.
+        // [WHEN] Every chapter and parameter is inspected.
+        // [THEN] Internal transaction flags are absent.
+        AssertPublicFillContract("Message Type ori"::"Timesheets.TimeSheetLine.CreateFromPlanning", 1039);
+    end;
+
     /// <summary>Verifies the issue64 acceptance scenario named by this test.</summary>
     [Test]
     procedure Scenario_AC01_Copy_MissingKey_IsMissingParameter()
@@ -501,7 +541,7 @@ codeunit 95618 "TS Fill Sheet Tests"
         Commit();
         Impl := TempArgument.Type;
         Impl.ExecuteBifrostTask(TempArgument);
-        AssertRefusal(TempArgument, 'PreconditionFailed', 'omitCommit', 'Run this operation outside a transaction with omitCommit disabled.');
+        AssertRefusal(TempArgument, 'PreconditionFailed', 'omitCommit', 'Run this action outside an uncommitted batch.');
         Line.SetRange("Time Sheet No.", SheetNo);
         Assert.IsTrue(Line.IsEmpty(), 'Refusal must not write lines.');
     end;
@@ -830,4 +870,33 @@ codeunit 95618 "TS Fill Sheet Tests"
         Header.Rename(NewNo);
         exit(Header."No.");
     end;
+    local procedure AssertPublicFillContract(MessageType: Enum "Message Type ori"; LanguageId: Integer)
+    var
+        ContractMgt: Codeunit "Msg Contract Mgt ori";
+        Contract: JsonObject;
+        ParametersToken: JsonToken;
+        ParameterToken: JsonToken;
+        NameToken: JsonToken;
+        InternalToken: JsonToken;
+        ContractText: Text;
+        PreviousLanguage: Integer;
+        HasContract: Boolean;
+    begin
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(LanguageId);
+        HasContract := ContractMgt.GetContract(MessageType, Contract);
+        GlobalLanguage(PreviousLanguage);
+        Assert.IsTrue(HasContract, 'The fill type must have a public contract.');
+        Contract.WriteTo(ContractText);
+        Assert.IsFalse(LowerCase(ContractText).Contains('omitcommit'), 'No chapter may expose omitCommit.');
+        Assert.IsTrue(Contract.Get('parameters', ParametersToken), 'The public parameters must be present.');
+        Assert.IsTrue(ParametersToken.AsArray().Count() > 0, 'The parameter check must not be empty.');
+        foreach ParameterToken in ParametersToken.AsArray() do begin
+            Assert.IsTrue(ParameterToken.AsObject().Get('name', NameToken), 'Each parameter has a public name.');
+            Assert.IsFalse(LowerCase(NameToken.AsValue().AsText()).Contains('omitcommit'), 'omitCommit is internal.');
+            if ParameterToken.AsObject().Get('internalOnly', InternalToken) then
+                Assert.IsFalse(InternalToken.AsValue().AsBoolean(), 'No public parameter may be internal-only.');
+        end;
+    end;
+
 }

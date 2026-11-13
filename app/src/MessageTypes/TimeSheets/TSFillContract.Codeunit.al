@@ -17,7 +17,7 @@ codeunit 10036881 "TS Fill Contract ori"
         CountTxt: Label 'Number of newly added lines. Zero is success.', Comment = 'is-IS=Fjöldi nýrra lína. Núll er árangursrík niðurstaða.';
         SuccessTxt: Label 'Success on completion.', Comment = 'is-IS=Success þegar aðgerð er lokið.';
         PermissionTxt: Label 'The caller must own the time sheet and have permission to read the source and write time-sheet lines and details.', Comment = 'is-IS=Kallandinn verður að eiga tímaskýrsluna og hafa heimild til að lesa upprunann og skrifa tímaskýrslulínur og sundurliðun.';
-        EffectTxt: Label 'Adds time-sheet lines atomically and commits. A refused call adds no lines. omitCommit is refused. Pending work is committed before the isolated operation.', Comment = 'is-IS=Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. omitCommit er ekki leyft. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.';
+        EffectTxt: Label 'Adds time-sheet lines atomically and commits. A refused call adds no lines. This action requires an isolated transaction. Pending work is committed before the isolated operation.', Comment = 'is-IS=Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. Þessi aðgerð krefst einangraðrar færslu. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.';
         MissingTxt: Label 'A required identifier is missing.', Comment = 'is-IS=Nauðsynlegt auðkenni vantar.';
         MissingNextTxt: Label 'Send the missing key.', Comment = 'is-IS=Sendu lykilinn sem vantar.';
         TypeTxt: Label 'An identifier has the wrong JSON type or format.', Comment = 'is-IS=Auðkenni er af röngu JSON-tagi eða sniði.';
@@ -33,8 +33,8 @@ codeunit 10036881 "TS Fill Contract ori"
         PermissionNextTxt: Label 'Assign the BIFROST Timeshts ori or BIFROST Full ori permission set.', Comment = 'is-IS=Úthlutaðu heimildasamstæðunni BIFROST Timeshts ori eða BIFROST Full ori.';
         PreviousTxt: Label 'There is no previous time sheet for the resource.', Comment = 'is-IS=Engin fyrri tímaskýrsla er til fyrir auðlindina.';
         PreviousNextTxt: Label 'Add lines by hand.', Comment = 'is-IS=Bættu við línum handvirkt.';
-        TransactionTxt: Label 'The call cannot run with omitCommit.', Comment = 'is-IS=Kallið getur ekki keyrt með omitCommit.';
-        TransactionNextTxt: Label 'Run this operation outside a transaction with omitCommit disabled.', Comment = 'is-IS=Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.';
+        TransactionTxt: Label 'This action requires an isolated transaction.', Comment = 'is-IS=Þessi aðgerð krefst einangraðrar færslu.';
+        TransactionNextTxt: Label 'Run this action outside an uncommitted batch.', Comment = 'is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.';
         NativeTxt: Label 'Business Central rejected the source lines. No lines were added.', Comment = 'is-IS=Business Central hafnaði upprunalínunum. Engum línum var bætt við.';
         NativeNextTxt: Label 'Check the time sheet and source lines in Business Central, then retry.', Comment = 'is-IS=Athugaðu tímaskýrsluna og upprunalínurnar í Business Central og reyndu aftur.';
         ExampleTxt: Label 'Fill an owned time sheet.', Comment = 'is-IS=Fylltu út tímaskýrslu í þinni eigu.';

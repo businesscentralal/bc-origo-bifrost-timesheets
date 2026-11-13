@@ -2338,9 +2338,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Contract ori - NamedType CountTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 205185506 - NamedType 1196522881" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adds time-sheet lines atomically and commits. A refused call adds no lines. omitCommit is refused. Pending work is committed before the isolated operation.</source>
-          <target>Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. omitCommit er ekki leyft. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. omitCommit er ekki leyft. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.</note>
+          <source>Adds time-sheet lines atomically and commits. A refused call adds no lines. This action requires an isolated transaction. Pending work is committed before the isolated operation.</source>
+          <target>Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. Þessi aðgerð krefst einangraðrar færslu. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Bætir tímaskýrslulínum við í einangraðri heild og staðfestir. Höfnun bætir engum línum við. Þessi aðgerð krefst einangraðrar færslu. Biðandi breytingar eru staðfestar fyrir einangruðu aðgerðina.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Contract ori - NamedType EffectTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 205185506 - NamedType 939761282" size-unit="char" translate="yes" xml:space="preserve">
@@ -2458,15 +2458,15 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Contract ori - NamedType SuccessTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 205185506 - NamedType 2085349197" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Run this operation outside a transaction with omitCommit disabled.</source>
-          <target>Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.</note>
+          <source>Run this action outside an uncommitted batch.</source>
+          <target>Keyrðu þessa aðgerð utan óstaðfestrar lotu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Contract ori - NamedType TransactionNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 205185506 - NamedType 2753958104" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The call cannot run with omitCommit.</source>
-          <target>Kallið getur ekki keyrt með omitCommit.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Kallið getur ekki keyrt með omitCommit.</note>
+          <source>This action requires an isolated transaction.</source>
+          <target>Þessi aðgerð krefst einangraðrar færslu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Þessi aðgerð krefst einangraðrar færslu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Contract ori - NamedType TransactionTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 205185506 - NamedType 3178192377" size-unit="char" translate="yes" xml:space="preserve">
@@ -2584,9 +2584,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Mgt ori - NamedType TransactionMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3637980814 - NamedType 2085349197" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Run this operation outside a transaction with omitCommit disabled.</source>
-          <target>Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan færslumeðhöndlunar með slökkt á omitCommit.</note>
+          <source>Run this action outside an uncommitted batch.</source>
+          <target>Keyrðu þessa aðgerð utan óstaðfestrar lotu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Fill Mgt ori - NamedType TransactionNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3637980814 - NamedType 3711673115" size-unit="char" translate="yes" xml:space="preserve">
@@ -2734,9 +2734,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 3997198142" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Run the request without omitCommit.</source>
-          <target>Keyrðu beiðnina án omitCommit.</target>
-          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu beiðnina án omitCommit.</note>
+          <source>Run this action outside an uncommitted batch.</source>
+          <target>Keyrðu þessa aðgerð utan óstaðfestrar lotu.</target>
+          <note from="Developer" annotates="general" priority="2">is-IS=Keyrðu þessa aðgerð utan óstaðfestrar lotu.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TS Native Mgt ori - NamedType IsolatedNextTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1312572432 - NamedType 599681173" size-unit="char" translate="yes" xml:space="preserve">
