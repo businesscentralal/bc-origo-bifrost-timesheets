@@ -1,0 +1,28 @@
+{
+  "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+  "amendBase": "d2e38698569a85fa7ab01fadc330ca5533120af3",
+  "files": [
+    "CHANGELOG.md",
+    "app/Translations/Bifrost Timesheets.is-IS.xlf",
+    "app/src/MessageTypes/TimeSheets/TSFillContract.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/TSFillMgt.Codeunit.al",
+    "app/src/MessageTypes/TimeSheets/TSNativeMgt.Codeunit.al",
+    "test/test/TSFillSheetTests.Codeunit.al"
+  ],
+  "labelOnlyProductDiff": [
+    {
+      "file": "app/src/MessageTypes/TimeSheets/TSFillContract.Codeunit.al",
+      "runtimeSourceUnchangedAfterRemovingLabelDeclarations": true
+    },
+    {
+      "file": "app/src/MessageTypes/TimeSheets/TSFillMgt.Codeunit.al",
+      "runtimeSourceUnchangedAfterRemovingLabelDeclarations": true
+    },
+    {
+      "file": "app/src/MessageTypes/TimeSheets/TSNativeMgt.Codeunit.al",
+      "runtimeSourceUnchangedAfterRemovingLabelDeclarations": true
+    }
+  ],
+  "versionsAndCiFilesUnchanged": true,
+  "sourceWorkingTreeClean": true
+}

@@ -1,0 +1,15 @@
+{
+  "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+  "runId": 43445456878,
+  "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/43445456878",
+  "conclusion": "success",
+  "pairedDefaultAndTest": true,
+  "sourceGuards": "success",
+  "tests": {
+    "tests": 219,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "testResultsArtifactId": 14049176314
+}

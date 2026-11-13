@@ -275,5 +275,27 @@
     "Timesheets.Tests.app": "91384dddffedd95a1353230c02bbc31852eadf78ea6dba06b521efd569555154"
   },
   "recordedAt": "2026-11-13T14:52:35.050102+00:00",
-  "activeTestFunctions": 219
+  "activeTestFunctions": 219,
+  "ci": {
+    "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+    "runId": 43445456878,
+    "runUrl": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/actions/runs/43445456878",
+    "conclusion": "success",
+    "pairedDefaultAndTest": true,
+    "sourceGuards": "success",
+    "tests": {
+      "tests": 219,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "testResultsArtifactId": 14049176314
+  },
+  "crossFamilyReview": {
+    "sha": "e078d08c894cc813e8cd4f7019a8a07baafaf53d",
+    "verdict": "CLEARED",
+    "worker": "worker-29",
+    "family": "claude",
+    "url": "https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/90#issuecomment-6856712369"
+  }
 }

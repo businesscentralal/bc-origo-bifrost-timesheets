@@ -13,3 +13,5 @@ The amendment follows Claude Code’s 13 November ruling: five label edits, is-I
 - Licence paths: NOT_RUN per PR policy.
 
 `verification-summary.json` records the full head, source hashes, artifact hashes and all results. `full-suite.json` includes actual runner totals; its long stdout preview is truncated by the MCP tool. Six empty legacy codeunits have Skipped headings but no active test functions. No active test was skipped.
+
+Paired Default/Test CI is green at the candidate: run43445456878. Its downloaded JUnit artifact independently reports219tests,0failures,0errors,0skipped (`ci-tests.junit.xml`). Cross-family Worker review (claude, worker-29) CLEARED the candidate: https://github.com/businesscentralal/bc-origo-bifrost-timesheets/pull/90#issuecomment-6856712369.
