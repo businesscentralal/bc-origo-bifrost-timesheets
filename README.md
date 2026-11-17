@@ -20,23 +20,11 @@ Both containers are defined in `app/.vscode/launch.json`, which is git-ignored a
 
 ## Overview
 
-Version 28.0.0.0 publishes eleven native `Timesheets.*` message types. Clockify connector tables, pages, codeunits and permission sets remain in the app, but the 41 `Clockify.*` types and `Help.Clockify.Get` are commented out of the message enum and are not part of the published API surface.
+Bifrost Timesheets provides the Phone Role Center and the retained Clockify integration. The eleven native time-sheet message types now belong to [Bifrost Projects](https://github.com/businesscentralal/bc-origo-bifrost-projects/pull/46).
 
-| Message type | Role |
-| --- | --- |
-| `Timesheets.TimeSheet.Submit` | Submits open time sheet lines. |
-| `Timesheets.TimeSheet.Create` | Creates time sheets for chosen resources and weeks. |
-| `Timesheets.PendingApproval.Get` | Lists submitted lines waiting for the caller. |
-| `Timesheets.TimeSheet.Approve` | Approves submitted lines. |
-| `Timesheets.TimeSheet.Reject` | Rejects submitted lines. |
-| `Timesheets.TimeSheetLine.CopyFromPrevious` | Copies lines from the previous time sheet. |
-| `Timesheets.TimeSheetLine.CreateFromPlanning` | Creates lines from resource project planning. |
-| `Timesheets.Absence.Register` | Registers an absence line. |
-| `Timesheets.TimeSheet.Reopen` | Reopens submitted or approved lines. |
-| `Timesheets.TimeSheet.Post` | Posts approved lines. |
-| `Timesheets.TimeSheet.Archive` | Archives posted time sheets. |
+Use `Projects.TimeSheet.*`, `Projects.TimeSheetLine.*`, `Projects.Absence.Register` and `Projects.PendingApproval.Get` for native time-sheet operations. The former `Timesheets.*` names are removed, not aliases. Their help, permission checks, tests and generic time-sheet write restrictions live in Projects.
 
-Callers use these names on the Bifröst queue API (`origo/bifrost/v1.0`). The old `Clockify.TimeSheet.*` names are not aliases in this version.
+Clockify connector objects and the Phone Role Center remain at their existing IDs. The 41 `Clockify.*` / `Help.Clockify.Get` enum entries remain unpublished as decided for 28.0.0.0; this app now registers no message types.
 
 The Clockify connector objects still synchronise Clockify data inside the app when that integration is configured. They are not discoverable as message types in 28.0.0.0. Links between BC records and Clockify objects stay in `Clockify Integration ori`.
 
@@ -51,10 +39,9 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 3. The administrator picks a default workspace from **Clockify Workspace Lookup ori**, which lists the workspaces the key can reach, and fills in the Job Journal template, batch and default work type.
 4. **Register Webhooks** creates the Clockify webhooks that push time-entry changes back to BC. Registered webhooks are listed on `Clockify Webhooks ori`.
 5. BC records are linked to Clockify objects. A link is one row in `Clockify Integration ori` — BC table no. plus SystemId or code on one side, Clockify type, workspace id and object id on the other. `Clockify Integration List ori` shows them.
-6. A caller (external system, AI agent, or the Job Queue) sends a Bifröst message over the queue API: `POST .../tasks` with a CloudEvents 1.0 envelope naming one of the eleven native `Timesheets.*` types, then reads the answer from `.../responses({taskId})/data`. `Clockify.*` and `Help.Clockify.Get` are not accepted names in 28.0.0.0.
-7. Read types (`*.List`, `*.Get`) return the Clockify data as JSON. Write types (`*.Create`, `*.Update`, `*.Delete`) change Clockify and record the resulting link. Sync types pull finished time entries into BC.
-8. `Clockify.TimeEntry.Sync` / `.SyncRange` / `.SyncAllUsers` create Job Journal lines. `Clockify.TimeEntry.SyncToTimeSheet` / `.SyncRangeToTimeSheet` write Time Sheet lines and details instead.
-9. `Clockify.TimeSheet.Create` / `.Approve` / `.Reject` / `.Reopen` / `.Post` / `.Archive` drive the Time Sheet through its lifecycle.
+6. For native time-sheet operations, a caller uses the Projects message types through the Bifröst queue API. Install Bifrost Projects and grant its roles plus the required native Business Central permissions.
+7. Clockify connector code still supports time-entry synchronisation to Job Journal or Time Sheet lines. Its message names are not published in this version.
+8. A user can also use the Phone Role Center to review customer lists and add a service item to a sales invoice.
 10. A user reviews the resulting Job Journal or Time Sheet in Business Central and posts it as usual.
 11. When a BC record is deleted, blocked or completed, `Clockify Event Subscribers ori` reacts and `Clockify Archive Sync ori` archives the corresponding Clockify client, project or task.
 
@@ -62,14 +49,13 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 ## Benefits
 
-- **Eleven native time sheet messages** — submit, create, pending approval, approve, reject, copy, planning, absence, reopen, post and archive. Callers use the Bifröst queue API. Clockify message types are not published in 28.0.0.0.
+- **Phone Role Center** — customer lists and quick service-item entry stay in Timesheets. Native time-sheet automation is supplied by Projects.
 - **No duplicate journal lines** — `Clockify Time Entry Sync ori` checks `Clockify Integration ori` before writing, so re-running a sync skips entries that are already in the journal.
 - **Corrections instead of silent overwrites** — when a synced entry changes in Clockify (hours, project, task or work type), the connector writes a reversal line plus a new line rather than editing the existing one.
 - **Real-time sync without polling** — registered Clockify webhooks call `Clockify Webhook Handler ori`, which routes the change straight to the sync engine.
 - **Two sync targets** — the same time entry can go to a Job Journal or to the resource's open Time Sheet, chosen by the message type.
 - **Auditable links that survive deletion** — integration rows are marked `Reversed` rather than deleted, and `Clockify Reten. Policy ori` removes them later through the BC retention-policy framework.
 - **API key out of the database** — the key lives in this app's IsolatedStorage (Company scope), and `Clockify ReqLog Masker ori` governs what the request log stores.
-- **Self-documenting at runtime** — each native `Timesheets.*` type answers its own Markdown contract, so a caller can discover the release surface without reading the source. `Help.Clockify.Get` is not published in 28.0.0.0.
 - **Bilingual** — every caption, label and enum value carries an `is-IS` comment, and `Bifrost Timesheets.is-IS.xlf` ships the Icelandic translation units for the compiled texts.
 
 ---
@@ -78,10 +64,7 @@ This is the in-place successor of *Origo Cloud Events Clockify* 28.1.0.0: same a
 
 **Message dispatch**
 
-1. Bifrost Foundation receives the CloudEvents envelope, creates a `Message ori` record and resolves the `type` against the `Message Type ori` enum. `Clockify Msg Type ori` (10036785) contributes the eleven native `Timesheets.*` values. The Clockify message values in that enum extension are commented out in 28.0.0.0.
-2. Foundation instantiates the `Msg Interface ori` implementation registered for the value and calls `ExecuteBifrostTask(var Argument)`.
-3. The `Clockify <Name> Impl ori` codeunit reads its parameters from the argument, calls `Clockify Request Mgt ori` for the shared plumbing, and writes the answer back through the argument.
-4. Failures are returned as `status = Error` with a message through `Argument.RespondWithError`. An unhandled exception never reaches the API.
+The Timesheets enum extension registers no message types. Native time-sheet calls and their runtime help are supplied by Projects. Dormant Clockify handlers and shared helpers remain available to connector code without restoring the retired message surface.
 
 **Outbound HTTP**
 
@@ -202,7 +185,7 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | PageExtension | 10036785 | Clockify Setup Ext ori | Adds the Bifrost Timesheets setup action to the Bifröst Setup page. |
 | Enum | 10036785 | Clockify API Version ori | Selects which Clockify API implementation the connector talks to. Extensible. |
 | Enum | 10036786 | Clockify Sync Result ori | Outcome of synchronising a time entry: Created, Skipped, Corrected, Updated, Error. |
-| EnumExtension | 10036785 | Clockify Msg Type ori | Extends Foundation's `Message Type ori` with the 41 Clockify message types. |
+| EnumExtension | 10036785 | Clockify Msg Type ori | Retains 41 commented-out Clockify values; registers no message types. |
 | EnumExtension | 10036786 | Clockify Req Log Type ori | Extends `Request Log Type ori` with the Clockify service type. |
 | Interface | — | Clockify API Client ori | Transport contract for talking to the Clockify REST API. |
 | PermissionSet | 10036785 | BIFROST Timeshts ori | Full permission set for the connector. Assignable. |
@@ -268,6 +251,9 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036845 | Clockify TimeEntry Fetch ori | Fetches a user's finished time entries for a date range, following pagination. |
 | Codeunit | 10036846 | Clockify SyncAllUsers Impl ori | Implements `Clockify.TimeEntry.SyncAllUsers`. |
 | Codeunit | 10036838 | Clockify Field Restrict ori | Refuses generic writes to the webhook receiver URL and points the caller to the setup page. |
+| Codeunit | 10036868 | Clockify TSheet Request ori | Retained bulk request validation for dormant Clockify handlers. |
+| Codeunit | 10036870 | Clockify TSheet Context ori | Isolated Clockify bulk operation state. |
+| Codeunit | 10036871 | Clockify TSheet Runner ori | Retained bulk write transaction. |
 | Codeunit | 10036854 | Timesheets Registration ori | Registers Timesheets with Foundation on install and upgrade. |
 | Codeunit | 10036855 | Clockify Contract Parts ori | Builds shared request and response contract descriptions for Clockify message types. |
 
@@ -324,15 +310,13 @@ Help pages are addressed by Docusaurus slug rather than by HTML file name, resol
 
 ### Runtime help
 
-Message-type contracts are served at runtime by the eleven native `Timesheets.*` types. Each answers its own Markdown help through `get_message_type_help` / `Help.Implementation.Get`. `Help.Clockify.Get` is not a published type in 28.0.0.0.
+Native time-sheet contracts are supplied by the `Projects.*` message types through `get_message_type_help` / `Help.Implementation.Get`. Timesheets no longer serves those contracts. `Help.Clockify.Get` remains unpublished.
 
 ---
 
 ## Message types
 
-The published surface in 28.0.0.0 is the eleven native types listed in the overview. `Clockify.*` and `Help.Clockify.Get` are commented out of the enum. Clockify connector objects remain in the app and are not message types in this release.
-
-The keys are the published API contract and never change.
+This app registers no message types after the Projects move. Its Clockify integration objects and Phone Role Center remain. Native time-sheet help and examples are maintained by Projects.
 
 ---
 
@@ -387,44 +371,3 @@ It is a customized version of the [AL-Go-AppSource](https://github.com/microsoft
 
 Please go to https://aka.ms/AL-Go and [COSMO Docs](https://docs.cosmoconsult.com/en-us/cloud-service/alpaca) to learn more.
 <!-- AUTO-UPDATE-END -->
-
-## Native manager decisions
-
-`Timesheets.TimeSheet.Approve` and `Timesheets.TimeSheet.Reject` act on submitted lines for the approver named on the sheet. Send one of `timeSheetNo` or `timeSheetId`, optionally `lineNos`; omitting the array selects only submitted lines, and an empty array selects none. Rejection also accepts `comment` (up to 80 characters). Responses include each selected line's number, language-independent status, and `changed` flag. Explicitly approving an approved line succeeds with `changed: false`.
-
-Assign the existing **BIFROST Timeshts ori** set for native table permissions. The Foundation Read and Full extensions expose the handlers but do not grant permissions on Microsoft tables. Insufficient permissions and a different approver are refused before writing. A successful native action commits; `omitCommit` is not supported. Approving absence lines also posts their absence entries through the standard action. Existing Clockify message behavior is unchanged.
-
-Discover localized parameters, refusals, next steps, and examples with `Help.Implementation.Get` in LCIDs 1033 and 1039. Generic writes to the Time Sheet Line Status field are blocked; reads remain available.
-## Fill an owned time sheet
-
-```json
-{"type":"Timesheets.TimeSheetLine.CopyFromPrevious","data":{"timeSheetNo":"TS0001"}}
-```
-
-`Timesheets.TimeSheetLine.CopyFromPrevious` copies line definitions from the immediately preceding sheet for the resource. `Timesheets.TimeSheetLine.CreateFromPlanning` creates lines from that resource's project planning within the destination period. Both leave daily hours empty and return only newly added `lines`, with a `copied` or `created` count. Zero is a successful result. Repeating a copy adds the source lines again; planning skips existing project/task combinations.
-
-Send exactly one of `timeSheetNo` (number) or `timeSheetId` (GUID). Both operations require the destination owner and native read/write permissions. `BIFROST Timeshts ori` grants the required access; `BIFROST Full ori` exposes the feature objects and must be combined with the user's native Business Central permissions. Read-only users cannot execute these writes.
-
-A missing previous sheet returns `PreconditionFailed` / `Add lines by hand.`; a different owner returns `PermissionDenied` / `Ask the owner.`. Invalid or unknown parameters return actionable structured refusals. Native failures roll back all newly added lines. Successful writes commit; `omitCommit` is not supported. Pending work is committed before the isolated operation. Use `Help.Implementation.Get` for English contract chapters and examples in either session language; catalogue descriptions and refusals are localized in English and Icelandic.
-
-### Create selected time sheets
-
-`Timesheets.TimeSheet.Create` creates weekly sheets for exactly one of `resourceNo`,
-`resourceNos` (a nonempty list) or `resourceGroup`. Numbers are literal identifiers,
-not BC filters. Send `startingDate` on the first weekday configured in Resources
-Setup; `numberOfPeriods` defaults to 1 and is limited to 52.
-`createLinesFromPlanning` defaults to false. The result contains `created` and
-`skipped` arrays with each sheet number, resource number and period dates.
-
-The standard Create Time Sheets action requires **Time Sheet Admin.**, resource
-owners/approvers, time sheet numbering and open accounting periods. The caller
-needs **BIFROST Timeshts ori** or equivalent native permissions. Normal queue
-execution commits the whole batch; a refusal creates no sheets. Existing sheets
-are never modified. The older `Clockify.TimeSheet.Create` remains available.
-
-```json
-{"type":"Timesheets.TimeSheet.Create","data":{"startingDate":"2030-01-07","resourceNos":["XRESOURCE"],"numberOfPeriods":2}}
-```
-
-Use `Help.Implementation.Get` for the full parameter, response and refusal contract
-in English or Icelandic (`lcid: 1039`).

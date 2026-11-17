@@ -1,4 +1,4 @@
-﻿namespace Origo.Bifrost.Timesheets;
+namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 
@@ -13,7 +13,7 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 
     procedure IsEnabled(): Boolean
     var
-        NativeMgt: Codeunit "TS Native Mgt ori";
+        NativeMgt: Codeunit "Clockify TSheet Request ori";
     begin
         exit(NativeMgt.CanPostSheets());
     end;
@@ -140,7 +140,7 @@ codeunit 10036836 "Clockify TSheetPost Impl ori" implements "Msg Interface ori",
 
     procedure ExecuteBifrostTask(var Argument: Record "Message Argument ori")
     var
-        NativeMgt: Codeunit "TS Native Mgt ori";
+        NativeMgt: Codeunit "Clockify TSheet Request ori";
         ResponseJson: JsonObject;
         StatusToken: JsonToken;
     begin
