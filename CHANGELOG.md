@@ -21,6 +21,14 @@
 
 ## [Unreleased]
 
+### Changed - Native time sheets moved to Projects (#93)
+
+- Remove all eleven native Timesheets enum values, their implementation and contract codeunits, time-sheet restriction subscribers, permission entries, fixtures and tests after verifying Projects PR #46 on main. Their replacements are Projects.TimeSheet.*, Projects.TimeSheetLine.*, Projects.Absence.Register and Projects.PendingApproval.Get.
+- Keep Phone Role Center, Clockify connector objects and the 10036785–10036884 object range. Retain only the shared Clockify bulk paths in existing codeunits 10036868, 10036870 and 10036871, renamed Clockify TSheet Request/Context/Runner ori; remove their native submit/approve/reject paths. No product object IDs are added.
+- Add test codeunit 95637 (TS Move Clockify Tests) for the retained Clockify Reopen/Post/Archive handlers: successful writes, invalid inputs and unchanged-state cases. Update release-surface test 95636 for absence of both Timesheets and Clockify types in 1033/1039, and keep registration, Phone Role Center and connector regression tests.
+- Remove moved runtime help and Icelandic XLF units; update README and app descriptions to the remaining scope. Public help pages are maintained in the separate documentation repository.
+
+
 ### Fixed - Public time-sheet help (#89)
 
 - Remove internal transaction parameter wording from Approve and Reject public help, including Icelandic translations (TS Contract Parts ori, 10036869). Keep decision execution unchanged and add complete-contract regression checks at LCIDs 1033 and 1039 (TS Decision Tests, 95616).

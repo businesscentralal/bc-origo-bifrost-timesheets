@@ -12,7 +12,7 @@ using System.TestLibraries.Utilities;
 /// Issue 70 and 87. The Foundation licence-admin role opens Bifrost Setup and sees this app
 /// in the registry, in English and Icelandic, without SUPER or a Timesheets business role.
 /// Enumeration must not change connector setup, credentials, HTTP allow flags, time sheets or jobs,
-/// and Submit stays refused for that role.
+/// after the native message types move to Projects.
 /// </summary>
 codeunit 95635 "TS LicAdm Setup Tests"
 {
@@ -37,15 +37,12 @@ codeunit 95635 "TS LicAdm Setup Tests"
         Job: Record Job;
         TimeSheetHeader: Record "Time Sheet Header";
         NavAppSetting: Record "NAV App Setting";
-        TempArgument: Record "Message Argument ori" temporary;
         TempRegisteredApp: Record "Registered App ori" temporary;
         AppRegistry: Codeunit "App Registry ori";
         SecretMgt: Codeunit "Clockify Secret Mgt ori";
-        SubmitImpl: Codeunit "TS Sheet Submit Impl ori";
         LowerPermissions: Codeunit "Library - Lower Permissions";
         Assert: Codeunit "Library Assert";
         Setup: TestPage "Setup ori";
-        Response: JsonObject;
         PreviousLanguage: Integer;
         AppId: Guid;
         SheetCount: Integer;
@@ -83,16 +80,6 @@ codeunit 95635 "TS LicAdm Setup Tests"
         AppRegistry.GetApps(TempRegisteredApp);
         TempRegisteredApp.SetRange("App Id", AppId);
         Assert.AreEqual(1, TempRegisteredApp.Count(), 'A second enumeration must not duplicate Bifrost Timesheets.');
-
-        Assert.IsFalse(SubmitImpl.IsEnabled(), 'A licence administrator must not run Timesheets.TimeSheet.Submit.');
-        TempArgument.Init();
-        TempArgument.ID := CreateGuid();
-        TempArgument.Type := "Message Type ori"::"Timesheets.TimeSheet.Submit";
-        TempArgument.Version := "Message Version ori"::"1.0";
-        TempArgument.Insert();
-        SubmitImpl.ExecuteBifrostTask(TempArgument);
-        Response := TempArgument.GetResponseJson();
-        Assert.AreEqual('PermissionDenied', Response.GetText('code'), 'Submit must stay refused for the licence administrator.');
 
         LowerPermissions.SetExactPermissionSet('SUPER');
         Assert.AreEqual(SheetCount, TimeSheetHeader.Count(), 'Registry enumeration must not change time sheets.');

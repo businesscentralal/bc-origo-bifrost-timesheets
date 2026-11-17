@@ -2,13 +2,7 @@ namespace Origo.Bifrost.Timesheets;
 
 using Origo.Bifrost;
 
-/// <summary>
-/// Extends the Bifrost Foundation <c>Bifrost Message Type</c> enum with the
-/// Clockify connector message types. Each value binds the <c>Bifrost Msg
-/// Interface</c> to a dedicated <c>*Impl</c> codeunit that calls the Clockify REST
-/// API. Captions are <c>Locked = true</c> because Bifrost message identifiers
-/// are part of the public wire contract.
-/// </summary>
+/// <summary>Retains the unpublished Clockify catalogue. Native time-sheet types belong to Projects.</summary>
 enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
 {
     // Clockify and Help.Clockify.Get values 10036785-10036825 are not exposed in 28.0.0.0.
@@ -258,81 +252,4 @@ enumextension 10036785 "Clockify Msg Type ori" extends "Message Type ori"
         // Caption = 'Clockify.TimeEntry.SyncAllUsers', Locked = true;
         // Implementation = "Msg Interface ori" = "Clockify SyncAllUsers Impl ori", "Msg Contract ori" = "Clockify SyncAllUsers Impl ori", "Msg Discovery ori" = "Clockify SyncAllUsers Impl ori";
     // }
-    /// <summary>Lists submitted lines waiting for the authenticated manager.</summary>
-    value(10036874; "Timesheets.PendingApproval.Get")
-    {
-        Caption = 'Timesheets.PendingApproval.Get', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Pending Approval ori", "Msg Contract ori" = "TS Pending Approval ori", "Msg Discovery ori" = "TS Pending Approval ori";
-    }
-    /// <summary>Submits open time sheet lines for approval.</summary>
-    /// <summary>Creates time sheets for chosen resources and weeks.</summary>
-    /// <summary>Lists submitted time sheet lines waiting for the caller.</summary>
-    /// <summary>Approves submitted time sheet lines.</summary>
-    value(10036875; "Timesheets.TimeSheet.Approve")
-    {
-        Caption = 'Timesheets.TimeSheet.Approve', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Approve Impl ori", "Msg Contract ori" = "TS Sheet Approve Impl ori", "Msg Discovery ori" = "TS Sheet Approve Impl ori";
-    }
-    /// <summary>Rejects submitted time sheet lines.</summary>
-    value(10036876; "Timesheets.TimeSheet.Reject")
-    {
-        Caption = 'Timesheets.TimeSheet.Reject', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Reject Impl ori", "Msg Contract ori" = "TS Sheet Reject Impl ori", "Msg Discovery ori" = "TS Sheet Reject Impl ori";
-    }
-    /// <summary>Copies lines from the previous time sheet.</summary>
-    /// <summary>Creates time sheet lines from project planning.</summary>
-    /// <summary>Registers an absence line on a time sheet.</summary>
-    /// <summary>Reopens submitted or approved time sheet lines.</summary>
-    /// <summary>Posts approved time sheet lines.</summary>
-    /// <summary>Archives posted time sheets.</summary>
-
-    /// <summary>Submits open time sheet lines for approval.</summary>
-    value(10036872; "Timesheets.TimeSheet.Submit")
-    {
-        Caption = 'Timesheets.TimeSheet.Submit', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Submit Impl ori", "Msg Contract ori" = "TS Sheet Submit Impl ori", "Msg Discovery ori" = "TS Sheet Submit Impl ori";
-    }
-    /// <summary>Creates time sheets for chosen resources and weeks.</summary>
-    value(10036873; "Timesheets.TimeSheet.Create")
-    {
-        Caption = 'Timesheets.TimeSheet.Create', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Create Impl ori", "Msg Contract ori" = "TS Sheet Create Impl ori", "Msg Discovery ori" = "TS Sheet Create Impl ori";
-    }
-    /// <summary>Reopens submitted or approved time sheet lines.</summary>
-    value(10036880; "Timesheets.TimeSheet.Reopen")
-    {
-        Caption = 'Timesheets.TimeSheet.Reopen', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Reopen Impl ori", "Msg Contract ori" = "TS Sheet Reopen Impl ori", "Msg Discovery ori" = "TS Sheet Reopen Impl ori";
-    }
-    /// <summary>Posts approved time sheet lines.</summary>
-    value(10036881; "Timesheets.TimeSheet.Post")
-    {
-        Caption = 'Timesheets.TimeSheet.Post', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Post Impl ori", "Msg Contract ori" = "TS Sheet Post Impl ori", "Msg Discovery ori" = "TS Sheet Post Impl ori";
-    }
-    /// <summary>Archives posted time sheets.</summary>
-    value(10036882; "Timesheets.TimeSheet.Archive")
-    {
-        Caption = 'Timesheets.TimeSheet.Archive', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Sheet Archive Impl ori", "Msg Contract ori" = "TS Sheet Archive Impl ori", "Msg Discovery ori" = "TS Sheet Archive Impl ori";
-    }
-
-    /// <summary>Copies previous time sheet lines without daily hours.</summary>
-    value(10036877; "Timesheets.TimeSheetLine.CopyFromPrevious")
-    {
-        Caption = 'Timesheets.TimeSheetLine.CopyFromPrevious', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Line CopyPrev Impl ori", "Msg Contract ori" = "TS Line CopyPrev Impl ori", "Msg Discovery ori" = "TS Line CopyPrev Impl ori";
-    }
-    /// <summary>Creates time sheet lines from resource project planning.</summary>
-    value(10036878; "Timesheets.TimeSheetLine.CreateFromPlanning")
-    {
-        Caption = 'Timesheets.TimeSheetLine.CreateFromPlanning', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Line FromPlan Impl ori", "Msg Contract ori" = "TS Line FromPlan Impl ori", "Msg Discovery ori" = "TS Line FromPlan Impl ori";
-    }
-    /// <summary>Registers an absence line on a time sheet.</summary>
-    value(10036879; "Timesheets.Absence.Register")
-    {
-        Caption = 'Timesheets.Absence.Register', Locked = true;
-        Implementation = "Msg Interface ori" = "TS Absence Reg Impl ori", "Msg Contract ori" = "TS Absence Reg Impl ori", "Msg Discovery ori" = "TS Absence Reg Impl ori";
-    }
 }

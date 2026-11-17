@@ -7,6 +7,10 @@
 > (`BIFROST Timeshts ori`) and the setup page (`Timesheets Setup ori`) were renamed with the app.
 > The documentation slug stays `clockify` until the site folders are renamed.
 
+## Current scope after the Projects move (#93)
+
+Native time-sheet message types, contracts, restrictions, tests and fixtures now belong to Bifrost Projects (projects#46). Timesheets registers no message types: its Clockify enum entries remain commented out from #87. Phone Role Center and Clockify stay here. Shared bulk helpers retain IDs 10036868/10036870/10036871 as Clockify TSheet Request/Context/Runner ori; their native-only paths are removed. Test 95637 protects those Clockify paths. The product and test ranges are unchanged. Historical message-type descriptions below describe the former connector surface, not the current published catalogue.
+
 ## Prefix
 (none - objects use raw names with the mandatory `ori` suffix inside the `Origo.Bifrost.Timesheets`
 namespace; the third-party product name `Clockify` stays in object names because it identifies the
