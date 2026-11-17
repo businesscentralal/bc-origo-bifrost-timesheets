@@ -146,17 +146,7 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 1. An administrator opens **Bifrost Timesheets Setup**, runs **Set Company API Key** and pastes the Clockify API key.
 2. The administrator opens the **Default Workspace** lookup, picks *Acme Consulting*, then sets Job Journal Template `JOB`, Batch `DEFAULT` and Default Work Type `CONSULT`.
 3. The administrator clicks **Register Webhooks**. The registered webhooks appear on `Clockify Webhooks ori`.
-4. A caller creates the Clockify side of an existing BC project:
-
-   ```json
-   {
-     "type": "Clockify.Project.Create",
-     "subject": "J-00040",
-     "data": "{\"name\":\"Acme Rollout\",\"clientId\":\"64a1...\"}"
-   }
-   ```
-
-   The response carries the new Clockify project id, and a `PROJECT` row is written to `Clockify Integration ori` linking BC job `J-00040` to it.
+4. The existing integration maps the BC project, task and work type to their Clockify counterparts. The `Clockify.Project.Create` message is unpublished in this version; it cannot be used to establish those mappings through the queue API.
 5. A consultant logs 6.5 hours in Clockify against *Acme Rollout*, task *Data migration*, tag *Consulting*, and stops the timer.
 6. Clockify posts the change to the webhook receiver. `Clockify Webhook Handler ori` hands the entry to `Clockify Time Entry Sync ori`.
 7. The sync resolves the Job Task from the `TASK` link and the Work Type `CONSULT` from the *Consulting* tag, then writes one Job Journal line for 6.5 hours. The result is `Created` and a new `TIMEENTRY` row appears in `Clockify Integration ori`.
@@ -169,7 +159,7 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 
 ## Objects
 
-80 objects in `app/src`: 64 codeunits, 5 pages, 4 tables, 2 enums, 2 enum extensions, 1 page extension, 1 permission set and 1 interface. Interfaces carry no object id.
+The remaining objects keep the assigned 10036785–10036884 range. Interfaces carry no object ID.
 
 | Object Type | Object ID | Name | Purpose |
 | --- | --- | --- | --- |
@@ -257,21 +247,33 @@ A consultancy tracks hours in Clockify and invoices them from BC projects.
 | Codeunit | 10036854 | Timesheets Registration ori | Registers Timesheets with Foundation on install and upgrade. |
 | Codeunit | 10036855 | Clockify Contract Parts ori | Builds shared request and response contract descriptions for Clockify message types. |
 
-The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) includes paging regression tests in codeunit 95604 and holds 15 objects in range 95600–95699 (95600–95613), including the upgrade codeunit that refreshes the `TIMESHEETS` AL Test Suite.
+| permissionsetextension | 10036866 | Phone RC Full Ext ori | Retained Phone Role Center object. |
+| permissionsetextension | 10036867 | Phone RC Read Ext ori | Retained Phone Role Center object. |
+| page | 10036864 | Phone Add Service Item ori | Retained Phone Role Center object. |
+| page | 10036861 | Phone Current Cust Part ori | Retained Phone Role Center object. |
+| enum | 10036856 | Phone Cust Bucket ori | Retained Phone Role Center object. |
+| table | 10036857 | Phone Cust Buffer ori | Retained Phone Role Center object. |
+| codeunit | 10036858 | Phone Cust Buffer Mgt ori | Retained Phone Role Center object. |
+| page | 10036863 | Phone LastDay Cust Part ori | Retained Phone Role Center object. |
+| page | 10036860 | Phone Role Center ori | Retained Phone Role Center object. |
+| profile | — | Phone Role Center Profile ori | Retained Phone Role Center object. |
+| tableextension | 10036865 | Phone Sales Header ori | Retained Phone Role Center object. |
+| codeunit | 10036859 | Phone Sales Quick Add ori | Retained Phone Role Center object. |
+| page | 10036862 | Phone Today Cust Part ori | Retained Phone Role Center object. |
+
+The test app (`Bifrost Timesheets - Tests`, `553214e3-b742-4ccf-8ecc-1ee86fbc96f9`) keeps its 95600–95699 range. Active tests cover the connector, webhook field restriction, registration, Phone Role Center, withdrawn catalogue and preserved bulk Clockify behavior (95637). Six old Clockify message-type test codeunits remain empty after the earlier message withdrawal; their registrations are not re-enabled here.
 
 ---
 
-### Syncing all mapped users
+### Internal paging support
 
-`Clockify.TimeEntry.SyncAllUsers` processes a bounded page of active USER mappings, ordered by Clockify ID. `skip` defaults to 0; `take` defaults to 100 when omitted or zero and is capped at 1000. Negative values are rejected. This bounds users per call; each user can still have multiple pages of Clockify time entries.
-
-Repeat the same request with `skip` set to the returned `nextSkip` until `hasMore` is false. The response reports `users` for the current page and `totalUsers` for the full active mapping set. Keep that set unchanged while paging. Failed users count toward the offset and appear in `errors` and `userResults`; inspect those results before retrying. Existing callers that expected one call to sync every user must now loop.
+The retained Clockify sync implementation processes a bounded page of active USER mappings. Its message registration remains unpublished; this section describes internal connector behavior, not a callable queue message.
 
 ## Dependencies
 
 | App | ID | Purpose |
 | --- | --- | --- |
-| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.1.0. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
+| Bifrost Foundation | `7505e808-6e52-4b96-a328-82573391297a` | Origo, minimum 28.0.10.0. The message loop and queue API (`origo/bifrost/v1.0`), the `Message Type ori` enum this app extends, `Msg Interface ori` and `Message Argument ori`, the request log and its masker contract, `User Setup ori`, the shared `Setup ori` page, and the `Help.Bifrost.Get` directory. |
 
 That is the only AL dependency. The test app additionally depends on Bifrost Timesheets itself and on Microsoft's test libraries.
 
